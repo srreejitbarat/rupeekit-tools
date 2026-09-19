@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "asOf": "2026-09-18",
-  "fetchedAt": "2026-09-18T15:32:04.903Z",
+  "asOf": "2026-09-19",
+  "fetchedAt": "2026-09-19T07:34:19.715Z",
   "derived": {
-    "perGramFine": 15444.53,
+    "perGramFine": 15523.58,
     "perGram": {
-      "24K": 15429.08,
-      "22K": 14147.19,
-      "18K": 11583.4,
-      "14K": 9035.05
+      "24K": 15508.06,
+      "22K": 14219.6,
+      "18K": 11642.68,
+      "14K": 9081.29
     },
     "per10Gram": {
-      "24K": 154290.82,
-      "22K": 141471.86,
-      "18K": 115833.95,
-      "14K": 90350.48
+      "24K": 155080.56,
+      "22K": 142195.99,
+      "18K": 116426.85,
+      "14K": 90812.94
     }
   },
   "reference": {
@@ -23,51 +23,51 @@
     "note": "No independent reference responded this cycle; the derived rate was published without an external cross-check."
   },
   "purchase": {
-    "perGramFine": 15907.86,
+    "perGramFine": 15989.29,
     "perGram": {
-      "24K": 15891.95,
-      "22K": 14571.6,
-      "18K": 11930.9,
-      "14K": 9306.1
+      "24K": 15973.3,
+      "22K": 14646.19,
+      "18K": 11991.97,
+      "14K": 9353.73
     },
     "per10Gram": {
-      "24K": 158919.55,
-      "22K": 145716.02,
-      "18K": 119308.97,
-      "14K": 93061
+      "24K": 159732.98,
+      "22K": 146461.87,
+      "18K": 119919.65,
+      "14K": 93537.33
     },
     "note": "Valuation rate plus 3% GST. Excludes making charges and wastage, which jewellers add on top."
   },
   "loanValuation": {
     "carat": "22K",
     "basis": "30-day trailing average of 22K per-gram bullion value",
-    "averagePerGram": 14320.78,
-    "sampleDays": 27,
+    "averagePerGram": 14317.17,
+    "sampleDays": 28,
     "sufficient": false,
-    "note": "Only 27 day(s) of history: this is NOT yet a 30-day average and must not be presented as one."
+    "note": "Only 28 day(s) of history: this is NOT yet a 30-day average and must not be presented as one."
   },
   "inputs": {
     "spot": [
       {
         "provider": "gold-api.com",
-        "xauUsd": 4356.700195,
-        "fetchedAt": "2026-09-18T15:32:04.467Z"
+        "xauUsd": 4379,
+        "fetchedAt": "2026-09-19T07:34:19.030Z"
       },
       {
         "provider": "coinbase-paxg",
-        "xauUsd": 4350.34,
-        "fetchedAt": "2026-09-18T15:32:04.580Z"
+        "xauUsd": 4362.855,
+        "fetchedAt": "2026-09-19T07:34:19.232Z"
       },
       {
         "provider": "yahoo-gc-f",
-        "xauUsd": 4390.5,
-        "fetchedAt": "2026-09-18T15:32:04.631Z"
+        "xauUsd": 4424.9,
+        "fetchedAt": "2026-09-19T07:34:19.353Z"
       }
     ],
     "fx": {
       "provider": "frankfurter",
       "usdInr": 95.88,
-      "fetchedAt": "2026-09-18T15:32:04.802Z"
+      "fetchedAt": "2026-09-19T07:34:19.595Z"
     },
     "levies": {
       "importDutyPct": 15,
