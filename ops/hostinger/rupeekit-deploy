@@ -8,6 +8,10 @@ BRANCH="main"
 CONTAINER_NAME="rupeekit-web"
 LOCK_FILE="/var/lock/rupeekit-deploy.lock"
 
+GIT_REMOTE="git@github.com:rupeekitofficial/rupeekit-tools.git"
+GITHUB_DEPLOY_KEY="/home/$DEPLOY_USER/.ssh/id_ed25519_github_deploy"
+GITHUB_KNOWN_HOSTS="/home/$DEPLOY_USER/.ssh/known_hosts_github"
+
 exec 9>"$LOCK_FILE"
 if ! flock -n 9; then
   echo "Another RupeeKit deployment is already running." >&2
@@ -24,13 +28,23 @@ if [ ! -f "$ENV_FILE" ]; then
   exit 1
 fi
 
+if [ ! -f "$GITHUB_DEPLOY_KEY" ]; then
+  echo "Private-repository deploy key not found: $GITHUB_DEPLOY_KEY" >&2
+  exit 1
+fi
+
+if [ ! -f "$GITHUB_KNOWN_HOSTS" ]; then
+  echo "Pinned GitHub known_hosts file not found: $GITHUB_KNOWN_HOSTS" >&2
+  exit 1
+fi
+
 cd "$APP_DIR"
 
-# The repository is public, so production pulls do not need a long-lived GitHub
-# credential on the VPS.
-runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git remote set-url origin https://github.com/rupeekitofficial/rupeekit-tools.git
+GIT_SSH_COMMAND_VALUE="ssh -i $GITHUB_DEPLOY_KEY -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$GITHUB_KNOWN_HOSTS"
 
-runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git fetch --prune origin "$BRANCH"
+runuser -u "$DEPLOY_USER" -- env   HOME="/home/$DEPLOY_USER"   GIT_SSH_COMMAND="$GIT_SSH_COMMAND_VALUE"   git remote set-url origin "$GIT_REMOTE"
+
+runuser -u "$DEPLOY_USER" -- env   HOME="/home/$DEPLOY_USER"   GIT_SSH_COMMAND="$GIT_SSH_COMMAND_VALUE"   git fetch --prune origin "$BRANCH"
 
 runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git checkout "$BRANCH"
 
