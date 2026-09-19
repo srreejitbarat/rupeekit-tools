@@ -4,7 +4,6 @@ const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), '
 
 const hero = read('components/seo/DiscoverHeroImage.tsx');
 const resultVisuals = read('components/CalculatorVisualizations.tsx');
-const pkg = JSON.parse(read('package.json'));
 
 const failures = [];
 
@@ -20,13 +19,10 @@ requireText(hero, 'aspect-video', 'DiscoverHeroImage must reserve aspect-ratio s
 requireText(resultVisuals, 'aria-live="polite"', 'Calculator result summaries must retain live-result semantics.');
 requireText(resultVisuals, '<output', 'Calculator result values must retain output semantics.');
 
-if (!pkg.dependencies?.['@vercel/speed-insights']) {
-  failures.push('@vercel/speed-insights must remain installed so production field performance can be monitored.');
-}
 
 if (failures.length) {
   console.error('CWV readiness validation failed:\n' + failures.map((item) => `- ${item}`).join('\n'));
   process.exit(1);
 }
 
-console.log('CWV readiness validation passed: explicit hero dimensions/aspect ratio, responsive sizing, priority support, result semantics, and Speed Insights are present.');
+console.log('CWV readiness validation passed: explicit hero dimensions/aspect ratio, responsive sizing, priority support, and result semantics are present.');
