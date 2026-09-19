@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
@@ -187,8 +185,6 @@ export default function RootLayout({
 
         <SiteFooter />
 
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
