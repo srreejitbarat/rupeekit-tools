@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+APP_DIR="/srv/rupeekit/app"
+ENV_FILE="$APP_DIR/.env.vps"
+DEPLOY_USER="rupeekit"
+BRANCH="main"
+CONTAINER_NAME="rupeekit-web"
+LOCK_FILE="/var/lock/rupeekit-deploy.lock"
+
+exec 9>"$LOCK_FILE"
+if ! flock -n 9; then
+  echo "Another RupeeKit deployment is already running." >&2
+  exit 1
+fi
+
+if [ ! -d "$APP_DIR/.git" ]; then
+  echo "Git repository not found at $APP_DIR." >&2
+  exit 1
+fi
+
+if [ ! -f "$ENV_FILE" ]; then
+  echo "Required environment file not found: $ENV_FILE" >&2
+  exit 1
+fi
+
+cd "$APP_DIR"
+
+# The repository is public, so production pulls do not need a long-lived GitHub
+# credential on the VPS.
+runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git remote set-url origin https://github.com/rupeekitofficial/rupeekit-tools.git
+
+runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git fetch --prune origin "$BRANCH"
+
+runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git checkout "$BRANCH"
+
+runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"   git reset --hard "origin/$BRANCH"
+
+DEPLOYED_SHA="$(
+  runuser -u "$DEPLOY_USER" -- env HOME="/home/$DEPLOY_USER"     git rev-parse HEAD
+)"
+
+docker compose --env-file "$ENV_FILE" build
+docker compose --env-file "$ENV_FILE" up -d --remove-orphans
+
+health=""
+for _ in $(seq 1 30); do
+  health="$(docker inspect --format='{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' "$CONTAINER_NAME" 2>/dev/null || true)"
+  if [ "$health" = "healthy" ]; then
+    break
+  fi
+  sleep 2
+done
+
+if [ "$health" != "healthy" ]; then
+  echo "Container did not become healthy; current health: ${health:-unknown}" >&2
+  docker compose --env-file "$ENV_FILE" ps >&2 || true
+  docker compose --env-file "$ENV_FILE" logs --tail=100 "$CONTAINER_NAME" >&2 || true
+  exit 1
+fi
+
+curl --fail --silent --show-error   --resolve www.rupeekit.co.in:443:127.0.0.1   https://www.rupeekit.co.in/   >/dev/null
+
+echo "DEPLOYED_SHA=$DEPLOYED_SHA"
