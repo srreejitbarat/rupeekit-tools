@@ -24,9 +24,9 @@ const STATUS_AS_OF = '8 September 2026';
 // page is revalidated hourly rather than pinned to a build.
 export const revalidate = 3600;
 
-const TITLE = '8th Pay Commission Sep 2026: Fitment Factor & Latest Status';
+const TITLE = '8th Pay Commission 2026: Fitment Factor, Salary & Status';
 const DESCRIPTION =
-  'Latest verified 8th Pay Commission status for September 2026: fitment factor not announced, consultation timeline, salary scenarios, pension and arrears.';
+  'Status as of September 2026: no 8th CPC fitment factor is final. Model your revised basic, HRA, net pay and arrears across every fitment-factor scenario.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
