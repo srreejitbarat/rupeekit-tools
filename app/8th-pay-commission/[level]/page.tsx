@@ -55,8 +55,8 @@ export function generateMetadata({ params }: { params: { level: string } }): Met
   if (!entry) return {};
 
   const pageUrl = `${SITE_URL}/8th-pay-commission/${entry.slug}`;
-  const title = `8th Pay Commission Level ${entry.level} Salary Scenarios`;
-  const description = `Level ${entry.level} entry pay is ${inr(entry.entryPay)}. See what four published fitment scenarios would do to basic pay, and why the DA merge makes the headline factor overstate the raise.`;
+  const title = `8th Pay Commission Level ${entry.level}: Salary & Fitment Factor`;
+  const description = `Check Level ${entry.level} entry pay of ${inr(entry.entryPay)} and compare revised basic salary across 8th Pay Commission fitment-factor scenarios. No final factor has been notified.`;
 
   return {
     title: { absolute: title },
@@ -105,7 +105,7 @@ export default function PayMatrixLevelPage({ params }: { params: { level: string
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: `8th Pay Commission Level ${entry.level} Salary Scenarios`,
+      headline: `8th Pay Commission Level ${entry.level}: Salary & Fitment Factor`,
       description: `Fitment scenarios applied to the Level ${entry.level} entry cell of the pay matrix.`,
       url: pageUrl,
       datePublished: LAST_REVIEWED_ISO,

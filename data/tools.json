@@ -3543,12 +3543,12 @@
   {
     "slug": "8th-pay-commission-salary-calculator-india",
     "name": "8th Pay Commission Salary Calculator India",
-    "seoTitle": "8th Pay Commission Salary Calculator 2026: DA & HRA",
+    "seoTitle": "8th Pay Commission Salary Calculator 2026 (Fitment Factor)",
     "category": "Salary",
     "status": "live",
     "targetKeyword": "8th pay commission salary calculator",
     "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under selectable 8th Pay Commission fitment-factor scenarios for central government employees. The Commission has not notified a final factor, so all factors here are planning scenarios.",
-    "metaDescription": "Compare unofficial 8th CPC salary scenarios with current and projected DA, X/Y/Z HRA, fitment factor, monthly gross and annual HRA change.",
+    "metaDescription": "Calculate revised basic pay, DA, HRA and gross salary across unofficial 8th Pay Commission fitment-factor scenarios. No final factor has been notified.",
     "inputs": [
       {
         "key": "currentBasic",

@@ -85,16 +85,16 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [EIGHTH_PAY_SLUG]: {
-    title: '8th Pay Commission Status, Date & Salary Calculator',
+    title: '8th Pay Commission Salary Calculator 2026 (Fitment Factor)',
     description:
-      'No implementation date is notified yet. See where the 8th CPC stands, its 18-month report window, and model salary scenarios by fitment factor.',
+      'Calculate revised basic pay, DA, HRA and gross salary across unofficial 8th Pay Commission fitment-factor scenarios. No final factor has been notified.',
     h1: '8th Pay Commission Status, Date and Salary Calculator',
     heroDescription:
       'No fitment factor, pay matrix, revised HRA or implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to report. Below: where it stands today, then a scenario calculator that compares every fitment factor at once, with minimum-HRA floors, NPS/UPS/OPS deductions and a conditional arrears estimate.',
     lastReviewedIso: '2026-09-03',
   },
   [EIGHTH_PAY_ARREARS_SLUG]: {
-    title: '8th Pay Commission Arrears Calculator 2026 | Scenario',
+    title: '8th Pay Commission Arrears Calculator 2026',
     description:
       'Estimate an unofficial 8th Pay Commission arrears scenario from current and projected monthly basic, DA, HRA, other pay, dates and entered deductions.',
     h1: '8th Pay Commission Arrears Calculator (Unofficial)',
@@ -103,7 +103,7 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-17',
   },
   [EIGHTH_PAY_PENSION_SLUG]: {
-    title: '8th Pay Commission Pension Calculator 2026 | Scenario',
+    title: '8th Pay Commission Pension Calculator 2026',
     description:
       'Compare current pension plus DR with an unofficial 8th Pay Commission multiplier scenario, projected DR and additional pension rate. No official method assumed.',
     h1: '8th Pay Commission Pension Calculator (Unofficial)',
