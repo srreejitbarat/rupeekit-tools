@@ -53,8 +53,8 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 104) {
-  errors.push(`Expected 104 Discover images, found ${manifest.length}.`);
+if (manifest.length !== 105) {
+  errors.push(`Expected 105 Discover images, found ${manifest.length}.`);
 }
 
 for (const slug of day7ImageSlugs) {

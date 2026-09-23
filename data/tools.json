@@ -206,7 +206,8 @@
       "home-loan-emi-calculator-india",
       "salary-in-hand-calculator-india",
       "fd-calculator-india",
-      "sip-calculator-india"
+      "sip-calculator-india",
+      "pre-emi-calculator-india"
     ]
   },
   {
@@ -828,7 +829,8 @@
       "personal-loan-emi-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india",
-      "recurring-deposit-calculator-india"
+      "recurring-deposit-calculator-india",
+      "pre-emi-calculator-india"
     ],
     "howToUse": [
       "Enter your monthly essential expenses.",
@@ -2377,7 +2379,8 @@
       "emi-calculator-india",
       "personal-loan-emi-calculator-india",
       "salary-in-hand-calculator-india",
-      "hra-exemption-calculator-india"
+      "hra-exemption-calculator-india",
+      "pre-emi-calculator-india"
     ],
     "howToUse": [
       "Enter the home loan amount you plan to borrow.",
@@ -5207,5 +5210,115 @@
     ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "pre-emi-calculator-india",
+    "name": "Pre-EMI & Possession Planner",
+    "seoTitle": "Pre-EMI Calculator India: Rent, Full EMI & Possession Delays",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "pre emi calculator india",
+    "shortDescription": "Pre-EMI is interest on the home loan already disbursed before regular EMI starts. Compare staged draws, rent, full EMI and possession delays against your cash reserve.",
+    "metaDescription": "Compare pre-EMI and full EMI with staged loan draws, rent, possession delays and prepayments. Find cash shortfalls and protect your reserve with RupeeKit.",
+    "inputs": [
+      {
+        "key": "loanAmount",
+        "label": "Sanctioned loan",
+        "unit": "INR",
+        "default": 6000000,
+        "min": 1000,
+        "max": 1000000000,
+        "step": 100000
+      },
+      {
+        "key": "initialDrawPercent",
+        "label": "First tranche drawn",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 8.5,
+        "min": 0,
+        "max": 30,
+        "step": 0.05
+      }
+    ],
+    "outputs": [
+      {
+        "key": "firstMonthInterest",
+        "label": "First full-month pre-EMI interest",
+        "formula": "loanAmount * initialDrawPercent / 100 * annualInterestRate / 1200",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "For a full month, pre-EMI interest = outstanding disbursed loan × annual rate ÷ 100 ÷ 12. The dedicated planner separately simulates staged draws, principal payments, rent, own contributions and household cash month by month.",
+    "example": "A ₹12 lakh disbursed balance at 8.5% annual interest has estimated full-month pre-EMI interest of ₹8,500. The undisbursed portion of the sanction is not charged interest.",
+    "faqs": [
+      {
+        "question": "What is pre-EMI?",
+        "answer": "Pre-EMI is interest on a home loan already disbursed before regular EMI begins. Interest-only payments do not reduce principal."
+      },
+      {
+        "question": "Does a possession delay always increase interest?",
+        "answer": "No. If loan draws and payments remain unchanged, a possession-only delay can increase rent without increasing loan interest."
+      },
+      {
+        "question": "Can I check rent and my emergency reserve?",
+        "answer": "Yes. The dedicated planner combines household cash flow, staged loan draws, own builder contributions, rent and an editable protected reserve."
+      }
+    ],
+    "related": [
+      "home-loan-emi-calculator-india",
+      "emi-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "howToUse": [
+      "Enter loan terms and separate possession and EMI start months.",
+      "Add household income, expenses, rent and accessible cash.",
+      "Replace example tranches with the builder and lender schedule.",
+      "Compare repayment modes and stress-test delays, rates and income pauses."
+    ],
+    "assumptions": [
+      "Month-start disbursements and monthly interest; exact daily lender interest is not modelled.",
+      "Reserve checks use month-end cash and do not guarantee future affordability.",
+      "No tax benefit, investment return or builder compensation is assumed."
+    ],
+    "quickAnswer": {
+      "title": "Pre-EMI quick answer",
+      "question": "How is pre-EMI calculated?",
+      "answer": "For a full month, pre-EMI is the outstanding disbursed loan multiplied by the annual interest rate and divided by 12. It is an interest payment; principal remains unpaid unless you make extra payments.",
+      "formula": "Outstanding principal × annual rate ÷ 100 ÷ 12",
+      "example": "₹12,00,000 × 8.5 ÷ 100 ÷ 12 = ₹8,500.",
+      "note": "Mid-month charges depend on actual disbursement dates and the lender’s interest convention."
+    },
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "pre-emi-1.0.0",
+    "nextReviewTrigger": "A change to the monthly engine, repayment assumptions or cited lender definitions.",
+    "calculationTests": [
+      "lib/pre-emi/engine.test.ts",
+      "lib/pre-emi/report-request.test.ts"
+    ],
+    "officialSources": [
+      {
+        "label": "RBI housing-loan FAQ: pre-EMI",
+        "href": "https://www.rbi.org.in/commonperson/english/scripts/FAQs.aspx?Id=701"
+      },
+      {
+        "label": "RBI fair practices: charging interest",
+        "href": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12678&Mode=0"
+      },
+      {
+        "label": "ICICI Bank home-loan EMI guide",
+        "href": "https://www.icici.bank.in/personal-banking/loans/home-loan/emi-calculator"
+      }
+    ]
   }
 ]

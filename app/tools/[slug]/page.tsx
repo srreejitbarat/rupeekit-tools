@@ -433,10 +433,13 @@ function buildGenericCalculatorFacts(tool: Tool) {
   ];
 }
 
-// This slug has its own literal route at app/tools/income-tax-calculator-old-vs-new-regime-india/page.tsx.
-// It must be excluded here too, otherwise this dynamic route and that literal route both try to
+// These calculators have their own literal routes under app/tools.
+// They must be excluded here too, otherwise this dynamic route and a literal route both try to
 // pre-render the same output path, and the build nondeterministically picks a winner.
-const SLUGS_WITH_DEDICATED_ROUTE = new Set(['income-tax-calculator-old-vs-new-regime-india']);
+const SLUGS_WITH_DEDICATED_ROUTE = new Set([
+  'income-tax-calculator-old-vs-new-regime-india',
+  'pre-emi-calculator-india',
+]);
 
 export function generateStaticParams() {
   return getLiveTools()
