@@ -13,6 +13,7 @@ import AnalyticsLink from '@/components/AnalyticsLink';
 import EditorialByline from '@/components/seo/EditorialByline';
 import { editorialTeamRef } from '@/lib/seo/editorial';
 import { getGuidesForTool } from '@/data/calculator-guides';
+import { getMoneyGuidesForTool } from '@/data/money-authority';
 import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 import { buildGoldLoanExamples } from '@/lib/gold-rates';
@@ -817,6 +818,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
   const related = getRelatedTools(tool);
   const supportingGuides = getGuidesForTool(tool.slug);
+  const moneyGuideLinks = getMoneyGuidesForTool(tool.slug);
 
   const salaryClusterSlugs = new Set([
     'gratuity-calculator-india',
@@ -1991,6 +1993,20 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+          {moneyGuideLinks.length > 0 ? (
+            <div className="rounded-3xl border border-sky-200 bg-sky-50 p-6 dark:border-sky-900 dark:bg-sky-950/20">
+              <h2 className="text-xl font-bold text-slate-950 dark:text-white">Understand the decision</h2>
+              <ul className="mt-3 space-y-2 text-sm">
+                {moneyGuideLinks.map((guide) => (
+                  <li key={guide.slug}>
+                    <Link href={`/money-guides/${guide.slug}`} className="inline-flex min-h-11 items-center font-semibold text-sky-800 hover:underline dark:text-sky-200">
+                      {guide.title} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
             <h2 className="text-xl font-bold">Related calculators</h2>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { toolClusters } from '@/data/tool-clusters';
+import { moneyGuides } from '@/data/money-authority';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -27,6 +28,12 @@ export default function ToolHubsPage() {
           Each hub explains which RupeeKit tool to use first, what to compare next, and where official rules or changing rates need a fresh check.
         </p>
       </header>
+
+      <section className="mt-10 rounded-3xl border border-sky-200 bg-sky-50 p-6 dark:border-sky-900 dark:bg-sky-950/20">
+        <h2 className="text-2xl font-black text-brandDeepNavy dark:text-white">Money decision guides</h2>
+        <p className="mt-2 text-sm leading-7 text-slate-700 dark:text-slate-300">Explore {moneyGuides.length} focused guides with worked examples, calculators and official sources for salary, loans, investing, EPF, PPF, credit cards, GST, gratuity and housing.</p>
+        <Link href="/money-guides" className="mt-3 inline-flex min-h-11 items-center font-bold text-brandNavy underline dark:text-brandBrightGreen">Browse the money guides →</Link>
+      </section>
 
       <section className="mt-10 grid gap-5 md:grid-cols-2">
         {toolClusters.map((cluster) => (

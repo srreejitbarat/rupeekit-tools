@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-05",
+  "asOf": "2026-09-23",
   "policy": "Only pages with facts that can change on a known regulatory, policy, pricing or filing cycle belong in this register. Evergreen pages are intentionally excluded.",
   "entries": [
     {
@@ -148,6 +148,83 @@
       "reviewTrigger": "Provider failure, stale quote timestamp, methodology/provider change",
       "owner": "market-data",
       "notes": "A user-entered illustrative gold price must never be described as today's market price."
+    },
+    {
+      "id": "money-guide-tax",
+      "pagePattern": "/money-guides/salary-income-tax",
+      "fact": "Assessment-year tax-regime and HRA guidance",
+      "primarySource": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Finance Act or filing-year guidance changes",
+      "owner": "content",
+      "notes": "The example uses assumed TDS; verify tax treatment before any rule-based sample."
+    },
+    {
+      "id": "money-guide-borrowing",
+      "pagePattern": "/money-guides/{home-loan-prepayment,personal-loan-apr,credit-card-debt}",
+      "fact": "RBI KFS, APR and credit-card repayment disclosures",
+      "primarySource": "https://www.rbi.org.in/commonman/english/scripts/FAQs.aspx?Id=3687",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "New RBI lending or credit card circular and FAQs",
+      "owner": "content",
+      "notes": "Examples use hypothetical rates and fees; lender terms control actual cost."
+    },
+    {
+      "id": "money-guide-small-savings",
+      "pagePattern": "/money-guides/ppf-small-savings",
+      "fact": "PPF scheme tenure and the periodically notified small-savings rates",
+      "primarySource": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Quarterly rate reset or amendment to scheme terms",
+      "owner": "content",
+      "notes": "No current rate is hard-coded into guide examples."
+    },
+    {
+      "id": "money-guide-epf",
+      "pagePattern": "/money-guides/epf-salary-retirement",
+      "fact": "EPFO contribution allocation and notified interest",
+      "primarySource": "https://www.epfindia.gov.in/site_en/FAQ.php",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "EPFO circular or annual interest-rate notification",
+      "owner": "content",
+      "notes": "The contribution-only example excludes interest and employer EPS allocation."
+    },
+    {
+      "id": "money-guide-gst",
+      "pagePattern": "/money-guides/gst-invoice",
+      "fact": "Official HSN/SAC rate lookup and GST classification",
+      "primarySource": "https://tutorial.gst.gov.in/userguide/taxpayersdashboard/Search_HSN_SAC_Tax_Rates.htm",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "GST Council or CBIC notification altering rate or classification",
+      "owner": "content",
+      "notes": "Illustrative 18% is not attributed to a specific product or service."
+    },
+    {
+      "id": "money-guide-gratuity",
+      "pagePattern": "/money-guides/gratuity-labour",
+      "fact": "Labour-code gratuity rules, wage basis and eligibility exceptions",
+      "primarySource": "https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Ministry of Labour notification, rule clarification or ceiling change",
+      "owner": "content",
+      "notes": "Worked example must stay explicitly conditional on eligible wages and service."
+    },
+    {
+      "id": "money-guide-property",
+      "pagePattern": "/money-guides/rent-property-housing",
+      "fact": "State-specific registration and stamp charges",
+      "primarySource": "https://wbregistration.gov.in/SD_RF_Calculator.aspx",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "State fee amendment or official calculator revision",
+      "owner": "content",
+      "notes": "West Bengal source is an example; no nationwide duty rate is claimed."
     }
   ]
 }

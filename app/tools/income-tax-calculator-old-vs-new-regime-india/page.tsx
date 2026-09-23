@@ -328,6 +328,13 @@ export default function IncomeTaxCalculatorPage() {
         <span className="font-medium text-slate-900">Old vs New Tax Regime Calculator</span>
       </nav>
 
+      <p className="mb-6 text-sm leading-7 text-slate-700 no-print">
+        Need to connect your tax result to the payslip? See the{' '}
+        <Link href="/money-guides/salary-income-tax" className="font-semibold text-brandNavy underline">
+          salary and income-tax decision guide
+        </Link>{' '}for a worked gross-to-in-hand example and official sources.
+      </p>
+
       <header className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.52fr] lg:items-start no-print">
         <div>
           <span className="mb-4 inline-block rounded-full bg-brandNavy/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brandNavy">

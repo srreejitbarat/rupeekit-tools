@@ -7,6 +7,7 @@ import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updat
 import { allGuides } from '@/data/calculator-guides';
 import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 import { toolClusters } from '@/data/tool-clusters';
+import { moneyGuides } from '@/data/money-authority';
 import calculatorScenarios from '@/data/indexable-calculator-scenarios.json';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
@@ -50,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       parseIsoDate(post.publishedDateISO) ??
       STATIC_LAST_MODIFIED
   );
+  const moneyGuideDates = moneyGuides.map((guide) => parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED);
   const scenarioDates = calculatorScenarios.map(
     (scenario) => parseIsoDate(scenario.lastModifiedIso) ?? STATIC_LAST_MODIFIED
   );
@@ -68,6 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const latestToolDate = latestDate(toolDates);
   const latestGuideDate = latestDate(guideDates);
+  const latestMoneyGuideDate = latestDate(moneyGuideDates);
   const latestBlogDate = latestDate(blogDates);
   const latestFinancialUpdateDate = latestDate(financialUpdateDates);
   const latestGovernmentUpdateDate = latestDate(governmentUpdateDates);
@@ -78,6 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const latestSiteDate = latestDate([
     ...toolDates,
     ...guideDates,
+    ...moneyGuideDates,
     ...blogDates,
     ...scenarioDates,
     ...financialUpdateDates,
@@ -88,6 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/tools',
     '/tool-hubs',
+    '/money-guides',
     '/about',
     '/contact',
     '/privacy-policy',
@@ -116,6 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['', latestSiteDate],
     ['/tools', latestToolDate],
     ['/tool-hubs', latestToolDate],
+    ['/money-guides', latestMoneyGuideDate],
     ['/guides', latestGuideDate],
     ['/blog', latestBlogDate],
     ['/financial-updates', latestFinancialUpdateDate],
@@ -123,7 +129,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/updates', latestUpdateDate],
   ]);
 
-  const hubRoutes = new Set(['/blog', '/tools', '/tool-hubs', '/guides', '/nri', '/8th-pay-commission']);
+  const hubRoutes = new Set(['/blog', '/tools', '/tool-hubs', '/money-guides', '/guides', '/nri', '/8th-pay-commission']);
   const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
 
   return [
@@ -146,6 +152,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: latestToolDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
+    })),
+    ...moneyGuides.map((guide) => ({
+      url: `${baseUrl}/money-guides/${guide.slug}`,
+      lastModified: parseIsoDate(guide.lastReviewedIso) ?? STATIC_LAST_MODIFIED,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
     })),
     ...liveTools.map((tool) => {
       const lastModified = resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed);
