@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Logo from './Logo';
-import { localizedHref, hasHindiPage, type Locale } from '@/lib/i18n/routing';
+import { localizedHref, hasTranslatedPage, type Locale } from '@/lib/i18n/routing';
 import { siteMessages } from '@/lib/i18n/messages';
 
 export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
@@ -103,7 +103,7 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted dark:text-slate-400">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={localizedHref(link.href, locale)} title={locale === 'hi' && !hasHindiPage(link.href) ? copy.englishOnly : undefined} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
+                  <Link href={localizedHref(link.href, locale)} title={locale !== 'en' && !hasTranslatedPage(link.href, locale) ? copy.englishOnly : undefined} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
                     {link.name}
                   </Link>
                 </li>
@@ -117,7 +117,7 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted dark:text-slate-400">
               {legalLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={localizedHref(link.href, locale)} title={locale === 'hi' && !hasHindiPage(link.href) ? copy.englishOnly : undefined} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
+                  <Link href={localizedHref(link.href, locale)} title={locale !== 'en' && !hasTranslatedPage(link.href, locale) ? copy.englishOnly : undefined} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
                     {link.name}
                   </Link>
                 </li>
@@ -135,7 +135,7 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
           </div>
         </div>
 
-        {locale === 'hi' ? <p className="mt-6 text-sm leading-7 text-brandMuted dark:text-slate-400">अभी होमपेज और कैलकुलेटर की सूची हिंदी में हैं। कैलकुलेटर, लेख और नीतियों के लिंक अंग्रेज़ी पेज खोलते हैं।</p> : null}
+        {locale !== 'en' ? <p className="mt-6 text-sm leading-7 text-brandMuted dark:text-slate-400">{locale === 'bn' ? 'এখন হোমপেজ ও ক্যালকুলেটরের তালিকা বাংলায় আছে। ক্যালকুলেটর, লেখা ও নীতির লিঙ্কগুলি ইংরেজি পেজ খুলবে।' : 'अभी होमपेज और कैलकुलेटर की सूची हिंदी में हैं। कैलकुलेटर, लेख और नीतियों के लिंक अंग्रेज़ी पेज खोलते हैं।'}</p> : null}
 
         {/* Brand Disclaimer & Copyright */}
         <div className="mt-12 border-t border-brandBorder pt-8 dark:border-slate-800">

@@ -1,18 +1,29 @@
-export type Locale = 'en' | 'hi';
+export const LOCALES = ['en', 'hi', 'bn'] as const;
+export type Locale = typeof LOCALES[number];
+export const LOCALE_TAGS: Record<Locale, string> = { en: 'en-IN', hi: 'hi-IN', bn: 'bn-IN' };
+export const LOCALE_LABELS: Record<Locale, string> = { en: 'English', hi: 'हिंदी', bn: 'বাংলা' };
 
-// Register a route only after its visible content is translated. This list also
-// controls the switcher, alternate links and sitemap; no English-only /hi copies.
-export const HINDI_PATHS = ['/', '/tools'] as const;
-export const HINDI_RELEASE_DATE = '2026-09-23';
+// Register each language independently, only after its visible content is
+// translated. Never publish an English-only copy under a translated URL.
+export const PUBLISHED_TRANSLATIONS = {
+  hi: ['/', '/tools'],
+  bn: ['/', '/tools'],
+} as const;
+export const LANGUAGE_RELEASE_DATE = '2026-09-23';
 export const LANGUAGE_PREFERENCE_KEY = 'rupeekit-language';
 
 export function englishPath(pathname: string): string {
   const path = pathname.replace(/\/$/, '') || '/';
-  return path === '/hi' ? '/' : path.startsWith('/hi/') ? path.slice(3) : path;
+  for (const locale of ['hi', 'bn']) {
+    if (path === `/${locale}`) return '/';
+    if (path.startsWith(`/${locale}/`)) return path.slice(locale.length + 1);
+  }
+  return path;
 }
 
-export function hasHindiPage(pathname: string): boolean {
-  return HINDI_PATHS.some((path) => path === englishPath(pathname));
+export function hasTranslatedPage(pathname: string, locale: Locale): boolean {
+  if (locale === 'en') return true;
+  return PUBLISHED_TRANSLATIONS[locale].some((path) => path === englishPath(pathname));
 }
 
 export function localizedHref(href: string, locale: Locale): string {
@@ -20,8 +31,8 @@ export function localizedHref(href: string, locale: Locale): string {
   const [pathname] = href.split(/[?#]/, 1);
   const suffix = href.slice(pathname.length);
   const path = englishPath(pathname);
-  if (locale === 'hi' && hasHindiPage(path)) {
-    return `${path === '/' ? '/hi' : `/hi${path}`}${suffix}`;
+  if (locale !== 'en' && hasTranslatedPage(path, locale)) {
+    return `${path === '/' ? `/${locale}` : `/${locale}${path}`}${suffix}`;
   }
   return `${path}${suffix}`;
 }
@@ -32,10 +43,8 @@ export function languageAlternates(pathname: string, locale: Locale = 'en') {
     const path = localizedHref(pathname, language);
     return path === '/' ? baseUrl : `${baseUrl}${path}`;
   };
-  return {
-    canonical: absolute(locale),
-    ...(hasHindiPage(pathname) ? {
-      languages: { 'en-IN': absolute('en'), 'hi-IN': absolute('hi'), 'x-default': absolute('en') },
-    } : {}),
-  };
+  const available = LOCALES.filter((language) => hasTranslatedPage(pathname, language));
+  const languages: Record<string, string> = Object.fromEntries(available.map((language) => [LOCALE_TAGS[language], absolute(language)]));
+  languages['x-default'] = absolute('en');
+  return { canonical: absolute(locale), ...(available.length > 1 ? { languages } : {}) };
 }

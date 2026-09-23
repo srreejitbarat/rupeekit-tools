@@ -7,7 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import GoogleAnalyticsRouteTracker from "@/components/GoogleAnalyticsRouteTracker";
 import LanguagePreferenceNotice from "@/components/i18n/LanguagePreferenceNotice";
-import type { Locale } from "@/lib/i18n/routing";
+import { LOCALE_TAGS, type Locale } from "@/lib/i18n/routing";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
 const siteUrl =
@@ -132,14 +132,14 @@ export default function SiteLayout({
         name: siteName,
         url: siteUrl,
         description: siteDescription,
-        inLanguage: ["en-IN", "hi-IN"],
+        inLanguage: ["en-IN", "hi-IN", "bn-IN"],
         publisher: { "@id": `${siteUrl}/#organization` },
       },
     ],
   };
 
   return (
-    <html lang={locale === 'hi' ? 'hi-IN' : 'en-IN'} suppressHydrationWarning>
+    <html lang={LOCALE_TAGS[locale]} suppressHydrationWarning>
       {/* eslint-disable-next-line @next/next/no-head-element -- Shared App Router root document. */}
       <head>
         <script

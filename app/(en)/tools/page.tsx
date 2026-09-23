@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     siteName: 'RupeeKit',
     type: 'website',
     locale: 'en_IN',
+    alternateLocale: ['hi_IN', 'bn_IN'],
   },
   twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },
 };

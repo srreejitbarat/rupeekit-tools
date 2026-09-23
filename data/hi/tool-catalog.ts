@@ -1,5 +1,5 @@
 // Hindi discovery copy. Calculator forms remain English until each full tool is
-// translated and registered in HINDI_PATHS. Never use these cards as page bodies.
+// translated and registered in PUBLISHED_TRANSLATIONS. Never use these cards as page bodies.
 export const hindiToolCatalog: Record<string, { name: string; shortDescription: string }> = Object.fromEntries([
   ['salary-in-hand-calculator-india', 'हाथ में आने वाली सैलरी', 'CTC और कटौतियों से हर महीने मिलने वाली सैलरी का अनुमान लगाएँ।'],
   ['emi-calculator-india', 'लोन की मासिक EMI', 'लोन की रकम, ब्याज दर और समय से हर महीने की किस्त जानें।'],

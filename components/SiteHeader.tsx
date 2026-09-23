@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import LanguageSwitcher from './i18n/LanguageSwitcher';
-import { localizedHref, hasHindiPage, type Locale } from '@/lib/i18n/routing';
+import { localizedHref, hasTranslatedPage, type Locale } from '@/lib/i18n/routing';
 import { siteMessages, categoryLabel } from '@/lib/i18n/messages';
 
 
@@ -34,7 +34,7 @@ export default function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
     { name: copy.resources, href: '/resources' },
     { name: copy.start, href: '/start-here' },
   ];
-  const linkTitle = (href: string) => locale === 'hi' && !hasHindiPage(href) ? copy.englishOnly : undefined;
+  const linkTitle = (href: string) => locale !== 'en' && !hasTranslatedPage(href, locale) ? copy.englishOnly : undefined;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);

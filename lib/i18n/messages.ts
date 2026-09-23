@@ -34,7 +34,24 @@ const hi: typeof en = {
   englishOnly: 'अंग्रेज़ी में उपलब्ध',
 };
 
-export function siteMessages(locale: Locale) { return locale === 'hi' ? hi : en; }
+const bn: typeof en = {
+  home: 'হোম', tools: 'ক্যালকুলেটর', hubs: 'বিষয়', blog: 'লেখা', guides: 'গাইড',
+  resources: 'কাজের তথ্য', start: 'এখান থেকে শুরু করুন', health: 'নিজের টাকার অবস্থা যাচাই করুন',
+  light: 'হালকা রং বেছে নিন', dark: 'গাঢ় রং বেছে নিন', openMenu: 'মেনু খুলুন', closeMenu: 'মেনু বন্ধ করুন',
+  primary: 'মূল মেনু', mobile: 'মোবাইল মেনু', categories: 'ক্যালকুলেটরের বিষয়',
+  navigation: 'আরও দেখুন', legal: 'আমাদের নীতি', contact: 'যোগাযোগ করুন',
+  contactDescription: 'প্রশ্ন, মতামত বা নতুন ক্যালকুলেটরের ভাবনা পাঠান:',
+  description: 'বেতন, EMI, SIP, GST, FD ও টাকার পরিকল্পনার জন্য বিনামূল্যে ভারতীয় ক্যালকুলেটর।',
+  disclaimerTitle: 'এই অনুমানগুলি সম্পর্কে',
+  disclaimer: 'RupeeKit-এর ক্যালকুলেটর ও লেখা বুঝতে এবং শিখতে সাহায্য করে। এগুলি সাধারণ তথ্য, ব্যক্তিগত আর্থিক, ট্যাক্স, আইনি বা বিনিয়োগের পরামর্শ নয়।',
+  rights: 'সমস্ত অধিকার সংরক্ষিত।', tagline: 'ভারতের জন্য টাকার সহজ হিসাব',
+  pay: 'অষ্টম বেতন কমিশন', deadlines: 'ট্যাক্সের শেষ তারিখ', nri: 'NRI-দের জন্য গাইড', recommended: 'কাজের অন্যান্য টুল',
+  editorial: 'লেখা কীভাবে তৈরি হয়', corrections: 'ভুল সংশোধনের নীতি', privacy: 'গোপনীয়তার নীতি',
+  affiliate: 'অ্যাফিলিয়েট লিঙ্কের তথ্য', terms: 'ব্যবহারের শর্ত', disclaimerLink: 'জরুরি তথ্য',
+  englishOnly: 'ইংরেজিতে পাওয়া যাবে',
+};
+
+export function siteMessages(locale: Locale) { return locale === 'bn' ? bn : locale === 'hi' ? hi : en; }
 
 export const hindiCategories: Record<string, string> = {
   All: 'सभी', Salary: 'सैलरी', Tax: 'टैक्स', Loans: 'लोन', Savings: 'बचत',
@@ -43,6 +60,30 @@ export const hindiCategories: Record<string, string> = {
   Business: 'काम और कारोबार',
 };
 
+export const bengaliCategories: Record<string, string> = {
+  All: 'সব', Salary: 'বেতন', Tax: 'ট্যাক্স', Loans: 'লোন', Savings: 'সঞ্চয়',
+  Investments: 'বিনিয়োগ', Investing: 'বিনিয়োগ', Retirement: 'অবসর', Housing: 'বাড়ি ও ভাড়া',
+  Debt: 'ঋণ', Planning: 'টাকার পরিকল্পনা', Insurance: 'বিমা', Business: 'কাজ ও ব্যবসা',
+};
+
 export function categoryLabel(category: string, locale: Locale) {
-  return locale === 'hi' ? (hindiCategories[category] ?? category) : category;
+  return locale === 'bn' ? (bengaliCategories[category] ?? category) : locale === 'hi' ? (hindiCategories[category] ?? category) : category;
+}
+
+export function explorerMessages(locale: Locale) {
+  if (locale === 'bn') return {
+    catalog: 'ক্যালকুলেটরের তালিকা', search: 'ক্যালকুলেটর খুঁজুন', placeholder: 'যেমন: বেতন, লোন, SIP বা ট্যাক্স',
+    filter: 'বিষয় বেছে নিন', count: 'ক্যালকুলেটর', clear: 'সব ক্যালকুলেটর দেখান', open: 'ক্যালকুলেটর খুলুন',
+    english: 'ইংরেজিতে পাওয়া যাবে', empty: 'কোনও ক্যালকুলেটর পাওয়া যায়নি', retry: 'ছোট নাম লিখে খুঁজুন বা সব বিষয় বেছে নিন।',
+  };
+  if (locale === 'hi') return {
+    catalog: 'कैलकुलेटर की सूची', search: 'कैलकुलेटर खोजें', placeholder: 'जैसे: सैलरी, लोन, SIP या टैक्स',
+    filter: 'विषय चुनें', count: 'कैलकुलेटर', clear: 'सभी कैलकुलेटर दिखाएँ', open: 'कैलकुलेटर खोलें',
+    english: 'अंग्रेज़ी में उपलब्ध', empty: 'कोई कैलकुलेटर नहीं मिला', retry: 'छोटा नाम लिखकर खोजें या सभी विषय चुनें।',
+  };
+  return {
+    catalog: 'Calculator catalog', search: 'Find the right calculator', placeholder: 'Search by goal or calculator name',
+    filter: 'Filter by category', count: 'calculators', clear: 'Clear filters', open: 'Open calculator',
+    english: 'Available in English', empty: 'No calculators found', retry: 'Try a broader search or clear the category filter.',
+  };
 }

@@ -10,8 +10,8 @@ type NewsletterAnalyticsBase = {
 
 export type AnalyticsEventMap = {
   language_selected: {
-    language: 'en' | 'hi';
-    previous_language: 'en' | 'hi';
+    language: 'en' | 'hi' | 'bn';
+    previous_language: 'en' | 'hi' | 'bn';
     page_path: string;
     fallback: boolean;
   };

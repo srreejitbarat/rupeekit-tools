@@ -140,3 +140,16 @@ html:lang(hi-IN) h3 {
   line-height: 1.6;
   letter-spacing: normal;
 }
+
+html:lang(bn-IN) body,
+[lang="bn-IN"],
+[lang="bn"] {
+  font-family: "Nirmala UI", "Noto Sans Bengali", Vrinda, "Segoe UI", sans-serif;
+  letter-spacing: normal;
+}
+html:lang(bn-IN) h1,
+html:lang(bn-IN) h2,
+html:lang(bn-IN) h3 {
+  line-height: 1.6;
+  letter-spacing: normal;
+}

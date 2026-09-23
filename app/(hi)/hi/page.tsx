@@ -10,7 +10,7 @@ const alternates = languageAlternates('/', 'hi');
 
 export const metadata: Metadata = {
   title: { absolute: title }, description, alternates,
-  openGraph: { title, description, url: alternates.canonical, siteName: 'RupeeKit', type: 'website', locale: 'hi_IN', alternateLocale: ['en_IN'] },
+  openGraph: { title, description, url: alternates.canonical, siteName: 'RupeeKit', type: 'website', locale: 'hi_IN', alternateLocale: ['en_IN', 'bn_IN'] },
   twitter: { card: 'summary_large_image', title, description },
 };
 
