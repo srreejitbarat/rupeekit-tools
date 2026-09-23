@@ -1817,6 +1817,7 @@
   max-height: calc(100dvh - 32px);
   overflow: hidden;
   background: #fff;
+  color: #102e49;
   border: 1px solid #d8e5df;
   border-radius: 22px;
   box-shadow: 0 22px 80px #061a3455;
@@ -2045,7 +2046,7 @@
   border: 1px solid #b9d4bc;
   border-radius: 16px;
   background: #fff;
-  color: var(--pe-ink);
+  color: #102e49;
   box-shadow: 0 8px 35px #102e4924;
 }
 .pe-tour-invite > strong {
@@ -2055,7 +2056,7 @@
 }
 .pe-tour-invite > p {
   margin: 5px 0 11px;
-  color: var(--pe-muted);
+  color: #536674;
   font-size: 12px;
   line-height: 1.6;
 }
