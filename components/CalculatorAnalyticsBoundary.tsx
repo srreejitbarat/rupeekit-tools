@@ -50,10 +50,12 @@ export default function CalculatorAnalyticsBoundary({
   toolSlug,
   toolCategory,
   children,
+  shareInputs = true,
 }: {
   toolSlug: string;
   toolCategory: string;
   children: ReactNode;
+  shareInputs?: boolean;
 }) {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [hasCalculated, setHasCalculated] = useState(false);
@@ -74,7 +76,7 @@ export default function CalculatorAnalyticsBoundary({
   // user-entered calculation.
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || typeof window === 'undefined') return;
+    if (!root || typeof window === 'undefined' || !shareInputs) return;
     const params = new URLSearchParams(window.location.search);
     if (![...params.keys()].some((key) => key.startsWith(SHARE_PARAM_PREFIX))) return;
 
@@ -99,7 +101,7 @@ export default function CalculatorAnalyticsBoundary({
 
       setNativeValue(field, raw);
     });
-  }, []);
+  }, [shareInputs]);
 
   const elapsedMs = () => {
     if (!mountedAtRef.current) return 0;
@@ -226,6 +228,8 @@ export default function CalculatorAnalyticsBoundary({
     url.search = '';
     url.hash = '';
 
+    if (!shareInputs) return url.toString();
+
     const fields = root.querySelectorAll<ShareableField>('input, select, textarea');
     fields.forEach((field) => {
       const key = getShareKey(field);
@@ -241,7 +245,7 @@ export default function CalculatorAnalyticsBoundary({
     const analyticsBase = baseParameters();
     const shareData = {
       title: 'RupeeKit calculator result',
-      text: 'Open this RupeeKit calculator with the same input values.',
+      text: shareInputs ? 'Open this RupeeKit calculator with the same input values.' : 'Explore this RupeeKit planning calculator.',
       url: permalink,
     };
 
@@ -259,7 +263,7 @@ export default function CalculatorAnalyticsBoundary({
     try {
       await navigator.clipboard.writeText(permalink);
       trackAnalyticsEvent('result_shared', { ...analyticsBase, share_method: 'copy_link' });
-      setShareStatus('Permalink copied. It restores these calculator inputs.');
+      setShareStatus(shareInputs ? 'Permalink copied. It restores these calculator inputs.' : 'Calculator link copied. Your financial inputs are not included.');
     } catch {
       setShareStatus('Could not copy automatically. Use your browser address bar to copy this scenario URL.');
       window.history.replaceState({}, '', permalink);
@@ -283,9 +287,9 @@ export default function CalculatorAnalyticsBoundary({
       <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-semibold text-slate-900">Share this calculator scenario</p>
+            <p className="text-sm font-semibold text-slate-900">{shareInputs ? 'Share this calculator scenario' : 'Share this planning calculator'}</p>
             <p className="mt-1 text-xs leading-5 text-slate-600">
-              Copy a permalink that restores the current inputs. Shared parameter URLs are kept out of search indexing and canonicalize to the base calculator.
+              {shareInputs ? 'Copy a permalink that restores the current inputs. Shared parameter URLs are kept out of search indexing and canonicalize to the base calculator.' : 'Share a link to the calculator. Use the PDF or CSV above when you want to share your actual plan and input snapshot.'}
             </p>
           </div>
           <button
@@ -293,12 +297,12 @@ export default function CalculatorAnalyticsBoundary({
             onClick={shareResult}
             className="rounded-xl border border-brandNavy bg-white px-4 py-2 text-sm font-semibold text-brandNavy transition hover:bg-slate-100 focus:outline-none focus:ring-4 focus:ring-brandNavy/20"
           >
-            Share result link
+            {shareInputs ? 'Share result link' : 'Copy calculator link'}
           </button>
         </div>
         {shareStatus ? <p className="mt-3 text-xs font-medium text-slate-700" role="status">{shareStatus}</p> : null}
         <p className="mt-2 text-[11px] leading-4 text-slate-500">
-          The link contains only the values you explicitly entered. RupeeKit does not send those values as analytics event parameters.
+          {shareInputs ? 'The link contains only the values you explicitly entered. RupeeKit does not send those values as analytics event parameters.' : 'This planner keeps financial inputs out of share URLs and analytics event parameters.'}
         </p>
       </div>
     </div>

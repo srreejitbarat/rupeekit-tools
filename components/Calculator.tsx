@@ -69,6 +69,7 @@ import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/Pe
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
 import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
 import GenericCalculatorExperience from '@/components/GenericCalculatorExperience';
+import PlanningExperience, { PLANNING_TOOLS, type PlanningSlug } from '@/components/planning/PlanningExperience';
 
 export default function Calculator({ tool }: { tool: Tool }) {
   let calculator;
@@ -81,6 +82,10 @@ export default function Calculator({ tool }: { tool: Tool }) {
     calculator = <SipPlannerCalculator tool={tool} />;
   } else {
     calculator = <StandardCalculator tool={tool} />;
+  }
+
+  if (tool.slug in PLANNING_TOOLS) {
+    return <PlanningExperience slug={tool.slug as PlanningSlug} category={tool.category} quick={calculator} />;
   }
 
   return (

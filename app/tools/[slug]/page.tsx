@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
 import Calculator from '@/components/Calculator';
+import PlanningFeatureSummary from '@/components/planning/PlanningFeatureSummary';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
@@ -73,9 +74,11 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
     lastReviewedIso: '2026-08-03',
   },
   [SIP_SLUG]: {
-    title: 'SIP Calculator India 2026 | Step-Up, Goal & Delay Cost',
+    title: 'SIP Calculator India 2026 | Step-Up & Multiple Goals',
     description:
-      'Calculate SIP returns, step-up SIP, goal-based investing and inflation-adjusted corpus, plus the long-term cost of delaying, pausing or missing SIPs.',
+      'Calculate SIP returns and step-ups, then plan several goals with one budget. Compare inflation, funding gaps, priority allocation and deadline changes.',
+    heroDescription:
+      'Estimate regular and step-up SIP returns, or plan up to five goals with one monthly budget. Compare funding gaps, inflation and lower-return scenarios, then test changes to your budget, deadlines or targets.',
     lastReviewedIso: '2026-08-03',
   },
   [CAPITAL_GAINS_SLUG]: {
@@ -171,14 +174,19 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
   'salary-in-hand-calculator-india': {
     title: 'Salary In-Hand Calculator 2026: CTC to Take-Home',
     description:
-      'Convert annual CTC to monthly gross and take-home for FY 2026-27 (AY 2027-28), with employer PF, employee PF, income tax and state-specific deductions.',
+      'Convert CTC to in-hand salary, compare two offers by monthly cash, bonus timing and switching costs, and find the fixed CTC for your target take-home.',
     h1: 'Salary In-Hand Calculator India 2026',
     heroDescription:
-      'Reconcile annual CTC with employer PF, gross salary, employee PF, estimated tax, professional tax and monthly take-home. Every result is explicitly monthly or annual, with FY 2026-27 mapped to AY 2027-28.',
+      'Reconcile CTC, PF, tax and monthly take-home, then compare two salary options on a twelve-month cash calendar. Include bonus dates, delayed first pay and switching costs, or solve for the fixed CTC behind your target monthly in-hand.',
     lastReviewedIso: '2026-08-17',
   },
   'fd-calculator-india': {
     lastReviewedIso: '2026-05-01',
+  },
+  'home-loan-emi-calculator-india': {
+    title: 'Home Loan EMI Calculator India | Repayment & Transfer',
+    description: 'Calculate home loan EMI and compare prepayment, repricing and transfer. Check your monthly budget, debt-free deadline, protected savings and rate risk.',
+    heroDescription: 'Estimate your home-loan EMI, then compare repayment plans against your monthly payment limit, debt-free date and protected savings. Add lender quotes and fees to test prepayment, repricing or a balance transfer.',
   },
   'salary-hike-calculator-india': {
     title: 'Salary Hike Calculator India 2026 | New Salary After Hike',
@@ -1363,6 +1371,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           <div className="mt-10">
             <Calculator tool={tool} />
           </div>
+          <PlanningFeatureSummary slug={tool.slug} />
           {effectiveQuickAnswer ? (
             <section className="mt-6">
               <QuickAnswerBox
@@ -1562,6 +1571,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               {tool.assumptions?.length ? (
                 <>
                   <h2 className="mt-8 text-2xl font-bold">Important assumptions</h2>
+                  {['home-loan-emi-calculator-india', 'sip-calculator-india', 'salary-in-hand-calculator-india'].includes(tool.slug) ? <p className="mt-3 text-sm leading-7 text-slate-600">The assumptions below describe the Quick calculator and its examples. The additional planner has its own visible method, input limits and assumptions, also included in its downloads.</p> : null}
                   <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
                     {tool.assumptions.map((item) => (
                       <li key={item}>{item}</li>
