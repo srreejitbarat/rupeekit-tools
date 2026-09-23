@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { getMoneyGuide, moneyGuides, officialSources } from '@/data/money-authority';
 import { getToolBySlug } from '@/lib/tools';
 import { EDITORIAL_TEAM_ID, ORGANIZATION_ID } from '@/lib/seo/editorial';
+import { getSourceBackedComparison } from '@/data/source-backed-comparisons';
+import { moneyGuideRevisions } from '@/data/money-guide-revisions';
+import SourceBackedComparison from '@/components/seo/SourceBackedComparison';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 type Props = { params: { slug: string } };
@@ -29,6 +32,8 @@ export default function MoneyGuidePage({ params }: Props) {
   const guide = getMoneyGuide(params.slug);
   if (!guide) notFound();
   const url = `${SITE_URL}/money-guides/${guide.slug}`;
+  const comparison = getSourceBackedComparison(guide.slug);
+  const revisions = moneyGuideRevisions[guide.slug] ?? [];
   const tools = guide.toolSlugs.map((slug) => getToolBySlug(slug)).filter((tool) => tool?.status === 'live');
   const breadcrumb = {
     '@context': 'https://schema.org',
@@ -50,7 +55,10 @@ export default function MoneyGuidePage({ params }: Props) {
     dateModified: guide.lastReviewedIso,
     author: { '@id': EDITORIAL_TEAM_ID },
     publisher: { '@id': ORGANIZATION_ID },
-    citation: guide.sourceIds.map((id) => officialSources[id].url),
+    citation: [...new Set([
+      ...guide.sourceIds.map((id) => officialSources[id].url),
+      ...(comparison?.sources.map((source) => source.url) ?? []),
+    ])],
     isPartOf: { '@id': `${SITE_URL}/#website` },
   };
   const json = (value: object) => JSON.stringify(value).replace(/</g, '\\u003c');
@@ -153,6 +161,8 @@ export default function MoneyGuidePage({ params }: Props) {
           ) : null}
         </section>
 
+        <SourceBackedComparison slug={guide.slug} />
+
         <section className="mt-10" aria-labelledby="decision-steps">
           <h2 id="decision-steps" className="text-2xl font-black text-brandDeepNavy dark:text-white">How to make this decision</h2>
           <ol className="mt-5 grid gap-4 md:grid-cols-3">
@@ -197,6 +207,18 @@ export default function MoneyGuidePage({ params }: Props) {
               </li>
             ))}
           </ul>
+          <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
+            Research, text and calculation methodology: RupeeKit Editorial Team. Source disclosures are linked above.
+            No external credentialed reviewer is credited for these guides; individual tax and loan decisions require your own documents and professional advice when appropriate.
+          </p>
+          {revisions.length > 0 ? (
+            <div className="mt-5">
+              <h3 className="font-bold text-brandDeepNavy dark:text-white">Revision history</h3>
+              <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700 dark:text-slate-300">
+                {revisions.map((revision) => <li key={`${revision.date}-${revision.change}`}><time dateTime={revision.date}>{revision.date}</time>: {revision.change}</li>)}
+              </ul>
+            </div>
+          ) : null}
           <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
             Reviewed <time dateTime={guide.lastReviewedIso}>{guide.lastReviewedIso}</time>. Example calculations use the
             displayed assumptions and formulas; official links provide rule context. Check sources for later changes.

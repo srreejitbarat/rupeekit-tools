@@ -1,0 +1,32 @@
+name: Money guide public discovery audit
+
+on:
+  schedule:
+    - cron: '18 3 * * 1'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Hostinger production deploy']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check published routes, canonicals, snippets and sitemap
+        run: node scripts/audit-money-guide-discovery.mjs --output=discovery.json
+      - name: Keep diagnostic report even if audit fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: money-guide-discovery
+          path: discovery.json
+          if-no-files-found: warn

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "salary-income-tax-1",
+    "guidePath": "/money-guides/salary-income-tax",
+    "question": "How do I calculate in-hand salary from CTC in India?"
+  },
+  {
+    "id": "salary-income-tax-2",
+    "guidePath": "/money-guides/salary-income-tax",
+    "question": "Does employer PF reduce in-hand pay from CTC?"
+  },
+  {
+    "id": "salary-income-tax-3",
+    "guidePath": "/money-guides/salary-income-tax",
+    "question": "Old versus new tax regime for salaried employees: what should I compare?"
+  },
+  {
+    "id": "home-loan-prepayment-1",
+    "guidePath": "/money-guides/home-loan-prepayment",
+    "question": "Should I reduce EMI or tenure after prepaying a home loan?"
+  },
+  {
+    "id": "home-loan-prepayment-2",
+    "guidePath": "/money-guides/home-loan-prepayment",
+    "question": "How much interest can a home loan prepayment save?"
+  },
+  {
+    "id": "home-loan-prepayment-3",
+    "guidePath": "/money-guides/home-loan-prepayment",
+    "question": "Does a longer home loan tenure cost more overall?"
+  },
+  {
+    "id": "personal-loan-apr-1",
+    "guidePath": "/money-guides/personal-loan-apr",
+    "question": "How do personal loan processing fees affect true APR?"
+  },
+  {
+    "id": "personal-loan-apr-2",
+    "guidePath": "/money-guides/personal-loan-apr",
+    "question": "What should I check in a personal loan Key Facts Statement?"
+  },
+  {
+    "id": "personal-loan-apr-3",
+    "guidePath": "/money-guides/personal-loan-apr",
+    "question": "Can a lower EMI make a personal loan more expensive?"
+  },
+  {
+    "id": "sip-investment-returns-1",
+    "guidePath": "/money-guides/sip-investment-returns",
+    "question": "How much should I invest monthly by SIP to reach my goal?"
+  },
+  {
+    "id": "sip-investment-returns-2",
+    "guidePath": "/money-guides/sip-investment-returns",
+    "question": "How do SIP returns change if I start one year late?"
+  },
+  {
+    "id": "sip-investment-returns-3",
+    "guidePath": "/money-guides/sip-investment-returns",
+    "question": "Are SIP calculator returns guaranteed?"
+  },
+  {
+    "id": "epf-salary-retirement-1",
+    "guidePath": "/money-guides/epf-salary-retirement",
+    "question": "Why is employer EPF not the same as employee PF contribution?"
+  },
+  {
+    "id": "epf-salary-retirement-2",
+    "guidePath": "/money-guides/epf-salary-retirement",
+    "question": "How do I check EPF and EPS entries in my passbook?"
+  },
+  {
+    "id": "epf-salary-retirement-3",
+    "guidePath": "/money-guides/epf-salary-retirement",
+    "question": "Should I use a fixed EPF rate for retirement projections?"
+  },
+  {
+    "id": "ppf-small-savings-1",
+    "guidePath": "/money-guides/ppf-small-savings",
+    "question": "How do changing PPF interest rates affect maturity?"
+  },
+  {
+    "id": "ppf-small-savings-2",
+    "guidePath": "/money-guides/ppf-small-savings",
+    "question": "What should I compare before choosing PPF or SCSS?"
+  },
+  {
+    "id": "ppf-small-savings-3",
+    "guidePath": "/money-guides/ppf-small-savings",
+    "question": "When do PPF deposits start earning interest?"
+  },
+  {
+    "id": "credit-card-debt-1",
+    "guidePath": "/money-guides/credit-card-debt",
+    "question": "Does paying only credit card minimum due avoid interest?"
+  },
+  {
+    "id": "credit-card-debt-2",
+    "guidePath": "/money-guides/credit-card-debt",
+    "question": "How much interest is left after paying minimum due?"
+  },
+  {
+    "id": "credit-card-debt-3",
+    "guidePath": "/money-guides/credit-card-debt",
+    "question": "Should I refinance card debt with a personal loan?"
+  },
+  {
+    "id": "gst-invoice-1",
+    "guidePath": "/money-guides/gst-invoice",
+    "question": "How do I remove GST from a tax-inclusive price?"
+  },
+  {
+    "id": "gst-invoice-2",
+    "guidePath": "/money-guides/gst-invoice",
+    "question": "What is the difference between GST-inclusive and GST-exclusive quotes?"
+  },
+  {
+    "id": "gst-invoice-3",
+    "guidePath": "/money-guides/gst-invoice",
+    "question": "How can I check the GST rate for a product HSN code?"
+  },
+  {
+    "id": "gratuity-labour-1",
+    "guidePath": "/money-guides/gratuity-labour",
+    "question": "How is gratuity calculated from eligible wages?"
+  },
+  {
+    "id": "gratuity-labour-2",
+    "guidePath": "/money-guides/gratuity-labour",
+    "question": "Does a fixed-term employee need five years for gratuity?"
+  },
+  {
+    "id": "gratuity-labour-3",
+    "guidePath": "/money-guides/gratuity-labour",
+    "question": "Is gratuity based on CTC or basic wages?"
+  },
+  {
+    "id": "rent-property-housing-1",
+    "guidePath": "/money-guides/rent-property-housing",
+    "question": "How do I compare rent versus buying a home in India?"
+  },
+  {
+    "id": "rent-property-housing-2",
+    "guidePath": "/money-guides/rent-property-housing",
+    "question": "What upfront costs besides the down payment are needed to buy a flat?"
+  },
+  {
+    "id": "rent-property-housing-3",
+    "guidePath": "/money-guides/rent-property-housing",
+    "question": "Where can I check stamp duty for my property transaction?"
+  }
+]

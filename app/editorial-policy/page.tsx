@@ -100,6 +100,13 @@ export default function EditorialPolicyPage() {
         qualified professional instead of guessing on your behalf.
       </p>
       <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+        The editorial team is responsible for research, formulas and publication. A dated source check means the linked
+        disclosures were checked on that date; it is not a claim that a bank endorsed our calculation. We credit a
+        named specialist reviewer only after that person has reviewed the specific work and agreed to be identified.
+        No external specialist signoff is claimed for the decision guides. Priority guides carry a visible revision
+        trail and source dates so readers can see what changed and report an error.
+      </p>
+      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
         RupeeKit is not a SEBI-registered investment adviser, a chartered
         accountancy firm, or a lender. Nothing on this site is personalised
         financial, tax, legal or investment advice.

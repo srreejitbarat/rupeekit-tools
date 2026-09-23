@@ -14,6 +14,7 @@ import EditorialByline from '@/components/seo/EditorialByline';
 import { editorialTeamRef } from '@/lib/seo/editorial';
 import { getGuidesForTool } from '@/data/calculator-guides';
 import { getMoneyGuidesForTool } from '@/data/money-authority';
+import SourceBackedComparison from '@/components/seo/SourceBackedComparison';
 import { getDiscoverImage } from '@/data/discover-images';
 import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
 import { buildGoldLoanExamples } from '@/lib/gold-rates';
@@ -1382,6 +1383,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           />
         </>
       )}
+
+      <SourceBackedComparison slug={tool.slug} linkToGuide />
 
       {buriedIntentSections.length > 0 ? (
         <section className="mt-8 grid gap-5 lg:grid-cols-2">
