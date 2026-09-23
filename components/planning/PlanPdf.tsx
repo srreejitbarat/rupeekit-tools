@@ -41,7 +41,7 @@ export default function PlanPdf({ report }: { report: PlanReport }) {
       <Text style={styles.section} minPresenceAhead={70}>How to read this plan</Text>
       {report.assumptions.map((assumption, i) => <Text key={i} style={styles.line}>{i + 1}. {assumption}</Text>)}
       <Text style={styles.section} minPresenceAhead={80}>Your input snapshot</Text>
-      <Text style={styles.line}>Amounts are in INR. Rates and percentages, month counts, dates and tax-rule years retain their entered units. Download CSV on the calculator for the complete monthly schedule.</Text>
+      <Text style={styles.line}>{report.inputNote ?? 'Amounts are in INR. Rates and percentages, month counts, dates and tax-rule years retain their entered units. Download CSV on the calculator for the complete monthly schedule.'}</Text>
       <Table headers={['Input', 'Value']} rows={report.inputs} />
       <Text style={styles.url}>{report.url}</Text>
     </Page>

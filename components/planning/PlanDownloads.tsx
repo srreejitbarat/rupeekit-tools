@@ -12,7 +12,7 @@ function download(blob: Blob, filename: string) {
   document.body.appendChild(anchor); anchor.click(); anchor.remove();
   window.setTimeout(() => URL.revokeObjectURL(url), 30_000);
 }
-export default function PlanDownloads({ report, disabled }: { report: PlanReport; disabled: boolean }) {
+export default function PlanDownloads({ report, disabled, csvLabel = 'Download monthly CSV' }: { report: PlanReport; disabled: boolean; csvLabel?: string }) {
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState('');
   async function pdf() {
@@ -33,7 +33,7 @@ export default function PlanDownloads({ report, disabled }: { report: PlanReport
   }
   return <div className="space-y-3 rounded-2xl border border-slate-200 p-5 dark:border-slate-700">
     <div className="flex flex-wrap gap-3"><button type="button" className={secondary} disabled={disabled || busy} onClick={pdf}>{busy ? 'Preparing PDF…' : 'Download plan PDF'}</button>
-      <button type="button" className={secondary} disabled={disabled} onClick={csv}>Download monthly CSV</button></div>
+      <button type="button" className={secondary} disabled={disabled} onClick={csv}>{csvLabel}</button></div>
     <p className={muted}>{disabled ? 'Update the plan before downloading your changed inputs.' : 'Includes your input snapshot and assumptions. Both files are generated in your browser; this planner does not upload your financial inputs.'}</p>
     <p role="status" className="text-sm text-slate-700 dark:text-slate-200">{status}</p>
   </div>;

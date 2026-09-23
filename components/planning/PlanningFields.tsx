@@ -11,7 +11,7 @@ const inputClass = 'mt-1.5 block min-h-11 w-full min-w-0 rounded-xl border borde
 
 export function Field({ label, value, onChange, hint, min = 0, max, step = 'any', type = 'number' }: {
   label: string; value: number | string; onChange: (value: string) => void; hint?: string;
-  min?: number; max?: number; step?: number | 'any'; type?: 'number' | 'month' | 'text';
+  min?: number; max?: number; step?: number | 'any'; type?: 'number' | 'month' | 'date' | 'text';
 }) {
   const id = useId();
   return <div className="min-w-0"><label htmlFor={id} className="text-sm font-semibold text-slate-800 dark:text-slate-100">{label}</label>

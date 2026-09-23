@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
 import Calculator from '@/components/Calculator';
 import PlanningFeatureSummary from '@/components/planning/PlanningFeatureSummary';
+import ToolAdPlacement from '@/components/micro-tools/ToolAdPlacement';
+import { isMicroTool } from '@/lib/micro-tools/common';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
@@ -1240,6 +1242,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{description}</p>
 
+          {isMicroTool(tool.slug) && <a href="#calculator" className="mt-5 inline-flex rounded-xl bg-teal-800 px-5 py-3 text-sm font-bold text-white hover:bg-teal-900">Try the calculator ↓</a>}
+
           <EditorialByline
             className="mt-4"
             updatedIso={tool.lastReviewedIso ?? TOOL_SEO_OVERRIDES[tool.slug]?.lastReviewedIso}
@@ -1368,7 +1372,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           </div>
       ) : (
         <>
-          <div className="mt-10">
+          <div className="mt-10" id="calculator">
             <Calculator tool={tool} />
           </div>
           <PlanningFeatureSummary slug={tool.slug} />
@@ -2006,6 +2010,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               ) : null}
             </>
           )}
+          {isMicroTool(tool.slug) && <ToolAdPlacement />}
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">

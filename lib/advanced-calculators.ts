@@ -19,6 +19,9 @@ export const ADVANCED_CALCULATORS = {
   RULE_9D_EPF_INTEREST: 'epf-taxable-interest-rule-9d-calculator-india',
   INHERITED_PROPERTY_GAINS: 'inherited-property-capital-gains-calculator-india',
   JOB_OFFER_COMPARISON: 'job-offer-comparison-calculator-india',
+  NO_COST_EMI: 'no-cost-emi-calculator-india',
+  REMITTANCE_FEES: 'freelancer-remittance-fee-calculator-india',
+  CAR_LEASE_EXIT: 'company-car-lease-exit-calculator-india',
 } as const;
 
 export type AdvancedCalculatorSlug = typeof ADVANCED_CALCULATORS[keyof typeof ADVANCED_CALCULATORS];

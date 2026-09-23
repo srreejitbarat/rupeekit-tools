@@ -70,6 +70,7 @@ import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/Emerg
 import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
 import GenericCalculatorExperience from '@/components/GenericCalculatorExperience';
 import PlanningExperience, { PLANNING_TOOLS, type PlanningSlug } from '@/components/planning/PlanningExperience';
+import { isMicroTool } from '@/lib/micro-tools/common';
 
 export default function Calculator({ tool }: { tool: Tool }) {
   let calculator;
@@ -89,7 +90,7 @@ export default function Calculator({ tool }: { tool: Tool }) {
   }
 
   return (
-    <CalculatorAnalyticsBoundary toolSlug={tool.slug} toolCategory={tool.category}>
+    <CalculatorAnalyticsBoundary toolSlug={tool.slug} toolCategory={tool.category} shareInputs={!isMicroTool(tool.slug)}>
       {calculator}
     </CalculatorAnalyticsBoundary>
   );

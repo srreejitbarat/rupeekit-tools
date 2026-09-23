@@ -726,5 +726,26 @@
     "alt": "A staged home-loan plan connects construction payments, possession and a protected cash reserve.",
     "width": 1600,
     "height": 900
+  },
+  {
+    "path": "/tools/no-cost-emi-calculator-india",
+    "src": "/images/discover/no-cost-emi-calculator-india.webp",
+    "alt": "No-cost EMI decision tool for India comparing cash price, EMI charges and what happens after a merchant refund",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/freelancer-remittance-fee-calculator-india",
+    "src": "/images/discover/freelancer-remittance-fee-calculator-india.webp",
+    "alt": "Freelancer payment audit for India tracing foreign fees, exchange-rate differences and the net rupees received",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/company-car-lease-exit-calculator-india",
+    "src": "/images/discover/company-car-lease-exit-calculator-india.webp",
+    "alt": "Company car lease exit planner for India comparing buyout, returning the car and protecting available cash",
+    "width": 1600,
+    "height": 900
   }
 ]

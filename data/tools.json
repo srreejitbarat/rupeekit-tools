@@ -5320,5 +5320,576 @@
         "href": "https://www.icici.bank.in/personal-banking/loans/home-loan/emi-calculator"
       }
     ]
+  },
+  {
+    "status": "live",
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "2026-09-23.1",
+    "slug": "no-cost-emi-calculator-india",
+    "name": "No Cost EMI Calculator India",
+    "seoTitle": "No Cost EMI Calculator: Fees, Cash Discount & Refunds",
+    "category": "Loans",
+    "targetKeyword": "no cost EMI calculator India",
+    "shortDescription": "Is the EMI offer really cheaper? Compare the cash price with fees, tax and cashback, then test the money left to pay if you return the item or close the EMI early.",
+    "metaDescription": "Check the real cost of no-cost EMI after fees, tax and lost cash discounts. Compare refunds, cashback reversals and early closure, with PDF and CSV reports.",
+    "inputs": [
+      {
+        "key": "price",
+        "label": "EMI purchase price",
+        "default": 60000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "cashDiscount",
+        "label": "Extra cash-payment discount",
+        "default": 3000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "downPayment",
+        "label": "Down payment",
+        "default": 0,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "months",
+        "label": "EMI months",
+        "default": 6,
+        "unit": "months",
+        "min": 1,
+        "max": 60,
+        "step": 1
+      },
+      {
+        "key": "processingFee",
+        "label": "Processing fee before tax",
+        "default": 199,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "feeTaxRate",
+        "label": "Entered fee tax rate",
+        "default": 18,
+        "unit": "%",
+        "min": 0,
+        "max": 50,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "cashPrice",
+        "label": "Upfront cash price",
+        "formula": "price-cashDiscount",
+        "format": "currency"
+      },
+      {
+        "key": "baseEmi",
+        "label": "Base EMI under full upfront interest subsidy",
+        "formula": "(price-downPayment)/months",
+        "format": "currency"
+      },
+      {
+        "key": "processingWithTax",
+        "label": "Processing fee including entered tax",
+        "formula": "processingFee*(1+feeTaxRate/100)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "In full upfront subsidy mode, financed principal is reduced until the total of base monthly instalments equals the purchase price minus down payment. The quoted-principal mode instead uses your actual issuer principal. The repayment schedule uses a fixed annual rate divided by twelve. Add processing fees and their tax at checkout, add tax on each month’s interest, and subtract separate cashback in its stated month. Compare that total with the cash purchase price. Return scenarios use the same refund and cashback retention, while the closure path pays the remaining principal and entered closure charges.",
+    "example": "For a ₹60,000 purchase with a full upfront interest subsidy over six months and no down payment, the base EMI is ₹10,000. A ₹199 processing fee with an entered 18% fee-tax assumption adds ₹234.82. A ₹3,000 cash-payment discount makes the upfront price ₹57,000. Interest tax and any cashback are added separately by the calculator; these are example assumptions, not a bank quote.",
+    "quickAnswer": {
+      "title": "What does no-cost EMI really cost?",
+      "question": "Can no-cost EMI cost more than paying upfront?",
+      "answer": "Yes. Compare the actual cash price with the total EMI payments, processing charges, tax on interest and fees, and separate cashback. An interest subsidy can cover the base interest while those other costs remain. The return planner separately checks keeping or closing EMI after a merchant refund.",
+      "formula": "Purchase cost = down payment + instalments + interest tax + processing fee with tax − cashback.",
+      "note": "Use the issuer’s terms. Refund, cashback recovery and closure charges vary by transaction."
+    },
+    "howToUse": [
+      "Enter the EMI purchase price, extra cash discount, down payment, underlying interest rate and term.",
+      "Choose a full upfront interest discount or enter the actual financed principal from the issuer.",
+      "Add processing fees, applicable tax assumptions and separate cashback timing.",
+      "For a return, enter the month, actual merchant refund, retained cashback and confirmed fee refund.",
+      "Enter closure charges, compare both decisions, and download the input snapshot and monthly schedule."
+    ],
+    "assumptions": [
+      "Credit-card EMI, fixed monthly reducing-balance interest and month-end instalments are modelled. Example rates are editable.",
+      "Processing fee and its tax are paid at checkout. Actual billed dates, day-count interest and paise rounding may differ.",
+      "The merchant refund is usable in the selected month and does not automatically reduce the EMI loan. Only full loan closure is modelled as the alternative.",
+      "The purchase comparison assumes you keep the goods. Return comparisons do not value goods retained after a partial return.",
+      "Annualised cost versus cash includes the forgone cash discount and is different from the lender’s disclosed APR. Mixed-sign cashback payments can make it unavailable."
+    ],
+    "commonMistakes": [
+      "Entering a price already reduced by the interest subsidy and then applying the subsidy again.",
+      "Comparing a base EMI with a cash price without adding fees and applicable taxes.",
+      "Assuming a merchant refund automatically closes the card EMI.",
+      "Subtracting the same cashback reversal from both the merchant refund and the separate cashback field.",
+      "Treating a net refund credit as cash available before the issuer actually settles it."
+    ],
+    "contentSections": [
+      {
+        "heading": "The small charges outside the advertised EMI",
+        "body": "A purchase can have three different prices: the seller’s EMI price, the financed principal after an upfront interest subsidy, and the price available when you pay immediately. The calculator keeps these separate. It also separates base interest from tax charged on interest, and the processing fee from tax charged on that fee. This makes the comparison useful even when the advertised instalments add up to the sticker price."
+      },
+      {
+        "heading": "Returned the product but still see an EMI?",
+        "body": "The merchant’s refund and the card issuer’s loan are different parts of the transaction. A refund may appear as a card credit while scheduled instalments continue. The issuer may require a separate closure request. In this model you enter the credit you expect and compare continuing the instalments with settling all remaining debt. Check the issuer’s written response before assuming either treatment applies."
+      },
+      {
+        "heading": "What changes after a partial return?",
+        "body": "Enter the expected merchant refund rather than the original price. Then enter how much separate cashback you will keep. Cashback already received is reversed at the return date down to that amount; cashback scheduled for a later month is reduced before it is paid. The two refund paths use the same retained goods and credits, so their cash outflows can be compared without pretending that a partial return removes the whole purchase."
+      },
+      {
+        "heading": "Why the annualised cost can surprise you",
+        "body": "A cash discount changes the value of financing. Giving up a ₹3,000 cash discount to spread a ₹60,000 purchase across six months is an economic cost even if the seller subsidises interest. The annualised figure converts the modelled monthly cash flows into an effective yearly rate. It can be negative if a valid offer makes EMI cheaper, and it is intentionally omitted for cash-flow patterns that do not support the simple one-rate calculation."
+      },
+      {
+        "heading": "Before asking the bank to close the EMI",
+        "body": "Ask for the settlement date, principal outstanding, foreclosure charge, applicable tax and treatment of the subsidy or cashback. The model closes immediately after the selected month’s instalment, so an actual mid-cycle quote can differ. Gross settlement is shown separately because a refund may arrive after you need to pay the bank."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "The arithmetic uses an explicit monthly loan schedule and the user-entered purchase, fee, tax, cashback and refund assumptions. Apple’s India financing terms explain upfront interest subsidy, issuer-controlled EMI terms and the need to check refund or closure treatment with the card issuer. They are an example of transaction terms, not a rule applied to every issuer. No product, bank or card is recommended. Financial inputs and exported reports are processed in your browser."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is no-cost EMI always free of extra charges?",
+        "answer": "No. The seller may subsidise interest while processing fees, tax or a forgone cash discount remain. Enter the actual offer and compare the total cash outflow."
+      },
+      {
+        "question": "Does a refund cancel my credit-card EMI automatically?",
+        "answer": "Do not assume so. The merchant may credit the card while the issuer keeps the loan schedule. Confirm whether a separate closure request is required and how the credit will be applied."
+      },
+      {
+        "question": "Can I calculate a partial return?",
+        "answer": "Yes. Enter the actual refund, the return month and the cashback you retain. The model compares keeping the original EMI schedule with closing the whole loan; it does not model a partial principal prepayment."
+      },
+      {
+        "question": "Why is GST or tax an editable input?",
+        "answer": "Tax treatment and fee presentation depend on the product and quote. The fields are assumptions for the stated credit-card EMI model, not a rule that all loan interest is taxed the same way."
+      },
+      {
+        "question": "Is the annualised cost the same as the bank’s APR?",
+        "answer": "No. It uses the cash purchase alternative, including its discount, as the value of financing. The bank’s disclosed APR can use a different set of cash flows and prescribed conventions."
+      },
+      {
+        "question": "Can I download the comparison without sharing my phone number?",
+        "answer": "Yes. PDF and CSV downloads are generated in your browser without a signup or phone number. The calculator link does not include your financial values."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "Apple India — EMI, no-cost EMI and cashback terms",
+        "href": "https://www.apple.com/in/shop/browse/financing/terms"
+      }
+    ],
+    "related": [
+      "personal-loan-true-apr-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "credit-card-minimum-due-trap-calculator-india",
+      "credit-card-vs-personal-loan-calculator-india"
+    ],
+    "nextReviewTrigger": "Issuer refund, subsidy, cashback or tax treatment changes; recheck source links and example assumptions before updating copy."
+  },
+  {
+    "status": "live",
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "2026-09-23.1",
+    "slug": "freelancer-remittance-fee-calculator-india",
+    "name": "Freelancer Remittance Fee Calculator India",
+    "seoTitle": "Remittance Fee Calculator: Invoice vs INR Received",
+    "category": "Business",
+    "targetKeyword": "freelancer remittance fee calculator India",
+    "shortDescription": "Your foreign invoice and bank credit should tell the same story. Reconcile payment fees and exchange rates, compare two quotes, and find the invoice needed for your target INR receipt.",
+    "metaDescription": "Audit foreign-payment fees against the INR your bank received. Compare two quotes, spot unexplained differences and calculate your target invoice with exports.",
+    "inputs": [
+      {
+        "key": "invoice",
+        "label": "Foreign invoice amount",
+        "default": 2000,
+        "unit": "foreign currency",
+        "min": 0.01,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "feePercent",
+        "label": "Fee on gross invoice",
+        "default": 1,
+        "unit": "%",
+        "min": 0,
+        "max": 50,
+        "step": 1
+      },
+      {
+        "key": "fixedForeign",
+        "label": "Fixed foreign-currency fee",
+        "default": 2,
+        "unit": "foreign currency",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "intermediaryForeign",
+        "label": "Intermediary foreign-currency fee",
+        "default": 5,
+        "unit": "foreign currency",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "conversionRate",
+        "label": "INR conversion rate per foreign unit",
+        "default": 89,
+        "unit": "INR / unit",
+        "min": 0.0001,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "localCharges",
+        "label": "Local fees and additional tax",
+        "default": 236,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "netForeign",
+        "label": "Foreign amount converted",
+        "formula": "invoice*(1-feePercent/100)-fixedForeign-intermediaryForeign",
+        "format": "number"
+      },
+      {
+        "key": "netInr",
+        "label": "Expected INR bank receipt",
+        "formula": "netForeign*conversionRate-localCharges",
+        "format": "currency"
+      },
+      {
+        "key": "effectiveRate",
+        "label": "All-in INR per invoiced foreign unit",
+        "formula": "netInr/invoice",
+        "format": "number"
+      }
+    ],
+    "formulaExplanation": "Expected INR = [invoice × (1 − percentage fee / 100) − fixed foreign fee − intermediary deductions] × quoted conversion rate − local bank fee − certificate fee − additional tax. For the audit, compare expected INR with the actual route 1 bank credit. For a target receipt, invert the same equation while holding the quoted rate, fixed fees and entered INR tax constant, then round the required foreign invoice up to two decimals.",
+    "example": "Illustrative USD 2,000 invoice: a 1% fee, USD 2 fixed fee and USD 5 intermediary deduction leave USD 1,973 to convert. At an entered ₹89 per USD, that is ₹1,75,597. Subtract ₹236 of local fees and additional tax to get ₹1,75,361. An actual ₹1,74,900 credit leaves ₹461 to reconcile. These are fictional quote assumptions, not current provider prices.",
+    "quickAnswer": {
+      "title": "Why did fewer rupees reach your bank?",
+      "question": "How do I calculate the actual cost of a foreign payment?",
+      "answer": "Start with your gross invoice, deduct fees in the invoice currency, convert the remainder at the provider’s quoted rate, and subtract rupee fees and additional tax. Compare the result with the bank credit. The all-in effective rate is net INR received divided by the gross foreign invoice.",
+      "formula": "All-in rate = net INR received ÷ gross invoice in foreign currency.",
+      "note": "A difference may reflect timing or missing information. It is not proof of overcharging."
+    },
+    "howToUse": [
+      "Choose the invoice currency and enter a quote date and reference exchange rate.",
+      "Enter two payment routes with their quoted conversion rates, percentage fees and fixed foreign-currency deductions.",
+      "Add local bank, certificate and additional tax amounts in INR without double counting tax-inclusive fees.",
+      "Optionally enter the actual INR credited through route 1 to identify a reconciliation difference.",
+      "Set a target INR receipt and test one payment against equal splits, then export the audit."
+    ],
+    "assumptions": [
+      "All rates and fees are manually entered and are not live provider prices. Example quotes are fictional.",
+      "Percentage fees apply to the gross invoice; foreign fees are deducted before conversion and INR charges after conversion.",
+      "The entered tax amount is separate from other fees. No uniform tax rate is applied to every payment or foreign-exchange service.",
+      "The target solver keeps rates, fixed fees and the entered INR tax constant; obtain a new quote if the invoice or fee tier changes.",
+      "Annual and split-payment scenarios reuse identical rates and fees. Net receipts are not a calculation of taxable profit or export eligibility."
+    ],
+    "commonMistakes": [
+      "Entering a rupee bank charge in a foreign-currency field.",
+      "Subtracting an FX markup again after entering a rate that already includes it.",
+      "Adding tax separately when it is already included in a fee.",
+      "Comparing a current reference rate with a payment converted on a different day.",
+      "Assuming net bank credit equals gross revenue or taxable profit."
+    ],
+    "contentSections": [
+      {
+        "heading": "A lower transfer fee can still mean fewer rupees",
+        "body": "The conversion rate can matter as much as the advertised transfer fee. This tool compares the amount delivered for the same gross invoice, after all entered charges. It does not rank providers using headline percentages or assume that a particular service is available to every freelancer. Use quotes for your account type, payment method, currency and date."
+      },
+      {
+        "heading": "Separate the invoice, converted amount and bank credit",
+        "body": "A platform may deduct a percentage and a fixed fee before sending the payment. An intermediary may deduct another foreign-currency amount. The remaining money is converted, and local bank, certificate or tax charges may then reduce the INR credited. Keeping these stages separate helps explain a statement without counting a charge twice."
+      },
+      {
+        "heading": "How the fee reconciliation avoids counting FX twice",
+        "body": "The gross reference value uses the invoice and reference rate. Foreign fees are valued at that same reference rate. The exchange-rate difference is then measured only on the foreign amount that was actually converted. Add local fees and the entered tax amount, and the lines reconcile to the expected bank receipt. If the provider rate is better than the reference, the FX line becomes negative rather than being hidden."
+      },
+      {
+        "heading": "What the unexplained difference means",
+        "body": "The audit compares the actual bank credit with route 1’s calculated receipt. An unexplained difference can come from a missing fee, the conversion time, a refund, rounding or an incorrectly entered currency. It is a prompt to request a transaction-level breakdown. A positive or negative difference alone does not establish misconduct or prove a provider is cheaper."
+      },
+      {
+        "heading": "Price an invoice around the rupees you need",
+        "body": "Enter your desired bank receipt to solve the required foreign invoice for each quote. The percentage fee scales with invoice size, while the fixed deductions and entered rupee tax stay unchanged. This is a planning estimate. Before sending the invoice, confirm the new quote and any fee tiers or taxes that change with transaction size."
+      },
+      {
+        "heading": "Does splitting one payment cost more?",
+        "body": "With the same conversion rate and percentage fee, each separate payment repeats fixed deductions. The split comparison holds the total invoice constant and applies the entered quote to every equal part. In real life, timing, minimum fees, fee caps and changing FX can alter the result. Use the feature to ask better questions about payout frequency rather than treating it as a guaranteed savings strategy."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "The calculation is a transparent reconciliation of user-entered payment quotes. Wise’s India business receiving page and PayPal’s India commercial fee page illustrate why currency conversion, fixed charges and service taxes need separate treatment. No current provider fee is hard-coded as a recommendation. Personal income tax, GST filing, purpose codes and regulatory eligibility are outside the model. Inputs and exports remain in your browser."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does this calculator fetch live USD to INR rates?",
+        "answer": "No. Enter the reference and actual provider rate from the same quote or statement date. The displayed examples are illustrative inputs."
+      },
+      {
+        "question": "Can I compare Wise, PayPal, a bank or another payment route?",
+        "answer": "You can enter any two quotes that fit the stated fee order. Check provider availability and the quote for your account and payment method; the tool does not certify providers or fetch their prices."
+      },
+      {
+        "question": "How is the effective exchange rate calculated?",
+        "answer": "It is the net INR receipt divided by the gross foreign-currency invoice. This all-in rate includes entered fees and is different from the provider’s conversion rate."
+      },
+      {
+        "question": "Why do I enter a tax amount rather than a GST percentage?",
+        "answer": "Different charges and foreign-exchange services can use different tax bases. Copy the actual additional tax amount from the quote and avoid adding it again if it is already included in another fee."
+      },
+      {
+        "question": "Is an unexplained difference proof that the bank overcharged me?",
+        "answer": "No. Check the conversion date, reference rate, rounding and missing fee lines first. Use the report to ask for a complete reconciliation."
+      },
+      {
+        "question": "Can I calculate the invoice needed to receive ₹1 lakh?",
+        "answer": "Yes. Set the target receipt to ₹1,00,000. The solver uses the entered quote and rounds the foreign invoice up to two decimals. Obtain a fresh quote because rates and charges may change."
+      },
+      {
+        "question": "Does the result calculate my Indian income tax?",
+        "answer": "No. Net payment receipts, gross revenue and taxable profit are different quantities. This tool audits payment charges and does not determine income-tax or GST filing liability."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "Wise India Business — receiving and conversion fees",
+        "href": "https://wise.com/in/pricing/business/receive"
+      },
+      {
+        "label": "PayPal India — commercial transaction and conversion fees",
+        "href": "https://www.paypal.com/in/business/paypal-business-fees"
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "gst-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
+      "emergency-fund-calculator-india"
+    ],
+    "nextReviewTrigger": "Provider pricing structure, eligibility, currency conversion or service-tax treatment changes; rates remain user-entered."
+  },
+  {
+    "status": "live",
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "2026-09-23.1",
+    "slug": "company-car-lease-exit-calculator-india",
+    "name": "Company Car Lease Exit Calculator India",
+    "seoTitle": "Car Lease Exit Calculator: Resign, Return or Buy Out?",
+    "category": "Salary",
+    "targetKeyword": "company car lease exit calculator India",
+    "shortDescription": "Before changing jobs, check the car bill that comes with leaving. Compare buyout, return and approved continuation, including settlement cash, loan debt and your protected savings.",
+    "metaDescription": "Leaving a job with a company car lease? Compare buyout, return and approved transfer using exit quotes, remaining loan debt and cash-reserve checks. Export PDF.",
+    "inputs": [
+      {
+        "key": "payrollDeduction",
+        "label": "Monthly payroll lease deduction",
+        "default": 28000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "payrollTaxSaving",
+        "label": "Payroll-confirmed tax saving",
+        "default": 6000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "leaseRunningCost",
+        "label": "Other monthly lease running costs",
+        "default": 2000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "exitBuyout",
+        "label": "All-in early buyout quote",
+        "default": 850000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "downPayment",
+        "label": "Buyout down payment",
+        "default": 200000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "netMonthlyCost",
+        "label": "Current net monthly car cost",
+        "formula": "payrollDeduction-payrollTaxSaving+leaseRunningCost",
+        "format": "currency"
+      },
+      {
+        "key": "exitLoan",
+        "label": "Loan required for the buyout",
+        "formula": "max(exitBuyout-downPayment,0)",
+        "format": "currency"
+      },
+      {
+        "key": "cashAtExit",
+        "label": "Buyout down payment at exit",
+        "formula": "downPayment",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Current monthly car cash cost = payroll lease deduction − payroll-confirmed tax saving + other running costs. All options run from today through the same remaining lease horizon. Net economic car cost = future cash paid + loan debt still owed at the end − retained car value at that date. Available cash = opening cash + monthly car-budget allocations − option cash outflows. Early buyout, return and continuation use separate all-in quotes. A buyout loan uses a fixed monthly reducing-balance schedule; any loan still unpaid at the common end date remains a liability.",
+    "example": "A ₹28,000 payroll deduction, ₹6,000 confirmed monthly tax saving and ₹2,000 extra running cost make the current car cash cost ₹24,000 per month. An ₹8,50,000 all-in early buyout with ₹2,00,000 down requires a ₹6,50,000 loan. If that loan extends past the original lease end, the comparison includes the remaining debt as well as the car’s estimated value. Figures are illustrative contract assumptions.",
+    "quickAnswer": {
+      "title": "What happens to a company car lease when you resign?",
+      "question": "How much cash could leaving a company car lease require?",
+      "answer": "It depends on the written buyout, return or continuation terms. Enter all-in exit quotes and compare settlement cash, future car costs and any loan debt left at the same end date. A lower monthly deduction does not by itself tell you which exit path preserves your cash reserve.",
+      "formula": "Net car cost = future cash paid + debt remaining − retained car value.",
+      "note": "This compares car costs, not the income or career benefit of changing jobs. Continuation requires approval."
+    },
+    "howToUse": [
+      "Enter remaining lease months, intended exit month, opening cash and a monthly car budget after other household costs.",
+      "Copy the payroll deduction and confirmed tax saving, then choose whether the original lease ends in a buyout or return.",
+      "Enter an all-in early buyout quote and choose cash or a loan with its actual rate and term.",
+      "Enter the alternative all-in return settlement and replacement transport cost. Add continuation only if permitted.",
+      "Compare the common-end-date car cost and monthly cash reserve, then download the report for discussion with HR or the lessor."
+    ],
+    "assumptions": [
+      "The comparison starts today and excludes past payments, salary changes, career benefits and investment returns.",
+      "Exit follows that month’s normal lease payment; month 0 means now. New running costs and loan EMIs begin the following month.",
+      "Settlement quotes include all applicable fees and taxes. Remaining lease rentals must not be added a second time.",
+      "Payroll tax saving is a confirmed input, not an automatically computed statutory deduction or a flat tax-bracket assumption.",
+      "The car’s end value reduces economic cost but is not spendable cash. Remaining buyout-loan debt is retained at the comparison end.",
+      "Cash reserves are checked today and at month ends, not at every intramonth payment date."
+    ],
+    "commonMistakes": [
+      "Comparing a 48-month buyout loan with a shorter lease horizon while ignoring the debt still owed at that horizon.",
+      "Treating an estimated resale value as cash already available to pay a settlement.",
+      "Adding the remaining lease rentals to a settlement quote that already includes them.",
+      "Assuming a lease or payroll tax benefit continues after leaving the employer.",
+      "Changing the exit month without obtaining revised settlement quotes."
+    ],
+    "contentSections": [
+      {
+        "heading": "The resignation date can change the car decision",
+        "body": "A company lease can look affordable during employment because the monthly deduction, included services and payroll treatment are bundled together. Leaving the employer can change that arrangement. Ask which paths are actually permitted before comparing amounts. This calculator shows continuation only when you confirm that the lessor or employer allows it."
+      },
+      {
+        "heading": "Ask for two separate settlement quotes",
+        "body": "An early buyout lets you keep the car, while a return or surrender settlement lets you give it back under the contract. They need not have the same amount. Request written, dated, all-in quotes that identify taxes, charges and outstanding obligations. The model treats each entered quote as complete, so it does not add the remaining lease rentals again."
+      },
+      {
+        "heading": "A buyout loan can hide cost beyond the lease end",
+        "body": "A smaller EMI can make a buyout appear cheap if the loan runs longer than the comparison. The model counts payments made within the horizon and adds the loan balance still owed at the end. It then subtracts the car value only where you own the car. This creates a common-date comparison without pretending that unpaid debt has disappeared."
+      },
+      {
+        "heading": "Economic cost and available cash answer different questions",
+        "body": "A path can have an attractive net cost and still require more settlement cash than you can spare. The reserve chart starts with your accessible cash, adds the monthly car budget and subtracts the selected arrangement’s bills. Car value is kept outside that chart. The reserve shortfall tells you how much additional opening cash would have been needed under the same timing assumptions."
+      },
+      {
+        "heading": "Use payroll’s actual tax-saving figure",
+        "body": "A marginal tax bracket applied to an entire lease deduction can misstate the take-home effect. Ask payroll for the difference under your salary structure and applicable rules. Enter the confirmed monthly benefit here, or zero while it is uncertain. This avoids presenting every corporate lease as having the same tax advantage."
+      },
+      {
+        "heading": "Before choosing return, buyout or continuation",
+        "body": "Check ownership transfer, insurance, maintenance, fuel, the written settlement date and whether loan finance is approved. Replacement transport may be cheaper but provide different convenience. A job change can also increase salary or improve career prospects; those effects belong in a salary comparison and are intentionally outside this car-only calculation."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "The model uses user-entered contract and payroll quotes with an explicit monthly cash schedule and buyout-loan amortisation. ORIX and Ayvens describe different employee lease arrangements and end-of-term choices; these examples do not establish a universal right to transfer, surrender or buy a leased car. The signed agreement, lessor’s quote and payroll confirmation control the actual treatment. Calculations and downloadable reports are generated in your browser."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I keep my company leased car after resigning?",
+        "answer": "Possibly, through a buyout or an approved continuation arrangement. The answer depends on the contract and the employer or lessor. Enter a confirmed quote rather than assuming a transfer is available."
+      },
+      {
+        "question": "Does the calculator automatically apply car-lease tax benefits?",
+        "answer": "No. Enter the monthly tax saving confirmed by payroll. Use zero if it is not confirmed. The tool does not apply one flat tax bracket to every lease."
+      },
+      {
+        "question": "Why does the buyout option include loan debt at the end?",
+        "answer": "A buyout loan may last longer than the remaining lease. Ignoring its unpaid balance would understate the cost. The comparison retains that debt at the common end date."
+      },
+      {
+        "question": "Why is the car value not added to my cash reserve?",
+        "answer": "An estimated resale value is an asset valuation, not a bank receipt. The tool assumes you retain the car where applicable and does not invent a sale."
+      },
+      {
+        "question": "What does exit after month 12 mean?",
+        "answer": "The current lease is paid normally for twelve months. The settlement occurs after month 12’s payment, and replacement costs or buyout-loan EMIs begin in month 13. Month 0 means exit now."
+      },
+      {
+        "question": "Can I compare an approved transfer to a new employer?",
+        "answer": "Yes. Enable continuation and enter the total monthly cash cost, transfer charge, end action and final settlement confirmed for that arrangement."
+      },
+      {
+        "question": "Does the lowest car cost tell me whether to accept a new job?",
+        "answer": "No. This comparison excludes salary changes, benefits and career considerations. Use the salary cash planner alongside it and include the car settlement in your switching-cost budget."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "ORIX India — corporate employee lease arrangements",
+        "href": "https://www.orixindia.com/leasing/web/orix-lease-plus/corporate-lease"
+      },
+      {
+        "label": "Ayvens India — employee car lease choices",
+        "href": "https://www.ayvens.com/en-in/leasing-with-us/leasing-solutions/employee-car-lease/"
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "job-offer-comparison-calculator-india",
+      "car-loan-emi-affordability-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "nextReviewTrigger": "Changes to lessor transfer or settlement terms, payroll perquisite rules, or source pages; the model continues to require the actual quote."
   }
 ]

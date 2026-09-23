@@ -4,8 +4,9 @@ import { getPrimaryClusterForTool, toolClusters } from '../data/tool-clusters';
 import { getLiveTools } from './tools';
 
 describe('issue 79 cluster hubs and discovery links', () => {
-  it('defines the seven required clusters with unique target keywords', () => {
+  it('defines the required clusters, including freelance business, with unique target keywords', () => {
     expect(toolClusters.map((cluster) => cluster.slug)).toEqual([
+      'freelance-business',
       'loans-emi',
       'tax-compliance',
       'investing-markets',

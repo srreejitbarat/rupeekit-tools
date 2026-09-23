@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import type { Tool } from '@/lib/tools';
 import SalaryInHandCalculatorV2 from './SalaryInHandCalculatorV2';
 import GstCalculatorV2 from './GstCalculatorV2';
@@ -22,7 +23,14 @@ import InheritedPropertyGainsCalculator from './InheritedPropertyGainsCalculator
 import JobOfferComparisonCalculator from './JobOfferComparisonCalculator';
 import { ADVANCED_CALCULATORS } from '@/lib/advanced-calculators';
 
+const NoCostEmiCalculator = dynamic(() => import('@/components/micro-tools/NoCostEmiCalculator'));
+const RemittanceCalculator = dynamic(() => import('@/components/micro-tools/RemittanceCalculator'));
+const CarLeaseCalculator = dynamic(() => import('@/components/micro-tools/CarLeaseCalculator'));
+
 export default function AdvancedCalculatorRenderer({ tool }: { tool: Tool }) {
+  if (tool.slug === ADVANCED_CALCULATORS.NO_COST_EMI) return <NoCostEmiCalculator />;
+  if (tool.slug === ADVANCED_CALCULATORS.REMITTANCE_FEES) return <RemittanceCalculator />;
+  if (tool.slug === ADVANCED_CALCULATORS.CAR_LEASE_EXIT) return <CarLeaseCalculator />;
   if (tool.slug === ADVANCED_CALCULATORS.SALARY) {
     return <SalaryInHandCalculatorV2 tool={tool} />;
   }

@@ -53,8 +53,9 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-if (manifest.length !== 105) {
-  errors.push(`Expected 105 Discover images, found ${manifest.length}.`);
+// Includes the three September micro-niche decision tools.
+if (manifest.length !== 108) {
+  errors.push(`Expected 108 Discover images, found ${manifest.length}.`);
 }
 
 for (const slug of day7ImageSlugs) {

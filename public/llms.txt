@@ -8,6 +8,10 @@ Last updated: 2026-09-23. This is a curated discovery index; the [full machine-r
 
 ## Calculators
 
+- [No-Cost EMI Calculator India](https://www.rupeekit.co.in/tools/no-cost-emi-calculator-india): Compare cash versus EMI including fees, interest tax and cashback, then model continuing or closing EMI after a merchant refund. Includes monthly cash flows and PDF/CSV reports.
+- [Freelancer Remittance Fee Calculator India](https://www.rupeekit.co.in/tools/freelancer-remittance-fee-calculator-india): Reconcile a foreign invoice to INR bank credit, compare two entered payment quotes, solve an invoice target and test repeated fixed fees when splitting payments. No live FX rates or tax filing advice.
+- [Company Car Lease Exit Calculator India](https://www.rupeekit.co.in/tools/company-car-lease-exit-calculator-india): Compare buyout, return and approved continuation with staying on a company car lease. Includes exit cash, buyout-loan debt at the same end date, retained car value and a protected-cash check.
+
 - [Pre-EMI Calculator India](https://www.rupeekit.co.in/tools/pre-emi-calculator-india): Compare interest-only pre-EMI, early EMI, staged loan draws, rent, possession delays and household cash reserves. Includes rate and income stress tests, PDF reports and browser-only CSV exports.
 
 - [Salary In-Hand Calculator India](https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india): Estimate monthly take-home salary from annual CTC, basic salary percentage, PF, tax and other deductions.

@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from "react";
 
 type AdUnitProps = {
@@ -34,8 +36,9 @@ export default function AdUnit({
   const insetRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
-    if (!client || !insetRef.current || !window.adsbygoogle) return;
+    if (!client || !insetRef.current) return;
     try {
+      window.adsbygoogle = window.adsbygoogle || [];
       window.adsbygoogle.push({});
     } catch {
       /* Ad blocked or not ready — never break the page */

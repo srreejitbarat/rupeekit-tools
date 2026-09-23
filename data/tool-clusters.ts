@@ -12,6 +12,15 @@ export type ToolCluster = {
 
 export const toolClusters: ToolCluster[] = [
   {
+    slug: 'freelance-business',
+    name: 'Freelance & Business',
+    targetKeyword: 'freelancer payment calculators India',
+    description: 'Reconcile overseas invoices, exchange rates and payment fees before pricing your next project.',
+    intro: 'Compare quotes on the same date, separate foreign-currency charges from rupee deductions, and check what reached your bank. Receipt calculations are separate from tax filing and provider eligibility.',
+    journey: ['Enter the invoice and a dated exchange-rate reference.', 'Reconcile fees and compare net rupees from two quotes.', 'Check your target receipt and download the audit.'],
+    sourceCategories: ['Business'],
+  },
+  {
     slug: 'loans-emi',
     name: 'Loans & EMI',
     targetKeyword: 'loan calculators India',

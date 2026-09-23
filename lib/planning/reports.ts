@@ -5,6 +5,7 @@ import { planSalaryCash, type SalaryCashInput } from './salary-cash';
 
 export type PlanReport = {
   title: string; subtitle: string; filename: string; url: string;
+  inputNote?: string; inputsHeading?: string; scheduleHeading?: string;
   sections: { title: string; lines?: string[]; headers?: string[]; rows?: string[][] }[];
   assumptions: string[]; inputs: string[][]; schedule: (string | number)[][];
 };
@@ -36,10 +37,10 @@ function inputs(value: object, prefix = ''): string[][] {
   });
 }
 export function reportCsv(report: PlanReport) {
-  return [[report.title], [report.subtitle], ['Source', report.url], [], ['INPUTS (rupees unless %, months or date)'], ...report.inputs,
+  return [[report.title], [report.subtitle], ['Source', report.url], [], [report.inputsHeading ?? 'INPUTS (rupees unless %, months or date)'], ...report.inputs,
     [], ['ASSUMPTIONS'], ...report.assumptions.map(a => [a]),
     ...report.sections.flatMap(s => [[], [s.title], ...(s.lines ?? []).map(line => [line]), ...(s.headers ? [s.headers] : []), ...(s.rows ?? [])]),
-    [], ['MONTHLY SCHEDULE (all amounts INR)'], ...report.schedule];
+    [], [report.scheduleHeading ?? 'MONTHLY SCHEDULE (all amounts INR)'], ...report.schedule];
 }
 
 export const HOME_ASSUMPTIONS = [
