@@ -8,6 +8,15 @@ import { reportCsv } from '@/lib/planning/reports';
 import { csvText } from '@/lib/planning/common';
 
 describe('no-cost EMI purchase and refund decisions', () => {
+  it('reports the missing purchase price without invalid dependent ranges', () => {
+    const r = calculateNoCost({ ...NO_COST_EXAMPLE, price: NaN });
+    expect(r.errors).toHaveLength(1);
+    expect(r.errors[0]).toContain('Purchase price:');
+    expect(r.errors.join(' ')).not.toContain('NaN');
+    expect(r.rows).toEqual([]);
+    const lease = calculateCarLease({ ...CAR_LEASE_EXAMPLE, remainingMonths: NaN });
+    expect(lease.errors).toHaveLength(1); expect(lease.options).toEqual([]);
+  });
   it('applies the upfront subsidy once and reconciles every cash flow', () => {
     const r = calculateNoCost(NO_COST_EXAMPLE);
     expect(r.errors).toEqual([]);

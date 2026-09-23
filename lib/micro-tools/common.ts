@@ -9,6 +9,9 @@ export const isMicroTool = (slug: string) => Object.values(MICRO_SLUGS).some(val
 export const amount = (n: number) => Math.round(n * 100) / 100;
 export const sum = (ns: number[]) => ns.reduce((a, b) => a + b, 0);
 export function check(errors: string[], value: number, label: string, min = 0, max = 100_000_000, integer = false) {
+  // A dependent limit can be unavailable while its parent input is blank.
+  // The engines validate that parent separately; avoid ranges such as 0–NaN.
+  if (!Number.isFinite(min) || !Number.isFinite(max) || max < min) return;
   if (!inRange(value, min, max) || (integer && !Number.isInteger(value))) errors.push(`${label}: enter ${integer ? 'a whole number' : 'a number'} between ${min.toLocaleString('en-IN')} and ${max.toLocaleString('en-IN')}.`);
 }
 export function payment(principal: number, annualRate: number, months: number) {
