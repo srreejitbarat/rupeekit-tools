@@ -1,3 +1,4 @@
+import { HINDI_PATHS, HINDI_RELEASE_DATE, languageAlternates } from '@/lib/i18n/routing';
 import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/all-blog-posts';
@@ -136,6 +137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes.map((route) => ({
       url: `${baseUrl}${route}`,
       lastModified: staticRouteLastModified.get(route) ?? STATIC_LAST_MODIFIED,
+      ...(languageAlternates(route || '/').languages ? { alternates: { languages: languageAlternates(route || '/').languages } } : {}),
       changeFrequency: (
         route === '' ? 'daily' :
         hubRoutes.has(route) ? 'weekly' :
@@ -146,6 +148,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         hubRoutes.has(route) ? 0.8 :
         lowPriorityRoutes.has(route) ? 0.3 :
         0.5,
+    })),
+    ...HINDI_PATHS.map((route) => ({
+      url: languageAlternates(route, 'hi').canonical,
+      lastModified: new Date(HINDI_RELEASE_DATE),
+      changeFrequency: 'weekly' as const,
+      priority: route === '/' ? 0.9 : 0.8,
+      alternates: { languages: languageAlternates(route, 'hi').languages },
     })),
     ...toolClusters.map((cluster) => ({
       url: `${baseUrl}/tool-hubs/${cluster.slug}`,

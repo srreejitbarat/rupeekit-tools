@@ -19,13 +19,13 @@ function count(source, token) {
   return source.split(token).length - 1;
 }
 
-const toolSource = read('app', 'tools', '[slug]', 'page.tsx');
-const taxToolSource = read('app', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
-const blogSource = read('app', 'blog', '[slug]', 'page.tsx');
+const toolSource = read('app', '(en)', 'tools', '[slug]', 'page.tsx');
+const taxToolSource = read('app', '(en)', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
+const blogSource = read('app', '(en)', 'blog', '[slug]', 'page.tsx');
 const blogLayoutSource = read('components', 'blog', 'BlogArticleLayout.tsx');
-const guideSource = read('app', 'guides', '[slug]', 'page.tsx');
-const financialUpdateSource = read('app', 'financial-updates', '[slug]', 'page.tsx');
-const governmentUpdateSource = read('app', 'government-salary-updates', '[slug]', 'page.tsx');
+const guideSource = read('app', '(en)', 'guides', '[slug]', 'page.tsx');
+const financialUpdateSource = read('app', '(en)', 'financial-updates', '[slug]', 'page.tsx');
+const governmentUpdateSource = read('app', '(en)', 'government-salary-updates', '[slug]', 'page.tsx');
 
 const schemaSources = [
   ['tool route', toolSource],

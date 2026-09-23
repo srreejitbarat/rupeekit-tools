@@ -9,6 +9,12 @@ type NewsletterAnalyticsBase = {
 };
 
 export type AnalyticsEventMap = {
+  language_selected: {
+    language: 'en' | 'hi';
+    previous_language: 'en' | 'hi';
+    page_path: string;
+    fallback: boolean;
+  };
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
   calculation_completed: CalculatorAnalyticsBase & {

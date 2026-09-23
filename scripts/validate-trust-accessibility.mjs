@@ -10,21 +10,21 @@ const requireMatch = (file, pattern, message) => {
 };
 
 const trustPages = [
-  'app/about/page.tsx',
-  'app/contact/page.tsx',
-  'app/editorial-policy/page.tsx',
-  'app/corrections-policy/page.tsx',
-  'app/disclaimer/page.tsx',
+  'app/(en)/about/page.tsx',
+  'app/(en)/contact/page.tsx',
+  'app/(en)/editorial-policy/page.tsx',
+  'app/(en)/corrections-policy/page.tsx',
+  'app/(en)/disclaimer/page.tsx',
 ];
 for (const file of trustPages) {
   if (!fs.existsSync(path.join(root, file))) failures.push(`${file}: required trust page is missing`);
 }
 
-requireMatch('app/about/page.tsx', /RupeeKit Editorial Team/, 'must identify the real organisational byline');
-requireMatch('app/about/page.tsx', /not a lender[\s\S]*SEBI-registered investment adviser/i, 'must state material limits without invented credentials');
-requireMatch('app/about/page.tsx', /\/editorial-policy/, 'must link to the editorial policy');
-requireMatch('app/about/page.tsx', /\/corrections-policy/, 'must link to the corrections policy');
-requireMatch('app/about/page.tsx', /\/contact/, 'must expose a contact route');
+requireMatch('app/(en)/about/page.tsx', /RupeeKit Editorial Team/, 'must identify the real organisational byline');
+requireMatch('app/(en)/about/page.tsx', /not a lender[\s\S]*SEBI-registered investment adviser/i, 'must state material limits without invented credentials');
+requireMatch('app/(en)/about/page.tsx', /\/editorial-policy/, 'must link to the editorial policy');
+requireMatch('app/(en)/about/page.tsx', /\/corrections-policy/, 'must link to the corrections policy');
+requireMatch('app/(en)/about/page.tsx', /\/contact/, 'must expose a contact route');
 
 requireMatch('components/Calculator.tsx', /htmlFor={`calculator-input-\$\{input\.key\}`}/, 'standard numeric inputs need associated labels');
 requireMatch('components/Calculator.tsx', /id={`calculator-input-\$\{input\.key\}`}/, 'standard numeric inputs need stable ids');
@@ -36,10 +36,10 @@ requireMatch('components/calculators/CalculatorPresets.tsx', /focus-visible:ring
 requireMatch('components/calculators/advanced/PriorityCalculatorPrimitives.tsx', /htmlFor=\{id\}/, 'advanced numeric inputs need associated labels');
 requireMatch('components/calculators/advanced/PriorityCalculatorPrimitives.tsx', /inputMode="decimal"/, 'advanced numeric inputs should request a numeric mobile keyboard');
 requireMatch('components/blog/FinanceDisclaimer.tsx', /educational/i, 'financial guides need an educational disclaimer');
-requireMatch('app/tools/\[slug\]/page.tsx', /EditorialByline/, 'calculator pages need visible editorial attribution');
-requireMatch('app/tools/\[slug\]/page.tsx', /source/i, 'calculator pages need a visible sourcing path');
-requireMatch('app/guides/\[slug\]/page.tsx', /FinanceDisclaimer|disclaimer/i, 'calculator guides need an educational disclaimer');
-requireMatch('app/guides/\[slug\]/page.tsx', /EditorialByline/, 'calculator guides need visible editorial attribution');
+requireMatch('app/(en)/tools/\[slug\]/page.tsx', /EditorialByline/, 'calculator pages need visible editorial attribution');
+requireMatch('app/(en)/tools/\[slug\]/page.tsx', /source/i, 'calculator pages need a visible sourcing path');
+requireMatch('app/(en)/guides/\[slug\]/page.tsx', /FinanceDisclaimer|disclaimer/i, 'calculator guides need an educational disclaimer');
+requireMatch('app/(en)/guides/\[slug\]/page.tsx', /EditorialByline/, 'calculator guides need visible editorial attribution');
 
 // The current repository does not ship @playwright/test as a direct dev dependency.
 // These checks protect the shared primitives used by the top-tool set in normal CI;

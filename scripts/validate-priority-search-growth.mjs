@@ -14,7 +14,7 @@ const advancedRegistry = read('lib/advanced-calculators.ts');
 const engine = read('lib/calculators/search-growth.ts');
 const engineTests = read('lib/calculators/search-growth.test.ts');
 const salaryTests = read('lib/tax/india-income-tax.test.ts');
-const toolPage = read('app/tools/[slug]/page.tsx');
+const toolPage = read('app/(en)/tools/[slug]/page.tsx');
 const toolLoader = read('lib/tools.ts');
 
 const targets = [

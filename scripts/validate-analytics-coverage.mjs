@@ -15,7 +15,7 @@ const consolidated=new Set([...section.matchAll(/['"]([^'"]+)['"]/g)].map(m=>m[1
 let count=0;
 for(const file of toolFiles){const tools=await readJson(file);const live=tools.filter(t=>t.status==='live'&&!consolidated.has(t.slug));assert(live.length>0,`${file} has no live analytics-covered tools`);for(const t of live){assert(t.slug&&t.category,`${file} has invalid analytics source data`);count++;}}
 const [calculator,boundary,link,analytics,toolPage]=await Promise.all([
-readText('components/Calculator.tsx'),readText('components/CalculatorAnalyticsBoundary.tsx'),readText('components/AnalyticsLink.tsx'),readText('lib/analytics.ts'),readText('app/tools/[slug]/page.tsx')]);
+readText('components/Calculator.tsx'),readText('components/CalculatorAnalyticsBoundary.tsx'),readText('components/AnalyticsLink.tsx'),readText('lib/analytics.ts'),readText('app/(en)/tools/[slug]/page.tsx')]);
 assert(toolPage.includes('<Calculator tool={tool}'),'Dynamic tool route must render through Calculator');
 assert(calculator.includes('<CalculatorAnalyticsBoundary'),'Calculator must use CalculatorAnalyticsBoundary');
 assert(boundary.includes("trackAnalyticsEvent('calculator_used'")&&boundary.includes("trackAnalyticsEvent('result_viewed'"),'Boundary must emit calculator events');

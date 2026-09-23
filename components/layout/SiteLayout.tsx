@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 
 import Script from "next/script";
 
-import "./globals.css";
+import "@/app/globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import GoogleAnalyticsRouteTracker from "@/components/GoogleAnalyticsRouteTracker";
+import LanguagePreferenceNotice from "@/components/i18n/LanguagePreferenceNotice";
+import type { Locale } from "@/lib/i18n/routing";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
 const siteUrl =
@@ -70,10 +72,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function SiteLayout({
   children,
+  locale,
 }: {
   children: React.ReactNode;
+  locale: Locale;
 }) {
   const siteEntitySchema = {
     "@context": "https://schema.org",
@@ -128,14 +132,15 @@ export default function RootLayout({
         name: siteName,
         url: siteUrl,
         description: siteDescription,
-        inLanguage: "en-IN",
+        inLanguage: ["en-IN", "hi-IN"],
         publisher: { "@id": `${siteUrl}/#organization` },
       },
     ],
   };
 
   return (
-    <html lang="en-IN" suppressHydrationWarning>
+    <html lang={locale === 'hi' ? 'hi-IN' : 'en-IN'} suppressHydrationWarning>
+      {/* eslint-disable-next-line @next/next/no-head-element -- Shared App Router root document. */}
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -179,11 +184,12 @@ export default function RootLayout({
           />
         ) : null}
 
-        <SiteHeader />
+        <SiteHeader locale={locale} />
+        {locale === 'en' ? <LanguagePreferenceNotice /> : null}
 
         <main className="flex-grow">{children}</main>
 
-        <SiteFooter />
+        <SiteFooter locale={locale} />
 
       </body>
     </html>

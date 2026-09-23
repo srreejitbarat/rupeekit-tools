@@ -39,9 +39,9 @@ describe('issue #85 owned update channel', () => {
   });
 
   it('keeps privacy and unsubscribe language visible', () => {
-    const privacy = read('app/privacy-policy/page.tsx');
+    const privacy = read('app/(en)/privacy-policy/page.tsx');
     const signup = read('components/updates/FinancialUpdatesSignup.tsx');
-    const confirmed = read('app/updates/confirmed/page.tsx');
+    const confirmed = read('app/(en)/updates/confirmed/page.tsx');
 
     expect(privacy).toContain('double opt-in');
     expect(privacy).toContain('Buttondown');

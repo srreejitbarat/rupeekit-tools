@@ -148,7 +148,7 @@ function auditUpdateCollection(fileName, brandSuffix) {
 auditUpdateCollection('financial-updates.ts', ' | RupeeKit Updates');
 auditUpdateCollection('government-salary-updates.ts', ' | Government Salary Updates | RupeeKit');
 
-const blogPage = fs.readFileSync(path.join(process.cwd(), 'app', 'blog', '[slug]', 'page.tsx'), 'utf8');
+const blogPage = fs.readFileSync(path.join(process.cwd(), 'app', '(en)', 'blog', '[slug]', 'page.tsx'), 'utf8');
 if (!blogPage.includes('normalizeSerpTitle(post.seoTitle || post.title)')) fail('Blog generateMetadata must normalize the effective SEO title.');
 if (!blogPage.includes('normalizeSerpDescription(post.metaDescription)')) fail('Blog generateMetadata must normalize the effective meta description.');
 

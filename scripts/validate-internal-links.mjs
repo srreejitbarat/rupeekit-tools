@@ -180,7 +180,7 @@ for (const slug of consolidatedBlogs) {
 }
 
 const clusterSource = read('data/tool-clusters.ts');
-const hubRouteSource = read('app/tool-hubs/[slug]/page.tsx');
+const hubRouteSource = read('app/(en)/tool-hubs/[slug]/page.tsx');
 const headerSource = read('components/SiteHeader.tsx');
 for (const slug of ['loans-emi', 'tax-compliance', 'investing-markets', 'insurance-protection', 'government-pension', 'life-stage-planning', 'small-savings']) {
   if (!clusterSource.includes(`slug: '${slug}'`)) fail(`Missing required calculator cluster: ${slug}`);
@@ -188,15 +188,15 @@ for (const slug of ['loans-emi', 'tax-compliance', 'investing-markets', 'insuran
 if (!hubRouteSource.includes('getPrimaryClusterForTool')) fail('Cluster hub route does not render live tools by primary cluster');
 if (!headerSource.includes("href: '/tool-hubs'")) fail('Primary navigation does not expose calculator hubs');
 
-const toolRoute = read('app/tools/[slug]/page.tsx');
-const blogRoute = read('app/blog/[slug]/page.tsx');
+const toolRoute = read('app/(en)/tools/[slug]/page.tsx');
+const blogRoute = read('app/(en)/blog/[slug]/page.tsx');
 for (const [label, source] of [['tool route', toolRoute], ['blog route', blogRoute]]) {
   if (!source.includes('canonical: pageUrl')) fail(`${label} missing self-canonical metadata`);
   if (!source.includes('index: true') || !source.includes('follow: true')) fail(`${label} missing index/follow robots metadata`);
   if (!source.includes("'max-image-preview': 'large'")) fail(`${label} missing max-image-preview:large`);
 }
 
-const taxRoutePath = 'app/tools/income-tax-calculator-old-vs-new-regime-india/page.tsx';
+const taxRoutePath = 'app/(en)/tools/income-tax-calculator-old-vs-new-regime-india/page.tsx';
 if (fs.existsSync(path.join(ROOT, taxRoutePath))) {
   const taxRoute = read(taxRoutePath);
   if (!taxRoute.includes('canonical:') || !taxRoute.includes('index: true') || !taxRoute.includes("'max-image-preview': 'large'")) {
@@ -240,7 +240,7 @@ for (const slug of removedFinancialUpdateSlugs) {
 const governmentUpdateSource = read('data/government-salary-updates.ts');
 const sampleGovernmentUpdateSlugs = extractSampleSlugs(governmentUpdateSource);
 const governmentHubSource = read('components/updates/GovernmentSalaryUpdatesClient.tsx');
-const governmentDetailSource = read('app/government-salary-updates/[slug]/page.tsx');
+const governmentDetailSource = read('app/(en)/government-salary-updates/[slug]/page.tsx');
 
 if (!governmentHubSource.includes('indexableGovernmentSalaryUpdates')) {
   fail('Government salary hub can expose sample update links');

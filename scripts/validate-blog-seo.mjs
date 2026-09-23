@@ -146,7 +146,7 @@ if (!financeDisclaimerSource.includes('does not guarantee returns, tax savings, 
   errors.push('Shared blog disclosure must include safe no-guarantee wording.');
 }
 
-const blogPageSource = fs.readFileSync(path.join(root, 'app', 'blog', '[slug]', 'page.tsx'), 'utf8');
+const blogPageSource = fs.readFileSync(path.join(root, 'app', '(en)', 'blog', '[slug]', 'page.tsx'), 'utf8');
 if (!blogPageSource.includes("'max-image-preview': 'large'")) errors.push('Blog metadata must allow max-image-preview: large.');
 if (!blogPageSource.includes("twitter: { card: 'summary_large_image'")) errors.push('Blog metadata must use Twitter large-image cards.');
 if (!blogPageSource.includes('alternates: { canonical: pageUrl }')) errors.push('Blog pages must remain self-canonical.');

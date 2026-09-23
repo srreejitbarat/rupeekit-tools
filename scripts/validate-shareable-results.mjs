@@ -24,7 +24,7 @@ const [scenarios, middleware, boundary, analytics, calculator, sitemap, route] =
   readText('lib/analytics.ts'),
   readText('components/Calculator.tsx'),
   readText('app/sitemap.ts'),
-  readText('app/tools/scenarios/[slug]/page.tsx'),
+  readText('app/(en)/tools/scenarios/[slug]/page.tsx'),
 ]);
 
 const allTools = (await Promise.all(toolFiles.map(readJson))).flat();

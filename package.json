@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:discover-images && next build",
-    "postbuild": "npm run validate:discover-rendered && npm run validate:discover-guides-rendered && npm run validate:direct-answer-rendered && npm run validate:tool-serp-rendered && node scripts/validate-pre-emi-rendered.mjs",
+    "postbuild": "npm run validate:discover-rendered && npm run validate:discover-guides-rendered && npm run validate:direct-answer-rendered && npm run validate:tool-serp-rendered && node scripts/validate-pre-emi-rendered.mjs && npm run validate:languages-rendered",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
@@ -37,7 +37,8 @@
     "fetch:gold-rates": "node scripts/fetch-gold-rates.mjs",
     "probe:gold-providers": "node scripts/probe-gold-providers.mjs",
     "typecheck": "tsc --noEmit",
-    "validate:tool-serp-rendered": "node scripts/validate-tool-serp-rendered.mjs"
+    "validate:tool-serp-rendered": "node scripts/validate-tool-serp-rendered.mjs",
+    "validate:languages-rendered": "node scripts/validate-languages-rendered.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",

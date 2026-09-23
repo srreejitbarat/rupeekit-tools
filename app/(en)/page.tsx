@@ -1,3 +1,4 @@
+import { languageAlternates } from '@/lib/i18n/routing';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CalculatorJumpSearch from '@/components/home/CalculatorJumpSearch';
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: { absolute: 'RupeeKit - Free India Salary & Finance Calculators' },
   description:
     'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',
-  alternates: { canonical: SITE_URL },
+  alternates: languageAlternates('/'),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
     title: 'RupeeKit - Free India Salary & Finance Calculators',

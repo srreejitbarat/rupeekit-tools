@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 const root = process.cwd();
 const read = (file: string) => fs.readFileSync(path.join(root, file), 'utf8');
 
-const hub = read('app/8th-pay-commission/page.tsx');
+const hub = read('app/(en)/8th-pay-commission/page.tsx');
 const calculator = read('components/calculators/advanced/EighthPayCommissionCalculator.tsx');
 const matrix = read('data/eighth-cpc-pay-matrix.ts');
 const middleware = read('middleware.ts');

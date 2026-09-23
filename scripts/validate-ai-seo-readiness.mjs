@@ -42,17 +42,17 @@ const tools = [
 ];
 const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
 
-const toolPageSource = readText('app', 'tools', '[slug]', 'page.tsx');
-const homePageSource = readText('app', 'page.tsx');
-const resourcesPageSource = readText('app', 'resources', 'page.tsx');
-const blogPageSource = readText('app', 'blog', '[slug]', 'page.tsx');
+const toolPageSource = readText('app', '(en)', 'tools', '[slug]', 'page.tsx');
+const homePageSource = readText('app', '(en)', 'page.tsx');
+const resourcesPageSource = readText('app', '(en)', 'resources', 'page.tsx');
+const blogPageSource = readText('app', '(en)', 'blog', '[slug]', 'page.tsx');
 const blogLayoutSource = readText('components', 'blog', 'BlogArticleLayout.tsx');
 const blogFaqSectionSource = readText('components', 'blog', 'FAQSection.tsx');
 const factsTableSource = readText('components', 'seo', 'FactsTable.tsx');
 const sipCalculatorSource = readText('components', 'sip', 'SipPlannerCalculator.tsx');
-const dedicatedIncomeTaxToolSource = readText('app', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
-const rootLayoutSource = readText('app', 'layout.tsx');
-const guidePageSource = readText('app', 'guides', '[slug]', 'page.tsx');
+const dedicatedIncomeTaxToolSource = readText('app', '(en)', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
+const rootLayoutSource = readText('components', 'layout', 'SiteLayout.tsx');
+const guidePageSource = readText('app', '(en)', 'guides', '[slug]', 'page.tsx');
 const robotsSource = readText('app', 'robots.ts');
 const sitemapSource = readText('app', 'sitemap.ts');
 const blogDataSource = readText('data', 'blog-posts.ts');
@@ -444,7 +444,7 @@ ensure(
   'FAQSection visibility guard is missing for empty FAQ arrays'
 );
 
-ensure(homePageSource.includes('canonical: SITE_URL'), 'Homepage canonical is missing or not self-canonical');
+ensure(homePageSource.includes("alternates: languageAlternates('/')"), 'Homepage must use the shared self-canonical and language-alternate helper (also verified in rendered output)');
 ensure(
   resourcesPageSource.includes('canonical: `${SITE_URL}/resources`'),
   'Resources page canonical is missing or not self-canonical'

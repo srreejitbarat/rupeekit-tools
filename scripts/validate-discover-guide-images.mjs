@@ -56,7 +56,7 @@ for (const guide of guides) {
   if (!fs.existsSync(filePath)) errors.push(`Missing guide-cluster Discover asset: ${image.src}`);
 }
 
-const guidePageSource = fs.readFileSync(path.join(root, 'app', 'guides', '[slug]', 'page.tsx'), 'utf8');
+const guidePageSource = fs.readFileSync(path.join(root, 'app', '(en)', 'guides', '[slug]', 'page.tsx'), 'utf8');
 for (const required of [
   "getDiscoverImage(canonicalPath)",
   '<DiscoverHeroImage image={discoverImage}',

@@ -47,7 +47,7 @@ ensure(guideSource.includes("id: 'home-loan-swp'"), 'SWP guide cluster is missin
 ensure(guideSource.includes("toolSlug: 'hra-exemption-calculator-india'"), 'HRA guide cluster is missing');
 ensure(guideSource.includes("toolSlug: 'emergency-fund-calculator-india'"), 'Emergency-fund guide cluster is missing');
 
-const toolPage = fs.readFileSync(path.join(root, 'app', 'tools', '[slug]', 'page.tsx'), 'utf8');
+const toolPage = fs.readFileSync(path.join(root, 'app', '(en)', 'tools', '[slug]', 'page.tsx'), 'utf8');
 const sitemap = fs.readFileSync(path.join(root, 'app', 'sitemap.ts'), 'utf8');
 const llms = fs.readFileSync(path.join(root, 'public', 'llms.txt'), 'utf8');
 ensure(toolPage.includes('getGuidesForTool'), 'Calculator pages do not link their supporting guides');

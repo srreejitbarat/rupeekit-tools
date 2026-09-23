@@ -26,7 +26,7 @@ const backlinks = fs.readFileSync(backlinkPath, 'utf8');
 
 for (const slug of expectedSlugs) {
   if (!data.includes(`slug: '${slug}'`)) throw new Error(`Missing update data for ${slug}`);
-  const route = path.join(root, `app/financial-updates/${slug}/page.tsx`);
+  const route = path.join(root, `app/(en)/financial-updates/${slug}/page.tsx`);
   if (!fs.existsSync(route)) throw new Error(`Missing static route for ${slug}`);
   const routeSource = fs.readFileSync(route, 'utf8');
   if (!routeSource.includes(slug)) throw new Error(`Route ${slug} is not wired to its data slug`);

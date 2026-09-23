@@ -1,3 +1,4 @@
+import { languageAlternates } from '@/lib/i18n/routing';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ToolsExplorer from '@/components/tools/ToolsExplorer';
@@ -11,7 +12,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/tools` },
+  alternates: languageAlternates('/tools'),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
     title: TITLE,

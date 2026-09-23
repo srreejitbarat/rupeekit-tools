@@ -125,3 +125,18 @@ input[type='number'] {
     margin: 16mm;
   }
 }
+
+/* Devanagari marks need room above and below the text. Do not inherit the
+   tightly tracked English display type on Hindi pages. Fonts remain local. */
+html:lang(hi-IN) body,
+[lang="hi-IN"],
+[lang="hi"] {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", Mangal, "Segoe UI", sans-serif;
+  letter-spacing: normal;
+}
+html:lang(hi-IN) h1,
+html:lang(hi-IN) h2,
+html:lang(hi-IN) h3 {
+  line-height: 1.6;
+  letter-spacing: normal;
+}
