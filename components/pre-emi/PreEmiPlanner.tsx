@@ -19,6 +19,7 @@ import {
 } from "@/lib/pre-emi/engine";
 import { trackAnalyticsEvent } from "@/lib/analytics";
 import PlanCharts from "./PlanCharts";
+import PlannerTour from "./PlannerTour";
 import { compactMoney, money } from "./format";
 
 type NumericKey = {
@@ -333,6 +334,7 @@ export default function PreEmiPlanner({
           YOUR HOME. YOUR NUMBERS.
         </span>
         <div>
+          <PlannerTour activeTab={tab} onSelectTab={setTab} />
           <button
             type="button"
             onClick={() => setShowReset(true)}
@@ -409,7 +411,7 @@ export default function PreEmiPlanner({
         </div>
       )}
       <div className="pe-layout">
-        <aside className="pe-input-panel pe-card" aria-label="Plan inputs">
+        <aside className="pe-input-panel pe-card" aria-label="Plan inputs" id="pe-tour-inputs">
           <div className="pe-panel-heading">
             <span className="pe-icon-box">
               <Icon kind="home" />
@@ -820,7 +822,7 @@ export default function PreEmiPlanner({
           )}
           {current && baseline && (
             <>
-              <section className="pe-scenario-bar">
+              <section className="pe-scenario-bar" id="pe-tour-delays">
                 <div>
                   <span className="pe-eyebrow">WHAT IF POSSESSION MOVES?</span>
                   <h2>Plan for the wait.</h2>
@@ -982,6 +984,7 @@ export default function PreEmiPlanner({
               </div>
               <section
                 className="pe-card pe-strategies"
+                id="pe-tour-strategies"
                 aria-labelledby="pe-strategies-title"
               >
                 <div className="pe-section-head">
@@ -1032,7 +1035,7 @@ export default function PreEmiPlanner({
                 </p>
               </section>
               <PlanCharts input={input} result={current} />
-              <section className="pe-card pe-stress">
+              <section className="pe-card pe-stress" id="pe-tour-stress">
                 <div>
                   <span className="pe-eyebrow">
                     GIVE YOUR PLAN A REALITY CHECK
@@ -1240,7 +1243,7 @@ export default function PreEmiPlanner({
                   </table>
                 </div>
               </details>
-              <section className="pe-export">
+              <section className="pe-export" id="pe-tour-exports">
                 <div>
                   <span className="pe-eyebrow">TAKE YOUR PLAN WITH YOU</span>
                   <h3>Walk into the bank prepared.</h3>

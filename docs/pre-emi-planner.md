@@ -20,6 +20,12 @@ The planner combines staged home-loan disbursements with household cash flow. It
 
 ## Privacy and exports
 
+### Optional guided tour
+
+`PlannerTour.tsx` offers a small, non-modal invitation when a first-time visitor brings the planner toolbar into view. The calculator stays usable; the full walkthrough opens only after Start tour or Quick tour is chosen. It cancels the automatic invitation if the visitor starts using the planner, and does not auto-open for a saved plan or when local storage is unavailable. The persistent **Quick tour** button opens it on demand.
+
+Seven steps highlight the loan inputs, household cash, tranches, strategy choices, possession delays, stress tests and exports. Next/Back change only the visible input tab; financial inputs and calculation formulas are untouched. Skip, Close and Escape remember a simple `seen` flag under `rupeekit:pre-emi:tour:v1`; finishing does the same and focuses the loan input. The flag contains no plan data. Skipping restores the prior tab, focus and scroll position. The native dialog provides focus containment and an inert background; its card stays within the viewport, with a scrollable body and visible navigation on small screens. Invalid plans get explanatory text for result sections that are temporarily absent.
+
 Calculations, CSV, JSON import/export and opt-in browser storage run locally. Sharing the calculator sends its public URL, without inputs. Analytics contain calculator identifiers and interaction counts, never financial field values.
 
 `POST /api/pre-emi/report` accepts a version-1 JSON envelope with `input` and `mode`. It uses the same validation and calculation engine, renders a PDF with embedded local fonts, and returns `private, no-store` and `noindex` headers. It has a streamed 32 KB body limit, a 12-tranche limit and a two-render concurrency ceiling per Node process. It stores neither inputs nor generated reports and does not log request values. The UI explicitly explains server processing beside the PDF action. No database or API secret is needed.

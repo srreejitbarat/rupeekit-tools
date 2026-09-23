@@ -159,6 +159,8 @@
 }
 .pe-workspace-bar > div {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 18px;
 }
 .pe-text-button {
@@ -1744,5 +1746,336 @@
   }
   .pe-payment-path > div:first-child {
     max-width: 105px;
+  }
+}
+
+/* Optional first-visit guide. A native dialog keeps background controls inert. */
+.pe-tour-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #bed6bf;
+  border-radius: 999px;
+  background: #eaf3e7;
+  color: #235e29;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+  white-space: nowrap;
+}
+.pe-tour-trigger > span {
+  display: inline-grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 1;
+}
+[id^="pe-tour-"] {
+  scroll-margin-top: 105px;
+}
+.pe-tour-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+  color: var(--pe-ink);
+}
+.pe-tour-dialog::backdrop {
+  background: transparent;
+}
+.pe-tour-shade {
+  position: absolute;
+  inset: 0;
+  background: #0c2236ad;
+}
+.pe-tour-spotlight {
+  position: absolute;
+  border: 2px solid #8bc990;
+  border-radius: 18px;
+  box-shadow: 0 0 0 100vmax #0c2236ad;
+  pointer-events: none;
+}
+.pe-tour-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: min(390px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d8e5df;
+  border-radius: 22px;
+  box-shadow: 0 22px 80px #061a3455;
+  text-align: left;
+}
+.pe-tour-topline {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px 10px 25px;
+}
+.pe-tour-topline > span {
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  font-weight: 800;
+  line-height: 1.6;
+  color: #386c47;
+}
+.pe-tour-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  height: 40px;
+  width: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f0f5f3;
+  color: #465d6a;
+  font-size: 25px !important;
+  line-height: 1;
+}
+.pe-tour-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 25px 18px;
+}
+.pe-tour-body h2 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin: 3px 0 14px;
+  outline-offset: 2px;
+}
+.pe-tour-body > p,
+.pe-tour-tip p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #536674;
+}
+.pe-tour-illustration {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin: 3px 0 20px;
+  color: #286e37;
+}
+.pe-tour-illustration span {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #65786c;
+}
+.pe-tour-illustration strong {
+  color: #245e30;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pe-tour-route {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.pe-tour-route li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.pe-tour-route span {
+  display: inline-grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  background: #edf5e9;
+  color: #34733f;
+  font-size: 9px;
+  font-weight: 800;
+}
+.pe-tour-tip {
+  border-left: 3px solid #78ac6f;
+  background: #f1f6ee;
+  border-radius: 0 10px 10px 0;
+  padding: 12px 14px;
+  margin-top: 17px;
+}
+.pe-tour-tip strong {
+  display: block;
+  font-size: 11px;
+  color: #315d34;
+  margin-bottom: 3px;
+}
+.pe-tour-tip p {
+  font-size: 12px;
+  color: #446045;
+}
+.pe-tour-body .pe-tour-unavailable {
+  color: #925213;
+  font-size: 12px;
+  margin-top: 12px;
+}
+.pe-tour-footer {
+  flex-shrink: 0;
+  padding: 14px 22px 17px;
+  border-top: 1px solid #e7eeea;
+  background: #fbfdfb;
+}
+.pe-tour-progress {
+  display: flex;
+  gap: 5px;
+  margin: 0 2px 14px;
+}
+.pe-tour-progress > span {
+  height: 4px;
+  flex: 1;
+  border-radius: 5px;
+  background: #e1e9e3;
+}
+.pe-tour-progress > .is-done {
+  background: #438849;
+}
+.pe-tour-actions,
+.pe-tour-actions > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.pe-tour-actions {
+  justify-content: space-between;
+}
+.pe-tour-actions button {
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pe-tour-actions .pe-button {
+  padding: 11px 15px;
+  border-radius: 10px;
+  gap: 7px;
+}
+.pe-tour-skip,
+.pe-tour-back {
+  border: 0;
+  background: transparent;
+  color: #526875;
+  padding: 8px 6px;
+}
+.pe-tour-back {
+  color: #223e51;
+}
+.pe-tour-reassurance {
+  margin-top: 11px;
+  font-size: 10px;
+  color: #687d71;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (max-width: 550px) {
+  .pe-workspace-bar > div {
+    gap: 8px 14px;
+  }
+  .pe-tour-card {
+    border-radius: 18px;
+  }
+  .pe-tour-body {
+    padding: 0 20px 16px;
+  }
+  .pe-tour-body h2 {
+    font-size: 23px;
+  }
+  .pe-tour-topline {
+    padding-left: 20px;
+  }
+  .pe-tour-footer {
+    padding: 12px 15px 14px;
+  }
+  .pe-tour-actions,
+  .pe-tour-actions > div {
+    gap: 4px;
+  }
+  .pe-tour-actions .pe-button {
+    padding: 10px 12px;
+  }
+}
+@media (max-height: 500px) {
+  .pe-tour-topline {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .pe-tour-footer {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .pe-tour-progress {
+    margin-bottom: 7px;
+  }
+  .pe-tour-reassurance {
+    display: none;
+  }
+}
+.pe-tour-invite {
+  position: fixed;
+  z-index: 45;
+  right: 20px;
+  bottom: 20px;
+  width: min(330px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 17px 19px;
+  border: 1px solid #b9d4bc;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--pe-ink);
+  box-shadow: 0 8px 35px #102e4924;
+}
+.pe-tour-invite > strong {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pe-tour-invite > p {
+  margin: 5px 0 11px;
+  color: var(--pe-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.pe-tour-invite > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.pe-tour-invite button {
+  min-height: 40px;
+  font-size: 12px;
+}
+.pe-tour-invite .pe-button {
+  padding: 9px 13px;
+  border-radius: 9px;
+}
+@media (max-width: 550px) {
+  .pe-tour-invite {
+    right: 16px;
+    bottom: 16px;
   }
 }
