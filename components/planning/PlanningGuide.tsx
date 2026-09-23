@@ -15,7 +15,14 @@ export default function PlanningGuide({ name, steps }: { name: string; steps: Gu
     try { if (!localStorage.getItem(key)) setInvite(true); } catch { /* Optional preference only. */ }
   }, [key]);
   function remember() { try { localStorage.setItem(key, 'seen'); } catch { /* Calculators work without storage. */ } }
-  function close() { remember(); setStep(null); setInvite(false); trigger.current?.focus({ preventScroll: true }); }
+  function close() {
+    remember();
+    // Remove native modal inertness while the dialog is still connected, then
+    // return focus before React removes it. Focusing an inert trigger is ignored.
+    dialog.current?.close();
+    setStep(null); setInvite(false);
+    trigger.current?.focus({ preventScroll: true });
+  }
   const open = step !== null;
   useEffect(() => {
     if (!open) return;
@@ -30,7 +37,7 @@ export default function PlanningGuide({ name, steps }: { name: string; steps: Gu
     <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-slate-100 p-4 dark:bg-slate-800">
       <p className={muted}>{invite ? 'First time here? Take a short, skippable guide.' : 'Need a hand? Reopen the guide whenever you like.'}</p>
       <div className="flex flex-wrap gap-2"><button ref={trigger} type="button" className={secondary} onClick={() => { setInvite(false); setStep(0); }}>Show guide</button>
-        {invite && <button type="button" className="px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200" onClick={() => { remember(); setInvite(false); }}>Skip guide</button>}</div>
+        {invite && <button type="button" className="px-3 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200" onClick={close}>Skip guide</button>}</div>
     </div>
     {step !== null && <dialog ref={dialog} onCancel={e => { e.preventDefault(); close(); }} aria-labelledby={`${name}-guide-title`} aria-describedby={`${name}-guide-text`}
       className="m-auto max-h-[85dvh] w-[calc(100%-2rem)] max-w-lg overflow-y-auto rounded-2xl border border-slate-200 bg-white p-6 text-slate-900 shadow-2xl backdrop:bg-slate-950/60 dark:border-slate-600 dark:bg-slate-900 dark:text-white">
