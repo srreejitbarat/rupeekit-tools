@@ -1,4 +1,5 @@
 import { discoverImages } from '@/data/discover-images';
+import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 
 function escapeXml(value: string) {
@@ -13,6 +14,11 @@ function escapeXml(value: string) {
 export function GET() {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in').replace(/\/$/, '');
   const discoverPaths = new Set(discoverImages.map((image) => image.path));
+  const blogHeroImages = blogPosts.flatMap((post) => {
+    const path = `/blog/${post.slug}`;
+    if (!post.heroImage || discoverPaths.has(path)) return [];
+    return [{ path, src: post.heroImage }];
+  });
   const financialUpdateHeroImages = financialUpdates.flatMap((update) => {
     const path = `/financial-updates/${update.slug}`;
     if (!update.heroImage || discoverPaths.has(path) || update.status === 'sample') return [];
@@ -20,6 +26,7 @@ export function GET() {
   });
   const sitemapImages = [
     ...discoverImages.map((image) => ({ path: image.path, src: image.src })),
+    ...blogHeroImages,
     ...financialUpdateHeroImages,
   ];
 
