@@ -1,3 +1,4 @@
+import { LOCALES, localizedHref } from '@/lib/i18n/routing';
 import { discoverImages } from '@/data/discover-images';
 import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
@@ -31,6 +32,8 @@ export function GET() {
   ];
 
   const entries = sitemapImages
+    .flatMap(image => LOCALES.map(locale => ({...image, path: localizedHref(image.path, locale)})))
+    .filter((image, index, all) => all.findIndex(other => other.path === image.path) === index)
     .map(
       (image) => `  <url>
     <loc>${escapeXml(`${siteUrl}${image.path}`)}</loc>

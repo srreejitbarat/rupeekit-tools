@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -48,9 +49,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: { absolute: `${update.title} | Government Salary Updates | RupeeKit` },
     description: cleanSummary,
-    alternates: {
+    alternates: withLanguageAlternates({
       canonical: pageUrl,
-    },
+    }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title: `${update.title} | Government Salary Updates | RupeeKit`,

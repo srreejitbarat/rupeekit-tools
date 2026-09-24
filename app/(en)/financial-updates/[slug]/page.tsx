@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -68,7 +69,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: { absolute: `${update.title} | RupeeKit Updates` },
     description: cleanSummary,
-    alternates: { canonical: pageUrl },
+    alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: {
       index: update.status !== 'sample',
       follow: update.status !== 'sample',

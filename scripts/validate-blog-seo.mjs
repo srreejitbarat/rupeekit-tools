@@ -149,7 +149,7 @@ if (!financeDisclaimerSource.includes('does not guarantee returns, tax savings, 
 const blogPageSource = fs.readFileSync(path.join(root, 'app', '(en)', 'blog', '[slug]', 'page.tsx'), 'utf8');
 if (!blogPageSource.includes("'max-image-preview': 'large'")) errors.push('Blog metadata must allow max-image-preview: large.');
 if (!blogPageSource.includes("twitter: { card: 'summary_large_image'")) errors.push('Blog metadata must use Twitter large-image cards.');
-if (!blogPageSource.includes('alternates: { canonical: pageUrl }')) errors.push('Blog pages must remain self-canonical.');
+if (!blogPageSource.includes('alternates: withLanguageAlternates({ canonical: pageUrl })')) errors.push('Blog pages must remain self-canonical.');
 if (!blogPageSource.includes("'@type': 'Article'")) errors.push('Blog Article schema is missing.');
 if (!blogPageSource.includes("'@type': 'BreadcrumbList'")) errors.push('Blog Breadcrumb schema is missing.');
 

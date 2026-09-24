@@ -133,7 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const hubRoutes = new Set(['/blog', '/tools', '/tool-hubs', '/money-guides', '/guides', '/nri', '/8th-pay-commission']);
   const lowPriorityRoutes = new Set(['/privacy-policy', '/terms', '/disclaimer', '/affiliate-disclosure']);
 
-  return [
+  const entries: MetadataRoute.Sitemap = [
     ...staticRoutes.map((route) => ({
       url: `${baseUrl}${route}`,
       lastModified: staticRouteLastModified.get(route) ?? STATIC_LAST_MODIFIED,
@@ -232,4 +232,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       };
     }),
   ];
+  return entries.map(entry => ({...entry, alternates: {languages: languageAlternates(new URL(entry.url).pathname).languages}}));
 }

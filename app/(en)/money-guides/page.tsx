@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { moneyGuides } from '@/data/money-authority';
@@ -7,7 +8,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in
 export const metadata: Metadata = {
   title: { absolute: 'Indian Money Decision Guides | RupeeKit' },
   description: 'Ten practical money guides connecting RupeeKit calculators, original worked examples, assumptions and official Indian sources.',
-  alternates: { canonical: `${SITE_URL}/money-guides` },
+  alternates: withLanguageAlternates({ canonical: `${SITE_URL}/money-guides` }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
 };
 

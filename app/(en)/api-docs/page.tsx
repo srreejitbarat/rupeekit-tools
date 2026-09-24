@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { mcpCalculateExampleText } from '@/lib/api-docs-examples';
@@ -6,7 +7,7 @@ import { listPublicCalculators } from '@/lib/public-calculator-api';
 export const metadata: Metadata = {
   title: 'RupeeKit Calculator API and MCP Documentation',
   description: 'Documentation for RupeeKit’s sourced pilot finance calculators through JSON API and MCP tools.',
-  alternates: { canonical: '/api-docs' },
+  alternates: withLanguageAlternates({ canonical: '/api-docs' }),
 };
 
 const requestExample = `POST https://www.rupeekit.co.in/api/v1/calculators/personal-loan-true-apr-calculator-india

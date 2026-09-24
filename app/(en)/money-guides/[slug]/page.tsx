@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -22,7 +23,7 @@ export function generateMetadata({ params }: Props): Metadata {
   return {
     title: { absolute: `${guide.title} | RupeeKit` },
     description: guide.description,
-    alternates: { canonical: url },
+    alternates: withLanguageAlternates({ canonical: url }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: { title: guide.title, description: guide.description, url, type: 'article' },
   };

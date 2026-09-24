@@ -5,6 +5,8 @@ import { createDefaultPlan } from './engine';
 
 vi.mock('@react-pdf/renderer', () => ({ renderToBuffer: vi.fn() }));
 vi.mock('@/components/pre-emi/PreEmiReport', () => ({ default: () => null }));
+vi.mock('@/components/localized/hi/pre-emi/PreEmiReport', () => ({ default: () => ({language:'hi'}) }));
+vi.mock('@/components/localized/bn/pre-emi/PreEmiReport', () => ({ default: () => ({language:'bn'}) }));
 
 const pdf = Buffer.from('%PDF-1.3\nreport');
 const request = (input: unknown = createDefaultPlan()) => new Request('https://www.rupeekit.co.in/api/pre-emi/report', {
@@ -14,6 +16,12 @@ const request = (input: unknown = createDefaultPlan()) => new Request('https://w
 beforeEach(() => { vi.clearAllMocks(); vi.mocked(renderToBuffer).mockResolvedValue(pdf); });
 
 describe('Node PDF endpoint', () => {
+  it.each(['hi','bn'])('selects the %s report without changing the plan', async language => {
+    const original=request();
+    const localized=new Request(original.url+'?lang='+language, {method:'POST',headers:original.headers,body:await original.text()});
+    expect((await POST(localized)).status).toBe(200);
+    expect(renderToBuffer).toHaveBeenCalledWith({language});
+  });
   it('returns a private PDF and rejects bad inputs before invoking the renderer', async () => {
     const response = await POST(request());
     expect(response.status).toBe(200);

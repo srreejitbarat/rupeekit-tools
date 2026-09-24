@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -478,9 +479,9 @@ export function generateMetadata({
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : tool.name,
     description,
-    alternates: {
+    alternates: withLanguageAlternates({
       canonical: pageUrl,
-    },
+    }),
     robots: {
       index: true,
       follow: true,

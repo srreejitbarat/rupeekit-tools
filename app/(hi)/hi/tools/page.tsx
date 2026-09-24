@@ -6,7 +6,7 @@ import { hindiToolCatalog } from '@/data/hi/tool-catalog';
 import { languageAlternates } from '@/lib/i18n/routing';
 
 const title = 'कैलकुलेटर की सूची — सैलरी, EMI, SIP और टैक्स | RupeeKit हिंदी';
-const description = 'अपनी ज़रूरत का मुफ़्त कैलकुलेटर हिंदी में खोजें। सैलरी, लोन, बचत, टैक्स और निवेश के टूल आसान परिचय के साथ। कैलकुलेटर अभी अंग्रेज़ी में उपलब्ध हैं।';
+const description = 'अपनी ज़रूरत का मुफ़्त कैलकुलेटर हिंदी में खोजें। सैलरी, लोन, बचत, टैक्स और निवेश के टूल आसान परिचय के साथ। कैलकुलेटर और उनके नतीजे हिंदी में पढ़ें।';
 const alternates = languageAlternates('/tools', 'hi');
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function HindiToolsPage() {
         <h1 className="mt-3 text-3xl font-extrabold leading-relaxed md:text-4xl md:leading-relaxed">आपके सवाल का सही कैलकुलेटर</h1>
         <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200">हिंदी या अंग्रेज़ी में नाम लिखें, या नीचे विषय चुनें। जैसे: सैलरी, होम लोन, SIP या टैक्स।</p>
       </header>
-      <p className="mt-5 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">यह सूची हिंदी में है। कैलकुलेटर खोलने पर उसके सवाल, नतीजे और डाउनलोड अभी अंग्रेज़ी में मिलेंगे।</p>
+      <p className="mt-5 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">अपनी ज़रूरत का कैलकुलेटर चुनें। उसके सवाल, नतीजे और रिपोर्ट हिंदी में देख सकते हैं।</p>
       <ToolsExplorer tools={tools} locale="hi" />
     </div>
   );

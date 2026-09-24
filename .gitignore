@@ -144,3 +144,9 @@ vite.config.ts.timestamp-*
 
 # Scratch frames/audio written by scripts/generate-fcra-media.py
 .tmp-fcra-media/
+
+# Reproducible localized presentation modules (generated before typecheck/build).
+/components/localized/
+/app/(hi)/hi/**
+/app/(bn)/bn/**
+/lib/i18n/catalogs/sources.json

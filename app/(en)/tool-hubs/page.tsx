@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { toolClusters } from '@/data/tool-clusters';
@@ -8,7 +9,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in
 export const metadata: Metadata = {
   title: { absolute: 'Financial Calculator Hubs India | RupeeKit' },
   description: 'Browse RupeeKit calculator hubs for loans, tax, investing, insurance, pensions, life-stage planning and small savings in India.',
-  alternates: { canonical: `${SITE_URL}/tool-hubs` },
+  alternates: withLanguageAlternates({ canonical: `${SITE_URL}/tool-hubs` }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
 };
 

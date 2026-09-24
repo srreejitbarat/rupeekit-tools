@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
@@ -207,9 +208,9 @@ const faqs = [
 export const metadata: Metadata = {
   title: { absolute: pageTitle },
   description: pageDescription,
-  alternates: {
+  alternates: withLanguageAlternates({
     canonical: PAGE_URL,
-  },
+  }),
   robots: {
     index: true,
     follow: true,

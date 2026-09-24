@@ -102,7 +102,7 @@ export default function SiteLayout({
             contactType: "editorial",
             email: contactEmail,
             url: `${siteUrl}/contact`,
-            availableLanguage: ["en", "hi"],
+            availableLanguage: ["en", "hi", "bn"],
           },
         ],
         publishingPrinciples: `${siteUrl}/editorial-policy`,

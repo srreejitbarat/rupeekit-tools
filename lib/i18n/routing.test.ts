@@ -21,7 +21,7 @@ describe('published translations', () => {
   });
 
   it('does not invent translated pages or modify external URLs', () => {
-    const calculator = '/tools/sip-calculator-india';
+    const calculator = '/tools/not-a-real-calculator';
     for (const locale of ['hi', 'bn'] as const) {
       expect(hasTranslatedPage(calculator, locale)).toBe(false);
       expect(localizedHref(calculator, locale)).toBe(calculator);

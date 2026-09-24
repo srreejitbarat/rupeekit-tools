@@ -65,7 +65,7 @@ assert(middleware.includes("X-Robots-Tag')") || middleware.includes("X-Robots-Ta
 assert(middleware.includes("'/tools/:path*'"), 'Noindex middleware must cover calculator routes.');
 assert(sitemap.includes('indexable-calculator-scenarios.json'), 'Indexable scenario pages must be sourced by sitemap.');
 assert(sitemap.includes('/tools/scenarios/${scenario.slug}'), 'Scenario sitemap URLs are missing.');
-assert(route.includes('alternates: { canonical }'), 'Scenario pages must be self-canonical.');
+assert(route.includes('alternates: withLanguageAlternates({ canonical })'), 'Scenario pages must be self-canonical.');
 assert(route.includes('robots: { index: true'), 'Evidence-backed scenario pages must be explicitly indexable.');
 assert(route.includes('Open pre-filled calculator'), 'Scenario pages must link to a pre-filled calculator.');
 

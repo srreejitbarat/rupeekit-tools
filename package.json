@@ -40,7 +40,12 @@
     "validate:tool-serp-rendered": "node scripts/validate-tool-serp-rendered.mjs",
     "validate:languages-rendered": "node scripts/validate-languages-rendered.mjs",
     "validate:indexing-rendered": "node scripts/validate-indexing-rendered.mjs",
-    "validate:indexing-live": "node scripts/validate-indexing-live.mjs"
+    "validate:indexing-live": "node scripts/validate-indexing-live.mjs",
+    "generate:languages": "node scripts/i18n/generate.mjs",
+    "pretypecheck": "npm run generate:languages",
+    "pretest": "npm run generate:languages",
+    "prebuild": "node scripts/i18n/extract.mjs && node scripts/i18n/check-catalogs.mjs && npm run generate:languages",
+    "validate:translations": "node scripts/i18n/extract.mjs && node scripts/i18n/check-catalogs.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",

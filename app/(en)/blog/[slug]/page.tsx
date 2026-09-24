@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
@@ -37,7 +38,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
   return {
     title: { absolute: title },
     description,
-    alternates: { canonical: pageUrl },
+    alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title,

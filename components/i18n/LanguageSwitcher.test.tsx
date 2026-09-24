@@ -45,7 +45,7 @@ describe('language choice', () => {
     ['hi', 'हिंदी के विकल्प / Hindi options', 'यह पेज अभी अंग्रेज़ी में उपलब्ध है', 'इसी पेज पर रहें', 'हिंदी होमपेज खोलें'],
     ['bn', 'বাংলা ভাষার বিকল্প / Bengali options', 'এই পেজটি এখন ইংরেজিতে আছে', 'এই পেজেই থাকুন', 'বাংলা হোমপেজ খুলুন'],
   ])('offers an honest %s fallback without losing form values and restores focus', async (language, options, title, stay, home) => {
-    route.pathname = '/tools/sip-calculator-india';
+    route.pathname = '/tools/not-a-real-calculator';
     const user = userEvent.setup();
     render(<><input aria-label="Amount" defaultValue="5000" /><LanguageSwitcher locale="en" /></>);
     const amount = screen.getByRole('textbox', { name: 'Amount' });
@@ -107,7 +107,7 @@ describe('translated calculator discovery', () => {
     expect(screen.getAllByRole('link')).toHaveLength(2);
   });
 
-  it('supports Hindi and English search and marks calculator destinations as English', async () => {
+  it('supports Hindi and English search and links to matching Hindi calculators', async () => {
     render(<ToolsExplorer locale="hi" tools={[
       { slug: 'salary-in-hand-calculator-india', category: 'Salary', name: 'हाथ में आने वाली सैलरी', shortDescription: 'सैलरी का अनुमान', searchTerms: 'salary take home' },
       { slug: 'sip-calculator-india', category: 'Investments', name: 'SIP से बचत', shortDescription: 'निवेश का अनुमान', searchTerms: 'sip investment' },
@@ -116,17 +116,17 @@ describe('translated calculator discovery', () => {
     const user = userEvent.setup();
     await user.type(search, 'सैलरी');
     expect(screen.getAllByRole('link')).toHaveLength(1);
-    expect(screen.getByRole('link').getAttribute('href')).toBe('/tools/salary-in-hand-calculator-india');
-    expect(screen.getByRole('link').textContent).toContain('अंग्रेज़ी में उपलब्ध');
+    expect(screen.getByRole('link').getAttribute('href')).toBe('/hi/tools/salary-in-hand-calculator-india');
+    expect(screen.getByRole('link').textContent).not.toContain('अंग्रेज़ी में उपलब्ध');
     await user.clear(search);
     await user.type(search, 'investment');
     expect(screen.getAllByRole('link')).toHaveLength(1);
-    expect(screen.getByRole('link').getAttribute('href')).toBe('/tools/sip-calculator-india');
+    expect(screen.getByRole('link').getAttribute('href')).toBe('/hi/tools/sip-calculator-india');
     await user.click(screen.getByRole('button', { name: 'सभी कैलकुलेटर दिखाएँ' }));
     expect(screen.getAllByRole('link')).toHaveLength(2);
   });
 
-  it('supports Bengali and English search with honest destination labels', async () => {
+  it('supports Bengali and English search with matching Bengali destinations', async () => {
     render(<ToolsExplorer locale="bn" tools={[
       { slug: 'salary-in-hand-calculator-india', category: 'Salary', name: 'হাতে পাওয়া বেতন', shortDescription: 'বেতনের অনুমান', searchTerms: 'salary take home' },
       { slug: 'sip-calculator-india', category: 'Investments', name: 'SIP-এ সঞ্চয়', shortDescription: 'বিনিয়োগের হিসাব', searchTerms: 'sip investment' },
@@ -135,13 +135,13 @@ describe('translated calculator discovery', () => {
     const user = userEvent.setup();
     await user.type(search, 'বেতন');
     expect(screen.getAllByRole('link')).toHaveLength(1);
-    expect(screen.getByRole('link').getAttribute('href')).toBe('/tools/salary-in-hand-calculator-india');
-    expect(screen.getByRole('link').getAttribute('hrefLang')).toBe('en-IN');
-    expect(screen.getByRole('link').textContent).toContain('ইংরেজিতে পাওয়া যাবে');
+    expect(screen.getByRole('link').getAttribute('href')).toBe('/bn/tools/salary-in-hand-calculator-india');
+    expect(screen.getByRole('link').getAttribute('hrefLang')).toBe('bn-IN');
+    expect(screen.getByRole('link').textContent).not.toContain('ইংরেজিতে পাওয়া যাবে');
     await user.clear(search);
     await user.type(search, 'investment');
     expect(screen.getAllByRole('link')).toHaveLength(1);
-    expect(screen.getByRole('link').getAttribute('href')).toBe('/tools/sip-calculator-india');
+    expect(screen.getByRole('link').getAttribute('href')).toBe('/bn/tools/sip-calculator-india');
     await user.click(screen.getByRole('button', { name: 'সব ক্যালকুলেটর দেখান' }));
     expect(screen.getAllByRole('link')).toHaveLength(2);
   });

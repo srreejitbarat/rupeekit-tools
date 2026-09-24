@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import type { FinancialUpdate } from '@/data/financial-updates';
@@ -19,7 +20,7 @@ export function buildDay18UpdateMetadata(slug: string): Metadata {
   return {
     title: { absolute: `${update.title} | RupeeKit Updates` },
     description: update.summary.slice(0, 155),
-    alternates: { canonical: pageUrl },
+    alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title: `${update.title} | RupeeKit Updates`,

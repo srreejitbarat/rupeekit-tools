@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -16,7 +17,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: EDITORIAL_POLICY_URL },
+  alternates: withLanguageAlternates({ canonical: EDITORIAL_POLICY_URL }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
     title: TITLE,

@@ -1,28 +1,36 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { JSDOM } from 'jsdom';
 
-const root = process.cwd();
-const base = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in').replace(/\/$/, '');
-for (const [en, hi, bn] of [['/', '/hi', '/bn'], ['/tools', '/hi/tools', '/bn/tools']]) {
-  for (const [route, locale] of [[en, 'en-IN'], [hi, 'hi-IN'], [bn, 'bn-IN']]) {
-    const html = fs.readFileSync(path.join(root, '.next/server/app', route === '/' ? 'index.html' : `${route.slice(1)}.html`), 'utf8');
-    const absolute = (url) => url === '/' ? base : `${base}${url}`;
-    assert(html.includes(`<html lang="${locale}"`), `${route}: server document language`);
-    assert(html.includes(`<link rel="canonical" href="${absolute(route)}"`), `${route}: self canonical`);
-    for (const [language, href] of [['en-IN', en], ['hi-IN', hi], ['bn-IN', bn], ['x-default', en]]) {
-      assert(html.includes(`<link rel="alternate" hrefLang="${language}" href="${absolute(href)}"`), `${route}: ${language} alternate`);
-    }
-    assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${route}: one main heading`);
-    assert(html.includes('Language / भाषा / ভাষা'), `${route}: visible language choice`);
-    if (locale === 'hi-IN') {
-      assert(html.includes('अंग्रेज़ी में उपलब्ध') || html.includes('अभी अंग्रेज़ी में'), `${route}: accurate translation coverage`);
-      assert(html.includes('कैलकुलेटर'), `${route}: server-rendered Hindi content`);
-    }
-    if (locale === 'bn-IN') {
-      assert(html.includes('ইংরেজিতে পাওয়া যাবে') || html.includes('এখন ইংরেজিতে'), `${route}: accurate translation coverage`);
-      assert(html.includes('ক্যালকুলেটর'), `${route}: server-rendered Bengali content`);
-    }
+const base=(process.env.NEXT_PUBLIC_SITE_URL||'https://www.rupeekit.co.in').replace(/\/$/,'');
+const routes=JSON.parse(fs.readFileSync('lib/i18n/public-routes.json','utf8'));
+const absolute=(route,locale)=>base+(locale==='en'?'':`/${locale}`)+(route==='/'?'':route);
+const file=(route,locale)=>path.join('.next/server/app',locale==='en'?(route==='/'?'index.html':route.slice(1)+'.html'):locale+(route==='/'?'':route)+'.html');
+const residual=[];
+for(const route of routes){
+ for(const locale of ['en','hi','bn']){
+  const html=fs.readFileSync(file(route,locale),'utf8');
+  const dom=new JSDOM(html), d=dom.window.document;
+  assert.equal(d.documentElement.lang,`${locale}-IN`,`${locale}${route}: document language`);
+  assert.equal(d.querySelector('link[rel=canonical]')?.getAttribute('href'),absolute(route,locale),`${locale}${route}: self canonical`);
+  for(const language of ['en','hi','bn'])assert.equal(d.querySelector(`link[hreflang="${language}-IN"]`)?.getAttribute('href'),absolute(route,language),`${locale}${route}: ${language} alternate`);
+  assert.equal(d.querySelector('link[hreflang="x-default"]')?.getAttribute('href'),absolute(route,'en'),`${locale}${route}: x-default`);
+  assert.equal(d.querySelectorAll('h1').length,1,`${locale}${route}: one main heading`);
+  if(locale!=='en'){
+   const script=locale==='hi'?/[\u0900-\u097f]/:/[\u0980-\u09ff]/;
+   assert(script.test(d.querySelector('h1')?.textContent||''),`${locale}${route}: translated heading`);
+   d.querySelectorAll('script,style,code,pre,noscript').forEach(n=>n.remove());
+   const walker=d.createTreeWalker(d.body,dom.window.NodeFilter.SHOW_TEXT);
+   while(walker.nextNode()){
+    const text=walker.currentNode.textContent.replace(/\s+/g,' ').trim();
+    // Acronyms, URLs, brand names and numeric formulas are valid in both languages.
+    if((text.match(/\b[A-Z]?[a-z]{2,}\b/g)||[]).length>=3&&!script.test(text)&&!/^https?:\/\//.test(text))residual.push({locale,route,text});
+   }
   }
+  dom.window.close();
+ }
 }
-console.log('Language rendering passed: six English, Hindi and Bengali pages, server-rendered translations, self-canonicals and reciprocal alternates.');
+fs.writeFileSync('.next/i18n-untranslated.json',JSON.stringify(residual,null,2));
+assert.equal(residual.length,0,`${residual.length} untranslated prose nodes; review .next/i18n-untranslated.json`);
+console.log(`Language rendering passed: ${routes.length*3} pages, native headings, reciprocal alternates, self-canonicals and no untranslated prose.`);

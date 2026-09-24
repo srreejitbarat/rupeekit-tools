@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +18,7 @@ const image = "/images/discover/pre-emi-calculator-india.webp";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: pageUrl },
+  alternates: withLanguageAlternates({ canonical: pageUrl }),
   robots: { index: true, follow: true, "max-image-preview": "large" },
   openGraph: {
     title,

@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -44,7 +45,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: { absolute: scenario.title },
     description: scenario.metaDescription,
-    alternates: { canonical },
+    alternates: withLanguageAlternates({ canonical }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
       title: scenario.title,

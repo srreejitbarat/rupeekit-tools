@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -19,7 +20,7 @@ export function generateMetadata({ params }: Props): Metadata {
   return {
     title: { absolute: `${cluster.name} Calculators India | RupeeKit` },
     description: cluster.description,
-    alternates: { canonical: pageUrl },
+    alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: { title: `${cluster.name} Calculators India`, description: cluster.description, url: pageUrl, type: 'website' },
   };

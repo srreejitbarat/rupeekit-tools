@@ -38,16 +38,16 @@ export default function HindiHomePage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <p className="mt-7 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">होमपेज और कैलकुलेटर की सूची हिंदी में उपलब्ध हैं। अभी कैलकुलेटर के अंदर के सवाल, नतीजे और डाउनलोड अंग्रेज़ी में हैं। हर लिंक पर इसकी जानकारी दी गई है।</p>
+        <p className="mt-7 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">कैलकुलेटर, नतीजे, रिपोर्ट, ब्लॉग और गाइड हिंदी में पढ़ें। ऊपर दिए विकल्प से किसी भी पेज की भाषा बदल सकते हैं।</p>
         <section id="calculators" className="mt-10 scroll-mt-24">
           <h2 className="text-2xl font-bold leading-relaxed text-brandDeepNavy dark:text-white">आज आप क्या जानना चाहते हैं?</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((slug) => {
               const tool = hindiToolCatalog[slug];
-              return <Link key={slug} href={`/tools/${slug}`} hrefLang="en-IN" className="group flex flex-col rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition hover:border-brandNavy/40 hover:shadow-cardHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandNavy dark:border-slate-800 dark:bg-slate-900">
+              return <Link key={slug} href={`/hi/tools/${slug}`} hrefLang="hi-IN" className="group flex flex-col rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition hover:border-brandNavy/40 hover:shadow-cardHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandNavy dark:border-slate-800 dark:bg-slate-900">
                 <h3 className="text-lg font-bold leading-8 text-brandDeepNavy dark:text-white">{tool.name}</h3>
                 <p className="mt-3 flex-grow text-sm leading-7 text-brandMuted dark:text-slate-300">{tool.shortDescription}</p>
-                <span className="mt-5 border-t border-brandBorder pt-4 text-sm font-bold leading-7 text-brandNavy dark:border-slate-700 dark:text-brandBrightGreen">कैलकुलेटर खोलें <span aria-hidden="true">→</span><span className="mt-1 block text-xs font-medium text-brandMuted dark:text-slate-400">अंग्रेज़ी में उपलब्ध</span></span>
+                <span className="mt-5 border-t border-brandBorder pt-4 text-sm font-bold leading-7 text-brandNavy dark:border-slate-700 dark:text-brandBrightGreen">कैलकुलेटर खोलें <span aria-hidden="true">→</span><span className="mt-1 block text-xs font-medium text-brandMuted dark:text-slate-400">हिंदी में उपलब्ध</span></span>
               </Link>;
             })}
           </div>

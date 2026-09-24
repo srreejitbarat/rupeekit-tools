@@ -135,7 +135,7 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
           </div>
         </div>
 
-        {locale !== 'en' ? <p className="mt-6 text-sm leading-7 text-brandMuted dark:text-slate-400">{locale === 'bn' ? 'এখন হোমপেজ ও ক্যালকুলেটরের তালিকা বাংলায় আছে। ক্যালকুলেটর, লেখা ও নীতির লিঙ্কগুলি ইংরেজি পেজ খুলবে।' : 'अभी होमपेज और कैलकुलेटर की सूची हिंदी में हैं। कैलकुलेटर, लेख और नीतियों के लिंक अंग्रेज़ी पेज खोलते हैं।'}</p> : null}
+        {locale !== 'en' ? <p className="mt-6 text-sm leading-7 text-brandMuted dark:text-slate-400">{locale === 'bn' ? 'ক্যালকুলেটর, নিবন্ধ, নির্দেশিকা ও নীতিগুলি বাংলায় পড়ুন। উপরের ভাষার বিকল্প দিয়ে একই পেজের ভাষা বদলাতে পারেন।' : 'कैलकुलेटर, लेख, गाइड और नीतियाँ हिंदी में पढ़ें। ऊपर दिए भाषा विकल्प से इसी पेज की भाषा बदल सकते हैं।'}</p> : null}
 
         {/* Brand Disclaimer & Copyright */}
         <div className="mt-12 border-t border-brandBorder pt-8 dark:border-slate-800">

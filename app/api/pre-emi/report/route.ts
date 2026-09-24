@@ -1,5 +1,7 @@
 import { renderToBuffer } from "@react-pdf/renderer";
 import PreEmiReport from "@/components/pre-emi/PreEmiReport";
+import HindiPreEmiReport from "@/components/localized/hi/pre-emi/PreEmiReport";
+import BengaliPreEmiReport from "@/components/localized/bn/pre-emi/PreEmiReport";
 import {
   parseReportRequest,
   ReportRequestError,
@@ -27,7 +29,9 @@ export async function POST(request: Request) {
       );
     activeReports += 1;
     rendering = true;
-    const buffer = await renderToBuffer(PreEmiReport(plan));
+    const language = new URL(request.url).searchParams.get("lang");
+    const Report = language === "hi" ? HindiPreEmiReport : language === "bn" ? BengaliPreEmiReport : PreEmiReport;
+    const buffer = await renderToBuffer(Report(plan));
     return new Response(new Uint8Array(buffer), {
       headers: {
         ...privateHeaders,

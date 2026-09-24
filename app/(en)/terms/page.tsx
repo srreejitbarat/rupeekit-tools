@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
@@ -8,9 +9,9 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: {
+  alternates: withLanguageAlternates({
     canonical: `${SITE_URL}/terms`,
-  },
+  }),
   robots: {
     index: true,
     follow: true,

@@ -40,3 +40,7 @@ language SEO across six static pages.
 
 Next: translate complete calculators, including fields, errors, results, tours
 and downloads, then articles and policies. Retain the shared calculation engines.
+
+## Pending full-site extension
+
+The draft described in `docs/hindi-bengali-full-site-rollout.md` extends this architecture to every canonical page. Its translation catalogs are incomplete and its production build is intentionally blocked. The earlier limited release described above remains the deployed behavior until the full translation gate passes.

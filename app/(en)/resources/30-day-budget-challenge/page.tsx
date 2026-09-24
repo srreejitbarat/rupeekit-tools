@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import BudgetChallenge from '@/components/BudgetChallenge';
 
@@ -9,9 +10,9 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: {
+  alternates: withLanguageAlternates({
     canonical: `${SITE_URL}/resources/30-day-budget-challenge`,
-  },
+  }),
   robots: {
     index: true,
     follow: true,

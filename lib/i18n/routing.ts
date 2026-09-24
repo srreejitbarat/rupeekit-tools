@@ -1,3 +1,4 @@
+import publicRoutes from './public-routes.json';
 export const LOCALES = ['en', 'hi', 'bn'] as const;
 export type Locale = typeof LOCALES[number];
 export const LOCALE_TAGS: Record<Locale, string> = { en: 'en-IN', hi: 'hi-IN', bn: 'bn-IN' };
@@ -5,11 +6,8 @@ export const LOCALE_LABELS: Record<Locale, string> = { en: 'English', hi: 'เคนเค
 
 // Register each language independently, only after its visible content is
 // translated. Never publish an English-only copy under a translated URL.
-export const PUBLISHED_TRANSLATIONS = {
-  hi: ['/', '/tools'],
-  bn: ['/', '/tools'],
-} as const;
-export const LANGUAGE_RELEASE_DATE = '2026-09-23';
+export const PUBLISHED_TRANSLATIONS = { hi: publicRoutes, bn: publicRoutes } as const;
+export const LANGUAGE_RELEASE_DATE = '2026-09-24';
 export const LANGUAGE_PREFERENCE_KEY = 'rupeekit-language';
 
 export function englishPath(pathname: string): string {
@@ -23,6 +21,7 @@ export function englishPath(pathname: string): string {
 
 export function hasTranslatedPage(pathname: string, locale: Locale): boolean {
   if (locale === 'en') return true;
+  if (englishPath(pathname) === '/updates/confirmed') return true;
   return PUBLISHED_TRANSLATIONS[locale].some((path) => path === englishPath(pathname));
 }
 

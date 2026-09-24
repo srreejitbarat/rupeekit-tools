@@ -38,16 +38,16 @@ export default function BengaliHomePage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 md:px-6">
-        <p className="mt-7 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">হোমপেজ ও ক্যালকুলেটরের তালিকা বাংলায় আছে। ক্যালকুলেটরের ভিতরের প্রশ্ন, ফলাফল ও ডাউনলোড এখন ইংরেজিতে আছে। প্রতিটি লিঙ্কে সেটি জানানো হয়েছে।</p>
+        <p className="mt-7 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">ক্যালকুলেটর, ফলাফল, রিপোর্ট, ব্লগ ও নির্দেশিকা বাংলায় পড়ুন। উপরের বিকল্প দিয়ে যে কোনও পেজের ভাষা বদলাতে পারেন।</p>
         <section id="calculators" className="mt-10 scroll-mt-24">
           <h2 className="text-2xl font-bold leading-relaxed text-brandDeepNavy dark:text-white">আজ আপনি কী জানতে চান?</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((slug) => {
               const tool = bengaliToolCatalog[slug];
-              return <Link key={slug} href={`/tools/${slug}`} hrefLang="en-IN" className="group flex flex-col rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition hover:border-brandNavy/40 hover:shadow-cardHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandNavy dark:border-slate-800 dark:bg-slate-900">
+              return <Link key={slug} href={`/bn/tools/${slug}`} hrefLang="bn-IN" className="group flex flex-col rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition hover:border-brandNavy/40 hover:shadow-cardHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandNavy dark:border-slate-800 dark:bg-slate-900">
                 <h3 className="text-lg font-bold leading-8 text-brandDeepNavy dark:text-white">{tool.name}</h3>
                 <p className="mt-3 flex-grow text-sm leading-7 text-brandMuted dark:text-slate-300">{tool.shortDescription}</p>
-                <span className="mt-5 border-t border-brandBorder pt-4 text-sm font-bold leading-7 text-brandNavy dark:border-slate-700 dark:text-brandBrightGreen">ক্যালকুলেটর খুলুন <span aria-hidden="true">→</span><span className="mt-1 block text-xs font-medium text-brandMuted dark:text-slate-400">ইংরেজিতে পাওয়া যাবে</span></span>
+                <span className="mt-5 border-t border-brandBorder pt-4 text-sm font-bold leading-7 text-brandNavy dark:border-slate-700 dark:text-brandBrightGreen">ক্যালকুলেটর খুলুন <span aria-hidden="true">→</span><span className="mt-1 block text-xs font-medium text-brandMuted dark:text-slate-400">বাংলায় পাওয়া যাবে</span></span>
               </Link>;
             })}
           </div>

@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
@@ -10,7 +11,7 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/about` },
+  alternates: withLanguageAlternates({ canonical: `${SITE_URL}/about` }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
     title: TITLE,

@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { NextRequest } from 'next/server';
+import { middleware as indexingMiddleware } from '../middleware';
+import { metadata as hubMetadata } from '../app/(en)/8th-pay-commission/page';
 
 const root = process.cwd();
 const read = (file: string) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -33,9 +36,12 @@ describe('8th CPC hub freshness and indexing', () => {
   });
 
   it('canonicalises to the clean URL and noindexes parameterised variants', () => {
-    expect(hub).toContain('alternates: { canonical: PAGE_URL }');
-    expect(middleware).toContain("request.nextUrl.pathname === '/8th-pay-commission'");
-    expect(middleware).toContain("'/8th-pay-commission'");
+    expect(hubMetadata.alternates?.canonical).toBe('https://www.rupeekit.co.in/8th-pay-commission');
+    for (const prefix of ['', '/hi', '/bn']) {
+      const url='https://www.rupeekit.co.in'+prefix+'/8th-pay-commission';
+      expect(indexingMiddleware(new NextRequest(url)).headers.get('X-Robots-Tag')).toBeNull();
+      expect(indexingMiddleware(new NextRequest(url+'?rk_salary=75000')).headers.get('X-Robots-Tag')).toBe('noindex, follow');
+    }
   });
 });
 

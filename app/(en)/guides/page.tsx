@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { allGuideClusters, allGuides } from '@/data/calculator-guides';
@@ -7,7 +8,7 @@ const SITE_URL = 'https://www.rupeekit.co.in';
 export const metadata: Metadata = {
   title: { absolute: 'RupeeKit Calculator Guides | India Money Questions' },
   description: 'Practical India-focused answers for home loans, SWP, HRA, gratuity, personal-loan APR, emergency funds, prepayment and foreclosure.',
-  alternates: { canonical: `${SITE_URL}/guides` },
+  alternates: withLanguageAlternates({ canonical: `${SITE_URL}/guides` }),
   robots: { index: true, follow: true },
 };
 

@@ -1,3 +1,4 @@
+import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import { blogPosts } from '@/data/all-blog-posts';
 import BlogListingClient from '@/components/blog/BlogListingClient';
@@ -9,7 +10,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in
 export const metadata: Metadata = {
   title: { absolute: 'Personal Finance Guides India: Tax, Loans & Investing' },
   description: 'Browse practical Indian money guides across seven clear hubs: budgeting, loans, tax, salary, savings, investing, and government compliance.',
-  alternates: { canonical: `${SITE_URL}/blog` },
+  alternates: withLanguageAlternates({ canonical: `${SITE_URL}/blog` }),
   robots: {
     index: true,
     follow: true,
