@@ -93,7 +93,7 @@ export default function CalculatorScenarioPage({ params }: { params: { slug: str
       </nav>
 
       <article>
-        <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Evidence-backed calculator scenario</p>
+        <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Personal loan worked example</p>
         <h1 className="mt-3 text-3xl font-black tracking-tight text-brandDeepNavy md:text-4xl">{scenario.h1}</h1>
         <p className="mt-4 text-base leading-7 text-slate-700">{scenario.metaDescription}</p>
 
@@ -115,7 +115,7 @@ export default function CalculatorScenarioPage({ params }: { params: { slug: str
         <div className="mt-8 rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 md:p-6">
           <h2 className="text-xl font-bold text-brandDeepNavy">Try the same scenario in the calculator</h2>
           <p className="mt-2 text-sm leading-6 text-slate-700">
-            The link below opens the base calculator with these inputs restored. The parameter URL itself is noindex and canonicalizes to the base calculator, so arbitrary shared values cannot create index bloat.
+            Open the calculator with these example inputs, then change the amount, rate or tenure to compare the monthly payment and borrowing estimate for your situation.
           </p>
           <Link
             href={calculatorHref}
@@ -127,9 +127,10 @@ export default function CalculatorScenarioPage({ params }: { params: { slug: str
 
         <section className="mt-8 border-t border-slate-200 pt-6" aria-labelledby="scenario-methodology">
           <h2 id="scenario-methodology" className="text-lg font-bold text-brandDeepNavy">Source and methodology</h2>
-          <p className="mt-3 text-sm leading-6 text-slate-700">{scenario.evidence}</p>
           <p className="mt-3 text-sm leading-6 text-slate-700">
-            The result uses the same RupeeKit calculator formula as the linked base tool. No separate formula is introduced on this page.
+            This example uses the assumptions listed above. Read the formula and limitations in the{' '}
+            <Link href={`/tools/${scenario.calculatorSlug}`} className="font-semibold text-sky-800 hover:underline">full calculator guide</Link>
+            {' '}before comparing the result with a lender&apos;s actual offer.
           </p>
           <p className="mt-3 text-xs leading-5 text-slate-500">
             Educational estimate only. RupeeKit does not provide personalized financial, tax, legal, investment, or loan advice. Last reviewed {scenario.lastModifiedIso}.

@@ -24,6 +24,7 @@ function sitemapUrls(filename) {
 
 const urls = sitemapUrls('sitemap.xml.body');
 const submitted = new Set(urls.map(normalize));
+const linksByPage = new Map();
 if (submitted.size !== urls.length) fail('sitemap.xml: duplicate page URLs');
 
 const redirects = await nextConfig.redirects();
@@ -55,10 +56,10 @@ for (const value of urls) {
     fail(`${value}: missing HTML head`);
     continue;
   }
-  const dom = new JSDOM(head);
+  const dom = new JSDOM(html);
   try {
     const document = dom.window.document;
-    const canonicals = [...document.querySelectorAll('link[rel~="canonical"]')];
+    const canonicals = [...document.head.querySelectorAll('link[rel~="canonical"]')];
     if (canonicals.length !== 1) {
       fail(`${value}: expected exactly one canonical in the head, found ${canonicals.length}`);
     } else {
@@ -72,9 +73,37 @@ for (const value of urls) {
         fail(`${value}: indexing is blocked by ${meta.outerHTML}`);
       }
     }
+    const links = new Set();
+    for (const anchor of document.querySelectorAll('a[href]')) {
+      if (anchor.rel.split(/\s+/).includes('nofollow')) continue;
+      try {
+        const target = new URL(anchor.getAttribute('href'), value);
+        target.hash = '';
+        if (target.origin === origin && !target.search && submitted.has(target.href)) links.add(target.href);
+      } catch {
+        // An invalid href cannot provide a crawl path.
+      }
+    }
+    linksByPage.set(normalize(value), links);
   } finally {
     dom.window.close();
   }
+}
+
+// A sitemap alone must not be the only route to a public page. Check actual
+// rendered anchors, including dynamic lists, rather than source-code strings.
+const reachable = new Set([normalize(origin)]);
+const queue = [...reachable];
+for (let index = 0; index < queue.length; index++) {
+  for (const target of linksByPage.get(queue[index]) || []) {
+    if (!reachable.has(target)) {
+      reachable.add(target);
+      queue.push(target);
+    }
+  }
+}
+for (const url of submitted) {
+  if (!reachable.has(url)) fail(`${url}: no rendered internal-link path from the homepage`);
 }
 
 const imageUrls = sitemapUrls('image-sitemap.xml.body');
@@ -91,5 +120,5 @@ if (errors.length) {
   console.error(`Rendered indexing validation failed (${errors.length} issues):\n${errors.map((error) => `- ${error}`).join('\n')}`);
   process.exitCode = 1;
 } else {
-  console.log(`Rendered indexing validation passed: ${urls.length} self-canonical, indexable pages; ${imageUrls.length} image-sitemap pages; ${redirects.length} direct legacy redirects.`);
+  console.log(`Rendered indexing validation passed: ${urls.length} self-canonical, indexable pages reachable from the homepage; ${imageUrls.length} image-sitemap pages; ${redirects.length} direct legacy redirects.`);
 }

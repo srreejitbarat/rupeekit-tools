@@ -38,6 +38,13 @@ export default function ResourcesPage() {
 
   const guideLinks = [
     {
+      title: 'Personal Finance Checklist for Salaried People',
+      category: 'Checklists',
+      categoryColor: 'bg-violet-50 border-violet-100 text-violet-700',
+      description: 'Review your payslip, tax year, rent documents, insurance and retirement records with a practical monthly checklist.',
+      href: '/blog/personal-finance-checklist-for-salaried-people',
+    },
+    {
       title: 'How to Create a Monthly Budget',
       category: 'Budgeting',
       categoryColor: 'bg-indigo-50 border-indigo-100 text-indigo-700',
@@ -373,6 +380,11 @@ export default function ResourcesPage() {
             <p className="mt-1 text-xs text-brandMuted">Calculator-friendly planning sheets.</p>
           </Link>
         </div>
+
+        <p className="text-sm leading-7 text-brandMuted">
+          Read <Link href="/about" className="font-semibold text-brandNavy hover:underline">about RupeeKit</Link> and how these resources are created.
+          Developers can explore the <Link href="/api-docs" className="font-semibold text-brandNavy hover:underline">calculator API documentation</Link>.
+        </p>
 
         <p className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed text-slate-600">
           Some future resource links may be affiliate links. RupeeKit will disclose affiliate relationships clearly and

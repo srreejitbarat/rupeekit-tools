@@ -848,77 +848,107 @@ export const blogPosts: BlogPost[] = [
     visualSubtitle: 'Key tax planning and investment steps',
     visualAlt: 'Checklist of 5 crucial personal finance actions for Indian salaried employees.',
     title: 'Personal Finance Checklist for Salaried People in India',
-    metaDescription: 'Personal finance checklist for salaried employees in India: optimise HRA, EPF, 80C deductions, choose the right tax regime, and set up insurance. Read now.',
+    metaDescription: 'A practical finance checklist for salaried employees in India: review payslips, compare tax regimes, check HRA documents, insurance and retirement records.',
     category: 'Checklists',
     date: 'May 2026',
+    modifiedDateISO: '2026-09-24',
     readTime: '7 min read',
     h1: 'Personal Finance Checklist for Salaried People',
-    intro: 'As a salaried professional in India, you have a predictable income, but you also face structured tax deductions. Navigating EPF, HRA tax exemptions, 80C declarations, and investment choices can feel overwhelming. This checklist provides a clear step-by-step roadmap to optimize your personal finances.',
+    intro: 'Use your latest payslip, bank statement, rent records and retirement account statement to work through these five checks. The aim is to find a missing contribution, an unsupported tax declaration or a gap in your monthly budget before it becomes expensive. Repeat the checks after a salary change, job switch or change in family responsibilities.',
     quickAnswer: {
       question: 'What are the key personal finance steps for salaried employees in India?',
-      answer: 'Five essential actions: (1) Compare Old vs New tax regime at the start of the financial year. (2) Maximise Section 80C deductions up to Rs 1.5L using EPF, PPF, and ELSS. (3) Claim HRA exemption with proper rent receipts and landlord PAN if rent exceeds Rs 1L per year. (4) Buy pure term insurance (10 to 15x annual income) and a separate health insurance policy. (5) Track gratuity eligibility and verify EPF deposits on the EPFO portal.',
+      answer: 'Reconcile take-home pay and compare tax regimes for the correct year; check eligible deductions before investing; keep rent evidence if claiming HRA; review insurance against your dependants and debts; and check EPF deposits and gratuity eligibility. Give each unresolved item an owner and a date to follow up.',
+      note: 'Reviewed 24 September 2026. The tax rebate example and Section 80C references below concern FY 2025-26 (AY 2026-27). HRA rules for FY 2026-27 are identified separately; do not mix filing-year rules with current payroll rules.',
+      links: [
+        { label: 'Compare old and new tax regimes for your selected year', href: '/tools/income-tax-calculator-old-vs-new-regime-india' },
+        { label: 'Reconcile your salary and take-home pay', href: '/tools/salary-in-hand-calculator-india' },
+        { label: 'Check HRA exemption and the applicable city rule', href: '/tools/hra-exemption-calculator-india' },
+      ],
     },
-    answerEngineSummary: 'This checklist covers the five most important personal finance steps for Indian salaried employees: tax regime optimisation, 80C deduction planning, HRA exemption documentation, term and health insurance setup, and retiral tracking. It links to RupeeKit calculators for salary in-hand, 80C, HRA, and gratuity estimates.',
-    relatedCalculators: ['salary-in-hand-calculator-india', '80c-deduction-calculator-india', 'hra-exemption-calculator-india', 'gratuity-calculator-india'],
+    answerEngineSummary: 'This salaried-employee checklist turns payslips, tax declarations, rent records, insurance schedules and EPF statements into five practical reviews. It distinguishes tax years, eligible deductions and statutory exceptions, then provides a repeatable monthly check and calculators for the underlying estimates.',
+    officialSources: [
+      { label: 'Income Tax Department — salaried individuals for AY 2026-27', href: 'https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1' },
+      { label: 'Income Tax Department — salary deductions and HRA salary definition', href: 'https://www.incometaxindia.gov.in/w/salary' },
+      { label: 'Income Tax Department — tax computation and rebate limits', href: 'https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1' },
+      { label: 'Income-tax Rules, 2026 — Rule 279, HRA limits and specified cities', href: 'https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf' },
+      { label: 'Ministry of Labour — Social Security Code gratuity FAQs', href: 'https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf' },
+      { label: 'EPFO — member services and contribution records', href: 'https://www.epfindia.gov.in/site_en/For_Employees.php' },
+    ],
+    relatedCalculators: ['salary-in-hand-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', '80c-deduction-calculator-india', 'hra-exemption-calculator-india', 'gratuity-calculator-india'],
     sections: [
       {
-        title: '1. Optimize Your Tax Regime (Old vs. New)',
+        title: '1. Does your payslip match your budget and tax-year choice?',
         paragraphs: [
-          'India currently has two tax regimes. The Old Regime allows you to claim deductions like HRA, 80C, 80D, and home loan interest. The New Regime offers lower tax rates but removes almost all deductions.',
-          'Review your salary structure at the start of the financial year. If you have significant investments in PPF, ELSS, insurance, and pay high house rent, the Old Regime may save you more. Otherwise, the New Regime is often simpler and more cost-effective.'
-        ]
+          'Start with the amount actually credited to your bank. Reconcile it with gross pay less employee PF, TDS, professional tax and other deductions on the payslip. Employer contributions and benefits included in CTC are not all available for monthly spending.',
+          'Choose the financial year before comparing tax regimes. HRA and Section 80C deductions are old-regime benefits for AY 2026-27; the new regime retains specific deductions, including the salary standard deduction. Compare the full calculation using your eligible claims instead of assuming more tax-saving investments always mean less tax.'
+        ],
+        example: {
+          title: 'A monthly reconciliation example',
+          details: 'If Rs 80,000 is credited and your budget records Rs 30,000 rent, Rs 12,000 EMI, Rs 20,000 other spending and Rs 10,000 transfers to savings, Rs 8,000 remains unassigned. Decide where it belongs before adding another recurring commitment. These are illustrative household amounts, not a recommended allocation.'
+        }
       },
       {
-        title: '2. Maximize Section 80C Deductions (Up to ₹1.5 Lakhs)',
+        title: '2. Count existing deductions before buying another investment',
         paragraphs: [
-          'Under the Old Tax Regime, Section 80C allows you to deduct up to ₹1,50,000 from your taxable income. This is one of the easiest ways to lower your tax liability.',
-          'Do not wait until March to make tax-saving investments. Start planning in April to spread investments across the year. Popular 80C options include:'
+          'For FY 2025-26 under the old regime, the combined Section 80C, 80CCC and 80CCD(1) ceiling is Rs 1,50,000. Count eligible employee EPF contributions and other qualifying payments first. An amount above the shared ceiling does not create an additional deduction under that limit.',
+          'Keep a record with three columns: eligible amount already paid, amount still planned, and supporting document. A declaration to payroll is not proof that an investment has actually been made.'
         ],
         bullets: [
-          'EPF (Employee Provident Fund): Automatically deducted from your salary.',
-          'PPF (Public Provident Fund): Government-backed tax-free saving scheme.',
-          'ELSS (Equity Linked Savings Schemes): Tax-saving mutual funds with a 3-year lock-in.',
-          'National Savings Certificates (NSC) and Tax-Saving FDs.'
+          'Check the employee contribution on each payslip against the annual total.',
+          'Keep receipts and account statements in one folder for the relevant year.',
+          'Consider access to your money, risk and your goal before committing to another product.'
         ]
       },
       {
         title: '3. Claim HRA (House Rent Allowance) Exemption Correctly',
         paragraphs: [
-          'If you live in rented accommodation and receive HRA as part of your salary, you can claim significant tax exemptions under the Old Regime.',
-          'Ensure you have a formal rent agreement, rent receipts signed by your landlord, and your landlord\'s PAN if your annual rent exceeds ₹1,00,000. Submit these proofs to your employer on time to prevent excess TDS deductions.'
+          'If you receive HRA and actually pay rent for accommodation you do not own, check the old-regime exemption using the rules for that income year. Keep rent receipts, the agreement, payment records and the landlord details requested by payroll.',
+          'For FY 2026-27, Rule 279 lists Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru for the 50% salary cap; other places use 40%. Do not apply this expanded city list retrospectively to an earlier income year.'
         ],
         example: {
           title: 'HRA Exemption Formula',
-          details: 'HRA exemption is the minimum of three values: (1) Actual HRA received, (2) Rent paid minus 10% of basic salary, or (3) 50% of basic salary in metro cities (40% in non-metros).'
+          details: 'Compare actual HRA, rent minus 10% of eligible salary, and the applicable 50% or 40% salary cap for the same period. Eligible salary is not just basic pay: relevant DA and turnover-based commission can also matter. Check the year-specific salary definition and city list in the linked official guidance.'
         }
       },
       {
-        title: '4. Set Up term and Health Insurance Policies',
+        title: '4. Review protection against your household obligations',
         paragraphs: [
-          'Do not treat insurance as an investment. Avoid high-fee LIC endowment plans that offer tiny life coverages and low returns.',
-          'Purchase a pure Term Insurance policy with a cover of at least 10 to 15 times your annual income to protect your family. Additionally, buy an independent Health Insurance policy to cover medical emergencies.'
+          'List who depends on your income, outstanding debts, existing cover and assets available to your family. A salary multiple alone does not establish how much life cover your household needs.',
+          'Read your health policy schedule for cover, exclusions, waiting periods, co-payments and renewal dates. Check what happens to employer-provided cover if you leave your job. Record any gap and compare policy terms before buying or replacing cover.'
         ]
       },
       {
         title: '5. Track Your Gratuity and Retirals',
         paragraphs: [
-          'If you complete 5 continuous years of service with a single employer, you are legally entitled to a gratuity payout upon leaving.',
-          'Keep track of your service timeline and check your EPF balance annually using the EPFO portal to ensure your employer is depositing contributions correctly.'
+          'Gratuity generally uses a five-year continuous-service condition, but coverage and statutory exceptions matter. The Ministry of Labour identifies exceptions including death, disablement and expiration of fixed-term employment. Check your contract and applicable rules before treating a calculator estimate as an entitlement.',
+          'Check EPF contribution records against payslips and keep joining, transfer and exit details together. If an entry is missing, note the wage month and raise it with payroll instead of assuming that the payslip deduction proves the deposit was credited.'
+        ]
+      },
+      {
+        title: 'What should you check each month and after a job change?',
+        paragraphs: [
+          'Use a short record with the check date, the document reviewed, the discrepancy and the next action. For example: June PF contribution missing from the statement; June payslip saved; payroll contacted; follow-up date recorded. This makes the checklist useful even when the answer is not available immediately.'
+        ],
+        bullets: [
+          'Monthly: reconcile the salary credit, recurring bills and retirement contribution records.',
+          'After a salary or rent change: rerun the budget and tax estimate using the correct year.',
+          'Before a job switch: save payslips, tax records, insurance details and retirement account information.',
+          'At renewal or a family change: review nominees, dependants and insurance terms.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Which tax regime is better for salaries under ₹7 Lakhs?',
-        answer: 'Under the New Tax Regime, individuals with a taxable income up to ₹7,00,000 receive a full tax rebate under Section 87A, making their net tax liability zero.'
+        question: 'Is Rs 7 lakh still the new-regime rebate threshold for AY 2026-27?',
+        answer: 'No. For FY 2025-26 (AY 2026-27), eligible resident individuals with total income up to Rs 12 lakh can receive a Section 87A rebate of up to Rs 60,000 under the new regime. The rebate does not eliminate tax charged at special rates. With salary alone and a Rs 75,000 standard deduction, gross salary of Rs 12.75 lakh can fall within that threshold. CTC is not the same as taxable salary.'
       },
       {
-        question: 'What is the lock-in period for ELSS mutual funds?',
-        answer: 'ELSS has a lock-in period of 3 years, which is the shortest among all tax-saving options under Section 80C.'
+        question: 'Should I invest another Rs 1.5 lakh if EPF is already deducted?',
+        answer: 'First count existing eligible contributions within the shared deduction limit and compare regimes. An additional investment can still serve a financial goal, but it does not automatically provide an additional tax deduction.'
       },
       {
-        question: 'Can I claim both HRA exemption and Home Loan deduction?',
-        answer: 'Yes, if you live in a rented house in one city (claiming HRA) and own a home in another city (claiming home loan interest and principal deductions), you can claim both benefits.'
+        question: 'Does this checklist determine my final tax or gratuity entitlement?',
+        answer: 'No. It helps you assemble records and identify questions. Final treatment depends on the applicable year, income, employment terms and statutory conditions. Use the linked official sources and resolve discrepancies before relying on an estimate.'
       }
     ]
   },

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import Link from 'next/link';
 import FinancialUpdatesClient from '@/components/updates/FinancialUpdatesClient';
+import { financialUpdates } from '@/data/financial-updates';
+import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const TITLE = 'Latest Financial Updates, Tax, GST and RBI News | RupeeKit';
@@ -79,6 +81,9 @@ const officialGovtSources = [
 ];
 
 export default function FinancialUpdatesPage() {
+  const archive = [...day18FinancialUpdates, ...financialUpdates]
+    .filter((update) => update.status !== 'sample')
+    .sort((left, right) => right.publishedDate.localeCompare(left.publishedDate));
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-10">
       {/* Hero */}
@@ -112,6 +117,18 @@ export default function FinancialUpdatesPage() {
       <Suspense fallback={<LoadingFallback />}>
         <FinancialUpdatesClient />
       </Suspense>
+
+      <details className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm">
+        <summary className="cursor-pointer text-lg font-bold text-brandDeepNavy">Browse all updates by date</summary>
+        <ul className="mt-4 space-y-3">
+          {archive.map((update) => (
+            <li key={update.slug} className="text-sm leading-6">
+              <time dateTime={update.publishedDate} className="mr-3 text-brandMuted">{update.publishedDate}</time>
+              <Link href={`/financial-updates/${update.slug}`} className="font-semibold text-brandNavy hover:underline">{update.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </details>
 
       {/* Official Sources */}
       <section className="rounded-3xl border border-brandBorder bg-white p-6 md:p-8 shadow-sm">

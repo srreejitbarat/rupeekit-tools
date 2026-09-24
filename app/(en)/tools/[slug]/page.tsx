@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
+import calculatorScenarios from '@/data/indexable-calculator-scenarios.json';
 import Calculator from '@/components/Calculator';
 import PlanningFeatureSummary from '@/components/planning/PlanningFeatureSummary';
 import ToolAdPlacement from '@/components/micro-tools/ToolAdPlacement';
@@ -833,6 +834,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const related = getRelatedTools(tool);
   const supportingGuides = getGuidesForTool(tool.slug);
   const moneyGuideLinks = getMoneyGuidesForTool(tool.slug);
+  const workedExamples = calculatorScenarios.filter((scenario) => scenario.calculatorSlug === tool.slug);
 
   const salaryClusterSlugs = new Set([
     'gratuity-calculator-india',
@@ -1401,6 +1403,22 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       )}
 
       <SourceBackedComparison slug={tool.slug} linkToGuide />
+
+      {workedExamples.length > 0 ? (
+        <section className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-7" aria-labelledby="worked-examples">
+          <h2 id="worked-examples" className="text-2xl font-bold text-slate-950">Worked examples</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-700">See the assumptions behind an example, then adjust them in this calculator.</p>
+          <ul className="mt-4 space-y-3">
+            {workedExamples.map((scenario) => (
+              <li key={scenario.slug}>
+                <Link href={`/tools/scenarios/${scenario.slug}`} className="inline-flex min-h-11 items-center font-bold text-sky-800 hover:underline">
+                  {scenario.h1}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {buriedIntentSections.length > 0 ? (
         <section className="mt-8 grid gap-5 lg:grid-cols-2">
