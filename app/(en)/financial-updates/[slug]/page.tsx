@@ -60,14 +60,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const update = financialUpdates.find((item) => item.slug === params.slug);
   if (!update) return { title: 'Update Not Found | RupeeKit' };
 
-  const cleanSummary = update.summary.substring(0, 155);
+  const cleanSummary = (update.metaDescription ?? update.summary).replace(/\s+/g, ' ').trim();
+  const pageTitle = update.seoTitle ?? update.title;
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
   const discoverImage = getDiscoverImage(`/financial-updates/${update.slug}`);
   const heroImage = discoverImage ?? update.heroImage;
   const heroImageUrl = heroImage ? `${SITE_URL}${heroImage.src}` : undefined;
 
   return {
-    title: { absolute: `${update.title} | RupeeKit Updates` },
+    title: { absolute: `${pageTitle} | RupeeKit Updates` },
     description: cleanSummary,
     alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: {
@@ -76,7 +77,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'max-image-preview': 'large',
     },
     openGraph: {
-      title: `${update.title} | RupeeKit Updates`,
+      title: `${pageTitle} | RupeeKit Updates`,
       description: cleanSummary,
       url: pageUrl,
       siteName: 'RupeeKit',
@@ -97,7 +98,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${update.title} | RupeeKit Updates`,
+      title: `${pageTitle} | RupeeKit Updates`,
       description: cleanSummary,
       ...(heroImageUrl ? { images: [heroImageUrl] } : {}),
     },

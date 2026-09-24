@@ -13,6 +13,7 @@
     "report:measurement": "node scripts/measurement-export-report.mjs",
     "report:ai-visibility": "node scripts/ai-visibility-report.mjs",
     "audit:money-guide-discovery": "node scripts/audit-money-guide-discovery.mjs",
+    "audit:editorial": "node scripts/audit-local-editorial.mjs",
     "validate": "npm run validate:tools && npm run validate:target-keywords && npm run validate:priority-growth && npm run validate:growth && npm run validate:ai-seo && npm run validate:blog-seo && npm run validate:content-seo && npm run validate:internal-links && npm run validate:analytics && npm run validate:shareable-results && npm run validate:financial-updates && npm run validate:gold-rates && npm run validate:freshness && npm run validate:discover-images && npm run validate:discover-guides && npm run validate:cwv && npm run validate:trust-accessibility",
     "validate:ai-seo": "node scripts/validate-ai-seo-readiness.mjs && node scripts/validate-structured-data.mjs",
     "validate:blog-seo": "node scripts/validate-blog-seo.mjs",
@@ -44,8 +45,8 @@
     "generate:languages": "node scripts/i18n/generate.mjs",
     "pretypecheck": "npm run generate:languages",
     "pretest": "npm run generate:languages",
-    "prebuild": "node scripts/i18n/extract.mjs && node scripts/i18n/check-catalogs.mjs && npm run generate:languages",
-    "validate:translations": "node scripts/i18n/extract.mjs && node scripts/i18n/check-catalogs.mjs"
+    "prebuild": "node scripts/i18n/extract.mjs && node scripts/i18n/apply-visible-copy-fixes.mjs && node scripts/i18n/check-catalogs.mjs && npm run generate:languages",
+    "validate:translations": "node scripts/i18n/extract.mjs && node scripts/i18n/apply-visible-copy-fixes.mjs && node scripts/i18n/check-catalogs.mjs"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",

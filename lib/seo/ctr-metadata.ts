@@ -32,25 +32,8 @@ export function normalizeSerpTitle(value: string) {
 }
 
 export function normalizeSerpDescription(value: string) {
-  let cleaned = cleanWhitespace(value);
-  if (cleaned.length > SERP_DESCRIPTION_MAX) {
-    cleaned = clipAtWord(cleaned, SERP_DESCRIPTION_MAX);
-  }
-
-  const additions = [
-    ' Includes practical Indian context, assumptions and next steps.',
-    ' See the full RupeeKit guide for examples, limitations and related tools.',
-  ];
-
-  let additionIndex = 0;
-  while (cleaned.length < SERP_DESCRIPTION_MIN && additionIndex < additions.length) {
-    cleaned = `${cleaned}${additions[additionIndex]}`;
-    additionIndex += 1;
-  }
-
-  if (cleaned.length > SERP_DESCRIPTION_MAX) {
-    cleaned = clipAtWord(cleaned, SERP_DESCRIPTION_MAX);
-  }
-
-  return cleaned;
+  // Preserve the complete page-specific summary and its translation lookup key.
+  // Search snippets vary by query/device; do not add filler or cut caveats to
+  // manufacture a fixed character count.
+  return cleanWhitespace(value);
 }

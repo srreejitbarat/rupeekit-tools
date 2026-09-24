@@ -45,19 +45,7 @@ function normalizeTitle(value) {
 }
 
 function normalizeDescription(value) {
-  let cleaned = cleanWhitespace(value);
-  if (cleaned.length > DESCRIPTION_MAX) cleaned = clipAtWord(cleaned, DESCRIPTION_MAX);
-  const additions = [
-    ' Includes practical Indian context, assumptions and next steps.',
-    ' See the full RupeeKit guide for examples, limitations and related tools.',
-  ];
-  let index = 0;
-  while (cleaned.length < DESCRIPTION_MIN && index < additions.length) {
-    cleaned = `${cleaned}${additions[index]}`;
-    index += 1;
-  }
-  if (cleaned.length > DESCRIPTION_MAX) cleaned = clipAtWord(cleaned, DESCRIPTION_MAX);
-  return cleaned;
+  return cleanWhitespace(value);
 }
 
 function decodeLiteral(raw, quote) {
@@ -97,8 +85,9 @@ for (const file of blogFiles) {
   for (const rawDescription of extractPropertyLiterals(source, 'metaDescription')) {
     auditedDescriptions += 1;
     const effective = normalizeDescription(rawDescription);
+    if (!effective) fail(`${path.basename(file)} has an empty meta description.`);
     if (effective.length < DESCRIPTION_MIN || effective.length > DESCRIPTION_MAX) {
-      fail(`${path.basename(file)} effective meta description is ${effective.length} chars: ${effective}`);
+      warn(`${path.basename(file)} description is ${effective.length} chars; review relevance, not just length.`);
     }
     if (effective !== cleanWhitespace(rawDescription)) warn(`${path.basename(file)} meta description is normalized to ${effective.length} characters at render time.`);
   }
@@ -128,20 +117,23 @@ function auditUpdateCollection(fileName, brandSuffix) {
     const end = slugMatches[index + 1]?.index ?? source.length;
     const block = source.slice(start, end);
     const titleMatch = block.match(/\btitle\s*:\s*['"]([^'"]+)['"]/);
+    const seoTitleMatch = block.match(/\bseoTitle\s*:\s*['"]([^'"]+)['"]/);
     const summaryMatch = block.match(/\bsummary\s*:\s*['"]([^'"]+)['"]/);
+    const metaDescriptionMatch = block.match(/\bmetaDescription\s*:\s*['"]([^'"]+)['"]/);
     if (!titleMatch || !summaryMatch) continue;
 
     auditedUpdates += 1;
     const slug = slugMatches[index][1];
-    const generatedTitle = `${titleMatch[1]}${brandSuffix}`;
+    const generatedTitle = `${seoTitleMatch?.[1] ?? titleMatch[1]}${brandSuffix}`;
     const normalizedTitle = normalizeTitle(generatedTitle);
-    const normalizedDescription = normalizeDescription(summaryMatch[1]);
+    const effectiveDescription = metaDescriptionMatch?.[1] ?? summaryMatch[1];
+    const normalizedDescription = normalizeDescription(effectiveDescription);
 
     if (normalizedTitle.length > TITLE_MAX || /^free\b/i.test(normalizedTitle)) fail(`${fileName}:${slug} cannot produce a valid normalized title`);
-    if (normalizedDescription.length < DESCRIPTION_MIN || normalizedDescription.length > DESCRIPTION_MAX) fail(`${fileName}:${slug} cannot produce a 140-160 character normalized description`);
+    if (!normalizedDescription) fail(`${fileName}:${slug} has no description`);
     if (cleanWhitespace(generatedTitle).length > TITLE_MAX) warn(`${fileName}:${slug} current generated title exceeds ${TITLE_MAX}; flagged for future rewrite if CTR falls below 1%.`);
-    const rawSummaryLength = cleanWhitespace(summaryMatch[1]).length;
-    if (rawSummaryLength < DESCRIPTION_MIN || rawSummaryLength > DESCRIPTION_MAX) warn(`${fileName}:${slug} source summary is ${rawSummaryLength} chars; current update page trims it separately.`);
+    const rawSummaryLength = cleanWhitespace(effectiveDescription).length;
+    if (rawSummaryLength < DESCRIPTION_MIN || rawSummaryLength > DESCRIPTION_MAX) warn(`${fileName}:${slug} effective meta description is ${rawSummaryLength} chars; review relevance, not length alone.`);
   }
 }
 

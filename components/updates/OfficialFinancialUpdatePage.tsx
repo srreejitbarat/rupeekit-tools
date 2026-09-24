@@ -17,14 +17,16 @@ export function getDay18Update(slug: string): FinancialUpdate {
 export function buildDay18UpdateMetadata(slug: string): Metadata {
   const update = getDay18Update(slug);
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
+  const pageTitle = update.seoTitle ?? update.title;
+  const pageDescription = update.metaDescription ?? update.summary;
   return {
-    title: { absolute: `${update.title} | RupeeKit Updates` },
-    description: update.summary.slice(0, 155),
+    title: { absolute: `${pageTitle} | RupeeKit Updates` },
+    description: pageDescription,
     alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
-      title: `${update.title} | RupeeKit Updates`,
-      description: update.summary.slice(0, 155),
+      title: `${pageTitle} | RupeeKit Updates`,
+      description: pageDescription,
       url: pageUrl,
       siteName: 'RupeeKit',
       type: 'article',
@@ -32,8 +34,8 @@ export function buildDay18UpdateMetadata(slug: string): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${update.title} | RupeeKit Updates`,
-      description: update.summary.slice(0, 155),
+      title: `${pageTitle} | RupeeKit Updates`,
+      description: pageDescription,
     },
   };
 }

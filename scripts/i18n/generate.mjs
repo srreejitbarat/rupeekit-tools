@@ -4,14 +4,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import ts from 'typescript';
+import { decodeJsxText } from './jsx-text.mjs';
+import { writeUtf8 } from './write-file.mjs';
 const f=ts.factory;
 const humanAttrs=new Set(['title','alt','placeholder','aria-label','aria-description','label','subject']);
 const roots=['components','app/(en)'];
 const files=[];
-function walk(d){for(const n of fs.readdirSync(d)){const p=path.join(d,n);if(p.includes('/localized/')||p.includes('/i18n/')||p.includes('/layout/')||p.endsWith('/layout.tsx')||p.includes('.test.'))continue;if(fs.statSync(p).isDirectory())walk(p);else if(p.endsWith('.tsx'))files.push(p)}}
+function walk(d){for(const n of fs.readdirSync(d)){const p=path.posix.join(d,n);if(p.includes('/localized/')||p.includes('/i18n/')||p.includes('/layout/')||p.endsWith('/layout.tsx')||p.includes('.test.'))continue;if(fs.statSync(p).isDirectory())walk(p);else if(p.endsWith('.tsx'))files.push(p)}}
 roots.forEach(walk);
 const normalize=s=>s.replace(/\s+/g,' ').trim();
-function richParts(children){let source='',values=[];for(const n of children){if(ts.isJsxText(n))source+=n.text.replace(/\s+/g,' ');else if(ts.isJsxExpression(n)&&!n.expression)continue;else{source+=`ZXQ${values.length}QXZ`;values.push(ts.isJsxExpression(n)?n.expression:n)}}return {source:normalize(source),values};}
+function richParts(children){let source='',values=[];for(const n of children){if(ts.isJsxText(n))source+=decodeJsxText(n.text).replace(/\s+/g,' ');else if(ts.isJsxExpression(n)&&!n.expression)continue;else if(ts.isJsxExpression(n)&&ts.isStringLiteral(n.expression)&&!n.expression.text.trim())source+=n.expression.text;else{source+=`ZXQ${values.length}QXZ`;values.push(ts.isJsxExpression(n)?n.expression:n)}}return {source:normalize(source),values};}
 const generated=new Set(files);
 function importPath(spec,file,lang){
  let resolved=spec.startsWith('@/')?spec.slice(2):spec.startsWith('.')?path.posix.normalize(path.posix.join(path.posix.dirname(file),spec)):null;
@@ -24,8 +26,8 @@ function importPath(spec,file,lang){
 }
 for(const lang of ['hi','bn']){
  const catalogFile=`lib/i18n/catalogs/${lang}.json`;
- if(!fs.existsSync(catalogFile))fs.writeFileSync(catalogFile,'{}\n');
- fs.writeFileSync(`lib/i18n/${lang}.ts`, `import catalog from './catalogs/${lang}.json';\nimport {createTranslator} from './translator';\nexport const i18n = createTranslator('${lang}', catalog);\n`);
+ if(!fs.existsSync(catalogFile))writeUtf8(catalogFile,'{}\n');
+ writeUtf8(`lib/i18n/${lang}.ts`, `import catalog from './catalogs/${lang}.json';\nimport {createTranslator} from './translator';\nexport const i18n = createTranslator('${lang}', catalog);\n`);
  for(const file of files){
   // Existing native home and directory translations are maintained separately.
   if(file==='app/(en)/page.tsx'||file==='app/(en)/tools/page.tsx')continue;
@@ -36,7 +38,7 @@ for(const lang of ['hi','bn']){
    function visit(n){
     if(ts.isStringLiteral(n)&&n.parent&&((ts.isImportDeclaration(n.parent)&&n.parent.moduleSpecifier===n)||(ts.isExportDeclaration(n.parent)&&n.parent.moduleSpecifier===n)||(ts.isCallExpression(n.parent)&&n.parent.expression.kind===ts.SyntaxKind.ImportKeyword))){return f.createStringLiteral(importPath(n.text,file,lang));}
     if(ts.isJsxAttribute(n)&&n.initializer){
-     const name=n.name.getText(source);let v=ts.isStringLiteral(n.initializer)?f.createStringLiteral(n.initializer.text):ts.isJsxExpression(n.initializer)?n.initializer.expression:null;
+     const name=n.name.getText(source);let v=ts.isStringLiteral(n.initializer)?f.createStringLiteral(decodeJsxText(n.initializer.text)):ts.isJsxExpression(n.initializer)?n.initializer.expression:null;
      if(v && (humanAttrs.has(name)||name==='href'||name==='dangerouslySetInnerHTML'&&n.parent.parent.tagName.getText(source)==='script')){
       const method=name==='href'?'href':name==='dangerouslySetInnerHTML'?'jsonLd':'node';
       return f.updateJsxAttribute(n,n.name,f.createJsxExpression(undefined,call(method,ts.visitNode(v,visit))));
@@ -48,7 +50,7 @@ for(const lang of ['hi','bn']){
      const {source:text,values}=richParts(n.children);
      let children;
      if(text && /[A-Za-z]/.test(text.replace(/ZXQ\d+QXZ/g,''))){
-      children=[f.createJsxExpression(undefined,call('rich',[f.createStringLiteral(text),...values.map(v=>ts.visitNode(v,visit))]))];
+       children=[f.createJsxExpression(undefined,call('rich',[f.createStringLiteral(text),...values.map(v=>v.getText(source)==='entry.commonlyAssociatedWith.toLowerCase()'?call('node',f.createPropertyAccessExpression(f.createIdentifier('entry'),'commonlyAssociatedWith')):ts.visitNode(v,visit))]))];
      }else children=n.children.map(child=>ts.isJsxExpression(child)&&child.expression?f.updateJsxExpression(child,call('node',ts.visitNode(child.expression,visit))):ts.visitNode(child,visit));
      return ts.isJsxElement(n)?f.updateJsxElement(n,ts.visitNode(n.openingElement,visit),children,n.closingElement):f.updateJsxFragment(n,n.openingFragment,children,n.closingFragment);
     }
@@ -79,7 +81,7 @@ for(const lang of ['hi','bn']){
    output=output.replace(/(import \{i18n as __i18n\}[^\n]+\n)/,`$1import {Font as __LocaleFont} from '@react-pdf/renderer';\nconst __fontRoot=typeof window==='undefined'?process.cwd()+'/public/fonts':'/fonts';\n__LocaleFont.register({family:'${regular}',fonts:[{src:__fontRoot+'/${family}-Regular.ttf',fontWeight:400},{src:__fontRoot+'/${family}-Bold.ttf',fontWeight:700}]});\n__LocaleFont.register({family:'${bold}',src:__fontRoot+'/${family}-Bold.ttf'});\n__LocaleFont.registerHyphenationCallback(word=>[word]);\n`);
   }
   const dest=isPage?`app/(${lang})/${lang}/`+file.slice('app/(en)/'.length):`components/localized/${lang}/`+file.slice('components/'.length);
-  fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,output);
+  fs.mkdirSync(path.dirname(dest),{recursive:true});writeUtf8(dest,output);
  }
 }
 console.log(`Generated Hindi and Bengali presentation modules for ${files.length} shared sources.`);

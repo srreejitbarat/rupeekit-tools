@@ -108,7 +108,7 @@ export default function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
             <ThemeIcon dark={darkMode} />
           </button>
           <Link
-            href="/money-health-check" title={linkTitle('/money-health-check')}
+            href={localizedHref('/money-health-check', locale)} title={linkTitle('/money-health-check')}
             className="hidden min-h-11 items-center rounded-full bg-brandGrowthGreen xl:flex px-5 text-sm font-black text-white shadow-sm transition hover:bg-brandBrightGreen hover:shadow-md"
           >
             {copy.health}
@@ -181,7 +181,7 @@ export default function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
               </div>
 
               <Link
-                href="/money-health-check" title={linkTitle('/money-health-check')}
+                href={localizedHref('/money-health-check', locale)} title={linkTitle('/money-health-check')}
                 onClick={closeMobileMenu}
                 className="mt-5 flex min-h-12 items-center justify-center rounded-xl bg-brandGrowthGreen px-5 text-sm font-black text-white shadow-sm transition hover:bg-brandBrightGreen"
               >

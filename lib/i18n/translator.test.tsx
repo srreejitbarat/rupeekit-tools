@@ -11,12 +11,38 @@ const hi=createTranslator('hi', {
   'Value, INR':'राशि, INR',
 });
 describe('translation at the presentation boundary',()=>{
+ it('translates Hindi source text on Bengali pages',()=>{
+  const bn=createTranslator('bn', {'क्या यह अनुमान है?':'এটি কি একটি অনুমান?'});
+  expect(bn.text('क्या यह अनुमान है?')).toBe('এটি কি একটি অনুমান?');
+ });
+ it('finds an authored title after deterministic SEO shortening',()=>{
+  const bn=createTranslator('bn', {'Investment Calculator India: Compare Returns and Costs Over Time':'ভারতে বিনিয়োগের রিটার্ন ও খরচের তুলনা'});
+  expect(bn.metadata({title:'Investment Calculator India: Compare Returns and Costs Over'}).title).toBe('ভারতে বিনিয়োগের রিটার্ন ও খরচের তুলনা');
+ });
+ it('prefers the specific title template over the generic site suffix',()=>{
+  const bn=createTranslator('bn', {
+   'ZXQ0QXZ | RupeeKit':'ZXQ0QXZ | RupeeKit',
+   'ZXQ0QXZ Calculators India | RupeeKit':'ভারতে ZXQ0QXZ ক্যালকুলেটর | RupeeKit',
+   'Small Savings':'ছোট সঞ্চয়',
+  });
+  expect(bn.text('Small Savings Calculators India | RupeeKit')).toBe('ভারতে ছোট সঞ্চয় ক্যালকুলেটর | RupeeKit');
+ });
  it('preserves numeric values, field keys and elements',()=>{
   expect(hi.node(125000)).toBe(125000);
   expect(hi.node('monthly_investment')).toBe('monthly_investment');
   expect(hi.node('Monthly investment')).toBe('मासिक निवेश');
   const field=<input name="monthly_investment" defaultValue={125000}/>;
   expect(hi.node(field)).toBe(field);
+ });
+ it('translates known label lists inside nested summaries without changing numbers or unknown prose',()=>{
+  const bn=createTranslator('bn', {
+   'Basic pay':'মূল বেতন', 'Allowance':'ভাতা', 'Tax':'কর',
+   'Result: ZXQ0QXZ.':'ফল: ZXQ0QXZ।',
+   'Summary: ZXQ0QXZ':'সারাংশ: ZXQ0QXZ',
+  });
+  expect(bn.text('Summary: Result: Basic pay, Allowance, and Tax.')).toBe('সারাংশ: ফল: মূল বেতন, ভাতা এবং কর।');
+  expect(bn.text('Result: ₹1,50,000 and ₹20,000.')).toBe('ফল: ₹1,50,000 and ₹20,000।');
+  expect(bn.text('Basic pay and an unknown sentence')).toBe('Basic pay and an unknown sentence');
  });
  it('interpolates changed results without translating or rounding their numbers',()=>{
   expect(hi.text('Monthly EMI: ₹18,642.57')).toBe('मासिक EMI: ₹18,642.57');

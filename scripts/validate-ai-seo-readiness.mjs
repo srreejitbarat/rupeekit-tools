@@ -180,7 +180,7 @@ for (const slug of PRIORITY_TOOL_SLUGS) {
       'SIP page rendering block is missing in app/tools/[slug]/page.tsx'
     );
     ensure(
-      toolPageSource.includes('Answer Engine Summary')
+      toolPageSource.includes('AnswerEngineSummary')
         && toolPageSource.includes('id="answer-engine-summary"'),
       'SIP page is missing the Answer Engine Summary block'
     );

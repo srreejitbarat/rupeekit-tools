@@ -136,7 +136,7 @@
       {
         "key": "principal",
         "label": "Loan amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 1000000,
         "min": 0,
         "step": 10000,
@@ -181,8 +181,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P Ã— r Ã— (1+r)^n / ((1+r)^n âˆ’ 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
-    "example": "For a â‚¹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
+    "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
+    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
     "faqs": [
       {
         "question": "Can this be used for home loan EMI?",
@@ -984,7 +984,7 @@
       {
         "key": "monthlyInvestment",
         "label": "Monthly SIP amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 10000,
         "min": 0,
         "step": 500,
@@ -1030,7 +1030,7 @@
       }
     ],
     "formulaExplanation": "The calculator uses a monthly compounded future value estimate for SIP investments. Actual returns are market-linked and not guaranteed.",
-    "example": "A â‚¹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
+    "example": "A ₹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
     "faqs": [
       {
         "question": "What happens if I miss a SIP?",
@@ -1163,7 +1163,7 @@
       {
         "key": "taxableAmount",
         "label": "Taxable amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 10000,
         "min": 0,
         "step": 100,
@@ -1206,7 +1206,7 @@
       }
     ],
     "formulaExplanation": "GST amount is taxable amount multiplied by GST rate. For intra-state examples, CGST and SGST are generally split equally.",
-    "example": "For â‚¹10,000 taxable value and 18% GST, GST is â‚¹1,800 and final value is â‚¹11,800.",
+    "example": "For ₹10,000 taxable value and 18% GST, GST is ₹1,800 and final value is ₹11,800.",
     "faqs": [
       {
         "question": "Does this calculator handle IGST?",
@@ -1236,7 +1236,7 @@
       {
         "key": "principal",
         "label": "Deposit amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 100000,
         "min": 0,
         "step": 1000,
@@ -1284,8 +1284,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "FD maturity is estimated using compound interest: P Ã— (1 + r/n)^(nÃ—t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
-    "example": "For a â‚¹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
+    "formulaExplanation": "FD maturity is estimated using compound interest: P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
+    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
     "faqs": [
       {
         "question": "Is TDS included in FD calculator results?",
@@ -1347,8 +1347,8 @@
     "inputs": [
       {
         "key": "grossAnnualIncome",
-        "label": "Gross Annual Income (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Gross Annual Income (₹)",
+        "unit": "₹",
         "default": 750000,
         "min": 0,
         "max": 100000000,
@@ -1357,8 +1357,8 @@
       },
       {
         "key": "hraReceived",
-        "label": "HRA Received (â‚¹)",
-        "unit": "â‚¹",
+        "label": "HRA Received (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 5000000,
@@ -1367,8 +1367,8 @@
       },
       {
         "key": "rentPaidAnnually",
-        "label": "Rent Paid Annually (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Rent Paid Annually (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 5000000,
@@ -1377,28 +1377,28 @@
       },
       {
         "key": "homeLoanInterest24b",
-        "label": "Home Loan Interest (Section 24b) (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Home Loan Interest (Section 24b) (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 200000,
         "step": 1,
-        "help": "Interest paid on housing loan for self-occupied or let-out property (max â‚¹2,00,000 for self-occupied)."
+        "help": "Interest paid on housing loan for self-occupied or let-out property (max ₹2,00,000 for self-occupied)."
       },
       {
         "key": "deductions80C",
-        "label": "Deductions under Section 80C (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Deductions under Section 80C (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 150000,
         "step": 1,
-        "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max â‚¹1,50,000)."
+        "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max ₹1,50,000)."
       },
       {
         "key": "deductions80D",
-        "label": "Deductions under Section 80D (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Deductions under Section 80D (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 100000,
@@ -1407,23 +1407,23 @@
       },
       {
         "key": "otherEligibleDeductionsOldRegime",
-        "label": "Other Eligible Deductions (Old Regime Only) (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Other Eligible Deductions (Old Regime Only) (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 500000,
         "step": 1,
-        "help": "Includes deductions like 80CCD(1B) for NPS (up to â‚¹50,000), 80G, etc. Applicable only for Old Regime."
+        "help": "Includes deductions like 80CCD(1B) for NPS (up to ₹50,000), 80G, etc. Applicable only for Old Regime."
       },
       {
         "key": "professionalTaxPaid",
-        "label": "Professional Tax Paid (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Professional Tax Paid (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 2500,
         "step": 1,
-        "help": "Professional tax paid (max â‚¹2,500 per annum). Applicable only for Old Regime."
+        "help": "Professional tax paid (max ₹2,500 per annum). Applicable only for Old Regime."
       },
       {
         "key": "cityRatePercent",
@@ -1437,53 +1437,53 @@
       },
       {
         "key": "standardDeduction",
-        "label": "Standard Deduction (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Standard Deduction (₹)",
+        "unit": "₹",
         "default": 50000,
         "min": 0,
         "max": 50000,
         "step": 1,
-        "help": "Standard deduction applicable for salaried individuals (â‚¹50,000 for FY 2023-24)."
+        "help": "Standard deduction applicable for salaried individuals (₹50,000 for FY 2023-24)."
       }
     ],
     "outputs": [
       {
         "key": "taxableIncomeOldRegime",
-        "label": "Taxable Income (Old Regime) (â‚¹)",
+        "label": "Taxable Income (Old Regime) (₹)",
         "formula": "grossAnnualIncome - min(standardDeduction, 50000) - min(hraReceived, max(0, rentPaidAnnually - (0.1 * grossAnnualIncome)), (cityRatePercent / 100) * grossAnnualIncome) - min(professionalTaxPaid, 2500) - min(deductions80C, 150000) - deductions80D - min(homeLoanInterest24b, 200000) - otherEligibleDeductionsOldRegime",
         "format": "currency"
       },
       {
         "key": "taxPayableOldRegime",
-        "label": "Illustrative Tax (Old Regime) (â‚¹)",
+        "label": "Illustrative Tax (Old Regime) (₹)",
         "formula": "max(0, taxableIncomeOldRegime * 0.1)",
         "format": "currency"
       },
       {
         "key": "taxableIncomeNewRegime",
-        "label": "Taxable Income (New Regime) (â‚¹)",
+        "label": "Taxable Income (New Regime) (₹)",
         "formula": "grossAnnualIncome - min(standardDeduction, 50000)",
         "format": "currency"
       },
       {
         "key": "taxPayableNewRegime",
-        "label": "Illustrative Tax (New Regime) (â‚¹)",
+        "label": "Illustrative Tax (New Regime) (₹)",
         "formula": "max(0, taxableIncomeNewRegime * 0.07)",
         "format": "currency"
       },
       {
         "key": "taxSavingsNewVsOld",
-        "label": "Illustrative Tax Savings (New vs Old) (â‚¹)",
+        "label": "Illustrative Tax Savings (New vs Old) (₹)",
         "formula": "taxPayableOldRegime - taxPayableNewRegime",
         "format": "currency"
       }
     ],
     "formulaExplanation": "This calculator compares old and new regime estimates using supported-year rules and your entered income and deduction assumptions. It applies taxable-income logic, rebate handling, and cess to provide educational scenario comparison. Verify final computation with official filing utilities and records.",
-    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of â‚¹15,00,000. She receives â‚¹2,00,000 as HRA, pays â‚¹1,80,000 in annual rent, has â‚¹1,50,000 in 80C deductions, â‚¹25,000 in 80D deductions, and pays â‚¹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
+    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of ₹15,00,000. She receives ₹2,00,000 as HRA, pays ₹1,80,000 in annual rent, has ₹1,50,000 in 80C deductions, ₹25,000 in 80D deductions, and pays ₹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
     "faqs": [
       {
         "question": "What are the main differences between the old and new income tax regimes in India?",
-        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income, but has higher tax slab rates. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity. From FY 2023-24, a standard deduction of â‚¹50,000 is available in both regimes."
+        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income, but has higher tax slab rates. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity. From FY 2023-24, a standard deduction of ₹50,000 is available in both regimes."
       },
       {
         "question": "Which tax regime is better for me if I have many deductions?",
@@ -1495,7 +1495,7 @@
       },
       {
         "question": "What deductions are still allowed in the new tax regime?",
-        "answer": "From FY 2023-24, the new tax regime allows a standard deduction of â‚¹50,000 for salaried individuals and pensioners. Beyond this, very few other deductions are permitted, primarily employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund."
+        "answer": "From FY 2023-24, the new tax regime allows a standard deduction of ₹50,000 for salaried individuals and pensioners. Beyond this, very few other deductions are permitted, primarily employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund."
       },
       {
         "question": "How does HRA exemption impact my tax liability under the old vs new regime?",
@@ -1536,7 +1536,7 @@
       {
         "key": "basicSalary",
         "label": "Basic Salary",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 50000,
         "min": 0,
         "step": 1000,
@@ -1545,7 +1545,7 @@
       {
         "key": "dearnessAllowance",
         "label": "Dearness Allowance",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1554,7 +1554,7 @@
       {
         "key": "commission",
         "label": "Commission",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1563,7 +1563,7 @@
       {
         "key": "hraReceived",
         "label": "HRA Received",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 20000,
         "min": 0,
         "step": 1000,
@@ -1572,7 +1572,7 @@
       {
         "key": "rentPaid",
         "label": "Rent Paid",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 25000,
         "min": 0,
         "step": 1000,
@@ -1616,7 +1616,7 @@
       }
     ],
     "formulaExplanation": "Rule 279 HRA exemption is calculated as the lowest of: (1) actual HRA received, (2) rent paid minus 10% of salary, and (3) a salary cap based on city group. For FY 2026-27, Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru use 50% of salary for specified cities. Other Indian cities use 40% of salary for other cities. For this HRA calculation formula, salary generally means basic salary plus dearness allowance (if part of retirement benefits) plus eligible fixed commission. This HRA exemption calculator is for old tax regime HRA exemption estimates and educational planning only.",
-    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: â‚¹6,00,000. Annual HRA received: â‚¹2,40,000. Annual rent paid: â‚¹3,00,000. Actual HRA received = â‚¹2,40,000. 50% of salary for specified cities = â‚¹3,00,000. Rent paid minus 10% of salary = â‚¹2,40,000. Exempt HRA = â‚¹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: â‚¹6,00,000. Annual HRA received: â‚¹2,40,000. Annual rent paid: â‚¹3,00,000. Actual HRA received = â‚¹2,40,000. 40% of salary for other cities = â‚¹2,40,000. Rent paid minus 10% of salary = â‚¹2,40,000. Exempt HRA = â‚¹2,40,000.",
+    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 50% of salary for specified cities = ₹3,00,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 40% of salary for other cities = ₹2,40,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000.",
     "quickAnswer": {
       "title": "HRA Exemption Quick Answer",
       "question": "How is HRA exemption calculated in India?",
@@ -1656,7 +1656,7 @@
       },
       {
         "question": "Do I need my landlord's PAN to claim HRA?",
-        "answer": "If annual rent crosses the applicable threshold (commonly â‚¹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
+        "answer": "If annual rent crosses the applicable threshold (commonly ₹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
       },
       {
         "question": "Is this HRA calculator a tax filing tool?",
@@ -1740,7 +1740,7 @@
       {
         "key": "epfContribution",
         "label": "Employee Provident Fund (EPF) Contribution",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1749,7 +1749,7 @@
       {
         "key": "ppfContribution",
         "label": "Public Provident Fund (PPF) Contribution",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1758,7 +1758,7 @@
       {
         "key": "elssInvestment",
         "label": "Equity Linked Savings Scheme (ELSS) Investment",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1767,7 +1767,7 @@
       {
         "key": "lifeInsurancePremium",
         "label": "Life Insurance Premium Paid",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1776,7 +1776,7 @@
       {
         "key": "homeLoanPrincipal",
         "label": "Home Loan Principal Repayment",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1785,7 +1785,7 @@
       {
         "key": "tuitionFees",
         "label": "Children's School Tuition Fees",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1806,12 +1806,12 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The RupeeKit 80C Deduction Calculator is designed to help you estimate your potential tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It functions by summing up your contributions to various eligible instruments, such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. After aggregating these amounts, the calculator applies the statutory maximum deduction limit. As per current tax regulations, the total eligible deduction under Section 80C is capped at â‚¹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be â‚¹1,50,000. This tool provides an educational estimate to help you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning. The results are estimates and should not be considered final tax advice.",
-    "example": "Consider Rohan, a salaried professional in India, who is planning his tax-saving strategies for the current financial year. He wants to understand his potential Section 80C deductions. Rohan has contributed â‚¹65,000 to his EPF, invested â‚¹40,000 in ELSS funds, paid â‚¹30,000 as life insurance premiums, and repaid â‚¹50,000 towards the principal of his home loan. Additionally, he paid â‚¹20,000 for his child's school tuition fees. To quickly estimate his total eligible deduction, Rohan uses the RupeeKit 80C Deduction Calculator. He enters each of these amounts into the respective fields. The calculator then sums his total investments and shows him the eligible deduction, capped at â‚¹1,50,000. This helps Rohan understand his tax-saving position instantly and plan further, recognizing that the results are educational estimates.",
+    "formulaExplanation": "The RupeeKit 80C Deduction Calculator is designed to help you estimate your potential tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It functions by summing up your contributions to various eligible instruments, such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. After aggregating these amounts, the calculator applies the statutory maximum deduction limit. As per current tax regulations, the total eligible deduction under Section 80C is capped at ₹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be ₹1,50,000. This tool provides an educational estimate to help you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning. The results are estimates and should not be considered final tax advice.",
+    "example": "Consider Rohan, a salaried professional in India, who is planning his tax-saving strategies for the current financial year. He wants to understand his potential Section 80C deductions. Rohan has contributed ₹65,000 to his EPF, invested ₹40,000 in ELSS funds, paid ₹30,000 as life insurance premiums, and repaid ₹50,000 towards the principal of his home loan. Additionally, he paid ₹20,000 for his child's school tuition fees. To quickly estimate his total eligible deduction, Rohan uses the RupeeKit 80C Deduction Calculator. He enters each of these amounts into the respective fields. The calculator then sums his total investments and shows him the eligible deduction, capped at ₹1,50,000. This helps Rohan understand his tax-saving position instantly and plan further, recognizing that the results are educational estimates.",
     "faqs": [
       {
         "question": "What is the maximum deduction allowed under Section 80C?",
-        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is â‚¹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
+        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is ₹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
       },
       {
         "question": "Which investments are eligible for 80C deduction?",
@@ -1819,7 +1819,7 @@
       },
       {
         "question": "Is EPF contribution covered under Section 80C?",
-        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of â‚¹1,50,000."
+        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of ₹1,50,000."
       },
       {
         "question": "Can I claim 80C deduction for my child's tuition fees?",
@@ -1855,12 +1855,12 @@
     "assumptions": [
       "The calculator assumes all entered amounts are for the current financial year.",
       "It assumes that all life insurance premiums meet the criteria for 80C eligibility (e.g., premium not exceeding 10% or 20% of sum assured).",
-      "The calculator applies the current maximum deduction limit of â‚¹1,50,000 under Section 80C.",
+      "The calculator applies the current maximum deduction limit of ₹1,50,000 under Section 80C.",
       "It assumes that tuition fees entered are for full-time education in India for up to two children and exclude non-eligible charges.",
       "The results are educational estimates and do not account for other specific tax situations or changes in tax laws."
     ],
     "commonMistakes": [
-      "Exceeding the â‚¹1,50,000 limit: Many users sum up all their investments without realizing the statutory cap, leading to overestimation of deductions.",
+      "Exceeding the ₹1,50,000 limit: Many users sum up all their investments without realizing the statutory cap, leading to overestimation of deductions.",
       "Confusing home loan principal with interest: Only the principal repayment of a home loan is eligible under 80C; interest is deductible under Section 24(b).",
       "Including non-eligible tuition fees: Development fees, donations, or fees for more than two children are not eligible for 80C deduction.",
       "Not checking life insurance premium eligibility: Premiums exceeding a certain percentage of the sum assured are not fully deductible.",
@@ -1870,9 +1870,9 @@
     "contentSections": [
       {
         "heading": "Understanding Section 80C of the Income Tax Act",
-        "body": "Section 80C is a cornerstone of tax planning for individual taxpayers and Hindu Undivided Families (HUFs) in India. It allows deductions from your gross total income for various investments and expenses, thereby reducing your taxable income. The primary objective of this section is to encourage savings and investments among citizens. The maximum deduction allowed under Section 80C is â‚¹1,50,000 in a financial year. This limit is a combined cap for all eligible instruments, meaning that even if your total investments exceed this amount, your deduction will be restricted to â‚¹1.5 lakh. Understanding the eligible avenues under 80C is crucial for effective tax management.",
+        "body": "Section 80C is a cornerstone of tax planning for individual taxpayers and Hindu Undivided Families (HUFs) in India. It allows deductions from your gross total income for various investments and expenses, thereby reducing your taxable income. The primary objective of this section is to encourage savings and investments among citizens. The maximum deduction allowed under Section 80C is ₹1,50,000 in a financial year. This limit is a combined cap for all eligible instruments, meaning that even if your total investments exceed this amount, your deduction will be restricted to ₹1.5 lakh. Understanding the eligible avenues under 80C is crucial for effective tax management.",
         "bullets": [
-          "Maximum deduction limit is â‚¹1,50,000.",
+          "Maximum deduction limit is ₹1,50,000.",
           "Applies to individuals and HUFs.",
           "Encourages long-term savings and investments."
         ]
@@ -1890,7 +1890,7 @@
       },
       {
         "heading": "Maximizing Your 80C Deductions with RupeeKit",
-        "body": "The RupeeKit 80C Deduction Calculator serves as a practical tool to help you quickly assess your potential tax savings. By inputting your contributions and expenses into the respective fields, you can get an instant estimate of your total eligible deduction, capped at the statutory limit. This helps in identifying any shortfalls or excesses in your tax planning. For instance, if your current eligible investments are below â‚¹1,50,000, the calculator can prompt you to consider additional investments to fully utilize the available deduction. Conversely, if your investments significantly exceed the limit, it helps you understand that further investments in 80C instruments might not yield additional tax benefits for the current year. Remember, this tool provides educational estimates, and for final tax decisions, consulting a financial advisor is recommended.",
+        "body": "The RupeeKit 80C Deduction Calculator serves as a practical tool to help you quickly assess your potential tax savings. By inputting your contributions and expenses into the respective fields, you can get an instant estimate of your total eligible deduction, capped at the statutory limit. This helps in identifying any shortfalls or excesses in your tax planning. For instance, if your current eligible investments are below ₹1,50,000, the calculator can prompt you to consider additional investments to fully utilize the available deduction. Conversely, if your investments significantly exceed the limit, it helps you understand that further investments in 80C instruments might not yield additional tax benefits for the current year. Remember, this tool provides educational estimates, and for final tax decisions, consulting a financial advisor is recommended.",
         "bullets": [
           "Quickly estimate total eligible 80C deductions.",
           "Identify shortfalls or excesses in tax planning.",
@@ -1914,7 +1914,7 @@
       {
         "key": "lastDrawnBasicPlusDA",
         "label": "Last Drawn Basic Salary + Dearness Allowance (per month)",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 50000,
         "min": 10000,
         "max": 500000,
@@ -1971,13 +1971,13 @@
       },
       {
         "key": "finalGratuityPayable",
-        "label": "Final Gratuity Payable (Max â‚¹20 Lakh)",
+        "label": "Final Gratuity Payable (Max ₹20 Lakh)",
         "formula": "min(estimatedGratuityAmount, 2000000)",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of â‚¹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
-    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is â‚¹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = â‚¹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of â‚¹20 Lakh. This example illustrates how to derive an estimated figure.",
+    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of ₹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
+    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is ₹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = ₹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of ₹20 Lakh. This example illustrates how to derive an estimated figure.",
     "faqs": [
       {
         "question": "Who is eligible for gratuity in India?",
@@ -1993,7 +1993,7 @@
       },
       {
         "question": "What is the maximum gratuity amount an employee can receive?",
-        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at â‚¹20,00,000 (Twenty Lakhs). Any calculated amount exceeding this limit will be restricted to â‚¹20 Lakh."
+        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at ₹20,00,000 (Twenty Lakhs). Any calculated amount exceeding this limit will be restricted to ₹20 Lakh."
       },
       {
         "question": "Does resignation affect gratuity payment?",
@@ -2032,14 +2032,14 @@
       "The inputs provided for 'Last Drawn Basic Salary + Dearness Allowance' and 'Total Years of Service' are accurate.",
       "The employer's status regarding coverage under the Payment of Gratuity Act, 1972, is correctly identified.",
       "The 'Effective Years for Gratuity' are calculated and entered correctly based on the Act's provisions or common practices.",
-      "The maximum gratuity limit of â‚¹20 Lakh, as per the Act, is applicable.",
+      "The maximum gratuity limit of ₹20 Lakh, as per the Act, is applicable.",
       "The calculation uses the standard 15 days' wages for each completed year of service, as per the Act or common practice.",
       "The calculator provides an estimate based on current understanding of the Gratuity Act and common practices; actual payouts may vary."
     ],
     "commonMistakes": [
       "Incorrectly calculating 'Effective Years of Service': Users might not round up service periods of 6 months or more for covered employers, or might round up for non-covered employers.",
       "Not including Dearness Allowance (DA): Gratuity calculation for covered employees requires Basic Salary + DA, not just Basic Salary.",
-      "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at â‚¹20 Lakh, regardless of the calculated amount.",
+      "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at ₹20 Lakh, regardless of the calculated amount.",
       "Misidentifying employer's coverage: Incorrectly assuming whether an employer is covered under the Gratuity Act, leading to the wrong formula application.",
       "Using gross salary instead of Basic + DA: The calculation specifically uses Basic Salary plus Dearness Allowance, not the entire gross salary.",
       "Assuming eligibility for less than five years of service: Gratuity generally requires a minimum of five years of continuous service, except in specific cases like death or disablement."
@@ -2065,7 +2065,7 @@
       },
       {
         "heading": "Gratuity and Its Tax Implications in India",
-        "body": "While gratuity is a valuable benefit, it's important to be aware of its tax implications in India. The Income Tax Act provides certain exemptions for gratuity received. For government employees, the entire gratuity amount is typically exempt from tax. However, for non-government employees, a portion of the gratuity is exempt, subject to specific limits and conditions, with the remaining balance being taxable. These exemptions are determined by the lowest of three amounts: the actual gratuity received, â‚¹20 Lakh (the statutory limit), or a calculation based on salary and service years. It is always recommended to consult a tax advisor for precise information regarding your personal tax liability.",
+        "body": "While gratuity is a valuable benefit, it's important to be aware of its tax implications in India. The Income Tax Act provides certain exemptions for gratuity received. For government employees, the entire gratuity amount is typically exempt from tax. However, for non-government employees, a portion of the gratuity is exempt, subject to specific limits and conditions, with the remaining balance being taxable. These exemptions are determined by the lowest of three amounts: the actual gratuity received, ₹20 Lakh (the statutory limit), or a calculation based on salary and service years. It is always recommended to consult a tax advisor for precise information regarding your personal tax liability.",
         "bullets": [
           "Gratuity is subject to income tax in India.",
           "Government employees often receive full tax exemption.",
@@ -2098,7 +2098,7 @@
       {
         "key": "monthlyDeposit",
         "label": "Monthly Deposit Amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 5000,
         "min": 100,
         "max": 100000,
@@ -2163,7 +2163,7 @@
       }
     ],
     "formulaExplanation": "The RupeeKit Recurring Deposit (RD) Calculator uses the standard future value of an annuity due formula to accurately estimate your RD maturity amount. This formula considers your fixed monthly deposit, the annual interest rate offered by your bank, and the total tenure of your deposit in months. Each monthly deposit earns compound interest at a monthly rate, which is derived from the annual interest rate. The calculation accounts for the fact that deposits are typically made at the beginning of each period, allowing the first deposit to earn interest for the full tenure, and subsequent deposits for slightly less. This method provides a reliable projection of how your disciplined savings can grow over time, helping you plan your financial goals effectively. It's important to remember that this is an educational estimate, and actual returns may vary based on bank policies, interest rate changes, and specific compounding frequencies.",
-    "example": "Let's consider Priya, an individual in India who aims to build a savings corpus through a Recurring Deposit. She decides to deposit â‚¹5,000 every month into an RD account. The bank offers an annual interest rate of 6.5%. Priya plans to continue these deposits for a tenure of 5 years, which translates to 60 months. By inputting these values into the RupeeKit RD Calculator â€“ â‚¹5,000 for 'Monthly Deposit Amount', 6.5% for 'Annual Interest Rate', and 60 for 'Tenure (in Months)' â€“ Priya can quickly determine her estimated maturity amount and the total interest she will earn over the 5-year period. This helps her visualize her savings growth and plan for future expenses, while also considering her estimated post-tax interest.",
+    "example": "Let's consider Priya, an individual in India who aims to build a savings corpus through a Recurring Deposit. She decides to deposit ₹5,000 every month into an RD account. The bank offers an annual interest rate of 6.5%. Priya plans to continue these deposits for a tenure of 5 years, which translates to 60 months. By inputting these values into the RupeeKit RD Calculator – ₹5,000 for 'Monthly Deposit Amount', 6.5% for 'Annual Interest Rate', and 60 for 'Tenure (in Months)' – Priya can quickly determine her estimated maturity amount and the total interest she will earn over the 5-year period. This helps her visualize her savings growth and plan for future expenses, while also considering her estimated post-tax interest.",
     "faqs": [
       {
         "question": "What is the minimum and maximum tenure for an RD in India?",
@@ -2187,7 +2187,7 @@
       },
       {
         "question": "What is the TDS threshold for RD interest in India?",
-        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds â‚¹40,000 in a financial year (â‚¹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
+        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
       },
       {
         "question": "Is this calculator financial or tax advice?",
@@ -2200,7 +2200,7 @@
       "sip-calculator-india"
     ],
     "howToUse": [
-      "Enter your desired 'Monthly Deposit Amount' in Rupees (â‚¹).",
+      "Enter your desired 'Monthly Deposit Amount' in Rupees (₹).",
       "Input the 'Annual Interest Rate' offered by your bank in percentage (e.g., 6.5 for 6.5%).",
       "Specify the 'Tenure' of your Recurring Deposit in months (e.g., 60 months for 5 years).",
       "Provide your 'Income Tax Slab' percentage to see an estimated post-tax interest.",
@@ -2253,10 +2253,10 @@
       },
       {
         "heading": "Taxation on RD Interest in India",
-        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds â‚¹40,000 in a financial year (â‚¹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
+        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
         "bullets": [
           "RD interest is taxable as 'Income from Other Sources'.",
-          "TDS is applicable if interest exceeds â‚¹40,000 (â‚¹50,000 for seniors) per bank per year.",
+          "TDS is applicable if interest exceeds ₹40,000 (₹50,000 for seniors) per bank per year.",
           "Submit Form 15G/15H to avoid TDS if eligible."
         ]
       }

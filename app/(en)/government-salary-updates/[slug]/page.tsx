@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const update = indexableGovernmentSalaryUpdates.find((u) => u.slug === params.slug);
   if (!update) return { title: 'Update Not Found | RupeeKit' };
   const pageUrl = `${SITE_URL}/government-salary-updates/${update.slug}`;
-  const cleanSummary = update.summary.substring(0, 155);
+  const cleanSummary = update.summary.replace(/\s+/g, ' ').trim();
   return {
     title: { absolute: `${update.title} | Government Salary Updates | RupeeKit` },
     description: cleanSummary,

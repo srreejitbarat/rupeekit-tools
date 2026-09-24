@@ -89,8 +89,8 @@ function mergeToolOverride(base: Tool, override?: Partial<Tool>): Tool {
 
 function firstSentence(value: string) {
   const cleaned = value.replace(/\s+/g, ' ').trim();
-  const match = cleaned.match(/[^.!?]+[.!?]?/);
-  return match ? match[0].trim() : cleaned;
+  const match = cleaned.match(/[\s\S]*?[.!?](?=\s|$)/);
+  return (match?.[0] ?? cleaned).trim();
 }
 
 function listLabels(labels: string[]) {

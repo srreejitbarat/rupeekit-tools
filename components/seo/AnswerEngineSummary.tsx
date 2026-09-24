@@ -6,7 +6,7 @@ type AnswerEngineSummaryProps = {
 };
 
 export default function AnswerEngineSummary({
-  title = 'Answer Engine Summary',
+  title = 'At a glance',
   summary,
   id = 'answer-engine-summary',
   className = 'mt-6',

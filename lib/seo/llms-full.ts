@@ -11,9 +11,9 @@ export const LLMS_CATALOG_LAST_REVIEWED = '2026-07-16';
 
 function oneLine(value: string): string {
   return value
-    .replace(/Ã—/g, '×')
-    .replace(/âˆ’/g, '−')
-    .replace(/â‚¹/g, '₹')
+    .replace(/×/g, '×')
+    .replace(/−/g, '−')
+    .replace(/₹/g, '₹')
     .replace(/\s+/g, ' ')
     .trim();
 }

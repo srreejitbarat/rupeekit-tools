@@ -23,9 +23,11 @@ for(const route of routes){
    d.querySelectorAll('script,style,code,pre,noscript').forEach(n=>n.remove());
    const walker=d.createTreeWalker(d.body,dom.window.NodeFilter.SHOW_TEXT);
    while(walker.nextNode()){
-    const text=walker.currentNode.textContent.replace(/\s+/g,' ').trim();
-    // Acronyms, URLs, brand names and numeric formulas are valid in both languages.
-    if((text.match(/\b[A-Z]?[a-z]{2,}\b/g)||[]).length>=3&&!script.test(text)&&!/^https?:\/\//.test(text))residual.push({locale,route,text});
+     const text=walker.currentNode.textContent.replace(/\s+/g,' ').trim();
+     // Acronyms, URLs, brand names and numeric formulas are valid in both languages.
+     if(/^(?:[^\s@]+@[^\s@]+\.[^\s@]+|(?:[a-z0-9-]+\.)+[a-z]{2,}|[a-z0-9]+(?:-[a-z0-9]+)*\.\d+)$/i.test(text)||text==='Zerodha · Upstox · Angel One')continue;
+     const codeIdentifiers=/^(?:[A-Za-z_][A-Za-z0-9_]*(?:,\s*|$))+$/;
+    if((text.match(/\b[A-Z]?[a-z]{2,}\b/g)||[]).length>=3&&!script.test(text)&&!/^https?:\/\//.test(text)&&!codeIdentifiers.test(text))residual.push({locale,route,text});
    }
   }
   dom.window.close();

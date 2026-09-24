@@ -237,7 +237,7 @@ const PERSONAL_LOAN_TOC = [
 ] as const;
 
 const SIP_TOC = [
-  { id: 'answer-engine-summary', title: 'Answer Engine Summary' },
+  { id: 'answer-engine-summary', title: 'At a glance' },
   { id: 'what-happens-if-you-miss-a-sip', title: 'What happens if you miss a SIP?' },
   { id: 'can-you-pause-and-restart-sip-later', title: 'Can you pause and restart SIP later?' },
   { id: 'what-is-step-up-sip', title: 'What is step-up SIP?' },

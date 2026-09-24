@@ -1,6 +1,7 @@
 import { cloneElement, isValidElement, type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { languageAlternates, localizedHref, LOCALE_TAGS, type Locale } from './routing';
+import { normalizeSerpTitle } from '../seo/ctr-metadata';
 
 type Catalog = Record<string, string>;
 const normalize = (text: string) => text.replace(/\s+/g, ' ').trim();
@@ -9,27 +10,44 @@ const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** Pure presentation adapter. Never changes field values, formula variables,
  * URL slugs, arithmetic, data keys, analytics parameters or API contracts. */
 export function createTranslator(locale: Locale, catalog: Catalog) {
+  const translatedValues = new Set(Object.values(catalog).map(normalize));
   const patterns = Object.entries(catalog).filter(([s]) => /ZXQ\d+QXZ/.test(s)).map(([source, target]) => ({
     source, target,
     prefix: source.split(/ZXQ\d+QXZ/)[0],
+    literals: source.split(/ZXQ\d+QXZ/).filter(part => part.trim()),
     ids: [...source.matchAll(/ZXQ(\d+)QXZ/g)].map(m => Number(m[1])),
     regex: new RegExp('^' + source.split(/ZXQ\d+QXZ/).map(escape).join('(.+?)') + '$'),
-  })).filter(p => p.source.replace(/ZXQ\d+QXZ/g, '').length >= 4).sort((a,b) => b.prefix.length-a.prefix.length);
+  })).filter(p => p.source.replace(/ZXQ\d+QXZ/g, '').length >= 4).sort((a,b) => b.prefix.length-a.prefix.length || b.source.replace(/ZXQ\d+QXZ/g,'').length-a.source.replace(/ZXQ\d+QXZ/g,'').length);
   const memo = new Map<string, string>();
   function text(value: string): string {
-    if (locale === 'en' || !/[A-Za-z]/.test(value)) return value;
+    if (locale === 'en') return value;
     const source = normalize(value);
     const exact = catalog[source];
     if (exact) return value.match(/^\s*/)?.[0] + exact + (value.match(/\s*$/)?.[0] || '');
+    if (translatedValues.has(source)) return value;
+    if (!/[A-Za-z\u0900-\u09ff]/.test(value)) return value;
     if (memo.has(value)) return memo.get(value)!;
+    // Calculator summaries join known input/output labels before they reach
+    // the presentation boundary. Only split a list if every item is known;
+    // arbitrary prose and comma-separated amounts must remain untouched.
+    const labels = source.split(/,\s+(?:and\s+)?|\s+and\s+/);
+    if (labels.length > 1 && labels.every(label => catalog[label])) {
+      const translated = labels.map(label => catalog[label]);
+      const conjunction = locale === 'bn' ? ' এবং ' : ' और ';
+      const result = translated.slice(0, -1).join(', ') + conjunction + translated.at(-1);
+      memo.set(value, result); return result;
+    }
     for (const p of patterns) {
       if (p.prefix && !source.startsWith(p.prefix)) continue;
+      if (!p.literals.every(literal => source.includes(literal))) continue;
       const match = p.regex.exec(source);
       if (!match) continue;
       const target = p.target.replace(/ZXQ(\d+)QXZ/g, (_, id: string) => {
         const slot = p.ids.indexOf(Number(id));
         const replacement = match[slot + 1] ?? '';
-        return catalog[normalize(replacement)] || replacement;
+        // Nested summaries can contain translated label lists or another
+        // template. A strictly shorter source guarantees recursion terminates.
+        return catalog[normalize(replacement)] || (replacement.length < source.length ? text(replacement) : replacement);
       });
       memo.set(value, target); return target;
     }
@@ -71,12 +89,22 @@ export function createTranslator(locale: Locale, catalog: Catalog) {
     catch {return value;}
   }
   function metadata(value: Metadata): Metadata {
+    function titleText(value: string): string {
+      const translated=text(value);
+      if(translated!==value || locale==='en') return translated;
+      // SEO normalization can shorten an authored title before it reaches this
+      // boundary. Match that exact normalization, never a fuzzy prefix.
+      const candidates=new Set(Object.entries(catalog)
+        .filter(([source])=>normalizeSerpTitle(source)===value)
+        .map(([,target])=>target));
+      return candidates.size===1 ? [...candidates][0] : translated;
+    }
     function images<T>(v: T): T {
       if (Array.isArray(v)) return v.map(images) as T;
       if (v && typeof v === 'object' && 'alt' in v && typeof v.alt === 'string') return {...v, alt: text(v.alt)};
       return v;
     }
-    const translateTitle = (v: Metadata['title']): Metadata['title'] => typeof v === 'string' ? text(v) : v ? Object.fromEntries(Object.entries(v).map(([k,s]) => [k, typeof s === 'string' ? text(s) : s])) as Metadata['title'] : v;
+    const translateTitle = (v: Metadata['title']): Metadata['title'] => typeof v === 'string' ? titleText(v) : v ? Object.fromEntries(Object.entries(v).map(([k,s]) => [k, typeof s === 'string' ? titleText(s) : s])) as Metadata['title'] : v;
     const canonical = value.alternates?.canonical;
     const url = typeof canonical === 'string' ? canonical : canonical instanceof URL ? canonical.href : canonical && 'url' in canonical ? String(canonical.url) : '';
     const pathname = url ? new URL(url, 'https://www.rupeekit.co.in').pathname : '';

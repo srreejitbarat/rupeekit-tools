@@ -114,8 +114,8 @@ for (const { node, source } of posts) {
     warnings.push(`${file}:${slug} has no dedicated hero/visual/Discover image; create a high-CTR 16:9 asset.`);
   }
 
-  if (!quickAnswer) warnings.push(`${file}:${slug} uses the shared direct-answer fallback; add a custom Quick Answer when materially useful.`);
-  if (!answerEngineSummary) warnings.push(`${file}:${slug} uses the shared Answer Engine Summary fallback.`);
+  if (!quickAnswer) warnings.push(`${file}:${slug} has no authored direct-answer box; add one only when it helps the reader.`);
+  if (!answerEngineSummary) warnings.push(`${file}:${slug} has no authored summary; review whether one adds value.`);
   if (!hasQuestionHeading) warnings.push(`${file}:${slug} has no question-style section heading.`);
   if (!hasExample) warnings.push(`${file}:${slug} has no worked/practical example.`);
   if (!hasMethodology) warnings.push(`${file}:${slug} has no article-specific source/methodology section; shared methodology disclosure still renders.`);
