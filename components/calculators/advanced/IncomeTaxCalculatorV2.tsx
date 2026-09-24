@@ -114,7 +114,7 @@ export default function IncomeTaxCalculatorV2({ tool }: { tool: Tool }) {
           ⚠️ Important Notice: Future Tax Planning
         </h3>
         <p className="mt-2 text-sm leading-6 text-amber-800">
-          Calculations are based on <strong>current financial year rules</strong>. Future rules (e.g., for FY 2025-26 / AY 2026-27) may vary significantly pending official Union Budget announcements. Use these estimates for educational planning only.
+          Calculations are based on <strong>current financial year rules</strong>. Future rules (e.g., for FY 2027-28 / AY 2028-29) may vary significantly pending official Union Budget announcements. Use these estimates for educational planning only.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ export default function IncomeTaxCalculatorV2({ tool }: { tool: Tool }) {
         <div className="group relative inline-block">
           <InfoIcon />
           <div className="absolute left-1/2 bottom-full mb-2 w-64 -translate-x-1/2 scale-95 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100 pointer-events-none z-10 rounded-lg bg-slate-800 p-3 text-xs text-white shadow-xl">
-            <strong>FY vs AY:</strong> &quot;Financial Year&quot; (FY) is when you earn the income (e.g., April 2025 - March 2026). &quot;Assessment Year&quot; (AY) is the year you file taxes for that income (e.g., 2026-27).
+            <strong>FY vs AY:</strong> &quot;Financial Year&quot; (FY) is when you earn the income (e.g., April 2026 - March 2027). &quot;Assessment Year&quot; (AY) is the year you file taxes for that income (e.g., 2027-28).
             <div className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-slate-800"></div>
           </div>
         </div>

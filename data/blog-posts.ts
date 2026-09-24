@@ -76,19 +76,19 @@ export const blogPosts: BlogPost[] = [
     visualAlt: 'Flowchart showing monthly income distributed into 50 percent needs, 30 percent wants, and 20 percent savings.',
     seoTitle: 'How to Create a Monthly Budget India 2026: Step-by-Step',
     title: 'How to Create a Monthly Budget: A Step-by-Step Guide for Beginners',
-    metaDescription: 'Learn how to create a monthly budget in India from scratch. Step-by-step beginner guide with practical examples and free tools. Read now.',
+    metaDescription: "Build a monthly budget from take-home pay. List regular bills, estimate day-to-day costs and adjust your savings target using worked examples.",
     category: 'Budgeting',
     date: 'May 2026',
     readTime: '6 min read',
     h1: 'How to Create a Monthly Budget: A Step-by-Step Guide',
-    intro: 'Budgeting is not about restricting your freedom; it is about giving your money a job. Creating a monthly budget is the single most effective way to understand where your hard-earned money is going and to ensure that you are saving enough for your future goals. In this guide, we will break down the process of creating a realistic budget that you can actually stick to.',
+    intro: "Start with the money that reaches your bank account each month. List the bills you need to pay, allow for everyday spending, and decide what you can set aside. The examples below show how to build a budget and adjust it when your costs change.",
     quickAnswer: {
       question: 'How do I create a monthly budget in India?',
-      answer: 'Start with your net take-home salary (not CTC). List fixed expenses (rent, EMIs, utilities), estimate variable expenses from 3 months of bank statements, and allocate at least 20% to savings. The 50/30/20 rule is a simple framework: 50% needs, 30% wants, 20% savings.',
+      answer: "Start with your take-home pay, not CTC. List regular bills and use recent bank statements to estimate everyday spending. Then choose a savings amount that fits your budget. The 50/30/20 split is one example to adapt, not a minimum you must follow.",
       formula: 'Budget baseline = Net in-hand salary after EPF, TDS, and professional tax deductions',
       example: 'Take-home pay Rs 72,000: Rs 36,000 for needs, Rs 21,600 for wants, Rs 14,400 for savings and investments.',
     },
-    answerEngineSummary: 'This guide explains how to build a monthly budget in India using net take-home pay as the baseline, categorising fixed and variable expenses, setting savings targets, and applying the 50/30/20 framework. Use the RupeeKit Salary In-Hand Calculator to find your accurate post-deduction income before you start budgeting.',
+    answerEngineSummary: "Build your budget from take-home pay, then list regular bills, everyday spending and savings. Use the 50/30/20 split as a starting point and adjust it to your costs. Check your payslip for actual deductions; the salary calculator can help you estimate a different scenario.",
     relatedCalculators: ['salary-in-hand-calculator-india', '80c-deduction-calculator-india', 'personal-loan-emi-calculator-india'],
     sections: [
       {
@@ -119,7 +119,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: '4. Set Clear Savings and Debt Repayment Goals',
         paragraphs: [
-          'A budget without a savings goal is just a tracking sheet. Before you allocate money to fun and leisure, decide how much you want to save. Standard financial advice recommends setting aside at least 20% of your net income.',
+          "After listing essential costs and required repayments, decide what you can save. Give that money a purpose, such as an upcoming bill or a reserve for unexpected costs. If 20% of income is out of reach, start with an amount your budget can support and review it later.",
           'If you have high-interest debts like credit card bills or personal loans, pay them down aggressively. Saving money while carrying a credit card balance at 36% annual interest is financially counterproductive.'
         ]
       },
@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
         title: '5. Choose a Budgeting Method (e.g., 50/30/20 Rule)',
         paragraphs: [
           'To keep your budget organized, use a structured framework. One of the most popular methods is the 50/30/20 budget rule, which splits your take-home pay into three simple buckets:',
-          'By dividing your income this way, you ensure your needs are met, you enjoy your life, and you build a solid financial safety net.'
+          "Compare these percentages with your actual costs. Rent, family responsibilities or loan repayments may mean you need a different split."
         ],
         bullets: [
           '50% for Needs: Rent, groceries, bills, minimum loan payments.',
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: '6. Review and Adjust Your Budget Weekly',
         paragraphs: [
-          'A budget is not a static document; it is a living plan. Spend 10 minutes every week reviewing your transactions. If you notice you have spent too much on dining out in the first two weeks, you can adjust your spending for the remaining weeks.',
+          "Set aside 10 minutes each week to compare your spending with the plan. If one category is running over budget, check what can change for the rest of the month.",
           'Be kind to yourself if you overspend. Budgeting is a habit that takes time to master. Modify your categories if your initial estimates turn out to be too tight.'
         ]
       }
@@ -171,7 +171,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2026',
     readTime: '5 min read',
     h1: 'The 50/30/20 Budget Rule: Allocate Your Income Correctly',
-    intro: 'If you find budgeting tools complicated or hate tracking every single rupee, the 50/30/20 rule is for you. Popularized by Senator Elizabeth Warren in her book "All Your Worth", this rule provides a simple percentage-based guide to manage your take-home income without stress.',
+    intro: "The 50/30/20 rule divides take-home pay into needs, wants and savings. It is a starting point for a budget, not a spending target you must meet. Use the example below to see how the split works, then adjust it for your rent, repayments and family costs.",
     quickAnswer: {
       question: 'What is the 50/30/20 rule for budgeting in India?',
       answer: 'The 50/30/20 rule divides your net take-home salary into three buckets: 50% for needs (rent, EMI, groceries, utilities), 30% for wants (dining, entertainment, shopping), and 20% for savings and investments (SIP, PPF, debt repayment). Adjust for high-cost cities like Mumbai where rent alone may consume 35 to 40% of income.',
@@ -243,16 +243,17 @@ export const blogPosts: BlogPost[] = [
     visualAlt: 'Progress bar and target milestones for 3-month and 6-month emergency expense funds.',
     seoTitle: 'How Much Emergency Fund Do You Need? India 2026 Guide',
     title: 'How Much Emergency Fund Do You Need? A Guide for Indian Households',
-    metaDescription: 'Calculate how much emergency fund you need in India. Learn where to keep your emergency money for safety and liquidity with step-by-step guidance. Read now.',
+    metaDescription: 'Find out how much emergency fund you may need in India using essential expenses, EMIs and 3-12 month examples. Learn where to keep it and how to build it.',
     category: 'Savings',
     date: 'May 2026',
-    readTime: '6 min read',
+    modifiedDateISO: '2026-09-13',
+    readTime: '8 min read',
     h1: 'How Much Emergency Fund Do You Need?',
-    intro: 'Life is full of unexpected events: a sudden medical emergency, temporary job loss, urgent car repairs, or home maintenance. An emergency fund is a pool of cash set aside strictly for these unplanned events. It acts as a financial shock absorber, protecting you from high-interest debt when crises arise.',
+    intro: 'An emergency fund is money reserved for essential costs and unavoidable EMIs during a job loss, medical need, urgent repair, or another income shock. This guide helps you choose a practical number of months for your household. Use the linked calculator when you want a personalised estimate from your own expenses, EMIs, current savings, dependants, and income stability.',
     quickAnswer: {
       title: 'Emergency Fund Quick Answer',
       question: 'How much emergency fund do you need?',
-      answer: 'A practical emergency fund is usually based on essential monthly expenses, EMIs, dependants, and income stability. Many Indian households may start with 3 to 6 months of survival expenses, while single-income families, freelancers, business owners, or families with high EMI commitments may consider 6 to 12 months.',
+      answer: 'A practical starting range is 3 to 6 months of essential expenses plus unavoidable EMIs. A single-income family, freelancer, business owner, or household with high fixed obligations may compare 6 to 12 months. Your target should be based on monthly survival cost, not salary alone.',
       formula: 'Emergency fund target = Monthly survival cost x Number of months',
       example: 'If your monthly survival cost is Rs 40,000, a 6-month emergency fund target is Rs 2,40,000.',
       note: 'Educational estimate only. RupeeKit does not provide financial, investment, legal, or tax advice.',
@@ -263,21 +264,31 @@ export const blogPosts: BlogPost[] = [
         },
       ],
     },
-    answerEngineSummary: 'This guide explains how to estimate an emergency fund using survival expenses, EMI commitments, and the number of months you want covered. It also covers where to keep emergency money for liquidity and how to build the corpus step by step. Use the related emergency fund calculator to run your own educational estimate with your actual numbers.',
+    answerEngineSummary: 'To estimate how much emergency fund you should have, add essential monthly expenses and unavoidable EMIs, then multiply the total by a 3, 6, 9 or 12-month planning period. Choose the period using income stability, dependants and fixed obligations. This guide explains that choice; the related calculator applies your actual numbers and shows the shortfall.',
+    officialSources: [
+      {
+        label: 'DICGC — A Guide to Deposit Insurance',
+        href: 'https://www.dicgc.org.in/',
+      },
+      {
+        label: 'SEBI Investor — Understanding the Riskometer',
+        href: 'https://investor.sebi.gov.in/riskometer.html',
+      },
+    ],
     relatedCalculators: ['emergency-fund-calculator-india', 'personal-loan-emi-calculator-india', 'fd-calculator-india', 'sip-calculator-india'],
     sections: [
       {
-        title: 'Why an Emergency Fund is Non-Negotiable',
+        title: 'Why do you need an emergency fund?',
         paragraphs: [
           'Without an emergency fund, a sudden financial demand forces you into difficult decisions. You might have to borrow from friends, take high-interest personal loans, or pull money out of your long-term equity investments during a market downturn.',
-          'Having liquid money readily available ensures peace of mind and keeps your long-term financial plans on track.'
+          'A separate, accessible buffer can cover essential bills without treating long-term investments as emergency cash.'
         ]
       },
       {
-        title: 'Step 1: Calculate Your True Monthly Survival Costs',
+        title: 'How do you calculate your emergency fund?',
         paragraphs: [
           'Your emergency fund size should be based on your monthly expenses, not your monthly salary. If you lose your job, you will cut out all discretionary wants.',
-          'Calculate your baseline survival expenses, which include rent/EMI, groceries, basic utilities (electricity, water, broadband), insurance premiums, medical bills, and child education fees.'
+          'Add rent, groceries, basic utilities, insurance premiums, necessary medicines, school fees, transport and unavoidable EMIs. Multiply that monthly survival cost by the number of months you want covered.'
         ],
         example: {
           title: 'Survival Cost vs Salary',
@@ -285,35 +296,42 @@ export const blogPosts: BlogPost[] = [
         }
       },
       {
-        title: 'Step 2: Determine the Number of Months to Cover',
+        title: 'How many months of expenses should an emergency fund cover?',
         paragraphs: [
-          'The standard rule of thumb is to save 3 to 6 months of expenses. However, the exact size depends on your job stability and family dependencies:',
-          'If you have multiple home/car loans or work in a volatile industry (like early-stage startups), leaning towards 6 to 9 months of expenses is highly recommended.'
+          'Three to six months is a common planning range, not a universal rule or guarantee. Compare longer periods when your household has one income, irregular earnings, more dependants, high EMIs, or a longer expected job-search period.',
+          'Use the table below to compare the same monthly survival cost across 3, 6, 9 and 12 months. Then use the calculator to subtract existing emergency savings and estimate the remaining shortfall.'
         ],
         bullets: [
-          'Single & Salaried (Stable job): 3 months of expenses.',
-          'Married with single income & kids: 6 months of expenses.',
-          'Freelancer or Business Owner: 9 to 12 months of expenses due to cash-flow volatility.'
+          'Stable salaried household with backup income: compare 3 and 6 months.',
+          'Single-income household or family with dependants and EMIs: compare 6 and 9 months.',
+          'Freelancer, business owner, or variable-income household: compare 9 and 12 months.'
         ]
       },
       {
-        title: 'Step 3: Where to Keep Your Emergency Fund in India',
+        title: 'Where should you keep an emergency fund in India?',
         paragraphs: [
-          'The two main rules for emergency money are Safety and Liquidity. Generating high returns is NOT the goal here. The money must be accessible within a few hours without penalty.',
-          'Do not keep all of it in physical cash at home, and do not lock it up in volatile equities or long-term real estate. We recommend a tiered approach:'
+          'Prioritise safety and access over chasing the highest return. Keep an immediate-access layer for urgent bills, then assess the withdrawal time, penalties, market risk and deposit protection of any other parking option.',
+          'Do not keep the core corpus in volatile equity, crypto, long lock-in products, or assets that may be difficult to sell during an emergency. A tiered approach may include:'
         ],
         bullets: [
-          'Cash at home: A small portion (₹10,000 to ₹20,000) for immediate cash needs.',
-          'Savings Account: Keep 1 month of expenses in a separate savings account with an ATM card.',
-          'Sweep-In Fixed Deposits: Link your savings account to a sweep-in FD. This earns higher interest than a regular account but remains instantly liquid.',
-          'Liquid Mutual Funds: Keep the remainder in low-risk liquid mutual funds that offer instant redemption options.'
+          'Small cash amount: only what your household may need during a short cash or payment-network disruption.',
+          'Separate savings account: an immediate-access layer for essential bills.',
+          'Sweep-in or short-term fixed deposit: check premature-withdrawal terms and how quickly funds become available.',
+          'Liquid mutual fund: not risk-free; check the scheme Riskometer, exit load, cut-off rules and redemption facility before considering it.'
         ]
       },
       {
-        title: 'How to Build Your Emergency Fund Step-by-Step',
+        title: 'How can you build an emergency fund step by step?',
         paragraphs: [
           'If saving six months of expenses feels overwhelming, start small. Earmark a small fixed amount from your salary every month.',
           'Treat your emergency fund contributions like a monthly bill. Automate the transfer to a separate bank account immediately after your salary is credited.'
+        ]
+      },
+      {
+        title: 'What methodology does this emergency fund guide use?',
+        paragraphs: [
+          'The examples use one transparent formula: monthly survival cost equals essential monthly expenses plus unavoidable EMIs; the target equals that cost multiplied by 3, 6, 9 or 12 months. The ranges are planning scenarios, not predictions that every emergency will last for a particular period.',
+          'Storage guidance separates access, product risk and deposit protection. DICGC states that eligible deposits are insured up to ₹5 lakh per depositor per bank in the same right and capacity, including principal and interest. Mutual funds remain market-linked, so readers should check the SEBI-mandated Riskometer and current scheme documents.'
         ]
       }
     ],
@@ -349,6 +367,14 @@ export const blogPosts: BlogPost[] = [
       {
         question: 'How do I rebuild emergency fund after using it?',
         answer: 'Restart systematic monthly transfers and refill the shortfall as a fixed budget priority until the target corpus is restored.'
+      },
+      {
+        question: 'How much should I have in my emergency fund?',
+        answer: 'Start by comparing 3 to 6 months of essential expenses plus unavoidable EMIs. Compare 6 to 12 months if income is irregular, one income supports the household, or dependants and fixed obligations are high.'
+      },
+      {
+        question: 'How much emergency fund should I have if my expenses are ₹40,000 per month?',
+        answer: 'Using ₹40,000 as monthly survival cost, the illustrative targets are ₹1,20,000 for 3 months, ₹2,40,000 for 6 months, ₹3,60,000 for 9 months and ₹4,80,000 for 12 months. Subtract current emergency savings to find the shortfall.'
       }
     ]
   },
@@ -365,7 +391,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2026',
     readTime: '7 min read',
     h1: 'Best Personal Finance Books for Beginners',
-    intro: 'Reading is one of the most cost-effective ways to gain financial literacy. The right book can completely change how you view saving, investing, debt, and wealth. In this curated list, we share the top personal finance books that are perfect for beginners looking to build strong money habits.',
+    intro: "Choose a money book that answers a question you have now: how to budget, manage debt or understand investing. This list explains what each book covers and who may find it useful, so you can start with one relevant read.",
     quickAnswer: {
       question: 'Which personal finance books should beginners in India read first?',
       answer: 'Start with "Let\'s Talk Money" by Monika Halan for the Indian financial context covering insurance, EPF, PPF, and mutual funds. Then read "The Psychology of Money" by Morgan Housel for mindset and investor behaviour. "Rich Dad Poor Dad" introduces asset vs liability thinking, and "I Will Teach You to Be Rich" by Ramit Sethi gives step-by-step money automation systems.',
@@ -432,13 +458,13 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2026',
     readTime: '5 min read',
     h1: 'How to Track Expenses: Plug Your Spending Leaks',
-    intro: 'You cannot manage what you do not measure. Many people wonder why they have no money left at the end of the month despite earning a good salary. The answer usually lies in "spending leaks"—small, unchecked variable expenses that accumulate silently. Tracking your expenses is the first step to financial control.',
+    intro: "Check your bank, card and UPI statements together to see where your money went. Add cash purchases, group similar costs and compare the total with your take-home pay. A notebook or spreadsheet is enough to get started.",
     quickAnswer: {
       question: 'How do I track my expenses effectively in India?',
       answer: 'Choose one of three methods based on your habit: pen and paper for absolute beginners, a Google Sheet for customizable category tracking, or a budgeting app for automated SMS-based tracking. Review your UPI and bank statements weekly and group expenses into 5 to 7 buckets (housing, food, utilities, transport, leisure). Log all cash transactions immediately.',
       example: 'Set a Sunday 8 PM alarm, open your banking app, and categorise UPI transactions in under 10 minutes each week.',
     },
-    answerEngineSummary: 'This guide explains three expense tracking methods for India — notebook, spreadsheet, and budgeting apps — and shows how to group costs into simple categories. Weekly review of UPI and bank statements is more sustainable than daily tracking. The guide also covers cash transactions and joint household expense tracking.',
+    answerEngineSummary: "Use a notebook, spreadsheet or budgeting app to record spending. Include cash purchases as well as bank, card and UPI payments. Review the categories regularly to spot missed bills, repeated charges and differences between your plan and actual spending.",
     relatedCalculators: ['salary-in-hand-calculator-india', 'emi-calculator-india', 'personal-loan-emi-calculator-india'],
     sections: [
       {
@@ -516,7 +542,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2026',
     readTime: '6 min read',
     h1: 'Saving vs Investing: How to Choose',
-    intro: 'While saving and investing are often used interchangeably, they represent two completely different strategies for managing money. Understanding when to save and when to invest is crucial for protecting your cash from inflation and achieving your long-term goals.',
+    intro: "Saving keeps money available for upcoming costs and unexpected bills. Investing puts money into assets whose value can rise or fall over time. Decide when you need the money and how much uncertainty you can accept before choosing where to keep it.",
     quickAnswer: {
       question: 'What is the difference between saving and investing in India?',
       answer: 'Saving means keeping money in safe, liquid instruments (FDs, savings accounts, liquid funds) for goals within 1 to 3 years — the priority is capital safety. Investing means buying assets like equity mutual funds or gold that can grow over 5 to 10 or more years at the cost of short-term market risk. Most financial plans need both: save for near-term goals and emergencies, invest for retirement and long-term wealth.',
@@ -590,14 +616,14 @@ export const blogPosts: BlogPost[] = [
     visualTitle: 'Family Expense Framework',
     visualSubtitle: 'Structuring budget for household needs and goals',
     visualAlt: 'Diagram of a house with shared expense buckets: rent, groceries, school fees, medical bills, and sinking funds.',
-    seoTitle: 'Monthly Expense Planning for Families India 2026: Guide',
+    seoTitle: 'Monthly Expense Planning | Family Budget & Savings',
     title: 'Monthly Expense Planning for Indian Families: A Practical Guide',
-    metaDescription: 'Monthly expense planning for Indian families: budget for rent, child education, groceries, medical bills, and seasonal costs with a sinking fund system. Read now.',
+    metaDescription: 'Build a practical monthly family expense plan covering essentials, EMIs, goals, irregular costs and savings, with a repeatable budgeting framework.',
     category: 'Budgeting',
     date: 'May 2026',
     readTime: '6 min read',
     h1: 'Monthly Expense Planning for Indian Families',
-    intro: 'Managing expenses for a single person is simple, but planning for a household with a spouse, children, and dependent parents requires a structured system. Conflicting financial goals, seasonal school fees, and medical bills can easily derail your finances. This guide provides a step-by-step framework to plan family expenses smoothly.',
+    intro: "A family budget needs room for monthly bills and costs that arrive less often, such as school fees, repairs and medical expenses. List both, agree which costs come first, and review the plan together when your income or responsibilities change.",
     quickAnswer: {
       question: 'How should a family plan monthly expenses in India?',
       answer: 'Start with open financial communication between partners. Divide household expenses into 5 to 6 buckets: rent or EMI, groceries, child education, parents\' medical, utilities, and household help. Create a sinking fund for seasonal costs (school fees, insurance premiums) by dividing the annual total by 12 and saving that fixed amount every month.',
@@ -674,7 +700,7 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2026',
     readTime: '6 min read',
     h1: 'Debt Repayment Planning: Snowball vs. Avalanche',
-    intro: 'Carrying high-interest debt is like walking against a strong wind. Credit card bills, personal loans, and consumer EMIs consume your income, leaving you with little to save or invest. Building a structured debt repayment plan is critical for reclaiming your financial freedom. Let\'s look at how to get out of debt systematically.',
+    intro: "List each debt, its outstanding balance, interest rate and minimum payment. That gives you a clear view of what you owe and what you can repay each month. The examples below compare ways to use extra repayments while keeping required payments covered.",
     quickAnswer: {
       question: 'How do I create a debt repayment plan in India?',
       answer: 'List all outstanding debts with their balance, interest rate, and minimum payment. Then choose a strategy: Debt Avalanche (pay off highest interest rate first — mathematically cheapest) or Debt Snowball (pay off smallest balance first — psychologically rewarding). Put all extra income toward the target debt while paying minimums on the rest.',
@@ -758,12 +784,12 @@ export const blogPosts: BlogPost[] = [
     date: 'May 2026',
     readTime: '5 min read',
     h1: 'Build Better Money Habits for Lasting Wealth',
-    intro: 'Personal finance is 80% behavior and only 20% knowledge. Most people know they should save and invest, but struggle to do so consistently due to bad financial habits. Building better money habits is the secret to achieving long-term financial security and peace of mind.',
+    intro: "Start with a money routine you can repeat: check upcoming bills, review recent spending and set aside an amount you can afford. Keep it small enough to continue during a busy week. The habits below are practical options to try and adjust.",
     quickAnswer: {
       question: 'How do I build better money habits in India?',
       answer: 'Four habits make the biggest difference: (1) Pay yourself first — transfer savings to SIPs or RDs on salary day before spending. (2) Automate savings and investments so willpower is never required. (3) Apply the 24-hour rule before any non-essential purchase. (4) When income rises, invest at least 50% of the hike and limit lifestyle upgrades to the remaining 50%.',
     },
-    answerEngineSummary: 'This guide explains the four core money habits for building long-term wealth in India: automating savings before spending, avoiding lifestyle creep, using the 24-hour rule to prevent impulse purchases, and connecting savings goals to specific life milestones. Behavioural strategies like these are more impactful than pure financial knowledge for most salaried Indian earners.',
+    answerEngineSummary: "Choose one habit to practise first: review your spending, schedule an affordable saving amount, or pause before an unplanned purchase. Give the habit a regular time and review whether it helps. Adjust it when your income, bills or priorities change.",
     relatedCalculators: ['sip-calculator-india', 'salary-in-hand-calculator-india'],
     sections: [
       {
@@ -822,77 +848,107 @@ export const blogPosts: BlogPost[] = [
     visualSubtitle: 'Key tax planning and investment steps',
     visualAlt: 'Checklist of 5 crucial personal finance actions for Indian salaried employees.',
     title: 'Personal Finance Checklist for Salaried People in India',
-    metaDescription: 'Personal finance checklist for salaried employees in India: optimise HRA, EPF, 80C deductions, choose the right tax regime, and set up insurance. Read now.',
+    metaDescription: 'A practical finance checklist for salaried employees in India: review payslips, compare tax regimes, check HRA documents, insurance and retirement records.',
     category: 'Checklists',
     date: 'May 2026',
+    modifiedDateISO: '2026-09-24',
     readTime: '7 min read',
     h1: 'Personal Finance Checklist for Salaried People',
-    intro: 'As a salaried professional in India, you have a predictable income, but you also face structured tax deductions. Navigating EPF, HRA tax exemptions, 80C declarations, and investment choices can feel overwhelming. This checklist provides a clear step-by-step roadmap to optimize your personal finances.',
+    intro: 'Use your latest payslip, bank statement, rent records and retirement account statement to work through these five checks. The aim is to find a missing contribution, an unsupported tax declaration or a gap in your monthly budget before it becomes expensive. Repeat the checks after a salary change, job switch or change in family responsibilities.',
     quickAnswer: {
       question: 'What are the key personal finance steps for salaried employees in India?',
-      answer: 'Five essential actions: (1) Compare Old vs New tax regime at the start of the financial year. (2) Maximise Section 80C deductions up to Rs 1.5L using EPF, PPF, and ELSS. (3) Claim HRA exemption with proper rent receipts and landlord PAN if rent exceeds Rs 1L per year. (4) Buy pure term insurance (10 to 15x annual income) and a separate health insurance policy. (5) Track gratuity eligibility and verify EPF deposits on the EPFO portal.',
+      answer: 'Reconcile take-home pay and compare tax regimes for the correct year; check eligible deductions before investing; keep rent evidence if claiming HRA; review insurance against your dependants and debts; and check EPF deposits and gratuity eligibility. Give each unresolved item an owner and a date to follow up.',
+      note: 'Reviewed 24 September 2026. The tax rebate example and Section 80C references below concern FY 2025-26 (AY 2026-27). HRA rules for FY 2026-27 are identified separately; do not mix filing-year rules with current payroll rules.',
+      links: [
+        { label: 'Compare old and new tax regimes for your selected year', href: '/tools/income-tax-calculator-old-vs-new-regime-india' },
+        { label: 'Reconcile your salary and take-home pay', href: '/tools/salary-in-hand-calculator-india' },
+        { label: 'Check HRA exemption and the applicable city rule', href: '/tools/hra-exemption-calculator-india' },
+      ],
     },
-    answerEngineSummary: 'This checklist covers the five most important personal finance steps for Indian salaried employees: tax regime optimisation, 80C deduction planning, HRA exemption documentation, term and health insurance setup, and retiral tracking. It links to RupeeKit calculators for salary in-hand, 80C, HRA, and gratuity estimates.',
-    relatedCalculators: ['salary-in-hand-calculator-india', '80c-deduction-calculator-india', 'hra-exemption-calculator-india', 'gratuity-calculator-india'],
+    answerEngineSummary: 'This salaried-employee checklist turns payslips, tax declarations, rent records, insurance schedules and EPF statements into five practical reviews. It distinguishes tax years, eligible deductions and statutory exceptions, then provides a repeatable monthly check and calculators for the underlying estimates.',
+    officialSources: [
+      { label: 'Income Tax Department — salaried individuals for AY 2026-27', href: 'https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1' },
+      { label: 'Income Tax Department — salary deductions and HRA salary definition', href: 'https://www.incometaxindia.gov.in/w/salary' },
+      { label: 'Income Tax Department — tax computation and rebate limits', href: 'https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1' },
+      { label: 'Income-tax Rules, 2026 — Rule 279, HRA limits and specified cities', href: 'https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf' },
+      { label: 'Ministry of Labour — Social Security Code gratuity FAQs', href: 'https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf' },
+      { label: 'EPFO — member services and contribution records', href: 'https://www.epfindia.gov.in/site_en/For_Employees.php' },
+    ],
+    relatedCalculators: ['salary-in-hand-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', '80c-deduction-calculator-india', 'hra-exemption-calculator-india', 'gratuity-calculator-india'],
     sections: [
       {
-        title: '1. Optimize Your Tax Regime (Old vs. New)',
+        title: '1. Does your payslip match your budget and tax-year choice?',
         paragraphs: [
-          'India currently has two tax regimes. The Old Regime allows you to claim deductions like HRA, 80C, 80D, and home loan interest. The New Regime offers lower tax rates but removes almost all deductions.',
-          'Review your salary structure at the start of the financial year. If you have significant investments in PPF, ELSS, insurance, and pay high house rent, the Old Regime may save you more. Otherwise, the New Regime is often simpler and more cost-effective.'
-        ]
+          'Start with the amount actually credited to your bank. Reconcile it with gross pay less employee PF, TDS, professional tax and other deductions on the payslip. Employer contributions and benefits included in CTC are not all available for monthly spending.',
+          'Choose the financial year before comparing tax regimes. HRA and Section 80C deductions are old-regime benefits for AY 2026-27; the new regime retains specific deductions, including the salary standard deduction. Compare the full calculation using your eligible claims instead of assuming more tax-saving investments always mean less tax.'
+        ],
+        example: {
+          title: 'A monthly reconciliation example',
+          details: 'If Rs 80,000 is credited and your budget records Rs 30,000 rent, Rs 12,000 EMI, Rs 20,000 other spending and Rs 10,000 transfers to savings, Rs 8,000 remains unassigned. Decide where it belongs before adding another recurring commitment. These are illustrative household amounts, not a recommended allocation.'
+        }
       },
       {
-        title: '2. Maximize Section 80C Deductions (Up to ₹1.5 Lakhs)',
+        title: '2. Count existing deductions before buying another investment',
         paragraphs: [
-          'Under the Old Tax Regime, Section 80C allows you to deduct up to ₹1,50,000 from your taxable income. This is one of the easiest ways to lower your tax liability.',
-          'Do not wait until March to make tax-saving investments. Start planning in April to spread investments across the year. Popular 80C options include:'
+          'For FY 2025-26 under the old regime, the combined Section 80C, 80CCC and 80CCD(1) ceiling is Rs 1,50,000. Count eligible employee EPF contributions and other qualifying payments first. An amount above the shared ceiling does not create an additional deduction under that limit.',
+          'Keep a record with three columns: eligible amount already paid, amount still planned, and supporting document. A declaration to payroll is not proof that an investment has actually been made.'
         ],
         bullets: [
-          'EPF (Employee Provident Fund): Automatically deducted from your salary.',
-          'PPF (Public Provident Fund): Government-backed tax-free saving scheme.',
-          'ELSS (Equity Linked Savings Schemes): Tax-saving mutual funds with a 3-year lock-in.',
-          'National Savings Certificates (NSC) and Tax-Saving FDs.'
+          'Check the employee contribution on each payslip against the annual total.',
+          'Keep receipts and account statements in one folder for the relevant year.',
+          'Consider access to your money, risk and your goal before committing to another product.'
         ]
       },
       {
         title: '3. Claim HRA (House Rent Allowance) Exemption Correctly',
         paragraphs: [
-          'If you live in rented accommodation and receive HRA as part of your salary, you can claim significant tax exemptions under the Old Regime.',
-          'Ensure you have a formal rent agreement, rent receipts signed by your landlord, and your landlord\'s PAN if your annual rent exceeds ₹1,00,000. Submit these proofs to your employer on time to prevent excess TDS deductions.'
+          'If you receive HRA and actually pay rent for accommodation you do not own, check the old-regime exemption using the rules for that income year. Keep rent receipts, the agreement, payment records and the landlord details requested by payroll.',
+          'For FY 2026-27, Rule 279 lists Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru for the 50% salary cap; other places use 40%. Do not apply this expanded city list retrospectively to an earlier income year.'
         ],
         example: {
           title: 'HRA Exemption Formula',
-          details: 'HRA exemption is the minimum of three values: (1) Actual HRA received, (2) Rent paid minus 10% of basic salary, or (3) 50% of basic salary in metro cities (40% in non-metros).'
+          details: 'Compare actual HRA, rent minus 10% of eligible salary, and the applicable 50% or 40% salary cap for the same period. Eligible salary is not just basic pay: relevant DA and turnover-based commission can also matter. Check the year-specific salary definition and city list in the linked official guidance.'
         }
       },
       {
-        title: '4. Set Up term and Health Insurance Policies',
+        title: '4. Review protection against your household obligations',
         paragraphs: [
-          'Do not treat insurance as an investment. Avoid high-fee LIC endowment plans that offer tiny life coverages and low returns.',
-          'Purchase a pure Term Insurance policy with a cover of at least 10 to 15 times your annual income to protect your family. Additionally, buy an independent Health Insurance policy to cover medical emergencies.'
+          'List who depends on your income, outstanding debts, existing cover and assets available to your family. A salary multiple alone does not establish how much life cover your household needs.',
+          'Read your health policy schedule for cover, exclusions, waiting periods, co-payments and renewal dates. Check what happens to employer-provided cover if you leave your job. Record any gap and compare policy terms before buying or replacing cover.'
         ]
       },
       {
         title: '5. Track Your Gratuity and Retirals',
         paragraphs: [
-          'If you complete 5 continuous years of service with a single employer, you are legally entitled to a gratuity payout upon leaving.',
-          'Keep track of your service timeline and check your EPF balance annually using the EPFO portal to ensure your employer is depositing contributions correctly.'
+          'Gratuity generally uses a five-year continuous-service condition, but coverage and statutory exceptions matter. The Ministry of Labour identifies exceptions including death, disablement and expiration of fixed-term employment. Check your contract and applicable rules before treating a calculator estimate as an entitlement.',
+          'Check EPF contribution records against payslips and keep joining, transfer and exit details together. If an entry is missing, note the wage month and raise it with payroll instead of assuming that the payslip deduction proves the deposit was credited.'
+        ]
+      },
+      {
+        title: 'What should you check each month and after a job change?',
+        paragraphs: [
+          'Use a short record with the check date, the document reviewed, the discrepancy and the next action. For example: June PF contribution missing from the statement; June payslip saved; payroll contacted; follow-up date recorded. This makes the checklist useful even when the answer is not available immediately.'
+        ],
+        bullets: [
+          'Monthly: reconcile the salary credit, recurring bills and retirement contribution records.',
+          'After a salary or rent change: rerun the budget and tax estimate using the correct year.',
+          'Before a job switch: save payslips, tax records, insurance details and retirement account information.',
+          'At renewal or a family change: review nominees, dependants and insurance terms.'
         ]
       }
     ],
     faqs: [
       {
-        question: 'Which tax regime is better for salaries under ₹7 Lakhs?',
-        answer: 'Under the New Tax Regime, individuals with a taxable income up to ₹7,00,000 receive a full tax rebate under Section 87A, making their net tax liability zero.'
+        question: 'Is Rs 7 lakh still the new-regime rebate threshold for AY 2026-27?',
+        answer: 'No. For FY 2025-26 (AY 2026-27), eligible resident individuals with total income up to Rs 12 lakh can receive a Section 87A rebate of up to Rs 60,000 under the new regime. The rebate does not eliminate tax charged at special rates. With salary alone and a Rs 75,000 standard deduction, gross salary of Rs 12.75 lakh can fall within that threshold. CTC is not the same as taxable salary.'
       },
       {
-        question: 'What is the lock-in period for ELSS mutual funds?',
-        answer: 'ELSS has a lock-in period of 3 years, which is the shortest among all tax-saving options under Section 80C.'
+        question: 'Should I invest another Rs 1.5 lakh if EPF is already deducted?',
+        answer: 'First count existing eligible contributions within the shared deduction limit and compare regimes. An additional investment can still serve a financial goal, but it does not automatically provide an additional tax deduction.'
       },
       {
-        question: 'Can I claim both HRA exemption and Home Loan deduction?',
-        answer: 'Yes, if you live in a rented house in one city (claiming HRA) and own a home in another city (claiming home loan interest and principal deductions), you can claim both benefits.'
+        question: 'Does this checklist determine my final tax or gratuity entitlement?',
+        answer: 'No. It helps you assemble records and identify questions. Final treatment depends on the applicable year, income, employment terms and statutory conditions. Use the linked official sources and resolve discrepancies before relying on an estimate.'
       }
     ]
   },
@@ -910,7 +966,7 @@ export const blogPosts: BlogPost[] = [
     publishedDateISO: '2026-05-27T08:00:00Z',
     modifiedDateISO: '2026-08-03T08:00:00Z',
     title: 'ITR-2 AY 2026-27: Deadline, Documents & Late Filing',
-    metaDescription: 'File ITR-2 for AY 2026-27 with eligibility, documents, capital gains, foreign assets, revised-return and belated-return guidance.',
+    metaDescription: 'Who files ITR-2 for AY 2026-27: capital gains (Schedule CG), foreign assets and RSUs (Schedule FA), belated and revised returns. Reviewed against Income Tax Department guidance.',
     category: 'Tax',
     date: 'August 2026',
     readTime: '9 min read',
@@ -926,6 +982,7 @@ export const blogPosts: BlogPost[] = [
         { label: 'Compare old vs new regime for FY 2025-26 before you choose', href: '/tools/income-tax-calculator-old-vs-new-regime-india' },
         { label: 'Check your in-hand salary and TDS assumptions', href: '/tools/salary-in-hand-calculator-india' },
         { label: 'How to use the Rs 1.25 lakh LTCG exemption', href: '/blog/save-capital-gains-tax-equity-india' },
+        { label: 'Schedule FA, RSUs and NRE/NRO tax rules explained', href: '/nri' },
       ],
     },
     answerEngineSummary: 'This guide explains who usually falls under ITR-2 for AY 2026-27, what key changes to review, and how to prepare filing documents before submission. It also outlines checklist-driven steps to reconcile Form 16, AIS, and capital-gains records. Use RupeeKit tax calculators for preliminary educational comparison before final filing checks.',
@@ -1932,9 +1989,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'mutual-funds-for-beginners-india',
-    seoTitle: 'Mutual Funds for Beginners India 2026: Start With Rs 500',
+    seoTitle: 'Mutual Funds for Beginners India | Start With Rs 500',
     title: 'Mutual Funds for Beginners India 2026: How to Start Investing',
-    metaDescription: 'Complete beginner guide to mutual funds in India 2026. Learn what mutual funds are, types, SIP vs lumpsum, NAV, expense ratio, and how to start investing. Read now.',
+    metaDescription: 'Learn how mutual funds work in India, how to start a SIP from Rs 500, compare fund types and costs, and build a beginner-friendly investment process.',
     category: 'Investing',
     date: 'July 2026',
     readTime: '9 min read',
@@ -2546,29 +2603,30 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'income-tax-on-12-lakh-salary-new-regime-india-2026',
-    seoTitle: 'Income Tax on 12 Lakh Salary 2026: Rs 0 Under New Regime',
+    seoTitle: 'Tax on Rs 12 Lakh Salary | Rebate & Marginal Relief',
     title: 'Income Tax on Rs 12 Lakh Salary: Zero Tax Under New Regime FY 2026-27',
-    metaDescription: 'Is income tax really zero on Rs 12 lakh salary in FY 2026-27? Complete calculation under the new tax regime with Section 87A rebate, the Rs 12.1L cliff, and FAQs. Read now.',
+    metaDescription: 'See the new-regime tax calculation for Rs 12 lakh taxable income, the Section 87A rebate, standard deduction and what changes above the rebate limit.',
     category: 'Tax',
-    date: 'July 2026',
+    date: 'August 2026',
     publishedDateISO: '2026-07-13',
+    modifiedDateISO: '2026-08-10',
     readTime: '6 min read',
     visualType: 'tax-regime-comparison',
     visualTitle: 'Zero Tax on Rs 12L: How the 87A Rebate Works',
     visualSubtitle: 'New regime slab breakdown and rebate for Rs 12 lakh income',
     visualAlt: 'Chart showing income tax computation on Rs 12 lakh salary under new regime with Section 87A rebate',
     h1: 'Income Tax on Rs 12 Lakh Salary Under the New Regime FY 2026-27: Full Calculation',
-    intro: 'Under the new tax regime for FY 2026-27 (AY 2027-28), income up to Rs 12 lakh is genuinely tax-free. This is not a reduction in tax rates — it is a full rebate under Section 87A of the Income Tax Act that wipes out the computed tax entirely. For salaried employees, the standard deduction of Rs 75,000 extends this zero-tax threshold to Rs 12.75 lakh of gross salary. This guide explains the exact calculation, the critical cliff at Rs 12.1 lakh, and what changes when income crosses Rs 12 lakh.',
+    intro: 'Under the new tax regime for FY 2026-27 (AY 2027-28), eligible normal slab-rate income up to Rs 12 lakh can become tax-free through the Section 87A rebate. For salaried employees, the Rs 75,000 standard deduction can extend this zero-tax point to Rs 12.75 lakh of gross salary. This guide explains the calculation and the marginal relief that prevents a disproportionate tax jump when taxable income moves slightly above Rs 12 lakh.',
     quickAnswer: {
       question: 'Is income tax zero on Rs 12 lakh salary under the new regime in FY 2026-27?',
       answer: 'Yes. Under the new tax regime in FY 2026-27, a taxable income of up to Rs 12 lakh is completely tax-free because of the Section 87A rebate (increased to Rs 60,000 in Union Budget 2025). The computed tax on Rs 12 lakh is Rs 60,000, which is fully wiped out by the rebate. Net tax payable = Rs 0.',
       formula: 'Tax on Rs 12L: 0–4L = 0 | 4–8L = 5% = Rs 20,000 | 8–12L = 10% = Rs 40,000 | Total = Rs 60,000. Less: Section 87A rebate = Rs 60,000. Tax payable = Rs 0.',
       note: 'Source: Section 87A of the Income Tax Act, as amended by Finance Act 2025. Verify at incometax.gov.in.',
     },
-    answerEngineSummary: 'Income of Rs 12 lakh or less is completely tax-free under the new regime in FY 2026-27 due to the Section 87A rebate of up to Rs 60,000. For salaried employees, zero tax applies up to Rs 12.75 lakh gross salary (after Rs 75,000 standard deduction). A single rupee above Rs 12 lakh makes the full computed tax payable — this is the tax cliff to watch.',
+    answerEngineSummary: 'Eligible normal slab-rate income of Rs 12 lakh or less can become tax-free under the new regime through the Section 87A rebate of up to Rs 60,000. For salaried employees, the Rs 75,000 standard deduction can make gross salary up to Rs 12.75 lakh tax-free when no special-rate income changes the result. If taxable income is slightly above Rs 12 lakh, marginal relief can cap income tax before cess at the excess over Rs 12 lakh.',
     officialSources: [
-      { label: 'Income Tax Department — Section 87A Rebate', href: 'https://incometax.gov.in' },
-      { label: 'Finance Act 2025 — Tax Slabs and Rebate Changes', href: 'https://eportal.incometax.gov.in' },
+      { label: 'Income Tax Department — computation for individuals and marginal relief', href: 'https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1' },
+      { label: 'Income Tax Department — Section 115BAC deductions and new regime', href: 'https://www.incometaxindia.gov.in/hi/w/section-115bac-5' },
     ],
     sections: [
       {
@@ -2598,29 +2656,29 @@ export const blogPosts: BlogPost[] = [
         },
       },
       {
-        title: 'The Rs 12.1 lakh cliff: what happens when income crosses Rs 12 lakh',
+        title: 'Marginal relief when taxable income crosses Rs 12 lakh',
         paragraphs: [
-          'This is the most important aspect of the new regime rebate that most people misunderstand. The Section 87A rebate is an all-or-nothing mechanism — it is available only when taxable income is Rs 12 lakh or below. If your income is Rs 12,00,001 — even a single rupee more — the entire rebate of Rs 60,000 is withdrawn.',
-          'Taxable income Rs 12,10,000 (Rs 10,000 above the limit): Rs 4–8L = 5% = Rs 20,000; Rs 8–12L = 10% = Rs 40,000; Rs 12–12.1L = 15% = Rs 1,500. Total tax = Rs 61,500. No Section 87A rebate (income exceeds Rs 12L). Add 4% cess: Rs 61,500 × 1.04 = Rs 63,960. For earning Rs 10,000 more, you pay Rs 63,960 extra in tax.',
-          'This is the "cliff effect" and it is real. If your taxable income is likely to be Rs 12.1–12.5 lakh, you are in the worst possible zone — earning slightly more than Rs 12 lakh means your take-home may actually be lower than if you had earned exactly Rs 12 lakh.',
+          'The Section 87A rebate itself is available only when the eligibility conditions are met, including the Rs 12 lakh total-income limit. However, the new regime also provides marginal relief for a resident individual whose normal slab-rate income is slightly above that limit. The relief prevents the income tax payable before cess from exceeding the amount by which total income exceeds Rs 12 lakh.',
+          'At taxable income of Rs 12,10,000, normal slab tax is Rs 61,500: Rs 20,000 on the Rs 4–8 lakh slab, Rs 40,000 on the Rs 8–12 lakh slab and Rs 1,500 on the next Rs 10,000. Because the income exceeds Rs 12 lakh by only Rs 10,000, marginal relief reduces income tax before cess to Rs 10,000. Cess of 4% is Rs 400, giving an estimated final tax of Rs 10,400, subject to eligibility and any special-rate income.',
+          'Marginal relief tapers as income rises. Once the normal slab tax is no longer higher than the excess over Rs 12 lakh, regular slab tax applies. This is why crossing Rs 12 lakh does not automatically create the full Rs 60,000-plus tax jump described in the earlier version of this article.',
         ],
         example: {
-          title: 'Rs 12.1 lakh vs Rs 12 lakh — the Rs 63,960 tax cliff',
-          details: 'At Rs 12L taxable income: Tax = Rs 0. At Rs 12.1L taxable income: Tax = Rs 63,960. Extra earning: Rs 10,000. Extra tax: Rs 63,960. Net loss from earning more: Rs 53,960. Lesson: If your taxable income is Rs 12–12.6L, consider maximising NPS 80CCD(1B) or other new regime-allowed deductions to bring it back to Rs 12L.',
+          title: 'Rs 12.1 lakh taxable income — marginal relief calculation',
+          details: 'Normal slab tax: Rs 61,500 | Excess income over Rs 12L: Rs 10,000 | Marginal relief: Rs 51,500 | Tax after relief: Rs 10,000 | Cess at 4%: Rs 400 | Estimated final tax: Rs 10,400.',
         },
       },
       {
         title: 'New regime vs old regime at Rs 12 lakh salary',
         paragraphs: [
-          'At Rs 12 lakh taxable income, the new regime is unambiguously better — the tax is Rs 0 vs potentially Rs 52,500 in the old regime (before any deductions). Even with maximum old regime deductions of Rs 3.5 lakh (HRA Rs 1.5L + 80C Rs 1.5L + 80D Rs 50K), the old regime tax on Rs 8.5 lakh taxable income would be approximately Rs 85,500 → still much higher than zero.',
+          'At Rs 12 lakh taxable income from normal slab-rate sources, the new-regime tax can be Rs 0 after the rebate. Under the old regime, the result depends on salary deductions and exemptions; Rs 8.5 lakh of taxable income produces approximately Rs 85,800 including 4% cess. Compare using your actual eligible deductions rather than assuming either regime is always better.',
           'However, if your gross salary is above Rs 12.75 lakh (making taxable income above Rs 12 lakh under the new regime), the comparison changes and depends on your actual deductions. Use the RupeeKit Income Tax Calculator (Old vs New Regime) to compare your specific situation.',
         ],
       },
       {
-        title: 'How to keep income within Rs 12 lakh to avoid tax',
+        title: 'Which deductions are available in the new regime?',
         paragraphs: [
-          'Under the new tax regime, very few deductions are allowed — but Section 80CCD(1B) still works. You can contribute up to Rs 50,000 extra to NPS voluntarily and deduct it. Stack that with the Rs 75,000 standard deduction and a salaried employee earning Rs 13.25 lakh gross can reach exactly Rs 12 lakh taxable income: Rs 13.25L − Rs 75K (standard) − Rs 50K (NPS 80CCD(1B)) = Rs 12.00L — zero tax.',
-          'Employer contribution to NPS is fully exempt under Section 80CCD(2) without any Rs 50,000 cap. Many employers who offer structured salary now route a portion of CTC as employer NPS to help employees stay below the Rs 12 lakh threshold.',
+          'The new regime generally does not allow the employee\'s own NPS deductions under Sections 80CCD(1) or 80CCD(1B). The extra Rs 50,000 self-contribution deduction under Section 80CCD(1B) belongs to the old-regime deduction set, so it should not be subtracted in a new-regime Rs 12 lakh calculation.',
+          'An eligible employer contribution to NPS can be deducted under Section 80CCD(2). Under the new regime, the statutory percentage limit can be up to 14% of salary as defined for this provision. This is different from an employee making a voluntary NPS contribution, and the actual salary structure and employer contribution must be checked.',
           'Verify all deduction details at the official Income Tax Department website (incometax.gov.in) or use the e-Filing portal (eportal.incometax.gov.in) for AY 2027-28 ITR-related information.',
         ],
       },
@@ -2629,7 +2687,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         question: 'Is Rs 12 lakh salary completely tax-free in FY 2026-27?',
-        answer: 'Yes, under the new tax regime. If your taxable income does not exceed Rs 12 lakh, the Section 87A rebate of Rs 60,000 fully offsets the computed tax. The condition is that income must not exceed Rs 12 lakh — even Rs 1 above removes the rebate entirely.',
+        answer: 'Eligible normal slab-rate income up to Rs 12 lakh can become tax-free under the new regime after the Section 87A rebate. Above Rs 12 lakh the full rebate is not available, but marginal relief can prevent a disproportionate tax jump when total income is only slightly higher. Special-rate income can change the result.',
       },
       {
         question: 'What is the Section 87A rebate for FY 2026-27?',
@@ -2637,7 +2695,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'What if I earn Rs 12,50,000 — how much tax do I pay under new regime?',
-        answer: 'At Rs 12.5 lakh taxable income, there is no Section 87A rebate. Tax: 4–8L = Rs 20,000; 8–12L = Rs 40,000; 12–12.5L (15%) = Rs 7,500. Total = Rs 67,500. Add 4% cess = Rs 70,200. So income of Rs 12.5L costs Rs 70,200 in tax while income of Rs 12L costs Rs 0.',
+        answer: 'At Rs 12.5 lakh taxable income from normal slab-rate sources, normal slab tax is Rs 67,500. The excess over Rs 12 lakh is Rs 50,000, so marginal relief can reduce income tax before cess to Rs 50,000. Add 4% cess of Rs 2,000 for an estimated final tax of Rs 52,000, subject to resident-individual eligibility and any special-rate income.',
       },
       {
         question: 'Is the Rs 12 lakh threshold applicable to old regime also?',
@@ -2652,9 +2710,9 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'how-to-calculate-in-hand-salary-from-ctc-india',
-    seoTitle: 'CTC to In-Hand Salary India 2026: Exact Take-Home Steps',
+    seoTitle: 'CTC to In-Hand Salary India | PF, Tax & Take-Home',
     title: 'How to Calculate In-Hand Salary from CTC in India 2026',
-    metaDescription: 'Learn exactly how to calculate your take-home (in-hand) salary from CTC in India. Step-by-step with worked examples at Rs 10L, Rs 15L, Rs 20L, and Rs 30L CTC. Read now.',
+    metaDescription: 'Understand how annual CTC becomes monthly take-home pay after employer components, employee PF, tax and deductions, with a practical salary example.',
     category: 'Salary & Tax',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
@@ -2697,7 +2755,7 @@ export const blogPosts: BlogPost[] = [
           'Step 1 — Identify non-cash CTC components: Employer PF (12% of Basic) + Gratuity (4.81% of Basic) + Insurance premium + any other benefits. Subtract these from CTC to get Gross Monthly Salary.',
           'Step 2 — Calculate Gross Monthly Salary: Gross Salary = (CTC − Employer PF − Gratuity) / 12.',
           'Step 3 — Compute Employee PF: 12% of Basic salary per month (or capped at Rs 1,800/month if Basic ≤ Rs 15,000).',
-          'Step 4 — Compute TDS (monthly): Estimate annual taxable income = Gross Salary × 12 − Standard Deduction (Rs 75,000 under new regime) − NPS 80CCD(1B) if any. Apply new regime slabs and divide annual TDS by 12 for monthly deduction.',
+          'Step 4 — Compute TDS (monthly): Estimate annual taxable income = Gross Salary × 12 − Standard Deduction (Rs 75,000 under new regime) − eligible employer NPS deduction under Section 80CCD(2), if included in the salary structure. Do not subtract the employee\'s Section 80CCD(1B) self-contribution under the new regime. Apply the new-regime rules and divide the annual tax estimate by 12.',
           'Step 5 — Professional Tax: Typically Rs 200/month in most states (varies — Karnataka, Maharashtra, AP, Telangana apply it; many states do not).',
           'Step 6 — In-Hand = Gross Monthly Salary − Employee PF − TDS − Professional Tax.',
         ],
@@ -2844,9 +2902,9 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: 'epf-partial-withdrawal-rules-india',
-    seoTitle: 'EPF Partial Withdrawal Rules 2026: Limits by Purpose',
+    seoTitle: 'EPF Partial Withdrawal Rules | Limits, Reasons & Forms',
     title: 'EPF Partial Withdrawal Rules India 2026: Housing, Medical, Education & More',
-    metaDescription: 'Complete guide to EPF partial withdrawal rules in India for housing loan, medical emergency, education, and marriage. Eligibility, amounts, and online application steps. Read now.',
+    metaDescription: 'Check EPF partial-withdrawal reasons, service conditions, eligible limits and supporting documents before submitting an advance claim online.',
     category: 'Savings',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
@@ -2944,7 +3002,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'new-labour-code-gratuity-rules-india-2026',
     seoTitle: 'New Gratuity Rules 2026: 1-Year vs 5-Year Rule',
     title: 'New Gratuity Rules 2026: 1-Year vs 5-Year Rule Explained',
-    metaDescription: 'Understand gratuity eligibility for regular and fixed-term employees, the 1-year and 5-year rules, calculation formula and practical examples.',
+    metaDescription: 'Fixed-term staff qualify for gratuity after 1 year under the Labour Codes in force from 21 November 2025. The 5-year rule still applies otherwise.',
     category: 'Salary & Tax',
     date: 'August 2026',
     publishedDateISO: '2026-07-13',
@@ -2962,6 +3020,8 @@ export const blogPosts: BlogPost[] = [
       note: 'The Government made the four Labour Codes effective from 21 November 2025. Verify the employment contract and current official rules before applying the fixed-term exception.',
       links: [
         { label: 'Estimate your gratuity with the Gratuity Calculator', href: '/tools/gratuity-calculator-india' },
+        { label: 'See your gratuity on the revised wage base', href: '/tools/gratuity-under-new-wage-code-calculator-india' },
+        { label: 'Check what the 50% wage rule does to your take-home', href: '/tools/new-labour-code-take-home-calculator-india' },
         { label: 'Compare old vs new gratuity wage-base scenarios', href: '/guides/gratuity-2026-old-vs-new' },
         { label: 'Fixed-term employee one-year gratuity guide', href: '/guides/fixed-term-employee-gratuity-one-year' },
       ],

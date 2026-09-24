@@ -3,9 +3,9 @@ import type { BlogPost } from './blog-posts';
 export const extraBlogPosts: BlogPost[] = [
   {
     slug: 'fcra-2-0-india-2026-explained',
-    seoTitle: 'FCRA 2.0 India 2026: New Rules Explained Simply',
+    seoTitle: 'FCRA Bill 2026 Passed or Not? FCRA 2.0 Rules Explained',
     title: 'FCRA 2.0 India 2026: New Rules, Portal and Bill Explained in Simple English',
-    metaDescription: 'Understand FCRA 2.0 India in simple English: 2026 rules, NGO registration, SBI account, reporting, renewal, portal and pending Bill.',
+    metaDescription: 'Has the FCRA Amendment Bill 2026 passed? Current Parliament status, plus FCRA 2.0 rules, NGO registration, SBI account, reporting and renewal explained simply.',
     category: 'Government & Compliance',
     date: 'August 2026',
     readTime: '14 min read',
@@ -14,7 +14,7 @@ export const extraBlogPosts: BlogPost[] = [
     quickAnswer: {
       title: 'FCRA 2.0 in one minute',
       question: 'What is FCRA 2.0 in India?',
-      answer: 'FCRA 2.0 is the upgraded system for controlling and tracking foreign donations received in India. The 2026 Rules are already in force from 22 June 2026, and the new portal was launched on 30 June 2026. Registration is now tied to exact purposes and States or Union Territories, reporting is more detailed, and renewal generally requires at least Rs 10 lakh of foreign contribution to have been used in the previous two years. The 2026 Amendment Bill, including the proposed Designated Authority for foreign-funded assets, is still pending in Parliament as of 5 August 2026.',
+      answer: 'FCRA 2.0 is the upgraded system for controlling and tracking foreign donations received in India. The 2026 Rules are already in force from 22 June 2026, and the new portal was launched on 30 June 2026. Registration is now tied to exact purposes and States or Union Territories, reporting is more detailed, and renewal generally requires at least Rs 10 lakh of foreign contribution to have been used in the previous two years. The Foreign Contribution (Regulation) Amendment Bill, 2026 has not been passed: as of 10 August 2026 it remains pending in Parliament, having been introduced in the Lok Sabha on 25 March 2026.',
       note: 'The Rules and portal are operational. Proposals contained only in the pending Bill should not be treated as enacted law.',
       links: [
         { label: 'Official FCRA Portal', href: 'https://fcraonline.gov.in/' },
@@ -31,7 +31,7 @@ export const extraBlogPosts: BlogPost[] = [
     heroImageWidth: 1672,
     heroImageHeight: 941,
     publishedDateISO: '2026-08-05',
-    modifiedDateISO: '2026-08-05',
+    modifiedDateISO: '2026-08-10',
     officialSources: [
       {
         label: 'Ministry of Home Affairs — Official FCRA Portal',
@@ -56,6 +56,26 @@ export const extraBlogPosts: BlogPost[] = [
     ],
     sections: [
       {
+        title: 'Has the FCRA Amendment Bill, 2026 been passed? (status as on 10 August 2026)',
+        paragraphs: [
+          'No. The Foreign Contribution (Regulation) Amendment Bill, 2026 has not been passed by either House of Parliament. It was introduced in the Lok Sabha on 25 March 2026 and, as on 10 August 2026, it is still pending.',
+          'The Bill has been reported as listed for discussion during the ongoing Monsoon session, which is scheduled to conclude on 13 August 2026. Reports about the exact date of the debate have differed, so the listing should be treated as indicative rather than settled. Because this status can change within days, verify it against the Lok Sabha bill list or the PRS bill track before relying on it.',
+          'This distinction matters in practice. The Foreign Contribution (Regulation) Amendment Rules, 2026 are already in force from 22 June 2026 and must be complied with now. The Bill is a separate proposal, and anything that appears only in the Bill — including the Designated Authority for foreign-funded assets — is not yet law.',
+        ],
+        example: {
+          title: 'What is law today versus what is only proposed',
+          details: 'In force now: FCRA Act, 2010; FCRA Amendment Act, 2020; FCRA Amendment Rules, 2026 (from 22 June 2026); the FCRA 2.0 portal (from 30 June 2026). Not law yet: the Foreign Contribution (Regulation) Amendment Bill, 2026, pending in Parliament as on 10 August 2026.',
+        },
+      },
+      {
+        title: 'FCRA बिल क्या है? (हिंदी में संक्षिप्त जानकारी)',
+        paragraphs: [
+          'FCRA का पूरा नाम Foreign Contribution (Regulation) Act है, यानी विदेशी अंशदान (विनियमन) अधिनियम। यह कानून तय करता है कि भारत में कौन से व्यक्ति और संस्थाएँ विदेश से चंदा, अनुदान या सहायता ले सकती हैं और उस पैसे का उपयोग किस तरह किया जा सकता है। इसे गृह मंत्रालय लागू करता है।',
+          'क्या FCRA बिल पास हो गया है? नहीं। विदेशी अंशदान (विनियमन) संशोधन विधेयक, 2026 को 25 मार्च 2026 को लोक सभा में पेश किया गया था, लेकिन 10 अगस्त 2026 तक यह संसद में लंबित है और किसी भी सदन से पारित नहीं हुआ है।',
+          'ध्यान देने योग्य बात यह है कि FCRA संशोधन नियम, 2026 पहले से लागू हैं — ये 22 जून 2026 से प्रभावी हैं और नया FCRA 2.0 पोर्टल 30 जून 2026 को शुरू हुआ था। इसलिए जो प्रावधान सिर्फ़ विधेयक में हैं, उन्हें अभी कानून नहीं माना जाना चाहिए। नवीनतम स्थिति के लिए गृह मंत्रालय के आधिकारिक FCRA पोर्टल की जाँच करें।',
+        ],
+      },
+      {
         title: 'What FCRA means in very simple words',
         paragraphs: [
           'FCRA stands for the Foreign Contribution (Regulation) Act. It controls how certain people and organisations in India may receive and use donations, grants, securities or valuable articles coming from a foreign source. The Ministry of Home Affairs administers the law.',
@@ -71,7 +91,7 @@ export const extraBlogPosts: BlogPost[] = [
         title: 'FCRA 2.0 is not one new law',
         paragraphs: [
           'The expression “FCRA 2.0” can be confusing because it covers several different things. The base law is still the Foreign Contribution (Regulation) Act, 2010, as amended over time. The Foreign Contribution (Regulation) Amendment Rules, 2026 were notified on 22 June 2026 and are already in force. The redesigned FCRA 2.0 portal was launched on 30 June 2026.',
-          'A separate Foreign Contribution (Regulation) Amendment Bill, 2026 was introduced in the Lok Sabha on 25 March 2026. As of 5 August 2026, it is pending in Parliament. Therefore, a proposal appearing only in that Bill is not the same as an operative rule.',
+          'A separate Foreign Contribution (Regulation) Amendment Bill, 2026 was introduced in the Lok Sabha on 25 March 2026. As on 10 August 2026, it has not been passed and is pending in Parliament. Therefore, a proposal appearing only in that Bill is not the same as an operative rule.',
         ],
         bullets: [
           'FCRA Act, 2010: in force',
@@ -247,6 +267,22 @@ export const extraBlogPosts: BlogPost[] = [
     relatedCalculators: [],
     faqs: [
       {
+        question: 'Has the FCRA Bill been passed or not?',
+        answer: 'Not passed. The Foreign Contribution (Regulation) Amendment Bill, 2026 was introduced in the Lok Sabha on 25 March 2026 and, as on 10 August 2026, it is still pending in Parliament and has not been cleared by either House. It has been reported as listed for discussion in the Monsoon session ending 13 August 2026, but the position can change quickly, so confirm on the official Lok Sabha or PRS bill track.',
+      },
+      {
+        question: 'Is the FCRA Bill 2026 passed in Parliament today?',
+        answer: 'No. As on 10 August 2026 no House of Parliament has passed the FCRA Amendment Bill, 2026. What is already legally in force is a different instrument: the FCRA Amendment Rules, 2026, effective from 22 June 2026.',
+      },
+      {
+        question: 'क्या FCRA बिल पास हो गया है?',
+        answer: 'नहीं। विदेशी अंशदान (विनियमन) संशोधन विधेयक, 2026 अभी संसद में लंबित है। इसे 25 मार्च 2026 को लोक सभा में पेश किया गया था, और 10 अगस्त 2026 तक यह किसी भी सदन से पारित नहीं हुआ है। हालाँकि FCRA संशोधन नियम, 2026 पहले से 22 जून 2026 से लागू हैं। ताज़ा स्थिति आधिकारिक स्रोत पर ज़रूर जाँचें।',
+      },
+      {
+        question: 'FCRA बिल क्या है?',
+        answer: 'FCRA यानी Foreign Contribution (Regulation) Act, भारत में विदेशी चंदे और अनुदान को नियंत्रित करने वाला कानून है। FCRA संशोधन विधेयक, 2026 इसमें बदलाव का प्रस्ताव है, जिसमें उन संस्थाओं की विदेशी-वित्तपोषित संपत्तियों के प्रबंधन के लिए एक निर्दिष्ट प्राधिकरण (Designated Authority) बनाने का प्रस्ताव शामिल है जिनका FCRA पंजीकरण समाप्त हो जाता है। यह विधेयक अभी कानून नहीं बना है।',
+      },
+      {
         question: 'Is FCRA 2.0 a completely new Act?',
         answer: 'No. FCRA 2.0 is a common name for the upgraded compliance framework built on the FCRA Act, 2010, the Amendment Rules, 2026 and the redesigned portal. A separate Amendment Bill, 2026 is pending in Parliament.',
       },
@@ -260,7 +296,7 @@ export const extraBlogPosts: BlogPost[] = [
       },
       {
         question: 'Is the FCRA Amendment Bill, 2026 already law?',
-        answer: 'No. As of 5 August 2026, it remains pending in Parliament. Proposals in the Bill should be kept separate from the 2026 Rules that are already in force.',
+        answer: 'No. As on 10 August 2026, it remains pending in Parliament and has not been passed. Proposals in the Bill should be kept separate from the 2026 Rules that are already in force.',
       },
       {
         question: 'What is the minimum foreign-contribution utilisation required for renewal?',

@@ -1,0 +1,111 @@
+{
+  "itr-2-ay-2026-27-filing-guide": {
+    "sections": [
+      {
+        "title": "ITR-2 queries: who must file, capital gains, foreign assets and deadlines",
+        "paragraphs": [
+          "Searchers reach this guide with several related intents: whether ITR-2 applies to them, how salary or pension combines with capital gains, whether foreign assets change the return form, what documents are needed, and what filing deadlines apply. Use the sections below as a checklist and verify the final return-form and deadline rules on the Income Tax Department portal before filing.",
+          "The guide is educational and does not decide return-form eligibility for a specific taxpayer. A change in income type, directorship, foreign assets or business income can change the correct form."
+        ]
+      },
+      {
+        "title": "How do capital gains change an ITR-2 filing?",
+        "paragraphs": [
+          "Capital gains are one of the common reasons salaried taxpayers move beyond ITR-1. ITR-2 can include capital-gains schedules, but the exact reporting depends on the asset, transaction dates and applicable tax treatment. Reconcile broker statements and AIS/Form 26AS information rather than relying on a generic example alone."
+        ]
+      },
+      {
+        "title": "What documents should you keep before starting ITR-2?",
+        "paragraphs": [
+          "Prepare salary and TDS records, AIS/Form 26AS data, bank-interest details, capital-gains statements and any foreign-asset or house-property records relevant to your case. The purpose is to reconcile the return with source records before submission, not to treat this list as a substitute for the portal's current instructions."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do salaried people with capital gains need ITR-2?",
+        "answer": "Often ITR-2 is relevant when a salaried individual has capital gains and does not have business or professional income, but return-form eligibility depends on the full set of income and disclosure conditions. Verify the current Income Tax Department instructions before filing."
+      },
+      {
+        "question": "Can I file ITR-2 if I have foreign assets?",
+        "answer": "ITR-2 contains foreign-asset reporting schedules for eligible taxpayers, but the disclosure rules are fact-specific. Use the portal instructions and professional help where foreign income, residency or asset reporting is unclear."
+      },
+      {
+        "question": "What should I reconcile before filing ITR-2?",
+        "answer": "Reconcile salary/TDS records, AIS and Form 26AS, bank interest, capital-gains statements and other relevant source documents before submitting the return."
+      }
+    ]
+  },
+  "zerodha-vs-upstox-vs-angel-one-demat-account": {
+    "sections": [
+      {
+        "title": "Zerodha vs Upstox vs Angel One: compare brokerage, AMC and delivery charges",
+        "paragraphs": [
+          "The useful comparison is not a single 'best broker' label. Searchers usually want to compare delivery brokerage, intraday/F&O pricing, annual maintenance charges, account-opening costs and platform features. Use the verified comparison card in this guide and check each broker's current official pricing page before opening an account because charges can change."
+        ]
+      },
+      {
+        "title": "Which broker is better for beginners, traders or long-term investors?",
+        "paragraphs": [
+          "The answer depends on what you actually do. A long-term investor may care most about delivery costs, mutual-fund access and AMC; an active trader may care more about intraday/F&O charges, APIs and execution tools. RupeeKit does not rank brokers by affiliate payout and does not claim one broker is universally best."
+        ]
+      },
+      {
+        "title": "How should you compare broker charges safely?",
+        "paragraphs": [
+          "Check the broker's own pricing and service-charge pages on the day you decide. Promotional waivers, first-year offers and plan-specific fees can make a static comparison stale quickly, so treat the article as a framework and verify the current tariff before acting."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which is cheaper: Zerodha, Upstox or Angel One?",
+        "answer": "There is no single cheapest broker for every investor. Compare delivery, intraday/F&O, AMC and any plan-specific fees for the activity you actually use, then verify the current official tariff."
+      },
+      {
+        "question": "Which demat account is better for beginners?",
+        "answer": "A beginner should compare simplicity, support, delivery costs, AMC, mutual-fund access and the features they actually need. Avoid choosing only from a promotional offer or affiliate recommendation."
+      },
+      {
+        "question": "Do broker charges stay the same every year?",
+        "answer": "No. Brokerage, AMC, account-opening offers and other charges can change. Always verify the current official pricing page before opening or switching an account."
+      }
+    ]
+  },
+  "new-labour-code-gratuity-rules-india-2026": {
+    "sections": [
+      {
+        "title": "Gratuity eligibility: 1-year vs 5-year rule",
+        "paragraphs": [
+          "The one-year gratuity rule does not apply to every employee or contract worker. Eligibility depends on the employment category and the conditions in the applicable law. Regular employees generally need five years of continuous service; eligible fixed-term employees can have a different threshold."
+        ]
+      },
+      {
+        "title": "Does every contract worker get gratuity after one year?",
+        "paragraphs": [
+          "No. The label 'contract worker' by itself is not enough. Fixed-term employment, contractor-supplied labour and regular employment are different legal arrangements. Check the written contract, employment category and the applicable law before assuming the one-year provision applies."
+        ]
+      },
+      {
+        "title": "What happens to the service rule on death or disablement?",
+        "paragraphs": [
+          "Death and disablement can trigger separate statutory exceptions to the normal service-condition framework. The guide explains those exceptions at a high level; for a real claim, use the employer records and applicable labour-law guidance rather than relying on a generic calculator alone."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is gratuity available after one year for every employee?",
+        "answer": "No. The one-year rule is not a universal replacement for the general five-year rule. It depends on the employment category and the applicable statutory conditions."
+      },
+      {
+        "question": "Do all contract workers qualify for gratuity after one year?",
+        "answer": "No. 'Contract worker' and 'fixed-term employee' are not interchangeable labels. Eligibility depends on the actual employment arrangement and the law that applies to it."
+      },
+      {
+        "question": "Is five years required when gratuity becomes payable because of death or disablement?",
+        "answer": "Separate statutory exceptions may apply in death or disablement cases, so the normal five-year condition should not be assumed without checking the applicable rule."
+      }
+    ]
+  }
+}

@@ -288,3 +288,10 @@ export const governmentSalaryUpdates: GovernmentSalaryUpdate[] = [
     status: "sample"
   }
 ];
+
+// Sample entries are editorial templates, not verified public updates. Keep a
+// single indexable collection so the hub, detail routes, and sitemap cannot
+// accidentally expose a sample URL with conflicting crawl directives.
+export const indexableGovernmentSalaryUpdates = governmentSalaryUpdates.filter(
+  (update) => update.status !== "sample"
+);

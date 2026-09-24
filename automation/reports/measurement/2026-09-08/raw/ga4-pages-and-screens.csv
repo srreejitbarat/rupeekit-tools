@@ -1,0 +1,40 @@
+# ----------------------------------------
+# Pages and screens: Page path and screen class
+# Account: Rupeekit
+# Property: RupeeKit
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260831
+# End date: 20260908
+Page path and screen class,Views,Active users,Views per active user,Average engagement time per active user,Event count,Key events,Total revenue
+/tools,11,3,3.6666666666666665,12.333333333333334,18,0,0
+/money-health-check,8,3,2.6666666666666665,30,14,0,0
+/,7,5,1.4,15.6,22,0,0
+/tools/salary-in-hand-calculator-india,7,5,1.4,36,22,0,0
+/blog/zerodha-vs-upstox-vs-angel-one-demat-account,6,4,1.5,484.5,19,0,0
+/8th-pay-commission,4,2,2,3,9,0,0
+/financial-updates/rbi-repo-rate-5-25-august-2026,4,2,2,13.5,24,0,0
+/guides,4,1,4,67,6,0,0
+/tools/8th-pay-commission-salary-calculator-india,4,4,1,59.25,29,0,0
+/tools/emi-calculator-india,4,2,2,720,10,0,0
+/tools/personal-loan-emi-calculator-india,4,3,1.3333333333333333,379,11,0,0
+/tools/gratuity-under-new-wage-code-calculator-india,3,3,1,6,10,0,0
+/tools/sukanya-samriddhi-yojana-calculator-india,3,3,1,76.66666666666667,43,0,0
+/8th-pay-commission/level-1,2,1,2,39,4,0,0
+/8th-pay-commission/level-10,2,2,1,0,6,0,0
+/blog/monthly-expense-planning-for-family,2,1,2,26,5,0,0
+/financial-updates/income-tax-demand-facilitation-centre-july-2026,2,1,2,27,7,0,0
+/resources,2,1,2,1,3,0,0
+/start-here,2,1,2,1,3,0,0
+/tool-hubs,2,1,2,0,3,0,0
+/tools/emergency-fund-calculator-india,2,2,1,200.5,32,0,0
+/tools/epf-taxable-interest-rule-9d-calculator-india,2,1,2,22,7,0,0
+/tools/personal-loan-eligibility-calculator-india,2,2,1,19,14,0,0
+/tools/salary-increment-calculator-india,2,2,1,122.5,19,0,0
+/api-docs,1,1,1,73,13,0,0
+/blog,1,1,1,7,4,0,0
+/blog/best-personal-finance-books-for-beginners,1,1,1,0,3,0,0
+/financial-updates/epfo-services-restored-july-2026,1,1,1,0,3,0,0
+/tools/new-labour-code-take-home-calculator-india,1,1,1,24,8,0,0
+/tools/step-up-sip-calculator-india,1,1,1,0,3,0,0

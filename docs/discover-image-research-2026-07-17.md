@@ -8,15 +8,32 @@ Inputs: settled Google Search Console performance through 13 July 2026, Google T
 
 ## Decision
 
-RupeeKit will use original, human-led editorial hero photography that shows a recognisable Indian money decision. Calculator screenshots, generic logos, currency piles, text-heavy thumbnails, fabricated official documents, and exaggerated wealth or distress are excluded.
+RupeeKit will use original, human-led editorial hero imagery that shows a recognisable Indian money decision. Calculator screenshots, currency piles, text-heavy thumbnails, fabricated official documents, and exaggerated wealth or distress are excluded.
+
+Generic logo-only creatives remain excluded. A small RupeeKit brand mark may appear as a secondary element where the page-specific creative policy requires it, but the image must still communicate the underlying financial decision without depending on the logo.
+
+### Decision-calculator branding policy
+
+The ten decision calculators introduced in the PR #39 batch deliberately use branded Discover artwork. Each live canonical page from that batch must include the **RupeeKit logo** from an approved repository asset, kept legible and unobscured while remaining visually secondary to the page-specific scene. The logo is a brand signature, not a watermark, and must not cover a person, chart, document, result, or other meaningful subject.
+
+If a later SEO consolidation retires one of those ten URLs, the retired URL must not keep or regain a standalone Discover manifest entry merely to satisfy this historical batch count. Its surviving canonical page carries the current image requirement instead.
+
+Approved logo assets for this batch are:
+
+- `public/brand/rupeekit_logo_horizontal_transparent.png`
+- `public/brand/rupeekit_icon_from_social_logo_transparent_square.png`
+- `public/brand/rupeekit_logo_transparent_full.png`
+
+The branded direction does not relax the quality rules below: each live calculator still needs a unique 1600 × 900 WebP, descriptive alt text, a distinct composition, and a page-relevant financial story. Recolouring one template ten times or using the RupeeKit logo as the main visual is not acceptable.
 
 Every rollout image is:
 
 - 1600 × 900 pixels (16:9), comfortably above Google's 1200-pixel large-image threshold.
 - A compressed WebP served from the same RupeeKit origin.
 - Visible on the page and connected to Open Graph, Twitter card and relevant structured-data image fields.
-- Unique to one canonical URL, with descriptive alt text and a crop-safe central subject.
-- Generated as an original editorial asset and reviewed for logos, private data, misleading claims and obvious visual defects.
+- Unique to one canonical URL, with descriptive alt text and a crop-safe central subject, except for explicitly documented reusable parent-topic imagery elsewhere in the manifest.
+- Generated as an original editorial asset and reviewed for third-party logos, private data, misleading claims and obvious visual defects.
+- For the PR #39 decision-calculator batch, additionally reviewed to ensure the RupeeKit logo is present, legible, unobscured and secondary to the main scene.
 
 ## What the trend research changed
 

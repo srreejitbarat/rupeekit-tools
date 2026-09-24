@@ -1,0 +1,20 @@
+{
+  "how-to-calculate-in-hand-salary-from-ctc-india": {
+    "relatedCalculators": [
+      "salary-in-hand-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india"
+    ]
+  },
+  "income-tax-on-12-lakh-salary-new-regime-india-2026": {
+    "relatedCalculators": [
+      "income-tax-calculator-old-vs-new-regime-india",
+      "salary-in-hand-calculator-india"
+    ]
+  },
+  "old-vs-new-tax-regime-which-saves-more": {
+    "relatedCalculators": [
+      "income-tax-calculator-old-vs-new-regime-india",
+      "salary-in-hand-calculator-india"
+    ]
+  }
+}

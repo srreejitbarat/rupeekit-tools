@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import Logo from './Logo';
+import { localizedHref, hasTranslatedPage, type Locale } from '@/lib/i18n/routing';
+import { siteMessages } from '@/lib/i18n/messages';
 
-export default function SiteFooter() {
+export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
+  const copy = siteMessages(locale);
   const socialLinks = [
     {
       name: 'X',
@@ -44,18 +47,23 @@ export default function SiteFooter() {
   ];
 
   const quickLinks = [
-    { name: 'Tools', href: '/#calculators' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Guides', href: '/guides' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Recommended Tools', href: '/resources/recommended-money-tools' },
+    { name: copy.tools, href: '/tools' },
+    { name: copy.blog, href: '/blog' },
+    { name: copy.guides, href: '/guides' },
+    { name: copy.pay, href: '/8th-pay-commission' },
+    { name: copy.deadlines, href: '/deadlines' },
+    { name: copy.nri, href: '/nri' },
+    { name: copy.resources, href: '/resources' },
+    { name: copy.recommended, href: '/resources/recommended-money-tools' },
   ];
 
   const legalLinks = [
-    { name: 'Privacy Policy', href: '/privacy-policy' },
-    { name: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
-    { name: 'Terms of Use', href: '/terms' },
-    { name: 'Disclaimer', href: '/disclaimer' },
+    { name: copy.editorial, href: '/editorial-policy' },
+    { name: copy.corrections, href: '/corrections-policy' },
+    { name: copy.privacy, href: '/privacy-policy' },
+    { name: copy.affiliate, href: '/affiliate-disclosure' },
+    { name: copy.terms, href: '/terms' },
+    { name: copy.disclaimerLink, href: '/disclaimer' },
   ];
 
   const contactEmail = 'rupeekitofficial@gmail.com';
@@ -63,15 +71,15 @@ export default function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-brandBorder bg-white dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
-        <div className="grid gap-8 md:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Logo & About Section */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href={localizedHref('/', locale)} className="flex items-center gap-2">
               <Logo type="icon" width={40} height={40} className="h-10 w-10" />
               <span className="text-xl font-bold tracking-tight text-brandNavy dark:text-white">RupeeKit</span>
             </Link>
             <p className="text-sm leading-relaxed text-brandMuted dark:text-slate-400">
-              Free India-focused calculators for salary, EMI, SIP, GST, FD, and personal finance planning.
+              {copy.description}
             </p>
             <div className="flex gap-4 mt-2">
               {socialLinks.map((link) => (
@@ -91,11 +99,11 @@ export default function SiteFooter() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">Navigation</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">{copy.navigation}</h3>
             <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted dark:text-slate-400">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
+                  <Link href={localizedHref(link.href, locale)} title={locale !== 'en' && !hasTranslatedPage(link.href, locale) ? copy.englishOnly : undefined} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
                     {link.name}
                   </Link>
                 </li>
@@ -105,11 +113,11 @@ export default function SiteFooter() {
 
           {/* Legal Pages */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">Legal</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">{copy.legal}</h3>
             <ul className="mt-4 flex flex-col gap-1 text-sm font-medium text-brandMuted dark:text-slate-400">
               {legalLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
+                  <Link href={localizedHref(link.href, locale)} title={locale !== 'en' && !hasTranslatedPage(link.href, locale) ? copy.englishOnly : undefined} className="flex min-h-11 items-center transition hover:text-brandNavy dark:hover:text-white">
                     {link.name}
                   </Link>
                 </li>
@@ -119,25 +127,27 @@ export default function SiteFooter() {
 
           {/* Contact Details */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">Contact</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-brandDeepNavy dark:text-white">{copy.contact}</h3>
             <p className="mt-4 text-sm text-brandMuted dark:text-slate-400">
-              For questions, feedback, or tool ideas:
+              {copy.contactDescription}
             </p>
             <p className="mt-2 break-all text-sm font-semibold text-brandText dark:text-slate-200">{contactEmail}</p>
           </div>
         </div>
 
+        {locale !== 'en' ? <p className="mt-6 text-sm leading-7 text-brandMuted dark:text-slate-400">{locale === 'bn' ? 'ক্যালকুলেটর, নিবন্ধ, নির্দেশিকা ও নীতিগুলি বাংলায় পড়ুন। উপরের ভাষার বিকল্প দিয়ে একই পেজের ভাষা বদলাতে পারেন।' : 'कैलकुलेटर, लेख, गाइड और नीतियाँ हिंदी में पढ़ें। ऊपर दिए भाषा विकल्प से इसी पेज की भाषा बदल सकते हैं।'}</p> : null}
+
         {/* Brand Disclaimer & Copyright */}
         <div className="mt-12 border-t border-brandBorder pt-8 dark:border-slate-800">
           <div className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
-            <p className="mb-1 font-bold text-brandDeepNavy dark:text-white">Financial Disclaimer</p>
+            <p className="mb-1 font-bold text-brandDeepNavy dark:text-white">{copy.disclaimerTitle}</p>
             <p>
-              RupeeKit provides educational calculators, reading lists, and money tools. Content is for general information only and is not financial, tax, legal, or investment advice.
+              {copy.disclaimer}
             </p>
           </div>
           <div className="mt-6 flex flex-col justify-between gap-4 text-xs text-brandMuted dark:text-slate-400 md:flex-row md:items-center">
-            <p>© {new Date().getFullYear()} RupeeKit. All rights reserved.</p>
-            <p className="text-slate-400">Educational Finance Tools for India</p>
+            <p>© {new Date().getFullYear()} RupeeKit. {copy.rights}</p>
+            <p className="text-slate-400">{copy.tagline}</p>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { policyGuideClusters, policyGuides } from './policy-guides-2026';
+
 export type GuideSource = {
   label: string;
   href: string;
@@ -602,15 +604,25 @@ export const calculatorGuides: CalculatorGuide[] = [
   },
 ];
 
+// Policy guides live in their own module so this file stays the frozen record
+// of the original 34-guide set that validate-growth-clusters.mjs asserts on.
+// Everything downstream reads the merged views below.
+export const allGuideClusters: CalculatorGuideCluster[] = [
+  ...calculatorGuideClusters,
+  ...policyGuideClusters,
+];
+
+export const allGuides: CalculatorGuide[] = [...calculatorGuides, ...policyGuides];
+
 export function getCalculatorGuide(slug: string) {
-  return calculatorGuides.find((guide) => guide.slug === slug);
+  return allGuides.find((guide) => guide.slug === slug);
 }
 
 export function getCalculatorGuideCluster(clusterId: string) {
-  return calculatorGuideClusters.find((cluster) => cluster.id === clusterId);
+  return allGuideClusters.find((cluster) => cluster.id === clusterId);
 }
 
 export function getGuidesForTool(toolSlug: string) {
-  const cluster = calculatorGuideClusters.find((item) => item.toolSlug === toolSlug);
-  return cluster ? calculatorGuides.filter((guide) => guide.clusterId === cluster.id) : [];
+  const cluster = allGuideClusters.find((item) => item.toolSlug === toolSlug);
+  return cluster ? allGuides.filter((guide) => guide.clusterId === cluster.id) : [];
 }

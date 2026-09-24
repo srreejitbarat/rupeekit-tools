@@ -8,11 +8,42 @@ const toolFiles = [
   'decision-tools-2026.json',
   'insurance-tools-2026.json',
   'investing-tools-2026.json',
+  'lifestage-tools-2026.json',
+  'policy-tools-2026.json',
 ];
-const tools = toolFiles.flatMap((fileName) => {
-  const file = path.join(process.cwd(), 'data', fileName);
-  return JSON.parse(fs.readFileSync(file, 'utf8'));
-});
+const readToolFile = (fileName) => JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', fileName), 'utf8'));
+const tools = toolFiles.flatMap(readToolFile);
+const ctrSeoOverrides = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'data', 'ctr-tool-seo-overrides-2026-08-15.json'), 'utf8')
+);
+
+const protectedSeoSlugs = new Set([
+  'hra-exemption-calculator-india',
+  'personal-loan-emi-calculator-india',
+  'emergency-fund-calculator-india',
+  'sip-calculator-india',
+  'capital-gains-tax-calculator-india',
+  '8th-pay-commission-salary-calculator-india',
+  'fd-calculator-india',
+  'nps-calculator-india',
+  'ppf-calculator-india',
+  'step-up-sip-calculator-india',
+  'cagr-calculator-india',
+  'personal-loan-eligibility-calculator-india',
+  'income-tax-calculator-old-vs-new-regime-india',
+  'net-worth-calculator-india',
+  'gold-loan-calculator-india',
+  'sukanya-samriddhi-yojana-calculator-india',
+  'salary-in-hand-calculator-india',
+]);
+
+const ctrFullScopeFiles = [
+  'policy-tools-2026.json',
+  'decision-tools-2026.json',
+  'insurance-tools-2026.json',
+  'investing-tools-2026.json',
+  'lifestage-tools-2026.json',
+];
 
 const parser = new Parser({
   operators: {
@@ -68,6 +99,40 @@ for (const [index, tool] of tools.entries()) {
     typeof tool.status === 'string' && VALID_STATUSES.has(tool.status),
     `${tool.slug || `tool[${index}]`} has invalid status: ${tool.status}`
   );
+}
+
+for (const fileName of ctrFullScopeFiles) {
+  for (const tool of readToolFile(fileName)) {
+    ensure(Boolean(ctrSeoOverrides[tool.slug]), `${tool.slug} is in ${fileName} but missing the Aug 15 CTR SEO override`);
+  }
+}
+for (const tool of readToolFile('growth-tools.json')) {
+  if (!protectedSeoSlugs.has(tool.slug)) {
+    ensure(Boolean(ctrSeoOverrides[tool.slug]), `${tool.slug} is an uncovered growth tool missing the Aug 15 CTR SEO override`);
+  }
+}
+
+for (const [slug, seo] of Object.entries(ctrSeoOverrides)) {
+  ensure(slugMap.has(slug), `CTR SEO override references missing tool slug: ${slug}`);
+  ensure(seo && typeof seo === 'object', `${slug} CTR SEO override must be an object`);
+  if (!seo || typeof seo !== 'object') continue;
+
+  ensure(typeof seo.title === 'string' && seo.title.trim().length > 0, `${slug} CTR SEO title is missing`);
+  if (typeof seo.title === 'string') {
+    ensure(seo.title.length <= 60, `${slug} CTR SEO title exceeds 60 characters (${seo.title.length})`);
+    ensure(!/^free\b/i.test(seo.title.trim()), `${slug} CTR SEO title must not begin with "Free"`);
+  }
+
+  ensure(
+    typeof seo.description === 'string' && seo.description.trim().length > 0,
+    `${slug} CTR SEO description is missing`
+  );
+  if (typeof seo.description === 'string') {
+    ensure(
+      seo.description.length >= 140 && seo.description.length <= 160,
+      `${slug} CTR SEO description must be 140-160 characters (${seo.description.length})`
+    );
+  }
 }
 
 for (const [index, tool] of tools.entries()) {
@@ -147,3 +212,4 @@ if (errors > 0) {
 }
 
 console.log(`✅ Validated ${tools.length} tool(s).`);
+console.log(`✅ Validated ${Object.keys(ctrSeoOverrides).length} CTR SEO title/description override(s).`);

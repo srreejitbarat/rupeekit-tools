@@ -1,0 +1,14 @@
+{
+  "_comment": "Statutory levies applied on top of landed bullion value. THESE CHANGE WITH EVERY UNION BUDGET AND BY MID-YEAR NOTIFICATION. validate-gold-rates.mjs fails if reviewedOn is older than 180 days.",
+  "schemaVersion": 1,
+  "importDutyPct": 15,
+  "importDutyBreakdown": { "basicCustomsDutyPct": 10, "aidcPct": 5 },
+  "gstPct": 3,
+  "gstAppliesToValuation": false,
+  "reviewedOn": "2026-08-22",
+  "reviewNote": "Total import duty raised 6% -> 15% effective 13 May 2026 (BCD 5%->10%, AIDC 1%->5%). GST is a transaction tax charged at billing and is deliberately EXCLUDED from the valuation rate: the Indian 'gold rate today' convention quotes the pre-GST landed rate, and lenders value pledged gold on the same pre-GST basis. Verified 22 Aug 2026: derived valuation matched the reported national 24K/22K rate to within 0.02%.",
+  "sources": [
+    { "label": "CBIC customs tariff notifications", "href": "https://www.cbic.gov.in/" },
+    { "label": "GST rate on gold (HSN 7113)", "href": "https://cbic-gst.gov.in/" }
+  ]
+}

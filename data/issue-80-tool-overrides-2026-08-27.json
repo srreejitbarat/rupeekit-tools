@@ -1,0 +1,218 @@
+{
+  "sip-calculator-india": {
+    "targetKeyword": "sip calculator india",
+    "quickAnswer": {
+      "title": "Regular SIP projection",
+      "question": "What does the SIP Calculator model?",
+      "answer": "Use this page for a fixed monthly SIP where the contribution stays the same throughout the selected period. It estimates contribution, projected corpus and growth from your monthly amount, time horizon and assumed return.",
+      "note": "Market-linked returns are not guaranteed. This page models a regular SIP; use the Step-Up SIP Calculator when the monthly contribution increases over time.",
+      "links": [
+        { "label": "Increase the SIP every year instead", "href": "/tools/step-up-sip-calculator-india" },
+        { "label": "Compare a one-time lumpsum instead", "href": "/tools/lumpsum-calculator-india" },
+        { "label": "Learn mutual-fund basics before investing", "href": "/blog/mutual-funds-for-beginners-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "Regular SIP vs step-up SIP vs lumpsum",
+        "body": "Use this calculator when you plan to invest the same amount each month. If you want to increase that amount every year, use the Step-Up SIP Calculator. For a single investment, use the Lumpsum Calculator."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should I use this SIP calculator or the Step-Up SIP calculator?",
+        "answer": "Use this calculator when the monthly contribution stays constant. Use the Step-Up SIP calculator when you want to model an annual increase in the contribution amount."
+      },
+      {
+        "question": "Is this the same as a lumpsum investment calculator?",
+        "answer": "No. A SIP models repeated monthly contributions. A lumpsum calculator models a one-time investment compounded over a selected period."
+      }
+    ],
+    "related": [
+      "step-up-sip-calculator-india",
+      "lumpsum-calculator-india",
+      "index-fund-vs-active-fund-cost-calculator-india"
+    ]
+  },
+  "step-up-sip-calculator-india": {
+    "targetKeyword": "step up sip calculator india",
+    "quickAnswer": {
+      "title": "Annual SIP increase projection",
+      "question": "When should you use the Step-Up SIP Calculator?",
+      "answer": "Use this page when your SIP contribution is expected to increase periodically, such as after a salary hike. It is different from the regular SIP page, which keeps the monthly contribution unchanged.",
+      "note": "The result is an educational projection based on your contribution-growth and return assumptions, not a promised investment outcome.",
+      "links": [
+        { "label": "Keep the monthly SIP fixed instead", "href": "/tools/sip-calculator-india" },
+        { "label": "Model a one-time investment", "href": "/tools/lumpsum-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "What makes a step-up SIP different?",
+        "body": "A step-up SIP changes the contribution amount over time. That makes it useful for modelling a contribution plan that rises with income, while the regular SIP calculator is intentionally reserved for a fixed monthly amount."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does a step-up SIP guarantee a larger corpus?",
+        "answer": "No. Increasing contributions adds more invested money, but the final corpus still depends on actual market returns, timing and the assumptions entered."
+      },
+      {
+        "question": "Can I compare step-up SIP with a fixed SIP?",
+        "answer": "Yes. Run the same horizon and return assumption in both calculators, then compare how the contribution schedule changes total contributions and the projected corpus."
+      }
+    ],
+    "related": ["sip-calculator-india", "lumpsum-calculator-india"]
+  },
+  "lumpsum-calculator-india": {
+    "targetKeyword": "lumpsum investment calculator india",
+    "quickAnswer": {
+      "title": "One-time investment projection",
+      "question": "What does the Lumpsum Calculator model?",
+      "answer": "Use this page for one investment made at the start and compounded for the selected period. It does not model monthly SIP contributions or annual SIP increases.",
+      "note": "The assumed return is a scenario input. Market-linked investment returns can be higher or lower and are not guaranteed.",
+      "links": [
+        { "label": "Invest monthly with a regular SIP", "href": "/tools/sip-calculator-india" },
+        { "label": "Measure irregular cash flows with XIRR", "href": "/tools/xirr-portfolio-return-calculator-india" },
+        { "label": "Compare index and active-fund fee drag", "href": "/tools/index-fund-vs-active-fund-cost-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "Lumpsum is a one-time cash-flow calculation",
+        "body": "This page isolates the future value of a single starting investment. Use the SIP calculators for recurring contributions and the XIRR page when multiple investments entered at different times need an annualised-return estimate."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When is a lumpsum calculator more appropriate than a SIP calculator?",
+        "answer": "Use it when the full amount is invested once at the beginning. A SIP calculator is designed for recurring monthly investments."
+      },
+      {
+        "question": "Can this calculator measure a portfolio with several purchase dates?",
+        "answer": "No. For multiple cash flows made at different times, use the portfolio XIRR/annualised-return tool instead of treating them as one starting lumpsum."
+      }
+    ],
+    "related": ["sip-calculator-india", "xirr-portfolio-return-calculator-india", "index-fund-vs-active-fund-cost-calculator-india"]
+  },
+  "index-fund-vs-active-fund-cost-calculator-india": {
+    "targetKeyword": "index fund vs active fund cost calculator india",
+    "quickAnswer": {
+      "title": "Fund cost-drag comparison",
+      "question": "What does this index-vs-active calculator compare?",
+      "answer": "It holds the assumed gross return constant and compares how different expense ratios affect future value. It is a fee-drag comparison, not a forecast that index or active funds will outperform.",
+      "note": "Actual fund performance, tracking difference, taxes, exit loads and portfolio choices can differ from this simplified cost comparison.",
+      "links": [
+        { "label": "Project a regular monthly SIP", "href": "/tools/sip-calculator-india" },
+        { "label": "Read robo-adviser vs DIY trade-offs", "href": "/blog/robo-advisors-vs-diy-index-investing-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "This page isolates expense-ratio drag",
+        "body": "The purpose is to answer a cost question, not a SIP-return question. Both fund routes use the same assumed gross return so the output shows the mathematical effect of recurring fund expenses over time."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does a lower expense ratio guarantee better investment returns?",
+        "answer": "No. The calculator deliberately keeps gross return equal to isolate fees. Real funds can have different holdings, tracking differences and performance."
+      },
+      {
+        "question": "Should I use this page to calculate my SIP corpus?",
+        "answer": "Use the regular or Step-Up SIP calculator for contribution-based corpus projections. Use this page when the question is specifically the long-term cost difference between expense ratios."
+      }
+    ],
+    "related": ["sip-calculator-india", "lumpsum-calculator-india", "xirr-portfolio-return-calculator-india"]
+  },
+  "nps-tier-2-vs-mutual-fund-calculator-india": {
+    "targetKeyword": "nps tier 2 vs mutual fund calculator india",
+    "quickAnswer": {
+      "title": "NPS Tier 2 vs mutual-fund scenario",
+      "question": "What question does this calculator answer?",
+      "answer": "It compares recurring investments in NPS Tier 2 and a mutual-fund scenario using separate return and user-entered withdrawal-tax assumptions. It is a product-route comparison, not a generic SIP calculator.",
+      "note": "Tax treatment and product rules can change. Verify current NPS and mutual-fund rules before acting on an estimate.",
+      "links": [
+        { "label": "Calculate a generic fixed SIP instead", "href": "/tools/sip-calculator-india" },
+        { "label": "Compare fund expense-ratio drag", "href": "/tools/index-fund-vs-active-fund-cost-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "A product-route comparison, not a generic SIP forecast",
+        "body": "This calculator exists for the specific NPS Tier 2 versus mutual-fund decision. The generic SIP calculator intentionally avoids product-specific tax assumptions and should remain the destination for a plain monthly-investment projection."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why not use the regular SIP calculator for NPS Tier 2 vs mutual fund?",
+        "answer": "The regular SIP page models one fixed monthly investment stream. This comparison keeps two product routes side by side and lets you enter separate return and tax assumptions."
+      },
+      {
+        "question": "Are the tax assumptions in this calculator permanent rules?",
+        "answer": "No. They are user-entered scenario assumptions. Verify current tax treatment and NPS rules for your situation before making a decision."
+      }
+    ],
+    "related": ["sip-calculator-india", "index-fund-vs-active-fund-cost-calculator-india", "xirr-portfolio-return-calculator-india"]
+  },
+  "xirr-portfolio-return-calculator-india": {
+    "targetKeyword": "portfolio xirr calculator india",
+    "quickAnswer": {
+      "title": "Irregular portfolio cash-flow return",
+      "question": "When is this XIRR-style portfolio tool useful?",
+      "answer": "Use it when investments were made at different times and you want an annualised portfolio-return estimate. It is not a corpus projection for a regular monthly SIP and it is not identical to an iterative date-accurate Excel XIRR solve.",
+      "note": "RupeeKit uses the transparent weighted-holding-period approximation documented on the page; use a date-accurate XIRR implementation when precise dated cash-flow reporting is required.",
+      "links": [
+        { "label": "Project a single starting investment", "href": "/tools/lumpsum-calculator-india" },
+        { "label": "Project a fixed monthly SIP", "href": "/tools/sip-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "XIRR answers a return-measurement question",
+        "body": "A SIP calculator projects a future corpus from a planned contribution stream. This page works in the opposite direction: given investments made at different times and a current value, it estimates an annualised portfolio return using the approximation described in the methodology."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is XIRR the same as SIP return?",
+        "answer": "No. SIP describes an investment schedule; XIRR is an annualised return measure for cash flows occurring at different times."
+      },
+      {
+        "question": "Should I use XIRR or CAGR for multiple investments?",
+        "answer": "CAGR is best suited to a single start value and end value over one period. Multiple timed cash flows generally need XIRR or another cash-flow-aware return measure."
+      }
+    ],
+    "related": ["lumpsum-calculator-india", "sip-calculator-india", "cagr-calculator-india"]
+  },
+  "elss-lock-in-vs-80c-options-calculator-india": {
+    "targetKeyword": "elss lock in vs 80c options calculator india",
+    "quickAnswer": {
+      "title": "ELSS lock-in vs 80C alternatives",
+      "question": "What does this ELSS comparison model?",
+      "answer": "It compares illustrative values and lock-in horizons for ELSS, PPF and tax-saver FD assumptions. It is an 80C-option comparison, not a general mutual-fund SIP projection.",
+      "note": "ELSS is market-linked and returns are not guaranteed. Tax eligibility and product rules should be verified for the applicable financial year.",
+      "links": [
+        { "label": "Project a generic mutual-fund SIP", "href": "/tools/sip-calculator-india" },
+        { "label": "Compare a one-time investment", "href": "/tools/lumpsum-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "ELSS belongs to the tax-saving comparison intent",
+        "body": "The page is intentionally about lock-in, return assumptions and the trade-offs among 80C routes. Users looking only for a monthly mutual-fund corpus projection should use the SIP page instead."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is the ELSS page another SIP calculator?",
+        "answer": "No. Its primary purpose is to compare ELSS with other Section 80C options and their different lock-in periods, not to estimate a generic monthly SIP corpus."
+      },
+      {
+        "question": "Does the shorter ELSS lock-in mean lower risk?",
+        "answer": "No. Lock-in length and investment risk are different concepts. ELSS is market-linked and can fluctuate even after its statutory lock-in ends."
+      }
+    ],
+    "related": ["80c-deduction-calculator-india", "ppf-calculator-india", "sip-calculator-india"]
+  }
+}

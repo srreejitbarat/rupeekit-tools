@@ -12,6 +12,8 @@ const expectedGrowthSlugs = new Set([
   'invest-vs-prepay-home-loan-calculator-india',
   'loan-foreclosure-net-savings-calculator-india',
   'reduce-emi-vs-tenure-calculator-india',
+  '8th-pay-commission-arrears-calculator-india',
+  '8th-pay-commission-pension-calculator-india',
 ]);
 
 let errors = 0;
@@ -22,8 +24,8 @@ function ensure(condition, message) {
   }
 }
 
-ensure(growthTools.length === 6, `Expected 6 new calculator records, found ${growthTools.length}`);
-ensure(new Set(growthTools.map((tool) => tool.slug)).size === 6, 'New calculator slugs must be unique');
+ensure(growthTools.length === 8, `Expected 8 new calculator records, found ${growthTools.length}`);
+ensure(new Set(growthTools.map((tool) => tool.slug)).size === 8, 'New calculator slugs must be unique');
 
 for (const tool of growthTools) {
   ensure(expectedGrowthSlugs.has(tool.slug), `Unexpected growth tool slug: ${tool.slug}`);
@@ -45,11 +47,14 @@ ensure(guideSource.includes("id: 'home-loan-swp'"), 'SWP guide cluster is missin
 ensure(guideSource.includes("toolSlug: 'hra-exemption-calculator-india'"), 'HRA guide cluster is missing');
 ensure(guideSource.includes("toolSlug: 'emergency-fund-calculator-india'"), 'Emergency-fund guide cluster is missing');
 
-const toolPage = fs.readFileSync(path.join(root, 'app', 'tools', '[slug]', 'page.tsx'), 'utf8');
+const toolPage = fs.readFileSync(path.join(root, 'app', '(en)', 'tools', '[slug]', 'page.tsx'), 'utf8');
 const sitemap = fs.readFileSync(path.join(root, 'app', 'sitemap.ts'), 'utf8');
 const llms = fs.readFileSync(path.join(root, 'public', 'llms.txt'), 'utf8');
 ensure(toolPage.includes('getGuidesForTool'), 'Calculator pages do not link their supporting guides');
-ensure(sitemap.includes('calculatorGuides.map'), 'Supporting guides are missing from sitemap generation');
+// `allGuides` is the merged view of the original 34 calculator guides plus the
+// policy guides added later. Asserting on it keeps the original intent — every
+// guide reaches the sitemap — while covering both sets.
+ensure(sitemap.includes('allGuides.map'), 'Supporting guides are missing from sitemap generation');
 ensure(llms.includes('/tools/home-loan-swp-stress-test-india'), 'llms.txt is missing the SWP stress test');
 ensure(llms.includes('/guides/can-swp-pay-home-loan-emi'), 'llms.txt is missing the SWP guide cluster');
 
@@ -58,4 +63,4 @@ if (errors) {
   process.exit(1);
 }
 
-console.log('Validated 6 new calculators and 34 supporting guides.');
+console.log('Validated 8 new calculators and 34 supporting guides.');

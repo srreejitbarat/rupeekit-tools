@@ -1,0 +1,1187 @@
+[
+  {
+    "slug": "new-labour-code-take-home-calculator-india",
+    "name": "New Labour Code Take-Home Calculator India",
+    "seoTitle": "New Labour Code Take-Home Calculator 2026 (50% Wage Rule)",
+    "category": "Salary",
+    "status": "live",
+    "targetKeyword": "new labour code take home salary calculator",
+    "shortDescription": "See what happens to your monthly take-home, PF and gratuity when basic pay is lifted to at least half of your cash salary under the labour codes' wage definition.",
+    "metaDescription": "Compare your salary before and after the 50% wage rule. See the change to take-home, PF and gratuity from your CTC and current basic percentage.",
+    "inputs": [
+      {
+        "key": "annualCtc",
+        "label": "Annual CTC",
+        "unit": "Rs/year",
+        "default": 1200000,
+        "min": 0,
+        "max": 100000000,
+        "step": 10000,
+        "help": "Total cost to company as stated in your offer or appraisal letter."
+      },
+      {
+        "key": "currentBasicPercent",
+        "label": "Current basic + DA as a share of CTC",
+        "unit": "%",
+        "default": 30,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "help": "Most private-sector structures sit between 25% and 40%. Check your payslip."
+      },
+      {
+        "key": "monthlyProfessionalTax",
+        "label": "Professional tax",
+        "unit": "Rs/month",
+        "default": 200,
+        "min": 0,
+        "max": 1000,
+        "step": 50,
+        "help": "Set by your state and capped at Rs 2,500 a year."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyCtc",
+        "label": "Monthly CTC",
+        "formula": "annualCtc / 12",
+        "format": "currency"
+      },
+      {
+        "key": "currentMonthlyWages",
+        "label": "Current wages (basic + DA)",
+        "formula": "monthlyCtc * currentBasicPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "revisedMonthlyWages",
+        "label": "Revised wages under the 50% floor",
+        "formula": "max(currentMonthlyWages, 0.5 * monthlyCtc / (1 + 0.5 * (0.12 + 15 / 26 / 12)))",
+        "format": "currency"
+      },
+      {
+        "key": "currentEmployeePf",
+        "label": "Your current PF contribution",
+        "formula": "0.12 * currentMonthlyWages",
+        "format": "currency"
+      },
+      {
+        "key": "revisedEmployeePf",
+        "label": "Your revised PF contribution",
+        "formula": "0.12 * revisedMonthlyWages",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyGratuityAccrualChange",
+        "label": "Change in monthly gratuity accrual",
+        "formula": "(15 / 26 / 12) * (revisedMonthlyWages - currentMonthlyWages)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The Code on Wages defines wages as basic pay plus dearness allowance plus retaining allowance, and adds a proviso: where the excluded allowances exceed one half of all remuneration, the excess is added back to wages. In practice this sets a floor, because wages cannot settle below half of the cash pay actually given to the employee. Provident fund is contributed at 12% by both the employee and the employer on those wages, and gratuity accrues at 15 days of wages for every completed year of service, so lifting the wage base raises all three at once. Because employer PF and gratuity accrual usually sit inside CTC, a higher wage base leaves less room for cash pay, which is why monthly take-home falls even though total CTC has not changed. The interactive calculator resolves that circular relationship and shows both structures side by side; it reports take-home before income tax, since the tax you owe depends on your regime and deductions rather than on the restructuring itself.",
+    "example": "Take a package of Rs 12 lakh a year with basic set at 30% of CTC. Wages today are Rs 30,000 a month, so employee PF is Rs 3,600 and gratuity accrues on that same base. Once wages are lifted to half of cash pay, the wage base rises to roughly Rs 46,000, employee and employer PF each rise to about Rs 5,500, and gratuity accrual rises in step. Monthly take-home falls by roughly 5%, while the amount set aside for retirement each month rises by about Rs 4,600. Nothing about the Rs 12 lakh CTC has changed; only the split between cash today and money locked away for later.",
+    "faqs": [
+      {
+        "question": "Will my take-home salary actually fall?",
+        "answer": "It falls only if your current basic plus DA is below half of your cash pay and your employer keeps total CTC unchanged. The lower your current basic percentage, the larger the reduction. Structures already at or above the 50% mark see no change, and employers may choose to raise CTC so that cash pay is protected."
+      },
+      {
+        "question": "Does a lower take-home mean I am worse off?",
+        "answer": "Not necessarily. The money does not disappear: it moves into provident fund and gratuity, both of which are yours. Employee and employer PF both rise, so the total added to your retirement corpus each month is larger than the amount your take-home falls by. Whether that trade suits you depends on your cash-flow needs today."
+      },
+      {
+        "question": "What counts as remuneration for the 50% test?",
+        "answer": "Broadly, the cash components of your salary: basic, dearness allowance and every allowance paid to you. Employer contributions to provident fund and gratuity are not part of that figure. This calculator applies the floor to cash pay on that basis, which is why the revised wage figure is not simply half of your CTC."
+      },
+      {
+        "question": "When does this apply to me?",
+        "answer": "RupeeKit does not state a date on which your structure must change. The codes are implemented alongside state-level rules, and employers restructure on their own payroll cycles. Your revised breakup should come from your employer; this tool shows the shape of the change, not its timing for you."
+      },
+      {
+        "question": "Why does the calculator ask whether PF uses the Rs 15,000 ceiling?",
+        "answer": "Provident fund can be contributed either on actual wages or restricted to the statutory wage ceiling of Rs 15,000 a month. Employers who apply the ceiling see almost no change in PF when wages rise, so the impact on take-home is much smaller. Check your payslip to see which basis your employer uses."
+      }
+    ],
+    "related": [
+      "gratuity-under-new-wage-code-calculator-india",
+      "salary-in-hand-calculator-india",
+      "gratuity-calculator-india",
+      "epf-corpus-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your annual CTC exactly as it appears on your offer or appraisal letter.",
+      "Read your basic plus dearness allowance off your payslip and enter it as a percentage of monthly CTC.",
+      "Enter the professional tax your state deducts each month, or zero if it does not levy one.",
+      "Set the three toggles to match your employer's practice on employer PF, gratuity accrual and the provident fund ceiling.",
+      "Compare the Now and Revised columns to see how wages, PF, gratuity and take-home each move.",
+      "Treat the result as an estimate and confirm your revised breakup with your employer."
+    ],
+    "assumptions": [
+      "Total CTC is held constant, so a higher wage base reduces the cash left for take-home.",
+      "Provident fund is contributed at 12% by both the employee and the employer.",
+      "Gratuity accrues at 15 days of wages for each completed year of service, divided by 26.",
+      "The 50% floor is applied to cash remuneration rather than to total CTC.",
+      "Take-home is reported before income tax, which depends on your regime and deductions.",
+      "Employer practice on the provident fund ceiling and on whether employer PF sits inside CTC follows the toggles you set."
+    ],
+    "commonMistakes": [
+      "Applying the 50% test to CTC rather than to cash remuneration, which overstates the revised wage base.",
+      "Reading a lower take-home as a pay cut, when the difference has moved into provident fund and gratuity.",
+      "Forgetting that employers who contribute PF only on the Rs 15,000 ceiling will see a far smaller change.",
+      "Entering gross salary instead of basic plus dearness allowance when setting the current basic percentage.",
+      "Assuming the restructuring changes income tax directly, when the tax effect flows from the change in taxable components.",
+      "Treating the output as a confirmed revised payslip rather than an estimate to check with your employer."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why one definition changes three numbers at once",
+        "body": "Provident fund, gratuity and take-home pay are all calculated from the same base: the part of your salary that counts as wages. For years, many Indian employers kept that base low by setting basic pay at 30% or 35% of CTC and routing the rest through allowances. The wage definition in the labour codes closes that route by adding excess allowances back into wages. Because PF and gratuity are both percentages of wages, raising the base raises both, and because those employer costs usually sit inside CTC, the cash left for your monthly salary falls.",
+        "bullets": [
+          "Wages set the base for employee PF, employer PF and gratuity alike.",
+          "A low basic percentage suppressed all three at once.",
+          "Closing that gap moves money from cash today into retirement savings."
+        ]
+      },
+      {
+        "heading": "Who is affected most",
+        "body": "The size of the change depends entirely on how far your current structure sits below the floor. An employee whose basic is already half of cash pay sees nothing change. An employee at 40% sees a modest shift of around two percent of take-home. An employee at 25% can see take-home fall by six percent or more, with a correspondingly large rise in retirement saving. High earners with heavily allowance-loaded packages tend to see the largest absolute movement, though employers who cap provident fund at the statutory ceiling blunt much of the effect.",
+        "bullets": [
+          "Already at or above 50% of cash pay: no change.",
+          "Around 40%: roughly a two percent reduction in take-home.",
+          "At 25% to 30%: five to seven percent, with a large rise in PF and gratuity."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "labour-code-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Any notification changing the wage definition, the provident fund wage ceiling, or the gratuity accrual formula.",
+    "officialSources": [
+      {
+        "label": "Code on Wages, 2019 (Ministry of Labour and Employment)",
+        "href": "https://labour.gov.in/sites/default/files/the_code_on_wages_2019.pdf"
+      },
+      {
+        "label": "EPFO — provident fund contribution rates",
+        "href": "https://www.epfindia.gov.in/site_en/index.php"
+      }
+    ]
+  },
+  {
+    "slug": "gratuity-under-new-wage-code-calculator-india",
+    "name": "Gratuity Under New Wage Code Calculator India",
+    "seoTitle": "Gratuity Under the New Wage Code 2026 — Revised Payout",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "gratuity new labour code calculator",
+    "shortDescription": "Work out how much more gratuity you accrue once basic pay is lifted to half of your cash salary, including the one-year rule for fixed-term employees.",
+    "metaDescription": "Estimate your gratuity on the revised wage base under the labour codes. Compare payouts on your current basic and on the 50% wage floor.",
+    "inputs": [
+      {
+        "key": "currentMonthlyBasic",
+        "label": "Current basic + DA",
+        "unit": "Rs/month",
+        "default": 30000,
+        "min": 0,
+        "max": 5000000,
+        "step": 1000,
+        "help": "The wages line on your payslip today."
+      },
+      {
+        "key": "monthlyGrossCash",
+        "label": "Monthly gross cash pay",
+        "unit": "Rs/month",
+        "default": 100000,
+        "min": 0,
+        "max": 10000000,
+        "step": 1000,
+        "help": "Basic plus dearness allowance plus every allowance, excluding employer PF."
+      },
+      {
+        "key": "yearsOfService",
+        "label": "Completed years of service",
+        "unit": "years",
+        "default": 10,
+        "min": 0,
+        "max": 45,
+        "step": 0.5,
+        "help": "Six months or more in the final year is generally counted as a full year."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "revisedWages",
+        "label": "Wage base after the 50% floor",
+        "formula": "max(currentMonthlyBasic, 0.5 * monthlyGrossCash)",
+        "format": "currency"
+      },
+      {
+        "key": "gratuityOnCurrentWages",
+        "label": "Gratuity on your current wages",
+        "formula": "(currentMonthlyBasic / 26) * 15 * yearsOfService",
+        "format": "currency"
+      },
+      {
+        "key": "gratuityOnRevisedWages",
+        "label": "Gratuity on the revised wages",
+        "formula": "(revisedWages / 26) * 15 * yearsOfService",
+        "format": "currency"
+      },
+      {
+        "key": "gratuityIncrease",
+        "label": "Increase in gratuity",
+        "formula": "gratuityOnRevisedWages - gratuityOnCurrentWages",
+        "format": "currency"
+      },
+      {
+        "key": "cappedGratuity",
+        "label": "Payable after the Rs 20 lakh ceiling",
+        "formula": "min(gratuityOnRevisedWages, 2000000)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Gratuity under the Payment of Gratuity Act is fifteen days of wages for every completed year of service, where a month is treated as twenty-six working days. The payout is therefore last drawn wages divided by twenty-six, multiplied by fifteen, multiplied by completed years of service. What the labour codes change is not the formula but the wage base it runs on: once basic plus dearness allowance is lifted to at least half of cash remuneration, the same years of service produce a larger payout. Two eligibility rules matter alongside the arithmetic. Permanent employees generally qualify after five years of continuous service, while fixed-term employees accrue gratuity from one year. The statutory ceiling holds the payable amount at twenty lakh rupees however large the calculated figure becomes.",
+    "example": "Consider an employee with ten completed years of service, basic plus DA of Rs 30,000 a month and gross cash pay of Rs 1,00,000. On the current wage base the calculation gives Rs 30,000 divided by 26, multiplied by 15, multiplied by 10 — about Rs 1.73 lakh. Once wages are lifted to half of cash pay, the base becomes Rs 50,000 and the same ten years produce about Rs 2.88 lakh. The formula never changed; only the wage base did. The difference of roughly Rs 1.15 lakh is the value of the revised definition to this employee.",
+    "faqs": [
+      {
+        "question": "Does the new wage definition increase my gratuity?",
+        "answer": "It increases the wage base the formula runs on, so for the same years of service the payout is larger. The size of the gain depends on how far your current basic sits below half of your cash pay. If your basic already exceeds that mark, nothing changes."
+      },
+      {
+        "question": "Do fixed-term employees really get gratuity after one year?",
+        "answer": "Fixed-term employees accrue gratuity on completing one year of service under their contract, rather than waiting the five years that applies to permanent employees. This calculator applies whichever threshold you select, and reports what would accrue once you cross it."
+      },
+      {
+        "question": "Is gratuity taxable?",
+        "answer": "For employees covered by the Payment of Gratuity Act, gratuity up to twenty lakh rupees is exempt from income tax. Amounts above the ceiling, and payments made by employers outside the Act, follow different rules, so check your position before assuming the whole amount is tax free."
+      },
+      {
+        "question": "Which wages are used — my first salary or my last?",
+        "answer": "Gratuity is calculated on last drawn wages, not on an average across your service. That is why a revised wage base matters even to employees who are close to leaving: the higher base applies to every completed year, not only to the years worked after the change."
+      }
+    ],
+    "related": [
+      "new-labour-code-take-home-calculator-india",
+      "gratuity-calculator-india",
+      "salary-in-hand-calculator-india",
+      "epf-corpus-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your current basic plus dearness allowance from your latest payslip.",
+      "Enter your monthly gross cash pay, adding every allowance but excluding employer PF.",
+      "Enter the years of service you have completed, counting six months or more as a full year.",
+      "Tick the fixed-term box if you are on a fixed-term contract rather than permanent employment.",
+      "Compare the payout on your current wages with the payout on the revised wage base.",
+      "Check the capped figure if your calculated gratuity exceeds twenty lakh rupees."
+    ],
+    "assumptions": [
+      "Gratuity accrues at fifteen days of wages for each completed year, using a twenty-six day month.",
+      "The revised wage base is the greater of your current basic and half of your cash remuneration.",
+      "Permanent employees qualify after five years and fixed-term employees after one year.",
+      "The statutory ceiling holds the payable amount at twenty lakh rupees.",
+      "Your employer is covered by the Payment of Gratuity Act."
+    ],
+    "commonMistakes": [
+      "Using gross salary rather than basic plus dearness allowance as the wage base.",
+      "Assuming the revised base applies only to years worked after the change, when gratuity runs on last drawn wages.",
+      "Forgetting the twenty lakh ceiling when service and salary are both long and high.",
+      "Treating the five-year rule as absolute, when fixed-term employees accrue from one year.",
+      "Overlooking that employers outside the Act may use a thirty-day divisor and different terms."
+    ],
+    "contentSections": [
+      {
+        "heading": "The formula did not change — the base did",
+        "body": "Almost every explanation of gratuity focuses on the fifteen-by-twenty-six formula, which is unchanged. The consequential change in the labour codes sits one step earlier, in what counts as wages. Because gratuity runs on last drawn wages rather than on an average, a revised base applies retrospectively to every completed year of service. An employee with fifteen years behind them sees the higher base applied to all fifteen, which is why the effect on long-serving staff is much larger than the monthly numbers suggest.",
+        "bullets": [
+          "Fifteen days of wages for each completed year, on a twenty-six day month.",
+          "Last drawn wages, not an average across service.",
+          "A higher base therefore lifts the payout for past years too."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "labour-code-gratuity-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Any notification changing the gratuity formula, the eligibility period, or the twenty lakh ceiling.",
+    "officialSources": [
+      {
+        "label": "Payment of Gratuity Act, 1972 (Ministry of Labour and Employment)",
+        "href": "https://labour.gov.in/sites/default/files/paymentofgratuityact.pdf"
+      },
+      {
+        "label": "Code on Social Security, 2020",
+        "href": "https://labour.gov.in/sites/default/files/ss_code_gazette.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "room-rent-proportionate-deduction-calculator-india",
+    "name": "Room Rent Proportionate Deduction Calculator India",
+    "seoTitle": "Room Rent Proportionate Deduction Calculator (2026)",
+    "category": "Insurance",
+    "status": "live",
+    "targetKeyword": "room rent proportionate deduction calculator",
+    "shortDescription": "See how much of your hospital bill the insurer will actually pay when you take a room costing more than your policy's room rent limit.",
+    "metaDescription": "Work out the proportionate deduction when your hospital room exceeds the policy limit. See the real shortfall, not just the room rent gap.",
+    "inputs": [
+      {
+        "key": "eligibleRoomRentPerDay",
+        "label": "Room rent your policy allows",
+        "default": 5000,
+        "unit": "Rs/day",
+        "min": 0,
+        "max": 200000,
+        "step": 500,
+        "help": "Enter 0 if your policy has no room rent limit."
+      },
+      {
+        "key": "actualRoomRentPerDay",
+        "label": "Room rent actually charged",
+        "default": 8000,
+        "unit": "Rs/day",
+        "min": 0,
+        "max": 200000,
+        "step": 500
+      },
+      {
+        "key": "daysAdmitted",
+        "label": "Days admitted",
+        "default": 5,
+        "unit": "days",
+        "min": 0,
+        "max": 365,
+        "step": 1
+      },
+      {
+        "key": "proratedExpenses",
+        "label": "Expenses that get prorated",
+        "default": 150000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 50000000,
+        "step": 5000,
+        "help": "Surgeon and anaesthetist fees, nursing and operation theatre charges."
+      },
+      {
+        "key": "nonProratedExpenses",
+        "label": "Expenses not prorated",
+        "default": 40000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 50000000,
+        "step": 5000,
+        "help": "Commonly pharmacy, consumables, implants, diagnostics and ICU charges."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "admissibleRatioPercent",
+        "label": "Share of prorated expenses the insurer meets",
+        "formula": "min(100, 100 * eligibleRoomRentPerDay / actualRoomRentPerDay)",
+        "format": "percent"
+      },
+      {
+        "key": "eligibleRoomCharges",
+        "label": "Room rent the policy covers",
+        "formula": "min(actualRoomRentPerDay, eligibleRoomRentPerDay) * daysAdmitted",
+        "format": "currency"
+      },
+      {
+        "key": "proratedPayable",
+        "label": "Prorated expenses payable",
+        "formula": "proratedExpenses * min(1, eligibleRoomRentPerDay / actualRoomRentPerDay)",
+        "format": "currency"
+      },
+      {
+        "key": "proportionateDeduction",
+        "label": "Lost to proportionate deduction",
+        "formula": "proratedExpenses - proratedPayable",
+        "format": "currency"
+      },
+      {
+        "key": "totalBill",
+        "label": "Total hospital bill",
+        "formula": "actualRoomRentPerDay * daysAdmitted + proratedExpenses + nonProratedExpenses",
+        "format": "currency"
+      },
+      {
+        "key": "totalPayable",
+        "label": "Insurer pays",
+        "formula": "eligibleRoomCharges + proratedPayable + nonProratedExpenses",
+        "format": "currency"
+      },
+      {
+        "key": "outOfPocket",
+        "label": "You pay",
+        "formula": "totalBill - totalPayable",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Where a policy caps room rent and the insured occupies a costlier room, the insurer does not simply disallow the extra room charge. It reduces the associated expenses in the same proportion. The admissible ratio is the eligible room rent divided by the room rent actually charged, and that ratio is applied to the heads that move with room category, typically surgeon and anaesthetist fees, nursing and operation theatre charges. IRDAI guidance keeps certain heads out of the proration, commonly pharmacy, consumables, implants, diagnostics and intensive care charges, though wordings differ between policies which is why those are entered separately here. The result is that the shortfall a patient faces is far larger than the room rent difference alone, and it is the second component, the proportionate deduction on everything else, that produces the unpleasant surprise at discharge.",
+    "example": "A policy allows room rent of Rs 5,000 a day and the patient occupies a Rs 8,000 room for five nights. The admissible ratio is 5,000 divided by 8,000, or 62.5 per cent. Room rent alone is disallowed to the extent of Rs 15,000. But Rs 1,50,000 of surgeon, nursing and theatre charges are also cut to 62.5 per cent, which removes a further Rs 56,250. The patient therefore pays Rs 71,250 rather than the Rs 15,000 the room rent gap suggested. Choosing a room within the cap would have avoided the larger of those two amounts entirely.",
+    "faqs": [
+      {
+        "question": "Why is my shortfall so much bigger than the room rent difference?",
+        "answer": "Because the room rent cap does not only limit the room charge. It sets a ratio that is applied to most of the other expenses in the bill. In a typical claim the proportionate deduction on surgeon, nursing and theatre charges is several times larger than the room rent gap itself."
+      },
+      {
+        "question": "Which expenses escape the proportionate deduction?",
+        "answer": "Pharmacy, consumables, implants, diagnostics and intensive care charges are commonly excluded from proration, and IRDAI guidance supports keeping several of these out. Policy wordings differ, so check your schedule and enter those amounts separately in the calculator."
+      },
+      {
+        "question": "Does a higher sum insured remove the room rent limit?",
+        "answer": "Not automatically. Room rent capping and sum insured are separate features. Some policies express the cap as a percentage of sum insured, so a larger cover raises the cap, while others state a flat rupee limit or a room category regardless of cover."
+      },
+      {
+        "question": "Can I avoid this by paying the room difference myself?",
+        "answer": "Generally no. The proration applies because of the room category you occupied, not because of who paid for it. If the room charged exceeds the eligible limit, the ratio is applied to the associated expenses even if you settle the room difference directly."
+      }
+    ],
+    "related": [
+      "health-insurance-coverage-adequacy-calculator-india",
+      "term-life-insurance-cover-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "howToUse": [
+      "Read the room rent limit off your policy schedule, as a rupee figure per day or a percentage of sum insured.",
+      "Enter the room rent the hospital actually charged and the number of days admitted.",
+      "Split the rest of the bill into heads that get prorated and heads your policy excludes from proration.",
+      "Read the admissible ratio to see what share of the prorated heads the insurer will meet.",
+      "Compare the room rent gap with the proportionate deduction to see which is costing you more.",
+      "Treat the result as an estimate of the mechanism, not as a claim decision."
+    ],
+    "assumptions": [
+      "The admissible ratio is eligible room rent divided by actual room rent, capped at 1.",
+      "Heads entered as non-prorated are paid in full, subject to the sum insured.",
+      "Co-payment, disease-specific sub-limits and non-medical exclusions are not modelled.",
+      "The sum insured is available in full for this claim.",
+      "Room rent is charged at a single rate for the whole stay."
+    ],
+    "commonMistakes": [
+      "Assuming the only loss is the room rent difference, when the proration on other heads is usually larger.",
+      "Treating pharmacy and implants as prorated when most policies exclude them.",
+      "Reading a percentage-of-sum-insured cap as a total rather than a per-day figure.",
+      "Believing that paying the room difference personally avoids the proportionate deduction.",
+      "Overlooking a separate, lower cap that applies to intensive care rooms."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why room rent capping costs more than it looks",
+        "body": "A room rent limit reads like a small print detail about accommodation. It is really a multiplier applied across most of the hospital bill. Because surgeon fees, nursing charges and theatre costs tend to scale with room category, insurers reduce them in the same proportion when a costlier room is taken. The room charge is the visible loss and the smaller one. The deduction spread across everything else is the part that turns a fully insured admission into a large personal bill.",
+        "bullets": [
+          "The cap sets a ratio, not just a room charge limit.",
+          "Most of the bill is reduced by that ratio.",
+          "The gap is discovered at discharge, when nothing can be changed."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "room-rent-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Any IRDAI circular changing which expense heads may be prorated.",
+    "officialSources": [
+      {
+        "label": "IRDAI — Insurance Regulatory and Development Authority of India",
+        "href": "https://irdai.gov.in/"
+      }
+    ]
+  },
+  {
+    "slug": "notional-increment-pension-calculator-india",
+    "name": "Notional Increment Pension Calculator India",
+    "seoTitle": "Notional Increment Calculator — 30 June Retirees Pension",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "notional increment pension calculator",
+    "shortDescription": "Estimate the extra pension and arrears due to central government employees who retired on 30 June or 31 December, one day before their annual increment fell due.",
+    "metaDescription": "Estimate the revised pension and arrears from one notional increment for employees retiring on 30 June or 31 December, after the 2025 ruling.",
+    "inputs": [
+      {
+        "key": "lastBasicPay",
+        "label": "Last drawn basic pay",
+        "default": 100000,
+        "unit": "Rs/month",
+        "min": 0,
+        "max": 5000000,
+        "step": 100
+      },
+      {
+        "key": "drPercent",
+        "label": "Dearness relief",
+        "default": 60,
+        "unit": "%",
+        "min": 0,
+        "max": 300,
+        "step": 1
+      },
+      {
+        "key": "arrearsMonths",
+        "label": "Months of arrears claimed",
+        "default": 24,
+        "unit": "months",
+        "min": 0,
+        "max": 600,
+        "step": 1,
+        "help": "Counted from the later of 30 April 2023 and your retirement date."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "notionalIncrement",
+        "label": "Notional increment",
+        "formula": "ceil(lastBasicPay * 0.03 / 100) * 100",
+        "format": "currency"
+      },
+      {
+        "key": "revisedBasicPay",
+        "label": "Revised basic pay for pension",
+        "formula": "lastBasicPay + notionalIncrement",
+        "format": "currency"
+      },
+      {
+        "key": "currentBasicPension",
+        "label": "Basic pension without the increment",
+        "formula": "lastBasicPay * 0.5",
+        "format": "currency"
+      },
+      {
+        "key": "revisedBasicPension",
+        "label": "Basic pension with the increment",
+        "formula": "revisedBasicPay * 0.5",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyGainWithDr",
+        "label": "Monthly gain including dearness relief",
+        "formula": "(revisedBasicPension - currentBasicPension) * (1 + drPercent / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "annualGainWithDr",
+        "label": "Annual gain",
+        "formula": "monthlyGainWithDr * 12",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedArrears",
+        "label": "Estimated arrears",
+        "formula": "monthlyGainWithDr * arrearsMonths",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Employees who retire on 30 June or 31 December leave service one day before their annual increment falls due on 1 July or 1 January. A Supreme Court judgment of 20 February 2025 held that the increment should nevertheless be counted notionally when pension is fixed, and a Department of Personnel office memorandum of 20 May 2025 gave effect to it. The increment is three per cent of basic pay, rounded up to the next multiple of one hundred rupees as the pay matrix requires. Pension is conventionally half of last drawn basic pay, so half the increment flows into basic pension, and dearness relief is then paid on that higher figure. Two limits matter. The notional increment counts for pension only and not for other pensionary benefits, and no arrears accrue for any period before 30 April 2023.",
+    "example": "An employee retiring on 30 June with last basic pay of Rs 1,00,000 gets a notional increment of Rs 3,000, taking basic pay for pension purposes to Rs 1,03,000. Basic pension rises from Rs 50,000 to Rs 51,500, a gain of Rs 1,500. At a dearness relief rate of 60 per cent that is Rs 2,400 a month, or Rs 28,800 a year, and it continues for life while carrying into every future relief revision. Across 24 months of admitted arrears the one-time amount is Rs 57,600.",
+    "faqs": [
+      {
+        "question": "Who qualifies for the notional increment?",
+        "answer": "Central government employees who retired on superannuation on 30 June or 31 December, which is one day before the annual increment date of 1 July or 1 January. The Supreme Court judgment of 20 February 2025 and the Department of Personnel office memorandum of 20 May 2025 set out the position."
+      },
+      {
+        "question": "Does the increment increase my salary?",
+        "answer": "No. It is granted notionally, on paper, purely to fix pension. It does not change the salary that was drawn before retirement, and it is not counted for other pensionary benefits such as gratuity or commutation value."
+      },
+      {
+        "question": "How far back do arrears run?",
+        "answer": "No arrears are payable for any period before 30 April 2023, whatever the date of retirement. The number of months your pension disbursing authority actually admits determines the one-time amount."
+      },
+      {
+        "question": "Do I need to apply for it?",
+        "answer": "Practice varies between departments and pension disbursing authorities. Some revise pension on their own motion while others require a representation. Check with your pension disbursing authority rather than assuming it will be applied automatically."
+      }
+    ],
+    "related": [
+      "pension-commutation-calculator-india",
+      "8th-pay-commission-pension-calculator-india",
+      "8th-pay-commission-arrears-calculator-india",
+      "nps-calculator-india"
+    ],
+    "howToUse": [
+      "Enter the basic pay you last drew, as shown in the pay matrix cell you held.",
+      "Enter the dearness relief rate currently applicable to your pension.",
+      "Enter the number of months of arrears you are claiming, counted from 30 April 2023 at the earliest.",
+      "Read the notional increment, which is three per cent of basic pay rounded up to the next hundred.",
+      "Compare basic pension before and after to see the monthly gain.",
+      "Confirm the admitted arrears period with your pension disbursing authority."
+    ],
+    "assumptions": [
+      "Pension is half of last drawn basic pay, which assumes full qualifying service.",
+      "The annual increment is three per cent of basic pay, rounded up to the next multiple of one hundred.",
+      "Dearness relief is paid on the full basic pension.",
+      "No arrears accrue for any period before 30 April 2023.",
+      "The increment counts for pension and not for other pensionary benefits."
+    ],
+    "commonMistakes": [
+      "Expecting the increment to raise gratuity or commutation value, when it applies to pension alone.",
+      "Claiming arrears from the date of retirement rather than from 30 April 2023 where that is later.",
+      "Forgetting that dearness relief multiplies the gain, so the monthly benefit exceeds half the increment.",
+      "Assuming every retirement date qualifies, when only 30 June and 31 December retirees are covered.",
+      "Waiting for automatic revision where the department expects a representation."
+    ],
+    "contentSections": [
+      {
+        "heading": "A single day that costs a lifetime of pension",
+        "body": "Increments in the pay matrix fall due on 1 July and 1 January. An employee retiring on 30 June has completed the full year of service that earns the increment but leaves one day before it is granted, and because pension is fixed on last drawn basic pay, that single day used to reduce pension for the rest of their life. The Supreme Court held that outcome to be arbitrary. The correction is modest in any one month and substantial over a retirement, because it also compounds through every future dearness relief revision.",
+        "bullets": [
+          "Increments fall due on 1 July and 1 January.",
+          "Retirement on 30 June or 31 December misses it by a day.",
+          "Pension is fixed for life on that figure, so the loss repeats monthly."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "notional-increment-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Any further order changing the arrears cut-off date or extending the benefit beyond pension.",
+    "officialSources": [
+      {
+        "label": "Department of Personnel and Training — pension rules and orders",
+        "href": "https://persmin.gov.in/pension/rules.html"
+      },
+      {
+        "label": "Department of Pension and Pensioners' Welfare",
+        "href": "https://pensionersportal.gov.in/"
+      }
+    ]
+  },
+  {
+    "slug": "pension-commutation-calculator-india",
+    "name": "Pension Commutation Calculator India",
+    "seoTitle": "Pension Commutation Calculator — Lump Sum & Restoration",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "pension commutation calculator",
+    "shortDescription": "Work out the lump sum from commuting part of your pension, the reduced monthly pension, the break-even point and the 15-year restoration.",
+    "metaDescription": "Calculate your commutation lump sum, reduced monthly pension and break-even period, including why dearness relief is not reduced by commuting.",
+    "inputs": [
+      {
+        "key": "basicPension",
+        "label": "Basic pension",
+        "default": 50000,
+        "unit": "Rs/month",
+        "min": 0,
+        "max": 2000000,
+        "step": 500,
+        "help": "Before dearness relief and before commutation."
+      },
+      {
+        "key": "commutedPercent",
+        "label": "Share commuted",
+        "default": 40,
+        "unit": "%",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "help": "Central government pensioners may commute up to 40%."
+      },
+      {
+        "key": "commutationFactor",
+        "label": "Commutation factor",
+        "default": 8.194,
+        "unit": "from the rules",
+        "min": 0.1,
+        "max": 25,
+        "step": 0.001,
+        "help": "Read against age next birthday from the table in the CCS (Commutation of Pension) Rules."
+      },
+      {
+        "key": "drPercent",
+        "label": "Dearness relief",
+        "default": 60,
+        "unit": "%",
+        "min": 0,
+        "max": 300,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "commutedMonthlyPension",
+        "label": "Monthly pension given up",
+        "formula": "basicPension * min(commutedPercent, 40) / 100",
+        "format": "currency"
+      },
+      {
+        "key": "lumpSum",
+        "label": "Lump sum received",
+        "formula": "commutedMonthlyPension * 12 * commutationFactor",
+        "format": "currency"
+      },
+      {
+        "key": "reducedBasicPension",
+        "label": "Basic pension after commutation",
+        "formula": "basicPension - commutedMonthlyPension",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyDearnessRelief",
+        "label": "Dearness relief on full basic pension",
+        "formula": "basicPension * drPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyInHandAfter",
+        "label": "Monthly pension after commutation",
+        "formula": "reducedBasicPension + monthlyDearnessRelief",
+        "format": "currency"
+      },
+      {
+        "key": "totalForgoneOverRestoration",
+        "label": "Pension given up over 15 years",
+        "formula": "commutedMonthlyPension * 180",
+        "format": "currency"
+      },
+      {
+        "key": "breakEvenMonths",
+        "label": "Break-even period",
+        "formula": "lumpSum / commutedMonthlyPension",
+        "format": "number"
+      }
+    ],
+    "formulaExplanation": "A central government pensioner may commute up to forty per cent of basic pension in exchange for a lump sum. The lump sum is the monthly pension being given up, multiplied by twelve, multiplied by a commutation factor taken from the table in the CCS (Commutation of Pension) Rules and read against age next birthday. The commuted portion is deducted from basic pension for fifteen years and then restored automatically without any application. One feature is widely misunderstood and materially changes the arithmetic: dearness relief continues to be calculated on the full basic pension, not on the reduced figure, so commuting does not shrink the relief component. Because the lump sum divided by the monthly reduction equals twelve times the factor, the break-even point in years is simply the commutation factor itself.",
+    "example": "A pensioner with basic pension of Rs 50,000 commutes the full forty per cent, giving up Rs 20,000 a month. At a commutation factor of 8.194 the lump sum is Rs 20,000 multiplied by twelve multiplied by 8.194, which is Rs 19.67 lakh. Basic pension falls to Rs 30,000, but dearness relief at sixty per cent is still calculated on the original Rs 50,000, so it remains Rs 30,000 and the monthly figure becomes Rs 60,000 rather than the Rs 48,000 a naive calculation would give. The lump sum is matched by the reductions after roughly 8.2 years, and the commuted portion returns after fifteen.",
+    "faqs": [
+      {
+        "question": "Is dearness relief reduced when I commute?",
+        "answer": "No. Dearness relief continues to be worked out on the full basic pension, not on the reduced pension after commutation. This is the single most commonly missed feature of commutation and it makes the arrangement considerably better than a simple reduction would suggest."
+      },
+      {
+        "question": "When is the commuted portion restored?",
+        "answer": "Fifteen years from the date the commuted value was paid. Restoration is automatic and does not require an application, after which full basic pension resumes."
+      },
+      {
+        "question": "Where do I find my commutation factor?",
+        "answer": "From the table in the CCS (Commutation of Pension) Rules, read against age next birthday rather than age at retirement. Published copies of the table differ between websites, so take the figure from the rules themselves or from your pension disbursing authority."
+      },
+      {
+        "question": "Is the lump sum taxable?",
+        "answer": "Commuted pension is fully exempt from income tax for government employees. For other pensioners the treatment differs and depends on whether gratuity is also received, so check your own position."
+      }
+    ],
+    "related": [
+      "notional-increment-pension-calculator-india",
+      "8th-pay-commission-pension-calculator-india",
+      "nps-calculator-india",
+      "retirement-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your basic pension before dearness relief and before any commutation.",
+      "Choose the share you want to commute, up to the forty per cent maximum.",
+      "Look up the commutation factor for your age next birthday and enter it.",
+      "Enter the dearness relief rate applicable to your pension.",
+      "Compare the lump sum against the pension given up over the fifteen-year restoration period.",
+      "Check the break-even period against your own expectations before deciding."
+    ],
+    "assumptions": [
+      "Commutation is capped at forty per cent of basic pension.",
+      "The lump sum is monthly commuted pension multiplied by twelve and by the commutation factor.",
+      "Dearness relief is calculated on the full basic pension, not the reduced pension.",
+      "The commuted portion is restored fifteen years after payment.",
+      "The comparison is in plain cash terms and ignores investment returns and inflation."
+    ],
+    "commonMistakes": [
+      "Assuming dearness relief falls in line with the reduced pension, which understates the monthly figure.",
+      "Reading the commutation factor against age at retirement rather than age next birthday.",
+      "Comparing the lump sum only against the first year of reduced pension rather than the full fifteen years.",
+      "Forgetting that restoration is automatic and needs no application.",
+      "Ignoring what the lump sum could earn if invested, which the plain cash comparison leaves out."
+    ],
+    "contentSections": [
+      {
+        "heading": "The break-even is the factor itself",
+        "body": "The arithmetic of commutation has a neat property. Because the lump sum is the monthly reduction multiplied by twelve and by the factor, dividing the lump sum by that same monthly reduction gives twelve times the factor in months, which is the factor in years. A factor of 8.194 therefore means the lump sum is matched by the reductions after about 8.2 years, comfortably inside the fifteen-year restoration period. In plain cash terms the pensioner gives up more than they receive, which is why the decision usually turns on what else the money can do rather than on the totals alone.",
+        "bullets": [
+          "Break-even in years equals the commutation factor.",
+          "Restoration always comes at fifteen years.",
+          "So the cash comparison favours not commuting, before investment returns."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "commutation-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Any amendment to the CCS (Commutation of Pension) Rules, the commutation table, or the restoration period.",
+    "officialSources": [
+      {
+        "label": "CCS (Commutation of Pension) Rules, 1981",
+        "href": "https://persmin.gov.in/pension/rules_new/ccs_coprules_1981_060613.pdf"
+      },
+      {
+        "label": "Department of Pension and Pensioners' Welfare",
+        "href": "https://pensionersportal.gov.in/"
+      }
+    ]
+  },
+  {
+    "slug": "epf-taxable-interest-rule-9d-calculator-india",
+    "name": "EPF Taxable Interest Rule 9D Calculator India",
+    "seoTitle": "EPF Taxable Interest Calculator — Rule 9D Split",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "epf taxable interest calculator rule 9d",
+    "shortDescription": "Split your provident fund into taxable and non-taxable accounts under Rule 9D and see how much interest is taxed each year, with TDS.",
+    "metaDescription": "Calculate taxable EPF interest under Rule 9D. Split contributions at the 2.5 or 5 lakh threshold and project taxable interest and TDS by year.",
+    "inputs": [
+      {
+        "key": "annualEmployeeContribution",
+        "label": "Your annual contribution",
+        "default": 400000,
+        "unit": "Rs/year",
+        "min": 0,
+        "max": 10000000,
+        "step": 10000,
+        "help": "Include voluntary provident fund. Employer contributions do not count towards this threshold."
+      },
+      {
+        "key": "threshold",
+        "label": "Threshold that applies to you",
+        "default": 250000,
+        "unit": "Rs",
+        "min": 250000,
+        "max": 500000,
+        "step": 250000,
+        "help": "Rs 2,50,000 where the employer also contributes, Rs 5,00,000 where it does not."
+      },
+      {
+        "key": "interestRatePercent",
+        "label": "Interest rate credited",
+        "default": 8.25,
+        "unit": "%",
+        "min": 0,
+        "max": 20,
+        "step": 0.05
+      },
+      {
+        "key": "openingTaxableBalance",
+        "label": "Opening taxable balance",
+        "default": 0,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 10000,
+        "help": "Carried forward if you have crossed the threshold in earlier years."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "nonTaxableContribution",
+        "label": "Contribution to the non-taxable account",
+        "formula": "min(annualEmployeeContribution, threshold)",
+        "format": "currency"
+      },
+      {
+        "key": "taxableContribution",
+        "label": "Contribution to the taxable account",
+        "formula": "max(0, annualEmployeeContribution - threshold)",
+        "format": "currency"
+      },
+      {
+        "key": "taxableAccountBase",
+        "label": "Taxable account before interest",
+        "formula": "openingTaxableBalance + taxableContribution",
+        "format": "currency"
+      },
+      {
+        "key": "taxableInterest",
+        "label": "Taxable interest this year",
+        "formula": "taxableAccountBase * interestRatePercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "tdsAtTenPercent",
+        "label": "TDS at 10% with linked PAN",
+        "formula": "taxableInterest * 0.1",
+        "format": "currency"
+      },
+      {
+        "key": "closingTaxableBalance",
+        "label": "Closing taxable balance",
+        "formula": "taxableAccountBase + taxableInterest",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Interest on an employee's own provident fund contributions above a yearly threshold is taxable. Rule 9D gives effect to this by requiring the fund to be maintained as two notional accounts, one holding non-taxable contributions and the other holding contributions above the threshold. Interest is credited to each account separately and only the interest arising in the taxable account is charged to tax. Both balances carry forward, which is the feature people underestimate: once a taxable balance exists it keeps earning taxable interest in later years even if contributions fall back below the threshold. The threshold is two lakh fifty thousand rupees where the employer also contributes to the fund and five lakh rupees where the employer makes no contribution, which is the position for many government employees. Tax is deducted at source at ten per cent under section 194A once accrued interest for the year exceeds five thousand rupees, or at twenty per cent where PAN is not linked.",
+    "example": "An employee contributing Rs 4,00,000 a year to a fund where the employer also contributes crosses the Rs 2,50,000 threshold by Rs 1,50,000. That excess goes into the taxable account. At an interest rate of 8.25 per cent the first year produces about Rs 12,375 of taxable interest, on which TDS of about Rs 1,238 applies because the amount exceeds five thousand rupees. In the second year the taxable account holds the previous balance plus its interest plus a further Rs 1,50,000, so the taxable interest rises even though the contribution has not changed. The interactive calculator projects that compounding across as many years as you choose.",
+    "faqs": [
+      {
+        "question": "Does my employer's contribution count towards the threshold?",
+        "answer": "No. The Rule 9D threshold applies to the employee's own contributions, including any voluntary provident fund. Employer contributions are dealt with separately under a different provision and are not added to this figure."
+      },
+      {
+        "question": "When does the higher five lakh threshold apply?",
+        "answer": "Where the employer makes no contribution to the fund. That is commonly the position for government employees in certain funds, and it substantially raises the point at which any interest becomes taxable."
+      },
+      {
+        "question": "Is TDS the end of my liability?",
+        "answer": "No. Tax is deducted at ten per cent, or twenty per cent without a linked PAN, but the interest is taxable in your hands at your applicable rate. If your slab rate is higher than the deduction rate you will owe the difference when you file."
+      },
+      {
+        "question": "What happens if I stop contributing above the threshold?",
+        "answer": "The taxable account does not disappear. Its balance carries forward and continues to earn interest that remains taxable, so the annual taxable interest persists even in years when your contribution falls back under the threshold."
+      }
+    ],
+    "related": [
+      "epf-corpus-calculator-india",
+      "ppf-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
+      "new-labour-code-take-home-calculator-india"
+    ],
+    "howToUse": [
+      "Enter your own annual contribution, including any voluntary provident fund.",
+      "Set the threshold to Rs 2,50,000 if your employer also contributes, or Rs 5,00,000 if it does not.",
+      "Enter the interest rate credited by the fund for the year.",
+      "Enter any taxable balance carried forward from earlier years.",
+      "Read the split between the taxable and non-taxable accounts and the interest arising on each.",
+      "Use the interactive projection to see how the taxable balance compounds over several years."
+    ],
+    "assumptions": [
+      "Only the employee's own contributions, including voluntary provident fund, count towards the threshold.",
+      "Interest is credited at the same rate to both notional accounts.",
+      "Interest is applied to the opening balance plus the whole year's contribution rather than monthly running balances.",
+      "TDS applies at ten per cent where accrued interest exceeds five thousand rupees and PAN is linked.",
+      "The threshold entered matches your employer contribution position."
+    ],
+    "commonMistakes": [
+      "Adding employer contributions to the threshold test, which overstates the taxable portion.",
+      "Assuming the taxable account clears once contributions drop below the threshold.",
+      "Treating TDS as the final tax when the interest is taxable at your own slab rate.",
+      "Using the two lakh fifty thousand threshold where the employer makes no contribution and five lakh applies.",
+      "Forgetting that voluntary provident fund contributions count towards the same threshold."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why the taxable account never really goes away",
+        "body": "Most explanations of the rule stop at the contribution split, which makes it sound like a one-year problem for high earners. The consequential part is that both notional accounts carry forward. A single year of heavy voluntary contribution creates a taxable balance that earns taxable interest for as long as the fund exists, and that interest compounds. Someone who crossed the threshold once, years ago, can still be receiving a taxable interest figure and a TDS deduction today without contributing anything above the limit since.",
+        "bullets": [
+          "The split is applied to contributions, but the balances persist.",
+          "Taxable interest compounds on the carried-forward balance.",
+          "One heavy year can create a liability that recurs indefinitely."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "rule-9d-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Any change to the Rule 9D thresholds, the TDS rate under section 194A, or the interest rate declared by EPFO.",
+    "officialSources": [
+      {
+        "label": "EPFO — Employees' Provident Fund Organisation",
+        "href": "https://www.epfindia.gov.in/site_en/index.php"
+      },
+      {
+        "label": "Income Tax Department — Income-tax Rules",
+        "href": "https://incometaxindia.gov.in/pages/rules/income-tax-rules-1962.aspx"
+      }
+    ]
+  },
+  {
+    "slug": "inherited-property-capital-gains-calculator-india",
+    "name": "Inherited Property Capital Gains Calculator India",
+    "seoTitle": "Inherited Property Capital Gains Calculator India 2026",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "capital gains on inherited property calculator",
+    "shortDescription": "Work out capital gains when you sell inherited or ancestral property, using the previous owner's cost, the 2001 fair market value option and both tax routes.",
+    "metaDescription": "Calculate capital gains tax on inherited property using the previous owner's cost and the 1 April 2001 fair market value, comparing both LTCG routes.",
+    "inputs": [
+      {
+        "key": "salePrice",
+        "label": "Sale price",
+        "default": 10000000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 1000000000,
+        "step": 100000
+      },
+      {
+        "key": "transferExpenses",
+        "label": "Transfer expenses",
+        "default": 200000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 10000,
+        "help": "Brokerage, legal fees and stamp duty borne by you on the sale."
+      },
+      {
+        "key": "previousOwnerCost",
+        "label": "What the previous owner paid",
+        "default": 200000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 500000000,
+        "step": 50000
+      },
+      {
+        "key": "fairMarketValue2001",
+        "label": "Fair market value on 1 April 2001",
+        "default": 800000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 500000000,
+        "step": 50000,
+        "help": "From a registered valuer's report. Enter 0 if the property was acquired after April 2001."
+      },
+      {
+        "key": "acquisitionYearCii",
+        "label": "Cost inflation index for the acquisition year",
+        "default": 100,
+        "unit": "index",
+        "min": 100,
+        "max": 2000,
+        "step": 1,
+        "help": "100 for the 2001-02 base year, or the notified index for a later acquisition year."
+      },
+      {
+        "key": "saleYearCii",
+        "label": "Cost inflation index for the sale year",
+        "default": 384,
+        "unit": "index",
+        "min": 100,
+        "max": 2000,
+        "step": 1,
+        "help": "CBDT notified: 363 for FY 2024-25, 376 for FY 2025-26, 384 for FY 2026-27."
+      },
+      {
+        "key": "costOfImprovement",
+        "label": "Cost of improvement",
+        "default": 0,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 50000,
+        "help": "Only capital improvements made on or after 1 April 2001 count."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "costOfAcquisitionUsed",
+        "label": "Cost of acquisition used",
+        "formula": "max(previousOwnerCost, fairMarketValue2001)",
+        "format": "currency"
+      },
+      {
+        "key": "indexedCostOfAcquisition",
+        "label": "Indexed cost of acquisition",
+        "formula": "costOfAcquisitionUsed * saleYearCii / acquisitionYearCii",
+        "format": "currency"
+      },
+      {
+        "key": "netSaleConsideration",
+        "label": "Net sale consideration",
+        "formula": "salePrice - transferExpenses",
+        "format": "currency"
+      },
+      {
+        "key": "gainWithoutIndexation",
+        "label": "Gain without indexation",
+        "formula": "max(0, netSaleConsideration - costOfAcquisitionUsed - costOfImprovement)",
+        "format": "currency"
+      },
+      {
+        "key": "gainWithIndexation",
+        "label": "Gain with indexation",
+        "formula": "max(0, netSaleConsideration - indexedCostOfAcquisition - costOfImprovement)",
+        "format": "currency"
+      },
+      {
+        "key": "taxWithoutIndexation",
+        "label": "Tax at 12.5% without indexation",
+        "formula": "gainWithoutIndexation * 0.125",
+        "format": "currency"
+      },
+      {
+        "key": "taxWithIndexation",
+        "label": "Tax at 20% with indexation",
+        "formula": "gainWithIndexation * 0.2",
+        "format": "currency"
+      },
+      {
+        "key": "taxPayable",
+        "label": "Lower of the two routes",
+        "formula": "min(taxWithoutIndexation, taxWithIndexation)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Inheriting property is not itself a taxable event. Tax arises when the property is sold, and the computation runs on the previous owner's position rather than yours. The cost of acquisition is what the previous owner paid, and the holding period is counted from their purchase, which is why an inherited property is almost always long term even if you received it recently. Where the previous owner acquired the property before 1 April 2001 the taxpayer may substitute the fair market value as at that date where it is higher than actual cost, and the cost inflation index for the 2001-02 base year is 100. Only capital improvements incurred on or after 1 April 2001 are counted. For property acquired before 23 July 2024 a resident may choose between twelve and a half per cent without indexation and twenty per cent with it. A lower rate does not automatically mean lower tax: indexation wins only where the gain is small relative to cost, and the flat rate wins on large gains.",
+    "example": "A property inherited from a parent who bought it in 1990 for Rs 2,00,000 is sold for Rs 1 crore, with Rs 2,00,000 of brokerage. A valuer puts its fair market value on 1 April 2001 at Rs 8,00,000, which is higher than actual cost, so that becomes the cost of acquisition. Without indexation the gain is Rs 92,00,000 and the tax at twelve and a half per cent is Rs 11,50,000. With indexation the cost becomes Rs 8,00,000 multiplied by 384 over 100, or Rs 30,72,000, giving a gain of Rs 67,28,000 and tax at twenty per cent of Rs 13,45,600. Here the flat rate is cheaper by nearly two lakh rupees, which surprises people who assume a long holding always favours indexation.",
+    "faqs": [
+      {
+        "question": "Do I pay tax when I inherit property?",
+        "answer": "No. Inheritance is not a transfer for capital gains purposes and no tax arises at that point. The liability crystallises only when you sell, and it is computed from the previous owner's cost and holding period rather than from the date you inherited."
+      },
+      {
+        "question": "Whose cost do I use if the previous owner also inherited it?",
+        "answer": "You go back to the last owner who actually acquired the property by purchase or construction. The chain of inheritances is looked through, which occasionally means going back several generations to find the real cost of acquisition."
+      },
+      {
+        "question": "When can I use the 2001 fair market value?",
+        "answer": "Where the property was acquired by the previous owner before 1 April 2001. You may then substitute the fair market value as at that date where it exceeds actual cost, supported by a registered valuer's report. The index for the 2001-02 base year is 100."
+      },
+      {
+        "question": "Is the lower 12.5% rate always better?",
+        "answer": "No. Indexation at twenty per cent produces a smaller taxable gain, so which route costs less depends on how large the sale price is relative to cost. On a very large gain the flat twelve and a half per cent usually wins; on a modest gain indexation often does. The calculator computes both."
+      }
+    ],
+    "related": [
+      "capital-gains-tax-calculator-india",
+      "rental-yield-calculator-india",
+      "home-loan-emi-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india"
+    ],
+    "howToUse": [
+      "Enter the sale price and the transfer expenses you bore on the sale.",
+      "Enter what the previous owner actually paid for the property.",
+      "If they acquired it before 1 April 2001, enter the fair market value as at that date and leave the acquisition index at 100.",
+      "If they acquired it later, enter the notified cost inflation index for that year instead.",
+      "Enter the cost inflation index for the year of sale and any improvements made after April 2001.",
+      "Compare the two routes and check whether the indexation choice is available to you."
+    ],
+    "assumptions": [
+      "The cost of acquisition is the previous owner's cost, or the 1 April 2001 fair market value where that is higher.",
+      "The holding period runs from the previous owner's acquisition, making the gain long term.",
+      "Only improvements made on or after 1 April 2001 are counted.",
+      "The choice between the two routes is available only for property acquired before 23 July 2024.",
+      "Surcharge, cess and exemptions under sections 54 and 54EC are not applied."
+    ],
+    "commonMistakes": [
+      "Using the date of inheritance as the date of acquisition, which wrongly makes the gain short term.",
+      "Treating the cost of acquisition as nil because the inheritor paid nothing.",
+      "Claiming the 2001 fair market value for a property the previous owner bought after April 2001.",
+      "Including improvements made before April 2001, which are not counted.",
+      "Assuming the lower headline rate always produces the lower tax bill."
+    ],
+    "contentSections": [
+      {
+        "heading": "Four rules that generic capital gains tools get wrong",
+        "body": "A standard capital gains calculator asks for your purchase price and purchase date. Neither figure exists for inherited property, and substituting the date of inheritance produces a short-term computation and a much larger tax bill. The correct treatment reaches back to the previous owner for both the cost and the holding period, permits a fair market value substitution for pre-2001 acquisitions, and counts only post-2001 improvements. Getting any one of those wrong changes the answer materially, which is why this computation deserves its own tool rather than a field on a general one.",
+        "bullets": [
+          "Cost is the previous owner's, not nil and not yours.",
+          "Holding period runs from their purchase.",
+          "Fair market value on 1 April 2001 may be substituted.",
+          "Only improvements after April 2001 count."
+        ]
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-25",
+    "calculationVersion": "inherited-property-2026.1",
+    "factsCheckedIso": "2026-08-25",
+    "nextReviewTrigger": "Each annual cost inflation index notification, and any change to the long-term capital gains rates or the indexation choice.",
+    "officialSources": [
+      {
+        "label": "Income Tax Department — cost inflation index notifications",
+        "href": "https://incometaxindia.gov.in/pages/utilities/cost-inflation-index.aspx"
+      },
+      {
+        "label": "Income Tax Department — capital gains",
+        "href": "https://incometaxindia.gov.in/pages/tools/income-tax-calculator.aspx"
+      }
+    ]
+  }
+]

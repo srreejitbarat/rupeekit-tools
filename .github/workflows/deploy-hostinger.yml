@@ -1,0 +1,134 @@
+name: Hostinger production deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostinger-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate before deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate
+        run: npm run validate
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+  deploy:
+    name: Deploy to Hostinger VPS
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout verification scripts
+        uses: actions/checkout@v4
+
+      - name: Setup Node for production checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check required deployment secrets
+        env:
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          HOSTINGER_SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$HOSTINGER_SSH_HOST"
+          test -n "$HOSTINGER_SSH_USER"
+          test -n "$HOSTINGER_SSH_PRIVATE_KEY"
+          test -n "$HOSTINGER_KNOWN_HOSTS"
+
+      - name: Configure SSH
+        env:
+          HOSTINGER_SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$HOSTINGER_SSH_PRIVATE_KEY" > ~/.ssh/hostinger_deploy
+          chmod 600 ~/.ssh/hostinger_deploy
+          printf '%s\n' "$HOSTINGER_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy main on VPS
+        env:
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+        run: |
+          set -euo pipefail
+          output="$(
+            ssh               -i ~/.ssh/hostinger_deploy               -o BatchMode=yes               -o IdentitiesOnly=yes               -o StrictHostKeyChecking=yes               "$HOSTINGER_SSH_USER@$HOSTINGER_SSH_HOST"
+          )"
+          printf '%s\n' "$output"
+
+          deployed_sha="$(printf '%s\n' "$output" | sed -n 's/^DEPLOYED_SHA=//p' | tail -1)"
+          if [ -z "$deployed_sha" ]; then
+            echo "Deployment did not report DEPLOYED_SHA." >&2
+            exit 1
+          fi
+
+          if [ "$deployed_sha" != "$GITHUB_SHA" ]; then
+            echo "Deployed SHA $deployed_sha does not match workflow SHA $GITHUB_SHA." >&2
+            exit 1
+          fi
+
+      - name: Verify production HTTP and SEO safety
+        run: |
+          set -euo pipefail
+
+          headers="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 -I https://www.rupeekit.co.in/)"
+          printf '%s\n' "$headers"
+
+          if printf '%s\n' "$headers" | grep -qi '^X-Robots-Tag:.*noindex'; then
+            echo "Production unexpectedly sends X-Robots-Tag noindex." >&2
+            exit 1
+          fi
+
+          body="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 https://www.rupeekit.co.in/)"
+          printf '%s' "$body" | grep -q '<link rel="canonical" href="https://www.rupeekit.co.in"/>'
+
+          apex_headers="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 -I https://rupeekit.co.in/)"
+          printf '%s\n' "$apex_headers" | grep -qi '^Location: https://www.rupeekit.co.in/'
+
+          staging_headers="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 -I https://staging.rupeekit.co.in/)"
+          printf '%s\n' "$staging_headers" | grep -qi '^X-Robots-Tag:.*noindex'
+
+      - name: Verify every submitted page in production
+        run: npm run validate:indexing-live

@@ -428,7 +428,9 @@
       "gratuity-calculator-india",
       "salary-in-hand-calculator-india",
       "epf-corpus-calculator-india",
-      "income-tax-calculator-old-vs-new-regime-india"
+      "income-tax-calculator-old-vs-new-regime-india",
+      "gratuity-under-new-wage-code-calculator-india",
+      "new-labour-code-take-home-calculator-india"
     ],
     "howToUse": [
       "Enter the monthly remuneration amount you want to test.",
@@ -1228,5 +1230,509 @@
     ],
     "lastReviewed": "July 2026",
     "lastReviewedIso": "2026-07-16"
+  },
+  {
+    "slug": "8th-pay-commission-arrears-calculator-india",
+    "name": "8th Pay Commission Arrears Calculator India",
+    "seoTitle": "8th Pay Commission Arrears Calculator 2026",
+    "category": "Salary",
+    "status": "live",
+    "targetKeyword": "8th pay commission arrears calculator",
+    "shortDescription": "Estimate an unofficial 8th Pay Commission arrears scenario from monthly basic, DA, HRA, other eligible pay and user-selected effective and payment dates.",
+    "metaDescription": "Estimate an unofficial 8th Pay Commission arrears scenario from current and projected pay, DA, HRA, dates and entered deductions. No date assumed.",
+    "inputs": [
+      {
+        "key": "currentBasic",
+        "label": "Current basic pay",
+        "unit": "Rs/month",
+        "default": 44900,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "projectedBasic",
+        "label": "Projected basic scenario",
+        "unit": "Rs/month",
+        "default": 115393,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "currentDa",
+        "label": "Current DA amount",
+        "unit": "Rs/month",
+        "default": 26940,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "projectedDa",
+        "label": "Projected DA scenario",
+        "unit": "Rs/month",
+        "default": 0,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "currentHra",
+        "label": "Current HRA amount",
+        "unit": "Rs/month",
+        "default": 13470,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "projectedHra",
+        "label": "Projected HRA scenario",
+        "unit": "Rs/month",
+        "default": 34618,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "currentOtherPay",
+        "label": "Other current eligible pay",
+        "unit": "Rs/month",
+        "default": 3600,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "projectedOtherPay",
+        "label": "Other projected eligible pay",
+        "unit": "Rs/month",
+        "default": 3600,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "effectiveYear",
+        "label": "Assumed effective year",
+        "default": 2026,
+        "min": 2025,
+        "max": 2032,
+        "step": 1
+      },
+      {
+        "key": "effectiveMonth",
+        "label": "Assumed effective month",
+        "default": 1,
+        "min": 1,
+        "max": 12,
+        "step": 1
+      },
+      {
+        "key": "paymentYear",
+        "label": "Assumed payment year",
+        "default": 2027,
+        "min": 2025,
+        "max": 2032,
+        "step": 1
+      },
+      {
+        "key": "paymentMonth",
+        "label": "Assumed payment month",
+        "default": 1,
+        "min": 1,
+        "max": 12,
+        "step": 1
+      },
+      {
+        "key": "oneTimeDeductions",
+        "label": "Entered one-time deductions",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 1000
+      }
+    ],
+    "outputs": [
+      {
+        "key": "currentEligibleMonthlyPay",
+        "label": "Current eligible monthly pay",
+        "formula": "currentBasic + currentDa + currentHra + currentOtherPay",
+        "format": "currency"
+      },
+      {
+        "key": "projectedEligibleMonthlyPay",
+        "label": "Projected eligible monthly pay",
+        "formula": "projectedBasic + projectedDa + projectedHra + projectedOtherPay",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyDifference",
+        "label": "Positive monthly difference",
+        "formula": "max(projectedEligibleMonthlyPay - currentEligibleMonthlyPay, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "arrearsMonths",
+        "label": "Accrued months",
+        "formula": "max((paymentYear - effectiveYear) * 12 + paymentMonth - effectiveMonth, 0)",
+        "format": "number"
+      },
+      {
+        "key": "grossArrearsScenario",
+        "label": "Gross arrears scenario",
+        "formula": "monthlyDifference * arrearsMonths",
+        "format": "currency"
+      },
+      {
+        "key": "afterDeductionsScenario",
+        "label": "After entered deductions",
+        "formula": "max(grossArrearsScenario - oneTimeDeductions, 0)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Current eligible monthly pay is compared with the projected eligible monthly pay entered by the user. Positive monthly difference is multiplied by elapsed months from the assumed effective month up to, but excluding, the assumed payment month. Only the entered one-time deduction is subtracted.",
+    "example": "If current eligible pay is Rs 88,910 and projected eligible pay is Rs 1,53,611, the monthly difference is Rs 64,701. A 12-month user-selected period produces a gross scenario of Rs 7,76,412 before entered deductions.",
+    "quickAnswer": {
+      "title": "8th CPC Arrears Scenario Quick Answer",
+      "question": "How can I estimate possible 8th Pay Commission arrears?",
+      "answer": "Enter current and projected monthly basic, DA, HRA and other eligible pay, then choose an assumed effective month and payment month. The calculator multiplies only the positive monthly difference by the elapsed months and does not assume an official date.",
+      "formula": "Gross scenario = max(projected eligible monthly pay - current eligible monthly pay, 0) × elapsed months",
+      "note": "No 8th CPC implementation date, arrears period or payment rule has been notified."
+    },
+    "faqs": [
+      {
+        "question": "Have 8th Pay Commission arrears been approved?",
+        "answer": "No arrears period or payment has been notified. Whether arrears are payable, which components qualify and the applicable dates depend on a future government resolution and departmental orders."
+      },
+      {
+        "question": "Why does the calculator exclude the selected payment month?",
+        "answer": "It treats the selected payment month as the month revised pay starts being received, so arrears accrue only through the preceding month. Change the date inputs if an eventual order uses another convention."
+      },
+      {
+        "question": "Should DA and HRA be included in arrears?",
+        "answer": "Include them only as user-entered scenarios. An eventual order must specify which allowances are revised, from what date and whether their difference is payable as arrears."
+      },
+      {
+        "question": "Does the result include income tax, NPS or recoveries?",
+        "answer": "No. The calculator subtracts only the one-time deduction entered by the user. Tax, NPS, CGHS, pension contribution, rounding, interest and departmental recoveries are not estimated automatically."
+      },
+      {
+        "question": "Is 1 January 2026 an official implementation date?",
+        "answer": "No implementation date has been notified. The terms of reference discuss the Commission and its report timeline; the effective date and implementation mechanics require a later government decision."
+      }
+    ],
+    "related": [
+      "8th-pay-commission-salary-calculator-india",
+      "8th-pay-commission-pension-calculator-india",
+      "salary-in-hand-calculator-india",
+      "gratuity-calculator-india"
+    ],
+    "howToUse": [
+      "Enter current monthly basic, DA, HRA and any other eligible pay.",
+      "Enter the projected monthly amounts you want to test.",
+      "Choose an assumed effective month and assumed payment month.",
+      "Review the elapsed-month convention shown beside the result.",
+      "Enter only deductions you deliberately want to model.",
+      "Replace every assumption when an official government order is published."
+    ],
+    "assumptions": [
+      "Every future pay amount and date is entered by the user and is not a RupeeKit forecast.",
+      "The payment month is excluded from the accrued period.",
+      "Only a positive eligible-pay difference produces arrears.",
+      "Tax, NPS, CGHS, interest, rounding and recoveries are excluded unless entered as one deduction.",
+      "The official order may use different eligible components or calculation periods."
+    ],
+    "commonMistakes": [
+      "Treating an expected date reported in the media as a notified implementation date.",
+      "Including both a gross-pay difference and the same DA or HRA difference again.",
+      "Counting the payment month twice.",
+      "Treating the gross scenario as an in-hand payout after tax and deductions."
+    ],
+    "contentSections": [
+      {
+        "heading": "What an arrears estimate can and cannot show",
+        "body": "An arrears scenario can multiply a user-entered monthly pay difference by a user-entered period. It cannot establish entitlement. Only the government resolution and subsequent fixation orders can set the effective date, payment date, eligible components and deductions."
+      },
+      {
+        "heading": "Why basic, DA and HRA stay separate",
+        "body": "Keeping the components separate makes double counting visible. Current DA belongs to current pay, while any projected DA or revised HRA is an independent scenario. Users can leave a component at zero when it is not meant to be included."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Official status comes from the 8th Central Pay Commission website and the PIB terms-of-reference release. The arithmetic is a transparent elapsed-month comparison, not a prediction of government policy. Calculation version 2026-08-17.1 tests month boundaries, reversed dates, deductions and non-positive differences."
+      }
+    ],
+    "lastReviewed": "17 August 2026",
+    "lastReviewedIso": "2026-08-17",
+    "officialSources": [
+      {
+        "label": "8th Central Pay Commission — official website",
+        "href": "https://8cpc.gov.in/"
+      },
+      {
+        "label": "PIB — 8th CPC terms of reference and 18-month report period",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289"
+      },
+      {
+        "label": "PIB — DA and DR increased to 60% from 1 January 2026",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+      }
+    ],
+    "factRows": [
+      {
+        "topic": "Official arrears status",
+        "explanation": "No implementation date, arrears period or payout has been notified"
+      },
+      {
+        "topic": "Monthly comparison",
+        "explanation": "Current and projected basic, DA, HRA and other eligible pay are entered separately"
+      },
+      {
+        "topic": "Elapsed period",
+        "explanation": "Effective month is included and selected payment month is excluded"
+      },
+      {
+        "topic": "Deductions",
+        "explanation": "Only the user-entered one-time deduction is subtracted"
+      },
+      {
+        "topic": "Policy boundary",
+        "explanation": "The result is an unofficial scenario and does not establish entitlement"
+      }
+    ],
+    "calculationVersion": "2026-08-17.1",
+    "factsCheckedIso": "2026-08-17",
+    "nextReviewTrigger": "Official 8th CPC report, government resolution, effective-date order, pay-fixation order or arrears-payment instruction.",
+    "formulaHold": false,
+    "calculationTests": [
+      "12-month boundary",
+      "payment month excluded",
+      "reversed dates return zero",
+      "non-positive pay difference returns zero",
+      "entered deduction cannot make result negative"
+    ]
+  },
+  {
+    "slug": "8th-pay-commission-pension-calculator-india",
+    "name": "8th Pay Commission Pension Calculator India",
+    "seoTitle": "8th Pay Commission Pension Calculator 2026",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "8th pay commission pension calculator",
+    "shortDescription": "Compare current basic pension plus DR with an unofficial 8th Pay Commission multiplier, projected DR and user-entered additional pension scenario.",
+    "metaDescription": "Compare current pension plus DR with an unofficial 8th Pay Commission multiplier, projected DR and additional pension scenario. No method assumed.",
+    "inputs": [
+      {
+        "key": "currentBasicPension",
+        "label": "Current basic pension",
+        "unit": "Rs/month",
+        "default": 25000,
+        "min": 0,
+        "step": 100
+      },
+      {
+        "key": "currentDrPercent",
+        "label": "Current DR",
+        "unit": "%",
+        "default": 60,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "key": "revisionMultiplier",
+        "label": "Revision multiplier scenario",
+        "unit": "x",
+        "default": 2.57,
+        "min": 0.1,
+        "max": 10,
+        "step": 0.01
+      },
+      {
+        "key": "projectedDrPercent",
+        "label": "Projected DR scenario",
+        "unit": "%",
+        "default": 0,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      },
+      {
+        "key": "additionalPensionPercent",
+        "label": "Additional pension rate",
+        "unit": "%",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "currentDr",
+        "label": "Current DR amount",
+        "formula": "currentBasicPension * currentDrPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "currentMonthlyPension",
+        "label": "Current monthly pension",
+        "formula": "currentBasicPension + currentDr",
+        "format": "currency"
+      },
+      {
+        "key": "revisedBasicPensionScenario",
+        "label": "Revised basic pension scenario",
+        "formula": "currentBasicPension * revisionMultiplier",
+        "format": "currency"
+      },
+      {
+        "key": "projectedDr",
+        "label": "Projected DR amount",
+        "formula": "revisedBasicPensionScenario * projectedDrPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "additionalPension",
+        "label": "Additional pension amount",
+        "formula": "revisedBasicPensionScenario * additionalPensionPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "projectedMonthlyPension",
+        "label": "Projected monthly pension",
+        "formula": "revisedBasicPensionScenario + projectedDr + additionalPension",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyChange",
+        "label": "Monthly pension change",
+        "formula": "projectedMonthlyPension - currentMonthlyPension",
+        "format": "currency"
+      },
+      {
+        "key": "annualChange",
+        "label": "Annual pension change",
+        "formula": "monthlyChange * 12",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Current monthly pension is current basic pension plus entered DR. The illustrative revised basic pension equals current basic pension multiplied by a user-selected scenario. Projected DR and any user-entered additional pension are then added separately.",
+    "example": "For Rs 25,000 current basic pension and 60% DR, current monthly pension is Rs 40,000. A 2.57x flat-multiplier scenario gives Rs 64,250 revised basic before projected DR or additional pension.",
+    "quickAnswer": {
+      "title": "8th CPC Pension Scenario Quick Answer",
+      "question": "How can I compare an 8th Pay Commission pension scenario?",
+      "answer": "Start with current basic pension and current DR, then apply a user-selected multiplier only to basic pension. Add projected DR and an additional-pension rate separately so current DR is not counted twice.",
+      "formula": "Projected monthly pension = current basic pension × scenario multiplier + projected DR + entered additional pension",
+      "note": "No 8th CPC pension multiplier, parity formula or notional-fixation method has been notified."
+    },
+    "faqs": [
+      {
+        "question": "Has the 8th Pay Commission pension formula been announced?",
+        "answer": "No. A final multiplier, pension parity formula, notional pay-fixation method, minimum pension and implementation date have not been notified."
+      },
+      {
+        "question": "Does this calculator perform notional pay fixation?",
+        "answer": "No. It is deliberately a simple flat-multiplier scenario. If an official resolution uses notional fixation or another parity method, the calculator must be updated before being used for that method."
+      },
+      {
+        "question": "Why does projected DR default to zero?",
+        "answer": "Current DR is already included in the current monthly pension. Keeping projected DR at zero by default prevents that current allowance from being counted again as though it were an official starting rate."
+      },
+      {
+        "question": "Can I include age-related additional pension?",
+        "answer": "Yes, by entering a percentage that applies to your situation. The tool does not determine eligibility, age slab, start date or whether the amount is calculated on a different base, so verify the applicable pension order."
+      },
+      {
+        "question": "Does the result include commutation, tax or arrears?",
+        "answer": "No. It excludes commuted pension restoration, tax, arrears, family pension, rounding, minimum-pension floors and individual service-record corrections."
+      }
+    ],
+    "related": [
+      "8th-pay-commission-salary-calculator-india",
+      "8th-pay-commission-arrears-calculator-india",
+      "ops-vs-nps-pension-comparison-calculator-india",
+      "nps-calculator-india",
+      "notional-increment-pension-calculator-india",
+      "pension-commutation-calculator-india"
+    ],
+    "howToUse": [
+      "Enter current basic pension before DR.",
+      "Confirm the current DR percentage applicable to you.",
+      "Choose or enter a multiplier only as an unofficial scenario.",
+      "Enter projected DR separately and keep it at zero unless deliberately modelling a rate.",
+      "Enter an additional-pension percentage only after checking eligibility.",
+      "Replace the scenario method when an official pension order is published."
+    ],
+    "assumptions": [
+      "The calculation is a flat-multiplier scenario, not notional pay fixation.",
+      "Current DR applies only to the current monthly baseline.",
+      "Projected DR and additional pension are user-entered and not official forecasts.",
+      "Commutation, family pension, tax, arrears, minimum floors and rounding are excluded.",
+      "The official pension revision may use a materially different method."
+    ],
+    "commonMistakes": [
+      "Applying a salary fitment-factor report to pension as though it were an approved pension formula.",
+      "Adding current DR to basic before multiplying and then adding DR again.",
+      "Using an age-related additional rate without checking eligibility and the calculation base.",
+      "Treating the projected monthly amount as a PPO or government entitlement."
+    ],
+    "contentSections": [
+      {
+        "heading": "Pension revision is not settled yet",
+        "body": "The 8th CPC has been constituted, but no final pension revision method has been notified. Historical revisions can involve parity or notional pay fixation, so a flat multiplier is useful only for sensitivity testing and must not be presented as entitlement."
+      },
+      {
+        "heading": "Keep DR separate from revised basic pension",
+        "body": "Current DR belongs to today's monthly pension. A user-selected multiplier is applied only to current basic pension in this scenario, and any future DR is a separate input. This prevents the same DR from being counted twice."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Official status comes from the 8th Central Pay Commission website and PIB terms of reference. Calculation version 2026-08-17.1 tests DR separation, zero projected DR, additional pension and monthly-to-annual reconciliation. It does not implement notional fixation."
+      }
+    ],
+    "lastReviewed": "17 August 2026",
+    "lastReviewedIso": "2026-08-17",
+    "officialSources": [
+      {
+        "label": "8th Central Pay Commission — official website",
+        "href": "https://8cpc.gov.in/"
+      },
+      {
+        "label": "PIB — 8th CPC terms of reference and 18-month report period",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289"
+      },
+      {
+        "label": "PIB — DA and DR increased to 60% from 1 January 2026",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+      }
+    ],
+    "factRows": [
+      {
+        "topic": "Official pension status",
+        "explanation": "No final multiplier, parity formula, notional-fixation method or implementation date has been notified"
+      },
+      {
+        "topic": "Current baseline",
+        "explanation": "Current basic pension plus current DR entered by the user"
+      },
+      {
+        "topic": "Revision scenario",
+        "explanation": "User-selected multiplier applies only to current basic pension"
+      },
+      {
+        "topic": "Future additions",
+        "explanation": "Projected DR and additional pension remain separate user inputs"
+      },
+      {
+        "topic": "Calculation boundary",
+        "explanation": "No commutation, tax, arrears, minimum floor, family pension or notional fixation"
+      }
+    ],
+    "calculationVersion": "2026-08-17.1",
+    "factsCheckedIso": "2026-08-17",
+    "nextReviewTrigger": "Official 8th CPC report, government pension resolution, pension parity order, notional-fixation method or DR order.",
+    "formulaHold": false,
+    "calculationTests": [
+      "current DR baseline",
+      "multiplier applies only to basic pension",
+      "projected DR defaults to zero",
+      "additional pension remains separate",
+      "monthly and annual changes reconcile"
+    ]
   }
 ]

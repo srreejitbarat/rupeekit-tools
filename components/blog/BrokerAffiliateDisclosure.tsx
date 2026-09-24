@@ -8,6 +8,7 @@ export default function BrokerAffiliateDisclosure() {
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
+        aria-hidden="true"
       >
         <path
           strokeLinecap="round"
@@ -17,7 +18,7 @@ export default function BrokerAffiliateDisclosure() {
         />
       </svg>
       <p>
-        <span className="font-bold">Affiliate Disclosure:</span> RupeeKit may earn a commission if you open a demat account through links on this page. This does not influence our editorial recommendations — we only link to brokers we have independently reviewed. There is no extra cost to you.
+        <span className="font-bold">Affiliate Disclosure:</span> RupeeKit may earn a referral or affiliate fee if you open an account through some links on this page. Commercial relationships do not determine comparison order, factual conclusions, or recommendations. We verify commercial claims against primary broker sources and show the verification date near the comparison. There is no extra cost to you from using our link; always check the broker&apos;s current official pricing and eligibility before acting.
       </p>
     </div>
   );

@@ -9,8 +9,12 @@ const renderedImageSitemap = fs.existsSync(imageSitemapPath)
   : '';
 const siteUrl = renderedImageSitemap.match(/<loc>(https?:\/\/[^/]+)\//)?.[1]
   ?? 'https://www.rupeekit.co.in';
-const manifest = JSON.parse(
-  fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8'),
+const manifest = [
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8')),
+  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images-fcra.json'), 'utf8')),
+];
+const creativeBriefs = JSON.parse(
+  fs.readFileSync(path.join(root, 'data', 'discover-creative-briefs-2026-08-24.json'), 'utf8'),
 );
 const errors = [];
 
@@ -22,20 +26,21 @@ for (const image of manifest) {
   }
 
   const html = fs.readFileSync(htmlPath, 'utf8');
-  const escapedImagePath = image.src.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const expectedImagePath = image.src;
+  const escapedImagePath = expectedImagePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const absoluteImageUrlPattern = `https?:\\/\\/[^\"']+${escapedImagePath}`;
 
   if (!new RegExp(`<meta property="og:image" content="${absoluteImageUrlPattern}"`).test(html)) {
-    errors.push(`Missing Open Graph image for ${image.path}`);
+    errors.push(`Missing Open Graph image for ${image.path}; expected ${expectedImagePath}`);
   }
   if (!new RegExp(`<meta name="twitter:image" content="${absoluteImageUrlPattern}"`).test(html)) {
-    errors.push(`Missing Twitter image for ${image.path}`);
+    errors.push(`Missing Twitter image for ${image.path}; expected ${expectedImagePath}`);
   }
   if (!html.includes(`alt="${image.alt}"`)) {
     errors.push(`Missing visible hero image or expected alt text for ${image.path}`);
   }
   if ((html.match(new RegExp(escapedImagePath, 'g')) ?? []).length < 3) {
-    errors.push(`Expected metadata and schema references to ${image.src} for ${image.path}`);
+    errors.push(`Expected metadata, schema and visible references to ${expectedImagePath} for ${image.path}`);
   }
 }
 
@@ -56,7 +61,7 @@ if (!fs.existsSync(imageSitemapPath)) {
       errors.push(`Image sitemap is missing the page URL for ${image.path}.`);
     }
     if (!xml.includes(`<image:loc>${imageUrl}</image:loc>`)) {
-      errors.push(`Image sitemap is missing the image URL for ${image.path}.`);
+      errors.push(`Image sitemap is missing the static editorial image URL for ${image.path}.`);
     }
   }
 
@@ -78,3 +83,4 @@ if (errors.length) {
 }
 
 console.log(`Rendered Discover image validation passed for ${manifest.length} required pages.`);
+console.log(`Priority Discover creative governance remains enabled for ${creativeBriefs.length} pages.`);

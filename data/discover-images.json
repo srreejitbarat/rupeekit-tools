@@ -91,6 +91,20 @@
     "height": 900
   },
   {
+    "path": "/tools/8th-pay-commission-arrears-calculator-india",
+    "src": "/images/discover/8th-pay-commission-salary-calculator-india.webp",
+    "alt": "Indian public sector employee comparing monthly salary components across an illustrative arrears period",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/8th-pay-commission-pension-calculator-india",
+    "src": "/images/discover/8th-pay-commission-salary-calculator-india.webp",
+    "alt": "Indian central government pensioner comparing current pension and an illustrative revision scenario",
+    "width": 1600,
+    "height": 900
+  },
+  {
     "path": "/blog/new-tax-regime-vs-old-regime-fy-2026-27",
     "src": "/images/discover/new-tax-regime-vs-old-regime-fy-2026-27.webp",
     "alt": "Indian salaried taxpayer comparing deduction documents with a simpler tax regime option",
@@ -392,27 +406,6 @@
     "height": 900
   },
   {
-    "path": "/blog/home-loan-eligibility-25000-salary-india",
-    "src": "/images/discover/home-loan-eligibility-25000-salary-india.webp",
-    "alt": "Indian salaried professional estimating an affordable home loan on a modest income",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/home-loan-eligibility-40000-salary-india",
-    "src": "/images/discover/home-loan-eligibility-40000-salary-india.webp",
-    "alt": "Indian couple estimating home loan eligibility from salary and monthly commitments",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/home-loan-eligibility-45000-salary-india",
-    "src": "/images/discover/home-loan-eligibility-45000-salary-india.webp",
-    "alt": "Indian professional balancing income and existing EMIs to estimate home loan eligibility",
-    "width": 1600,
-    "height": 900
-  },
-  {
     "path": "/blog/home-loan-eligibility-by-salary-india",
     "src": "/images/discover/home-loan-eligibility-by-salary-india.webp",
     "alt": "Indian home buyers mapping monthly salary and commitments to a realistic property budget",
@@ -507,6 +500,251 @@
     "path": "/tools/rule-of-72-calculator-india",
     "src": "/images/discover/rule-of-72-calculator-india.webp",
     "alt": "Indian educator demonstrating investment doubling time with a growing sequence of green wooden cubes",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/ops-vs-nps-pension-comparison-calculator-india",
+    "src": "/images/discover/ops-vs-nps-pension-comparison-calculator-india.webp",
+    "alt": "Illustration of a forked road leading to a government pension building on one side and a rising NPS corpus chart on the other",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/scss-calculator-india",
+    "src": "/images/discover/scss-calculator-india.webp",
+    "alt": "Illustration of a four-quarter wheel diagram showing Senior Citizen Savings Scheme interest paid out every quarter",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/post-office-monthly-income-scheme-calculator-india",
+    "src": "/images/discover/post-office-monthly-income-scheme-calculator-india.webp",
+    "alt": "Illustration of a red Indian post office letterbox with a steady stream of coins representing monthly income scheme payouts",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/child-education-cost-planner-india",
+    "src": "/images/discover/child-education-cost-planner-india.webp",
+    "alt": "Illustration of a graduation cap above a rising staircase of coin stacks representing growing education savings",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/wedding-cost-planner-india",
+    "src": "/images/discover/wedding-cost-planner-india.webp",
+    "alt": "Illustration of interlocking wedding rings above a savings jar filling with coins for future wedding budget planning",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/rent-agreement-stamp-duty-registration-cost-calculator-india",
+    "src": "/images/discover/rent-agreement-stamp-duty-registration-cost-calculator-india.webp",
+    "alt": "Illustration of a rental agreement document with an official rupee stamp seal representing stamp duty and registration cost",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/rent-vs-buy-calculator-india",
+    "src": "/images/discover/rent-vs-buy-calculator-india.webp",
+    "alt": "Illustration of a house and a rent key balanced on a scale representing the rent versus buy decision",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/home-affordability-calculator-india",
+    "src": "/images/discover/home-affordability-calculator-india.webp",
+    "alt": "Illustration of a house outline with a rupee budget gauge representing an affordable home price estimate",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/job-offer-comparison-calculator-india",
+    "src": "/images/discover/job-offer-comparison-calculator-india.webp",
+    "alt": "Illustration of two job offer cards side by side with a VS badge representing an offer comparison",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/salary-increment-calculator-india",
+    "src": "/images/discover/salary-increment-calculator-india.webp",
+    "alt": "Illustration of a salary payslip with an upward arrow representing a salary increment calculation",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/bonus-tax-calculator-india",
+    "src": "/images/discover/bonus-tax-calculator-india.webp",
+    "alt": "Illustration of a wrapped bonus gift beside a tax deduction note representing post-tax bonus value",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/fire-retirement-calculator-india",
+    "src": "/images/discover/fire-retirement-calculator-india.webp",
+    "alt": "Illustration of a flag planted on a mountain peak representing progress toward financial independence and early retirement",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/education-loan-emi-tax-benefit-calculator-india",
+    "src": "/images/discover/education-loan-emi-tax-benefit-calculator-india.webp",
+    "alt": "Illustration of a graduation cap with an EMI and tax benefit note representing an education loan calculation",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/rental-yield-calculator-india",
+    "src": "/images/discover/rental-yield-calculator-india.webp",
+    "alt": "Illustration of a rental property with a rising yield percentage representing rental yield calculation",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/debt-snowball-calculator-india",
+    "src": "/images/discover/debt-snowball-calculator-india.webp",
+    "alt": "Illustration of shrinking debt blocks rolling downhill representing the debt snowball payoff strategy",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/mutual-fund-calculator-india",
+    "src": "/images/discover/mutual-fund-calculator-india.webp",
+    "alt": "RupeeKit mutual fund calculator card comparing SIP and lumpsum investment growth in India",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/retirement-calculator-india",
+    "src": "/images/discover/retirement-calculator-india.webp",
+    "alt": "RupeeKit retirement calculator card showing retirement corpus needed and monthly SIP required in India",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/stock-portfolio-calculator-india",
+    "src": "/images/discover/stock-portfolio-calculator-india.webp",
+    "alt": "RupeeKit stock portfolio calculator card showing returns, annualised gains and dividend yield in India",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/blog/epf-vs-nps-vs-ppf-retirement-india",
+    "src": "/images/discover/epf-vs-nps-vs-ppf-retirement-india.webp",
+    "alt": "Indian couple comparing three retirement-planning options at home with a laptop, calculator and long-term timeline",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/blog/cashback-vs-rewards-credit-cards-india",
+    "src": "/images/discover/cashback-vs-rewards-credit-cards-india.webp",
+    "alt": "Indian professional comparing two unbranded credit cards using cashback and reward icons, a notebook and calculator",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/blog/salary-hike-negotiation-beyond-base-pay-india",
+    "src": "/images/discover/salary-hike-negotiation-beyond-base-pay-india.webp",
+    "alt": "Indian professional discussing a salary offer and total compensation with a hiring manager in a modern office",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/blog/robo-advisors-vs-diy-index-investing-india",
+    "src": "/images/discover/robo-advisors-vs-diy-index-investing-india.webp",
+    "alt": "Indian investor comparing an automated portfolio path on a tablet with hands-on index research on a laptop",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/blog/gold-asset-class-sgb-etf-physical-gold-loan-india-2026",
+    "src": "/images/discover/gold-asset-class-sgb-etf-physical-gold-loan-india-2026.webp",
+    "alt": "Indian women comparing physical gold, a generic bond document, a market chart and a gold valuation folder",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/blog/fy-2026-27-money-moves-salaried-indians-mid-year-checklist",
+    "src": "/images/discover/fy-2026-27-money-moves-salaried-indians-mid-year-checklist.webp",
+    "alt": "Indian salaried professional reviewing a mid-year financial checklist with tax, insurance, savings and investment papers",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/room-rent-proportionate-deduction-calculator-india",
+    "src": "/images/discover/health-insurance-coverage-adequacy-calculator-india.webp",
+    "alt": "Indian couple and older parent reviewing a health insurance folder in a bright clinic lounge",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/notional-increment-pension-calculator-india",
+    "src": "/images/discover/8th-pay-commission-salary-calculator-india.webp",
+    "alt": "Indian central government pensioner comparing current pension and an illustrative revision scenario",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/pension-commutation-calculator-india",
+    "src": "/images/discover/8th-pay-commission-salary-calculator-india.webp",
+    "alt": "Indian central government pensioner comparing current pension and an illustrative revision scenario",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/epf-taxable-interest-rule-9d-calculator-india",
+    "src": "/images/discover/epf-corpus-calculator-india.webp",
+    "alt": "Indian employee planning an EPF retirement corpus with a laptop, calculator and savings folder",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/inherited-property-capital-gains-calculator-india",
+    "src": "/images/discover/capital-gains-tax-calculator-india.webp",
+    "alt": "Indian investor calculating capital gains for property and financial investments",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/new-labour-code-take-home-calculator-india",
+    "src": "/images/discover/salary-in-hand-calculator-india.webp",
+    "alt": "Indian salaried professional reviewing a pay statement and in-hand salary plan with a calculator",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/gratuity-under-new-wage-code-calculator-india",
+    "src": "/images/discover/gratuity-2026-old-vs-new-calculator-india.webp",
+    "alt": "Indian employee comparing two organised gratuity planning folders with a laptop and calculator",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/pre-emi-calculator-india",
+    "src": "/images/discover/pre-emi-calculator-india.webp",
+    "alt": "A staged home-loan plan connects construction payments, possession and a protected cash reserve.",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/no-cost-emi-calculator-india",
+    "src": "/images/discover/no-cost-emi-calculator-india.webp",
+    "alt": "No-cost EMI decision tool for India comparing cash price, EMI charges and what happens after a merchant refund",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/freelancer-remittance-fee-calculator-india",
+    "src": "/images/discover/freelancer-remittance-fee-calculator-india.webp",
+    "alt": "Freelancer payment audit for India tracing foreign fees, exchange-rate differences and the net rupees received",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "path": "/tools/company-car-lease-exit-calculator-india",
+    "src": "/images/discover/company-car-lease-exit-calculator-india.webp",
+    "alt": "Company car lease exit planner for India comparing buyout, returning the car and protecting available cash",
     "width": 1600,
     "height": 900
   }

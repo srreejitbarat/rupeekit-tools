@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "asOf": "2026-08-23",
+      "xauUsd": 4604.399902,
+      "usdInr": 95.7,
+      "perGram24K": 16275.69,
+      "perGram22K": 14923.45
+    },
+    {
+      "asOf": "2026-08-24",
+      "xauUsd": 4661.5,
+      "usdInr": 95.7,
+      "perGram24K": 16477.53,
+      "perGram22K": 15108.52
+    },
+    {
+      "asOf": "2026-08-25",
+      "xauUsd": 4637.200195,
+      "usdInr": 95.76,
+      "perGram24K": 16401.91,
+      "perGram22K": 15039.19
+    },
+    {
+      "asOf": "2026-08-26",
+      "xauUsd": 4617.26,
+      "usdInr": 95.42,
+      "perGram24K": 16273.39,
+      "perGram22K": 14921.35
+    },
+    {
+      "asOf": "2026-08-27",
+      "xauUsd": 4602.600098,
+      "usdInr": 95.54,
+      "perGram24K": 16242.13,
+      "perGram22K": 14892.68
+    },
+    {
+      "asOf": "2026-08-28",
+      "xauUsd": 4456.399902,
+      "usdInr": 95.39,
+      "perGram24K": 15701.51,
+      "perGram22K": 14396.98
+    },
+    {
+      "asOf": "2026-08-29",
+      "xauUsd": 4456.399902,
+      "usdInr": 95.39,
+      "perGram24K": 15701.51,
+      "perGram22K": 14396.98
+    },
+    {
+      "asOf": "2026-08-30",
+      "xauUsd": 4456.399902,
+      "usdInr": 95.39,
+      "perGram24K": 15701.51,
+      "perGram22K": 14396.98
+    },
+    {
+      "asOf": "2026-08-31",
+      "xauUsd": 4428,
+      "usdInr": 95.17,
+      "perGram24K": 15565.46,
+      "perGram22K": 14272.24
+    },
+    {
+      "asOf": "2026-09-01",
+      "xauUsd": 4370.100098,
+      "usdInr": 94.95,
+      "perGram24K": 15326.42,
+      "perGram22K": 14053.05
+    },
+    {
+      "asOf": "2026-09-02",
+      "xauUsd": 4370,
+      "usdInr": 94.97,
+      "perGram24K": 15329.3,
+      "perGram22K": 14055.69
+    },
+    {
+      "asOf": "2026-09-03",
+      "xauUsd": 4506.100098,
+      "usdInr": 94.49,
+      "perGram24K": 15726.83,
+      "perGram22K": 14420.19
+    },
+    {
+      "asOf": "2026-09-04",
+      "xauUsd": 4441.600098,
+      "usdInr": 94.49,
+      "perGram24K": 15501.71,
+      "perGram22K": 14213.78
+    },
+    {
+      "asOf": "2026-09-05",
+      "xauUsd": 4431.100098,
+      "usdInr": 94.49,
+      "perGram24K": 15465.07,
+      "perGram22K": 14180.18
+    },
+    {
+      "asOf": "2026-09-06",
+      "xauUsd": 4431.100098,
+      "usdInr": 94.49,
+      "perGram24K": 15465.07,
+      "perGram22K": 14180.18
+    },
+    {
+      "asOf": "2026-09-07",
+      "xauUsd": 4414.5,
+      "usdInr": 94.49,
+      "perGram24K": 15407.13,
+      "perGram22K": 14127.06
+    },
+    {
+      "asOf": "2026-09-08",
+      "xauUsd": 4399.700195,
+      "usdInr": 94.83,
+      "perGram24K": 15410.73,
+      "perGram22K": 14130.36
+    },
+    {
+      "asOf": "2026-09-09",
+      "xauUsd": 4402.200195,
+      "usdInr": 94.843169,
+      "perGram24K": 15421.63,
+      "perGram22K": 14140.35
+    },
+    {
+      "asOf": "2026-09-10",
+      "xauUsd": 4367.899902,
+      "usdInr": 95.44,
+      "perGram24K": 15397.76,
+      "perGram22K": 14118.47
+    },
+    {
+      "asOf": "2026-09-11",
+      "xauUsd": 4372.200195,
+      "usdInr": 95.56,
+      "perGram24K": 15432.3,
+      "perGram22K": 14150.13
+    },
+    {
+      "asOf": "2026-09-12",
+      "xauUsd": 4349.700195,
+      "usdInr": 95.56,
+      "perGram24K": 15352.88,
+      "perGram22K": 14077.32
+    },
+    {
+      "asOf": "2026-09-13",
+      "xauUsd": 4349.700195,
+      "usdInr": 95.56,
+      "perGram24K": 15352.88,
+      "perGram22K": 14077.32
+    },
+    {
+      "asOf": "2026-09-14",
+      "xauUsd": 4311.299805,
+      "usdInr": 95.56,
+      "perGram24K": 15217.34,
+      "perGram22K": 13953.04
+    },
+    {
+      "asOf": "2026-09-15",
+      "xauUsd": 4291,
+      "usdInr": 95.96,
+      "perGram24K": 15209.09,
+      "perGram22K": 13945.47
+    },
+    {
+      "asOf": "2026-09-16",
+      "xauUsd": 4354.200195,
+      "usdInr": 95.96,
+      "perGram24K": 15433.09,
+      "perGram22K": 14150.87
+    },
+    {
+      "asOf": "2026-09-17",
+      "xauUsd": 4367.799805,
+      "usdInr": 95.94,
+      "perGram24K": 15478.07,
+      "perGram22K": 14192.1
+    },
+    {
+      "asOf": "2026-09-18",
+      "xauUsd": 4356.700195,
+      "usdInr": 95.88,
+      "perGram24K": 15429.08,
+      "perGram22K": 14147.19
+    },
+    {
+      "asOf": "2026-09-19",
+      "xauUsd": 4379,
+      "usdInr": 95.88,
+      "perGram24K": 15508.06,
+      "perGram22K": 14219.6
+    },
+    {
+      "asOf": "2026-09-20",
+      "xauUsd": 4379,
+      "usdInr": 95.88,
+      "perGram24K": 15508.06,
+      "perGram22K": 14219.6
+    },
+    {
+      "asOf": "2026-09-21",
+      "xauUsd": 4344,
+      "usdInr": 95.82,
+      "perGram24K": 15374.48,
+      "perGram22K": 14097.12
+    },
+    {
+      "asOf": "2026-09-22",
+      "xauUsd": 4329.5,
+      "usdInr": 95.59,
+      "perGram24K": 15286.38,
+      "perGram22K": 14016.34
+    },
+    {
+      "asOf": "2026-09-23",
+      "xauUsd": 4280,
+      "usdInr": 95.74,
+      "perGram24K": 15135.32,
+      "perGram22K": 13877.83
+    }
+  ]
+}

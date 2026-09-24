@@ -25,7 +25,7 @@ export default function Logo({ type = 'horizontal', width, height, className = '
 
   return (
     <Image
-      src="/brand/rupeekit_logo_horizontal_transparent.png"
+      src="/brand/rupeekit_logo_horizontal_transparent.png?v=20260817"
       alt="RupeeKit Logo"
       width={width ?? 160}
       height={height ?? 40}

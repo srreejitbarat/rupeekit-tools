@@ -1,0 +1,168 @@
+{
+  "gold-loan-calculator-india": {
+    "quickAnswer": {
+      "title": "Gold Loan Eligibility in 2026",
+      "question": "How much loan can I get against my gold?",
+      "answer": "For consumption loans under RBI's current gold-collateral directions, the maximum LTV is 85% for total loans up to ₹2.5 lakh, 80% above ₹2.5 lakh through ₹5 lakh, and 75% above ₹5 lakh. The lender values only eligible gold content after purity and non-gold deductions, so jewellery retail price is not the loan value.",
+      "formula": "Indicative collateral value = net eligible gold weight × lender reference price × purity factor; maximum loan is then limited by the applicable RBI LTV tier.",
+      "example": "Example: if 50g of net 22K gold is valued using a lender 24K reference price of ₹7,500/g, intrinsic value is about ₹3.44 lakh (50 × 7,500 × 22/24). A ₹2.5 lakh request is within the 85% tier ceiling on that value, subject to the lender's actual assay and sanction checks.",
+      "note": "Verified 24 August 2026. This is an educational collateral estimate, not a live gold quote or loan approval.",
+      "links": [
+        { "label": "Compare personal-loan EMI", "href": "/tools/personal-loan-emi-calculator-india" },
+        { "label": "Check personal-loan eligibility", "href": "/tools/personal-loan-eligibility-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "How purity changes the eligible value per gram",
+        "body": "Gold-loan valuation is based on actual eligible gold content, not the jewellery shop price. Lower-purity ornaments are valued proportionately, while stones, gems, lac, strings, fastenings, making charges and other non-gold elements are excluded. This is why two ornaments with the same gross weight can support different loan amounts."
+      },
+      {
+        "heading": "Bullet repayment, EMI and overdraft-style gold loans",
+        "body": "Gold loans can be structured differently by lenders. A reducing-balance EMI spreads principal and interest across instalments; a bullet structure may make principal and interest payable at maturity; some lenders also offer overdraft-style facilities against pledged gold. Compare the Key Fact Statement, annual percentage rate, fees, repayment schedule and foreclosure terms instead of comparing only the headline interest rate."
+      },
+      {
+        "heading": "What happens if a gold loan is not repaid",
+        "body": "Default does not mean the pledged gold can be taken without process. RBI directions require regulated lenders to follow their disclosed recovery and auction procedure, including notices and transparent valuation/auction practices. Any surplus after adjusting permitted dues belongs to the borrower. Read the lender's agreement and Key Fact Statement before pledging jewellery."
+      },
+      {
+        "heading": "Bank versus NBFC gold-loan interest rates",
+        "body": "RBI does not prescribe one universal retail gold-loan interest rate. Banks and NBFCs set product pricing under their policies, so rates vary by lender, amount, tenure, repayment structure and borrower profile. RupeeKit therefore does not publish an unsourced 'best rate' or assume that one lender category is always cheaper."
+      }
+    ],
+    "factRows": [
+      { "topic": "Consumption-loan LTV", "explanation": "RBI maximum: 85% up to ₹2.5 lakh, 80% above ₹2.5 lakh through ₹5 lakh, 75% above ₹5 lakh" },
+      { "topic": "Valuation base", "explanation": "Intrinsic eligible gold content after purity adjustment; non-gold parts and making charges excluded" },
+      { "topic": "Interest rate", "explanation": "Lender-specific; RBI does not set one universal retail gold-loan rate" },
+      { "topic": "Default / auction", "explanation": "Lender must follow disclosed recovery and auction process; surplus after permitted dues is payable to borrower" },
+      { "topic": "Fact check", "explanation": "RBI gold-collateral rules reviewed 24 August 2026" }
+    ],
+    "faqs": [
+      {
+        "question": "How does 18K, 20K or 22K purity change my gold-loan eligibility?",
+        "answer": "Lower purity reduces intrinsic gold value proportionately. The lender assays the ornament and values eligible gold content after excluding stones and other non-gold parts, so gross ornament weight alone is not enough to estimate eligibility."
+      },
+      {
+        "question": "Are bank gold-loan rates always lower than NBFC rates?",
+        "answer": "Not necessarily. Product pricing varies by lender, amount, tenure, repayment structure and borrower profile. Compare the lender's current Key Fact Statement and annual percentage rate instead of relying on a generic bank-versus-NBFC assumption."
+      },
+      {
+        "question": "Can the lender auction pledged gold after default?",
+        "answer": "A regulated lender may enforce the collateral after following the applicable loan agreement and required recovery/auction process. RBI directions require transparent procedures; any surplus remaining after permitted dues are adjusted must be returned to the borrower."
+      }
+    ],
+    "related": [
+      "personal-loan-emi-calculator-india",
+      "personal-loan-eligibility-calculator-india",
+      "personal-loan-true-apr-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india"
+    ],
+    "officialSources": [
+      {
+        "label": "RBI — Lending Against Gold and Silver Collateral Directions, 2025",
+        "href": "https://www.rbi.org.in/scripts/SearchResults.aspx?search=Lending%20Against%20Gold%20and%20Silver%20Collateral"
+      },
+      {
+        "label": "RBI — Handbook on Regulations at a Glance: Gold Loans",
+        "href": "https://website.rbi.org.in/documents/d/rbi/handbookg27022025d0f3f53f5d3c4310a6bb2f8ac2175d3a"
+      }
+    ],
+    "lastReviewed": "24 August 2026",
+    "lastReviewedIso": "2026-08-24",
+    "factsCheckedIso": "2026-08-24",
+    "nextReviewTrigger": "RBI amendment to gold/silver collateral directions or lender valuation/LTV rules."
+  },
+  "sukanya-samriddhi-yojana-calculator-india": {
+    "quickAnswer": {
+      "title": "SSY Rules and 8.2% Rate — Jul-Sep 2026",
+      "question": "How does Sukanya Samriddhi Yojana work in 2026?",
+      "answer": "For the July-September 2026 quarter, the notified SSY rate is 8.2% p.a. An account is opened for a girl before age 10, deposits can be made for 15 years from opening, and maturity is 21 years from opening. The annual deposit range is ₹250 to ₹1.5 lakh. Future quarterly interest rates can change.",
+      "formula": "Projection = current balance grown for remaining term + each future annual deposit compounded to the 21-year maturity date.",
+      "example": "Example: a new account opened when the girl is 5 with ₹50,000 deposited each year is modelled for 15 deposit years and then allowed to continue until 21 years from account opening. At a constant 8.2% planning assumption the calculator shows an illustrative maturity value; actual SSY rates are reset by government from time to time.",
+      "note": "Rate and scheme rules verified 24 August 2026 from India Post / National Savings Institute. Educational projection only.",
+      "links": [
+        { "label": "Compare PPF", "href": "/tools/ppf-calculator-india" },
+        { "label": "Compare SCSS", "href": "/tools/scss-calculator-india" },
+        { "label": "Compare Post Office MIS", "href": "/tools/post-office-monthly-income-scheme-calculator-india" }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "Who can open an SSY account and how many accounts are allowed?",
+        "body": "A guardian can open the account in the name of a girl child before she attains age 10. Only one SSY account can be opened for one girl child, and the scheme generally permits accounts for up to two girl children in a family, subject to the scheme's exceptions for multiple births."
+      },
+      {
+        "heading": "15 years of deposits versus 21 years to maturity",
+        "body": "These are two different timelines. Deposits are permitted for 15 years from the account-opening date, but the account normally matures after 21 years from that same opening date. The child turning 21 is not the maturity rule. After the deposit window ends, the balance can continue to earn the applicable notified SSY rate until maturity."
+      },
+      {
+        "heading": "Partial withdrawal and premature closure",
+        "body": "The scheme allows withdrawal of up to 50% of the eligible preceding-year balance for specified education needs after the account holder reaches age 18 or passes Class 10, subject to the scheme conditions and documentation. Premature closure is limited to permitted situations; marriage-related closure is available after age 18 under the scheme rules."
+      },
+      {
+        "heading": "SSY tax treatment and Section 80C",
+        "body": "Eligible SSY contributions can fall within the overall Section 80C deduction framework where the taxpayer uses a regime that permits the deduction. RupeeKit does not treat the deposit as an automatic tax saving because the benefit depends on the taxpayer's applicable regime, total 80C usage and current law."
+      }
+    ],
+    "factRows": [
+      { "topic": "Rate for Jul-Sep 2026", "explanation": "8.2% p.a.; small-savings rates are reviewed/notified periodically and future quarters can differ" },
+      { "topic": "Opening age", "explanation": "Account must be opened before the girl attains age 10" },
+      { "topic": "Annual deposit", "explanation": "Minimum ₹250; maximum ₹1.5 lakh per financial year" },
+      { "topic": "Deposit window", "explanation": "Up to 15 years from account opening" },
+      { "topic": "Maturity", "explanation": "21 years from account opening, subject to permitted earlier closure rules" },
+      { "topic": "Partial withdrawal", "explanation": "Up to 50% for qualifying education needs after age 18 / Class 10 conditions" },
+      { "topic": "Fact check", "explanation": "India Post / NSI rules and current rate reviewed 24 August 2026" }
+    ],
+    "faqs": [
+      {
+        "question": "Is the SSY 8.2% interest rate fixed for all 21 years?",
+        "answer": "No. 8.2% is the notified rate used for the July-September 2026 quarter. Government small-savings rates are reviewed periodically, so future SSY rates can rise, fall or remain unchanged."
+      },
+      {
+        "question": "Do I deposit into SSY for 15 years or 21 years?",
+        "answer": "Deposits are allowed for 15 years from account opening. The normal maturity date is 21 years from account opening. Those are separate timelines, and the balance can continue earning the applicable scheme rate after deposits stop."
+      },
+      {
+        "question": "Can money be withdrawn from SSY before maturity?",
+        "answer": "The scheme permits limited partial withdrawal for qualifying education needs after the account holder reaches the prescribed age/Class 10 condition, and it permits premature closure only in specified cases. Check the current scheme rules and required documents before withdrawing or closing."
+      }
+    ],
+    "related": [
+      "ppf-calculator-india",
+      "scss-calculator-india",
+      "post-office-monthly-income-scheme-calculator-india"
+    ],
+    "officialSources": [
+      {
+        "label": "India Post — Small Savings Schemes / Sukanya Samriddhi Account",
+        "href": "https://www.indiapost.gov.in/banking-services/savings"
+      },
+      {
+        "label": "National Savings Institute — Sukanya Samriddhi Account Scheme Rules",
+        "href": "https://www.nsiindia.gov.in/writereaddata/SchemeRules/SukanyaSamriddhiAccountSchemeRule.pdf"
+      }
+    ],
+    "lastReviewed": "24 August 2026",
+    "lastReviewedIso": "2026-08-24",
+    "factsCheckedIso": "2026-08-24",
+    "nextReviewTrigger": "Quarterly small-savings rate notification or amendment to Sukanya Samriddhi Account Scheme rules."
+  },
+  "ppf-calculator-india": {
+    "related": ["sukanya-samriddhi-yojana-calculator-india", "scss-calculator-india", "post-office-monthly-income-scheme-calculator-india"]
+  },
+  "scss-calculator-india": {
+    "related": ["sukanya-samriddhi-yojana-calculator-india", "ppf-calculator-india", "post-office-monthly-income-scheme-calculator-india"]
+  },
+  "post-office-monthly-income-scheme-calculator-india": {
+    "related": ["sukanya-samriddhi-yojana-calculator-india", "ppf-calculator-india", "scss-calculator-india"]
+  },
+  "personal-loan-emi-calculator-india": {
+    "related": ["gold-loan-calculator-india"]
+  },
+  "personal-loan-eligibility-calculator-india": {
+    "related": ["gold-loan-calculator-india"]
+  },
+  "personal-loan-true-apr-calculator-india": {
+    "related": ["gold-loan-calculator-india"]
+  }
+}

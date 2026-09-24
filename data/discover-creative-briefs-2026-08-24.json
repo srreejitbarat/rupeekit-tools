@@ -1,0 +1,242 @@
+[
+  {
+    "path": "/blog/how-much-emergency-fund",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "6 Months Enough?",
+    "story": "A salaried Indian household is weighing rent or home-loan EMI, groceries and a sudden medical expense against the cash buffer they already have.",
+    "composition": "One clear human subject or couple, three visible expense cues, one emergency-savings cue, generous negative space, mobile-safe center framing.",
+    "generationPrompt": "Create a premium 16:9 editorial finance image for an Indian audience. Show a realistic salaried Indian couple at home reviewing essential monthly costs: housing EMI or rent, groceries and a medical bill, with a separate emergency-savings envelope or bank-balance cue. The emotion should be thoughtful concern, not panic. Keep the composition cinematic and credible, with the key subjects and financial cues inside the central safe area for mobile cropping. If text is used, use only the small hook '6 Months Enough?' and no other headline text. No fake bank branding, no guaranteed claims, no exaggerated distress, no stock-photo look.",
+    "avoid": ["panic imagery", "fake bank logos", "guaranteed claims", "large paragraphs", "generic piggy bank hero"]
+  },
+  {
+    "path": "/blog/itr-2-ay-2026-27-filing-guide",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "Do You Need ITR-2?",
+    "story": "An Indian taxpayer is sorting salary, capital-gains and property documents before choosing the correct income-tax return form.",
+    "composition": "Desk-level editorial scene with taxpayer, three distinct document categories and a laptop, without showing government seals or fabricated form details.",
+    "generationPrompt": "Create a trustworthy 16:9 Indian tax-filing editorial image. Show an Indian salaried professional at a clean desk sorting three clearly different document groups representing salary, capital gains/investments and property income while checking a laptop. Keep the scene factual and calm. Do not reproduce an official ITR form, government seal or Income Tax Department branding. If text is used, use only 'Do You Need ITR-2?' in a small, highly readable area. Keep important subjects centered for mobile cropping and avoid text-heavy design.",
+    "avoid": ["government emblem", "fake ITR form", "tax refund promise", "deadline panic", "dense text"]
+  },
+  {
+    "path": "/blog/income-tax-on-12-lakh-salary-new-regime-india-2026",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "₹12 Lakh Tax?",
+    "story": "A salaried Indian professional compares annual salary, standard deduction and estimated tax without implying that every ₹12 lakh income case is tax-free.",
+    "composition": "Single professional, salary statement, calculator and simple annual-income cue; no fabricated tax notice or guaranteed zero-tax badge.",
+    "generationPrompt": "Create a clean 16:9 editorial finance image for India around a ₹12 lakh salary tax question. Show a salaried Indian professional reviewing an annual salary statement and calculator with a subtle ₹12,00,000 income cue. The image should communicate 'check the calculation' rather than promise zero tax. If text is used, use only '₹12 Lakh Tax?'. Do not show a guaranteed zero-tax badge, refund promise, government logo or fake tax form. Keep the person and key numerical cue centered and mobile-safe.",
+    "avoid": ["zero tax guaranteed", "refund promise", "government branding", "fake notice", "text-heavy infographic"]
+  },
+  {
+    "path": "/blog/new-tax-regime-vs-old-regime-fy-2026-27",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "Old or New?",
+    "story": "A salaried taxpayer compares a deduction-heavy old-regime setup with a simpler new-regime setup before deciding which estimate is lower.",
+    "composition": "Balanced A-vs-B visual with one person between two document stacks; neither side visually endorsed as universally better.",
+    "generationPrompt": "Create a balanced 16:9 Indian personal-finance editorial image showing one salaried taxpayer comparing two neutral tax-planning paths: one side with deduction documents such as rent, insurance and investments, the other side with a simpler salary-and-tax calculation setup. No side should look like the guaranteed winner. If text is used, use only 'Old or New?'. Keep the comparison clear at mobile size and avoid official government branding or fabricated tax forms.",
+    "avoid": ["winner badge", "guaranteed savings", "government seal", "fake forms", "sensational arrows"]
+  },
+  {
+    "path": "/blog/how-to-calculate-in-hand-salary-from-ctc-india",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "CTC ≠ Take-Home",
+    "story": "An Indian professional compares an offer-letter CTC with the lower amount that actually reaches the monthly bank account after deductions.",
+    "composition": "Offer letter on one side, monthly bank-credit/pay-slip cue on the other, human reaction focused on understanding rather than shock.",
+    "generationPrompt": "Create a premium 16:9 salary explainer image for India. Show an Indian professional comparing an annual CTC offer letter with a monthly take-home or bank-credit view, with subtle deduction cues such as PF and tax between them. The visual should make the difference understandable without inventing exact employer numbers. If text is used, use only 'CTC ≠ Take-Home'. Keep all critical elements within the central crop-safe area and avoid fake company logos.",
+    "avoid": ["fake employer logo", "guaranteed take-home", "dense payslip text", "shocked face", "misleading exact deductions"]
+  },
+  {
+    "path": "/blog/epf-partial-withdrawal-rules-india",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "Can You Withdraw?",
+    "story": "An employee checks whether a planned EPF partial withdrawal is allowed for a specific need before acting.",
+    "composition": "Employee with PF statement and one life-event cue such as medical, education or housing; no EPFO imitation UI.",
+    "generationPrompt": "Create a trustworthy 16:9 Indian employee-finance editorial image about EPF partial withdrawal eligibility. Show an Indian employee reviewing a provident-fund statement beside one clear life-event cue such as a medical bill, education document or housing expense. The mood should be careful verification. If text is used, use only 'Can You Withdraw?'. Do not imitate the EPFO portal, use government logos, or imply guaranteed eligibility or instant withdrawal.",
+    "avoid": ["EPFO logo", "fake portal", "instant withdrawal", "guaranteed eligibility", "cash raining"]
+  },
+  {
+    "path": "/blog/how-to-withdraw-epf-after-resignation-india-2026",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "Job Left. EPF?",
+    "story": "A professional who has just left a job is checking PF records, exit documents and next steps before attempting a withdrawal.",
+    "composition": "Laptop, resignation/exit document and PF statement, with calm transition imagery rather than unemployment fear.",
+    "generationPrompt": "Create a 16:9 Indian editorial finance image about EPF after resignation. Show a professional at home reviewing a resignation or relieving document, PF statement and laptop while planning the next step. The tone should be practical and calm, not fearful. If text is used, use only 'Job Left. EPF?'. Avoid EPFO logos, fake portal screens, guaranteed withdrawal timing or piles of cash.",
+    "avoid": ["EPFO logo", "guaranteed timeline", "fake portal", "panic unemployment", "cash pile"]
+  },
+  {
+    "path": "/blog/new-labour-code-gratuity-rules-india-2026",
+    "priority": "P0",
+    "contentType": "article",
+    "safeHook": "Gratuity Rules Changed?",
+    "story": "An employee and HR professional review gratuity-related employment documents to understand what has changed and what has not.",
+    "composition": "Employee-HR discussion with employment papers and calculator; avoid legal-document impersonation or definitive government-change badges.",
+    "generationPrompt": "Create a credible 16:9 Indian workplace-finance editorial image. Show an employee and HR professional reviewing employment and gratuity calculation documents together with a calculator. The visual should communicate 'verify what changed' rather than assert a universal new rule. If text is used, use only 'Gratuity Rules Changed?'. Do not show government seals, fake gazette pages or guaranteed payout claims.",
+    "avoid": ["government seal", "fake gazette", "guaranteed payout", "breaking-news alarm", "dense legal text"]
+  },
+  {
+    "path": "/blog/mutual-funds-for-beginners-india",
+    "priority": "P1",
+    "contentType": "article",
+    "safeHook": "Where Do You Start?",
+    "story": "A first-time investor learns to compare risk, time horizon and fund categories before choosing anything.",
+    "composition": "Beginner with mentor-like family member or self-guided notebook, simple risk/time-horizon cues, no fund-brand endorsements.",
+    "generationPrompt": "Create a welcoming 16:9 Indian beginner-investing editorial image. Show a first-time investor learning how to compare time horizon, risk level and broad mutual-fund categories using a notebook and laptop. Keep the tone educational and non-promotional. If text is used, use only 'Where Do You Start?'. Do not show mutual-fund logos, guaranteed returns, stock-price hype or profit arrows.",
+    "avoid": ["fund logos", "guaranteed returns", "profit hype", "trading screens", "luxury outcome imagery"]
+  },
+  {
+    "path": "/blog/personal-finance-checklist-for-salaried-people",
+    "priority": "P1",
+    "contentType": "article",
+    "safeHook": "Money Checklist",
+    "story": "A salaried professional reviews a practical sequence of emergency fund, insurance, debt and investing tasks.",
+    "composition": "Human subject with four simple visual task cues; clean editorial checklist feel without tiny unreadable checklist text.",
+    "generationPrompt": "Create a 16:9 Indian personal-finance editorial image showing a salaried professional reviewing four simple money priorities: emergency savings, insurance protection, debt/EMI management and long-term investing. Use visual objects or icons rather than dense written checklist items. If text is used, use only 'Money Checklist'. Keep the scene realistic, uncluttered and mobile-crop safe.",
+    "avoid": ["dense checklist text", "guaranteed wealth", "brand logos", "too many icons", "generic piggy bank"]
+  },
+  {
+    "path": "/tools/emergency-fund-calculator-india",
+    "priority": "P0",
+    "contentType": "calculator",
+    "safeHook": "Your Safety Number",
+    "story": "An Indian household sizes a cash buffer using essential monthly expenses and EMIs rather than a generic savings target.",
+    "composition": "Family or couple with visible monthly-expense and EMI cues plus one clear reserve/savings cue; no recommendation of a universal month count.",
+    "generationPrompt": "Create a high-quality 16:9 Indian finance calculator hero. Show a household estimating its emergency reserve from essential expenses and EMIs: housing, groceries and one medical or utility cost, with a separate cash-buffer or savings cue. Make the scene feel analytical and empowering. If text is used, use only 'Your Safety Number'. Do not imply a universal 6-month rule, guaranteed safety or investment returns. Keep central subjects crop-safe for Discover.",
+    "avoid": ["universal 6-month claim", "guaranteed safety", "investment-return promise", "panic", "text-heavy formula"]
+  },
+  {
+    "path": "/tools/personal-loan-emi-calculator-india",
+    "priority": "P0",
+    "contentType": "calculator",
+    "safeHook": "Lower EMI. Higher Cost?",
+    "story": "A borrower compares two tenures for the same personal loan and notices that a lower monthly EMI can come with a different total cost.",
+    "composition": "Neutral split-screen tenure comparison with borrower in center and monthly-vs-total-cost cues; no lender brands or approval language.",
+    "generationPrompt": "Create a premium 16:9 Indian personal-loan calculator hero. Show one borrower comparing two repayment plans for the same loan: one with a shorter tenure and higher monthly EMI, the other with a longer tenure and lower monthly EMI, while total repayment is visibly part of the decision. If text is used, use only 'Lower EMI. Higher Cost?'. Do not show lender logos, approval stamps, lowest-rate claims or guaranteed savings. Keep both options visually neutral and readable on mobile.",
+    "avoid": ["loan approval stamp", "lowest-rate claim", "lender logos", "guaranteed savings", "cash celebration"]
+  },
+  {
+    "path": "/tools/hra-exemption-calculator-india",
+    "priority": "P0",
+    "contentType": "calculator",
+    "safeHook": "Which HRA Counts?",
+    "story": "A tenant compares salary, actual HRA, rent paid and city-based cap inputs to understand the exemption estimate.",
+    "composition": "Tenant at desk with rent receipt, salary slip and apartment key; three-input comparison feel, no fake tax certificate.",
+    "generationPrompt": "Create a polished 16:9 Indian HRA calculator hero. Show an Indian tenant reviewing a salary slip, HRA amount, rent receipt and apartment key while comparing the inputs used for HRA exemption. If text is used, use only 'Which HRA Counts?'. Keep the composition clean and factual. Do not show fake tax certificates, government seals or guaranteed exemption amounts. Keep all key objects central and readable at mobile size.",
+    "avoid": ["government seal", "guaranteed exemption", "fake certificate", "metro-map clutter", "dense formula text"]
+  },
+  {
+    "path": "/tools/sip-calculator-india",
+    "priority": "P0",
+    "contentType": "calculator",
+    "safeHook": "What If You Delay?",
+    "story": "An investor compares starting a monthly SIP now with starting later, while understanding that projected returns are assumptions rather than guarantees.",
+    "composition": "Two timelines with same investor and contribution markers, subtle growth path, no guaranteed-return chart.",
+    "generationPrompt": "Create a 16:9 Indian SIP calculator hero showing the same investor comparing two timelines: starting monthly investing now versus delaying the start. Use simple contribution markers and a restrained projected-growth visual, clearly illustrative rather than guaranteed. If text is used, use only 'What If You Delay?'. Avoid stock-market hype, guaranteed corpus, fund logos, upward rockets or exact return promises.",
+    "avoid": ["guaranteed corpus", "rocket chart", "fund logos", "exact return promise", "trading hype"]
+  },
+  {
+    "path": "/tools/fd-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "What Will It Grow To?",
+    "story": "A saver checks how principal, rate and tenure affect a fixed-deposit maturity estimate.",
+    "composition": "Saver with deposit amount, calendar/tenure and calculator cues; no bank-specific rate promotion.",
+    "generationPrompt": "Create a trustworthy 16:9 Indian fixed-deposit calculator hero. Show an Indian saver reviewing a deposit amount, a tenure/calendar cue and a calculator while estimating maturity value. The image should communicate calculation, not promotion. If text is used, use only 'What Will It Grow To?'. Do not show bank logos, best-rate claims, guaranteed future rates or promotional certificates.",
+    "avoid": ["bank logos", "best-rate claim", "future-rate guarantee", "fake certificate", "cash pile"]
+  },
+  {
+    "path": "/tools/income-tax-calculator-old-vs-new-regime-india",
+    "priority": "P0",
+    "contentType": "calculator",
+    "safeHook": "Which Regime Wins?",
+    "story": "A taxpayer compares old and new regime estimates using the same income profile and deduction inputs.",
+    "composition": "Balanced side-by-side comparison with neutral result cards and one taxpayer; no universally winning side.",
+    "generationPrompt": "Create a balanced 16:9 Indian tax-regime calculator hero. Show one salaried taxpayer comparing two neutral calculation panels representing old and new regime estimates using the same income profile. Include subtle deduction-document cues on the old-regime side and simpler-input cues on the new-regime side, without declaring a universal winner. If text is used, use only 'Which Regime Wins?'. No government logos, fake filing forms or guaranteed tax savings.",
+    "avoid": ["universal winner", "guaranteed savings", "government branding", "fake tax form", "sensational arrows"]
+  },
+  {
+    "path": "/tools/salary-in-hand-calculator-india",
+    "priority": "P0",
+    "contentType": "calculator",
+    "safeHook": "CTC ≠ Take-Home",
+    "story": "A professional converts annual CTC into monthly gross and expected take-home after visible deduction categories.",
+    "composition": "Annual offer on left, deduction bridge in middle, monthly bank-credit cue on right; one human subject.",
+    "generationPrompt": "Create a premium 16:9 Indian salary calculator hero. Show an annual CTC offer transforming into monthly take-home through visible but simple deduction categories such as employee PF, tax/TDS and other payroll deductions. Include an Indian professional reviewing the result. If text is used, use only 'CTC ≠ Take-Home'. Do not invent employer-specific numbers, company logos or guaranteed take-home amounts.",
+    "avoid": ["company logos", "guaranteed take-home", "fake payslip", "tiny deduction text", "shocked reaction"]
+  },
+  {
+    "path": "/tools/gold-loan-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "Your Gold. How Much?",
+    "story": "A customer estimates eligible gold value and loan amount before any lender assay or sanction decision.",
+    "composition": "Gold jewellery being weighed/assessed with calculator and value cue; no lender desk, approval stamp or instant-cash promise.",
+    "generationPrompt": "Create a realistic 16:9 Indian gold-loan calculator hero. Show a customer watching a gold bangle or chain being carefully weighed and assessed while a calculator shows an illustrative value estimate. The scene should emphasize estimation before lender verification. If text is used, use only 'Your Gold. How Much?'. No lender logos, instant cash, approval stamps, guaranteed LTV or promotional interest-rate claims.",
+    "avoid": ["instant cash", "approval stamp", "lender logos", "guaranteed LTV", "lowest-rate claim"]
+  },
+  {
+    "path": "/tools/home-loan-emi-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "What EMI Fits?",
+    "story": "A home buyer sizes an EMI against monthly income and household obligations before deciding on a loan amount.",
+    "composition": "Couple with home keys, income/expense notes and calculator; affordability focus, not dream-home hype.",
+    "generationPrompt": "Create a polished 16:9 Indian home-loan EMI calculator hero. Show a couple with house keys comparing a proposed EMI against monthly income and existing household costs on a notebook or laptop. The tone should be affordability planning rather than aspiration marketing. If text is used, use only 'What EMI Fits?'. Do not show lender logos, approval promises, lowest-rate claims or luxury-home fantasy imagery.",
+    "avoid": ["lender logos", "approval promise", "lowest-rate claim", "luxury mansion", "guaranteed affordability"]
+  },
+  {
+    "path": "/tools/ppf-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "15 Years Later?",
+    "story": "A saver projects long-term PPF maturity from yearly deposits and an editable interest-rate assumption.",
+    "composition": "Long timeline with yearly contribution markers and saver, without implying a permanently fixed future rate.",
+    "generationPrompt": "Create a 16:9 Indian PPF calculator hero showing a saver planning yearly contributions across a long-term timeline toward maturity. Use a calendar/timeline and contribution markers rather than a dramatic investment chart. If text is used, use only '15 Years Later?'. Do not imply that today's interest rate is guaranteed for the full term, and do not show guaranteed maturity or tax-savings claims.",
+    "avoid": ["future-rate guarantee", "guaranteed maturity", "guaranteed tax saving", "bank logo", "rocket growth"]
+  },
+  {
+    "path": "/tools/nps-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "Retirement Corpus?",
+    "story": "A working professional estimates retirement corpus and pension using contribution, return and annuity assumptions.",
+    "composition": "Present-day professional with retirement timeline and separate corpus/pension cues; no guaranteed pension amount.",
+    "generationPrompt": "Create a credible 16:9 Indian NPS calculator hero. Show a working professional planning toward retirement with a long timeline, regular contribution markers and separate visual cues for retirement corpus and pension/annuity. If text is used, use only 'Retirement Corpus?'. Make projections visibly illustrative, not guaranteed. Avoid NPS/government logos, fixed pension promises, guaranteed returns or luxury-retirement imagery.",
+    "avoid": ["guaranteed pension", "guaranteed returns", "government logo", "luxury retirement", "exact future corpus promise"]
+  },
+  {
+    "path": "/tools/80c-deduction-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "₹1.5L Used?",
+    "story": "A taxpayer checks how much of the Section 80C limit is already used by eligible items before estimating remaining headroom.",
+    "composition": "Taxpayer with several eligible-investment/document categories feeding into one simple limit meter; no automatic tax-saving amount.",
+    "generationPrompt": "Create a clear 16:9 Indian Section 80C calculator hero. Show a taxpayer organizing several tax-saving contribution documents into one simple usage meter for the statutory limit, with a calculator nearby. If text is used, use only '₹1.5L Used?'. Do not promise a fixed tax saving, show government branding or imply every displayed investment is suitable for the user.",
+    "avoid": ["guaranteed tax saving", "government logo", "investment recommendation", "dense document text", "refund promise"]
+  },
+  {
+    "path": "/tools/gratuity-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "What Are You Owed?",
+    "story": "A long-serving employee estimates gratuity from salary and years of service before checking employer records and applicable rules.",
+    "composition": "Mid-career employee, service-years timeline, salary record and calculator; no payout guarantee or employer branding.",
+    "generationPrompt": "Create a professional 16:9 Indian gratuity calculator hero. Show a mid-career employee reviewing salary records and a years-of-service timeline with a calculator to estimate gratuity. The image should communicate an estimate that still needs rule and employer verification. If text is used, use only 'What Are You Owed?'. Do not show guaranteed payout, fake HR letters, government seals or employer logos.",
+    "avoid": ["guaranteed payout", "government seal", "employer logo", "fake HR letter", "cash celebration"]
+  },
+  {
+    "path": "/tools/personal-loan-eligibility-calculator-india",
+    "priority": "P1",
+    "contentType": "calculator",
+    "safeHook": "Your Loan Capacity?",
+    "story": "A borrower estimates borrowing capacity from take-home income, existing EMIs, FOIR, rate and tenure without implying lender approval.",
+    "composition": "Income and existing-EMI cues feeding into an estimated capacity range; no bank branding or approval meter.",
+    "generationPrompt": "Create a trustworthy 16:9 Indian personal-loan eligibility calculator hero. Show a professional comparing monthly take-home income and existing EMI obligations while estimating a possible borrowing capacity on a calculator. The visual must clearly feel like planning, not approval. If text is used, use only 'Your Loan Capacity?'. No lender logos, pre-approved stamps, instant approval, guaranteed amount or credit-score promises.",
+    "avoid": ["pre-approved stamp", "instant approval", "guaranteed amount", "lender logos", "credit-score promise"]
+  }
+]

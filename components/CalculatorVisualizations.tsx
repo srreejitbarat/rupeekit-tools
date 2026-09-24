@@ -42,7 +42,12 @@ export function CalculatorResultSummary({
   results: Array<{ key: string; label: string; value: number; formatted: string }>;
 }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <div
+      className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+      role="group"
+      aria-live="polite"
+      aria-label="Estimated results"
+    >
       {results.map((result, index) => {
         const isLast = index === results.length - 1;
         return (
@@ -53,13 +58,13 @@ export function CalculatorResultSummary({
             }`}
           >
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">{result.label}</p>
-            <p
-              className={`mt-2 text-2xl font-black tracking-tight ${
+            <output
+              className={`mt-2 block text-2xl font-black tracking-tight ${
                 isLast ? 'text-brandGrowthGreen' : 'text-brandDeepNavy'
               }`}
             >
               {result.formatted}
-            </p>
+            </output>
           </div>
         );
       })}

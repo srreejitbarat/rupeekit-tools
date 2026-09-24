@@ -33,13 +33,24 @@ const config: Config = {
         soft: '0 10px 30px rgb(15 23 42 / 0.08)',
       },
       fontSize: {
-        display: ['3.5rem', { lineHeight: '1.04', letterSpacing: '-0.04em' }],
-        hero: ['4.5rem', { lineHeight: '1.02', letterSpacing: '-0.045em' }],
+        display: ['clamp(2.75rem, 5vw, 3.5rem)', { lineHeight: '1.04', letterSpacing: '-0.04em' }],
+        hero: ['clamp(3rem, 7vw, 4.5rem)', { lineHeight: '1.02', letterSpacing: '-0.045em' }],
+        'fluid-2xl': ['clamp(1.25rem, 2.5vw, 1.5rem)', { lineHeight: '1.25' }],
+        'fluid-3xl': ['clamp(1.5rem, 3vw, 1.875rem)', { lineHeight: '1.2' }],
       },
       spacing: {
         18: '4.5rem',
         22: '5.5rem',
         30: '7.5rem',
+      },
+      screens: {
+        '3xs': '360px',
+      },
+      maxWidth: {
+        reading: '44rem',
+      },
+      minHeight: {
+        tap: '2.75rem',
       },
     },
   },

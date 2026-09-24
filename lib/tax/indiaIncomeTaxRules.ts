@@ -124,6 +124,42 @@ export const indiaIncomeTaxRules: Record<string, TaxYearConfig> = {
       marginalReliefOnRebate: true,
     },
   },
+  '2026-27': {
+    fy: '2026-27',
+    ay: '2027-28',
+    cessRate: 0.04,
+    oldRegime: {
+      slabs: [
+        { min: 0, max: 250000, rate: 0 },
+        { min: 250000, max: 500000, rate: 0.05 },
+        { min: 500000, max: 1000000, rate: 0.20 },
+        { min: 1000000, max: null, rate: 0.30 },
+      ],
+      standardDeduction: 50000,
+      rebateLimit: 500000,
+      maxRebate: 12500,
+      basicExemption: 250000,
+      marginalReliefOnRebate: false,
+    },
+    newRegime: {
+      // Budget 2026 announced no change to the slabs, the Section 87A rebate or the
+      // standard deduction, so the Finance Act 2025 structure carries into FY 2026-27.
+      slabs: [
+        { min: 0, max: 400000, rate: 0 },
+        { min: 400000, max: 800000, rate: 0.05 },
+        { min: 800000, max: 1200000, rate: 0.10 },
+        { min: 1200000, max: 1600000, rate: 0.15 },
+        { min: 1600000, max: 2000000, rate: 0.20 },
+        { min: 2000000, max: 2400000, rate: 0.25 },
+        { min: 2400000, max: null, rate: 0.30 },
+      ],
+      standardDeduction: 75000,
+      rebateLimit: 1200000,
+      maxRebate: 60000,
+      basicExemption: 400000,
+      marginalReliefOnRebate: true,
+    },
+  },
 };
 
 export const availableTaxYears = Object.keys(indiaIncomeTaxRules).sort((a, b) => b.localeCompare(a));

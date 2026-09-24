@@ -1,0 +1,47 @@
+{
+  "personal-loan-emi-calculator-india": [
+    "personal-loan-eligibility-calculator-india",
+    "personal-loan-true-apr-calculator-india",
+    "loan-foreclosure-net-savings-calculator-india"
+  ],
+  "personal-loan-eligibility-calculator-india": [
+    "personal-loan-true-apr-calculator-india",
+    "loan-foreclosure-net-savings-calculator-india"
+  ],
+  "personal-loan-true-apr-calculator-india": [
+    "personal-loan-eligibility-calculator-india",
+    "no-cost-emi-calculator-india"
+  ],
+  "loan-foreclosure-net-savings-calculator-india": [
+    "personal-loan-eligibility-calculator-india"
+  ],
+  "home-loan-emi-calculator-india": [
+    "home-affordability-calculator-india",
+    "reduce-emi-vs-tenure-calculator-india"
+  ],
+  "emi-calculator-india": [
+    "home-affordability-calculator-india",
+    "reduce-emi-vs-tenure-calculator-india"
+  ],
+  "rent-vs-buy-calculator-india": [
+    "home-affordability-calculator-india"
+  ],
+  "credit-card-vs-personal-loan-calculator-india": [
+    "personal-loan-true-apr-calculator-india"
+  ],
+  "credit-card-minimum-due-trap-calculator-india": [
+    "no-cost-emi-calculator-india"
+  ],
+  "salary-in-hand-calculator-india": [
+    "company-car-lease-exit-calculator-india"
+  ],
+  "job-offer-comparison-calculator-india": [
+    "company-car-lease-exit-calculator-india"
+  ],
+  "gst-calculator-india": [
+    "freelancer-remittance-fee-calculator-india"
+  ],
+  "income-tax-calculator-old-vs-new-regime-india": [
+    "freelancer-remittance-fee-calculator-india"
+  ]
+}

@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {writeUtf8} from './write-file.mjs';
+import {catalogProblems} from './catalog-quality.mjs';
+const additions=Object.assign({}, ...['docs/bengali-reviewed-completion.json','docs/bengali-reviewed-interface.json'].map(file=>JSON.parse(fs.readFileSync(file,'utf8'))));
+for(const [s,t]of Object.entries(additions))if(catalogProblems(s,t).length)throw Error(`Invalid translation: ${s}`);
+const file='lib/i18n/catalogs/bn.json';
+const catalog=JSON.parse(fs.readFileSync(file,'utf8'));
+Object.assign(catalog,additions);
+writeUtf8(file,JSON.stringify(catalog,null,2)+'\n');
+console.log(`Applied ${Object.keys(additions).length} reviewed Bengali messages.`);

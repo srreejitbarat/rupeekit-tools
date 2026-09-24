@@ -38,6 +38,8 @@ export interface FinancialUpdate {
   modifiedDate?: string;
   lastReviewed?: string;
   effectiveDate?: string;
+  seoTitle?: string;
+  metaDescription?: string;
   summary: string;
   quickAnswer?: string;
   storyTitle?: string;
@@ -80,6 +82,9 @@ export const financialUpdates: FinancialUpdate[] = [
     id: 'income-tax-demand-facilitation-centre-july-2026',
     slug: 'income-tax-demand-facilitation-centre-july-2026',
     title: 'Old Income Tax Demand Showing Against Your PAN? A New Help Centre Can Guide You',
+    seoTitle: 'Old Tax Demand on Your PAN? Centre Offers Guidance',
+    metaDescription:
+      'The Income Tax Department’s Demand Management Facilitation Centre can guide taxpayers with questions about outstanding demands. It does not cancel or reduce a demand or decide whether it is correct.',
     category: 'Income Tax',
     sourceName: 'Income Tax Department, Ministry of Finance, Government of India',
     sourceUrl: 'https://www.incometax.gov.in/iec/foportal/',
@@ -461,6 +466,9 @@ export const financialUpdates: FinancialUpdate[] = [
     id: 'foreign-assets-information-in-ais-july-2026',
     slug: 'foreign-assets-information-in-ais-july-2026',
     title: 'Foreign Assets Now Visible in AIS: What Indian Taxpayers Should Check Before Filing',
+    seoTitle: 'Foreign Assets in AIS: What Taxpayers Should Check',
+    metaDescription:
+      'CBDT says eligible taxpayers can now see some foreign asset and income details from partner jurisdictions in AIS. Check the entries against your records before filing; the statement may not show everything.',
     category: 'Income Tax',
     sourceName: 'Central Board of Direct Taxes, Ministry of Finance, Government of India',
     sourceUrl:
@@ -561,6 +569,10 @@ export const financialUpdates: FinancialUpdate[] = [
       {
         label: 'Capital Gains Tax Calculator India',
         href: '/tools/capital-gains-tax-calculator-india',
+      },
+      {
+        label: 'NRI Tax Guide: NRE vs NRO, DTAA and Schedule FA',
+        href: '/nri',
       },
     ],
     tags: [

@@ -11,6 +11,7 @@ export async function GET() {
     info: { title: 'RupeeKit Calculator API', version: '1.0.0', description: `Beta pilot of ${PUBLIC_API_CALCULATOR_SLUGS.length} sourced, educational India-focused calculator estimates. JSON request bodies are limited to ${MAX_API_BODY_BYTES} bytes.` },
     servers: [{ url: base }],
     paths: {
+      '/api/v1/gold-rates': { get: { operationId: 'getGoldRates', summary: 'Current derived Indian gold rate per carat, with the inputs it was derived from and the independent reference it was checked against', responses: { '200': { description: 'Gold rate snapshot, or an explicit unavailable state when no rate has been published' } } } },
       '/api/v1/calculators': { get: { operationId: 'listCalculators', summary: 'List calculators in the reviewed pilot', responses: { '200': { description: 'Calculator catalog' } } } },
       '/api/v1/calculators/{slug}': {
         get: { operationId: 'getCalculator', summary: 'Get calculator definition', parameters: [{ name: 'slug', in: 'path', required: true, schema: { type: 'string' } }], responses: { '200': { description: 'Definition and sources' }, '404': { description: 'Not found' } } },

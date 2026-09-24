@@ -1,0 +1,232 @@
+{
+  "personal-loan-emi-calculator-india": {
+    "contentSections": [
+      {
+        "heading": "EMI for ₹5 lakh, ₹10 lakh, ₹15 lakh and ₹20 lakh personal loans",
+        "body": "To compare loan amounts, enter ₹5 lakh, ₹10 lakh, ₹15 lakh or ₹20 lakh and keep the interest rate and tenure the same. Compare the monthly EMI and total repayment. These are estimates, not lender quotes."
+      },
+      {
+        "heading": "Personal loan EMI at 11%, 14%, 18% and 24% interest",
+        "body": "Interest-rate variants change both monthly EMI and total interest. Keep principal and tenure fixed while changing only the entered reducing-balance annual rate. RupeeKit does not publish these percentages as live lender offers; they are scenario inputs for comparison."
+      },
+      {
+        "heading": "3-year vs 5-year personal loan tenure: which costs less?",
+        "body": "A longer tenure usually reduces the monthly EMI but increases the time over which interest accrues. Compare 36 and 60 months with the same principal and rate, then review both EMI and total repayment before deciding what is affordable."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the EMI for a ₹10 lakh personal loan?",
+        "answer": "There is no single EMI without an interest rate and tenure. Enter ₹10 lakh together with the rate and number of months to calculate the monthly EMI, total interest and total repayment."
+      },
+      {
+        "question": "Is a 5-year personal loan always better than a 3-year loan?",
+        "answer": "No. Five years can lower the monthly EMI, but it can also increase total interest. Compare both tenures using the same principal and rate and choose based on affordability and total cost."
+      }
+    ]
+  },
+  "8th-pay-commission-salary-calculator-india": {
+    "contentSections": [
+      {
+        "heading": "8th Pay Commission salary at 1.92×, 2.08×, 2.57×, 2.86× or 3.00×",
+        "body": "These are comparison scenarios, not notified fitment factors. Enter current basic pay and switch between the available factors to see how revised basic changes while projected DA, HRA and transport allowance remain separate assumptions."
+      },
+      {
+        "heading": "How do DA and HRA affect an 8th CPC salary estimate?",
+        "body": "Current DA and current HRA belong to the current-pay baseline. A fitment-factor scenario is applied to current basic pay, while projected DA and projected HRA are entered separately. This avoids counting current DA twice and avoids presenting any future allowance as official."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is 2.86 the official 8th Pay Commission fitment factor?",
+        "answer": "No. RupeeKit treats 2.86 and the other factors as user-selected scenarios only. No final fitment factor or pay matrix is treated as officially notified on this page."
+      },
+      {
+        "question": "When will the 8th Pay Commission salary become effective?",
+        "answer": "RupeeKit does not assume an implementation date. The calculator remains a scenario tool until the government publishes the relevant recommendations and notification."
+      }
+    ]
+  },
+  "emergency-fund-calculator-india": {
+    "contentSections": [
+      {
+        "heading": "Should your emergency fund cover 3, 6, 9 or 12 months?",
+        "body": "Use the month multiplier as a risk buffer rather than a universal rule. A household with stable dual income may test a shorter buffer, while a single-income family, freelancer or household with high unavoidable EMIs may want to compare longer 6-, 9- or 12-month scenarios."
+      },
+      {
+        "heading": "How do EMIs change an emergency fund target?",
+        "body": "Include unavoidable monthly EMIs with essential living costs before multiplying by the number of protection months. This avoids building a fund that covers groceries and rent but ignores debt obligations that continue during a job loss or income interruption."
+      },
+      {
+        "heading": "Emergency fund for freelancers and variable-income households",
+        "body": "When income is irregular, test a longer protection period and use conservative essential-expense assumptions. The calculator shows a target and shortfall only; it does not predict how long a future income disruption will last."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is 6 months of expenses enough for an emergency fund?",
+        "answer": "Six months is a common planning scenario, not a guarantee. Compare 3, 6, 9 and 12 months using your essential expenses, EMIs, dependants and income stability."
+      },
+      {
+        "question": "Should home-loan or personal-loan EMI be included in an emergency fund?",
+        "answer": "If the EMI would still be payable during an income disruption, include it as an unavoidable monthly obligation when estimating the emergency-fund target."
+      }
+    ]
+  },
+  "personal-loan-eligibility-calculator-india": {
+    "contentSections": [
+      {
+        "heading": "Personal loan eligibility by salary: ₹12k, ₹13k, ₹14k, ₹25k, ₹40k and ₹45k",
+        "body": "Salary-band searches are best treated as affordability scenarios, not approval promises. Enter the exact monthly take-home salary, then add existing EMIs and test the FOIR, rate and tenure assumptions. A lower salary does not create an automatic rejection in this calculator; actual lender rules control eligibility.",
+        "bullets": [
+          "₹12,000, ₹13,000 and ₹14,000 salary: test whether the entered obligations leave any affordable EMI under your chosen FOIR assumption.",
+          "₹25,000 salary: compare the result with lender-specific minimum-income rules before applying.",
+          "₹40,000 and ₹45,000 salary: test how existing EMIs and tenure change estimated borrowing capacity rather than assuming salary alone decides eligibility."
+        ]
+      },
+      {
+        "heading": "Personal loan eligibility check vs eligibility calculator: what is the difference?",
+        "body": "An eligibility calculator models affordability from inputs such as income, existing EMIs, FOIR, rate and tenure. A lender eligibility check may also use employer category, service history, age, banking relationship, bureau data, documents and internal credit policy. RupeeKit does not perform a bureau lookup or loan sanction."
+      },
+      {
+        "heading": "How does FOIR affect personal loan eligibility?",
+        "body": "FOIR compares fixed monthly debt obligations with monthly income. In this calculator it is a user-entered planning assumption: a higher assumed FOIR allows a larger modelled EMI, while existing EMIs consume part of that capacity. Banks may use different internal thresholds and methods."
+      },
+      {
+        "heading": "Bank-wise personal loan eligibility criteria: what changes by lender?",
+        "body": "Published lender rules are not identical and can change. SBI currently publishes separate minimum net monthly salary rules for government/defence and corporate salaried customers, service-history requirements, age rules and an EMI-to-net-monthly-income cap. HDFC Bank publishes its own minimum income, age and employment-tenure criteria. ICICI Bank also evaluates age, income, work profile and credit history. Verify the lender's official eligibility page on the day you apply instead of treating any comparison table as a permanent rule.",
+        "bullets": [
+          "SBI: official salaried personal-loan page lists minimum net monthly salary of ₹20,000 for government/defence and ₹25,000 for corporate employees, subject to other conditions.",
+          "HDFC Bank: official eligibility page lists minimum net income of ₹25,000 per month, age 21-60 and employment-tenure conditions for salaried applicants.",
+          "ICICI Bank: official personal-loan eligibility flow considers income, work information, age/identity and banking relationship; final approval remains subject to bank policy."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I get a personal loan with a ₹12,000 monthly salary?",
+        "answer": "RupeeKit can model affordability at ₹12,000, but it cannot promise approval. Some large lenders publish minimum salary criteria above that amount, and lender policy, city, employer, credit profile and existing EMIs can also matter."
+      },
+      {
+        "question": "What FOIR should I use for a personal loan eligibility check?",
+        "answer": "There is no universal FOIR that every lender uses. Treat FOIR as a scenario input, test more than one value, and verify the actual lender's policy before applying."
+      },
+      {
+        "question": "Is RupeeKit personal loan eligibility the same as bank approval?",
+        "answer": "No. The result is an educational affordability estimate. A lender may additionally assess credit bureau data, employer profile, service history, documents, age and internal policy before sanction."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "SBI — Personal Loan eligibility for salaried employees",
+        "href": "https://sbi.co.in/web/personal-banking/loans/personal-loans/sbi-personal-loan"
+      },
+      {
+        "label": "HDFC Bank — Personal Loan eligibility criteria",
+        "href": "https://v.hdfcbank.com/htdocs/amp/personal-loan/eligibility_criteria.html"
+      },
+      {
+        "label": "ICICI Bank — Personal Loan eligibility check",
+        "href": "https://loan.icicibank.com/asset-portal-all/check-eligibility?loanType=pl"
+      }
+    ]
+  },
+  "gold-loan-calculator-india": {
+    "contentSections": [
+      {
+        "heading": "What is the gold loan interest rate in India in 2026?",
+        "body": "Scheduled banks price gold loans from roughly 8.5% to 10% a year, with several large lenders starting near 8.75%. NBFCs disburse faster and accept a wider borrower profile, but usually charge more, and the full market runs to well over 20% a year at the top end. The rate you are offered depends on the lender, the assayed purity you pledge, the loan amount and tenure, and whether you service interest monthly or repay it as a bullet at closure. Always compare the annual rate: a branch quoting \"1.5% a month\" is quoting 18% a year.",
+        "bullets": [
+          "Banks: broadly 8.5% to 10% a year for standard consumption gold loans.",
+          "NBFCs: typically higher, in exchange for faster disbursal and lighter documentation.",
+          "Processing fee, valuation charge and any prepayment penalty sit on top of the headline rate.",
+          "A higher assayed purity and a lower LTV band generally attract a better rate."
+        ]
+      },
+      {
+        "heading": "How much gold loan can you get for 10g, 20g or 50g of gold?",
+        "body": "Weight alone is not enough. Enter the net eligible gold weight, assayed purity and the lender's current 24K reference price. The calculator first estimates intrinsic gold value and then applies the applicable RBI LTV constraint to the requested consumption-loan amount."
+      },
+      {
+        "heading": "22K vs 24K gold: why purity changes loan value",
+        "body": "A 22K ornament contains less pure gold than the same net weight at 24K, so the intrinsic value is adjusted by purity. Stones, gems, making charges and other non-gold elements are excluded from the collateral value."
+      },
+      {
+        "heading": "What are the RBI 85%, 80% and 75% gold-loan LTV tiers?",
+        "body": "For consumption loans under the RBI gold-and-silver collateral directions, the calculator applies the current tiered maximum LTV structure already documented on this page. The result is a collateral estimate only; lender valuation, credit checks and sanction still apply."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the interest rate on a gold loan right now?",
+        "answer": "Banks generally start near 8.5% to 9% a year and NBFCs charge more, with the wider market reaching well above 20% for some products. Rates move and depend on lender, purity, amount, tenure and repayment structure, so treat any published range as indicative and confirm the annual rate, processing fee and valuation charge directly with the lender before pledging."
+      },
+      {
+        "question": "How much loan can I get for 20 grams of 22K gold?",
+        "answer": "The amount depends on the lender's reference price, net eligible weight, purity and the applicable RBI LTV tier. Enter 20 grams and 22K in the calculator with the lender's current reference price to estimate it."
+      },
+      {
+        "question": "Does a gold loan use jewellery market price including making charges?",
+        "answer": "No. The model values intrinsic gold content only. Making charges, stones, gems and other non-gold elements are not included in the collateral value."
+      }
+    ]
+  },
+  "income-tax-calculator-old-vs-new-regime-india": {
+    "contentSections": [
+      {
+        "heading": "Old vs new tax regime for ₹7L, ₹10L, ₹12L, ₹15L and ₹20L salary",
+        "body": "Salary-band searches should be compared with the same financial-year settings and the deductions you can actually claim. Enter the salary amount, then compare both regimes rather than assuming one regime wins at every income level. The calculator models normal slab income and states its scope separately for special-rate income."
+      },
+      {
+        "heading": "Which deductions can change old-vs-new regime results?",
+        "body": "The answer depends on the deductions and exemptions available under the selected regime and on your actual salary structure. Use only amounts you can substantiate; do not add a deduction merely to force one regime to look cheaper."
+      },
+      {
+        "heading": "Can salaried taxpayers switch between old and new tax regimes?",
+        "body": "The applicable choice and switching rules can depend on the type of income and the filing year. Use this page for estimation only and verify the current Income Tax Department filing guidance before selecting a regime in your return."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Which tax regime is better for a ₹12 lakh salary?",
+        "answer": "There is no universal answer from salary alone. Compare both regimes using the correct financial year, standard deduction and only the deductions or exemptions you are actually eligible to claim."
+      },
+      {
+        "question": "Does this old-vs-new calculator include special-rate capital gains income?",
+        "answer": "No. The page's scope is normal slab income for the supported resident-individual scenario. Use the separate capital-gains calculator and official filing guidance for special-rate income."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "Income Tax Department — e-Filing portal",
+        "href": "https://www.incometax.gov.in/iec/foportal/"
+      }
+    ]
+  },
+  "net-worth-calculator-india": {
+    "contentSections": [
+      {
+        "heading": "What counts as an asset or liability in net worth?",
+        "body": "Assets are financial or physical resources you own that have measurable value; liabilities are amounts you owe. Enter current balances consistently and avoid counting the same asset or debt twice. Net worth is assets minus liabilities, not monthly income minus expenses."
+      },
+      {
+        "heading": "Liquid net worth vs total net worth: what is the difference?",
+        "body": "Total net worth can include long-term and less-liquid assets. Liquid net worth focuses on assets that are easier to access and convert to cash, net of liabilities. Both views are useful because a high total net worth does not always mean strong short-term liquidity."
+      },
+      {
+        "heading": "What does debt-to-asset ratio show?",
+        "body": "The debt-to-asset ratio compares liabilities with total assets. It is a descriptive planning metric, not a credit score or lending decision. Track the direction over time alongside liquidity and emergency savings rather than treating one ratio as a pass/fail rule."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Should EPF, PPF and mutual funds be included in net worth?",
+        "answer": "They can be included as assets when you use current account or market values consistently. Keep restricted or long-term assets distinct from immediately available cash when you also review liquid net worth."
+      },
+      {
+        "question": "Is home-loan outstanding deducted from property value in net worth?",
+        "answer": "Yes. If you include the property as an asset, include the outstanding home-loan balance as a liability so the same financed value is not overstated."
+      }
+    ]
+  }
+}

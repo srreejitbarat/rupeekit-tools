@@ -1,0 +1,222 @@
+{
+  "rent-vs-buy-calculator-india": {
+    "title": "Rent vs Buy Calculator India | 20-Year Cost Comparison",
+    "description": "Compare renting versus buying with home price, loan interest, rent growth, home appreciation, maintenance costs and invested down payment over time."
+  },
+  "home-affordability-calculator-india": {
+    "title": "Home Affordability Calculator India | EMI & Down Payment",
+    "description": "Estimate an affordable home price from monthly income, existing EMIs, down payment, interest rate and tenure, with EMI burden and loan amount shown."
+  },
+  "job-offer-comparison-calculator-india": {
+    "title": "Job Offer Comparison Calculator India | CTC vs In-Hand",
+    "description": "Compare up to three job offers on post-tax in-hand pay instead of headline CTC, with variable payout odds, provident fund, joining bonus and work costs."
+  },
+  "salary-increment-calculator-india": {
+    "title": "Salary Increment Calculator India | Hike Amount & New Pay",
+    "description": "Calculate your new annual and monthly salary after a percentage hike, with the absolute increment shown so you can compare offers and appraisal outcomes."
+  },
+  "bonus-tax-calculator-india": {
+    "title": "Bonus Tax Calculator India | Gross Bonus vs Net Payout",
+    "description": "Estimate how a bonus changes taxable income and approximate take-home bonus after entered tax assumptions, with gross bonus and estimated tax impact shown."
+  },
+  "fire-retirement-calculator-india": {
+    "title": "FIRE Retirement Calculator India | Corpus & Monthly SIP",
+    "description": "Estimate the retirement corpus needed from annual expenses, inflation and withdrawal assumptions, then see the monthly investment required to reach the goal."
+  },
+  "net-worth-tracker-calculator-india": {
+    "title": "Net Worth Tracker Calculator India | Assets vs Liabilities",
+    "description": "Calculate total assets, liabilities and net worth from your financial balances, with a simple debt-to-assets view for an educational household snapshot."
+  },
+  "education-loan-emi-tax-benefit-calculator-india": {
+    "title": "Education Loan EMI Calculator India | Interest & Tax Benefit",
+    "description": "Estimate education-loan EMI, total interest and repayment cost, then model the entered Section 80E interest deduction assumption for an educational comparison."
+  },
+  "rental-yield-calculator-india": {
+    "title": "Rental Yield Calculator India | Gross & Net Yield",
+    "description": "Calculate gross and net rental yield from property value, monthly rent, vacancy and annual ownership costs, with estimated yearly rental income shown."
+  },
+  "debt-snowball-calculator-india": {
+    "title": "Debt Snowball Calculator India | Payoff Time & Interest",
+    "description": "Estimate debt payoff time and interest using a snowball-style repayment plan, with balances, monthly payments and extra repayment assumptions entered by you."
+  },
+  "term-life-insurance-cover-calculator-india": {
+    "title": "Term Insurance Cover Calculator India | Cover Gap Estimate",
+    "description": "Estimate additional life cover from annual income, replacement years, outstanding liabilities, family goals and life insurance, with the cover gap shown."
+  },
+  "health-insurance-coverage-adequacy-calculator-india": {
+    "title": "Health Insurance Cover Calculator India | Coverage Gap",
+    "description": "Estimate a family health-cover gap using family size, city tier, oldest age band, current sum insured, medical inflation and your chosen projection period."
+  },
+  "car-loan-emi-affordability-calculator-india": {
+    "title": "Car Loan EMI Calculator India | EMI & Income Burden",
+    "description": "Calculate car-loan EMI, total interest and repayment from on-road price, down payment, rate and tenure, with EMI-to-income ratio shown for context."
+  },
+  "two-wheeler-loan-emi-calculator-india": {
+    "title": "Two-Wheeler Loan EMI Calculator India | EMI & Interest",
+    "description": "Calculate bike or scooter loan EMI, total repayment and interest from on-road price, down payment, rate and tenure, with EMI-to-income ratio also shown."
+  },
+  "credit-card-minimum-due-trap-calculator-india": {
+    "title": "Credit Card Minimum Due Calculator | Payoff & Interest",
+    "description": "Estimate payoff months and interest for a credit-card balance using APR, minimum-due percentage and a fixed payment, with both repayment scenarios compared."
+  },
+  "credit-card-vs-personal-loan-calculator-india": {
+    "title": "Credit Card vs Personal Loan Calculator | Total Cost",
+    "description": "Compare a big purchase on revolving credit with a personal loan using APR, tenure and processing fee, with monthly payment and total financing cost shown."
+  },
+  "sovereign-gold-bond-vs-physical-gold-calculator-india": {
+    "title": "SGB vs Physical Gold Calculator | 8-Year Cost Comparison",
+    "description": "Compare an SGB-style holding with physical gold using investment amount, gold appreciation, coupon, making charges and storage costs over your chosen period."
+  },
+  "index-fund-vs-active-fund-cost-calculator-india": {
+    "title": "Index vs Active Fund Cost Calculator | Expense Ratio Drag",
+    "description": "Compare future values when index and active funds earn the same assumed gross return, isolating expense-ratio drag and the resulting corpus difference."
+  },
+  "elss-lock-in-vs-80c-options-calculator-india": {
+    "title": "ELSS vs PPF vs Tax-Saver FD | 3, 5 & 15-Year Lock-ins",
+    "description": "Compare pre-tax values for ELSS, tax-saver FD and PPF using your return assumptions, with native 3-year, 5-year and 15-year lock-in horizons shown."
+  },
+  "nps-tier-2-vs-mutual-fund-calculator-india": {
+    "title": "NPS Tier 2 vs Mutual Fund Calculator | Post-Tax Corpus",
+    "description": "Compare NPS Tier 2 and mutual-fund corpus values using monthly contributions, years, return assumptions and entered tax rates applied to estimated gains."
+  },
+  "xirr-portfolio-return-calculator-india": {
+    "title": "XIRR Portfolio Return Calculator | Annualised Estimate",
+    "description": "Approximate annualised portfolio return from up to three investments, their holding periods and current combined value, with absolute gain and return shown."
+  },
+  "rule-of-72-calculator-india": {
+    "title": "Rule of 72 Calculator India | Doubling Time at 8%-15%",
+    "description": "Estimate investment doubling time with the Rule of 72, compare it with exact annual compounding, and view preset estimates at 8%, 10%, 12% and 15%."
+  },
+  "ops-vs-nps-pension-comparison-calculator-india": {
+    "title": "OPS vs NPS Pension Calculator India | Monthly Payout",
+    "description": "Compare an entered OPS salary-linked pension scenario with an NPS corpus-and-annuity scenario, including estimated monthly payout and remaining corpus."
+  },
+  "scss-calculator-india": {
+    "title": "SCSS Calculator India | 8.2% Quarterly Interest Estimate",
+    "description": "Estimate SCSS quarterly and annual interest from your deposit and entered rate, with total interest over five years and principal returned at maturity."
+  },
+  "post-office-monthly-income-scheme-calculator-india": {
+    "title": "Post Office MIS Calculator | 7.4% Monthly Income Estimate",
+    "description": "Estimate Post Office MIS monthly and annual interest from the deposit and entered rate, with five-year total interest and principal returned at maturity."
+  },
+  "child-education-cost-planner-india": {
+    "title": "Child Education Cost Calculator | Future Cost & SIP",
+    "description": "Project a child's future education cost using current course cost and inflation, then estimate the monthly investment needed after current savings growth."
+  },
+  "wedding-cost-planner-india": {
+    "title": "Wedding Cost Calculator India | Future Budget & SIP",
+    "description": "Project a future wedding budget from today's cost and inflation, then estimate the monthly investment required after allowing for current savings growth."
+  },
+  "rent-agreement-stamp-duty-registration-cost-calculator-india": {
+    "title": "Rent Agreement Cost Calculator India | Stamp Duty Estimate",
+    "description": "Estimate rent-agreement stamp duty and registration cost from monthly rent, security deposit, tenure and your entered state-rate assumptions for planning."
+  },
+  "home-loan-swp-stress-test-india": {
+    "title": "Home Loan SWP Stress Test | EMI, Crash & Ending Corpus",
+    "description": "Test whether an investment corpus can fund home-loan EMIs under steady returns and a bad first year, with cash reserve and ending corpus shown."
+  },
+  "gratuity-2026-old-vs-new-calculator-india": {
+    "title": "Gratuity 2026 Calculator | Wage-Base Impact & Cap",
+    "description": "Compare gratuity using current eligible Basic plus DA and an entered wage-base scenario, with uncapped value, applied cap and estimated change shown."
+  },
+  "personal-loan-true-apr-calculator-india": {
+    "title": "Personal Loan APR Calculator | Fees, GST & Net Cash",
+    "description": "Estimate effective personal-loan cost from EMI, processing fee, GST, insurance and advance EMI deductions, with net cash received and APR shown."
+  },
+  "invest-vs-prepay-home-loan-calculator-india": {
+    "title": "Invest vs Prepay Home Loan | Interest vs Growth",
+    "description": "Compare home-loan interest saved by prepaying with the future gain from investing the same lump sum, including an entered annual tax-and-cost drag."
+  },
+  "loan-foreclosure-net-savings-calculator-india": {
+    "title": "Loan Foreclosure Calculator | Charges, GST & Net Saving",
+    "description": "Estimate future interest avoided by closing a loan, subtract foreclosure charge and GST, then compare net saving with the opportunity cost of cash."
+  },
+  "reduce-emi-vs-tenure-calculator-india": {
+    "title": "Reduce EMI vs Tenure Calculator | Prepayment Impact",
+    "description": "Compare a lower EMI with a shorter tenure after loan prepayment, including monthly EMI relief, months saved and interest under both repayment options."
+  },
+  "8th-pay-commission-arrears-calculator-india": {
+    "title": "8th Pay Commission Arrears Calculator 2026",
+    "description": "Estimate an unofficial 8th Pay Commission arrears scenario from current and projected monthly basic, DA, HRA, other pay, dates and entered deductions."
+  },
+  "8th-pay-commission-pension-calculator-india": {
+    "title": "8th Pay Commission Pension Calculator 2026",
+    "description": "Compare current pension plus DR with an unofficial 8th Pay Commission multiplier scenario, projected DR and additional pension rate. No official method assumed."
+  },
+  "new-labour-code-take-home-calculator-india": {
+    "title": "New Labour Code Take-Home Calculator (50% Wage Rule)",
+    "description": "See how the 50% wage rule changes your monthly take-home, PF and gratuity. Enter your CTC and current basic percentage to compare both structures."
+  },
+  "gratuity-under-new-wage-code-calculator-india": {
+    "title": "Gratuity Under the New Wage Code | Revised Payout",
+    "description": "Estimate gratuity on the revised wage base under the labour codes. Compare your payout on current basic against the 50% floor, with the one-year rule."
+  },
+  "room-rent-proportionate-deduction-calculator-india": {
+    "title": "Room Rent Proportionate Deduction Calculator",
+    "description": "Your room cost more than the policy allows. See how much of the whole hospital bill the insurer cuts, not just the room rent difference itself."
+  },
+  "notional-increment-pension-calculator-india": {
+    "title": "Notional Increment Calculator for 30 June Retirees",
+    "description": "Retired on 30 June or 31 December? Estimate the extra pension and arrears from one notional increment after the February 2025 Supreme Court ruling."
+  },
+  "pension-commutation-calculator-india": {
+    "title": "Pension Commutation Calculator | Lump Sum & Payback",
+    "description": "See your commutation lump sum, reduced pension and break-even point, including why dearness relief stays on your full basic pension after commuting."
+  },
+  "epf-taxable-interest-rule-9d-calculator-india": {
+    "title": "EPF Taxable Interest Calculator | Rule 9D Split",
+    "description": "Contributing over 2.5 lakh a year? Split your provident fund into taxable and non-taxable accounts and see the interest taxed each year, plus TDS."
+  },
+  "inherited-property-capital-gains-calculator-india": {
+    "title": "Inherited Property Capital Gains Calculator India",
+    "description": "Selling inherited property? Use the previous owner's cost and the 2001 fair market value, and compare both long-term capital gains tax routes."
+  },
+  "80c-deduction-calculator-india": {
+    "title": "80C Deduction Calculator India 2026 — Maximise Tax Savings",
+    "description": "Estimate annual Section 80C tax savings from EPF, PPF, ELSS, life insurance and other eligible investments against the Rs 1.5 lakh yearly ceiling."
+  },
+  "emi-calculator-india": {
+    "title": "EMI Calculator India 2026 — Monthly EMI & Total Interest",
+    "description": "Estimate monthly EMI, total interest and total repayment for home, personal and car loans from loan amount, interest rate and tenure. No login needed."
+  },
+  "epf-corpus-calculator-india": {
+    "title": "EPF Corpus Calculator India 2026 — PF Balance at Retirement",
+    "description": "EPF corpus calculator for India — estimate your provident fund balance at retirement from basic salary, contributions and interest. Calculate now."
+  },
+  "fd-calculator-india": {
+    "title": "FD Calculator India 2026: Maturity, Interest & 444-Day FDs",
+    "description": "FD calculator — maturity and interest for any deposit in seconds, including special 444-day FDs. Set amount, rate, tenure and compounding. No login."
+  },
+  "gratuity-calculator-india": {
+    "title": "Gratuity Calculator India 2026 — Payout Under Gratuity Act",
+    "description": "Estimate your gratuity payout using last drawn salary, completed years of service and the Payment of Gratuity Act thresholds. Educational estimate only."
+  },
+  "gst-calculator-india": {
+    "title": "GST Calculator India 2026 — Add or Remove 5% to 28% GST",
+    "description": "Add or remove 5%, 12%, 18% or 28% GST from any invoice value and calculate CGST, SGST and the total GST payable with this India GST calculator."
+  },
+  "home-loan-emi-calculator-india": {
+    "title": "Home Loan EMI Calculator India 2026 — EMI & Total Interest",
+    "description": "Home loan EMI calculator for India — get monthly EMI, total interest and total repayment for any loan amount, interest rate and tenure. Calculate now."
+  },
+  "lumpsum-calculator-india": {
+    "title": "Lumpsum Calculator India 2026 — One-Time Investment Growth",
+    "description": "Lumpsum calculator for India — project one-time investment growth with expected returns, total gain and inflation-adjusted value. Educational estimate."
+  },
+  "mutual-fund-calculator-india": {
+    "title": "Mutual Fund Calculator India 2026 — SIP, Lumpsum & Returns",
+    "description": "Estimate SIP returns, lumpsum gains and SWP corpus, then compare mutual fund outcomes against FD, PPF and gold using your own return assumptions."
+  },
+  "recurring-deposit-calculator-india": {
+    "title": "RD Calculator India 2026 — Recurring Deposit Maturity",
+    "description": "Estimate your recurring deposit maturity amount and total interest earned in India from monthly instalment, interest rate and tenure. Plan RD savings."
+  },
+  "retirement-calculator-india": {
+    "title": "Retirement Calculator India 2026 — Corpus & Monthly Saving",
+    "description": "Estimate the retirement corpus you need, the monthly saving required to reach it, and the income it can support from investments and NPS in India."
+  },
+  "stock-portfolio-calculator-india": {
+    "title": "Stock Portfolio Calculator India — Gains & Dividend Income",
+    "description": "Track realised and unrealised gains, dividend income and overall returns on your equity holdings in India, and compare performance against Nifty 50."
+  }
+}

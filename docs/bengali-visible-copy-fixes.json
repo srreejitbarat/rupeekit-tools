@@ -1,0 +1,20 @@
+{
+  "Taxable LTCG = max(LTCG - 1,25,000, 0), taxed at 12.5%.": "করযোগ্য দীর্ঘমেয়াদী মূলধনী লাভ (LTCG) = সর্বোচ্চ(LTCG − 1,25,000, 0)। এর ওপর 12.5% কর প্রযোজ্য।",
+  "8th Pay Commission Chandigarh Visit: 16–18 September 2026": "অষ্টম বেতন কমিশনের চণ্ডীগড় সফর: ১৬–১৮ সেপ্টেম্বর ২০২৬",
+  "Foreign Assets in AIS: What Taxpayers Should Check": "AIS-এ বিদেশি সম্পদের তথ্য: কী যাচাই করবেন",
+  "Old Tax Demand on Your PAN? Centre Offers Guidance": "PAN-এ পুরনো করের দাবি? কেন্দ্র থেকে পরামর্শ নিন",
+  "ITR-7 Utility Live for AY 2026-27": "AY 2026-27-এর জন্য ITR-7 ইউটিলিটি চালু",
+  "The Income Tax Department’s Demand Management Facilitation Centre can guide taxpayers with questions about outstanding demands. It does not cancel or reduce a demand or decide whether it is correct.": "আয়কর বিভাগের Demand Management Facilitation Centre বকেয়া করের দাবি নিয়ে প্রশ্নে পরামর্শ দিতে পারে। এটি দাবি বাতিল বা কম করে না, কিংবা তা সঠিক কি না সে সিদ্ধান্তও দেয় না।",
+  "CBDT says eligible taxpayers can now see some foreign asset and income details from partner jurisdictions in AIS. Check the entries against your records before filing; the statement may not show everything.": "CBDT জানিয়েছে, যোগ্য করদাতারা এখন AIS-এ সহযোগী দেশগুলি থেকে পাওয়া কিছু বিদেশি সম্পদ ও আয়ের তথ্য দেখতে পারেন। রিটার্ন জমার আগে নিজের নথির সঙ্গে মিলিয়ে নিন; AIS-এ সব তথ্য নাও থাকতে পারে।",
+  "The online ITR-7 utility for AY 2026-27 became available on 11 August. The portal also lists online and offline options for ITR-1 to ITR-5, Excel for ITR-6, and online and Excel utilities for ITR-7.": "AY 2026-27-এর জন্য ITR-7-এর অনলাইন ইউটিলিটি 11 আগস্ট চালু হয়েছে। পোর্টালে ITR-1 থেকে ITR-5-এর অনলাইন ও অফলাইন বিকল্প, ITR-6-এর Excel এবং ITR-7-এর অনলাইন ও Excel বিকল্পও রয়েছে।",
+  "Inflation/top-up buffer %": "মুদ্রাস্ফীতি/অতিরিক্ত খরচের বাফার %",
+  "Essential / Nil-rated or Exempt": "প্রয়োজনীয় / শূন্য-হারের বা করমুক্ত",
+  "Common Goods/Services": "সাধারণ পণ্য/পরিষেবা",
+  "Standard Goods/Services": "মানক পণ্য/পরিষেবা",
+  "Higher-rate Goods/Services": "উচ্চ-হারের পণ্য/পরিষেবা",
+  "FD: assured, taxable, flexible tenure.": "FD: নির্দিষ্ট রিটার্ন, করযোগ্য সুদ এবং মেয়াদে নমনীয়তা।",
+  "Maturity = Yearly investment x ((1+r)^n - 1)/r x (1+r)": "মেয়াদপূর্তি = বার্ষিক বিনিয়োগ × ((1+r)^n - 1)/r × (1+r)",
+  "Corpus = Monthly contribution x ((1+i)^n - 1) / i": "মূলধন = মাসিক অবদান × ((1+i)^n - 1) / i",
+  "15/26 × wages × years of service": "15/26 × মজুরি × চাকরির বছর",
+  "15/26 × revised wages × years of service": "15/26 × সংশোধিত মজুরি × চাকরির বছর"
+}

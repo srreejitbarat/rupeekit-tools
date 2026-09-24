@@ -1,0 +1,12 @@
+{
+  "_comment": "Hallmark fineness ratios relative to fine gold (999.9). Single source of truth: imported by both scripts/gold/derive.mjs and lib/gold-rates.ts so the two can never drift.",
+  "schemaVersion": 1,
+  "carats": {
+    "24K": { "hallmark": 999, "fineness": 0.999 },
+    "22K": { "hallmark": 916, "fineness": 0.916 },
+    "18K": { "hallmark": 750, "fineness": 0.75 },
+    "14K": { "hallmark": 585, "fineness": 0.585 }
+  },
+  "loanValuationCarat": "22K",
+  "troyOunceGrams": 31.1034768
+}

@@ -1,0 +1,97 @@
+{
+  "salary-in-hand-calculator-india": {
+    "shortDescription": "Estimate monthly take-home pay from CTC-based salary assumptions, employee PF, TDS, professional tax and other deductions, while checking which employer-side CTC items may sit outside monthly cash salary.",
+    "quickAnswer": {
+      "title": "CTC to In-Hand Salary Quick Answer",
+      "question": "How do I estimate in-hand salary from CTC?",
+      "answer": "Start with the monthly cash-salary base in your offer or payslip, then subtract employee PF, TDS or income tax, professional tax and recurring employee-side deductions. CTC can also contain employer PF, gratuity, insurance, variable pay or benefits that are not paid as monthly cash, so CTC divided by 12 can overstate gross monthly salary for some structures.",
+      "formula": "Estimated in-hand = monthly salary base − employee PF − TDS − professional tax − other employee deductions",
+      "example": "For a ₹12 lakh annual CTC, first check whether employer PF, gratuity, bonus or insurance are included in the ₹12 lakh before treating ₹1 lakh as monthly gross cash salary.",
+      "note": "Educational estimate only. Use your offer letter and latest payslip for the most reliable component values.",
+      "links": [
+        {
+          "label": "Compare old vs new tax regime",
+          "href": "/tools/income-tax-calculator-old-vs-new-regime-india"
+        },
+        {
+          "label": "CTC to in-hand salary guide",
+          "href": "/blog/how-to-calculate-in-hand-salary-from-ctc-india"
+        },
+        {
+          "label": "Tax on ₹12 lakh salary",
+          "href": "/blog/income-tax-on-12-lakh-salary-new-regime-india-2026"
+        },
+        {
+          "label": "Old vs new regime guide",
+          "href": "/blog/old-vs-new-tax-regime-which-saves-more"
+        }
+      ]
+    },
+    "contentSections": [
+      {
+        "heading": "What parts of CTC may not become monthly in-hand salary?",
+        "body": "CTC is an employer-cost figure, not a guaranteed bank-credit figure. Depending on the offer structure, it can include employer PF, gratuity accrual, insurance premiums, annual or variable bonus, retention pay, meal or transport benefits and other employer-funded items. This calculator preserves its existing formula and treats annual CTC divided by 12 as the starting monthly amount, so users whose CTC contains large employer-side or deferred components should enter deductions conservatively and compare the result with the salary breakup in the offer letter or payslip.",
+        "bullets": [
+          "Basic salary: the fixed salary component used for several payroll calculations.",
+          "HRA: a salary component that may be part of gross pay; income-tax exemption depends on eligibility and regime rules.",
+          "Employee PF: deducted from salary where applicable and therefore reduces monthly take-home.",
+          "Employer PF: an employer-side contribution that may be included in CTC but is not monthly take-home cash.",
+          "Gratuity: often shown as a CTC cost or accrual; it is not normally a monthly cash payment to the employee.",
+          "Professional tax: a state-specific payroll deduction where applicable.",
+          "TDS: payroll withholding based on estimated taxable income, declarations and the selected tax regime."
+        ]
+      },
+      {
+        "heading": "How basic salary, HRA, PF, gratuity and professional tax affect take-home pay",
+        "body": "Basic salary and HRA describe the salary structure, while employee PF, TDS and professional tax are common deductions from cash salary. Employer PF and gratuity can increase CTC without increasing the monthly bank credit by the same amount. The exact split differs by employer and state, so a CTC-to-in-hand estimate should be reconciled with the employer's salary breakup instead of assuming every CTC rupee is monthly gross pay."
+      },
+      {
+        "heading": "Why the tax-regime comparison belongs in the salary journey",
+        "body": "TDS is one of the largest deductions for many salaried employees, but this calculator accepts monthly tax as an input rather than calculating final income tax itself. Use the Old vs New Tax Regime Calculator for a rule-driven tax estimate, then bring the resulting monthly TDS assumption back here when modelling take-home pay. This keeps salary structure and tax calculation as separate, auditable steps."
+      },
+      {
+        "heading": "Source and methodology for the salary breakdown",
+        "body": "The calculator's numeric formulas are unchanged. The additional explanation documents what the existing inputs do and where CTC can differ from monthly gross cash salary. PF treatment should be checked against the employee's actual EPF-covered wage and employer payroll policy; professional tax depends on the applicable state; and final TDS should be reconciled with Form 16, payroll declarations and the Income Tax Department filing utility."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does CTC divided by 12 always equal monthly gross salary?",
+        "answer": "No. CTC may include employer PF, gratuity, insurance, annual bonus or other non-monthly employer costs. Check the offer-letter salary breakup before treating CTC divided by 12 as monthly gross cash salary."
+      },
+      {
+        "question": "Does HRA increase in-hand salary?",
+        "answer": "HRA can be part of gross salary and therefore part of monthly cash pay, but its tax treatment is separate. HRA exemption eligibility depends on rent, salary, location and the applicable tax-regime rules."
+      },
+      {
+        "question": "Is gratuity deducted from my monthly salary?",
+        "answer": "An employer may show gratuity as part of CTC without paying that amount as monthly cash. Whether and when gratuity becomes payable depends on the applicable employment and gratuity rules, so use the employer's salary structure rather than treating it as a routine employee-side monthly deduction."
+      },
+      {
+        "question": "Why should I compare tax regimes before estimating in-hand salary?",
+        "answer": "Payroll TDS depends on the tax rules and declarations used for the year. Comparing old and new regime estimates separately can give you a more realistic monthly TDS input for this take-home calculator."
+      }
+    ],
+    "related": [
+      "income-tax-calculator-old-vs-new-regime-india",
+      "hra-exemption-calculator-india",
+      "epf-corpus-calculator-india"
+    ],
+    "officialSources": [
+      {
+        "label": "Income Tax Department — Salaried Individuals for AY 2026-27",
+        "href": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1"
+      },
+      {
+        "label": "Income Tax Department — ITR-2 online guidance for AY 2026-27",
+        "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/file-itr-2-online"
+      },
+      {
+        "label": "EPFO — Employees' Provident Fund Organisation",
+        "href": "https://www.epfindia.gov.in/"
+      }
+    ],
+    "lastReviewed": "12 September 2026",
+    "lastReviewedIso": "2026-09-12"
+  }
+}

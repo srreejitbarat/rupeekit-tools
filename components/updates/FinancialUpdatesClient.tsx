@@ -4,7 +4,10 @@ import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { financialUpdates, FinancialUpdate } from '@/data/financial-updates';
+import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
+
+const allFinancialUpdates = [...day18FinancialUpdates, ...financialUpdates];
 
 const CATEGORIES = [
   'All',
@@ -67,7 +70,6 @@ function UpdateCard({ update }: { update: FinancialUpdate }) {
 
   return (
     <div className="rounded-3xl border border-brandBorder bg-white shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5 overflow-hidden flex flex-col">
-      {/* Visual header strip */}
       <div className="bg-gradient-to-br from-brandDeepNavy to-slate-900 px-5 pt-5 pb-4 flex items-center gap-3">
         <UpdateVisual type={visualType} size="sm" />
         <div className="flex flex-wrap gap-2">
@@ -80,9 +82,7 @@ function UpdateCard({ update }: { update: FinancialUpdate }) {
         </div>
       </div>
 
-      {/* Card body */}
       <div className="p-5 flex flex-col gap-3 flex-1">
-        {/* Source + Date */}
         <div className="flex flex-wrap items-center gap-2 text-[11px] text-brandMuted">
           <span className="font-medium truncate max-w-[200px]">{update.sourceName}</span>
           <span>·</span>
@@ -94,22 +94,18 @@ function UpdateCard({ update }: { update: FinancialUpdate }) {
           </span>
         </div>
 
-        {/* Title */}
         <h3 className="text-sm font-bold tracking-tight text-brandDeepNavy leading-snug line-clamp-3">
           {update.title}
         </h3>
 
-        {/* Summary */}
         <p className="text-xs leading-relaxed text-slate-600 line-clamp-3 flex-1">{update.summary}</p>
 
-        {/* What to verify one-liner */}
         <div className="rounded-xl bg-green-50 border border-green-100 px-3 py-2">
           <p className="text-[11px] font-semibold text-green-800 line-clamp-2">
             <span className="font-bold">Verify: </span>{update.whatToVerify.split('.')[0]}.
           </p>
         </div>
 
-        {/* CTAs */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-brandBorder">
           <Link
             href={`/financial-updates/${update.slug}`}
@@ -133,12 +129,11 @@ export default function FinancialUpdatesClient() {
 
   const filtered =
     activeCategory === 'All'
-      ? financialUpdates
-      : financialUpdates.filter((u) => u.category === activeCategory);
+      ? allFinancialUpdates
+      : allFinancialUpdates.filter((u) => u.category === activeCategory);
 
   return (
     <div className="space-y-8">
-      {/* Category Filter Chips */}
       <div className="flex flex-wrap gap-2">
         {CATEGORIES.map((cat) => {
           const isActive = activeCategory === cat;
@@ -158,7 +153,6 @@ export default function FinancialUpdatesClient() {
         })}
       </div>
 
-      {/* Educational notice */}
       <div className="rounded-2xl border border-blue-100 bg-blue-50 p-4 flex items-start gap-3">
         <span className="text-blue-400 text-lg leading-none mt-0.5" aria-hidden="true">ℹ</span>
         <p className="text-xs text-blue-800 leading-relaxed">
@@ -166,7 +160,6 @@ export default function FinancialUpdatesClient() {
         </p>
       </div>
 
-      {/* Update Cards */}
       {filtered.length === 0 ? (
         <div className="rounded-3xl border border-brandBorder bg-white p-10 text-center">
           <p className="text-brandMuted text-sm">No updates found for this category yet.</p>

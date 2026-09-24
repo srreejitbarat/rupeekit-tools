@@ -9,30 +9,127 @@
     "shortDescription": "Compare an SGB-style holding with physical gold after coupon interest, assumed gold appreciation, making charges and storage costs.",
     "metaDescription": "Compare SGB and physical gold returns in India using investment, coupon, gold appreciation, holding period, making charges and storage costs.",
     "inputs": [
-      { "key": "investmentAmount", "label": "Investment amount", "unit": "Rs", "default": 500000, "min": 1000, "step": 5000 },
-      { "key": "sgbAnnualInterest", "label": "SGB annual interest", "unit": "%", "default": 2.5, "min": 0, "max": 20, "step": 0.1 },
-      { "key": "goldAppreciation", "label": "Expected gold-price appreciation", "unit": "%/year", "default": 8, "min": -20, "max": 40, "step": 0.1 },
-      { "key": "holdingYears", "label": "Holding period", "unit": "years", "default": 8, "min": 1, "max": 30, "step": 1 },
-      { "key": "makingCharges", "label": "Physical-gold making charges", "unit": "%", "default": 8, "min": 0, "max": 40, "step": 0.5 },
-      { "key": "annualStorageCost", "label": "Annual storage and insurance cost", "unit": "% of investment", "default": 0.5, "min": 0, "max": 10, "step": 0.1 }
+      {
+        "key": "investmentAmount",
+        "label": "Investment amount",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 1000,
+        "step": 5000
+      },
+      {
+        "key": "sgbAnnualInterest",
+        "label": "SGB annual interest",
+        "unit": "%",
+        "default": 2.5,
+        "min": 0,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "goldAppreciation",
+        "label": "Expected gold-price appreciation",
+        "unit": "%/year",
+        "default": 8,
+        "min": -20,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "holdingYears",
+        "label": "Holding period",
+        "unit": "years",
+        "default": 8,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      },
+      {
+        "key": "makingCharges",
+        "label": "Physical-gold making charges",
+        "unit": "%",
+        "default": 8,
+        "min": 0,
+        "max": 40,
+        "step": 0.5
+      },
+      {
+        "key": "annualStorageCost",
+        "label": "Annual storage and insurance cost",
+        "unit": "% of investment",
+        "default": 0.5,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      }
     ],
     "outputs": [
-      { "key": "goldLinkedValue", "label": "SGB gold-linked value", "formula": "investmentAmount*(1+goldAppreciation/100)^holdingYears", "format": "currency" },
-      { "key": "sgbInterestIncome", "label": "Total SGB interest income", "formula": "investmentAmount*sgbAnnualInterest/100*holdingYears", "format": "currency" },
-      { "key": "sgbNetValue", "label": "Estimated SGB total value", "formula": "goldLinkedValue+sgbInterestIncome", "format": "currency" },
-      { "key": "physicalGoldPrincipal", "label": "Amount converted into gold", "formula": "investmentAmount*(1-makingCharges/100)", "format": "currency" },
-      { "key": "physicalGoldGrossValue", "label": "Physical-gold value before storage", "formula": "physicalGoldPrincipal*(1+goldAppreciation/100)^holdingYears", "format": "currency" },
-      { "key": "physicalStorageCost", "label": "Estimated storage and insurance cost", "formula": "investmentAmount*annualStorageCost/100*holdingYears", "format": "currency" },
-      { "key": "physicalGoldNetValue", "label": "Estimated physical-gold net value", "formula": "physicalGoldGrossValue-physicalStorageCost", "format": "currency" },
-      { "key": "sgbAdvantage", "label": "SGB value advantage", "formula": "sgbNetValue-physicalGoldNetValue", "format": "currency" }
+      {
+        "key": "goldLinkedValue",
+        "label": "SGB gold-linked value",
+        "formula": "investmentAmount*(1+goldAppreciation/100)^holdingYears",
+        "format": "currency"
+      },
+      {
+        "key": "sgbInterestIncome",
+        "label": "Total SGB interest income",
+        "formula": "investmentAmount*sgbAnnualInterest/100*holdingYears",
+        "format": "currency"
+      },
+      {
+        "key": "sgbNetValue",
+        "label": "Estimated SGB total value",
+        "formula": "goldLinkedValue+sgbInterestIncome",
+        "format": "currency"
+      },
+      {
+        "key": "physicalGoldPrincipal",
+        "label": "Amount converted into gold",
+        "formula": "investmentAmount*(1-makingCharges/100)",
+        "format": "currency"
+      },
+      {
+        "key": "physicalGoldGrossValue",
+        "label": "Physical-gold value before storage",
+        "formula": "physicalGoldPrincipal*(1+goldAppreciation/100)^holdingYears",
+        "format": "currency"
+      },
+      {
+        "key": "physicalStorageCost",
+        "label": "Estimated storage and insurance cost",
+        "formula": "investmentAmount*annualStorageCost/100*holdingYears",
+        "format": "currency"
+      },
+      {
+        "key": "physicalGoldNetValue",
+        "label": "Estimated physical-gold net value",
+        "formula": "physicalGoldGrossValue-physicalStorageCost",
+        "format": "currency"
+      },
+      {
+        "key": "sgbAdvantage",
+        "label": "SGB value advantage",
+        "formula": "sgbNetValue-physicalGoldNetValue",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Compounds both holdings by the same entered gold-price appreciation, adds simple annual SGB interest, and subtracts physical-gold making charges plus storage costs.",
     "example": "On Rs 5 lakh held for eight years, making charges and recurring storage costs can create a material gap even before tax treatment is considered.",
     "faqs": [
-      { "question": "Does this include tax on SGB interest or gold gains?", "answer": "No. Tax depends on the instrument, holding route and rules applicable when you sell or redeem. Entered results are pre-tax educational estimates." },
-      { "question": "Does the SGB estimate include market-price discounts or premiums?", "answer": "No. It assumes the entered investment tracks the chosen gold appreciation rate and does not model secondary-market liquidity or pricing differences." }
+      {
+        "question": "Does this include tax on SGB interest or gold gains?",
+        "answer": "No. Tax depends on the instrument, holding route and rules applicable when you sell or redeem. Entered results are pre-tax educational estimates."
+      },
+      {
+        "question": "Does the SGB estimate include market-price discounts or premiums?",
+        "answer": "No. It assumes the entered investment tracks the chosen gold appreciation rate and does not model secondary-market liquidity or pricing differences."
+      }
     ],
-    "related": ["gold-loan-calculator-india", "lumpsum-calculator-india", "cagr-calculator-india"],
+    "related": [
+      "gold-loan-calculator-india",
+      "lumpsum-calculator-india",
+      "cagr-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-05"
   },
@@ -46,29 +143,118 @@
     "shortDescription": "Compare how two expense ratios change future value when both funds earn the same assumed gross return before costs.",
     "metaDescription": "Compare index and active fund expense-ratio drag in India using investment amount, years and the same assumed gross return.",
     "inputs": [
-      { "key": "investmentAmount", "label": "Lumpsum investment", "unit": "Rs", "default": 500000, "min": 1000, "step": 5000 },
-      { "key": "years", "label": "Investment period", "unit": "years", "default": 15, "min": 1, "max": 50, "step": 1 },
-      { "key": "grossReturn", "label": "Expected gross annual return", "unit": "%", "default": 12, "min": 0.1, "max": 40, "step": 0.1 },
-      { "key": "indexExpenseRatio", "label": "Index-fund expense ratio", "unit": "%", "default": 0.2, "min": 0, "max": 5, "step": 0.05 },
-      { "key": "activeExpenseRatio", "label": "Active-fund expense ratio", "unit": "%", "default": 1.5, "min": 0, "max": 5, "step": 0.05 }
+      {
+        "key": "investmentAmount",
+        "label": "Lumpsum investment",
+        "unit": "Rs",
+        "default": 500000,
+        "min": 1000,
+        "step": 5000
+      },
+      {
+        "key": "years",
+        "label": "Investment period",
+        "unit": "years",
+        "default": 15,
+        "min": 1,
+        "max": 50,
+        "step": 1
+      },
+      {
+        "key": "grossReturn",
+        "label": "Expected gross annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "indexExpenseRatio",
+        "label": "Index-fund expense ratio",
+        "unit": "%",
+        "default": 0.2,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      },
+      {
+        "key": "activeExpenseRatio",
+        "label": "Active-fund expense ratio",
+        "unit": "%",
+        "default": 1.5,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      }
     ],
     "outputs": [
-      { "key": "grossFutureValue", "label": "Future value before fund costs", "formula": "investmentAmount*(1+grossReturn/100)^years", "format": "currency" },
-      { "key": "indexNetReturn", "label": "Index-fund net return assumption", "formula": "grossReturn-indexExpenseRatio", "format": "percent" },
-      { "key": "activeNetReturn", "label": "Active-fund net return assumption", "formula": "grossReturn-activeExpenseRatio", "format": "percent" },
-      { "key": "indexFutureValue", "label": "Index-fund future value", "formula": "investmentAmount*(1+indexNetReturn/100)^years", "format": "currency" },
-      { "key": "activeFutureValue", "label": "Active-fund future value", "formula": "investmentAmount*(1+activeNetReturn/100)^years", "format": "currency" },
-      { "key": "indexCostDrag", "label": "Index-fund cost drag", "formula": "grossFutureValue-indexFutureValue", "format": "currency" },
-      { "key": "activeCostDrag", "label": "Active-fund cost drag", "formula": "grossFutureValue-activeFutureValue", "format": "currency" },
-      { "key": "futureValueDifference", "label": "Future-value difference from costs", "formula": "indexFutureValue-activeFutureValue", "format": "currency" }
+      {
+        "key": "grossFutureValue",
+        "label": "Future value before fund costs",
+        "formula": "investmentAmount*(1+grossReturn/100)^years",
+        "format": "currency"
+      },
+      {
+        "key": "indexNetReturn",
+        "label": "Index-fund net return assumption",
+        "formula": "grossReturn-indexExpenseRatio",
+        "format": "percent"
+      },
+      {
+        "key": "activeNetReturn",
+        "label": "Active-fund net return assumption",
+        "formula": "grossReturn-activeExpenseRatio",
+        "format": "percent"
+      },
+      {
+        "key": "indexFutureValue",
+        "label": "Index-fund future value",
+        "formula": "investmentAmount*(1+indexNetReturn/100)^years",
+        "format": "currency"
+      },
+      {
+        "key": "activeFutureValue",
+        "label": "Active-fund future value",
+        "formula": "investmentAmount*(1+activeNetReturn/100)^years",
+        "format": "currency"
+      },
+      {
+        "key": "indexCostDrag",
+        "label": "Index-fund cost drag",
+        "formula": "grossFutureValue-indexFutureValue",
+        "format": "currency"
+      },
+      {
+        "key": "activeCostDrag",
+        "label": "Active-fund cost drag",
+        "formula": "grossFutureValue-activeFutureValue",
+        "format": "currency"
+      },
+      {
+        "key": "futureValueDifference",
+        "label": "Future-value difference from costs",
+        "formula": "indexFutureValue-activeFutureValue",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Subtracts each expense ratio from the same assumed gross return and compounds both net return assumptions for the selected period.",
     "example": "The comparison isolates fee drag only; it does not assume either fund generates better or worse gross performance.",
     "faqs": [
-      { "question": "Does a lower expense ratio guarantee a higher return?", "answer": "No. This calculator deliberately holds gross return constant to isolate cost drag. Actual fund performance, tracking difference and portfolio choices vary." },
-      { "question": "Does this include exit load or tax?", "answer": "No. It compares recurring expense ratios only and excludes one-time charges, transaction costs and tax." }
+      {
+        "question": "Does a lower expense ratio guarantee a higher return?",
+        "answer": "No. This calculator deliberately holds gross return constant to isolate cost drag. Actual fund performance, tracking difference and portfolio choices vary."
+      },
+      {
+        "question": "Does this include exit load or tax?",
+        "answer": "No. It compares recurring expense ratios only and excludes one-time charges, transaction costs and tax."
+      }
     ],
-    "related": ["lumpsum-calculator-india", "sip-calculator-india", "cagr-calculator-india"],
+    "related": [
+      "lumpsum-calculator-india",
+      "sip-calculator-india",
+      "cagr-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-05"
   },
@@ -82,19 +268,85 @@
     "shortDescription": "Compare illustrative ELSS, tax-saver FD and PPF values at their common statutory lock-in periods and over a shared 15-year horizon.",
     "metaDescription": "Compare ELSS, tax-saver FD and PPF values at 3, 5 and 15-year lock-ins, plus a common 15-year horizon.",
     "inputs": [
-      { "key": "investmentAmount", "label": "Section 80C investment", "unit": "Rs", "default": 150000, "min": 1000, "step": 5000 },
-      { "key": "elssReturn", "label": "Expected ELSS annual return", "unit": "%", "default": 12, "min": -20, "max": 40, "step": 0.1 },
-      { "key": "ppfReturn", "label": "Expected PPF annual return", "unit": "%", "default": 7.1, "min": 0.1, "max": 20, "step": 0.1 },
-      { "key": "fdReturn", "label": "Expected tax-saver FD annual return", "unit": "%", "default": 7, "min": 0.1, "max": 20, "step": 0.1 }
+      {
+        "key": "investmentAmount",
+        "label": "Section 80C investment",
+        "unit": "Rs",
+        "default": 150000,
+        "min": 1000,
+        "step": 5000
+      },
+      {
+        "key": "elssReturn",
+        "label": "Expected ELSS annual return",
+        "unit": "%",
+        "default": 12,
+        "min": -20,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "ppfReturn",
+        "label": "Expected PPF annual return",
+        "unit": "%",
+        "default": 7.1,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "fdReturn",
+        "label": "Expected tax-saver FD annual return",
+        "unit": "%",
+        "default": 7,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1
+      }
     ],
     "outputs": [
-      { "key": "elssLockInValue", "label": "ELSS value after 3-year lock-in", "formula": "investmentAmount*(1+elssReturn/100)^3", "format": "currency" },
-      { "key": "fdLockInValue", "label": "Tax-saver FD value after 5-year lock-in", "formula": "investmentAmount*(1+fdReturn/100)^5", "format": "currency" },
-      { "key": "ppfLockInValue", "label": "PPF value after 15-year lock-in", "formula": "investmentAmount*(1+ppfReturn/100)^15", "format": "currency" },
-      { "key": "elssValueAt15Years", "label": "ELSS value at common 15-year horizon", "formula": "investmentAmount*(1+elssReturn/100)^15", "format": "currency" },
-      { "key": "fdValueAt15Years", "label": "FD value at common 15-year horizon", "formula": "investmentAmount*(1+fdReturn/100)^15", "format": "currency" },
-      { "key": "elssVsPpfAt15Years", "label": "ELSS minus PPF at 15 years", "formula": "elssValueAt15Years-ppfLockInValue", "format": "currency" },
-      { "key": "elssVsFdAt15Years", "label": "ELSS minus FD at 15 years", "formula": "elssValueAt15Years-fdValueAt15Years", "format": "currency" }
+      {
+        "key": "elssLockInValue",
+        "label": "ELSS value after 3-year lock-in",
+        "formula": "investmentAmount*(1+elssReturn/100)^3",
+        "format": "currency"
+      },
+      {
+        "key": "fdLockInValue",
+        "label": "Tax-saver FD value after 5-year lock-in",
+        "formula": "investmentAmount*(1+fdReturn/100)^5",
+        "format": "currency"
+      },
+      {
+        "key": "ppfLockInValue",
+        "label": "PPF value after 15-year lock-in",
+        "formula": "investmentAmount*(1+ppfReturn/100)^15",
+        "format": "currency"
+      },
+      {
+        "key": "elssValueAt15Years",
+        "label": "ELSS value at common 15-year horizon",
+        "formula": "investmentAmount*(1+elssReturn/100)^15",
+        "format": "currency"
+      },
+      {
+        "key": "fdValueAt15Years",
+        "label": "FD value at common 15-year horizon",
+        "formula": "investmentAmount*(1+fdReturn/100)^15",
+        "format": "currency"
+      },
+      {
+        "key": "elssVsPpfAt15Years",
+        "label": "ELSS minus PPF at 15 years",
+        "formula": "elssValueAt15Years-ppfLockInValue",
+        "format": "currency"
+      },
+      {
+        "key": "elssVsFdAt15Years",
+        "label": "ELSS minus FD at 15 years",
+        "formula": "elssValueAt15Years-fdValueAt15Years",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Compounds a single investment at the entered return assumptions for the fixed 3-year ELSS, 5-year tax-saver FD and 15-year PPF lock-ins, then compares all three at 15 years.",
     "example": "The native lock-in outputs show when each option first becomes accessible; the 15-year outputs provide a like-for-like compounding horizon.",
@@ -104,14 +356,27 @@
       "answer": "ELSS units have a 3-year lock-in, tax-saver bank FDs generally have a 5-year lock-in, and PPF has a 15-year base tenure. Returns, risk, liquidity and tax treatment differ.",
       "note": "Verify current rules and product terms before investing.",
       "links": [
-        { "label": "Read the PPF vs ELSS vs FD Section 80C guide", "href": "/blog/ppf-vs-elss-vs-fd-section-80c-india" }
+        {
+          "label": "Read the PPF vs ELSS vs FD Section 80C guide",
+          "href": "/blog/ppf-vs-elss-vs-fd-section-80c-india"
+        }
       ]
     },
     "faqs": [
-      { "question": "Is ELSS return guaranteed after three years?", "answer": "No. ELSS is market-linked, and the 3-year lock-in is not a promised return period. Value can be above or below the investment." },
-      { "question": "Are these post-tax maturity values?", "answer": "No. The calculator compares pre-tax compounding assumptions. Interest and capital-gains treatment can differ across ELSS, PPF and tax-saver FDs." }
+      {
+        "question": "Is ELSS return guaranteed after three years?",
+        "answer": "No. ELSS is market-linked, and the 3-year lock-in is not a promised return period. Value can be above or below the investment."
+      },
+      {
+        "question": "Are these post-tax maturity values?",
+        "answer": "No. The calculator compares pre-tax compounding assumptions. Interest and capital-gains treatment can differ across ELSS, PPF and tax-saver FDs."
+      }
     ],
-    "related": ["80c-deduction-calculator-india", "ppf-calculator-india", "lumpsum-calculator-india"],
+    "related": [
+      "80c-deduction-calculator-india",
+      "ppf-calculator-india",
+      "lumpsum-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-05"
   },
@@ -125,33 +390,148 @@
     "shortDescription": "Compare monthly investing in NPS Tier 2 and an equity mutual fund using return and withdrawal-tax assumptions for each route.",
     "metaDescription": "Compare NPS Tier 2 and mutual fund corpus values using monthly contribution, years, expected returns and withdrawal-tax assumptions.",
     "inputs": [
-      { "key": "monthlyContribution", "label": "Monthly contribution", "unit": "Rs", "default": 10000, "min": 100, "step": 500 },
-      { "key": "years", "label": "Investment period", "unit": "years", "default": 15, "min": 1, "max": 40, "step": 1 },
-      { "key": "npsReturn", "label": "Expected NPS Tier 2 return", "unit": "%/year", "default": 10, "min": 0.1, "max": 40, "step": 0.1 },
-      { "key": "mutualFundReturn", "label": "Expected equity-MF return", "unit": "%/year", "default": 12, "min": 0.1, "max": 40, "step": 0.1 },
-      { "key": "npsWithdrawalTaxRate", "label": "Assumed NPS Tier 2 tax on gains", "unit": "%", "default": 20, "min": 0, "max": 50, "step": 0.5 },
-      { "key": "mutualFundWithdrawalTaxRate", "label": "Assumed mutual-fund tax on gains", "unit": "%", "default": 12.5, "min": 0, "max": 50, "step": 0.5 }
+      {
+        "key": "monthlyContribution",
+        "label": "Monthly contribution",
+        "unit": "Rs",
+        "default": 10000,
+        "min": 100,
+        "step": 500
+      },
+      {
+        "key": "years",
+        "label": "Investment period",
+        "unit": "years",
+        "default": 15,
+        "min": 1,
+        "max": 40,
+        "step": 1
+      },
+      {
+        "key": "npsReturn",
+        "label": "Expected NPS Tier 2 return",
+        "unit": "%/year",
+        "default": 10,
+        "min": 0.1,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "mutualFundReturn",
+        "label": "Expected equity-MF return",
+        "unit": "%/year",
+        "default": 12,
+        "min": 0.1,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "npsWithdrawalTaxRate",
+        "label": "Assumed NPS Tier 2 tax on gains",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 50,
+        "step": 0.5
+      },
+      {
+        "key": "mutualFundWithdrawalTaxRate",
+        "label": "Assumed mutual-fund tax on gains",
+        "unit": "%",
+        "default": 12.5,
+        "min": 0,
+        "max": 50,
+        "step": 0.5
+      }
     ],
     "outputs": [
-      { "key": "months", "label": "Contribution months", "formula": "years*12", "format": "number", "hidden": true },
-      { "key": "totalContributions", "label": "Total contributions", "formula": "monthlyContribution*months", "format": "currency" },
-      { "key": "npsMonthlyRate", "label": "NPS monthly return", "formula": "npsReturn/1200", "format": "percent", "hidden": true },
-      { "key": "mutualFundMonthlyRate", "label": "Mutual-fund monthly return", "formula": "mutualFundReturn/1200", "format": "percent", "hidden": true },
-      { "key": "npsGrossCorpus", "label": "NPS Tier 2 gross corpus", "formula": "monthlyContribution*((1+npsMonthlyRate)^months-1)/npsMonthlyRate*(1+npsMonthlyRate)", "format": "currency" },
-      { "key": "mutualFundGrossCorpus", "label": "Mutual-fund gross corpus", "formula": "monthlyContribution*((1+mutualFundMonthlyRate)^months-1)/mutualFundMonthlyRate*(1+mutualFundMonthlyRate)", "format": "currency" },
-      { "key": "npsEstimatedTax", "label": "Illustrative NPS Tier 2 tax", "formula": "max(npsGrossCorpus-totalContributions,0)*npsWithdrawalTaxRate/100", "format": "currency" },
-      { "key": "mutualFundEstimatedTax", "label": "Illustrative mutual-fund tax", "formula": "max(mutualFundGrossCorpus-totalContributions,0)*mutualFundWithdrawalTaxRate/100", "format": "currency" },
-      { "key": "npsPostTaxCorpus", "label": "NPS Tier 2 post-tax corpus", "formula": "npsGrossCorpus-npsEstimatedTax", "format": "currency" },
-      { "key": "mutualFundPostTaxCorpus", "label": "Mutual-fund post-tax corpus", "formula": "mutualFundGrossCorpus-mutualFundEstimatedTax", "format": "currency" },
-      { "key": "postTaxDifference", "label": "Mutual-fund minus NPS post-tax value", "formula": "mutualFundPostTaxCorpus-npsPostTaxCorpus", "format": "currency" }
+      {
+        "key": "months",
+        "label": "Contribution months",
+        "formula": "years*12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "totalContributions",
+        "label": "Total contributions",
+        "formula": "monthlyContribution*months",
+        "format": "currency"
+      },
+      {
+        "key": "npsMonthlyRate",
+        "label": "NPS monthly return",
+        "formula": "npsReturn/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "mutualFundMonthlyRate",
+        "label": "Mutual-fund monthly return",
+        "formula": "mutualFundReturn/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "npsGrossCorpus",
+        "label": "NPS Tier 2 gross corpus",
+        "formula": "monthlyContribution*((1+npsMonthlyRate)^months-1)/npsMonthlyRate*(1+npsMonthlyRate)",
+        "format": "currency"
+      },
+      {
+        "key": "mutualFundGrossCorpus",
+        "label": "Mutual-fund gross corpus",
+        "formula": "monthlyContribution*((1+mutualFundMonthlyRate)^months-1)/mutualFundMonthlyRate*(1+mutualFundMonthlyRate)",
+        "format": "currency"
+      },
+      {
+        "key": "npsEstimatedTax",
+        "label": "Illustrative NPS Tier 2 tax",
+        "formula": "max(npsGrossCorpus-totalContributions,0)*npsWithdrawalTaxRate/100",
+        "format": "currency"
+      },
+      {
+        "key": "mutualFundEstimatedTax",
+        "label": "Illustrative mutual-fund tax",
+        "formula": "max(mutualFundGrossCorpus-totalContributions,0)*mutualFundWithdrawalTaxRate/100",
+        "format": "currency"
+      },
+      {
+        "key": "npsPostTaxCorpus",
+        "label": "NPS Tier 2 post-tax corpus",
+        "formula": "npsGrossCorpus-npsEstimatedTax",
+        "format": "currency"
+      },
+      {
+        "key": "mutualFundPostTaxCorpus",
+        "label": "Mutual-fund post-tax corpus",
+        "formula": "mutualFundGrossCorpus-mutualFundEstimatedTax",
+        "format": "currency"
+      },
+      {
+        "key": "postTaxDifference",
+        "label": "Mutual-fund minus NPS post-tax value",
+        "formula": "mutualFundPostTaxCorpus-npsPostTaxCorpus",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Uses monthly annuity-due compounding for each return assumption, then applies the entered illustrative tax rate only to estimated gains at withdrawal.",
     "example": "Changing either expected return or the assumed tax rate can materially alter the post-tax comparison over a long holding period.",
     "faqs": [
-      { "question": "Does NPS Tier 2 have the same tax benefit as NPS Tier 1?", "answer": "Do not assume so. Tier 2 liquidity and tax treatment differ from Tier 1 and can depend on investor category and current rules." },
-      { "question": "Are the entered tax rates applied to the whole corpus?", "answer": "No. This simplified model applies each entered rate only to estimated gains, not to contributed principal." }
+      {
+        "question": "Does NPS Tier 2 have the same tax benefit as NPS Tier 1?",
+        "answer": "Do not assume so. Tier 2 liquidity and tax treatment differ from Tier 1 and can depend on investor category and current rules."
+      },
+      {
+        "question": "Are the entered tax rates applied to the whole corpus?",
+        "answer": "No. This simplified model applies each entered rate only to estimated gains, not to contributed principal."
+      }
     ],
-    "related": ["nps-calculator-india", "sip-calculator-india", "capital-gains-tax-calculator-india"],
+    "related": [
+      "nps-calculator-india",
+      "sip-calculator-india",
+      "capital-gains-tax-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-05"
   },
@@ -165,28 +545,116 @@
     "shortDescription": "Approximate an annualised portfolio return for up to three investments using their amounts, years held and current combined value.",
     "metaDescription": "Approximate annualised portfolio return in India for up to three lumpsum investments with different holding periods and one current value.",
     "inputs": [
-      { "key": "investment1", "label": "Investment 1 amount", "unit": "Rs", "default": 100000, "min": 0, "step": 5000 },
-      { "key": "holdingYears1", "label": "Years since investment 1", "unit": "years", "default": 5, "min": 0.1, "max": 50, "step": 0.1 },
-      { "key": "investment2", "label": "Investment 2 amount", "unit": "Rs", "default": 150000, "min": 0, "step": 5000 },
-      { "key": "holdingYears2", "label": "Years since investment 2", "unit": "years", "default": 3, "min": 0.1, "max": 50, "step": 0.1 },
-      { "key": "investment3", "label": "Investment 3 amount", "unit": "Rs", "default": 250000, "min": 0, "step": 5000 },
-      { "key": "holdingYears3", "label": "Years since investment 3", "unit": "years", "default": 1, "min": 0.1, "max": 50, "step": 0.1 },
-      { "key": "currentValue", "label": "Current combined portfolio value", "unit": "Rs", "default": 600000, "min": 1, "step": 5000 }
+      {
+        "key": "investment1",
+        "label": "Investment 1 amount",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "holdingYears1",
+        "label": "Years since investment 1",
+        "unit": "years",
+        "default": 5,
+        "min": 0.1,
+        "max": 50,
+        "step": 0.1
+      },
+      {
+        "key": "investment2",
+        "label": "Investment 2 amount",
+        "unit": "Rs",
+        "default": 150000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "holdingYears2",
+        "label": "Years since investment 2",
+        "unit": "years",
+        "default": 3,
+        "min": 0.1,
+        "max": 50,
+        "step": 0.1
+      },
+      {
+        "key": "investment3",
+        "label": "Investment 3 amount",
+        "unit": "Rs",
+        "default": 250000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "holdingYears3",
+        "label": "Years since investment 3",
+        "unit": "years",
+        "default": 1,
+        "min": 0.1,
+        "max": 50,
+        "step": 0.1
+      },
+      {
+        "key": "currentValue",
+        "label": "Current combined portfolio value",
+        "unit": "Rs",
+        "default": 600000,
+        "min": 1,
+        "step": 5000
+      }
     ],
     "outputs": [
-      { "key": "totalInvested", "label": "Total invested", "formula": "investment1+investment2+investment3", "format": "currency" },
-      { "key": "weightedHoldingYears", "label": "Amount-weighted holding period", "formula": "(investment1*holdingYears1+investment2*holdingYears2+investment3*holdingYears3)/max(totalInvested,1)", "format": "number" },
-      { "key": "absoluteGain", "label": "Absolute portfolio gain", "formula": "currentValue-totalInvested", "format": "currency" },
-      { "key": "absoluteReturn", "label": "Absolute portfolio return", "formula": "absoluteGain/max(totalInvested,1)*100", "format": "percent" },
-      { "key": "annualisedReturnApprox", "label": "Approximate annualised return", "formula": "((currentValue/max(totalInvested,1))^(1/max(weightedHoldingYears,0.01))-1)*100", "format": "percent" }
+      {
+        "key": "totalInvested",
+        "label": "Total invested",
+        "formula": "investment1+investment2+investment3",
+        "format": "currency"
+      },
+      {
+        "key": "weightedHoldingYears",
+        "label": "Amount-weighted holding period",
+        "formula": "(investment1*holdingYears1+investment2*holdingYears2+investment3*holdingYears3)/max(totalInvested,1)",
+        "format": "number"
+      },
+      {
+        "key": "absoluteGain",
+        "label": "Absolute portfolio gain",
+        "formula": "currentValue-totalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "absoluteReturn",
+        "label": "Absolute portfolio return",
+        "formula": "absoluteGain/max(totalInvested,1)*100",
+        "format": "percent"
+      },
+      {
+        "key": "annualisedReturnApprox",
+        "label": "Approximate annualised return",
+        "formula": "((currentValue/max(totalInvested,1))^(1/max(weightedHoldingYears,0.01))-1)*100",
+        "format": "percent"
+      }
     ],
     "formulaExplanation": "Uses an amount-weighted average holding period, then annualises the total portfolio gain as a closed-form CAGR approximation. It is not an iterative date-accurate XIRR solve.",
     "example": "Rs 1 lakh held five years, Rs 1.5 lakh held three years and Rs 2.5 lakh held one year have an amount-weighted holding period of 2.4 years.",
     "faqs": [
-      { "question": "Is this the same as Excel XIRR?", "answer": "No. Excel XIRR iteratively solves dated cash flows. This calculator uses a transparent weighted-holding-period approximation compatible with RupeeKit's single-expression engine." },
-      { "question": "When should I use a full XIRR calculation instead?", "answer": "Use date-accurate XIRR when cash flows are irregular, include withdrawals or dividends, or when precise performance reporting is required." }
+      {
+        "question": "Is this the same as Excel XIRR?",
+        "answer": "No. Excel XIRR iteratively solves dated cash flows. This calculator uses a transparent weighted-holding-period approximation compatible with RupeeKit's single-expression engine."
+      },
+      {
+        "question": "When should I use a full XIRR calculation instead?",
+        "answer": "Use date-accurate XIRR when cash flows are irregular, include withdrawals or dividends, or when precise performance reporting is required."
+      }
     ],
-    "related": ["cagr-calculator-india", "lumpsum-calculator-india", "sip-calculator-india"],
+    "related": [
+      "cagr-calculator-india",
+      "lumpsum-calculator-india",
+      "sip-calculator-india",
+      "stock-portfolio-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-05"
   },
@@ -200,24 +668,77 @@
     "shortDescription": "Estimate how many years an investment may take to double, compare the Rule of 72 with exact annual compounding and view preset rates.",
     "metaDescription": "Estimate investment doubling time with the Rule of 72, compare exact annual compounding and see preset results for 8%, 10%, 12% and 15%.",
     "inputs": [
-      { "key": "expectedReturn", "label": "Expected annual return", "unit": "%", "default": 12, "min": 0.1, "max": 100, "step": 0.1 }
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "max": 100,
+        "step": 0.1
+      }
     ],
     "outputs": [
-      { "key": "ruleOf72Years", "label": "Rule of 72 doubling time", "formula": "72/expectedReturn", "format": "number" },
-      { "key": "exactDoublingYears", "label": "Exact annual-compounding time", "formula": "log(2)/log(1+expectedReturn/100)", "format": "number" },
-      { "key": "approximationDifference", "label": "Rule-of-72 difference", "formula": "ruleOf72Years-exactDoublingYears", "format": "number" },
-      { "key": "yearsAt8Percent", "label": "Doubling time at 8%", "formula": "72/8", "format": "number" },
-      { "key": "yearsAt10Percent", "label": "Doubling time at 10%", "formula": "72/10", "format": "number" },
-      { "key": "yearsAt12Percent", "label": "Doubling time at 12%", "formula": "72/12", "format": "number" },
-      { "key": "yearsAt15Percent", "label": "Doubling time at 15%", "formula": "72/15", "format": "number" }
+      {
+        "key": "ruleOf72Years",
+        "label": "Rule of 72 doubling time",
+        "formula": "72/expectedReturn",
+        "format": "number"
+      },
+      {
+        "key": "exactDoublingYears",
+        "label": "Exact annual-compounding time",
+        "formula": "log(2)/log(1+expectedReturn/100)",
+        "format": "number"
+      },
+      {
+        "key": "approximationDifference",
+        "label": "Rule-of-72 difference",
+        "formula": "ruleOf72Years-exactDoublingYears",
+        "format": "number"
+      },
+      {
+        "key": "yearsAt8Percent",
+        "label": "Doubling time at 8%",
+        "formula": "72/8",
+        "format": "number"
+      },
+      {
+        "key": "yearsAt10Percent",
+        "label": "Doubling time at 10%",
+        "formula": "72/10",
+        "format": "number"
+      },
+      {
+        "key": "yearsAt12Percent",
+        "label": "Doubling time at 12%",
+        "formula": "72/12",
+        "format": "number"
+      },
+      {
+        "key": "yearsAt15Percent",
+        "label": "Doubling time at 15%",
+        "formula": "72/15",
+        "format": "number"
+      }
     ],
     "formulaExplanation": "Divides 72 by the entered annual return for the common approximation and compares it with log(2) divided by log(1 + return) for exact annual compounding.",
     "example": "At 12% a year, the Rule of 72 estimates 6 years to double, while exact annual compounding takes about 6.12 years.",
     "faqs": [
-      { "question": "Is the Rule of 72 a guaranteed doubling period?", "answer": "No. It is a mental-math approximation. Market-linked returns vary and may be negative in some periods." },
-      { "question": "When is the Rule of 72 most accurate?", "answer": "It is generally closest around moderate annual rates. The exact-compounding output shows how the approximation differs for your entered rate." }
+      {
+        "question": "Is the Rule of 72 a guaranteed doubling period?",
+        "answer": "No. It is a mental-math approximation. Market-linked returns vary and may be negative in some periods."
+      },
+      {
+        "question": "When is the Rule of 72 most accurate?",
+        "answer": "It is generally closest around moderate annual rates. The exact-compounding output shows how the approximation differs for your entered rate."
+      }
     ],
-    "related": ["cagr-calculator-india", "lumpsum-calculator-india", "sip-calculator-india"],
+    "related": [
+      "cagr-calculator-india",
+      "lumpsum-calculator-india",
+      "sip-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-05"
   }

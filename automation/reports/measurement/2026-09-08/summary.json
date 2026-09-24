@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "asOfDate": "2026-09-08",
+  "expectedDays": 28,
+  "status": "partial",
+  "authoritative": false,
+  "blockers": [
+    "GSC export is 9 days; expected 28.",
+    "GA4 export is 9 days; expected 28.",
+    "GA4 Pages & Screens export does not contain sessions, engaged sessions, calculator completion or CTA-click breakdowns."
+  ],
+  "gsc": {
+    "dateRange": {
+      "startDate": "2026-08-31",
+      "endDate": "2026-09-08",
+      "days": 9
+    },
+    "totals": {
+      "clicks": 19,
+      "impressions": 18719,
+      "ctr": 0.001015011485656285,
+      "averagePosition": 12.640349377637694
+    },
+    "sourceRule": "Headline totals come from Chart.csv; page/query exports are not summed to reconstruct site totals."
+  },
+  "ga4": {
+    "dateRange": {
+      "startDate": "2026-08-31",
+      "endDate": "2026-09-08",
+      "days": 9
+    },
+    "pageRows": 30,
+    "additiveTotalsAvailableFromThisExport": {
+      "views": 97,
+      "eventCount": 374,
+      "keyEvents": 0,
+      "totalRevenue": 0
+    },
+    "unavailableFromPagesAndScreensExport": [
+      "sessions",
+      "engagedSessions",
+      "calculatorCompletion",
+      "toolCtaClicks"
+    ]
+  }
+}

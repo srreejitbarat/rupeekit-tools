@@ -1,0 +1,230 @@
+{
+  "asOf": "2026-09-23",
+  "policy": "Only pages with facts that can change on a known regulatory, policy, pricing or filing cycle belong in this register. Evergreen pages are intentionally excluded.",
+  "entries": [
+    {
+      "id": "official-financial-updates",
+      "pagePattern": "/financial-updates/*",
+      "fact": "Dated government, regulator, tax, pension, rate or filing-status update",
+      "primarySource": "Primary source listed on each FinancialUpdate record",
+      "verificationDate": "2026-08-20",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "New notice, circular, notification, policy meeting, rate reset or superseding official update",
+      "owner": "content",
+      "notes": "Historical updates remain useful but must clearly distinguish the dated event from current status."
+    },
+    {
+      "id": "small-savings-current-quarter",
+      "pagePattern": "/tools/{ppf-calculator-india,sukanya-samriddhi-yojana-calculator-india,scss-calculator-india,post-office-monthly-income-scheme-calculator-india}",
+      "fact": "Current PPF, SSY, SCSS and Post Office MIS interest rates",
+      "primarySource": "Department of Economic Affairs small-savings notification and India Post savings pages",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Quarterly small-savings rate notification; mandatory review before 1 Jan, 1 Apr, 1 Jul and 1 Oct",
+      "owner": "calculators",
+      "notes": "Jul-Sep 2026 quarter remains the current quarter; do not imply the rate is guaranteed for the full tenure."
+    },
+    {
+      "id": "8th-cpc-calculators",
+      "pagePattern": "/tools/8th-pay-commission-*",
+      "fact": "8th CPC process status, fitment-factor status and implementation-status wording",
+      "primarySource": "https://8cpc.gov.in/",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 14,
+      "reviewTrigger": "Commission recommendation, report, fitment factor, pay matrix, Government decision or implementation order",
+      "owner": "calculators",
+      "notes": "Official site currently lists consultation/appointment activity, including Chandigarh 16-18 Sep and Bengaluru 7-8 Oct; no final fitment factor is treated as notified."
+    },
+    {
+      "id": "8th-cpc-level-pages",
+      "pagePattern": "/8th-pay-commission/level-*",
+      "fact": "Scenario labels and disclaimer that fitment factors are illustrative rather than notified pay revisions",
+      "primarySource": "https://8cpc.gov.in/",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 14,
+      "reviewTrigger": "Commission recommendation, report, fitment factor, pay matrix or Government implementation order",
+      "owner": "content"
+    },
+    {
+      "id": "itr2-ay-2026-27",
+      "pagePattern": "/blog/itr-2-ay-2026-27-filing-guide",
+      "fact": "AY 2026-27 filing availability, due-date status and late/revised-return guidance",
+      "primarySource": "https://www.incometax.gov.in/iec/foportal/",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 14,
+      "reviewTrigger": "CBDT section 119 order/circular, e-filing utility update or filing-deadline announcement",
+      "owner": "tax-content",
+      "notes": "Official portal was rechecked on 5 Sep 2026. ITR-2 utilities are available, but no primary-source AY 2026-27 circular establishing a different non-audit due date was located; page should continue to state statutory baseline plus verify-current-status guidance rather than invent an extension."
+    },
+    {
+      "id": "tax-deadlines-hub",
+      "pagePattern": "/deadlines",
+      "fact": "Recurring statutory tax dates and explicit commonly-extended status",
+      "primarySource": "Income Tax Department / CBDT",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "CBDT circular/order, Budget/Finance Act change, or a statutory deadline amendment",
+      "owner": "tax-content"
+    },
+    {
+      "id": "income-tax-calculator",
+      "pagePattern": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "fact": "Supported financial-year slabs, rebate limits, standard deduction and cess",
+      "primarySource": "Income Tax Department and enacted Finance Act for the supported year",
+      "verificationDate": "2026-08-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "Finance Act, Budget tax change, CBDT clarification affecting calculator scope, or new supported financial year",
+      "owner": "calculators",
+      "notes": "Formula changes require a separate cited correctness change and regression tests."
+    },
+    {
+      "id": "broker-comparison",
+      "pagePattern": "/blog/zerodha-vs-upstox-vs-angel-one-demat-account",
+      "fact": "Zerodha, Upstox and Angel One brokerage, account-opening and demat AMC claims",
+      "primarySource": "Official Zerodha, Upstox and Angel One pricing/support pages",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Broker pricing announcement, fee-table change, product/account eligibility change",
+      "owner": "commercial-content",
+      "notes": "Commercial relationships never determine ranking or factual conclusions."
+    },
+    {
+      "id": "rbi-rate-and-loan-rule-pages",
+      "pagePattern": "/financial-updates/rbi-*|/tools/gold-loan-calculator-india",
+      "fact": "RBI policy-rate context and regulated lending-rule references",
+      "primarySource": "https://www.rbi.org.in/",
+      "verificationDate": "2026-08-24",
+      "reviewIntervalDays": 45,
+      "reviewTrigger": "MPC policy decision, RBI circular/direction or effective-date change",
+      "owner": "loans-content"
+    },
+    {
+      "id": "epfo-pages",
+      "pagePattern": "/financial-updates/epfo-*|/tools/*epf*|/blog/*epf*",
+      "fact": "EPFO scheme, contribution, withdrawal and compliance-rule claims",
+      "primarySource": "EPFO / Ministry of Labour and Employment",
+      "verificationDate": "2026-08-20",
+      "reviewIntervalDays": 45,
+      "reviewTrigger": "EPFO circular, Ministry notification, interest-rate declaration or scheme amendment",
+      "owner": "retirement-content"
+    },
+    {
+      "id": "labour-code-gratuity-pages",
+      "pagePattern": "/blog/*gratuity*|/tools/*gratuity*",
+      "fact": "Gratuity eligibility, wage-definition and labour-code implementation wording",
+      "primarySource": "Ministry of Labour and Employment / PIB / enacted labour codes and notified rules",
+      "verificationDate": "2026-08-23",
+      "reviewIntervalDays": 45,
+      "reviewTrigger": "Central/state commencement notification, rules notification or Ministry clarification",
+      "owner": "labour-content"
+    },
+    {
+      "id": "nps-pages",
+      "pagePattern": "/tools/*nps*|/blog/*nps*",
+      "fact": "NPS withdrawal/annuity/tax-rule and scheme claims",
+      "primarySource": "PFRDA and Income Tax Department where tax treatment is stated",
+      "verificationDate": "2026-08-10",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "PFRDA circular/regulation or tax-law change",
+      "owner": "retirement-content"
+    },
+    {
+      "id": "government-da-dr-pages",
+      "pagePattern": "/government-salary-updates/*|/tools/*da-*|/tools/*pension*",
+      "fact": "Central-government DA/DR and pension-policy update claims",
+      "primarySource": "Department of Expenditure / Department of Pension and Pensioners' Welfare / PIB",
+      "verificationDate": "2026-08-20",
+      "reviewIntervalDays": 45,
+      "reviewTrigger": "Cabinet decision, Department of Expenditure order, pension OM or half-yearly DA/DR revision",
+      "owner": "government-salary-content"
+    },
+    {
+      "id": "gold-rate-pages",
+      "pagePattern": "/gold-rates*|/tools/gold-*",
+      "fact": "Live/reference gold-price timestamps and data-provider status",
+      "primarySource": "Configured gold-rate provider plus RBI only for lending rules",
+      "verificationDate": "2026-09-05",
+      "reviewIntervalDays": 7,
+      "reviewTrigger": "Provider failure, stale quote timestamp, methodology/provider change",
+      "owner": "market-data",
+      "notes": "A user-entered illustrative gold price must never be described as today's market price."
+    },
+    {
+      "id": "money-guide-tax",
+      "pagePattern": "/money-guides/salary-income-tax",
+      "fact": "Assessment-year tax-regime and HRA guidance",
+      "primarySource": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Finance Act or filing-year guidance changes",
+      "owner": "content",
+      "notes": "The example uses assumed TDS; verify tax treatment before any rule-based sample."
+    },
+    {
+      "id": "money-guide-borrowing",
+      "pagePattern": "/money-guides/{home-loan-prepayment,personal-loan-apr,credit-card-debt}",
+      "fact": "RBI KFS, APR and credit-card repayment disclosures",
+      "primarySource": "https://www.rbi.org.in/commonman/english/scripts/FAQs.aspx?Id=3687",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "New RBI lending or credit card circular and FAQs",
+      "owner": "content",
+      "notes": "Examples use hypothetical rates and fees; lender terms control actual cost."
+    },
+    {
+      "id": "money-guide-small-savings",
+      "pagePattern": "/money-guides/ppf-small-savings",
+      "fact": "PPF scheme tenure and the periodically notified small-savings rates",
+      "primarySource": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Quarterly rate reset or amendment to scheme terms",
+      "owner": "content",
+      "notes": "No current rate is hard-coded into guide examples."
+    },
+    {
+      "id": "money-guide-epf",
+      "pagePattern": "/money-guides/epf-salary-retirement",
+      "fact": "EPFO contribution allocation and notified interest",
+      "primarySource": "https://www.epfindia.gov.in/site_en/FAQ.php",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "EPFO circular or annual interest-rate notification",
+      "owner": "content",
+      "notes": "The contribution-only example excludes interest and employer EPS allocation."
+    },
+    {
+      "id": "money-guide-gst",
+      "pagePattern": "/money-guides/gst-invoice",
+      "fact": "Official HSN/SAC rate lookup and GST classification",
+      "primarySource": "https://tutorial.gst.gov.in/userguide/taxpayersdashboard/Search_HSN_SAC_Tax_Rates.htm",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "GST Council or CBIC notification altering rate or classification",
+      "owner": "content",
+      "notes": "Illustrative 18% is not attributed to a specific product or service."
+    },
+    {
+      "id": "money-guide-gratuity",
+      "pagePattern": "/money-guides/gratuity-labour",
+      "fact": "Labour-code gratuity rules, wage basis and eligibility exceptions",
+      "primarySource": "https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 30,
+      "reviewTrigger": "Ministry of Labour notification, rule clarification or ceiling change",
+      "owner": "content",
+      "notes": "Worked example must stay explicitly conditional on eligible wages and service."
+    },
+    {
+      "id": "money-guide-property",
+      "pagePattern": "/money-guides/rent-property-housing",
+      "fact": "State-specific registration and stamp charges",
+      "primarySource": "https://wbregistration.gov.in/SD_RF_Calculator.aspx",
+      "verificationDate": "2026-09-23",
+      "reviewIntervalDays": 60,
+      "reviewTrigger": "State fee amendment or official calculator revision",
+      "owner": "content",
+      "notes": "West Bengal source is an example; no nationwide duty rate is claimed."
+    }
+  ]
+}

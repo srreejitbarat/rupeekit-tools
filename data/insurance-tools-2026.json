@@ -9,25 +9,92 @@
     "shortDescription": "Estimate additional term cover from income replacement, outstanding liabilities, dependent goals and existing life insurance.",
     "metaDescription": "Estimate term life insurance cover in India from income replacement, loans, family goals and existing life cover.",
     "inputs": [
-      { "key": "annualIncome", "label": "Annual income to replace", "unit": "Rs/year", "default": 1200000, "min": 0, "step": 50000 },
-      { "key": "replacementYears", "label": "Years of income replacement", "unit": "years", "default": 15, "min": 1, "max": 40, "step": 1 },
-      { "key": "outstandingLiabilities", "label": "Outstanding loans and liabilities", "unit": "Rs", "default": 3000000, "min": 0, "step": 50000 },
-      { "key": "dependentGoals", "label": "Dependants' one-time goals", "unit": "Rs", "default": 4000000, "min": 0, "step": 50000, "help": "Include education, wedding and other essential one-time family goals." },
-      { "key": "existingLifeCover", "label": "Existing life insurance cover", "unit": "Rs", "default": 5000000, "min": 0, "step": 50000 }
+      {
+        "key": "annualIncome",
+        "label": "Annual income to replace",
+        "unit": "Rs/year",
+        "default": 1200000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "replacementYears",
+        "label": "Years of income replacement",
+        "unit": "years",
+        "default": 15,
+        "min": 1,
+        "max": 40,
+        "step": 1
+      },
+      {
+        "key": "outstandingLiabilities",
+        "label": "Outstanding loans and liabilities",
+        "unit": "Rs",
+        "default": 3000000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "dependentGoals",
+        "label": "Dependants' one-time goals",
+        "unit": "Rs",
+        "default": 4000000,
+        "min": 0,
+        "step": 50000,
+        "help": "Include education, wedding and other essential one-time family goals."
+      },
+      {
+        "key": "existingLifeCover",
+        "label": "Existing life insurance cover",
+        "unit": "Rs",
+        "default": 5000000,
+        "min": 0,
+        "step": 50000
+      }
     ],
     "outputs": [
-      { "key": "incomeReplacementNeed", "label": "Income replacement need", "formula": "annualIncome*replacementYears", "format": "currency" },
-      { "key": "grossCoverNeed", "label": "Total cover need", "formula": "incomeReplacementNeed+outstandingLiabilities+dependentGoals", "format": "currency" },
-      { "key": "additionalCoverNeeded", "label": "Additional cover needed", "formula": "max(grossCoverNeed-existingLifeCover,0)", "format": "currency" },
-      { "key": "existingCoverShare", "label": "Need already covered", "formula": "existingLifeCover/max(grossCoverNeed,1)*100", "format": "percent" }
+      {
+        "key": "incomeReplacementNeed",
+        "label": "Income replacement need",
+        "formula": "annualIncome*replacementYears",
+        "format": "currency"
+      },
+      {
+        "key": "grossCoverNeed",
+        "label": "Total cover need",
+        "formula": "incomeReplacementNeed+outstandingLiabilities+dependentGoals",
+        "format": "currency"
+      },
+      {
+        "key": "additionalCoverNeeded",
+        "label": "Additional cover needed",
+        "formula": "max(grossCoverNeed-existingLifeCover,0)",
+        "format": "currency"
+      },
+      {
+        "key": "existingCoverShare",
+        "label": "Need already covered",
+        "formula": "existingLifeCover/max(grossCoverNeed,1)*100",
+        "format": "percent"
+      }
     ],
     "formulaExplanation": "Uses a human-life-value approach: income multiplied by the chosen replacement period, plus liabilities and dependant goals, less existing life cover.",
     "example": "Rs 12 lakh annual income for 15 years, Rs 30 lakh of liabilities and Rs 40 lakh of goals produces a Rs 2.5 crore need before existing cover.",
     "faqs": [
-      { "question": "Is the calculated amount a policy recommendation?", "answer": "No. It is an educational cover-gap estimate; affordability, health, insurer underwriting and policy terms also matter." },
-      { "question": "Should employer life insurance count as existing cover?", "answer": "You may include it, but remember that employer cover can end when you change or leave a job." }
+      {
+        "question": "Is the calculated amount a policy recommendation?",
+        "answer": "No. It is an educational cover-gap estimate; affordability, health, insurer underwriting and policy terms also matter."
+      },
+      {
+        "question": "Should employer life insurance count as existing cover?",
+        "answer": "You may include it, but remember that employer cover can end when you change or leave a job."
+      }
     ],
-    "related": ["health-insurance-coverage-adequacy-calculator-india", "emergency-fund-calculator-india", "net-worth-tracker-calculator-india"],
+    "related": [
+      "health-insurance-coverage-adequacy-calculator-india",
+      "emergency-fund-calculator-india",
+      "net-worth-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   },
@@ -41,31 +108,134 @@
     "shortDescription": "Compare current family health cover with an illustrative cover band adjusted for city tier, age band and medical inflation.",
     "metaDescription": "Check health insurance coverage adequacy in India using family size, city tier, age band, current cover and medical inflation.",
     "inputs": [
-      { "key": "familySize", "label": "Family members covered", "unit": "people", "default": 4, "min": 1, "max": 10, "step": 1 },
-      { "key": "cityTier", "label": "City tier (1 metro, 2 large, 3 other)", "default": 1, "min": 1, "max": 3, "step": 1 },
-      { "key": "oldestAgeBand", "label": "Oldest age band (1 under 35, 2 age 35-50, 3 over 50)", "default": 2, "min": 1, "max": 3, "step": 1 },
-      { "key": "currentSumInsured", "label": "Current family sum insured", "unit": "Rs", "default": 1000000, "min": 0, "step": 50000 },
-      { "key": "medicalInflation", "label": "Estimated annual medical inflation", "unit": "%", "default": 10, "min": 0.1, "max": 25, "step": 0.5 },
-      { "key": "projectionYears", "label": "Projection period", "unit": "years", "default": 10, "min": 1, "max": 30, "step": 1 }
+      {
+        "key": "familySize",
+        "label": "Family members covered",
+        "unit": "people",
+        "default": 4,
+        "min": 1,
+        "max": 10,
+        "step": 1
+      },
+      {
+        "key": "cityTier",
+        "label": "City tier (1 metro, 2 large, 3 other)",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1
+      },
+      {
+        "key": "oldestAgeBand",
+        "label": "Oldest age band (1 under 35, 2 age 35-50, 3 over 50)",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "step": 1
+      },
+      {
+        "key": "currentSumInsured",
+        "label": "Current family sum insured",
+        "unit": "Rs",
+        "default": 1000000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "medicalInflation",
+        "label": "Estimated annual medical inflation",
+        "unit": "%",
+        "default": 10,
+        "min": 0.1,
+        "max": 25,
+        "step": 0.5
+      },
+      {
+        "key": "projectionYears",
+        "label": "Projection period",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      }
     ],
     "outputs": [
-      { "key": "cityCostFactor", "label": "City cost factor", "formula": "1.45-0.15*cityTier", "format": "number", "hidden": true },
-      { "key": "ageCostFactor", "label": "Age cost factor", "formula": "0.75+0.25*oldestAgeBand", "format": "number", "hidden": true },
-      { "key": "recommendedLowerToday", "label": "Illustrative lower cover today", "formula": "familySize*400000*cityCostFactor*ageCostFactor", "format": "currency" },
-      { "key": "recommendedUpperToday", "label": "Illustrative upper cover today", "formula": "familySize*750000*cityCostFactor*ageCostFactor", "format": "currency" },
-      { "key": "recommendedLowerFuture", "label": "Inflation-adjusted lower cover", "formula": "recommendedLowerToday*(1+medicalInflation/100)^projectionYears", "format": "currency" },
-      { "key": "recommendedUpperFuture", "label": "Inflation-adjusted upper cover", "formula": "recommendedUpperToday*(1+medicalInflation/100)^projectionYears", "format": "currency" },
-      { "key": "coverGapToday", "label": "Gap to lower cover today", "formula": "max(recommendedLowerToday-currentSumInsured,0)", "format": "currency" },
-      { "key": "futureCoverGap", "label": "Gap to future lower cover", "formula": "max(recommendedLowerFuture-currentSumInsured,0)", "format": "currency" },
-      { "key": "currentAdequacy", "label": "Current cover vs lower band", "formula": "currentSumInsured/max(recommendedLowerToday,1)*100", "format": "percent" }
+      {
+        "key": "cityCostFactor",
+        "label": "City cost factor",
+        "formula": "1.45-0.15*cityTier",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "ageCostFactor",
+        "label": "Age cost factor",
+        "formula": "0.75+0.25*oldestAgeBand",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "recommendedLowerToday",
+        "label": "Illustrative lower cover today",
+        "formula": "familySize*400000*cityCostFactor*ageCostFactor",
+        "format": "currency"
+      },
+      {
+        "key": "recommendedUpperToday",
+        "label": "Illustrative upper cover today",
+        "formula": "familySize*750000*cityCostFactor*ageCostFactor",
+        "format": "currency"
+      },
+      {
+        "key": "recommendedLowerFuture",
+        "label": "Inflation-adjusted lower cover",
+        "formula": "recommendedLowerToday*(1+medicalInflation/100)^projectionYears",
+        "format": "currency"
+      },
+      {
+        "key": "recommendedUpperFuture",
+        "label": "Inflation-adjusted upper cover",
+        "formula": "recommendedUpperToday*(1+medicalInflation/100)^projectionYears",
+        "format": "currency"
+      },
+      {
+        "key": "coverGapToday",
+        "label": "Gap to lower cover today",
+        "formula": "max(recommendedLowerToday-currentSumInsured,0)",
+        "format": "currency"
+      },
+      {
+        "key": "futureCoverGap",
+        "label": "Gap to future lower cover",
+        "formula": "max(recommendedLowerFuture-currentSumInsured,0)",
+        "format": "currency"
+      },
+      {
+        "key": "currentAdequacy",
+        "label": "Current cover vs lower band",
+        "formula": "currentSumInsured/max(recommendedLowerToday,1)*100",
+        "format": "percent"
+      }
     ],
     "formulaExplanation": "Builds an illustrative per-member cover band, applies simple city and oldest-member age factors, then compounds the band by entered medical inflation.",
     "example": "A four-person metro family with an oldest member aged 35-50 is compared with a higher illustrative band than a smaller family in a lower-cost city.",
     "faqs": [
-      { "question": "Is this cover band an insurer rule?", "answer": "No. It is a planning benchmark, not underwriting guidance. Hospital network, room limits, exclusions, co-pay and restoration benefits also matter." },
-      { "question": "Why project medical inflation?", "answer": "A sum insured that looks adequate today may buy less hospital care later as treatment costs rise." }
+      {
+        "question": "Is this cover band an insurer rule?",
+        "answer": "No. It is a planning benchmark, not underwriting guidance. Hospital network, room limits, exclusions, co-pay and restoration benefits also matter."
+      },
+      {
+        "question": "Why project medical inflation?",
+        "answer": "A sum insured that looks adequate today may buy less hospital care later as treatment costs rise."
+      }
     ],
-    "related": ["term-life-insurance-cover-calculator-india", "emergency-fund-calculator-india", "net-worth-calculator-india"],
+    "related": [
+      "term-life-insurance-cover-calculator-india",
+      "emergency-fund-calculator-india",
+      "net-worth-calculator-india",
+      "room-rent-proportionate-deduction-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   },
@@ -79,29 +249,118 @@
     "shortDescription": "Calculate car-loan EMI, total interest and EMI-to-income ratio from on-road price, down payment, rate and tenure.",
     "metaDescription": "Calculate car loan EMI, total interest and affordability in India using on-road price, down payment, rate, tenure and income.",
     "inputs": [
-      { "key": "onRoadPrice", "label": "Car on-road price", "unit": "Rs", "default": 1200000, "min": 50000, "step": 25000 },
-      { "key": "downPayment", "label": "Down payment", "unit": "Rs", "default": 240000, "min": 0, "step": 10000 },
-      { "key": "annualRate", "label": "Annual interest rate", "unit": "%", "default": 9, "min": 0.1, "max": 40, "step": 0.1 },
-      { "key": "tenureYears", "label": "Loan tenure", "unit": "years", "default": 5, "min": 1, "max": 8, "step": 1 },
-      { "key": "monthlyIncome", "label": "Monthly take-home income", "unit": "Rs", "default": 100000, "min": 1, "step": 1000 }
+      {
+        "key": "onRoadPrice",
+        "label": "Car on-road price",
+        "unit": "Rs",
+        "default": 1200000,
+        "min": 50000,
+        "step": 25000
+      },
+      {
+        "key": "downPayment",
+        "label": "Down payment",
+        "unit": "Rs",
+        "default": 240000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 9,
+        "min": 0.1,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "tenureYears",
+        "label": "Loan tenure",
+        "unit": "years",
+        "default": 5,
+        "min": 1,
+        "max": 8,
+        "step": 1
+      },
+      {
+        "key": "monthlyIncome",
+        "label": "Monthly take-home income",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 1,
+        "step": 1000
+      }
     ],
     "outputs": [
-      { "key": "loanAmount", "label": "Car loan amount", "formula": "max(onRoadPrice-downPayment,0)", "format": "currency" },
-      { "key": "tenureMonths", "label": "Loan months", "formula": "tenureYears*12", "format": "number", "hidden": true },
-      { "key": "monthlyRate", "label": "Monthly rate", "formula": "annualRate/1200", "format": "percent", "hidden": true },
-      { "key": "emi", "label": "Monthly EMI", "formula": "loanAmount*monthlyRate*(1+monthlyRate)^tenureMonths/((1+monthlyRate)^tenureMonths-1)", "format": "currency" },
-      { "key": "totalRepayment", "label": "Total loan repayment", "formula": "emi*tenureMonths", "format": "currency" },
-      { "key": "totalInterest", "label": "Total interest", "formula": "totalRepayment-loanAmount", "format": "currency" },
-      { "key": "emiToIncomeRatio", "label": "EMI-to-income ratio", "formula": "emi/monthlyIncome*100", "format": "percent" },
-      { "key": "downPaymentShare", "label": "Down payment share", "formula": "downPayment/max(onRoadPrice,1)*100", "format": "percent" }
+      {
+        "key": "loanAmount",
+        "label": "Car loan amount",
+        "formula": "max(onRoadPrice-downPayment,0)",
+        "format": "currency"
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Loan months",
+        "formula": "tenureYears*12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly rate",
+        "formula": "annualRate/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "emi",
+        "label": "Monthly EMI",
+        "formula": "loanAmount*monthlyRate*(1+monthlyRate)^tenureMonths/((1+monthlyRate)^tenureMonths-1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalRepayment",
+        "label": "Total loan repayment",
+        "formula": "emi*tenureMonths",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest",
+        "formula": "totalRepayment-loanAmount",
+        "format": "currency"
+      },
+      {
+        "key": "emiToIncomeRatio",
+        "label": "EMI-to-income ratio",
+        "formula": "emi/monthlyIncome*100",
+        "format": "percent"
+      },
+      {
+        "key": "downPaymentShare",
+        "label": "Down payment share",
+        "formula": "downPayment/max(onRoadPrice,1)*100",
+        "format": "percent"
+      }
     ],
     "formulaExplanation": "Subtracts the down payment from the on-road price, applies the standard reducing-balance EMI formula and compares EMI with monthly take-home income.",
     "example": "A Rs 12 lakh car with a Rs 2.4 lakh down payment leaves a Rs 9.6 lakh loan before interest and fees.",
     "faqs": [
-      { "question": "Does this include registration and insurance?", "answer": "Use the full on-road price so quoted registration and first-year insurance are included in the purchase amount." },
-      { "question": "What EMI-to-income ratio is affordable?", "answer": "There is no universal safe ratio. Consider all existing EMIs, essential expenses, savings and ownership costs such as fuel, maintenance and insurance." }
+      {
+        "question": "Does this include registration and insurance?",
+        "answer": "Use the full on-road price so quoted registration and first-year insurance are included in the purchase amount."
+      },
+      {
+        "question": "What EMI-to-income ratio is affordable?",
+        "answer": "There is no universal safe ratio. Consider all existing EMIs, essential expenses, savings and ownership costs such as fuel, maintenance and insurance."
+      }
     ],
-    "related": ["two-wheeler-loan-emi-calculator-india", "emi-calculator-india", "personal-loan-eligibility-calculator-india"],
+    "related": [
+      "two-wheeler-loan-emi-calculator-india",
+      "emi-calculator-india",
+      "personal-loan-eligibility-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   },
@@ -115,28 +374,111 @@
     "shortDescription": "Estimate bike or scooter loan EMI, total repayment, interest and income burden for common short tenures.",
     "metaDescription": "Calculate bike or scooter loan EMI in India from on-road price, down payment, interest rate, tenure and monthly income.",
     "inputs": [
-      { "key": "onRoadPrice", "label": "Two-wheeler on-road price", "unit": "Rs", "default": 150000, "min": 20000, "step": 5000 },
-      { "key": "downPayment", "label": "Down payment", "unit": "Rs", "default": 30000, "min": 0, "step": 5000 },
-      { "key": "annualRate", "label": "Annual interest rate", "unit": "%", "default": 12, "min": 0.1, "max": 50, "step": 0.1 },
-      { "key": "tenureMonths", "label": "Loan tenure", "unit": "months", "default": 36, "min": 6, "max": 60, "step": 6 },
-      { "key": "monthlyIncome", "label": "Monthly take-home income", "unit": "Rs", "default": 40000, "min": 1, "step": 1000 }
+      {
+        "key": "onRoadPrice",
+        "label": "Two-wheeler on-road price",
+        "unit": "Rs",
+        "default": 150000,
+        "min": 20000,
+        "step": 5000
+      },
+      {
+        "key": "downPayment",
+        "label": "Down payment",
+        "unit": "Rs",
+        "default": 30000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "annualRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 12,
+        "min": 0.1,
+        "max": 50,
+        "step": 0.1
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Loan tenure",
+        "unit": "months",
+        "default": 36,
+        "min": 6,
+        "max": 60,
+        "step": 6
+      },
+      {
+        "key": "monthlyIncome",
+        "label": "Monthly take-home income",
+        "unit": "Rs",
+        "default": 40000,
+        "min": 1,
+        "step": 1000
+      }
     ],
     "outputs": [
-      { "key": "loanAmount", "label": "Two-wheeler loan amount", "formula": "max(onRoadPrice-downPayment,0)", "format": "currency" },
-      { "key": "monthlyRate", "label": "Monthly rate", "formula": "annualRate/1200", "format": "percent", "hidden": true },
-      { "key": "emi", "label": "Monthly EMI", "formula": "loanAmount*monthlyRate*(1+monthlyRate)^tenureMonths/((1+monthlyRate)^tenureMonths-1)", "format": "currency" },
-      { "key": "totalRepayment", "label": "Total loan repayment", "formula": "emi*tenureMonths", "format": "currency" },
-      { "key": "totalInterest", "label": "Total interest", "formula": "totalRepayment-loanAmount", "format": "currency" },
-      { "key": "emiToIncomeRatio", "label": "EMI-to-income ratio", "formula": "emi/monthlyIncome*100", "format": "percent" },
-      { "key": "downPaymentShare", "label": "Down payment share", "formula": "downPayment/max(onRoadPrice,1)*100", "format": "percent" }
+      {
+        "key": "loanAmount",
+        "label": "Two-wheeler loan amount",
+        "formula": "max(onRoadPrice-downPayment,0)",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly rate",
+        "formula": "annualRate/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "emi",
+        "label": "Monthly EMI",
+        "formula": "loanAmount*monthlyRate*(1+monthlyRate)^tenureMonths/((1+monthlyRate)^tenureMonths-1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalRepayment",
+        "label": "Total loan repayment",
+        "formula": "emi*tenureMonths",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest",
+        "formula": "totalRepayment-loanAmount",
+        "format": "currency"
+      },
+      {
+        "key": "emiToIncomeRatio",
+        "label": "EMI-to-income ratio",
+        "formula": "emi/monthlyIncome*100",
+        "format": "percent"
+      },
+      {
+        "key": "downPaymentShare",
+        "label": "Down payment share",
+        "formula": "downPayment/max(onRoadPrice,1)*100",
+        "format": "percent"
+      }
     ],
     "formulaExplanation": "Uses on-road price less down payment as principal and applies the standard monthly reducing-balance EMI formula for the selected short tenure.",
     "example": "A Rs 1.5 lakh scooter with Rs 30,000 down leaves Rs 1.2 lakh to finance before interest and fees.",
     "faqs": [
-      { "question": "Does the calculator include processing fees?", "answer": "No. Add lender fees and any financed add-ons separately when comparing the true purchase cost." },
-      { "question": "Is a longer tenure always better?", "answer": "A longer tenure lowers EMI but generally raises total interest and keeps the vehicle under finance for longer." }
+      {
+        "question": "Does the calculator include processing fees?",
+        "answer": "No. Add lender fees and any financed add-ons separately when comparing the true purchase cost."
+      },
+      {
+        "question": "Is a longer tenure always better?",
+        "answer": "A longer tenure lowers EMI but generally raises total interest and keeps the vehicle under finance for longer."
+      }
     ],
-    "related": ["car-loan-emi-affordability-calculator-india", "emi-calculator-india", "personal-loan-true-apr-calculator-india"],
+    "related": [
+      "car-loan-emi-affordability-calculator-india",
+      "emi-calculator-india",
+      "personal-loan-true-apr-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   },
@@ -150,30 +492,121 @@
     "shortDescription": "Estimate payoff months and interest when repaying a credit-card balance with the first minimum due or a fixed monthly payment.",
     "metaDescription": "See how long credit card debt may take to clear in India using balance, minimum due, APR and a fixed monthly payment.",
     "inputs": [
-      { "key": "outstandingBalance", "label": "Outstanding card balance", "unit": "Rs", "default": 200000, "min": 1, "step": 1000 },
-      { "key": "minimumDuePercent", "label": "Minimum due", "unit": "%", "default": 5, "min": 1, "max": 25, "step": 0.5 },
-      { "key": "cardApr", "label": "Credit card APR", "unit": "%", "default": 42, "min": 0.1, "max": 60, "step": 0.1 },
-      { "key": "fixedMonthlyPayment", "label": "Fixed monthly payment", "unit": "Rs", "default": 15000, "min": 1, "step": 500 }
+      {
+        "key": "outstandingBalance",
+        "label": "Outstanding card balance",
+        "unit": "Rs",
+        "default": 200000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "minimumDuePercent",
+        "label": "Minimum due",
+        "unit": "%",
+        "default": 5,
+        "min": 1,
+        "max": 25,
+        "step": 0.5
+      },
+      {
+        "key": "cardApr",
+        "label": "Credit card APR",
+        "unit": "%",
+        "default": 42,
+        "min": 0.1,
+        "max": 60,
+        "step": 0.1
+      },
+      {
+        "key": "fixedMonthlyPayment",
+        "label": "Fixed monthly payment",
+        "unit": "Rs",
+        "default": 15000,
+        "min": 1,
+        "step": 500
+      }
     ],
     "outputs": [
-      { "key": "monthlyRate", "label": "Monthly card rate", "formula": "cardApr/1200", "format": "percent", "hidden": true },
-      { "key": "firstMinimumDue", "label": "First minimum due", "formula": "outstandingBalance*minimumDuePercent/100", "format": "currency" },
-      { "key": "firstMonthInterest", "label": "First-month interest", "formula": "outstandingBalance*monthlyRate", "format": "currency" },
-      { "key": "minimumDueMonths", "label": "Payoff months at first minimum due", "formula": "-log(1-outstandingBalance*monthlyRate/firstMinimumDue)/log(1+monthlyRate)", "format": "number" },
-      { "key": "minimumDueTotalPayment", "label": "Total paid at first minimum due", "formula": "firstMinimumDue*minimumDueMonths", "format": "currency" },
-      { "key": "minimumDueInterest", "label": "Interest at first minimum due", "formula": "max(minimumDueTotalPayment-outstandingBalance,0)", "format": "currency" },
-      { "key": "fixedPaymentMonths", "label": "Payoff months at fixed payment", "formula": "-log(1-outstandingBalance*monthlyRate/fixedMonthlyPayment)/log(1+monthlyRate)", "format": "number" },
-      { "key": "fixedTotalPayment", "label": "Total paid at fixed payment", "formula": "fixedMonthlyPayment*fixedPaymentMonths", "format": "currency" },
-      { "key": "fixedPaymentInterest", "label": "Interest at fixed payment", "formula": "max(fixedTotalPayment-outstandingBalance,0)", "format": "currency" },
-      { "key": "interestSaved", "label": "Interest saved with fixed payment", "formula": "minimumDueInterest-fixedPaymentInterest", "format": "currency" }
+      {
+        "key": "monthlyRate",
+        "label": "Monthly card rate",
+        "formula": "cardApr/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "firstMinimumDue",
+        "label": "First minimum due",
+        "formula": "outstandingBalance*minimumDuePercent/100",
+        "format": "currency"
+      },
+      {
+        "key": "firstMonthInterest",
+        "label": "First-month interest",
+        "formula": "outstandingBalance*monthlyRate",
+        "format": "currency"
+      },
+      {
+        "key": "minimumDueMonths",
+        "label": "Payoff months at first minimum due",
+        "formula": "-log(1-outstandingBalance*monthlyRate/firstMinimumDue)/log(1+monthlyRate)",
+        "format": "number"
+      },
+      {
+        "key": "minimumDueTotalPayment",
+        "label": "Total paid at first minimum due",
+        "formula": "firstMinimumDue*minimumDueMonths",
+        "format": "currency"
+      },
+      {
+        "key": "minimumDueInterest",
+        "label": "Interest at first minimum due",
+        "formula": "max(minimumDueTotalPayment-outstandingBalance,0)",
+        "format": "currency"
+      },
+      {
+        "key": "fixedPaymentMonths",
+        "label": "Payoff months at fixed payment",
+        "formula": "-log(1-outstandingBalance*monthlyRate/fixedMonthlyPayment)/log(1+monthlyRate)",
+        "format": "number"
+      },
+      {
+        "key": "fixedTotalPayment",
+        "label": "Total paid at fixed payment",
+        "formula": "fixedMonthlyPayment*fixedPaymentMonths",
+        "format": "currency"
+      },
+      {
+        "key": "fixedPaymentInterest",
+        "label": "Interest at fixed payment",
+        "formula": "max(fixedTotalPayment-outstandingBalance,0)",
+        "format": "currency"
+      },
+      {
+        "key": "interestSaved",
+        "label": "Interest saved with fixed payment",
+        "formula": "minimumDueInterest-fixedPaymentInterest",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Uses a reducing-balance amortisation approximation. The minimum-due scenario holds the first statement's minimum due constant; actual percentage-based minimums usually fall as the balance falls and can take longer.",
     "example": "On a Rs 2 lakh balance at 42% APR, paying Rs 15,000 monthly clears debt much sooner than holding payment at the first minimum due of Rs 10,000.",
     "faqs": [
-      { "question": "Why is the minimum-due result an approximation?", "answer": "Card issuers calculate minimum due using their own rules, and the rupee amount often changes with balance, fees, taxes and new transactions." },
-      { "question": "What if payment is lower than monthly interest?", "answer": "The balance will not amortise under this model. Increase the payment above monthly interest and avoid new card spending while repaying." }
+      {
+        "question": "Why is the minimum-due result an approximation?",
+        "answer": "Card issuers calculate minimum due using their own rules, and the rupee amount often changes with balance, fees, taxes and new transactions."
+      },
+      {
+        "question": "What if payment is lower than monthly interest?",
+        "answer": "The balance will not amortise under this model. Increase the payment above monthly interest and avoid new card spending while repaying."
+      }
     ],
-    "related": ["credit-card-vs-personal-loan-calculator-india", "debt-snowball-calculator-india", "personal-loan-true-apr-calculator-india"],
+    "related": [
+      "credit-card-vs-personal-loan-calculator-india",
+      "debt-snowball-calculator-india",
+      "personal-loan-true-apr-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   },
@@ -187,32 +620,141 @@
     "shortDescription": "Compare monthly payment, interest and total cost for revolving a big purchase on a card versus a personal loan.",
     "metaDescription": "Compare credit card and personal loan costs in India for a big purchase using APR, tenure and loan processing fee.",
     "inputs": [
-      { "key": "purchaseAmount", "label": "Big purchase amount", "unit": "Rs", "default": 150000, "min": 1, "step": 5000 },
-      { "key": "cardApr", "label": "Credit card APR", "unit": "%", "default": 42, "min": 0.1, "max": 60, "step": 0.1 },
-      { "key": "cardRepaymentMonths", "label": "Card repayment period", "unit": "months", "default": 24, "min": 2, "max": 60, "step": 1 },
-      { "key": "personalLoanApr", "label": "Personal loan APR", "unit": "%", "default": 14, "min": 0.1, "max": 40, "step": 0.1 },
-      { "key": "personalLoanMonths", "label": "Personal loan tenure", "unit": "months", "default": 24, "min": 2, "max": 84, "step": 1 },
-      { "key": "processingFeePercent", "label": "Personal loan processing fee", "unit": "%", "default": 2, "min": 0, "max": 10, "step": 0.1 }
+      {
+        "key": "purchaseAmount",
+        "label": "Big purchase amount",
+        "unit": "Rs",
+        "default": 150000,
+        "min": 1,
+        "step": 5000
+      },
+      {
+        "key": "cardApr",
+        "label": "Credit card APR",
+        "unit": "%",
+        "default": 42,
+        "min": 0.1,
+        "max": 60,
+        "step": 0.1
+      },
+      {
+        "key": "cardRepaymentMonths",
+        "label": "Card repayment period",
+        "unit": "months",
+        "default": 24,
+        "min": 2,
+        "max": 60,
+        "step": 1
+      },
+      {
+        "key": "personalLoanApr",
+        "label": "Personal loan APR",
+        "unit": "%",
+        "default": 14,
+        "min": 0.1,
+        "max": 40,
+        "step": 0.1
+      },
+      {
+        "key": "personalLoanMonths",
+        "label": "Personal loan tenure",
+        "unit": "months",
+        "default": 24,
+        "min": 2,
+        "max": 84,
+        "step": 1
+      },
+      {
+        "key": "processingFeePercent",
+        "label": "Personal loan processing fee",
+        "unit": "%",
+        "default": 2,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      }
     ],
     "outputs": [
-      { "key": "cardMonthlyRate", "label": "Card monthly rate", "formula": "cardApr/1200", "format": "percent", "hidden": true },
-      { "key": "cardMonthlyPayment", "label": "Card monthly payment", "formula": "purchaseAmount*cardMonthlyRate*(1+cardMonthlyRate)^cardRepaymentMonths/((1+cardMonthlyRate)^cardRepaymentMonths-1)", "format": "currency" },
-      { "key": "cardTotalCost", "label": "Total card repayment", "formula": "cardMonthlyPayment*cardRepaymentMonths", "format": "currency" },
-      { "key": "cardInterest", "label": "Card interest", "formula": "cardTotalCost-purchaseAmount", "format": "currency" },
-      { "key": "loanMonthlyRate", "label": "Loan monthly rate", "formula": "personalLoanApr/1200", "format": "percent", "hidden": true },
-      { "key": "loanEmi", "label": "Personal loan EMI", "formula": "purchaseAmount*loanMonthlyRate*(1+loanMonthlyRate)^personalLoanMonths/((1+loanMonthlyRate)^personalLoanMonths-1)", "format": "currency" },
-      { "key": "processingFee", "label": "Personal loan processing fee", "formula": "purchaseAmount*processingFeePercent/100", "format": "currency" },
-      { "key": "loanTotalCost", "label": "Total personal loan cost", "formula": "loanEmi*personalLoanMonths+processingFee", "format": "currency" },
-      { "key": "loanFinanceCost", "label": "Personal loan interest and fee", "formula": "loanTotalCost-purchaseAmount", "format": "currency" },
-      { "key": "personalLoanSavings", "label": "Potential saving with personal loan", "formula": "cardTotalCost-loanTotalCost", "format": "currency" }
+      {
+        "key": "cardMonthlyRate",
+        "label": "Card monthly rate",
+        "formula": "cardApr/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "cardMonthlyPayment",
+        "label": "Card monthly payment",
+        "formula": "purchaseAmount*cardMonthlyRate*(1+cardMonthlyRate)^cardRepaymentMonths/((1+cardMonthlyRate)^cardRepaymentMonths-1)",
+        "format": "currency"
+      },
+      {
+        "key": "cardTotalCost",
+        "label": "Total card repayment",
+        "formula": "cardMonthlyPayment*cardRepaymentMonths",
+        "format": "currency"
+      },
+      {
+        "key": "cardInterest",
+        "label": "Card interest",
+        "formula": "cardTotalCost-purchaseAmount",
+        "format": "currency"
+      },
+      {
+        "key": "loanMonthlyRate",
+        "label": "Loan monthly rate",
+        "formula": "personalLoanApr/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "loanEmi",
+        "label": "Personal loan EMI",
+        "formula": "purchaseAmount*loanMonthlyRate*(1+loanMonthlyRate)^personalLoanMonths/((1+loanMonthlyRate)^personalLoanMonths-1)",
+        "format": "currency"
+      },
+      {
+        "key": "processingFee",
+        "label": "Personal loan processing fee",
+        "formula": "purchaseAmount*processingFeePercent/100",
+        "format": "currency"
+      },
+      {
+        "key": "loanTotalCost",
+        "label": "Total personal loan cost",
+        "formula": "loanEmi*personalLoanMonths+processingFee",
+        "format": "currency"
+      },
+      {
+        "key": "loanFinanceCost",
+        "label": "Personal loan interest and fee",
+        "formula": "loanTotalCost-purchaseAmount",
+        "format": "currency"
+      },
+      {
+        "key": "personalLoanSavings",
+        "label": "Potential saving with personal loan",
+        "formula": "cardTotalCost-loanTotalCost",
+        "format": "currency"
+      }
     ],
     "formulaExplanation": "Amortises the purchase at the entered card APR and repayment period, then compares it with a reducing-balance personal loan including the entered processing fee.",
     "example": "A high-APR card balance repaid over 24 months can cost substantially more than a lower-APR personal loan even after a processing fee.",
     "faqs": [
-      { "question": "Does this compare a card EMI offer?", "answer": "No. The card side models revolving credit at the entered APR. A genuine card EMI offer can have different rates, fees and taxes." },
-      { "question": "Is the cheaper option always the right one?", "answer": "Also compare approval risk, foreclosure rules, fees, credit utilisation and whether the purchase can be delayed or paid from savings without harming your emergency fund." }
+      {
+        "question": "Does this compare a card EMI offer?",
+        "answer": "No. The card side models revolving credit at the entered APR. A genuine card EMI offer can have different rates, fees and taxes."
+      },
+      {
+        "question": "Is the cheaper option always the right one?",
+        "answer": "Also compare approval risk, foreclosure rules, fees, credit utilisation and whether the purchase can be delayed or paid from savings without harming your emergency fund."
+      }
     ],
-    "related": ["credit-card-minimum-due-trap-calculator-india", "personal-loan-emi-calculator-india", "personal-loan-true-apr-calculator-india"],
+    "related": [
+      "credit-card-minimum-due-trap-calculator-india",
+      "personal-loan-emi-calculator-india",
+      "personal-loan-true-apr-calculator-india"
+    ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-03"
   }

@@ -1,0 +1,42 @@
+[
+  {
+    "clusterId": "home-loan-swp",
+    "src": "/images/discover/home-loan-swp-stress-test-india.webp",
+    "alt": "Indian couple stress-testing a home-loan EMI and investment withdrawal plan with a laptop, calculator and house keys"
+  },
+  {
+    "clusterId": "hra-2026",
+    "src": "/images/discover/hra-exemption-calculator-india.webp",
+    "alt": "Indian tenant organizing rent receipts, apartment keys and salary documents while reviewing an HRA exemption question"
+  },
+  {
+    "clusterId": "gratuity-2026",
+    "src": "/images/discover/gratuity-2026-old-vs-new-calculator-india.webp",
+    "alt": "Indian employee comparing two gratuity planning scenarios with organised folders, a laptop and a calculator"
+  },
+  {
+    "clusterId": "personal-loan-apr",
+    "src": "/images/discover/personal-loan-true-apr-calculator-india.webp",
+    "alt": "Indian professional comparing personal-loan cost documents, fees and repayment figures with a calculator and laptop"
+  },
+  {
+    "clusterId": "emergency-fund-emi",
+    "src": "/images/discover/emergency-fund-calculator-india.webp",
+    "alt": "Indian family planning an emergency fund around household expenses, loan EMIs and income-risk needs"
+  },
+  {
+    "clusterId": "invest-vs-prepay",
+    "src": "/images/discover/invest-vs-prepay-home-loan-calculator-india.webp",
+    "alt": "Indian couple comparing investment and home-loan prepayment choices with a laptop, calculator and household plan"
+  },
+  {
+    "clusterId": "foreclosure-savings",
+    "src": "/images/discover/loan-foreclosure-net-savings-calculator-india.webp",
+    "alt": "Indian homeowner reviewing loan foreclosure charges, remaining interest and net savings with a calculator and loan folder"
+  },
+  {
+    "clusterId": "reduce-emi-tenure",
+    "src": "/images/discover/reduce-emi-vs-tenure-calculator-india.webp",
+    "alt": "Indian professional comparing lower EMI and shorter tenure outcomes after a loan prepayment"
+  }
+]

@@ -45,7 +45,7 @@ export default function CalculatorPresets({
               aria-pressed={isActive}
               title={preset.description}
               onClick={() => onApply(preset)}
-              className={`rounded-full border px-3.5 py-2 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brandNavy focus-visible:ring-offset-2 md:text-sm ${
+              className={`min-h-11 rounded-full border px-3.5 py-2 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brandNavy focus-visible:ring-offset-2 md:text-sm ${
                 isActive
                   ? 'border-brandNavy bg-brandNavy text-white shadow-sm'
                   : 'border-slate-300 bg-white text-slate-700 hover:border-brandNavy hover:text-brandNavy'

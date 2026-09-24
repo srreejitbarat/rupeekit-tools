@@ -1,5 +1,11 @@
-// India Income Tax slab calculations library for FY 2024-25 and FY 2025-26.
+// India Income Tax slab calculations library for FY 2024-25 through FY 2026-27.
 // Rates should be updated periodically based on official Budget notifications.
+//
+// To add a financial year: extend FinancialYear, then add its entry to
+// NEW_REGIME_CONFIG_BY_FY. The Record type makes that second step mandatory —
+// a missing year is a compile error rather than a silent fallback to an older
+// slab table and rebate limit.
+export type FinancialYear = '2024-25' | '2025-26' | '2026-27';
 
 export interface SlabBreakdown {
   slab: string;
@@ -9,7 +15,7 @@ export interface SlabBreakdown {
 }
 
 export interface TaxCalculationResult {
-  financialYear: '2024-25' | '2025-26';
+  financialYear: FinancialYear;
   regime: 'new' | 'old';
   ageGroup: 'below60' | 'senior' | 'superSenior';
   grossAnnualSalary: number;
@@ -68,6 +74,18 @@ const NEW_REGIME_SLABS_25_26: SlabConfig[] = [
   { limit: Infinity, rate: 30 }
 ];
 
+// New-regime slab table and Section 87A rebate limit per financial year.
+// Budget 2026 left the slabs, the rebate and the standard deduction untouched, so
+// FY 2026-27 reuses the Finance Act 2025 structure rather than a table of its own.
+const NEW_REGIME_CONFIG_BY_FY: Record<
+  FinancialYear,
+  { slabs: SlabConfig[]; rebateLimit: number }
+> = {
+  '2024-25': { slabs: NEW_REGIME_SLABS_24_25, rebateLimit: 700000 },
+  '2025-26': { slabs: NEW_REGIME_SLABS_25_26, rebateLimit: 1200000 },
+  '2026-27': { slabs: NEW_REGIME_SLABS_25_26, rebateLimit: 1200000 },
+};
+
 // Tax slabs configuration for Old Tax Regime
 const OLD_REGIME_SLABS_BELOW_60: SlabConfig[] = [
   { limit: 250000, rate: 0 },
@@ -97,7 +115,7 @@ export function estimateIncomeTax(inputs: {
   monthlyProfessionalTax: number; // typically 200
   monthlyOtherDeductions: number;
   regime: 'new' | 'old';
-  financialYear: '2024-25' | '2025-26';
+  financialYear: FinancialYear;
   ageGroup: 'below60' | 'senior' | 'superSenior';
   input80C: number;
   input80D: number;
@@ -193,7 +211,7 @@ export function estimateIncomeTax(inputs: {
   // 6. Tax calculation based on slabs
   let slabs: SlabConfig[] = [];
   if (regime === 'new') {
-    slabs = financialYear === '2025-26' ? NEW_REGIME_SLABS_25_26 : NEW_REGIME_SLABS_24_25;
+    slabs = NEW_REGIME_CONFIG_BY_FY[financialYear].slabs;
   } else {
     if (ageGroup === 'senior') {
       slabs = OLD_REGIME_SLABS_SENIOR;
@@ -235,13 +253,13 @@ export function estimateIncomeTax(inputs: {
   }
 
   // 7. Rebate under Section 87A
-  // New Regime: 
+  // New Regime:
   // - FY 2024-25: Nil tax if taxable income <= 7,00,000. Marginal relief if income slightly above 7L.
-  // - FY 2025-26: Nil tax if taxable income <= 12,00,000. Marginal relief if income slightly above 12L.
+  // - FY 2025-26 and FY 2026-27: Nil tax if taxable income <= 12,00,000. Marginal relief if income slightly above 12L.
   // Old Regime: Nil tax if taxable income <= 5,00,000. No marginal relief.
   let rebate = 0;
   if (regime === 'new') {
-    const rebateLimit = financialYear === '2025-26' ? 1200000 : 700000;
+    const { rebateLimit } = NEW_REGIME_CONFIG_BY_FY[financialYear];
     if (taxableIncome <= rebateLimit) {
       rebate = taxBeforeCess;
     } else {

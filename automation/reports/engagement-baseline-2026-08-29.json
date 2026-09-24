@@ -1,0 +1,57 @@
+{
+  "asOf": "2026-09-02",
+  "issue": 82,
+  "status": "instrumentation-ready-baseline-pending-live-ga4",
+  "historicalEvidence": {
+    "source": "Issue #82 / Day 8 baseline",
+    "zeroEngagementPages": 14,
+    "example": {
+      "path": "/tools/personal-loan-emi-calculator-india",
+      "users": 4,
+      "events": 12,
+      "averageEngagementSeconds": 0
+    }
+  },
+  "rootCauseAssessment": {
+    "finding": "A real App Router measurement gap was fixed in issue #63: explicit route page_view and engagement_time_msec tracking were added. Historical exports cannot prove that this gap caused every 0.00-second row.",
+    "verificationRequired": "Production GA4 DebugView and settled post-deploy GA4 data are still required to distinguish measurement plumbing from genuine rapid exits."
+  },
+  "journeyInstrumentation": {
+    "events": [
+      "calculation_completed",
+      "result_panel_viewed",
+      "calculator_session_summary",
+      "calculator_abandoned"
+    ],
+    "metrics": [
+      "time_to_first_calculation_ms",
+      "calculations",
+      "recalculations",
+      "result_panel_viewed",
+      "engagement_time_msec"
+    ],
+    "privacy": "No user-entered calculator values or personally identifying fields are included in event parameters."
+  },
+  "liveGa4Baseline": {
+    "availability": "unavailable",
+    "reason": "Connected GA4 retrieval could not be used in this run because the GSC Wizard connection returned payment_required.",
+    "clusters": null,
+    "topTenTools": null,
+    "dropOffStage": null
+  },
+  "requiredPostDeployReadout": {
+    "window": "Use a settled 7-day window after deployment, then repeat at 14 and 28 days.",
+    "metricsByCluster": [
+      "engaged sessions",
+      "average engagement time",
+      "events per session",
+      "calculator completion rate",
+      "result-panel view rate"
+    ],
+    "dropOffStages": [
+      "before any calculation",
+      "after first calculation but before result panel viewed",
+      "after result panel viewed"
+    ]
+  }
+}

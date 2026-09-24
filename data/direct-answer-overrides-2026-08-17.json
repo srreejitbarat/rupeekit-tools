@@ -1,0 +1,7 @@
+{
+  "nps-calculator-india": "NPS corpus is projected from your contribution, return, tenure and annuity assumptions; the result shows an estimated retirement corpus and pension scenario, not a guaranteed outcome.",
+  "ppf-calculator-india": "PPF maturity is estimated by compounding your entered annual deposit at the calculator's configured rate for the selected tenure; actual credited interest follows the rate notified for each period.",
+  "sip-calculator-india": "SIP future value is estimated from the monthly contribution, expected return and investment period. Returns are market-linked assumptions, not guaranteed investment outcomes.",
+  "capital-gains-tax-calculator-india": "This calculator estimates tax for listed equity shares and equity-oriented mutual funds using the configured rules. It does not model property, debt funds, gold, crypto or unlisted shares.",
+  "emergency-fund-calculator-india": "Emergency fund target = essential monthly expenses plus unavoidable EMIs, multiplied by the number of months of protection. Compare 3, 6, 9 and 12-month buffers using your own household costs."
+}

@@ -1,0 +1,668 @@
+[
+  {
+    "slug": "ops-vs-nps-pension-comparison-calculator-india",
+    "name": "OPS vs NPS Pension Comparison Calculator India",
+    "seoTitle": "OPS vs NPS Pension Comparison Calculator India",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "OPS vs NPS pension calculator India",
+    "shortDescription": "Compare a salary-linked OPS planning scenario with a corpus-and-annuity NPS pension scenario.",
+    "metaDescription": "Compare indicative OPS and NPS monthly pension scenarios using salary, pension percentage, NPS corpus, annuity share and annuity rate.",
+    "inputs": [
+      {
+        "key": "lastDrawnSalary",
+        "label": "Last drawn eligible salary",
+        "unit": "₹/month",
+        "default": 100000,
+        "min": 1000,
+        "step": 1000,
+        "help": "Use the salary base applicable to the OPS rule you are modelling."
+      },
+      {
+        "key": "opsPensionPercent",
+        "label": "OPS pension percentage assumption",
+        "unit": "%",
+        "default": 50,
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "help": "User-entered planning assumption; actual pension rules depend on the applicable service rules."
+      },
+      {
+        "key": "serviceYears",
+        "label": "Qualifying service",
+        "unit": "years",
+        "default": 30,
+        "min": 1,
+        "max": 50,
+        "step": 1
+      },
+      {
+        "key": "npsCorpus",
+        "label": "Estimated NPS corpus at exit",
+        "unit": "₹",
+        "default": 10000000,
+        "min": 10000,
+        "step": 10000
+      },
+      {
+        "key": "annuityShare",
+        "label": "Corpus used for annuity",
+        "unit": "%",
+        "default": 40,
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "help": "Enter the share you expect to annuitise. Applicable NPS exit rules can vary by sector and exit circumstances."
+      },
+      {
+        "key": "annuityRate",
+        "label": "Illustrative annuity rate",
+        "unit": "% p.a.",
+        "default": 6.5,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1,
+        "help": "Scenario assumption only; actual annuity quotes vary by provider and option."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "opsMonthlyPension",
+        "label": "Indicative OPS monthly pension",
+        "formula": "lastDrawnSalary * opsPensionPercent / 100",
+        "format": "currency"
+      },
+      {
+        "key": "npsAnnuityCorpus",
+        "label": "NPS corpus used for annuity",
+        "formula": "npsCorpus * annuityShare / 100",
+        "format": "currency"
+      },
+      {
+        "key": "npsMonthlyPension",
+        "label": "Illustrative NPS monthly annuity",
+        "formula": "npsAnnuityCorpus * annuityRate / 100 / 12",
+        "format": "currency"
+      },
+      {
+        "key": "npsLumpSumRemainder",
+        "label": "Corpus not used for annuity",
+        "formula": "npsCorpus - npsAnnuityCorpus",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "OPS is modelled as the user-entered pension percentage of last drawn eligible salary. NPS pension is modelled as the chosen annuity share of the entered corpus multiplied by an illustrative annual annuity rate and divided by 12. This is a comparison scenario, not an entitlement calculation.",
+    "example": "At ₹1 lakh eligible salary with a 50% OPS assumption, the scenario pension is ₹50,000 a month. A ₹1 crore NPS corpus with 40% annuitised at 6.5% gives an illustrative annuity near ₹21,667 a month, with the balance outside that annuity calculation.",
+    "faqs": [
+      {
+        "question": "Does this calculator tell me which pension system is better?",
+        "answer": "No. It compares user-entered scenarios. Eligibility, indexation, family benefits, tax, annuity options and applicable service rules can materially change the comparison."
+      },
+      {
+        "question": "Is the NPS annuity rate guaranteed?",
+        "answer": "No. The annuity rate here is an input for planning. Actual rates and payout options depend on the annuity provider and the option selected at exit."
+      }
+    ],
+    "related": [
+      "nps-calculator-india",
+      "8th-pay-commission-salary-calculator-india",
+      "notional-increment-pension-calculator-india",
+      "pension-commutation-calculator-india"
+    ],
+    "officialSources": [
+      {
+        "label": "PFRDA Government Sector NPS exit FAQs",
+        "href": "https://www.pfrda.org.in/w/faqs/exits-for-government-sector-model-cg-and-cab"
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-08"
+  },
+  {
+    "slug": "scss-calculator-india",
+    "name": "Senior Citizen Savings Scheme (SCSS) Calculator India",
+    "seoTitle": "SCSS Calculator India 2026 | Quarterly Interest",
+    "category": "Savings",
+    "status": "live",
+    "targetKeyword": "SCSS calculator India",
+    "shortDescription": "Estimate quarterly SCSS interest and five-year payout using the current rate or your own rate assumption.",
+    "metaDescription": "Calculate SCSS quarterly interest and 5-year interest using a deposit up to ₹30 lakh and the current 8.2% rate for Jul-Sep 2026.",
+    "inputs": [
+      {
+        "key": "deposit",
+        "label": "SCSS deposit",
+        "unit": "₹",
+        "default": 1500000,
+        "min": 1000,
+        "max": 3000000,
+        "step": 1000
+      },
+      {
+        "key": "annualRate",
+        "label": "SCSS interest rate",
+        "unit": "% p.a.",
+        "default": 8.2,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1,
+        "help": "8.2% is the notified rate for July-September 2026; rates for new deposits are notified periodically."
+      },
+      {
+        "key": "tenureYears",
+        "label": "Tenure",
+        "unit": "years",
+        "default": 5,
+        "min": 5,
+        "max": 5,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "quarterlyInterest",
+        "label": "Estimated quarterly interest",
+        "formula": "deposit * annualRate / 100 / 4",
+        "format": "currency"
+      },
+      {
+        "key": "annualInterest",
+        "label": "Estimated annual interest",
+        "formula": "deposit * annualRate / 100",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest over entered tenure",
+        "formula": "annualInterest * tenureYears",
+        "format": "currency"
+      },
+      {
+        "key": "principalAtMaturity",
+        "label": "Principal returned at maturity",
+        "formula": "deposit",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "SCSS interest is estimated as deposit × annual rate, with one-fourth shown as the quarterly payout. Because SCSS interest is paid out quarterly, the calculator does not compound unpaid interest into maturity value.",
+    "example": "A ₹15 lakh deposit at 8.2% produces estimated interest of ₹30,750 per quarter and ₹1,23,000 per year.",
+    "faqs": [
+      {
+        "question": "What is the SCSS rate for July-September 2026?",
+        "answer": "The National Savings Institute lists 8.2% per annum for the July-September 2026 quarter."
+      },
+      {
+        "question": "What is the SCSS deposit limit?",
+        "answer": "The current maximum deposit is ₹30 lakh, subject to scheme eligibility and account rules."
+      }
+    ],
+    "related": [
+      "fd-calculator-india",
+      "ppf-calculator-india"
+    ],
+    "officialSources": [
+      {
+        "label": "NSI small-savings interest rates",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132"
+      },
+      {
+        "label": "NSI scheme features",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=27"
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-08"
+  },
+  {
+    "slug": "post-office-monthly-income-scheme-calculator-india",
+    "name": "Post Office Monthly Income Scheme (POMIS) Calculator India",
+    "seoTitle": "Post Office MIS Calculator 2026 | Monthly Income",
+    "category": "Savings",
+    "status": "live",
+    "targetKeyword": "post office monthly income scheme calculator",
+    "shortDescription": "Estimate monthly income from a Post Office Monthly Income Scheme deposit.",
+    "metaDescription": "Calculate Post Office MIS monthly interest using the current 7.4% rate for Jul-Sep 2026. Includes single-account ₹9 lakh cap guidance.",
+    "inputs": [
+      {
+        "key": "deposit",
+        "label": "Deposit amount",
+        "unit": "₹",
+        "default": 900000,
+        "min": 1000,
+        "max": 1500000,
+        "step": 1000,
+        "help": "Scheme limits are ₹9 lakh for a single account and ₹15 lakh for a joint account; use the applicable limit."
+      },
+      {
+        "key": "annualRate",
+        "label": "POMIS interest rate",
+        "unit": "% p.a.",
+        "default": 7.4,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1,
+        "help": "7.4% is the notified rate for July-September 2026."
+      },
+      {
+        "key": "tenureYears",
+        "label": "Tenure",
+        "unit": "years",
+        "default": 5,
+        "min": 5,
+        "max": 5,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "monthlyIncome",
+        "label": "Estimated monthly interest",
+        "formula": "deposit * annualRate / 100 / 12",
+        "format": "currency"
+      },
+      {
+        "key": "annualIncome",
+        "label": "Estimated annual interest",
+        "formula": "deposit * annualRate / 100",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest over tenure",
+        "formula": "annualIncome * tenureYears",
+        "format": "currency"
+      },
+      {
+        "key": "principalAtMaturity",
+        "label": "Principal returned at maturity",
+        "formula": "deposit",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Monthly interest is deposit × annual interest rate ÷ 12. Interest is treated as a payout rather than reinvested compounding.",
+    "example": "₹9 lakh at 7.4% gives an estimated ₹5,550 monthly interest payout.",
+    "faqs": [
+      {
+        "question": "What is the POMIS rate for July-September 2026?",
+        "answer": "The National Savings Institute lists 7.4% per annum for the July-September 2026 quarter."
+      },
+      {
+        "question": "What is the maximum POMIS deposit?",
+        "answer": "The current ceiling is ₹9 lakh for a single account and ₹15 lakh for a joint account."
+      }
+    ],
+    "related": [
+      "fd-calculator-india",
+      "scss-calculator-india"
+    ],
+    "officialSources": [
+      {
+        "label": "NSI small-savings interest rates",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132"
+      },
+      {
+        "label": "NSI scheme features",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=27"
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-08"
+  },
+  {
+    "slug": "child-education-cost-planner-india",
+    "name": "Child Education Cost Planner India",
+    "seoTitle": "Child Education Cost Calculator India | SIP Planner",
+    "category": "Planning",
+    "status": "live",
+    "targetKeyword": "child education cost calculator India",
+    "shortDescription": "Project education cost with inflation and estimate the monthly investment needed after current savings.",
+    "metaDescription": "Project your child's future education cost with inflation and estimate the monthly SIP needed after accounting for current savings.",
+    "inputs": [
+      {
+        "key": "childAge",
+        "label": "Child's current age",
+        "unit": "years",
+        "default": 8,
+        "min": 0,
+        "max": 25,
+        "step": 1
+      },
+      {
+        "key": "courseAge",
+        "label": "Target course start age",
+        "unit": "years",
+        "default": 18,
+        "min": 1,
+        "max": 35,
+        "step": 1
+      },
+      {
+        "key": "currentCourseCost",
+        "label": "Course cost today",
+        "unit": "₹",
+        "default": 2000000,
+        "min": 10000,
+        "step": 10000
+      },
+      {
+        "key": "educationInflation",
+        "label": "Education cost inflation",
+        "unit": "% p.a.",
+        "default": 8,
+        "min": 0,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "currentSavings",
+        "label": "Current savings for this goal",
+        "unit": "₹",
+        "default": 300000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected investment return",
+        "unit": "% p.a.",
+        "default": 10,
+        "min": 0.1,
+        "max": 25,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "yearsToGoal",
+        "label": "Years to course start",
+        "formula": "max(courseAge - childAge, 1)",
+        "format": "number"
+      },
+      {
+        "key": "futureCourseCost",
+        "label": "Projected course cost",
+        "formula": "currentCourseCost * (1 + educationInflation / 100) ^ yearsToGoal",
+        "format": "currency"
+      },
+      {
+        "key": "futureCurrentSavings",
+        "label": "Projected value of current savings",
+        "formula": "currentSavings * (1 + expectedReturn / 100) ^ yearsToGoal",
+        "format": "currency"
+      },
+      {
+        "key": "fundingGap",
+        "label": "Projected funding gap",
+        "formula": "max(futureCourseCost - futureCurrentSavings, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly return",
+        "formula": "(1 + expectedReturn / 100) ^ (1 / 12) - 1",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "monthsToGoal",
+        "label": "Months to goal",
+        "formula": "yearsToGoal * 12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "requiredMonthlySip",
+        "label": "Estimated monthly SIP needed",
+        "formula": "fundingGap * monthlyRate / ((1 + monthlyRate) ^ monthsToGoal - 1)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The planner inflates today's course cost to the target age, grows current savings at the assumed return, then estimates the monthly end-of-month investment needed to close the remaining gap.",
+    "example": "A ₹20 lakh course ten years away at 8% education inflation costs about ₹43.2 lakh in the scenario before accounting for savings and investment growth.",
+    "faqs": [
+      {
+        "question": "Is education inflation fixed at 8%?",
+        "answer": "No. It is a user-entered planning assumption. Different courses and locations can experience very different cost changes."
+      },
+      {
+        "question": "Is the expected investment return guaranteed?",
+        "answer": "No. Market-linked returns are uncertain; test lower-return scenarios as well."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "fire-retirement-calculator-india"
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-08"
+  },
+  {
+    "slug": "wedding-cost-planner-india",
+    "name": "Wedding Cost Planner India",
+    "seoTitle": "Wedding Cost Calculator India | SIP Planner",
+    "category": "Planning",
+    "status": "live",
+    "targetKeyword": "wedding cost calculator India",
+    "shortDescription": "Inflate today's wedding budget to a future date and estimate the monthly investment needed.",
+    "metaDescription": "Estimate a future wedding budget after inflation and calculate the monthly SIP needed after accounting for current goal savings.",
+    "inputs": [
+      {
+        "key": "budgetToday",
+        "label": "Wedding budget in today's money",
+        "unit": "₹",
+        "default": 1500000,
+        "min": 10000,
+        "step": 10000
+      },
+      {
+        "key": "yearsToWedding",
+        "label": "Years until wedding",
+        "unit": "years",
+        "default": 7,
+        "min": 1,
+        "max": 40,
+        "step": 1
+      },
+      {
+        "key": "costInflation",
+        "label": "Wedding cost inflation",
+        "unit": "% p.a.",
+        "default": 6,
+        "min": 0,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "currentSavings",
+        "label": "Current savings for this goal",
+        "unit": "₹",
+        "default": 200000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected investment return",
+        "unit": "% p.a.",
+        "default": 10,
+        "min": 0.1,
+        "max": 25,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "futureBudget",
+        "label": "Projected wedding budget",
+        "formula": "budgetToday * (1 + costInflation / 100) ^ yearsToWedding",
+        "format": "currency"
+      },
+      {
+        "key": "futureSavings",
+        "label": "Projected value of current savings",
+        "formula": "currentSavings * (1 + expectedReturn / 100) ^ yearsToWedding",
+        "format": "currency"
+      },
+      {
+        "key": "fundingGap",
+        "label": "Projected funding gap",
+        "formula": "max(futureBudget - futureSavings, 0)",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly return",
+        "formula": "(1 + expectedReturn / 100) ^ (1 / 12) - 1",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "monthsToGoal",
+        "label": "Months to goal",
+        "formula": "yearsToWedding * 12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "requiredMonthlySip",
+        "label": "Estimated monthly SIP needed",
+        "formula": "fundingGap * monthlyRate / ((1 + monthlyRate) ^ monthsToGoal - 1)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "The planner inflates today's budget, grows current goal savings at the assumed return and estimates an end-of-month investment required to fill the projected gap.",
+    "example": "A ₹15 lakh budget seven years away at 6% inflation becomes roughly ₹22.6 lakh before considering current savings growth.",
+    "faqs": [
+      {
+        "question": "Does this planner recommend how much to spend on a wedding?",
+        "answer": "No. The budget is entirely user-entered; the tool only translates it into a future-cost and savings scenario."
+      },
+      {
+        "question": "Are investment returns guaranteed?",
+        "answer": "No. Use conservative return assumptions and compare multiple scenarios."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "fire-retirement-calculator-india"
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-08"
+  },
+  {
+    "slug": "rent-agreement-stamp-duty-registration-cost-calculator-india",
+    "name": "Rent Agreement Stamp Duty & Registration Cost Calculator India",
+    "seoTitle": "Rent Agreement Stamp Duty Calculator India",
+    "category": "Housing",
+    "status": "live",
+    "targetKeyword": "rent agreement stamp duty calculator India",
+    "shortDescription": "Estimate rent-agreement stamp duty and registration cost using user-entered state rates and assumptions.",
+    "metaDescription": "Estimate rent agreement stamp duty and registration cost from rent, deposit, tenure and your state-rate assumptions. Educational estimate only.",
+    "inputs": [
+      {
+        "key": "monthlyRent",
+        "label": "Monthly rent",
+        "unit": "₹",
+        "default": 25000,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "securityDeposit",
+        "label": "Security deposit",
+        "unit": "₹",
+        "default": 100000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "tenureMonths",
+        "label": "Agreement tenure",
+        "unit": "months",
+        "default": 11,
+        "min": 1,
+        "max": 120,
+        "step": 1
+      },
+      {
+        "key": "stampDutyRate",
+        "label": "Stamp-duty rate assumption",
+        "unit": "%",
+        "default": 0.25,
+        "min": 0,
+        "max": 20,
+        "step": 0.01,
+        "help": "Enter the applicable state formula/rate only after checking the current official state registration source."
+      },
+      {
+        "key": "depositWeight",
+        "label": "Deposit portion included in duty base",
+        "unit": "%",
+        "default": 10,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "help": "Generic modelling input because treatment of deposits varies by state."
+      },
+      {
+        "key": "registrationRate",
+        "label": "Registration charge assumption",
+        "unit": "%",
+        "default": 1,
+        "min": 0,
+        "max": 20,
+        "step": 0.01
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalRent",
+        "label": "Rent over agreement tenure",
+        "formula": "monthlyRent * tenureMonths",
+        "format": "currency"
+      },
+      {
+        "key": "dutyBase",
+        "label": "Illustrative stamp-duty base",
+        "formula": "totalRent + securityDeposit * depositWeight / 100",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedStampDuty",
+        "label": "Estimated stamp duty",
+        "formula": "dutyBase * stampDutyRate / 100",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedRegistration",
+        "label": "Estimated registration charge",
+        "formula": "dutyBase * registrationRate / 100",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedTotalCost",
+        "label": "Estimated duty + registration",
+        "formula": "estimatedStampDuty + estimatedRegistration",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "This generic planner applies user-entered duty and registration percentages to an illustrative base consisting of rent over the agreement plus the chosen share of the security deposit. State laws use different bases, slabs, caps and registration rules, so verify the official state formula before relying on the estimate.",
+    "example": "For ₹25,000 monthly rent over 11 months, the rent component is ₹2.75 lakh. The final duty depends on the state-specific base and rates you enter.",
+    "faqs": [
+      {
+        "question": "Does every state calculate rent agreement stamp duty the same way?",
+        "answer": "No. Rates, bases, deposit treatment, tenure rules, caps and registration requirements vary by state."
+      },
+      {
+        "question": "Can I use this result as a legal fee quote?",
+        "answer": "No. It is an educational estimate based on your assumptions. Verify the current state registration department rules and actual service charges."
+      }
+    ],
+    "related": [
+      "rent-vs-buy-calculator-india",
+      "rental-yield-calculator-india"
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-08"
+  }
+]

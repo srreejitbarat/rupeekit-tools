@@ -12,7 +12,7 @@
       {
         "key": "annualCtc",
         "label": "Annual CTC",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 1200000,
         "min": 0,
         "step": 10000,
@@ -40,7 +40,7 @@
       {
         "key": "monthlyTax",
         "label": "Monthly income tax/TDS",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 25000,
         "min": 0,
         "step": 500,
@@ -49,7 +49,7 @@
       {
         "key": "professionalTax",
         "label": "Professional tax",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 200,
         "min": 0,
         "step": 50,
@@ -58,7 +58,7 @@
       {
         "key": "otherDeduction",
         "label": "Other monthly deductions",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 500,
@@ -92,7 +92,7 @@
       }
     ],
     "formulaExplanation": "Monthly in-hand salary is estimated as monthly gross salary minus employee PF, monthly tax/TDS, professional tax and other recurring deductions.",
-    "example": "For a â‚¹12,00,000 CTC with 40% basic, 12% PF, â‚¹25,000 monthly tax and â‚¹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
+    "example": "For a ₹12,00,000 CTC with 40% basic, 12% PF, ₹25,000 monthly tax and ₹200 professional tax, the estimated in-hand salary is shown after subtracting these deductions.",
     "faqs": [
       {
         "question": "Is this salary calculator exact?",
@@ -105,13 +105,22 @@
       {
         "question": "Should I use offer-letter values?",
         "answer": "Yes. Use actual basic salary, PF, tax and deduction values from your offer letter or payslip for a better estimate."
+      },
+      {
+        "question": "CTC और इन-हैंड सैलरी में क्या अंतर है?",
+        "answer": "CTC यानी Cost to Company वह कुल राशि है जो कंपनी आप पर सालाना खर्च करती है। इसमें नियोक्ता का PF अंशदान, ग्रेच्युटी और बीमा जैसी वे मदें भी शामिल होती हैं जो आपके हाथ में नहीं आतीं। इन-हैंड सैलरी वह रकम है जो कटौतियों के बाद हर महीने आपके खाते में आती है। CTC में से नियोक्ता PF और ग्रेच्युटी घटाने पर ग्रॉस सैलरी मिलती है, और उसमें से कर्मचारी PF, TDS और प्रोफेशनल टैक्स घटाने पर इन-हैंड सैलरी निकलती है।"
+      },
+      {
+        "question": "इन-हैंड सैलरी कैसे निकालें?",
+        "answer": "सबसे पहले CTC में से नियोक्ता का PF और ग्रेच्युटी घटाकर ग्रॉस सैलरी निकालें। फिर उसमें से कर्मचारी PF (आमतौर पर बेसिक का 12%), अनुमानित मासिक TDS और प्रोफेशनल टैक्स (कई राज्यों में लगभग ₹200 प्रति माह) घटाएँ। बची हुई राशि आपकी अनुमानित मासिक इन-हैंड सैलरी है। ऊपर दिया कैलकुलेटर यही गणना करता है — यह एक अनुमान है, आपकी वास्तविक सैलरी स्लिप कंपनी के वेतन ढाँचे पर निर्भर करेगी।"
       }
     ],
     "related": [
       "hra-exemption-calculator-india",
       "income-tax-calculator-old-vs-new-regime-india",
       "epf-corpus-calculator-india",
-      "emi-calculator-india"
+      "emi-calculator-india",
+      "new-labour-code-take-home-calculator-india"
     ]
   },
   {
@@ -127,7 +136,7 @@
       {
         "key": "principal",
         "label": "Loan amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 1000000,
         "min": 0,
         "step": 10000,
@@ -172,8 +181,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P Ã— r Ã— (1+r)^n / ((1+r)^n âˆ’ 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
-    "example": "For a â‚¹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
+    "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
+    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
     "faqs": [
       {
         "question": "Can this be used for home loan EMI?",
@@ -182,6 +191,14 @@
       {
         "question": "Why does interest change with tenure?",
         "answer": "Longer tenure reduces monthly EMI but usually increases total interest paid over the loan period."
+      },
+      {
+        "question": "EMI कैसे कैलकुलेट की जाती है?",
+        "answer": "EMI का सूत्र है: EMI = P × r × (1+r)^n / ((1+r)^n − 1), जहाँ P मूलधन है, r मासिक ब्याज दर (वार्षिक दर ÷ 12 ÷ 100) और n महीनों में अवधि। शुरुआती EMI में ब्याज का हिस्सा ज़्यादा और मूलधन का कम होता है; समय के साथ यह अनुपात बदलता जाता है। ऊपर दिया कैलकुलेटर यही सूत्र इस्तेमाल करता है।"
+      },
+      {
+        "question": "ब्याज दर या अवधि बदलने से EMI पर क्या असर पड़ता है?",
+        "answer": "ब्याज दर बढ़ने पर EMI बढ़ती है और कुल चुकाया गया ब्याज भी बढ़ता है। अवधि लंबी करने पर मासिक EMI घट जाती है, लेकिन कुल ब्याज काफ़ी बढ़ जाता है — यानी हर महीने राहत, पर कुल लागत ज़्यादा। इसलिए केवल EMI नहीं, कुल ब्याज भी ज़रूर देखें। दोनों आँकड़े ऊपर के कैलकुलेटर में दिखते हैं।"
       }
     ],
     "related": [
@@ -189,7 +206,8 @@
       "home-loan-emi-calculator-india",
       "salary-in-hand-calculator-india",
       "fd-calculator-india",
-      "sip-calculator-india"
+      "sip-calculator-india",
+      "pre-emi-calculator-india"
     ]
   },
   {
@@ -811,7 +829,8 @@
       "personal-loan-emi-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india",
-      "recurring-deposit-calculator-india"
+      "recurring-deposit-calculator-india",
+      "pre-emi-calculator-india"
     ],
     "howToUse": [
       "Enter your monthly essential expenses.",
@@ -965,7 +984,7 @@
       {
         "key": "monthlyInvestment",
         "label": "Monthly SIP amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 10000,
         "min": 0,
         "step": 500,
@@ -1011,7 +1030,7 @@
       }
     ],
     "formulaExplanation": "The calculator uses a monthly compounded future value estimate for SIP investments. Actual returns are market-linked and not guaranteed.",
-    "example": "A â‚¹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
+    "example": "A ₹10,000 monthly SIP for 10 years at 12% expected annual return gives an estimated future corpus based on monthly compounding assumptions.",
     "faqs": [
       {
         "question": "What happens if I miss a SIP?",
@@ -1048,13 +1067,22 @@
       {
         "question": "How is SIP future value calculated?",
         "answer": "The estimate uses monthly SIP contribution, annual return assumption converted to monthly rate, and duration. It follows a monthly compounding-style projection model."
+      },
+      {
+        "question": "SIP क्या है और यह कैसे काम करती है?",
+        "answer": "SIP यानी Systematic Investment Plan, म्यूचुअल फंड में नियमित रूप से (आमतौर पर हर महीने) एक तय राशि निवेश करने का तरीक़ा है। हर किस्त पर उस दिन के NAV के हिसाब से यूनिट मिलती हैं, इसलिए बाज़ार नीचे होने पर ज़्यादा और ऊपर होने पर कम यूनिट मिलती हैं — इसे रुपी कॉस्ट एवरेजिंग कहते हैं। लंबी अवधि में चक्रवृद्धि (compounding) का लाभ मिलता है।"
+      },
+      {
+        "question": "क्या SIP में रिटर्न की गारंटी होती है?",
+        "answer": "नहीं। SIP म्यूचुअल फंड में निवेश है और म्यूचुअल फंड बाज़ार जोखिम के अधीन होते हैं। कैलकुलेटर में डाली गई अपेक्षित वार्षिक रिटर्न दर केवल एक अनुमान है, कोई वादा नहीं — वास्तविक रिटर्न इससे ऊपर या नीचे हो सकता है और नकारात्मक भी हो सकता है। पिछला प्रदर्शन भविष्य के परिणामों की गारंटी नहीं देता। निवेश से पहले योजना संबंधी दस्तावेज़ ध्यान से पढ़ें।"
       }
     ],
     "related": [
       "lumpsum-calculator-india",
       "fd-calculator-india",
       "ppf-calculator-india",
-      "emergency-fund-calculator-india"
+      "emergency-fund-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "quickAnswer": {
       "title": "SIP Calculator Quick Answer",
@@ -1135,7 +1163,7 @@
       {
         "key": "taxableAmount",
         "label": "Taxable amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 10000,
         "min": 0,
         "step": 100,
@@ -1178,7 +1206,7 @@
       }
     ],
     "formulaExplanation": "GST amount is taxable amount multiplied by GST rate. For intra-state examples, CGST and SGST are generally split equally.",
-    "example": "For â‚¹10,000 taxable value and 18% GST, GST is â‚¹1,800 and final value is â‚¹11,800.",
+    "example": "For ₹10,000 taxable value and 18% GST, GST is ₹1,800 and final value is ₹11,800.",
     "faqs": [
       {
         "question": "Does this calculator handle IGST?",
@@ -1208,7 +1236,7 @@
       {
         "key": "principal",
         "label": "Deposit amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 100000,
         "min": 0,
         "step": 1000,
@@ -1256,8 +1284,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "FD maturity is estimated using compound interest: P Ã— (1 + r/n)^(nÃ—t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
-    "example": "For a â‚¹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
+    "formulaExplanation": "FD maturity is estimated using compound interest: P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
+    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
     "faqs": [
       {
         "question": "Is TDS included in FD calculator results?",
@@ -1319,8 +1347,8 @@
     "inputs": [
       {
         "key": "grossAnnualIncome",
-        "label": "Gross Annual Income (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Gross Annual Income (₹)",
+        "unit": "₹",
         "default": 750000,
         "min": 0,
         "max": 100000000,
@@ -1329,8 +1357,8 @@
       },
       {
         "key": "hraReceived",
-        "label": "HRA Received (â‚¹)",
-        "unit": "â‚¹",
+        "label": "HRA Received (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 5000000,
@@ -1339,8 +1367,8 @@
       },
       {
         "key": "rentPaidAnnually",
-        "label": "Rent Paid Annually (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Rent Paid Annually (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 5000000,
@@ -1349,28 +1377,28 @@
       },
       {
         "key": "homeLoanInterest24b",
-        "label": "Home Loan Interest (Section 24b) (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Home Loan Interest (Section 24b) (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 200000,
         "step": 1,
-        "help": "Interest paid on housing loan for self-occupied or let-out property (max â‚¹2,00,000 for self-occupied)."
+        "help": "Interest paid on housing loan for self-occupied or let-out property (max ₹2,00,000 for self-occupied)."
       },
       {
         "key": "deductions80C",
-        "label": "Deductions under Section 80C (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Deductions under Section 80C (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 150000,
         "step": 1,
-        "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max â‚¹1,50,000)."
+        "help": "Investments like PPF, EPF, ELSS, life insurance premiums, etc. (max ₹1,50,000)."
       },
       {
         "key": "deductions80D",
-        "label": "Deductions under Section 80D (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Deductions under Section 80D (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 100000,
@@ -1379,23 +1407,23 @@
       },
       {
         "key": "otherEligibleDeductionsOldRegime",
-        "label": "Other Eligible Deductions (Old Regime Only) (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Other Eligible Deductions (Old Regime Only) (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 500000,
         "step": 1,
-        "help": "Includes deductions like 80CCD(1B) for NPS (up to â‚¹50,000), 80G, etc. Applicable only for Old Regime."
+        "help": "Includes deductions like 80CCD(1B) for NPS (up to ₹50,000), 80G, etc. Applicable only for Old Regime."
       },
       {
         "key": "professionalTaxPaid",
-        "label": "Professional Tax Paid (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Professional Tax Paid (₹)",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "max": 2500,
         "step": 1,
-        "help": "Professional tax paid (max â‚¹2,500 per annum). Applicable only for Old Regime."
+        "help": "Professional tax paid (max ₹2,500 per annum). Applicable only for Old Regime."
       },
       {
         "key": "cityRatePercent",
@@ -1409,53 +1437,53 @@
       },
       {
         "key": "standardDeduction",
-        "label": "Standard Deduction (â‚¹)",
-        "unit": "â‚¹",
+        "label": "Standard Deduction (₹)",
+        "unit": "₹",
         "default": 50000,
         "min": 0,
         "max": 50000,
         "step": 1,
-        "help": "Standard deduction applicable for salaried individuals (â‚¹50,000 for FY 2023-24)."
+        "help": "Standard deduction applicable for salaried individuals (₹50,000 for FY 2023-24)."
       }
     ],
     "outputs": [
       {
         "key": "taxableIncomeOldRegime",
-        "label": "Taxable Income (Old Regime) (â‚¹)",
+        "label": "Taxable Income (Old Regime) (₹)",
         "formula": "grossAnnualIncome - min(standardDeduction, 50000) - min(hraReceived, max(0, rentPaidAnnually - (0.1 * grossAnnualIncome)), (cityRatePercent / 100) * grossAnnualIncome) - min(professionalTaxPaid, 2500) - min(deductions80C, 150000) - deductions80D - min(homeLoanInterest24b, 200000) - otherEligibleDeductionsOldRegime",
         "format": "currency"
       },
       {
         "key": "taxPayableOldRegime",
-        "label": "Illustrative Tax (Old Regime) (â‚¹)",
+        "label": "Illustrative Tax (Old Regime) (₹)",
         "formula": "max(0, taxableIncomeOldRegime * 0.1)",
         "format": "currency"
       },
       {
         "key": "taxableIncomeNewRegime",
-        "label": "Taxable Income (New Regime) (â‚¹)",
+        "label": "Taxable Income (New Regime) (₹)",
         "formula": "grossAnnualIncome - min(standardDeduction, 50000)",
         "format": "currency"
       },
       {
         "key": "taxPayableNewRegime",
-        "label": "Illustrative Tax (New Regime) (â‚¹)",
+        "label": "Illustrative Tax (New Regime) (₹)",
         "formula": "max(0, taxableIncomeNewRegime * 0.07)",
         "format": "currency"
       },
       {
         "key": "taxSavingsNewVsOld",
-        "label": "Illustrative Tax Savings (New vs Old) (â‚¹)",
+        "label": "Illustrative Tax Savings (New vs Old) (₹)",
         "formula": "taxPayableOldRegime - taxPayableNewRegime",
         "format": "currency"
       }
     ],
     "formulaExplanation": "This calculator compares old and new regime estimates using supported-year rules and your entered income and deduction assumptions. It applies taxable-income logic, rebate handling, and cess to provide educational scenario comparison. Verify final computation with official filing utilities and records.",
-    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of â‚¹15,00,000. She receives â‚¹2,00,000 as HRA, pays â‚¹1,80,000 in annual rent, has â‚¹1,50,000 in 80C deductions, â‚¹25,000 in 80D deductions, and pays â‚¹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
+    "example": "Consider Ms. Priya, a salaried individual with an annual gross income of ₹15,00,000. She receives ₹2,00,000 as HRA, pays ₹1,80,000 in annual rent, has ₹1,50,000 in 80C deductions, ₹25,000 in 80D deductions, and pays ₹1,00,000 as home loan interest (Section 24b). She lives in a metro city (HRA factor 50%). The calculator will first determine her HRA exemption, then calculate her taxable income under both regimes by applying relevant deductions and the standard deduction. Finally, it will show her illustrative tax payable for each regime and the potential savings by choosing the optimal one.",
     "faqs": [
       {
         "question": "What are the main differences between the old and new income tax regimes in India?",
-        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income, but has higher tax slab rates. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity. From FY 2023-24, a standard deduction of â‚¹50,000 is available in both regimes."
+        "answer": "The old regime allows taxpayers to claim various deductions and exemptions (like HRA, LTA, 80C, 80D, etc.) to reduce their taxable income, but has higher tax slab rates. The new regime offers lower tax slab rates but significantly fewer deductions and exemptions, aiming for simplicity. From FY 2023-24, a standard deduction of ₹50,000 is available in both regimes."
       },
       {
         "question": "Which tax regime is better for me if I have many deductions?",
@@ -1467,7 +1495,7 @@
       },
       {
         "question": "What deductions are still allowed in the new tax regime?",
-        "answer": "From FY 2023-24, the new tax regime allows a standard deduction of â‚¹50,000 for salaried individuals and pensioners. Beyond this, very few other deductions are permitted, primarily employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund."
+        "answer": "From FY 2023-24, the new tax regime allows a standard deduction of ₹50,000 for salaried individuals and pensioners. Beyond this, very few other deductions are permitted, primarily employer's contribution to NPS (Section 80CCD(2)) and Agniveer Corpus Fund."
       },
       {
         "question": "How does HRA exemption impact my tax liability under the old vs new regime?",
@@ -1476,6 +1504,14 @@
       {
         "question": "Is this calculator financial or tax advice?",
         "answer": "No. This calculator is for educational and informational purposes only. It provides an estimate based on the values entered and should not be treated as tax, legal, investment, or financial advice."
+      },
+      {
+        "question": "नई और पुरानी टैक्स रिज़ीम में कौन सी बेहतर है?",
+        "answer": "यह पूरी तरह आपकी कटौतियों (deductions) पर निर्भर करता है। नई रिज़ीम में दरें कम हैं लेकिन 80C, HRA, 80D जैसी अधिकांश छूट नहीं मिलतीं; पुरानी रिज़ीम में दरें ऊँची हैं पर ये छूट उपलब्ध हैं। अगर आप HRA, होम लोन ब्याज और 80C का पूरा लाभ लेते हैं तो पुरानी रिज़ीम फ़ायदेमंद हो सकती है, वरना आमतौर पर नई रिज़ीम बेहतर बैठती है। कोई एक नियम सबके लिए सही नहीं है — ऊपर दिए कैलकुलेटर में अपने वास्तविक आँकड़े डालकर दोनों की तुलना करें।"
+      },
+      {
+        "question": "12 लाख की आय पर कितना टैक्स लगेगा?",
+        "answer": "नई टैक्स रिज़ीम में वित्त वर्ष 2026-27 के लिए, यदि आपकी सामान्य दर वाली कर योग्य आय ₹12 लाख तक है तो धारा 87A की छूट (अधिकतम ₹60,000) से कर शून्य हो सकता है। वेतनभोगी करदाताओं के लिए ₹75,000 की स्टैंडर्ड डिडक्शन जोड़कर यह सीमा लगभग ₹12.75 लाख सकल वेतन तक पहुँच जाती है। ₹12 लाख से थोड़ा ऊपर जाने पर पूरा टैक्स एकदम से नहीं लगता — मार्जिनल रिलीफ़ के कारण सेस से पहले कर उतना ही सीमित रहता है जितनी आय ₹12 लाख से ऊपर है। विशेष दर वाली आय होने पर गणना बदल सकती है।"
       }
     ],
     "related": [
@@ -1500,7 +1536,7 @@
       {
         "key": "basicSalary",
         "label": "Basic Salary",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 50000,
         "min": 0,
         "step": 1000,
@@ -1509,7 +1545,7 @@
       {
         "key": "dearnessAllowance",
         "label": "Dearness Allowance",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1518,7 +1554,7 @@
       {
         "key": "commission",
         "label": "Commission",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1527,7 +1563,7 @@
       {
         "key": "hraReceived",
         "label": "HRA Received",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 20000,
         "min": 0,
         "step": 1000,
@@ -1536,7 +1572,7 @@
       {
         "key": "rentPaid",
         "label": "Rent Paid",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 25000,
         "min": 0,
         "step": 1000,
@@ -1580,7 +1616,7 @@
       }
     ],
     "formulaExplanation": "Rule 279 HRA exemption is calculated as the lowest of: (1) actual HRA received, (2) rent paid minus 10% of salary, and (3) a salary cap based on city group. For FY 2026-27, Mumbai, Kolkata, Delhi, Chennai, Hyderabad, Pune, Ahmedabad and Bengaluru use 50% of salary for specified cities. Other Indian cities use 40% of salary for other cities. For this HRA calculation formula, salary generally means basic salary plus dearness allowance (if part of retirement benefits) plus eligible fixed commission. This HRA exemption calculator is for old tax regime HRA exemption estimates and educational planning only.",
-    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: â‚¹6,00,000. Annual HRA received: â‚¹2,40,000. Annual rent paid: â‚¹3,00,000. Actual HRA received = â‚¹2,40,000. 50% of salary for specified cities = â‚¹3,00,000. Rent paid minus 10% of salary = â‚¹2,40,000. Exempt HRA = â‚¹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: â‚¹6,00,000. Annual HRA received: â‚¹2,40,000. Annual rent paid: â‚¹3,00,000. Actual HRA received = â‚¹2,40,000. 40% of salary for other cities = â‚¹2,40,000. Rent paid minus 10% of salary = â‚¹2,40,000. Exempt HRA = â‚¹2,40,000.",
+    "example": "Example A (50% city): Bengaluru. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 50% of salary for specified cities = ₹3,00,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000. Example B (40% city): Indore. Annual basic salary + DA: ₹6,00,000. Annual HRA received: ₹2,40,000. Annual rent paid: ₹3,00,000. Actual HRA received = ₹2,40,000. 40% of salary for other cities = ₹2,40,000. Rent paid minus 10% of salary = ₹2,40,000. Exempt HRA = ₹2,40,000.",
     "quickAnswer": {
       "title": "HRA Exemption Quick Answer",
       "question": "How is HRA exemption calculated in India?",
@@ -1620,7 +1656,7 @@
       },
       {
         "question": "Do I need my landlord's PAN to claim HRA?",
-        "answer": "If annual rent crosses the applicable threshold (commonly â‚¹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
+        "answer": "If annual rent crosses the applicable threshold (commonly ₹1,00,000), employers usually ask for landlord PAN details. Keep PAN and rent records ready."
       },
       {
         "question": "Is this HRA calculator a tax filing tool?",
@@ -1704,7 +1740,7 @@
       {
         "key": "epfContribution",
         "label": "Employee Provident Fund (EPF) Contribution",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1713,7 +1749,7 @@
       {
         "key": "ppfContribution",
         "label": "Public Provident Fund (PPF) Contribution",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1722,7 +1758,7 @@
       {
         "key": "elssInvestment",
         "label": "Equity Linked Savings Scheme (ELSS) Investment",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1731,7 +1767,7 @@
       {
         "key": "lifeInsurancePremium",
         "label": "Life Insurance Premium Paid",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1740,7 +1776,7 @@
       {
         "key": "homeLoanPrincipal",
         "label": "Home Loan Principal Repayment",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1749,7 +1785,7 @@
       {
         "key": "tuitionFees",
         "label": "Children's School Tuition Fees",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 0,
         "min": 0,
         "step": 1000,
@@ -1770,12 +1806,12 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The RupeeKit 80C Deduction Calculator is designed to help you estimate your potential tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It functions by summing up your contributions to various eligible instruments, such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. After aggregating these amounts, the calculator applies the statutory maximum deduction limit. As per current tax regulations, the total eligible deduction under Section 80C is capped at â‚¹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be â‚¹1,50,000. This tool provides an educational estimate to help you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning. The results are estimates and should not be considered final tax advice.",
-    "example": "Consider Rohan, a salaried professional in India, who is planning his tax-saving strategies for the current financial year. He wants to understand his potential Section 80C deductions. Rohan has contributed â‚¹65,000 to his EPF, invested â‚¹40,000 in ELSS funds, paid â‚¹30,000 as life insurance premiums, and repaid â‚¹50,000 towards the principal of his home loan. Additionally, he paid â‚¹20,000 for his child's school tuition fees. To quickly estimate his total eligible deduction, Rohan uses the RupeeKit 80C Deduction Calculator. He enters each of these amounts into the respective fields. The calculator then sums his total investments and shows him the eligible deduction, capped at â‚¹1,50,000. This helps Rohan understand his tax-saving position instantly and plan further, recognizing that the results are educational estimates.",
+    "formulaExplanation": "The RupeeKit 80C Deduction Calculator is designed to help you estimate your potential tax-saving investments and expenses under Section 80C of the Income Tax Act, 1961. It functions by summing up your contributions to various eligible instruments, such as Employee Provident Fund (EPF), Public Provident Fund (PPF), Equity Linked Savings Schemes (ELSS), life insurance premiums, principal repayment of home loans, and children's tuition fees. After aggregating these amounts, the calculator applies the statutory maximum deduction limit. As per current tax regulations, the total eligible deduction under Section 80C is capped at ₹1,50,000 for a financial year. This means that even if your combined investments and expenses exceed this threshold, the maximum amount you can claim as a deduction will be ₹1,50,000. This tool provides an educational estimate to help you quickly understand how much of your savings can be considered for tax benefits under this crucial section, aiding in effective tax planning. The results are estimates and should not be considered final tax advice.",
+    "example": "Consider Rohan, a salaried professional in India, who is planning his tax-saving strategies for the current financial year. He wants to understand his potential Section 80C deductions. Rohan has contributed ₹65,000 to his EPF, invested ₹40,000 in ELSS funds, paid ₹30,000 as life insurance premiums, and repaid ₹50,000 towards the principal of his home loan. Additionally, he paid ₹20,000 for his child's school tuition fees. To quickly estimate his total eligible deduction, Rohan uses the RupeeKit 80C Deduction Calculator. He enters each of these amounts into the respective fields. The calculator then sums his total investments and shows him the eligible deduction, capped at ₹1,50,000. This helps Rohan understand his tax-saving position instantly and plan further, recognizing that the results are educational estimates.",
     "faqs": [
       {
         "question": "What is the maximum deduction allowed under Section 80C?",
-        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is â‚¹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
+        "answer": "The maximum deduction allowed under Section 80C of the Income Tax Act, 1961, is ₹1,50,000 for a financial year. This limit applies to the combined total of all eligible investments and expenses."
       },
       {
         "question": "Which investments are eligible for 80C deduction?",
@@ -1783,7 +1819,7 @@
       },
       {
         "question": "Is EPF contribution covered under Section 80C?",
-        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of â‚¹1,50,000."
+        "answer": "Yes, contributions made by an employee to the Employee Provident Fund (EPF) are eligible for deduction under Section 80C, subject to the overall limit of ₹1,50,000."
       },
       {
         "question": "Can I claim 80C deduction for my child's tuition fees?",
@@ -1819,12 +1855,12 @@
     "assumptions": [
       "The calculator assumes all entered amounts are for the current financial year.",
       "It assumes that all life insurance premiums meet the criteria for 80C eligibility (e.g., premium not exceeding 10% or 20% of sum assured).",
-      "The calculator applies the current maximum deduction limit of â‚¹1,50,000 under Section 80C.",
+      "The calculator applies the current maximum deduction limit of ₹1,50,000 under Section 80C.",
       "It assumes that tuition fees entered are for full-time education in India for up to two children and exclude non-eligible charges.",
       "The results are educational estimates and do not account for other specific tax situations or changes in tax laws."
     ],
     "commonMistakes": [
-      "Exceeding the â‚¹1,50,000 limit: Many users sum up all their investments without realizing the statutory cap, leading to overestimation of deductions.",
+      "Exceeding the ₹1,50,000 limit: Many users sum up all their investments without realizing the statutory cap, leading to overestimation of deductions.",
       "Confusing home loan principal with interest: Only the principal repayment of a home loan is eligible under 80C; interest is deductible under Section 24(b).",
       "Including non-eligible tuition fees: Development fees, donations, or fees for more than two children are not eligible for 80C deduction.",
       "Not checking life insurance premium eligibility: Premiums exceeding a certain percentage of the sum assured are not fully deductible.",
@@ -1834,9 +1870,9 @@
     "contentSections": [
       {
         "heading": "Understanding Section 80C of the Income Tax Act",
-        "body": "Section 80C is a cornerstone of tax planning for individual taxpayers and Hindu Undivided Families (HUFs) in India. It allows deductions from your gross total income for various investments and expenses, thereby reducing your taxable income. The primary objective of this section is to encourage savings and investments among citizens. The maximum deduction allowed under Section 80C is â‚¹1,50,000 in a financial year. This limit is a combined cap for all eligible instruments, meaning that even if your total investments exceed this amount, your deduction will be restricted to â‚¹1.5 lakh. Understanding the eligible avenues under 80C is crucial for effective tax management.",
+        "body": "Section 80C is a cornerstone of tax planning for individual taxpayers and Hindu Undivided Families (HUFs) in India. It allows deductions from your gross total income for various investments and expenses, thereby reducing your taxable income. The primary objective of this section is to encourage savings and investments among citizens. The maximum deduction allowed under Section 80C is ₹1,50,000 in a financial year. This limit is a combined cap for all eligible instruments, meaning that even if your total investments exceed this amount, your deduction will be restricted to ₹1.5 lakh. Understanding the eligible avenues under 80C is crucial for effective tax management.",
         "bullets": [
-          "Maximum deduction limit is â‚¹1,50,000.",
+          "Maximum deduction limit is ₹1,50,000.",
           "Applies to individuals and HUFs.",
           "Encourages long-term savings and investments."
         ]
@@ -1854,7 +1890,7 @@
       },
       {
         "heading": "Maximizing Your 80C Deductions with RupeeKit",
-        "body": "The RupeeKit 80C Deduction Calculator serves as a practical tool to help you quickly assess your potential tax savings. By inputting your contributions and expenses into the respective fields, you can get an instant estimate of your total eligible deduction, capped at the statutory limit. This helps in identifying any shortfalls or excesses in your tax planning. For instance, if your current eligible investments are below â‚¹1,50,000, the calculator can prompt you to consider additional investments to fully utilize the available deduction. Conversely, if your investments significantly exceed the limit, it helps you understand that further investments in 80C instruments might not yield additional tax benefits for the current year. Remember, this tool provides educational estimates, and for final tax decisions, consulting a financial advisor is recommended.",
+        "body": "The RupeeKit 80C Deduction Calculator serves as a practical tool to help you quickly assess your potential tax savings. By inputting your contributions and expenses into the respective fields, you can get an instant estimate of your total eligible deduction, capped at the statutory limit. This helps in identifying any shortfalls or excesses in your tax planning. For instance, if your current eligible investments are below ₹1,50,000, the calculator can prompt you to consider additional investments to fully utilize the available deduction. Conversely, if your investments significantly exceed the limit, it helps you understand that further investments in 80C instruments might not yield additional tax benefits for the current year. Remember, this tool provides educational estimates, and for final tax decisions, consulting a financial advisor is recommended.",
         "bullets": [
           "Quickly estimate total eligible 80C deductions.",
           "Identify shortfalls or excesses in tax planning.",
@@ -1878,7 +1914,7 @@
       {
         "key": "lastDrawnBasicPlusDA",
         "label": "Last Drawn Basic Salary + Dearness Allowance (per month)",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 50000,
         "min": 10000,
         "max": 500000,
@@ -1935,13 +1971,13 @@
       },
       {
         "key": "finalGratuityPayable",
-        "label": "Final Gratuity Payable (Max â‚¹20 Lakh)",
+        "label": "Final Gratuity Payable (Max ₹20 Lakh)",
         "formula": "min(estimatedGratuityAmount, 2000000)",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of â‚¹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
-    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is â‚¹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = â‚¹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of â‚¹20 Lakh. This example illustrates how to derive an estimated figure.",
+    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of ₹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
+    "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is ₹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = ₹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of ₹20 Lakh. This example illustrates how to derive an estimated figure.",
     "faqs": [
       {
         "question": "Who is eligible for gratuity in India?",
@@ -1957,7 +1993,7 @@
       },
       {
         "question": "What is the maximum gratuity amount an employee can receive?",
-        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at â‚¹20,00,000 (Twenty Lakhs). Any calculated amount exceeding this limit will be restricted to â‚¹20 Lakh."
+        "answer": "As per the Payment of Gratuity Act, 1972, the maximum gratuity amount an employee can receive is capped at ₹20,00,000 (Twenty Lakhs). Any calculated amount exceeding this limit will be restricted to ₹20 Lakh."
       },
       {
         "question": "Does resignation affect gratuity payment?",
@@ -1980,7 +2016,9 @@
       "epf-corpus-calculator-india",
       "salary-in-hand-calculator-india",
       "hra-exemption-calculator-india",
-      "fd-calculator-india"
+      "fd-calculator-india",
+      "gratuity-under-new-wage-code-calculator-india",
+      "new-labour-code-take-home-calculator-india"
     ],
     "howToUse": [
       "Enter your 'Last Drawn Basic Salary + Dearness Allowance' per month in the designated field.",
@@ -1994,14 +2032,14 @@
       "The inputs provided for 'Last Drawn Basic Salary + Dearness Allowance' and 'Total Years of Service' are accurate.",
       "The employer's status regarding coverage under the Payment of Gratuity Act, 1972, is correctly identified.",
       "The 'Effective Years for Gratuity' are calculated and entered correctly based on the Act's provisions or common practices.",
-      "The maximum gratuity limit of â‚¹20 Lakh, as per the Act, is applicable.",
+      "The maximum gratuity limit of ₹20 Lakh, as per the Act, is applicable.",
       "The calculation uses the standard 15 days' wages for each completed year of service, as per the Act or common practice.",
       "The calculator provides an estimate based on current understanding of the Gratuity Act and common practices; actual payouts may vary."
     ],
     "commonMistakes": [
       "Incorrectly calculating 'Effective Years of Service': Users might not round up service periods of 6 months or more for covered employers, or might round up for non-covered employers.",
       "Not including Dearness Allowance (DA): Gratuity calculation for covered employees requires Basic Salary + DA, not just Basic Salary.",
-      "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at â‚¹20 Lakh, regardless of the calculated amount.",
+      "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at ₹20 Lakh, regardless of the calculated amount.",
       "Misidentifying employer's coverage: Incorrectly assuming whether an employer is covered under the Gratuity Act, leading to the wrong formula application.",
       "Using gross salary instead of Basic + DA: The calculation specifically uses Basic Salary plus Dearness Allowance, not the entire gross salary.",
       "Assuming eligibility for less than five years of service: Gratuity generally requires a minimum of five years of continuous service, except in specific cases like death or disablement."
@@ -2027,7 +2065,7 @@
       },
       {
         "heading": "Gratuity and Its Tax Implications in India",
-        "body": "While gratuity is a valuable benefit, it's important to be aware of its tax implications in India. The Income Tax Act provides certain exemptions for gratuity received. For government employees, the entire gratuity amount is typically exempt from tax. However, for non-government employees, a portion of the gratuity is exempt, subject to specific limits and conditions, with the remaining balance being taxable. These exemptions are determined by the lowest of three amounts: the actual gratuity received, â‚¹20 Lakh (the statutory limit), or a calculation based on salary and service years. It is always recommended to consult a tax advisor for precise information regarding your personal tax liability.",
+        "body": "While gratuity is a valuable benefit, it's important to be aware of its tax implications in India. The Income Tax Act provides certain exemptions for gratuity received. For government employees, the entire gratuity amount is typically exempt from tax. However, for non-government employees, a portion of the gratuity is exempt, subject to specific limits and conditions, with the remaining balance being taxable. These exemptions are determined by the lowest of three amounts: the actual gratuity received, ₹20 Lakh (the statutory limit), or a calculation based on salary and service years. It is always recommended to consult a tax advisor for precise information regarding your personal tax liability.",
         "bullets": [
           "Gratuity is subject to income tax in India.",
           "Government employees often receive full tax exemption.",
@@ -2060,7 +2098,7 @@
       {
         "key": "monthlyDeposit",
         "label": "Monthly Deposit Amount",
-        "unit": "â‚¹",
+        "unit": "₹",
         "default": 5000,
         "min": 100,
         "max": 100000,
@@ -2125,7 +2163,7 @@
       }
     ],
     "formulaExplanation": "The RupeeKit Recurring Deposit (RD) Calculator uses the standard future value of an annuity due formula to accurately estimate your RD maturity amount. This formula considers your fixed monthly deposit, the annual interest rate offered by your bank, and the total tenure of your deposit in months. Each monthly deposit earns compound interest at a monthly rate, which is derived from the annual interest rate. The calculation accounts for the fact that deposits are typically made at the beginning of each period, allowing the first deposit to earn interest for the full tenure, and subsequent deposits for slightly less. This method provides a reliable projection of how your disciplined savings can grow over time, helping you plan your financial goals effectively. It's important to remember that this is an educational estimate, and actual returns may vary based on bank policies, interest rate changes, and specific compounding frequencies.",
-    "example": "Let's consider Priya, an individual in India who aims to build a savings corpus through a Recurring Deposit. She decides to deposit â‚¹5,000 every month into an RD account. The bank offers an annual interest rate of 6.5%. Priya plans to continue these deposits for a tenure of 5 years, which translates to 60 months. By inputting these values into the RupeeKit RD Calculator â€“ â‚¹5,000 for 'Monthly Deposit Amount', 6.5% for 'Annual Interest Rate', and 60 for 'Tenure (in Months)' â€“ Priya can quickly determine her estimated maturity amount and the total interest she will earn over the 5-year period. This helps her visualize her savings growth and plan for future expenses, while also considering her estimated post-tax interest.",
+    "example": "Let's consider Priya, an individual in India who aims to build a savings corpus through a Recurring Deposit. She decides to deposit ₹5,000 every month into an RD account. The bank offers an annual interest rate of 6.5%. Priya plans to continue these deposits for a tenure of 5 years, which translates to 60 months. By inputting these values into the RupeeKit RD Calculator – ₹5,000 for 'Monthly Deposit Amount', 6.5% for 'Annual Interest Rate', and 60 for 'Tenure (in Months)' – Priya can quickly determine her estimated maturity amount and the total interest she will earn over the 5-year period. This helps her visualize her savings growth and plan for future expenses, while also considering her estimated post-tax interest.",
     "faqs": [
       {
         "question": "What is the minimum and maximum tenure for an RD in India?",
@@ -2149,7 +2187,7 @@
       },
       {
         "question": "What is the TDS threshold for RD interest in India?",
-        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds â‚¹40,000 in a financial year (â‚¹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
+        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
       },
       {
         "question": "Is this calculator financial or tax advice?",
@@ -2162,7 +2200,7 @@
       "sip-calculator-india"
     ],
     "howToUse": [
-      "Enter your desired 'Monthly Deposit Amount' in Rupees (â‚¹).",
+      "Enter your desired 'Monthly Deposit Amount' in Rupees (₹).",
       "Input the 'Annual Interest Rate' offered by your bank in percentage (e.g., 6.5 for 6.5%).",
       "Specify the 'Tenure' of your Recurring Deposit in months (e.g., 60 months for 5 years).",
       "Provide your 'Income Tax Slab' percentage to see an estimated post-tax interest.",
@@ -2215,10 +2253,10 @@
       },
       {
         "heading": "Taxation on RD Interest in India",
-        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds â‚¹40,000 in a financial year (â‚¹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
+        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
         "bullets": [
           "RD interest is taxable as 'Income from Other Sources'.",
-          "TDS is applicable if interest exceeds â‚¹40,000 (â‚¹50,000 for seniors) per bank per year.",
+          "TDS is applicable if interest exceeds ₹40,000 (₹50,000 for seniors) per bank per year.",
           "Submit Form 15G/15H to avoid TDS if eligible."
         ]
       }
@@ -2341,7 +2379,8 @@
       "emi-calculator-india",
       "personal-loan-emi-calculator-india",
       "salary-in-hand-calculator-india",
-      "hra-exemption-calculator-india"
+      "hra-exemption-calculator-india",
+      "pre-emi-calculator-india"
     ],
     "howToUse": [
       "Enter the home loan amount you plan to borrow.",
@@ -2627,7 +2666,7 @@
         "min": 10,
         "max": 75,
         "step": 5,
-        "help": "RBI caps gold loan LTV at 75% of gold value. Many lenders offer 60-75%."
+        "help": "RBI sets tiered caps for consumption gold loans: 85% up to Rs 2.5 lakh, 80% above Rs 2.5 lakh through Rs 5 lakh, and 75% above Rs 5 lakh. Individual lenders may offer less."
       },
       {
         "key": "annualRate",
@@ -2886,7 +2925,9 @@
     "related": [
       "income-tax-calculator-old-vs-new-regime-india",
       "sip-calculator-india",
-      "80c-deduction-calculator-india"
+      "80c-deduction-calculator-india",
+      "stock-portfolio-calculator-india",
+      "inherited-property-capital-gains-calculator-india"
     ],
     "howToUse": [
       "Add up your short-term gains on listed equity and equity funds for the financial year.",
@@ -3102,7 +3143,8 @@
       "80c-deduction-calculator-india",
       "fd-calculator-india",
       "sip-calculator-india",
-      "lumpsum-calculator-india"
+      "lumpsum-calculator-india",
+      "epf-taxable-interest-rule-9d-calculator-india"
     ],
     "howToUse": [
       "Enter how much you plan to invest each financial year (Rs 500 to Rs 1,50,000).",
@@ -3266,7 +3308,8 @@
       "sip-calculator-india",
       "fd-calculator-india",
       "ppf-calculator-india",
-      "capital-gains-tax-calculator-india"
+      "capital-gains-tax-calculator-india",
+      "mutual-fund-calculator-india"
     ],
     "howToUse": [
       "Enter the one-time amount you plan to invest.",
@@ -3445,7 +3488,10 @@
       "salary-in-hand-calculator-india",
       "ppf-calculator-india",
       "gratuity-calculator-india",
-      "sip-calculator-india"
+      "sip-calculator-india",
+      "retirement-calculator-india",
+      "new-labour-code-take-home-calculator-india",
+      "epf-taxable-interest-rule-9d-calculator-india"
     ],
     "howToUse": [
       "Enter your monthly basic salary plus DA from your payslip.",
@@ -3500,12 +3546,12 @@
   {
     "slug": "8th-pay-commission-salary-calculator-india",
     "name": "8th Pay Commission Salary Calculator India",
-    "seoTitle": "8th Pay Commission Calculator | Fitment Factor Scenarios",
+    "seoTitle": "8th Pay Commission Salary Calculator 2026 (Fitment Factor)",
     "category": "Salary",
     "status": "live",
     "targetKeyword": "8th pay commission salary calculator",
     "shortDescription": "Estimate your revised basic pay, DA, HRA and gross salary under selectable 8th Pay Commission fitment-factor scenarios for central government employees. The Commission has not notified a final factor, so all factors here are planning scenarios.",
-    "metaDescription": "Estimate revised basic pay using selectable 8th Pay Commission fitment-factor scenarios. Results are illustrative until official recommendations are notified.",
+    "metaDescription": "Calculate revised basic pay, DA, HRA and gross salary across unofficial 8th Pay Commission fitment-factor scenarios. No final factor has been notified.",
     "inputs": [
       {
         "key": "currentBasic",
@@ -3618,11 +3664,25 @@
         "answer": "Yes. Employee NPS contribution (10% of basic+DA) and employer NPS contribution (14% of basic+DA) are both calculated on the revised basic. Your take-home net of NPS will be lower than the gross shown here."
       },
       {
+        "question": "What is DA merger in the 8th Pay Commission?",
+        "answer": "DA merger means the Dearness Allowance accumulated up to the implementation date is folded into basic pay rather than continuing as a separate allowance. In a pay-commission revision this normally happens through the fitment factor: the existing DA is absorbed into the revised basic, and DA then restarts from 0% on that higher basic. Because every other allowance is calculated on basic pay, a DA merger raises HRA, transport allowance, NPS contribution and pension base as well, which is why it matters more than the headline DA percentage alone."
+      },
+      {
+        "question": "DA मर्जर क्या है और इससे सैलरी पर क्या असर पड़ेगा?",
+        "answer": "DA मर्जर का मतलब है कि अब तक जमा हुआ महंगाई भत्ता (Dearness Allowance) अलग भत्ते के रूप में न रहकर मूल वेतन (basic pay) में जोड़ दिया जाता है। वेतन आयोग में यह आमतौर पर फिटमेंट फैक्टर के ज़रिए होता है — पुराना DA नए बेसिक में समा जाता है और फिर DA दोबारा 0% से शुरू होता है। चूँकि HRA, परिवहन भत्ता, NPS अंशदान और पेंशन सभी बेसिक पे पर गिने जाते हैं, इसलिए DA मर्जर से कुल वेतन पर असर सिर्फ़ DA प्रतिशत से कहीं ज़्यादा होता है।"
+      },
+      {
+        "question": "8वां वेतन आयोग कब लागू होगा?",
+        "answer": "अभी आधिकारिक तारीख़ अधिसूचित नहीं हुई है। आमतौर पर वेतन आयोग की सिफ़ारिशें लागू होने से पहले सरकार द्वारा स्वीकार की जाती हैं और फिर अधिसूचना जारी होती है। इस कैलकुलेटर में दिए गए फिटमेंट फैक्टर परिदृश्य केवल अनुमान के लिए हैं — अंतिम आँकड़े आधिकारिक अधिसूचना के बाद ही तय होंगे। ताज़ा स्थिति के लिए वित्त मंत्रालय की आधिकारिक घोषणाएँ देखें।"
+      },
+      {
         "question": "Will DA be reset to 0 after the 8th Pay Commission?",
         "answer": "Typically yes. The DA accumulated up to the Pay Commission implementation date is usually merged into basic pay via the fitment, and DA is reset to 0% on the new basic — then rises again from the next revision cycle."
       }
     ],
     "related": [
+      "8th-pay-commission-arrears-calculator-india",
+      "8th-pay-commission-pension-calculator-india",
       "salary-in-hand-calculator-india",
       "income-tax-calculator-old-vs-new-regime-india",
       "hra-exemption-calculator-india",
@@ -3667,8 +3727,8 @@
         ]
       },
       {
-        "heading": "DA, HRA and TA on revised basic",
-        "body": "All major allowances are recalculated on the new basic pay. Dearness Allowance (currently 55%) is usually merged into basic via the fitment and then reset to 0%. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
+        "heading": "DA merger into basic pay, and HRA and TA on revised basic",
+        "body": "All major allowances are recalculated on the new basic pay. The DA merger is the key step: Dearness Allowance (currently 55%) is usually merged into basic pay via the fitment factor and then reset to 0% on the revised basic. HRA is 24% for X cities (metro), 16% for Y cities, and 8% for Z cities. Transport allowance is tiered by pay level and city."
       },
       {
         "heading": "Source and Methodology",
@@ -3718,7 +3778,7 @@
         }
       }
     ],
-    "lastReviewedIso": "2026-08-03"
+    "lastReviewedIso": "2026-08-17"
   },
   {
     "slug": "cagr-calculator-india",
@@ -3814,7 +3874,8 @@
       "sip-calculator-india",
       "lumpsum-calculator-india",
       "ppf-calculator-india",
-      "epf-corpus-calculator-india"
+      "epf-corpus-calculator-india",
+      "stock-portfolio-calculator-india"
     ],
     "howToUse": [
       "Enter the initial investment value (what you paid or the starting NAV/price).",
@@ -3903,10 +3964,10 @@
         "label": "Annuity purchase %",
         "unit": "%",
         "default": 40,
-        "min": 40,
+        "min": 20,
         "max": 100,
         "step": 5,
-        "help": "At maturity, at least 40% of the corpus must be used to buy an annuity (monthly pension). The rest (up to 60%) can be withdrawn lump-sum tax-free."
+        "help": "PFRDA permits as little as 20% annuity on a normal exit with a corpus above Rs 12 lakh. This calculator defaults to 40% because that keeps the lump sum at 60% of the corpus — the amount Section 10(12A) currently exempts. Lowering it towards 20% raises the lump sum towards 80%, and the portion above 60% has no matching income-tax exemption today, so it may be taxable at your slab rate."
       },
       {
         "key": "annuityRate",
@@ -3934,7 +3995,7 @@
       },
       {
         "key": "lumpSumWithdrawal",
-        "label": "Lump-sum withdrawal (60% max)",
+        "label": "Estimated lump-sum withdrawal (before tax)",
         "formula": "totalCorpus * (1 - annuityPercent/100)",
         "format": "currency"
       },
@@ -3951,36 +4012,36 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. At maturity, at least 40% buys an annuity; monthly pension = annuity corpus × annuity rate / 12. The remaining 60% (or less) can be withdrawn tax-free.",
-    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6%: corpus at 60 = Rs 1,13,02,000. Lump-sum = Rs 67,81,000. Annuity corpus = Rs 45,21,000. Monthly pension = Rs 22,605.",
+    "formulaExplanation": "NPS corpus = future value of monthly contribution compounded at the expected annual return until age 60. Under current PFRDA normal-exit rules for the All Citizen Model, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Monthly pension = annuity corpus × annuity rate / 12. Income-tax treatment is separate: Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus, so verify the treatment of any amount above 60% before choosing an exit split.",
+    "example": "Age 30, Rs 5,000/month, 10% return, 40% annuity at 6% (the default): corpus at 60 = about Rs 1,13,02,000. Lump-sum = Rs 67,81,000, which sits inside the 60% currently exempt under Section 10(12A). Annuity corpus = Rs 45,21,000. Estimated monthly pension = Rs 22,605. Dropping the annuity to the permitted 20% minimum would raise the lump sum to about Rs 90,42,000 and cut the pension to about Rs 11,302, but the roughly Rs 22,60,000 above the 60% mark has no matching exemption today.",
     "quickAnswer": {
       "title": "NPS Quick Answer",
       "question": "How much NPS corpus will I have at 60?",
-      "answer": "NPS corpus = future value of monthly contributions at your chosen return rate until age 60. At 60, you must buy an annuity with at least 40% of the corpus (for monthly pension), and can withdraw up to 60% tax-free. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on 40% annuity at 6%.",
+      "answer": "NPS corpus is the future value of monthly contributions at your chosen return rate until age 60. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can use at least 20% for annuity and up to 80% for lump-sum or periodic payout. Starting Rs 5,000/month at age 30 with 10% returns builds roughly Rs 1.13 crore by 60, giving about Rs 22,600/month pension on this calculator's default 40% annuity at 6%. Income-tax exemption currently covers lump-sum withdrawal up to 60%, so withdrawal permission and tax exemption should not be treated as the same limit — the default keeps the lump sum inside the exempt 60%.",
       "formula": "Corpus = Monthly contribution × ((1+r)^n − 1) / r, where r = monthly rate, n = months to age 60",
-      "example": "Rs 5,000/month at age 30 at 10% CAGR → Rs 1.13 cr corpus at 60 → Rs 22,600/month pension.",
-      "note": "NPS 2.0: PFRDA increased tax-free lump-sum withdrawal to 80% for corpus below Rs 5 lakh. Check current rules."
+      "example": "Rs 5,000/month at age 30 at 10% CAGR → about Rs 1.13 cr corpus at 60 → about Rs 22,600/month pension with the default 40% annuity at 6%.",
+      "note": "Current PFRDA normal-exit thresholds vary by corpus and subscriber model. Section 10(12A) currently exempts lump-sum withdrawal up to 60%; verify any amount above that separately."
     },
     "faqs": [
       {
         "question": "What is the minimum NPS contribution per year?",
-        "answer": "For Tier 1 (mandatory) NPS account, the minimum annual contribution is Rs 1,000. No maximum limit applies for individual contributions, but 80CCD(1) deduction is capped at 10% of salary (Rs 1.5L under 80C limit) and additional 80CCD(1B) gives up to Rs 50,000 more."
+        "answer": "For a Tier 1 NPS account, the minimum annual contribution is Rs 1,000. There is no maximum contribution limit, but tax deductions depend on the chosen tax regime. Employee self-contribution deductions under Sections 80CCD(1) and 80CCD(1B) generally apply under the old regime; the new regime retains the eligible employer-contribution deduction under Section 80CCD(2)."
       },
       {
         "question": "Is NPS withdrawal taxable at maturity?",
-        "answer": "The lump-sum withdrawal (up to 60% of corpus) at maturity (age 60) is completely tax-free. The annuity income (monthly pension) is taxable as income at your applicable slab rate in the year of receipt."
+        "answer": "Section 10(12A) currently exempts lump-sum withdrawal up to 60% of the corpus at normal exit. Current PFRDA rules may permit a higher lump-sum or periodic payout for some non-government subscribers, but that permission does not automatically make the amount above 60% tax-exempt. Annuity income is taxable at the applicable slab rate when received."
       },
       {
         "question": "What are the tax benefits of NPS?",
-        "answer": "Employee's own NPS contribution: deductible under 80CCD(1) up to 10% of salary (capped within Rs 1.5L 80C limit). Additional self-contribution: Rs 50,000 under 80CCD(1B) over and above 80C. Employer NPS contribution: deductible under 80CCD(2) — 10% of salary for private sector (14% for govt employees), NO cap."
+        "answer": "Under the old regime, an employee's own NPS contribution may qualify under Section 80CCD(1), within the combined Section 80C limit, plus up to Rs 50,000 under Section 80CCD(1B). Under the new regime, those self-contribution deductions are generally unavailable, while an eligible employer contribution remains deductible under Section 80CCD(2), subject to the statutory percentage of salary. Verify the regime, employer contribution and current limits before filing."
       },
       {
         "question": "Can I withdraw NPS before 60?",
         "answer": "Partial withdrawal (up to 25% of your own contributions) is allowed after 3 years for specific purposes (education, marriage, medical, home). Premature exit before 60 (after 5 years) requires 80% annuity purchase; only 20% can be withdrawn. On death, the entire corpus is paid to the nominee tax-free."
       },
       {
-        "question": "What is NPS 2.0?",
-        "answer": "Under NPS 2.0 amendments (effective FY 2025-26 onwards), if the NPS corpus at maturity is Rs 5 lakh or less, the subscriber can withdraw the entire corpus tax-free without buying an annuity. Above Rs 5 lakh, the 40% annuity rule continues."
+        "question": "What are the current NPS normal-exit rules?",
+        "answer": "For the current All Citizen Model, normal exit is generally available after age 60 or 15 years of subscription. A corpus up to Rs 8 lakh can generally be taken fully through permitted payout options; for more than Rs 8 lakh and up to Rs 12 lakh, special lump-sum and periodic-payout options apply; above Rs 12 lakh, at least 20% must generally buy an annuity. Check the latest PFRDA/NPS Trust rules for your subscriber model before exiting."
       },
       {
         "question": "Which NPS scheme is better — Tier 1 or Tier 2?",
@@ -3991,13 +4052,16 @@
       "epf-corpus-calculator-india",
       "ppf-calculator-india",
       "sip-calculator-india",
-      "income-tax-calculator-old-vs-new-regime-india"
+      "income-tax-calculator-old-vs-new-regime-india",
+      "retirement-calculator-india",
+      "pension-commutation-calculator-india",
+      "notional-increment-pension-calculator-india"
     ],
     "howToUse": [
       "Enter your current age — corpus is estimated until age 60.",
       "Enter your monthly NPS Tier 1 contribution (include employer contribution if adding both).",
       "Set the expected annual return based on your NPS fund allocation (10% for aggressive, 7–8% for conservative).",
-      "Set annuity purchase % — minimum 40% is mandatory; higher % means more monthly pension.",
+      "Set annuity purchase % — the 40% default keeps your lump sum within the 60% currently exempt under Section 10(12A). Current All Citizen Model normal-exit rules allow going as low as 20% when corpus is above Rs 12 lakh, which increases the lump sum but leaves the portion above 60% without a matching exemption. Other subscriber models and corpus thresholds can differ.",
       "Set the annuity rate offered by insurers (typically 5.5–7%) to estimate monthly pension."
     ],
     "assumptions": [
@@ -4005,29 +4069,32 @@
       "Constant return rate — NPS equity allocation returns are market-linked and volatile.",
       "Annuity rate is an estimate; actual rates depend on the insurer and annuity type chosen at maturity.",
       "Employer NPS contributions (80CCD(2)) are not separately tracked — add them to monthly contribution if including both.",
+      "The calculator models the All Citizen Model normal-exit split for a corpus above Rs 12 lakh; government-sector and lower-corpus exit rules can differ. A corpus of Rs 8 lakh or less can generally be taken as 100% lump sum, which this calculator's 20% minimum annuity does not model.",
+      "Lump-sum and pension figures are pre-tax. Annuity income is taxable at your slab rate, and any lump sum above 60% of the corpus has no current exemption under Section 10(12A).",
+      "PFRDA permits up to 80% lump-sum or periodic payout in the modeled normal-exit scenario, while the Income Tax Department currently states a 60% lump-sum exemption under Section 10(12A).",
       "Educational estimate only. Verify current NPS rules and annuity rates on the NPS Trust website."
     ],
     "commonMistakes": [
       "Using the equity CAGR (10–12%) for a conservative NPS allocation with high government bond exposure.",
       "Forgetting that monthly pension (annuity income) is taxable at your slab rate.",
-      "Not using the extra Rs 50,000 80CCD(1B) deduction available over and above 80C.",
-      "Ignoring employer's 80CCD(2) NPS contribution — it is deductible without any cap for the employer."
+      "Assuming the extra Rs 50,000 Section 80CCD(1B) self-contribution deduction is available under the new regime; it generally belongs to the old-regime deduction set.",
+      "Treating employer NPS contribution as unlimited; Section 80CCD(2) uses a statutory percentage of salary and depends on the tax regime."
     ],
     "contentSections": [
       {
         "heading": "How NPS works",
-        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 (retirement-locked) and optionally Tier 2 (liquid). Tier 1 funds are invested across equity (E), government securities (G) and corporate bonds (C) in the allocation you choose. At age 60, you withdraw up to 60% tax-free and must buy an annuity with at least 40% for a monthly pension.",
+        "body": "The National Pension System (NPS) is a voluntary, long-term retirement savings scheme regulated by PFRDA. Contributions go into Tier 1 and optionally Tier 2. Under current All Citizen Model normal-exit rules, a corpus above Rs 12 lakh can allocate up to 80% to lump-sum or periodic payout and at least 20% to annuity. The Income Tax Department currently describes lump-sum exemption up to 60%, so the permitted exit split and the tax-exempt split are not identical.",
         "bullets": [
-          "Tax benefits: 80CCD(1) up to Rs 1.5L + extra Rs 50,000 under 80CCD(1B).",
-          "Employer NPS (80CCD(2)): deductible without any cap on salary percentage.",
-          "Maturity: 60% lump-sum tax-free + 40% annuity (monthly pension, taxable)."
+          "Old regime: eligible self-contributions can use Section 80CCD(1) within the combined limit plus up to Rs 50,000 under Section 80CCD(1B).",
+          "New regime: eligible employer NPS contributions can be deducted under Section 80CCD(2), subject to the statutory percentage of salary.",
+          "Normal exit above Rs 12L corpus: up to 80% payout + at least 20% annuity; current lump-sum tax exemption is stated separately at up to 60%."
         ]
       },
       {
         "heading": "NPS vs EPF vs PPF",
-        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and has the extra Rs 50,000 deduction under 80CCD(1B), but requires an annuity purchase at maturity. Many salaried investors use EPF + PPF as the safe core and NPS as an additional retirement vehicle.",
+        "body": "EPF is automatic for organised-sector employees (12% employee + 3.67% employer to EPF). PPF is a 15-year government-backed investment with full EEE tax status. NPS is more flexible in investment choice (equity to bonds) and may provide an extra Rs 50,000 Section 80CCD(1B) deduction under the old regime; the new regime instead retains the eligible employer-contribution deduction under Section 80CCD(2). NPS also requires an annuity purchase at maturity under the applicable exit rules.",
         "bullets": [
-          "NPS: market-linked, flexible allocation, extra tax deduction, annuity required.",
+          "NPS: market-linked, flexible allocation, regime-dependent tax benefits, annuity required.",
           "EPF: auto-deducted, employer-matched, ~8.25% declared rate.",
           "PPF: voluntary, risk-free, full EEE, 15-year lock-in."
         ]
@@ -4037,7 +4104,26 @@
         "body": "Corpus is computed as the future value of a constant monthly contribution compounded monthly at the entered annual rate until age 60. Lump-sum and annuity splits are applied on the total corpus. Monthly pension = annuity corpus × annuity rate / 12. All figures are pre-tax estimates."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10",
+    "officialSources": [
+      {
+        "label": "Income Tax Department — Section 115BAC new-regime deductions",
+        "href": "https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1"
+      },
+      {
+        "label": "Income Tax Department — Section 80CCD",
+        "href": "https://www.incometaxindia.gov.in/w/section-80ccd-21"
+      },
+      {
+        "label": "PFRDA — NPS All Citizen Model exit rules",
+        "href": "https://www.pfrda.org.in/en/schemes/national-pension-system/nps-for-all-citizen-models"
+      },
+      {
+        "label": "NPS Trust — tax benefits under NPS",
+        "href": "https://npstrust.org.in/index.php/benefits-of-nps"
+      }
+    ]
   },
   {
     "slug": "step-up-sip-calculator-india",
@@ -4140,7 +4226,8 @@
       "sip-calculator-india",
       "lumpsum-calculator-india",
       "cagr-calculator-india",
-      "ppf-calculator-india"
+      "ppf-calculator-india",
+      "retirement-calculator-india"
     ],
     "howToUse": [
       "Enter your starting monthly SIP amount.",
@@ -4478,6 +4565,12 @@
         "format": "currency"
       },
       {
+        "key": "liquidAssets",
+        "label": "Liquid financial assets",
+        "formula": "cashSavings + fdRdBalance + mutualFunds",
+        "format": "currency"
+      },
+      {
         "key": "totalLiabilities",
         "label": "Total liabilities",
         "formula": "homeLoanBalance + personalLoan + creditCardDebt + otherLiabilities",
@@ -4490,9 +4583,15 @@
         "format": "currency"
       },
       {
+        "key": "liquidNetWorth",
+        "label": "Liquid net worth",
+        "formula": "liquidAssets - personalLoan - creditCardDebt - otherLiabilities",
+        "format": "currency"
+      },
+      {
         "key": "debtToAssetRatio",
         "label": "Debt-to-asset ratio",
-        "formula": "totalLiabilities / totalAssets * 100",
+        "formula": "totalLiabilities / max(totalAssets, 1) * 100",
         "format": "percent"
       }
     ],
@@ -4532,7 +4631,7 @@
     "howToUse": [
       "Enter the current value of each asset category — be honest with market values, not purchase prices.",
       "Enter all outstanding loan balances — home loan, personal loan, car loan, credit card dues.",
-      "Read your total assets, total liabilities, net worth and debt-to-asset ratio.",
+      "Read your total assets, liquid assets, total liabilities, net worth, liquid net worth and debt-to-asset ratio.",
       "Track this every 6–12 months to monitor your financial progress."
     ],
     "assumptions": [
@@ -4571,5 +4670,1226 @@
       }
     ],
     "lastReviewed": "July 2026"
+  },
+  {
+    "slug": "mutual-fund-calculator-india",
+    "name": "Mutual Fund Calculator India",
+    "seoTitle": "Mutual Fund Calculator India 2026 — SIP, Lumpsum & Returns",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "mutual fund calculator india",
+    "shortDescription": "Calculate mutual fund returns for SIP, lumpsum, and systematic withdrawal plans. Compare with FD, PPF and stock market returns.",
+    "metaDescription": "Free mutual fund calculator India 2026. Estimate SIP returns, lumpsum gains, SWP corpus and compare mutual fund vs FD, PPF, gold returns.",
+    "inputs": [
+      {
+        "key": "monthlyInvestment",
+        "label": "Monthly SIP amount (₹)",
+        "unit": "₹",
+        "default": 10000,
+        "min": 500,
+        "step": 500,
+        "help": "Amount invested every month."
+      },
+      {
+        "key": "lumpsumAmount",
+        "label": "Lumpsum investment (₹)",
+        "unit": "₹",
+        "default": 100000,
+        "min": 0,
+        "step": 10000,
+        "help": "One-time investment amount."
+      },
+      {
+        "key": "expectedReturn",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 12,
+        "min": 1,
+        "step": 0.5,
+        "help": "Expected average annual return from mutual funds."
+      },
+      {
+        "key": "years",
+        "label": "Investment duration",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "step": 1,
+        "help": "How long you plan to invest."
+      }
+    ],
+    "outputs": [
+      {
+        "key": "sipTotalInvested",
+        "label": "SIP: total invested",
+        "formula": "monthlyInvestment * years * 12",
+        "format": "currency"
+      },
+      {
+        "key": "sipFutureValue",
+        "label": "SIP: future value",
+        "formula": "monthlyInvestment * ((((1 + (expectedReturn / 12 / 100)) ^ (years * 12)) - 1) / (expectedReturn / 12 / 100)) * (1 + (expectedReturn / 12 / 100))",
+        "format": "currency"
+      },
+      {
+        "key": "sipGains",
+        "label": "SIP: estimated gains",
+        "formula": "sipFutureValue - sipTotalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "lumpsumFutureValue",
+        "label": "Lumpsum: future value",
+        "formula": "lumpsumAmount * (1 + expectedReturn / 100) ^ years",
+        "format": "currency"
+      },
+      {
+        "key": "lumpsumGains",
+        "label": "Lumpsum: estimated gains",
+        "formula": "lumpsumAmount * (1 + expectedReturn / 100) ^ years - lumpsumAmount",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "For SIP: FV = monthly investment × [((1 + monthly return)^months - 1) / monthly return] × (1 + monthly return). For lumpsum: FV = principal × (1 + annual return)^years.",
+    "example": "A ₹10,000 monthly SIP for 10 years at 12% gives an estimated future corpus based on monthly compounding.",
+    "faqs": [
+      {
+        "question": "What is the difference between SIP and lumpsum?",
+        "answer": "SIP invests regularly reducing timing risk. Lumpsum invests large amount at once."
+      },
+      {
+        "question": "What return should I expect?",
+        "answer": "Equity MF historically delivered 10-14% CAGR over 10+ years in India."
+      },
+      {
+        "question": "How does MF compare with FD or PPF?",
+        "answer": "MF offers higher potential returns than FDs (6-7%) and PPF (7.1%) but with higher risk."
+      },
+      {
+        "question": "Minimum SIP amount?",
+        "answer": "Most MFs allow SIPs starting from ₹500/month."
+      },
+      {
+        "question": "Taxes on mutual fund gains?",
+        "answer": "Equity: LTCG above ₹1L/year taxed at 12% (>12 months). STT taxed at 15% (≤12 months)."
+      },
+      {
+        "question": "What is SWP?",
+        "answer": "SWP lets you withdraw fixed amounts monthly from existing holdings."
+      },
+      {
+        "question": "Growth or dividend option?",
+        "answer": "Growth reinvests gains compounding returns. Dividend reduces corpus."
+      },
+      {
+        "question": "How to choose the right mutual fund?",
+        "answer": "Consider fund category, track record, expense ratio, and consistency."
+      }
+    ],
+    "related": [
+      "sip-calculator-india",
+      "lumpsum-calculator-india",
+      "step-up-sip-calculator-india",
+      "stock-portfolio-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Mutual Fund Calculator Quick Answer",
+      "question": "How does a mutual fund calculator estimate returns?",
+      "answer": "It estimates future corpus using investment mode, amount, expected annual return, and duration.",
+      "formula": "SIP FV = monthly investment × [((1 + monthly return)^months - 1) / monthly return] × (1 + monthly return)",
+      "note": "Educational estimate only. Actual returns depend on market performance."
+    },
+    "howToUse": [
+      "Choose investment mode: SIP, Lumpsum, or SWP.",
+      "Enter amount, expected return, and duration.",
+      "Review total invested, future value, and estimated gains."
+    ],
+    "assumptions": [
+      "Expected return is not guaranteed.",
+      "SIP assumes monthly investments at start of each month.",
+      "Does not include exit loads, expense ratios, or tax effects."
+    ],
+    "contentSections": [
+      {
+        "heading": "How does a mutual fund calculator work?",
+        "body": "Estimates how investments may grow using SIP, lumpsum, or SWP inputs."
+      },
+      {
+        "heading": "SIP vs lumpsum: which is better?",
+        "body": "SIP reduces timing risk through rupee-cost averaging. Lumpsum suits windfalls or market dips."
+      },
+      {
+        "heading": "Ideal investment horizon?",
+        "body": "Equity MF: 7-10+ years. Debt MF: 1-3 years. Hybrid: 3-5 years."
+      },
+      {
+        "heading": "How does inflation affect returns?",
+        "body": "If inflation is 6% and return is 12%, real return is ~6%."
+      },
+      {
+        "heading": "Is mutual fund investment safe?",
+        "body": "Regulated by SEBI. Not risk-free — equity funds can lose value short term."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "retirement-calculator-india",
+    "name": "Retirement Calculator India",
+    "seoTitle": "Retirement Calculator India 2026 — Corpus Needed & Monthly Savings",
+    "category": "Planning",
+    "status": "live",
+    "targetKeyword": "retirement calculator india",
+    "shortDescription": "Calculate retirement corpus needed, monthly savings required, and estimate retirement income from investments and pension.",
+    "metaDescription": "Free retirement calculator India 2026. Estimate corpus needed for retirement, monthly savings, and retirement income from investments and NPS.",
+    "inputs": [
+      {
+        "key": "currentAge",
+        "label": "Current age",
+        "unit": "years",
+        "default": 30,
+        "min": 22,
+        "max": 65,
+        "step": 1
+      },
+      {
+        "key": "retirementAge",
+        "label": "Retirement age",
+        "unit": "years",
+        "default": 60,
+        "min": 55,
+        "max": 70,
+        "step": 1
+      },
+      {
+        "key": "expectedLifeAge",
+        "label": "Expected life age",
+        "unit": "years",
+        "default": 85,
+        "min": 75,
+        "max": 95,
+        "step": 1
+      },
+      {
+        "key": "monthlyExpenseNow",
+        "label": "Current monthly expenses",
+        "unit": "₹",
+        "default": 50000,
+        "min": 10000,
+        "step": 1000
+      },
+      {
+        "key": "expenseReductionPercent",
+        "label": "Expense reduction post-retirement",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 50,
+        "step": 5
+      },
+      {
+        "key": "inflationRate",
+        "label": "Annual inflation rate",
+        "unit": "%",
+        "default": 6,
+        "min": 2,
+        "max": 10,
+        "step": 0.5
+      },
+      {
+        "key": "postRetirementReturn",
+        "label": "Post-retirement investment return",
+        "unit": "%",
+        "default": 8,
+        "min": 4,
+        "max": 12,
+        "step": 0.5
+      },
+      {
+        "key": "existingCorpus",
+        "label": "Existing retirement corpus (₹)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "monthlySip",
+        "label": "Monthly SIP towards retirement (₹)",
+        "unit": "₹",
+        "default": 10000,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "sipReturn",
+        "label": "Expected SIP return",
+        "unit": "%",
+        "default": 12,
+        "min": 5,
+        "max": 18,
+        "step": 0.5
+      }
+    ],
+    "outputs": [
+      {
+        "key": "yearsToRetire",
+        "label": "Years to retirement",
+        "formula": "retirementAge - currentAge",
+        "format": "number"
+      },
+      {
+        "key": "monthlyExpenseAtRetirement",
+        "label": "Monthly expenses at retirement (today's value)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "annualExpenseAtRetirement",
+        "label": "Annual expenses at retirement (inflation-adjusted)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100) * 12 * (1 + inflationRate / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "retirementCorpusNeeded",
+        "label": "Retirement corpus needed (in today's terms)",
+        "formula": "monthlyExpenseNow * (1 - expenseReductionPercent / 100) * 12 * ((1 - (1 + max(postRetirementReturn / 100 - inflationRate / 100, 0.01)) ^ (0 - (expectedLifeAge - retirementAge))) / max(postRetirementReturn / 100 - inflationRate / 100, 0.01))",
+        "format": "currency"
+      },
+      {
+        "key": "futureCorpusNeeded",
+        "label": "Retirement corpus needed (at retirement, inflation-adjusted)",
+        "formula": "retirementCorpusNeeded * (1 + inflationRate / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "futureExistingCorpus",
+        "label": "Future value of existing corpus",
+        "formula": "existingCorpus * (1 + sipReturn / 100) ^ (retirementAge - currentAge)",
+        "format": "currency"
+      },
+      {
+        "key": "futureSipCorpus",
+        "label": "Future value of monthly SIP",
+        "formula": "monthlySip * (((1 + sipReturn / 12 / 100) ^ ((retirementAge - currentAge) * 12) - 1) / (sipReturn / 12 / 100)) * (1 + sipReturn / 12 / 100)",
+        "format": "currency"
+      },
+      {
+        "key": "totalFutureCorpus",
+        "label": "Total projected retirement corpus",
+        "formula": "futureExistingCorpus + futureSipCorpus",
+        "format": "currency"
+      },
+      {
+        "key": "corpusShortfall",
+        "label": "Corpus shortfall (if any)",
+        "formula": "max(0, futureCorpusNeeded - totalFutureCorpus)",
+        "format": "currency"
+      },
+      {
+        "key": "requiredMonthlySip",
+        "label": "Required monthly SIP to meet target",
+        "formula": "corpusShortfall * (sipReturn / 12 / 100) / ((((1 + (sipReturn / 12 / 100)) ^ ((retirementAge - currentAge) * 12)) - 1) * (1 + (sipReturn / 12 / 100)))",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Retirement corpus = (monthly expenses at retirement × years in retirement) / (post-retirement return - inflation rate). Uses perpetuity formula.",
+    "example": "A 30-year-old earning ₹50,000/month wanting to retire at 60 needs approximately ₹1.5-2 crore corpus (today's value) at 6% inflation and 8% post-retirement return.",
+    "faqs": [
+      {
+        "question": "How much corpus do I need for retirement?",
+        "answer": "A common estimate is 20-25x your annual expenses at retirement. For ₹6 lakh/year expenses, you need ₹1.2-1.5 crore."
+      },
+      {
+        "question": "When should I start planning for retirement?",
+        "answer": "The earlier, the better. Starting at 25 vs 35 can reduce required monthly SIP by 40-50% due to compounding."
+      },
+      {
+        "question": "What investments are best for retirement?",
+        "answer": "Pre-retirement: Equity mutual funds (SIP) for growth. Post-retirement: Debt instruments and balanced portfolios."
+      },
+      {
+        "question": "Should I rely on NPS for retirement?",
+        "answer": "NPS is a good tool with tax benefits (80CCD), but use it as part of a diversified plan including PF, PPF, and mutual funds."
+      },
+      {
+        "question": "What is the 4% rule in retirement planning?",
+        "answer": "Withdraw 4% of corpus annually (adjusted for inflation). For ₹1 crore, this gives ₹4 lakh/year."
+      },
+      {
+        "question": "How does inflation affect retirement planning?",
+        "answer": "₹50,000/month today may need ₹1.2-1.5 lakh/month at retirement (6% inflation, 30 years)."
+      }
+    ],
+    "related": [
+      "nps-calculator-india",
+      "epf-corpus-calculator-india",
+      "sip-calculator-india",
+      "fire-retirement-calculator-india",
+      "pension-commutation-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Retirement Calculator Quick Answer",
+      "question": "How much do I need for retirement?",
+      "answer": "Typically 20-25x your annual expenses at retirement. For ₹6 lakh/year, you need ₹1.2-1.5 crore (today's value).",
+      "note": "Educational estimate. Actual needs depend on lifestyle, healthcare costs, and inflation."
+    },
+    "howToUse": [
+      "Enter current age, retirement age, and expected life age.",
+      "Enter current monthly expenses and reduction post-retirement.",
+      "Enter existing corpus and current monthly SIP.",
+      "Review corpus needed, projected corpus, and shortfall."
+    ],
+    "assumptions": [
+      "Expenses reduce post-retirement (no EMI, fewer discretionary expenses).",
+      "Inflation is constant throughout the planning period.",
+      "Returns are estimated — actual returns vary.",
+      "No Social Security or pension income included."
+    ],
+    "contentSections": [
+      {
+        "heading": "Why retirement planning matters",
+        "body": "India's average life expectancy is 70+ years. With retirement at 60, you may need funds for 25+ years."
+      },
+      {
+        "heading": "The power of starting early",
+        "body": "Investing ₹5,000/month from age 25 at 12% gives ₹1.1 crore by 60. Starting at 35 requires ₹12,000/month."
+      },
+      {
+        "heading": "Common retirement mistakes",
+        "body": "Underestimating expenses, ignoring inflation, not diversifying, relying only on PF/NPS, and starting too late."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "stock-portfolio-calculator-india",
+    "name": "Stock Portfolio Calculator India",
+    "seoTitle": "Stock Portfolio Calculator India — Returns, Gains & Dividends",
+    "category": "Investments",
+    "status": "live",
+    "targetKeyword": "stock portfolio calculator india",
+    "shortDescription": "Calculate stock portfolio returns, capital gains, dividend yield, and compare with benchmarks like Nifty 50 and Sensex.",
+    "metaDescription": "Free stock portfolio calculator India. Track gains, losses, dividend income, and returns on your equity investments. Compare with Nifty 50.",
+    "inputs": [
+      {
+        "key": "totalInvested",
+        "label": "Total invested amount (₹)",
+        "unit": "₹",
+        "default": 500000,
+        "min": 1000,
+        "step": 1000
+      },
+      {
+        "key": "currentValue",
+        "label": "Current portfolio value (₹)",
+        "unit": "₹",
+        "default": 650000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "totalDividendsReceived",
+        "label": "Total dividends received (₹)",
+        "unit": "₹",
+        "default": 0,
+        "min": 0,
+        "step": 500
+      },
+      {
+        "key": "holdingPeriodYears",
+        "label": "Holding period (years)",
+        "unit": "years",
+        "default": 5,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalGainLoss",
+        "label": "Total capital gain/loss (₹)",
+        "formula": "currentValue - totalInvested",
+        "format": "currency"
+      },
+      {
+        "key": "totalGainLossPercent",
+        "label": "Total return % (capital only)",
+        "formula": "((currentValue - totalInvested) / totalInvested) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "totalReturnWithDividends",
+        "label": "Total return % (including dividends)",
+        "formula": "((currentValue + totalDividendsReceived - totalInvested) / totalInvested) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "annualizedReturn",
+        "label": "Annualized return % (CAGR)",
+        "formula": "(((currentValue + totalDividendsReceived) / totalInvested) ^ (1 / holdingPeriodYears) - 1) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "dividendYield",
+        "label": "Dividend yield %",
+        "formula": "(totalDividendsReceived / currentValue) * 100",
+        "format": "percent"
+      },
+      {
+        "key": "annualDividendIncome",
+        "label": "Annual dividend income (₹)",
+        "formula": "totalDividendsReceived / holdingPeriodYears",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Capital gain = current value - total invested. CAGR = ((ending value / beginning value) ^ (1/years)) - 1.",
+    "example": "If you invested ₹5,00,000 and portfolio is now worth ₹6,50,000 with ₹25,000 in dividends over 5 years, CAGR is ~5.5% and total return is 35%.",
+    "faqs": [
+      {
+        "question": "How to calculate stock portfolio returns?",
+        "answer": "Portfolio return = (current value + dividends - total invested) / total invested × 100. For annualized: CAGR formula."
+      },
+      {
+        "question": "Difference between absolute return and CAGR?",
+        "answer": "Absolute return is total gain over the period. CAGR annualizes the return for meaningful comparison."
+      },
+      {
+        "question": "How are stock gains taxed?",
+        "answer": "Equity: ST at 15% (≤12 months). LTCG above ₹1L/year taxed at 12% (>12 months). Dividends taxed at slab rate."
+      },
+      {
+        "question": "What is a good stock market return?",
+        "answer": "Nifty 50 has historically returned 12-14% CAGR over 10+ years."
+      },
+      {
+        "question": "How to compare with Nifty 50?",
+        "answer": "Calculate your portfolio CAGR and compare with Nifty 50 over same period. Consider volatility and drawdowns too."
+      }
+    ],
+    "related": [
+      "capital-gains-tax-calculator-india",
+      "cagr-calculator-india",
+      "xirr-portfolio-return-calculator-india",
+      "mutual-fund-calculator-india"
+    ],
+    "quickAnswer": {
+      "title": "Stock Portfolio Calculator Quick Answer",
+      "question": "How do I calculate my stock portfolio returns?",
+      "answer": "Total return = (current value + dividends - invested) / invested × 100. Annualized (CAGR) = ((ending/beginning)^(1/years)) - 1.",
+      "note": "Does not account for buy/sell transaction costs or taxes."
+    },
+    "howToUse": [
+      "Enter total amount invested in stocks.",
+      "Enter current portfolio market value.",
+      "Enter total dividends received and holding period.",
+      "Review capital gain/loss, CAGR, and dividend yield."
+    ],
+    "assumptions": [
+      "Total invested is user-entered.",
+      "Current value is approximate market value.",
+      "Dividends are fully recorded.",
+      "Does not account for transaction costs or taxes."
+    ],
+    "contentSections": [
+      {
+        "heading": "How to calculate stock portfolio returns",
+        "body": "Track total invested amount, current market value, and dividends received. Calculate absolute return and annualized CAGR."
+      },
+      {
+        "heading": "Why track portfolio returns?",
+        "body": "Tracking helps evaluate investment decisions, compare with benchmarks, identify underperformers, and make informed rebalancing decisions."
+      },
+      {
+        "heading": "How to beat the market?",
+        "body": "Focus on diversification, low-cost index funds, long-term horizon, and avoiding emotional decisions. Most active managers underperform indices over 10+ years."
+      }
+    ],
+    "lastReviewed": "August 2026",
+    "lastReviewedIso": "2026-08-10"
+  },
+  {
+    "slug": "pre-emi-calculator-india",
+    "name": "Pre-EMI & Possession Planner",
+    "seoTitle": "Pre-EMI Calculator India: Rent, Full EMI & Possession Delays",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "pre emi calculator india",
+    "shortDescription": "Pre-EMI is interest on the home loan already disbursed before regular EMI starts. Compare staged draws, rent, full EMI and possession delays against your cash reserve.",
+    "metaDescription": "Compare pre-EMI and full EMI with staged loan draws, rent, possession delays and prepayments. Find cash shortfalls and protect your reserve with RupeeKit.",
+    "inputs": [
+      {
+        "key": "loanAmount",
+        "label": "Sanctioned loan",
+        "unit": "INR",
+        "default": 6000000,
+        "min": 1000,
+        "max": 1000000000,
+        "step": 100000
+      },
+      {
+        "key": "initialDrawPercent",
+        "label": "First tranche drawn",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "key": "annualInterestRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 8.5,
+        "min": 0,
+        "max": 30,
+        "step": 0.05
+      }
+    ],
+    "outputs": [
+      {
+        "key": "firstMonthInterest",
+        "label": "First full-month pre-EMI interest",
+        "formula": "loanAmount * initialDrawPercent / 100 * annualInterestRate / 1200",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "For a full month, pre-EMI interest = outstanding disbursed loan × annual rate ÷ 100 ÷ 12. The dedicated planner separately simulates staged draws, principal payments, rent, own contributions and household cash month by month.",
+    "example": "A ₹12 lakh disbursed balance at 8.5% annual interest has estimated full-month pre-EMI interest of ₹8,500. The undisbursed portion of the sanction is not charged interest.",
+    "faqs": [
+      {
+        "question": "What is pre-EMI?",
+        "answer": "Pre-EMI is interest on a home loan already disbursed before regular EMI begins. Interest-only payments do not reduce principal."
+      },
+      {
+        "question": "Does a possession delay always increase interest?",
+        "answer": "No. If loan draws and payments remain unchanged, a possession-only delay can increase rent without increasing loan interest."
+      },
+      {
+        "question": "Can I check rent and my emergency reserve?",
+        "answer": "Yes. The dedicated planner combines household cash flow, staged loan draws, own builder contributions, rent and an editable protected reserve."
+      }
+    ],
+    "related": [
+      "home-loan-emi-calculator-india",
+      "emi-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "howToUse": [
+      "Enter loan terms and separate possession and EMI start months.",
+      "Add household income, expenses, rent and accessible cash.",
+      "Replace example tranches with the builder and lender schedule.",
+      "Compare repayment modes and stress-test delays, rates and income pauses."
+    ],
+    "assumptions": [
+      "Month-start disbursements and monthly interest; exact daily lender interest is not modelled.",
+      "Reserve checks use month-end cash and do not guarantee future affordability.",
+      "No tax benefit, investment return or builder compensation is assumed."
+    ],
+    "quickAnswer": {
+      "title": "Pre-EMI quick answer",
+      "question": "How is pre-EMI calculated?",
+      "answer": "For a full month, pre-EMI is the outstanding disbursed loan multiplied by the annual interest rate and divided by 12. It is an interest payment; principal remains unpaid unless you make extra payments.",
+      "formula": "Outstanding principal × annual rate ÷ 100 ÷ 12",
+      "example": "₹12,00,000 × 8.5 ÷ 100 ÷ 12 = ₹8,500.",
+      "note": "Mid-month charges depend on actual disbursement dates and the lender’s interest convention."
+    },
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "pre-emi-1.0.0",
+    "nextReviewTrigger": "A change to the monthly engine, repayment assumptions or cited lender definitions.",
+    "calculationTests": [
+      "lib/pre-emi/engine.test.ts",
+      "lib/pre-emi/report-request.test.ts"
+    ],
+    "officialSources": [
+      {
+        "label": "RBI housing-loan FAQ: pre-EMI",
+        "href": "https://www.rbi.org.in/commonperson/english/scripts/FAQs.aspx?Id=701"
+      },
+      {
+        "label": "RBI fair practices: charging interest",
+        "href": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12678&Mode=0"
+      },
+      {
+        "label": "ICICI Bank home-loan EMI guide",
+        "href": "https://www.icici.bank.in/personal-banking/loans/home-loan/emi-calculator"
+      }
+    ]
+  },
+  {
+    "status": "live",
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "2026-09-23.1",
+    "slug": "no-cost-emi-calculator-india",
+    "name": "No Cost EMI Calculator India",
+    "seoTitle": "No Cost EMI Calculator: Fees, Cash Discount & Refunds",
+    "category": "Loans",
+    "targetKeyword": "no cost EMI calculator India",
+    "shortDescription": "Is the EMI offer really cheaper? Compare the cash price with fees, tax and cashback, then test the money left to pay if you return the item or close the EMI early.",
+    "metaDescription": "Check the real cost of no-cost EMI after fees, tax and lost cash discounts. Compare refunds, cashback reversals and early closure, with PDF and CSV reports.",
+    "inputs": [
+      {
+        "key": "price",
+        "label": "EMI purchase price",
+        "default": 60000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "cashDiscount",
+        "label": "Extra cash-payment discount",
+        "default": 3000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "downPayment",
+        "label": "Down payment",
+        "default": 0,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "months",
+        "label": "EMI months",
+        "default": 6,
+        "unit": "months",
+        "min": 1,
+        "max": 60,
+        "step": 1
+      },
+      {
+        "key": "processingFee",
+        "label": "Processing fee before tax",
+        "default": 199,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "feeTaxRate",
+        "label": "Entered fee tax rate",
+        "default": 18,
+        "unit": "%",
+        "min": 0,
+        "max": 50,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "cashPrice",
+        "label": "Upfront cash price",
+        "formula": "price-cashDiscount",
+        "format": "currency"
+      },
+      {
+        "key": "baseEmi",
+        "label": "Base EMI under full upfront interest subsidy",
+        "formula": "(price-downPayment)/months",
+        "format": "currency"
+      },
+      {
+        "key": "processingWithTax",
+        "label": "Processing fee including entered tax",
+        "formula": "processingFee*(1+feeTaxRate/100)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "In full upfront subsidy mode, financed principal is reduced until the total of base monthly instalments equals the purchase price minus down payment. The quoted-principal mode instead uses your actual issuer principal. The repayment schedule uses a fixed annual rate divided by twelve. Add processing fees and their tax at checkout, add tax on each month’s interest, and subtract separate cashback in its stated month. Compare that total with the cash purchase price. Return scenarios use the same refund and cashback retention, while the closure path pays the remaining principal and entered closure charges.",
+    "example": "For a ₹60,000 purchase with a full upfront interest subsidy over six months and no down payment, the base EMI is ₹10,000. A ₹199 processing fee with an entered 18% fee-tax assumption adds ₹234.82. A ₹3,000 cash-payment discount makes the upfront price ₹57,000. Interest tax and any cashback are added separately by the calculator; these are example assumptions, not a bank quote.",
+    "quickAnswer": {
+      "title": "What does no-cost EMI really cost?",
+      "question": "Can no-cost EMI cost more than paying upfront?",
+      "answer": "Yes. Compare the actual cash price with the total EMI payments, processing charges, tax on interest and fees, and separate cashback. An interest subsidy can cover the base interest while those other costs remain. The return planner separately checks keeping or closing EMI after a merchant refund.",
+      "formula": "Purchase cost = down payment + instalments + interest tax + processing fee with tax − cashback.",
+      "note": "Use the issuer’s terms. Refund, cashback recovery and closure charges vary by transaction."
+    },
+    "howToUse": [
+      "Enter the EMI purchase price, extra cash discount, down payment, underlying interest rate and term.",
+      "Choose a full upfront interest discount or enter the actual financed principal from the issuer.",
+      "Add processing fees, applicable tax assumptions and separate cashback timing.",
+      "For a return, enter the month, actual merchant refund, retained cashback and confirmed fee refund.",
+      "Enter closure charges, compare both decisions, and download the input snapshot and monthly schedule."
+    ],
+    "assumptions": [
+      "Credit-card EMI, fixed monthly reducing-balance interest and month-end instalments are modelled. Example rates are editable.",
+      "Processing fee and its tax are paid at checkout. Actual billed dates, day-count interest and paise rounding may differ.",
+      "The merchant refund is usable in the selected month and does not automatically reduce the EMI loan. Only full loan closure is modelled as the alternative.",
+      "The purchase comparison assumes you keep the goods. Return comparisons do not value goods retained after a partial return.",
+      "Annualised cost versus cash includes the forgone cash discount and is different from the lender’s disclosed APR. Mixed-sign cashback payments can make it unavailable."
+    ],
+    "commonMistakes": [
+      "Entering a price already reduced by the interest subsidy and then applying the subsidy again.",
+      "Comparing a base EMI with a cash price without adding fees and applicable taxes.",
+      "Assuming a merchant refund automatically closes the card EMI.",
+      "Subtracting the same cashback reversal from both the merchant refund and the separate cashback field.",
+      "Treating a net refund credit as cash available before the issuer actually settles it."
+    ],
+    "contentSections": [
+      {
+        "heading": "The small charges outside the advertised EMI",
+        "body": "A purchase can have three different prices: the seller’s EMI price, the financed principal after an upfront interest subsidy, and the price available when you pay immediately. The calculator keeps these separate. It also separates base interest from tax charged on interest, and the processing fee from tax charged on that fee. This makes the comparison useful even when the advertised instalments add up to the sticker price."
+      },
+      {
+        "heading": "Returned the product but still see an EMI?",
+        "body": "The merchant’s refund and the card issuer’s loan are different parts of the transaction. A refund may appear as a card credit while scheduled instalments continue. The issuer may require a separate closure request. In this model you enter the credit you expect and compare continuing the instalments with settling all remaining debt. Check the issuer’s written response before assuming either treatment applies."
+      },
+      {
+        "heading": "What changes after a partial return?",
+        "body": "Enter the expected merchant refund rather than the original price. Then enter how much separate cashback you will keep. Cashback already received is reversed at the return date down to that amount; cashback scheduled for a later month is reduced before it is paid. The two refund paths use the same retained goods and credits, so their cash outflows can be compared without pretending that a partial return removes the whole purchase."
+      },
+      {
+        "heading": "Why the annualised cost can surprise you",
+        "body": "A cash discount changes the value of financing. Giving up a ₹3,000 cash discount to spread a ₹60,000 purchase across six months is an economic cost even if the seller subsidises interest. The annualised figure converts the modelled monthly cash flows into an effective yearly rate. It can be negative if a valid offer makes EMI cheaper, and it is intentionally omitted for cash-flow patterns that do not support the simple one-rate calculation."
+      },
+      {
+        "heading": "Before asking the bank to close the EMI",
+        "body": "Ask for the settlement date, principal outstanding, foreclosure charge, applicable tax and treatment of the subsidy or cashback. The model closes immediately after the selected month’s instalment, so an actual mid-cycle quote can differ. Gross settlement is shown separately because a refund may arrive after you need to pay the bank."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "The arithmetic uses an explicit monthly loan schedule and the user-entered purchase, fee, tax, cashback and refund assumptions. Apple’s India financing terms explain upfront interest subsidy, issuer-controlled EMI terms and the need to check refund or closure treatment with the card issuer. They are an example of transaction terms, not a rule applied to every issuer. No product, bank or card is recommended. Financial inputs and exported reports are processed in your browser."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is no-cost EMI always free of extra charges?",
+        "answer": "No. The seller may subsidise interest while processing fees, tax or a forgone cash discount remain. Enter the actual offer and compare the total cash outflow."
+      },
+      {
+        "question": "Does a refund cancel my credit-card EMI automatically?",
+        "answer": "Do not assume so. The merchant may credit the card while the issuer keeps the loan schedule. Confirm whether a separate closure request is required and how the credit will be applied."
+      },
+      {
+        "question": "Can I calculate a partial return?",
+        "answer": "Yes. Enter the actual refund, the return month and the cashback you retain. The model compares keeping the original EMI schedule with closing the whole loan; it does not model a partial principal prepayment."
+      },
+      {
+        "question": "Why is GST or tax an editable input?",
+        "answer": "Tax treatment and fee presentation depend on the product and quote. The fields are assumptions for the stated credit-card EMI model, not a rule that all loan interest is taxed the same way."
+      },
+      {
+        "question": "Is the annualised cost the same as the bank’s APR?",
+        "answer": "No. It uses the cash purchase alternative, including its discount, as the value of financing. The bank’s disclosed APR can use a different set of cash flows and prescribed conventions."
+      },
+      {
+        "question": "Can I download the comparison without sharing my phone number?",
+        "answer": "Yes. PDF and CSV downloads are generated in your browser without a signup or phone number. The calculator link does not include your financial values."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "Apple India — EMI, no-cost EMI and cashback terms",
+        "href": "https://www.apple.com/in/shop/browse/financing/terms"
+      }
+    ],
+    "related": [
+      "personal-loan-true-apr-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "credit-card-minimum-due-trap-calculator-india",
+      "credit-card-vs-personal-loan-calculator-india"
+    ],
+    "nextReviewTrigger": "Issuer refund, subsidy, cashback or tax treatment changes; recheck source links and example assumptions before updating copy."
+  },
+  {
+    "status": "live",
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "2026-09-23.1",
+    "slug": "freelancer-remittance-fee-calculator-india",
+    "name": "Freelancer Remittance Fee Calculator India",
+    "seoTitle": "Remittance Fee Calculator: Invoice vs INR Received",
+    "category": "Business",
+    "targetKeyword": "freelancer remittance fee calculator India",
+    "shortDescription": "Your foreign invoice and bank credit should tell the same story. Reconcile payment fees and exchange rates, compare two quotes, and find the invoice needed for your target INR receipt.",
+    "metaDescription": "Audit foreign-payment fees against the INR your bank received. Compare two quotes, spot unexplained differences and calculate your target invoice with exports.",
+    "inputs": [
+      {
+        "key": "invoice",
+        "label": "Foreign invoice amount",
+        "default": 2000,
+        "unit": "foreign currency",
+        "min": 0.01,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "feePercent",
+        "label": "Fee on gross invoice",
+        "default": 1,
+        "unit": "%",
+        "min": 0,
+        "max": 50,
+        "step": 1
+      },
+      {
+        "key": "fixedForeign",
+        "label": "Fixed foreign-currency fee",
+        "default": 2,
+        "unit": "foreign currency",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "intermediaryForeign",
+        "label": "Intermediary foreign-currency fee",
+        "default": 5,
+        "unit": "foreign currency",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "conversionRate",
+        "label": "INR conversion rate per foreign unit",
+        "default": 89,
+        "unit": "INR / unit",
+        "min": 0.0001,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "localCharges",
+        "label": "Local fees and additional tax",
+        "default": 236,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "netForeign",
+        "label": "Foreign amount converted",
+        "formula": "invoice*(1-feePercent/100)-fixedForeign-intermediaryForeign",
+        "format": "number"
+      },
+      {
+        "key": "netInr",
+        "label": "Expected INR bank receipt",
+        "formula": "netForeign*conversionRate-localCharges",
+        "format": "currency"
+      },
+      {
+        "key": "effectiveRate",
+        "label": "All-in INR per invoiced foreign unit",
+        "formula": "netInr/invoice",
+        "format": "number"
+      }
+    ],
+    "formulaExplanation": "Expected INR = [invoice × (1 − percentage fee / 100) − fixed foreign fee − intermediary deductions] × quoted conversion rate − local bank fee − certificate fee − additional tax. For the audit, compare expected INR with the actual route 1 bank credit. For a target receipt, invert the same equation while holding the quoted rate, fixed fees and entered INR tax constant, then round the required foreign invoice up to two decimals.",
+    "example": "Illustrative USD 2,000 invoice: a 1% fee, USD 2 fixed fee and USD 5 intermediary deduction leave USD 1,973 to convert. At an entered ₹89 per USD, that is ₹1,75,597. Subtract ₹236 of local fees and additional tax to get ₹1,75,361. An actual ₹1,74,900 credit leaves ₹461 to reconcile. These are fictional quote assumptions, not current provider prices.",
+    "quickAnswer": {
+      "title": "Why did fewer rupees reach your bank?",
+      "question": "How do I calculate the actual cost of a foreign payment?",
+      "answer": "Start with your gross invoice, deduct fees in the invoice currency, convert the remainder at the provider’s quoted rate, and subtract rupee fees and additional tax. Compare the result with the bank credit. The all-in effective rate is net INR received divided by the gross foreign invoice.",
+      "formula": "All-in rate = net INR received ÷ gross invoice in foreign currency.",
+      "note": "A difference may reflect timing or missing information. It is not proof of overcharging."
+    },
+    "howToUse": [
+      "Choose the invoice currency and enter a quote date and reference exchange rate.",
+      "Enter two payment routes with their quoted conversion rates, percentage fees and fixed foreign-currency deductions.",
+      "Add local bank, certificate and additional tax amounts in INR without double counting tax-inclusive fees.",
+      "Optionally enter the actual INR credited through route 1 to identify a reconciliation difference.",
+      "Set a target INR receipt and test one payment against equal splits, then export the audit."
+    ],
+    "assumptions": [
+      "All rates and fees are manually entered and are not live provider prices. Example quotes are fictional.",
+      "Percentage fees apply to the gross invoice; foreign fees are deducted before conversion and INR charges after conversion.",
+      "The entered tax amount is separate from other fees. No uniform tax rate is applied to every payment or foreign-exchange service.",
+      "The target solver keeps rates, fixed fees and the entered INR tax constant; obtain a new quote if the invoice or fee tier changes.",
+      "Annual and split-payment scenarios reuse identical rates and fees. Net receipts are not a calculation of taxable profit or export eligibility."
+    ],
+    "commonMistakes": [
+      "Entering a rupee bank charge in a foreign-currency field.",
+      "Subtracting an FX markup again after entering a rate that already includes it.",
+      "Adding tax separately when it is already included in a fee.",
+      "Comparing a current reference rate with a payment converted on a different day.",
+      "Assuming net bank credit equals gross revenue or taxable profit."
+    ],
+    "contentSections": [
+      {
+        "heading": "A lower transfer fee can still mean fewer rupees",
+        "body": "The conversion rate can matter as much as the advertised transfer fee. This tool compares the amount delivered for the same gross invoice, after all entered charges. It does not rank providers using headline percentages or assume that a particular service is available to every freelancer. Use quotes for your account type, payment method, currency and date."
+      },
+      {
+        "heading": "Separate the invoice, converted amount and bank credit",
+        "body": "A platform may deduct a percentage and a fixed fee before sending the payment. An intermediary may deduct another foreign-currency amount. The remaining money is converted, and local bank, certificate or tax charges may then reduce the INR credited. Keeping these stages separate helps explain a statement without counting a charge twice."
+      },
+      {
+        "heading": "How the fee reconciliation avoids counting FX twice",
+        "body": "The gross reference value uses the invoice and reference rate. Foreign fees are valued at that same reference rate. The exchange-rate difference is then measured only on the foreign amount that was actually converted. Add local fees and the entered tax amount, and the lines reconcile to the expected bank receipt. If the provider rate is better than the reference, the FX line becomes negative rather than being hidden."
+      },
+      {
+        "heading": "What the unexplained difference means",
+        "body": "The audit compares the actual bank credit with route 1’s calculated receipt. An unexplained difference can come from a missing fee, the conversion time, a refund, rounding or an incorrectly entered currency. It is a prompt to request a transaction-level breakdown. A positive or negative difference alone does not establish misconduct or prove a provider is cheaper."
+      },
+      {
+        "heading": "Price an invoice around the rupees you need",
+        "body": "Enter your desired bank receipt to solve the required foreign invoice for each quote. The percentage fee scales with invoice size, while the fixed deductions and entered rupee tax stay unchanged. This is a planning estimate. Before sending the invoice, confirm the new quote and any fee tiers or taxes that change with transaction size."
+      },
+      {
+        "heading": "Does splitting one payment cost more?",
+        "body": "With the same conversion rate and percentage fee, each separate payment repeats fixed deductions. The split comparison holds the total invoice constant and applies the entered quote to every equal part. In real life, timing, minimum fees, fee caps and changing FX can alter the result. Use the feature to ask better questions about payout frequency rather than treating it as a guaranteed savings strategy."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "The calculation is a transparent reconciliation of user-entered payment quotes. Wise’s India business receiving page and PayPal’s India commercial fee page illustrate why currency conversion, fixed charges and service taxes need separate treatment. No current provider fee is hard-coded as a recommendation. Personal income tax, GST filing, purpose codes and regulatory eligibility are outside the model. Inputs and exports remain in your browser."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does this calculator fetch live USD to INR rates?",
+        "answer": "No. Enter the reference and actual provider rate from the same quote or statement date. The displayed examples are illustrative inputs."
+      },
+      {
+        "question": "Can I compare Wise, PayPal, a bank or another payment route?",
+        "answer": "You can enter any two quotes that fit the stated fee order. Check provider availability and the quote for your account and payment method; the tool does not certify providers or fetch their prices."
+      },
+      {
+        "question": "How is the effective exchange rate calculated?",
+        "answer": "It is the net INR receipt divided by the gross foreign-currency invoice. This all-in rate includes entered fees and is different from the provider’s conversion rate."
+      },
+      {
+        "question": "Why do I enter a tax amount rather than a GST percentage?",
+        "answer": "Different charges and foreign-exchange services can use different tax bases. Copy the actual additional tax amount from the quote and avoid adding it again if it is already included in another fee."
+      },
+      {
+        "question": "Is an unexplained difference proof that the bank overcharged me?",
+        "answer": "No. Check the conversion date, reference rate, rounding and missing fee lines first. Use the report to ask for a complete reconciliation."
+      },
+      {
+        "question": "Can I calculate the invoice needed to receive ₹1 lakh?",
+        "answer": "Yes. Set the target receipt to ₹1,00,000. The solver uses the entered quote and rounds the foreign invoice up to two decimals. Obtain a fresh quote because rates and charges may change."
+      },
+      {
+        "question": "Does the result calculate my Indian income tax?",
+        "answer": "No. Net payment receipts, gross revenue and taxable profit are different quantities. This tool audits payment charges and does not determine income-tax or GST filing liability."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "Wise India Business — receiving and conversion fees",
+        "href": "https://wise.com/in/pricing/business/receive"
+      },
+      {
+        "label": "PayPal India — commercial transaction and conversion fees",
+        "href": "https://www.paypal.com/in/business/paypal-business-fees"
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "gst-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
+      "emergency-fund-calculator-india"
+    ],
+    "nextReviewTrigger": "Provider pricing structure, eligibility, currency conversion or service-tax treatment changes; rates remain user-entered."
+  },
+  {
+    "status": "live",
+    "lastReviewed": "23 September 2026",
+    "lastReviewedIso": "2026-09-23",
+    "factsCheckedIso": "2026-09-23",
+    "calculationVersion": "2026-09-23.1",
+    "slug": "company-car-lease-exit-calculator-india",
+    "name": "Company Car Lease Exit Calculator India",
+    "seoTitle": "Car Lease Exit Calculator: Resign, Return or Buy Out?",
+    "category": "Salary",
+    "targetKeyword": "company car lease exit calculator India",
+    "shortDescription": "Before changing jobs, check the car bill that comes with leaving. Compare buyout, return and approved continuation, including settlement cash, loan debt and your protected savings.",
+    "metaDescription": "Leaving a job with a company car lease? Compare buyout, return and approved transfer using exit quotes, remaining loan debt and cash-reserve checks. Export PDF.",
+    "inputs": [
+      {
+        "key": "payrollDeduction",
+        "label": "Monthly payroll lease deduction",
+        "default": 28000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "payrollTaxSaving",
+        "label": "Payroll-confirmed tax saving",
+        "default": 6000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "leaseRunningCost",
+        "label": "Other monthly lease running costs",
+        "default": 2000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "exitBuyout",
+        "label": "All-in early buyout quote",
+        "default": 850000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      },
+      {
+        "key": "downPayment",
+        "label": "Buyout down payment",
+        "default": 200000,
+        "unit": "Rs",
+        "min": 0,
+        "max": 100000000,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "netMonthlyCost",
+        "label": "Current net monthly car cost",
+        "formula": "payrollDeduction-payrollTaxSaving+leaseRunningCost",
+        "format": "currency"
+      },
+      {
+        "key": "exitLoan",
+        "label": "Loan required for the buyout",
+        "formula": "max(exitBuyout-downPayment,0)",
+        "format": "currency"
+      },
+      {
+        "key": "cashAtExit",
+        "label": "Buyout down payment at exit",
+        "formula": "downPayment",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Current monthly car cash cost = payroll lease deduction − payroll-confirmed tax saving + other running costs. All options run from today through the same remaining lease horizon. Net economic car cost = future cash paid + loan debt still owed at the end − retained car value at that date. Available cash = opening cash + monthly car-budget allocations − option cash outflows. Early buyout, return and continuation use separate all-in quotes. A buyout loan uses a fixed monthly reducing-balance schedule; any loan still unpaid at the common end date remains a liability.",
+    "example": "A ₹28,000 payroll deduction, ₹6,000 confirmed monthly tax saving and ₹2,000 extra running cost make the current car cash cost ₹24,000 per month. An ₹8,50,000 all-in early buyout with ₹2,00,000 down requires a ₹6,50,000 loan. If that loan extends past the original lease end, the comparison includes the remaining debt as well as the car’s estimated value. Figures are illustrative contract assumptions.",
+    "quickAnswer": {
+      "title": "What happens to a company car lease when you resign?",
+      "question": "How much cash could leaving a company car lease require?",
+      "answer": "It depends on the written buyout, return or continuation terms. Enter all-in exit quotes and compare settlement cash, future car costs and any loan debt left at the same end date. A lower monthly deduction does not by itself tell you which exit path preserves your cash reserve.",
+      "formula": "Net car cost = future cash paid + debt remaining − retained car value.",
+      "note": "This compares car costs, not the income or career benefit of changing jobs. Continuation requires approval."
+    },
+    "howToUse": [
+      "Enter remaining lease months, intended exit month, opening cash and a monthly car budget after other household costs.",
+      "Copy the payroll deduction and confirmed tax saving, then choose whether the original lease ends in a buyout or return.",
+      "Enter an all-in early buyout quote and choose cash or a loan with its actual rate and term.",
+      "Enter the alternative all-in return settlement and replacement transport cost. Add continuation only if permitted.",
+      "Compare the common-end-date car cost and monthly cash reserve, then download the report for discussion with HR or the lessor."
+    ],
+    "assumptions": [
+      "The comparison starts today and excludes past payments, salary changes, career benefits and investment returns.",
+      "Exit follows that month’s normal lease payment; month 0 means now. New running costs and loan EMIs begin the following month.",
+      "Settlement quotes include all applicable fees and taxes. Remaining lease rentals must not be added a second time.",
+      "Payroll tax saving is a confirmed input, not an automatically computed statutory deduction or a flat tax-bracket assumption.",
+      "The car’s end value reduces economic cost but is not spendable cash. Remaining buyout-loan debt is retained at the comparison end.",
+      "Cash reserves are checked today and at month ends, not at every intramonth payment date."
+    ],
+    "commonMistakes": [
+      "Comparing a 48-month buyout loan with a shorter lease horizon while ignoring the debt still owed at that horizon.",
+      "Treating an estimated resale value as cash already available to pay a settlement.",
+      "Adding the remaining lease rentals to a settlement quote that already includes them.",
+      "Assuming a lease or payroll tax benefit continues after leaving the employer.",
+      "Changing the exit month without obtaining revised settlement quotes."
+    ],
+    "contentSections": [
+      {
+        "heading": "The resignation date can change the car decision",
+        "body": "A company lease can look affordable during employment because the monthly deduction, included services and payroll treatment are bundled together. Leaving the employer can change that arrangement. Ask which paths are actually permitted before comparing amounts. This calculator shows continuation only when you confirm that the lessor or employer allows it."
+      },
+      {
+        "heading": "Ask for two separate settlement quotes",
+        "body": "An early buyout lets you keep the car, while a return or surrender settlement lets you give it back under the contract. They need not have the same amount. Request written, dated, all-in quotes that identify taxes, charges and outstanding obligations. The model treats each entered quote as complete, so it does not add the remaining lease rentals again."
+      },
+      {
+        "heading": "A buyout loan can hide cost beyond the lease end",
+        "body": "A smaller EMI can make a buyout appear cheap if the loan runs longer than the comparison. The model counts payments made within the horizon and adds the loan balance still owed at the end. It then subtracts the car value only where you own the car. This creates a common-date comparison without pretending that unpaid debt has disappeared."
+      },
+      {
+        "heading": "Economic cost and available cash answer different questions",
+        "body": "A path can have an attractive net cost and still require more settlement cash than you can spare. The reserve chart starts with your accessible cash, adds the monthly car budget and subtracts the selected arrangement’s bills. Car value is kept outside that chart. The reserve shortfall tells you how much additional opening cash would have been needed under the same timing assumptions."
+      },
+      {
+        "heading": "Use payroll’s actual tax-saving figure",
+        "body": "A marginal tax bracket applied to an entire lease deduction can misstate the take-home effect. Ask payroll for the difference under your salary structure and applicable rules. Enter the confirmed monthly benefit here, or zero while it is uncertain. This avoids presenting every corporate lease as having the same tax advantage."
+      },
+      {
+        "heading": "Before choosing return, buyout or continuation",
+        "body": "Check ownership transfer, insurance, maintenance, fuel, the written settlement date and whether loan finance is approved. Replacement transport may be cheaper but provide different convenience. A job change can also increase salary or improve career prospects; those effects belong in a salary comparison and are intentionally outside this car-only calculation."
+      },
+      {
+        "heading": "Source and methodology",
+        "body": "The model uses user-entered contract and payroll quotes with an explicit monthly cash schedule and buyout-loan amortisation. ORIX and Ayvens describe different employee lease arrangements and end-of-term choices; these examples do not establish a universal right to transfer, surrender or buy a leased car. The signed agreement, lessor’s quote and payroll confirmation control the actual treatment. Calculations and downloadable reports are generated in your browser."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I keep my company leased car after resigning?",
+        "answer": "Possibly, through a buyout or an approved continuation arrangement. The answer depends on the contract and the employer or lessor. Enter a confirmed quote rather than assuming a transfer is available."
+      },
+      {
+        "question": "Does the calculator automatically apply car-lease tax benefits?",
+        "answer": "No. Enter the monthly tax saving confirmed by payroll. Use zero if it is not confirmed. The tool does not apply one flat tax bracket to every lease."
+      },
+      {
+        "question": "Why does the buyout option include loan debt at the end?",
+        "answer": "A buyout loan may last longer than the remaining lease. Ignoring its unpaid balance would understate the cost. The comparison retains that debt at the common end date."
+      },
+      {
+        "question": "Why is the car value not added to my cash reserve?",
+        "answer": "An estimated resale value is an asset valuation, not a bank receipt. The tool assumes you retain the car where applicable and does not invent a sale."
+      },
+      {
+        "question": "What does exit after month 12 mean?",
+        "answer": "The current lease is paid normally for twelve months. The settlement occurs after month 12’s payment, and replacement costs or buyout-loan EMIs begin in month 13. Month 0 means exit now."
+      },
+      {
+        "question": "Can I compare an approved transfer to a new employer?",
+        "answer": "Yes. Enable continuation and enter the total monthly cash cost, transfer charge, end action and final settlement confirmed for that arrangement."
+      },
+      {
+        "question": "Does the lowest car cost tell me whether to accept a new job?",
+        "answer": "No. This comparison excludes salary changes, benefits and career considerations. Use the salary cash planner alongside it and include the car settlement in your switching-cost budget."
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "ORIX India — corporate employee lease arrangements",
+        "href": "https://www.orixindia.com/leasing/web/orix-lease-plus/corporate-lease"
+      },
+      {
+        "label": "Ayvens India — employee car lease choices",
+        "href": "https://www.ayvens.com/en-in/leasing-with-us/leasing-solutions/employee-car-lease/"
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "job-offer-comparison-calculator-india",
+      "car-loan-emi-affordability-calculator-india",
+      "emergency-fund-calculator-india"
+    ],
+    "nextReviewTrigger": "Changes to lessor transfer or settlement terms, payroll perquisite rules, or source pages; the model continues to require the actual quote."
   }
 ]

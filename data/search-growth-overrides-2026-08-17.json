@@ -1,0 +1,579 @@
+{
+  "8th-pay-commission-salary-calculator-india": {
+    "shortDescription": "Compare unofficial 8th Pay Commission fitment-factor scenarios without double-counting current DA, with current and projected X/Y/Z HRA shown monthly and annually.",
+    "formulaExplanation": "Current gross baseline = current basic + current DA + current HRA + current transport allowance. Revised basic scenario = current basic × selected fitment factor. Projected gross = revised basic + projected DA + projected HRA + projected transport allowance. Current DA is not added to revised basic a second time.",
+    "example": "For current basic pay of ₹44,900, 60% current DA, 30% current HRA and ₹3,600 transport allowance, current gross is ₹88,910. A 2.57× scenario gives revised basic of ₹1,15,393. Projected allowances are then applied separately.",
+    "quickAnswer": {
+      "title": "8th Pay Commission status",
+      "question": "When will the 8th Pay Commission be implemented?",
+      "answer": "No implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to submit its report, which places its recommendations around May 2027. The fitment factor, pay matrix, revised HRA and any arrears order all remain unsettled, so every salary figure circulating now — including the ones on this page — is a scenario, not a decision. Central government employees widely expect the award to apply from 1 January 2026 with arrears once approved, but that has not been officially confirmed.",
+      "note": "Status as of 22 August 2026. The Commission is still holding regional consultations. Verify against PIB and the Department of Expenditure before acting on any figure."
+    },
+    "faqs": [
+      {
+        "question": "Has the 8th Pay Commission fitment factor been announced?",
+        "answer": "No. The official 8th Central Pay Commission website says the Commission was constituted on 3 November 2025 and has 18 months to submit its report. No final fitment factor, pay matrix or implementation date has been notified. Every factor in this calculator is an illustrative user-selected scenario."
+      },
+      {
+        "question": "Why does projected DA default to 0%?",
+        "answer": "Current DA belongs in the current-pay baseline. A pay-revision fitment factor is applied to current basic pay, and any DA on revised basic must be entered as a separate future assumption. Defaulting projected DA to 0% prevents current DA from being counted twice and avoids implying an official starting rate."
+      },
+      {
+        "question": "What current DA and HRA values does the calculator use?",
+        "answer": "It defaults current DA to 60%, the rate approved with effect from 1 January 2026. Current HRA options are 30%, 20% and 10% for X, Y and Z cities after the 7th CPC DA-linked escalation. Change the values if your payslip differs."
+      },
+      {
+        "question": "Is revised basic the same as the increase in gross salary?",
+        "answer": "No. Revised basic is a basic-to-basic comparison. Gross-to-gross change also depends on the current DA, current HRA, transport allowance and whatever projected allowance assumptions you enter. The calculator displays both comparisons separately."
+      },
+      {
+        "question": "Does this calculator promise an implementation date or arrears?",
+        "answer": "No. It does not assume an implementation date, arrears period, official pay matrix or government acceptance. Those outcomes require official recommendations and subsequent government notification."
+      }
+    ],
+    "howToUse": [
+      "Enter current basic pay from the latest payslip.",
+      "Confirm current DA and select the current X, Y or Z HRA category.",
+      "Enter current transport allowance to build the gross baseline.",
+      "Choose a fitment-factor scenario; none is labelled official.",
+      "Choose a projected X, Y or Z HRA scenario and review its monthly and annual difference.",
+      "Open advanced assumptions only if you want to model projected DA or transport allowance.",
+      "Compare revised basic separately from gross-to-gross change."
+    ],
+    "assumptions": [
+      "All fitment factors are illustrative user-selected scenarios, not official recommendations.",
+      "Current DA defaults to the 60% rate effective 1 January 2026 and can be edited.",
+      "Current HRA uses the 7th CPC DA-linked 30%, 20% and 10% X/Y/Z rates.",
+      "Projected DA, HRA and transport allowance are independent assumptions because 8th CPC values are not notified.",
+      "Other allowances, deductions, pension, NPS, tax and arrears are excluded."
+    ],
+    "commonMistakes": [
+      "Adding current DA to basic before applying the fitment factor and thereby counting DA twice.",
+      "Treating a media or employee-body demand as an official fitment factor.",
+      "Comparing revised basic with current gross instead of showing basic-to-basic and gross-to-gross separately.",
+      "Assuming an implementation date, arrears period or revised HRA without a government notification."
+    ],
+    "contentSections": [
+      {
+        "heading": "Official status of the 8th Central Pay Commission",
+        "body": "The Government of India constituted the 8th Central Pay Commission through a notification dated 3 November 2025 and gave it 18 months to submit its report. The official site does not publish a final fitment factor, pay matrix or implementation date. This page therefore labels every future-pay input as a scenario."
+      },
+      {
+        "heading": "Why current DA must not be counted twice",
+        "body": "Current DA is part of today's gross salary. The fitment scenario is applied once to current basic pay to estimate revised basic. Projected DA is then a separate assumption on revised basic and defaults to zero. This keeps the current baseline and future scenario mathematically distinct."
+      },
+      {
+        "heading": "Basic-to-basic versus gross-to-gross",
+        "body": "A fitment factor produces a revised-basic scenario, not an in-hand salary. The gross comparison adds only the projected allowances entered by the user. Tax, NPS, CGHS, pension, other allowances and arrears are outside this calculator."
+      },
+      {
+        "heading": "Current versus projected government HRA",
+        "body": "The calculator keeps current 7th CPC X/Y/Z HRA separate from a user-selected projected X/Y/Z scenario, then shows monthly and annual HRA differences. This is government salary HRA, not the income-tax HRA exemption calculation, and no 8th CPC HRA rate is treated as official."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "The status and constitution date come from the official 8th CPC website. Current DA is based on the PIB approval effective 1 January 2026. Current HRA categories follow the PIB-published 7th CPC DA-linked escalation. Calculation version 2026-08-17.2 is covered by DA double-counting and HRA monthly-to-annual regression tests."
+      },
+      {
+        "heading": "How this calculator builds its scenarios",
+        "body": "It first builds a current 7th CPC gross-pay baseline, then applies your selected fitment factor once to current basic pay. Projected DA, HRA and transport allowance are separate scenario inputs, so current DA is not counted twice."
+      }
+    ],
+    "lastReviewed": "22 August 2026",
+    "lastReviewedIso": "2026-08-22",
+    "officialSources": [
+      {
+        "label": "8th Central Pay Commission — About Us",
+        "href": "https://8cpc.gov.in/about-us/"
+      },
+      {
+        "label": "8th Central Pay Commission — Terms of Reference",
+        "href": "https://8cpc.gov.in/terms-of-reference/"
+      },
+      {
+        "label": "PIB — DA increased to 60% from 1 January 2026",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+      },
+      {
+        "label": "PIB — 7th CPC HRA escalation rules",
+        "href": "https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=166967"
+      }
+    ],
+    "factRows": [
+      {
+        "topic": "Official status",
+        "explanation": "Commission constituted 3 November 2025; final factor, pay matrix and implementation date not notified"
+      },
+      {
+        "topic": "Current baseline",
+        "explanation": "Current basic + current DA + current HRA + current transport allowance"
+      },
+      {
+        "topic": "Revised basic",
+        "explanation": "Current basic × user-selected fitment scenario; current DA is not added again"
+      },
+      {
+        "topic": "Projected gross",
+        "explanation": "Revised basic + only the future allowance assumptions entered by the user"
+      },
+      {
+        "topic": "Privacy and boundary",
+        "explanation": "Browser-based educational scenario; not an official salary or arrears calculation"
+      }
+    ],
+    "calculationVersion": "2026-08-17.2",
+    "factsCheckedIso": "2026-08-22",
+    "nextReviewTrigger": "Official 8th CPC report, pay matrix, fitment factor, allowance rule or implementation notification; or a new central DA order.",
+    "formulaHold": false,
+    "calculationTests": [
+      "current DA appears only in current baseline",
+      "current and projected HRA X/Y/Z scenarios",
+      "monthly and annual HRA difference",
+      "fitment basic calculation",
+      "projected DA defaults to zero",
+      "basic-to-basic versus gross-to-gross reconciliation"
+    ]
+  },
+  "gold-loan-calculator-india": {
+    "shortDescription": "Estimate intrinsic gold value, maximum collateral-supported consumption loan, applicable RBI 85%/80%/75% LTV tier, EMI and interest using a lender reference price.",
+    "formulaExplanation": "Assessed intrinsic value = net eligible gold weight × lender-entered 24K reference price × purity/24. Maximum consumption-loan LTV is 85% up to ₹2.5 lakh, 80% above ₹2.5 lakh through ₹5 lakh, and 75% above ₹5 lakh. The engine tests all brackets and returns the highest self-consistent amount, then calculates reducing-balance EMI on the lower of the request and that maximum.",
+    "example": "Take 50g of net 22K gold. Intrinsic value is 50 x the 24K reference price x 22/24, counting gold content only and excluding making charges, wastage and stones. The RBI consumption-loan LTV band is then chosen by the resulting amount: 85% up to Rs 2.5 lakh, 80% above Rs 2.5 lakh through Rs 5 lakh, and 75% above Rs 5 lakh, and the pairing has to be self-consistent — a value whose 85% figure lands above Rs 2.5 lakh does not get the 85% band. The worked table below applies this to 10g, 20g, 50g and 100g at the current bullion value.",
+    "quickAnswer": {
+      "title": "Gold Loan Calculator Quick Answer",
+      "question": "How much gold loan can I get under the RBI 2026 LTV rules?",
+      "answer": "For consumption loans, RBI caps LTV at 85% for total loans up to ₹2.5 lakh, 80% above ₹2.5 lakh through ₹5 lakh, and 75% above ₹5 lakh. Value only the actual gold content using net weight, purity and the lender's reference price; stones and other non-gold parts are excluded.",
+      "formula": "Intrinsic value = net gold weight × 24K reference price × purity/24; eligible amount is constrained by the applicable RBI tier",
+      "note": "RupeeKit does not fetch a live gold price or promise lender approval."
+    },
+    "faqs": [
+      {
+        "question": "What are the RBI gold-loan LTV limits from April 2026?",
+        "answer": "For consumption loans against eligible gold or silver collateral, maximum LTV is 85% where the total loan amount per borrower is up to ₹2.5 lakh, 80% above ₹2.5 lakh and up to ₹5 lakh, and 75% above ₹5 lakh. Regulated lenders had to comply with the 2025 Directions no later than 1 April 2026."
+      },
+      {
+        "question": "Why does the calculator ask for a lender reference price?",
+        "answer": "RBI valuation uses the lower of the preceding 30-day average closing price and the preceding-day closing price for the relevant purity from specified published sources. Lenders publish or apply their valuation method. RupeeKit does not claim a live rate, so you enter the lender's current 24K reference value."
+      },
+      {
+        "question": "Are stones and making charges included in gold value?",
+        "answer": "No. RBI requires only the intrinsic gold content to be valued. Precious stones, gems and other cost elements are excluded, and lenders deduct stone weight, lac, alloy, strings and fastenings during assaying."
+      },
+      {
+        "question": "Does the maximum amount mean the loan will be approved?",
+        "answer": "No. It is a collateral and LTV estimate. The lender performs valuation, ownership and KYC checks, credit assessment where applicable, repayment-capacity review and its own sanction process."
+      },
+      {
+        "question": "Does this calculator cover bullet repayment gold loans?",
+        "answer": "The EMI shown is a reducing-balance illustration. RBI requires bullet-loan LTV to consider the total amount repayable at maturity, and consumption bullet loans are capped at 12 months. Obtain the lender's Key Fact Statement for the exact structure."
+      }
+    ],
+    "howToUse": [
+      "Enter net eligible gold weight after excluding stones and non-gold parts.",
+      "Select actual assayed purity.",
+      "Enter the lender's current 24K reference price per gram.",
+      "Enter total consumption-loan amount requested from that borrower-lender relationship.",
+      "Enter reducing-balance rate and EMI tenure.",
+      "Compare the request with the maximum collateral-supported amount and applicable RBI tier."
+    ],
+    "assumptions": [
+      "The calculator covers consumption loans under the RBI Lending Against Gold and Silver Collateral Directions, 2025.",
+      "Only intrinsic gold content is valued; stones, gems, making charges and non-gold weight are excluded.",
+      "The 24K reference price is entered by the user and is not a live market quote.",
+      "The EMI illustration uses a constant reducing-balance rate and excludes fees, GST, insurance and penalties.",
+      "Final valuation and sanction are controlled by the regulated lender."
+    ],
+    "commonMistakes": [
+      "Using gross ornament weight instead of net gold weight.",
+      "Using a retail jewellery price including making charges or stones.",
+      "Applying a blanket 75% LTV to every consumption-loan amount after April 2026.",
+      "Treating the result as approval or ignoring fees and bullet-repayment rules."
+    ],
+    "contentSections": [
+      {
+        "heading": "RBI tiered LTV rules for consumption gold loans",
+        "body": "The RBI Directions set three maximum LTV bands based on total consumption-loan amount per borrower: 85% up to ₹2.5 lakh, 80% above ₹2.5 lakh through ₹5 lakh, and 75% above ₹5 lakh. The calculator tests bracket transitions so it does not produce a loan amount that becomes invalid merely by entering the next band."
+      },
+      {
+        "heading": "How lenders must value pledged gold",
+        "body": "Valuation follows actual purity and a specified reference-price method. Only intrinsic gold content counts. The lender's assay certificate should show purity, gross weight, net gold content and deductions for stones, lac, alloy, strings or fastenings."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Rules come from the Reserve Bank of India (Lending Against Gold and Silver Collateral) Directions, 2025, updated 29 September 2025 and required for compliance no later than 1 April 2026. Calculation version 2026-08-17.1 includes exact tests at ₹2,50,000/₹2,50,001 and ₹5,00,000/₹5,00,001."
+      }
+    ],
+    "lastReviewed": "22 August 2026",
+    "lastReviewedIso": "2026-08-22",
+    "officialSources": [
+      {
+        "label": "RBI — Lending Against Gold and Silver Collateral Directions, 2025",
+        "href": "https://rbi.org.in/scripts/NotificationUser.aspx?Id=12859&Mode=0"
+      }
+    ],
+    "factRows": [
+      {
+        "topic": "RBI LTV tiers",
+        "explanation": "85% up to ₹2.5 lakh; 80% above ₹2.5 lakh through ₹5 lakh; 75% above ₹5 lakh"
+      },
+      {
+        "topic": "Valuation",
+        "explanation": "Net gold content × lender reference price × actual purity adjustment"
+      },
+      {
+        "topic": "Excluded value",
+        "explanation": "Stones, gems, making charges and other non-gold elements are not counted"
+      },
+      {
+        "topic": "Rate source",
+        "explanation": "Reference price is entered by the user; RupeeKit does not claim a live gold quote"
+      },
+      {
+        "topic": "Approval boundary",
+        "explanation": "Collateral estimate only; lender controls assay, credit assessment, charges and sanction"
+      }
+    ],
+    "calculationVersion": "2026-08-17.1",
+    "factsCheckedIso": "2026-08-17",
+    "nextReviewTrigger": "RBI amendment to valuation, eligible collateral, LTV or repayment rules.",
+    "formulaHold": false,
+    "calculationTests": [
+      "₹2.5 lakh boundary",
+      "₹5 lakh boundary",
+      "LTV transition zones",
+      "purity adjustment",
+      "zero-rate EMI",
+      "request shortfall"
+    ]
+  },
+  "personal-loan-eligibility-calculator-india": {
+    "shortDescription": "Estimate affordable EMI and personal-loan capacity from take-home income and existing obligations, then test rate, FOIR and tenure assumptions without a lead form.",
+    "formulaExplanation": "Total EMI cap = net monthly income × selected FOIR. Maximum new EMI = max(total EMI cap − existing fixed obligations, 0). Eligible principal is the present value of that EMI at the entered reducing-balance rate and tenure. The result estimates repayment capacity, not approval.",
+    "example": "With ₹75,000 net monthly income, ₹10,000 existing obligations and a 50% FOIR assumption, maximum new EMI is ₹27,500. At 14% for 48 months, estimated capacity is about ₹10.1 lakh before lender policy and credit checks.",
+    "quickAnswer": {
+      "title": "Personal Loan Eligibility Quick Answer",
+      "question": "How much personal loan may my income support?",
+      "answer": "Multiply net monthly income by a planning FOIR, subtract every existing fixed credit obligation, and convert the remaining EMI capacity into principal using the entered reducing-balance rate and tenure. Lenders apply their own FOIR and credit rules, so the result is not approval.",
+      "formula": "Max new EMI = max(net income × FOIR − existing obligations, 0); eligibility = present value of that EMI",
+      "note": "No phone number or bureau access is required. Inputs stay in the browser."
+    },
+    "faqs": [
+      {
+        "question": "Is the calculator result a pre-approved personal loan?",
+        "answer": "No. It estimates income-based repayment capacity only. A lender may approve less, reject the application or use different assumptions after checking credit history, age, income stability, employer, city, documents and internal policy."
+      },
+      {
+        "question": "What should I include in existing obligations?",
+        "answer": "Include all recurring fixed credit commitments the lender may consider, such as home, vehicle and personal-loan EMIs, card EMIs and other fixed loan obligations. Omitting an obligation overstates capacity."
+      },
+      {
+        "question": "What FOIR should I use?",
+        "answer": "There is no single universal percentage. Use the default only as a planning assumption and change it if a target lender publishes a different policy for your profile. A higher FOIR increases estimated eligibility but leaves less monthly buffer."
+      },
+      {
+        "question": "Why does a longer tenure increase eligibility?",
+        "answer": "The same monthly EMI can repay a larger principal over more months. The trade-off is higher total interest and a longer obligation, which the sensitivity table shows."
+      },
+      {
+        "question": "Does RupeeKit collect my phone number or share inputs with lenders?",
+        "answer": "No lead form is required. Values are calculated in the browser and RupeeKit does not use this calculator to obtain a bureau report or send an application to a lender."
+      }
+    ],
+    "assumptions": [
+      "Net take-home income and every existing fixed obligation are entered accurately.",
+      "FOIR is a user-selected planning cap, not a universal lender rule.",
+      "The loan uses a constant reducing-balance rate for the selected tenure.",
+      "Processing fees, GST, insurance, prepayment charges and penalties are excluded.",
+      "Credit approval and the final sanctioned amount remain solely with the lender."
+    ],
+    "commonMistakes": [
+      "Entering CTC or gross salary instead of net take-home income.",
+      "Leaving out card EMIs or other fixed obligations.",
+      "Increasing FOIR only to obtain a larger result without preserving an emergency buffer.",
+      "Choosing a longer tenure without comparing total interest.",
+      "Treating the result as sanction or pre-approval."
+    ],
+    "contentSections": [
+      {
+        "heading": "Quick capacity check and advanced assumptions",
+        "body": "The quick fields ask only for net income and existing obligations. FOIR, rate and tenure remain editable advanced assumptions. This makes the first answer fast while keeping the full calculation inspectable."
+      },
+      {
+        "heading": "Why this is not a lender approval decision",
+        "body": "The formula measures repayment capacity. It does not access a credit bureau or model lender-specific minimum income, age, employer, service area, documentation or policy rules. The result is an educational ceiling, not a promise of credit."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "The engine uses a transparent FOIR capacity formula and the present-value formula for a standard reducing-balance loan. Calculation version 2026-08-17.1 tests zero available capacity, zero interest, multiple FOIR assumptions and tenure sensitivity."
+      }
+    ],
+    "lastReviewed": "17 August 2026",
+    "lastReviewedIso": "2026-08-17",
+    "factRows": [
+      {
+        "topic": "Quick inputs",
+        "explanation": "Net monthly income and every existing fixed credit obligation"
+      },
+      {
+        "topic": "Advanced assumptions",
+        "explanation": "User-selected FOIR, reducing-balance rate and tenure"
+      },
+      {
+        "topic": "Core formula",
+        "explanation": "New EMI capacity = max(net income × FOIR − existing obligations, 0)"
+      },
+      {
+        "topic": "Approval boundary",
+        "explanation": "Capacity estimate only; not pre-approval, sanction or a guaranteed rate"
+      },
+      {
+        "topic": "Privacy",
+        "explanation": "No phone number or bureau lookup; values are calculated in the browser"
+      }
+    ],
+    "calculationVersion": "2026-08-17.1",
+    "factsCheckedIso": "2026-08-17",
+    "nextReviewTrigger": "Material change to RBI retail-lending disclosure requirements or the calculator's eligibility model.",
+    "formulaHold": false,
+    "calculationTests": [
+      "FOIR minus obligations",
+      "no remaining capacity",
+      "zero interest",
+      "present-value principal",
+      "tenure sensitivity"
+    ]
+  },
+  "sukanya-samriddhi-yojana-calculator-india": {
+    "shortDescription": "Project SSY maturity using the account-opening timeline: deposits for 15 years and maturity after 21 years from opening, with the current balance and a variable-rate assumption.",
+    "formulaExplanation": "Remaining deposit years = max(15 − completed account years, 0). Remaining maturity years = max(21 − completed account years, 0). Starting with the current balance, the model adds the planned deposit at the beginning of each remaining deposit year and applies the entered annual interest assumption through the 21st year from account opening.",
+    "example": "For a new account, the model allows 15 annual deposits and projects maturity 21 years after opening regardless of whether the girl was age 1, 5 or 9 at opening. For an existing account, enter completed account years and the current passbook balance.",
+    "quickAnswer": {
+      "title": "SSY Calculator Quick Answer",
+      "question": "When does an SSY account mature and how long can deposits be made?",
+      "answer": "Deposits may be made for 15 years from the account-opening date, and the account matures after 21 years from that opening date. The girl's age checks whether the account could be opened before age 10; it does not set the maturity term.",
+      "formula": "Remaining deposits = 15 − account age; time to maturity = 21 − account age",
+      "note": "The 8.2% default is the official Jul-Sep 2026 rate. Future quarterly rates can change, so maturity is a projection."
+    },
+    "faqs": [
+      {
+        "question": "Does SSY mature when the girl turns 21?",
+        "answer": "The standard maturity rule is 21 years from the date the account was opened, not automatically the girl's 21st birthday. Earlier closure may be permitted for intended marriage after age 18 subject to the scheme conditions."
+      },
+      {
+        "question": "For how many years can I deposit into SSY?",
+        "answer": "Deposits may be made until completion of 15 years from account opening. The balance can then continue earning the applicable scheme interest until the account completes its 21-year term."
+      },
+      {
+        "question": "What is the SSY interest rate for July to September 2026?",
+        "answer": "The National Savings Institute rate table shows 8.2% for the Sukanya Samriddhi Account Scheme for Jul-Sep 2026. Rates are government-notified and may change for future quarters, so the calculator keeps the projection rate editable."
+      },
+      {
+        "question": "Why does an existing SSY account need a current balance?",
+        "answer": "Past deposits earned the rates notified in their respective periods. The latest passbook balance already captures that history. Starting from it avoids pretending one current rate applied throughout the account's past."
+      },
+      {
+        "question": "Is the SSY deposit automatically an 80C tax saving?",
+        "answer": "A qualifying contribution can fall within the overall Section 80C limit where that deduction is applicable to the taxpayer's selected regime and circumstances. The calculator does not claim a fixed tax saving because the available limit and tax position vary."
+      },
+      {
+        "question": "Is SSY always better than PPF?",
+        "answer": "No blanket comparison is appropriate. SSY is restricted to an eligible girl child and has its own 21-year-from-opening term; PPF is available more broadly and has different extension and withdrawal rules. Compare eligibility, goal timing, access needs and currently notified rates."
+      }
+    ],
+    "howToUse": [
+      "Enter the girl's completed age when the account was opened to validate eligibility.",
+      "Enter completed years since account opening; use zero for a new account.",
+      "For an existing account, enter the latest passbook balance.",
+      "Enter the annual amount planned for each remaining deposit year.",
+      "Use 8.2% for the Jul-Sep 2026 assumption or enter another scenario.",
+      "Review remaining deposit years, remaining term, deposits and projected interest separately."
+    ],
+    "assumptions": [
+      "The account was validly opened before the girl attained age 10.",
+      "Deposits continue only through 15 years from account opening.",
+      "Maturity is modelled at 21 years from account opening.",
+      "One planned deposit is added at the beginning of each remaining scheme year.",
+      "The entered interest rate stays constant for projection only; actual rates can change quarterly.",
+      "The current balance for an existing account accurately captures prior deposits and credited interest."
+    ],
+    "commonMistakes": [
+      "Calculating maturity as 21 minus the girl's current age.",
+      "Stopping deposits when the girl turns 15 instead of 15 years from account opening.",
+      "Projecting an existing account without entering its current balance.",
+      "Treating 8.2% as guaranteed for the entire remaining term.",
+      "Claiming a fixed 80C tax saving without checking regime and remaining limit."
+    ],
+    "contentSections": [
+      {
+        "heading": "The SSY clock starts on the account-opening date",
+        "body": "Opening is permitted before the girl attains age 10. Once opened, the scheme uses an account timeline: deposits for 15 years and maturity after 21 years. The calculator therefore asks for account age rather than subtracting the child's age from 21."
+      },
+      {
+        "heading": "How to project a new versus existing SSY account",
+        "body": "For a new account, use zero completed account years and zero current balance. For an existing account, use the latest passbook balance and completed years since opening. This preserves the effect of historical quarterly rates already credited to the account."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Deposit and maturity terms come from the Sukanya Samriddhi Account Scheme published by the National Savings Institute. The default 8.2% rate is checked against the official Jul-Sep 2026 small-savings table. Calculation version 2026-08-17.1 tests new and existing accounts, the 15-year deposit cut-off and 21-year maturity."
+      }
+    ],
+    "lastReviewed": "17 August 2026",
+    "lastReviewedIso": "2026-08-17",
+    "officialSources": [
+      {
+        "label": "NSI — Sukanya Samriddhi Account Scheme",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=171"
+      },
+      {
+        "label": "NSI — SSY deposit and maturity rules",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=177"
+      },
+      {
+        "label": "NSI — National Savings Scheme interest rates",
+        "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132"
+      }
+    ],
+    "factRows": [
+      {
+        "topic": "Opening eligibility",
+        "explanation": "Account must be opened before the girl attains age 10"
+      },
+      {
+        "topic": "Deposit period",
+        "explanation": "15 years from the date of account opening"
+      },
+      {
+        "topic": "Maturity",
+        "explanation": "21 years from the date of account opening"
+      },
+      {
+        "topic": "Rate assumption",
+        "explanation": "8.2% for Jul-Sep 2026; editable because future quarterly rates can change"
+      },
+      {
+        "topic": "Tax boundary",
+        "explanation": "80C may apply within the taxpayer's regime and remaining overall limit; no fixed saving is assumed"
+      }
+    ],
+    "calculationVersion": "2026-08-17.1",
+    "factsCheckedIso": "2026-08-17",
+    "nextReviewTrigger": "Quarterly small-savings rate notification or amendment to SSY eligibility, deposit, withdrawal or maturity rules.",
+    "formulaHold": false,
+    "calculationTests": [
+      "opening age eligibility",
+      "15 years from opening",
+      "21 years from opening",
+      "existing-account balance",
+      "annual deposit cap",
+      "zero remaining deposit years"
+    ]
+  },
+  "salary-in-hand-calculator-india": {
+    "shortDescription": "Reconcile annual CTC with gross pay, employer PF, employee PF, estimated income tax, professional tax and monthly take-home for FY 2026-27 (AY 2027-28).",
+    "formulaExplanation": "Annual gross salary = annual CTC minus employer PF only when employer PF is included in CTC. Monthly in-hand = annual gross/12 minus employee PF, user-entered professional tax, estimated monthly income tax and other monthly deductions. Every result is labelled monthly or annual.",
+    "example": "For ₹12,00,000 annual CTC, 50% basic, employer PF included, 12% employee PF, new regime FY 2026-27 and ₹200 monthly professional tax, the model reconciles annual CTC to monthly gross and then subtracts employee-side deductions to estimate take-home.",
+    "quickAnswer": {
+      "title": "Salary In-Hand Quick Answer",
+      "question": "How is monthly in-hand salary calculated from CTC?",
+      "answer": "First remove employer-side components included in annual CTC to estimate annual gross pay. Divide gross by 12, then subtract employee PF, estimated income-tax TDS, state-specific professional tax entered by you, and other monthly deductions.",
+      "formula": "Monthly in-hand = (annual CTC − employer components)/12 − employee PF − TDS − professional tax − other deductions",
+      "note": "FY 2026-27 corresponds to AY 2027-28. Actual payroll structure and tax withholding can differ."
+    },
+    "faqs": [
+      {
+        "question": "Is CTC the same as annual gross salary?",
+        "answer": "Not necessarily. CTC can include employer PF, gratuity, insurance or other employer costs that are not paid as monthly cash. This calculator explicitly subtracts employer PF when you say it is included; verify other components against the offer letter."
+      },
+      {
+        "question": "Which tax year should I choose for salary earned in FY 2026-27?",
+        "answer": "Choose FY 2026-27, which is assessed in AY 2027-28. The labels show both years together to prevent assessment-year and financial-year confusion."
+      },
+      {
+        "question": "Is professional tax always ₹200 per month?",
+        "answer": "No. Professional tax is state-specific and may not apply in every state or at every income level. Enter the amount from your payslip or set it to zero; the default is only an editable example."
+      },
+      {
+        "question": "Why can actual take-home differ from this result?",
+        "answer": "Variable pay, bonus timing, gratuity, insurance, employer-specific allowances, PF wage rules, declarations, surcharge, marginal relief, payroll rounding and one-time deductions can change the payslip. Use actual offer-letter and payslip values where possible."
+      },
+      {
+        "question": "Does the calculator mix monthly and annual values?",
+        "answer": "No. The summary cards are explicitly monthly. The breakup toggle labels monthly CTC equivalent and monthly gross when monthly is selected, and annual CTC and annual gross when annual is selected."
+      }
+    ],
+    "assumptions": [
+      "Annual CTC is entered in rupees and monthly outputs divide annual values by 12.",
+      "Employer PF is removed from CTC only when the user confirms it is included.",
+      "Employee PF is estimated from the selected basic-pay percentage and employee rate.",
+      "Professional tax is user-entered because it is state-specific.",
+      "Income tax uses the selected financial year and regime; surcharge above ₹50 lakh is excluded from this model.",
+      "Variable pay and employer benefits not entered are not modelled."
+    ],
+    "commonMistakes": [
+      "Treating CTC/12 as cash gross when CTC includes employer PF or other employer costs.",
+      "Selecting an assessment year as though it were the salary-earning financial year.",
+      "Assuming one professional-tax amount applies nationwide.",
+      "Comparing an annual CTC with a monthly take-home without reconciling units.",
+      "Ignoring variable pay, gratuity, insurance or one-time deductions in the offer letter."
+    ],
+    "contentSections": [
+      {
+        "heading": "CTC, gross salary and in-hand pay are different layers",
+        "body": "CTC is the employer's annual cost. Gross salary is cash salary before employee deductions after employer-side components modelled here. In-hand salary is gross after employee PF, tax, professional tax and other deductions. The calculator keeps all three visible."
+      },
+      {
+        "heading": "FY 2026-27 and AY 2027-28",
+        "body": "Salary earned from April 2026 through March 2027 belongs to FY 2026-27 and is assessed in AY 2027-28. The calculator applies the chosen FY rules and displays its matching AY next to the selector."
+      },
+      {
+        "heading": "Source and Methodology",
+        "body": "Tax rules are versioned by financial year in the income-tax engine. Employer and employee PF, professional tax and other deductions are shown as separate reconciliation lines. Calculation version 2026-08-17.1 adds a ₹12 lakh annual-to-monthly reconciliation fixture and explicit unit labels."
+      }
+    ],
+    "lastReviewed": "17 August 2026",
+    "lastReviewedIso": "2026-08-17",
+    "officialSources": [
+      {
+        "label": "Income Tax Department — individual return guidance",
+        "href": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1"
+      },
+      {
+        "label": "Employees' Provident Fund Organisation",
+        "href": "https://www.epfindia.gov.in/site_en/index.php"
+      }
+    ],
+    "factRows": [
+      {
+        "topic": "Year mapping",
+        "explanation": "FY 2026-27 salary is assessed in AY 2027-28"
+      },
+      {
+        "topic": "CTC reconciliation",
+        "explanation": "Employer PF is removed only when the user confirms it is included in annual CTC"
+      },
+      {
+        "topic": "Monthly take-home",
+        "explanation": "Gross monthly pay minus employee PF, estimated TDS, professional tax and other deductions"
+      },
+      {
+        "topic": "Professional tax",
+        "explanation": "State-specific, user-entered and settable to zero"
+      },
+      {
+        "topic": "Unit control",
+        "explanation": "Breakup labels distinguish monthly equivalents from annual amounts"
+      }
+    ],
+    "calculationVersion": "2026-08-17.1",
+    "factsCheckedIso": "2026-08-17",
+    "nextReviewTrigger": "Union Budget or Finance Act tax change, EPF rule change, or salary-engine formula change.",
+    "formulaHold": false,
+    "calculationTests": [
+      "₹12 lakh CTC reconciliation",
+      "monthly/annual unit consistency",
+      "FY-to-AY mapping",
+      "employer PF included toggle",
+      "professional tax input",
+      "new and old regime tax paths"
+    ]
+  }
+}

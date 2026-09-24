@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { BlogPost } from '@/data/blog-posts';
+import { BLOG_CLUSTERS, getBlogCluster } from '@/data/blog-clusters';
 import BlogCard from './BlogCard';
 
 interface BlogListingClientProps {
@@ -14,22 +15,33 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState(CATEGORY_ALL);
 
-  // Derive unique categories from actual post data, sorted alphabetically
+  // Seven durable clusters replace the long list of overlapping post labels.
   const categories = useMemo(() => {
-    const cats = Array.from(new Set(posts.map((p) => p.category))).sort();
-    return [CATEGORY_ALL, ...cats];
+    const available = new Set(posts.map((post) => getBlogCluster(post.category).label));
+    return [CATEGORY_ALL, ...BLOG_CLUSTERS.map((cluster) => cluster.label).filter((label) => available.has(label))];
+  }, [posts]);
+
+  const clusterCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of posts) {
+      const label = getBlogCluster(post.category).label;
+      counts.set(label, (counts.get(label) ?? 0) + 1);
+    }
+    return counts;
   }, [posts]);
 
   // Filter posts by category and search
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return posts.filter((p) => {
-      const matchesCat = activeCategory === CATEGORY_ALL || p.category === activeCategory;
+      const cluster = getBlogCluster(p.category);
+      const matchesCat = activeCategory === CATEGORY_ALL || cluster.label === activeCategory;
       const matchesSearch =
         !q ||
         p.title.toLowerCase().includes(q) ||
         p.intro.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q);
+        p.category.toLowerCase().includes(q) ||
+        cluster.label.toLowerCase().includes(q);
       return matchesCat && matchesSearch;
     });
   }, [posts, search, activeCategory]);
@@ -39,6 +51,40 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
 
   return (
     <div>
+      <section className="mt-12" aria-labelledby="blog-cluster-heading">
+        <div className="text-center">
+          <h2 id="blog-cluster-heading" className="text-2xl font-black text-brandDeepNavy">Explore by financial goal</h2>
+          <p className="mt-2 text-sm leading-6 text-brandMuted">Seven clear topic hubs replace overlapping tags and make the next useful guide easier to find.</p>
+        </div>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {BLOG_CLUSTERS.filter((cluster) => clusterCounts.has(cluster.label)).map((cluster) => (
+            <article key={cluster.id} className={`rounded-2xl border p-4 transition ${activeCategory === cluster.label ? 'border-brandNavy bg-brandNavy/5 ring-2 ring-brandNavy/10' : 'border-brandBorder bg-white hover:border-brandNavy/30'}`}>
+              <button
+                type="button"
+                onClick={() => setActiveCategory(cluster.label)}
+                className="w-full text-left"
+                aria-pressed={activeCategory === cluster.label}
+                aria-controls="blog-article-library"
+              >
+                <span className="flex items-center justify-between gap-3">
+                  <span className="font-bold text-brandDeepNavy">{cluster.label}</span>
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{clusterCounts.get(cluster.label)} guides</span>
+                </span>
+                <span className="mt-2 block text-xs leading-5 text-brandMuted">{cluster.description}</span>
+              </button>
+              <a href={cluster.calculatorHref} className="mt-3 inline-flex text-xs font-bold text-brandNavy hover:underline">
+                {cluster.calculatorLabel} →
+              </a>
+              {cluster.secondaryCalculatorHref && cluster.secondaryCalculatorLabel ? (
+                <a href={cluster.secondaryCalculatorHref} className="ml-3 mt-3 inline-flex text-xs font-bold text-brandNavy hover:underline">
+                  {cluster.secondaryCalculatorLabel} →
+                </a>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Search + Category Filters */}
       <div className="mt-10 space-y-5">
         {/* Search */}
@@ -87,7 +133,7 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
       )}
 
       {/* Article Grid */}
-      <section className="mt-10" aria-label="Article list">
+      <section id="blog-article-library" className="mt-10 scroll-mt-24" aria-label="Article list">
         {filtered.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((post) => (
@@ -95,7 +141,7 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
                 key={post.slug}
                 slug={post.slug}
                 title={post.title}
-                category={post.category}
+                category={getBlogCluster(post.category).label}
                 date={post.date}
                 readTime={post.readTime}
                 intro={post.intro}

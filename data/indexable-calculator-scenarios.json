@@ -1,0 +1,49 @@
+[
+  {
+    "slug": "personal-loan-eligibility-25000-salary",
+    "title": "Personal Loan Eligibility for Rs 25,000 Salary | Example",
+    "metaDescription": "See an illustrative personal-loan eligibility example for Rs 25,000 monthly take-home pay using 50% FOIR, no existing EMI, 14% rate and 48 months.",
+    "h1": "Personal Loan Eligibility for Rs 25,000 Monthly Salary",
+    "targetKeyword": "personal loan eligibility for 25000 salary",
+    "calculatorSlug": "personal-loan-eligibility-calculator-india",
+    "quickAnswer": "With Rs 25,000 monthly take-home pay, no existing EMI, a 50% FOIR assumption, 14% annual rate and 48-month tenure, the existing RupeeKit calculator illustration supports about Rs 4.57 lakh of borrowing capacity. This is an educational estimate, not approval or a lender offer.",
+    "assumptions": [
+      "Net monthly income: Rs 25,000",
+      "Existing monthly EMI: Rs 0",
+      "FOIR planning assumption: 50%",
+      "Illustrative annual rate: 14%",
+      "Illustrative tenure: 48 months"
+    ],
+    "queryValues": {
+      "monthlyIncome": 25000,
+      "existingMonthlyEmi": 0,
+      "foirPercent": 50,
+      "annualRate": 14,
+      "tenureMonths": 48
+    },
+    "evidence": "Issue #84 cites salary-band GSC demand including Rs 25k; issue #75 and the live calculator content also record the same salary-band intent and assumptions.",
+    "lastModifiedIso": "2026-08-31"
+  },
+  {
+    "slug": "personal-loan-emi-10-lakh-5-years",
+    "title": "Rs 10 Lakh Personal Loan EMI for 5 Years | 14% Example",
+    "metaDescription": "See the EMI for an illustrative Rs 10 lakh personal loan at 14% for 60 months, then open the RupeeKit calculator with the same inputs to compare scenarios.",
+    "h1": "Rs 10 Lakh Personal Loan EMI for 5 Years at 14%",
+    "targetKeyword": "EMI for 10 lakh personal loan",
+    "calculatorSlug": "personal-loan-emi-calculator-india",
+    "quickAnswer": "For an illustrative Rs 10 lakh personal loan at 14% annual interest over 60 months, the standard reducing-balance formula gives an EMI of about Rs 23,268 per month, before processing fees or optional add-on costs. This is a scenario, not a live lender quote.",
+    "assumptions": [
+      "Loan amount: Rs 10,00,000",
+      "Illustrative annual interest rate: 14%",
+      "Tenure: 60 months",
+      "Processing fees, GST on fees and optional add-ons are not included in the headline EMI"
+    ],
+    "queryValues": {
+      "principal": 1000000,
+      "annualInterestRate": 14,
+      "tenureMonths": 60
+    },
+    "evidence": "Issue #84 explicitly cites the GSC query shape 'EMI for 10 lakh personal loan'; the live calculator already includes a Rs 10 lakh / 5 year / 14% preset.",
+    "lastModifiedIso": "2026-08-31"
+  }
+]

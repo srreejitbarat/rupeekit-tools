@@ -1,0 +1,81 @@
+{
+  "mutual-funds-for-beginners-india": {
+    "targetKeyword": "mutual funds for beginners india",
+    "h1": "Mutual Funds for Beginners in India: Start With the Basics",
+    "quickAnswer": {
+      "title": "Beginner mutual-fund guide",
+      "question": "What should a beginner understand before starting a mutual fund?",
+      "answer": "Start with the fund's objective, asset class, risk level, expense ratio, time horizon and whether you plan to invest through a regular SIP or a one-time lumpsum. This guide explains the concepts; the calculators model the numbers separately.",
+      "note": "Educational information only. Mutual-fund returns are market-linked and are not guaranteed.",
+      "links": [
+        { "label": "Project a fixed monthly SIP", "href": "/tools/sip-calculator-india" },
+        { "label": "Project a one-time lumpsum", "href": "/tools/lumpsum-calculator-india" },
+        { "label": "Compare index and active-fund fee drag", "href": "/tools/index-fund-vs-active-fund-cost-calculator-india" }
+      ]
+    },
+    "sections": [
+      {
+        "title": "Which RupeeKit investing page should you use next?",
+        "paragraphs": [
+          "Use this article when you are still learning how mutual funds, SIPs, risk and fund costs work. Once the concept is clear, use the regular SIP Calculator for a fixed monthly contribution, the Step-Up SIP Calculator for a contribution that rises over time, and the Lumpsum Calculator for one starting investment.",
+          "If your question is about fund costs rather than corpus projection, use the Index Fund vs Active Fund Cost Calculator. If you are measuring a portfolio with investments made at different times, use the XIRR-style portfolio return tool instead."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Is this beginner guide the same as a SIP calculator?",
+        "answer": "No. The guide explains mutual-fund concepts and decision factors. The SIP calculator is a separate tool for projecting a fixed monthly contribution using an assumed return."
+      },
+      {
+        "question": "Should beginners use SIP or lumpsum?",
+        "answer": "They are different cash-flow methods rather than universally better or worse choices. SIP spreads contributions over time, while lumpsum invests the available amount at once. Your cash flow, time horizon and risk tolerance matter."
+      }
+    ],
+    "relatedCalculators": [
+      "sip-calculator-india",
+      "step-up-sip-calculator-india",
+      "lumpsum-calculator-india",
+      "index-fund-vs-active-fund-cost-calculator-india",
+      "xirr-portfolio-return-calculator-india"
+    ]
+  },
+  "robo-advisors-vs-diy-index-investing-india": {
+    "targetKeyword": "robo advisor vs diy index investing india",
+    "h1": "Robo-Advisors vs DIY Index Investing in India: Cost and Control",
+    "quickAnswer": {
+      "title": "Robo-adviser vs DIY index investing",
+      "question": "What is the real difference between a robo-adviser and DIY index investing?",
+      "answer": "The comparison is mainly about advice or automation fees, fund costs, portfolio control, rebalancing effort and behavioural discipline. It is not a generic SIP-return comparison.",
+      "note": "Educational comparison only. Provider features, fees and portfolio construction can change; verify current terms before choosing a service.",
+      "links": [
+        { "label": "Isolate index-vs-active expense-ratio drag", "href": "/tools/index-fund-vs-active-fund-cost-calculator-india" },
+        { "label": "Project a regular monthly SIP", "href": "/tools/sip-calculator-india" }
+      ]
+    },
+    "sections": [
+      {
+        "title": "Keep service-cost comparison separate from SIP projection",
+        "paragraphs": [
+          "A robo-adviser comparison asks who selects, rebalances and maintains the portfolio and what that service costs. A SIP calculator asks how a recurring contribution may compound under an assumed return. Keeping these pages separate prevents both from targeting the same generic mutual-fund intent.",
+          "Use the Index Fund vs Active Fund Cost Calculator when you specifically want to isolate recurring expense-ratio drag under the same gross-return assumption."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does a robo-adviser guarantee better returns than DIY investing?",
+        "answer": "No. Automation or advice can change process and behaviour, but it does not guarantee a higher investment return."
+      },
+      {
+        "question": "Is this page a recommendation for index funds?",
+        "answer": "No. It compares service model, control and cost trade-offs. It does not provide personalised investment advice or guarantee that one route will outperform."
+      }
+    ],
+    "relatedCalculators": [
+      "index-fund-vs-active-fund-cost-calculator-india",
+      "sip-calculator-india",
+      "lumpsum-calculator-india"
+    ]
+  }
+}

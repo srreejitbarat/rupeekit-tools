@@ -27,6 +27,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  overflow-x: hidden;
 }
 
 body {
@@ -35,6 +37,46 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1;
   text-rendering: optimizeLegibility;
   transition: background-color 180ms ease, color 180ms ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CLS-safe image defaults: prevent layout shift while loading */
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fluid type helper for AEO readability on all screens */
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Safe-area padding for mobile notch/gesture devices */
+@supports (padding: max(0px)) {
+  .safe-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+  .safe-top {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 ::selection {
@@ -82,4 +124,32 @@ input[type='number'] {
   @page {
     margin: 16mm;
   }
+}
+
+/* Devanagari marks need room above and below the text. Do not inherit the
+   tightly tracked English display type on Hindi pages. Fonts remain local. */
+html:lang(hi-IN) body,
+[lang="hi-IN"],
+[lang="hi"] {
+  font-family: "Nirmala UI", "Noto Sans Devanagari", Mangal, "Segoe UI", sans-serif;
+  letter-spacing: normal;
+}
+html:lang(hi-IN) h1,
+html:lang(hi-IN) h2,
+html:lang(hi-IN) h3 {
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+
+html:lang(bn-IN) body,
+[lang="bn-IN"],
+[lang="bn"] {
+  font-family: "Nirmala UI", "Noto Sans Bengali", Vrinda, "Segoe UI", sans-serif;
+  letter-spacing: normal;
+}
+html:lang(bn-IN) h1,
+html:lang(bn-IN) h2,
+html:lang(bn-IN) h3 {
+  line-height: 1.6;
+  letter-spacing: normal;
 }

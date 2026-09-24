@@ -1,12 +1,1437 @@
 [
-{"slug":"rent-vs-buy-calculator-india","name":"Rent vs Buy Calculator India","seoTitle":"Rent vs Buy Calculator India 2026 | Compare Long-Term Cost","category":"Housing","status":"live","targetKeyword":"rent vs buy calculator India","shortDescription":"Compare renting with buying after loan interest, rent growth, home appreciation, maintenance and investing the down payment.","metaDescription":"Compare rent vs buy in India using home price, loan, rent growth, appreciation, ownership costs and investment-return assumptions.","inputs":[{"key":"homePrice","label":"Home price","unit":"Rs","default":8000000,"min":100000,"step":100000},{"key":"downPayment","label":"Down payment","unit":"Rs","default":1600000,"min":0,"step":50000},{"key":"loanRate","label":"Home-loan rate","unit":"%","default":8.5,"min":0.1,"max":30,"step":0.1},{"key":"years","label":"Comparison period","unit":"years","default":20,"min":1,"max":30,"step":1},{"key":"monthlyRent","label":"Current monthly rent","unit":"Rs","default":25000,"min":0,"step":1000},{"key":"rentGrowth","label":"Annual rent increase","unit":"%","default":6,"min":0.1,"max":20,"step":0.1},{"key":"homeGrowth","label":"Annual home appreciation","unit":"%","default":5,"min":0.1,"max":20,"step":0.1},{"key":"maintenanceRate","label":"Annual ownership-cost rate","unit":"%","default":1,"min":0,"max":10,"step":0.1},{"key":"investmentReturn","label":"Return on invested down payment","unit":"%","default":10,"min":0.1,"max":30,"step":0.1}],"outputs":[{"key":"loanPrincipal","label":"Loan amount","formula":"max(homePrice-downPayment,0)","format":"currency"},{"key":"months","label":"Loan months","formula":"years*12","format":"number","hidden":true},{"key":"monthlyRate","label":"Monthly loan rate","formula":"loanRate/1200","format":"percent","hidden":true},{"key":"emi","label":"Monthly EMI","formula":"loanPrincipal*monthlyRate*(1+monthlyRate)^months/((1+monthlyRate)^months-1)","format":"currency"},{"key":"futureHomeValue","label":"Estimated future home value","formula":"homePrice*(1+homeGrowth/100)^years","format":"currency"},{"key":"totalRent","label":"Estimated total rent","formula":"monthlyRent*12*((1+rentGrowth/100)^years-1)/(rentGrowth/100)","format":"currency"},{"key":"ownershipCosts","label":"Estimated ownership costs","formula":"homePrice*maintenanceRate/100*((1+homeGrowth/100)^years-1)/(homeGrowth/100)","format":"currency"},{"key":"investedDownPayment","label":"Potential invested down-payment value","formula":"downPayment*(1+investmentReturn/100)^years","format":"currency"},{"key":"buyNetAsset","label":"Buy-side net asset estimate","formula":"futureHomeValue-(emi*months-loanPrincipal)-ownershipCosts","format":"currency"},{"key":"rentNetAsset","label":"Rent-side net asset estimate","formula":"investedDownPayment-totalRent","format":"currency"},{"key":"buyAdvantage","label":"Buy-side advantage","formula":"buyNetAsset-rentNetAsset","format":"currency"}],"formulaExplanation":"Calculates reducing-balance EMI, estimated rent, ownership costs, future home value and the opportunity cost of the down payment.","example":"Small changes in appreciation and investment return can reverse the outcome.","faqs":[{"question":"Does a positive result mean I should buy?","answer":"No. It only means the entered assumptions favour buying mathematically."},{"question":"What if I don't know future home appreciation?","answer":"Use a conservative rate for your city; the comparison is most reliable when appreciation and rent-growth assumptions are realistic rather than optimistic."}],"related":["home-loan-emi-calculator-india","rental-yield-calculator-india","home-affordability-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"home-affordability-calculator-india","name":"Home Affordability Calculator India","seoTitle":"Home Affordability Calculator India 2026 | Income & EMI Check","category":"Housing","status":"live","targetKeyword":"home affordability calculator India","shortDescription":"Estimate an affordable property price from take-home income, existing EMIs, down payment, interest rate and a chosen EMI limit.","metaDescription":"Find what home price may fit your budget using income, existing EMIs, down payment, rate, tenure and affordability ratio.","inputs":[{"key":"monthlyIncome","label":"Monthly take-home income","unit":"Rs","default":100000,"min":1,"step":1000},{"key":"existingEmis","label":"Existing monthly EMIs","unit":"Rs","default":15000,"min":0,"step":1000},{"key":"maxEmiRatio","label":"Maximum total EMI ratio","unit":"%","default":40,"min":5,"max":80,"step":1},{"key":"loanRate","label":"Home-loan rate","unit":"%","default":8.5,"min":0.1,"max":30,"step":0.1},{"key":"loanYears","label":"Loan tenure","unit":"years","default":20,"min":1,"max":30,"step":1},{"key":"downPayment","label":"Available down payment","unit":"Rs","default":1500000,"min":0,"step":50000},{"key":"buyingCostsRate","label":"Buying-cost rate","unit":"%","default":8,"min":0,"max":20,"step":0.5}],"outputs":[{"key":"maxTotalEmi","label":"Maximum total EMI budget","formula":"monthlyIncome*maxEmiRatio/100","format":"currency"},{"key":"availableHomeEmi","label":"Available home-loan EMI","formula":"max(maxTotalEmi-existingEmis,0)","format":"currency"},{"key":"months","label":"Loan months","formula":"loanYears*12","format":"number","hidden":true},{"key":"monthlyRate","label":"Monthly rate","formula":"loanRate/1200","format":"percent","hidden":true},{"key":"eligibleLoan","label":"Illustrative loan amount","formula":"availableHomeEmi*((1+monthlyRate)^months-1)/(monthlyRate*(1+monthlyRate)^months)","format":"currency"},{"key":"grossBudget","label":"Budget before buying costs","formula":"eligibleLoan+downPayment","format":"currency"},{"key":"buyingCosts","label":"Estimated buying costs","formula":"grossBudget*buyingCostsRate/100","format":"currency"},{"key":"affordablePropertyPrice","label":"Affordable property price","formula":"max(grossBudget-buyingCosts,0)","format":"currency"}],"formulaExplanation":"Works backward from a chosen EMI-to-income limit, subtracts existing EMIs and converts the remainder into an illustrative loan principal.","example":"At Rs 1 lakh take-home, Rs 15,000 existing EMIs and a 40% cap, the home EMI budget is Rs 25,000.","faqs":[{"question":"Is this the same as bank eligibility?","answer":"No. Lenders apply their own credit, income, age and policy checks."},{"question":"What EMI ratio should I use?","answer":"Many lenders cap total EMIs near 40-50% of take-home income, but a lower ratio leaves more room for savings and emergencies."}],"related":["home-loan-emi-calculator-india","emergency-fund-calculator-india","rent-vs-buy-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"job-offer-comparison-calculator-india","name":"Job Offer Comparison Calculator India","seoTitle":"Job Offer Comparison Calculator India | Compare CTC & Value","category":"Salary","status":"live","targetKeyword":"job offer comparison calculator India","shortDescription":"Compare two offers using fixed pay, expected variable pay, employer benefits, work costs and joining bonus.","metaDescription":"Compare two salary offers beyond headline CTC using expected variable pay, benefits, joining bonus and recurring costs.","inputs":[{"key":"offerAFixed","label":"Offer A fixed pay","unit":"Rs/year","default":1500000,"min":0,"step":10000},{"key":"offerAVariable","label":"Offer A variable pay","unit":"Rs/year","default":200000,"min":0,"step":10000},{"key":"offerAVariableChance","label":"Offer A expected payout","unit":"%","default":70,"min":0,"max":100,"step":1},{"key":"offerABenefits","label":"Offer A benefits","unit":"Rs/year","default":100000,"min":0,"step":5000},{"key":"offerACosts","label":"Offer A work costs","unit":"Rs/year","default":120000,"min":0,"step":5000},{"key":"offerAJoining","label":"Offer A joining bonus","unit":"Rs","default":100000,"min":0,"step":5000},{"key":"offerBFixed","label":"Offer B fixed pay","unit":"Rs/year","default":1700000,"min":0,"step":10000},{"key":"offerBVariable","label":"Offer B variable pay","unit":"Rs/year","default":100000,"min":0,"step":10000},{"key":"offerBVariableChance","label":"Offer B expected payout","unit":"%","default":90,"min":0,"max":100,"step":1},{"key":"offerBBenefits","label":"Offer B benefits","unit":"Rs/year","default":80000,"min":0,"step":5000},{"key":"offerBCosts","label":"Offer B work costs","unit":"Rs/year","default":180000,"min":0,"step":5000},{"key":"offerBJoining","label":"Offer B joining bonus","unit":"Rs","default":0,"min":0,"step":5000}],"outputs":[{"key":"offerAExpected","label":"Offer A first-year value","formula":"offerAFixed+offerAVariable*offerAVariableChance/100+offerABenefits+offerAJoining-offerACosts","format":"currency"},{"key":"offerBExpected","label":"Offer B first-year value","formula":"offerBFixed+offerBVariable*offerBVariableChance/100+offerBBenefits+offerBJoining-offerBCosts","format":"currency"},{"key":"difference","label":"Offer B minus Offer A","formula":"offerBExpected-offerAExpected","format":"currency"},{"key":"monthlyDifference","label":"Expected monthly difference","formula":"difference/12","format":"currency"},{"key":"offerARecurring","label":"Offer A recurring value","formula":"offerAFixed+offerAVariable*offerAVariableChance/100+offerABenefits-offerACosts","format":"currency"},{"key":"offerBRecurring","label":"Offer B recurring value","formula":"offerBFixed+offerBVariable*offerBVariableChance/100+offerBBenefits-offerBCosts","format":"currency"}],"formulaExplanation":"Converts variable pay into expected value, adds benefits and bonus, and subtracts recurring work costs.","example":"A higher CTC can lose after uncertain variable pay and commuting costs are included.","faqs":[{"question":"Does this calculate exact in-hand salary?","answer":"No. It compares offer economics before personal tax and payroll deductions."},{"question":"How should I estimate the payout chance for variable pay?","answer":"Use your own or peers' historical payout track record at each company rather than the maximum advertised bonus."}],"related":["salary-increment-calculator-india","salary-in-hand-calculator-india","bonus-tax-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"salary-increment-calculator-india","name":"Salary Increment Calculator India","seoTitle":"Salary Increment Calculator India 2026 | Hike & Monthly Difference","category":"Salary","status":"live","targetKeyword":"salary increment calculator India","shortDescription":"Calculate revised annual salary, monthly gross difference, estimated take-home change and real hike after inflation.","metaDescription":"Calculate salary hike percentage, revised salary, estimated monthly gain and inflation-adjusted increment in India.","inputs":[{"key":"currentAnnual","label":"Current annual salary","unit":"Rs","default":1200000,"min":0,"step":10000},{"key":"hikePercent","label":"Salary hike","unit":"%","default":20,"min":-100,"max":300,"step":0.5},{"key":"currentTakeHomeRatio","label":"Current take-home ratio","unit":"%","default":78,"min":1,"max":100,"step":1},{"key":"newTakeHomeRatio","label":"New take-home ratio","unit":"%","default":75,"min":1,"max":100,"step":1},{"key":"inflation","label":"Inflation assumption","unit":"%","default":5,"min":-10,"max":30,"step":0.1}],"outputs":[{"key":"newAnnual","label":"New annual salary","formula":"currentAnnual*(1+hikePercent/100)","format":"currency"},{"key":"annualIncrease","label":"Annual gross increase","formula":"newAnnual-currentAnnual","format":"currency"},{"key":"monthlyGrossIncrease","label":"Monthly gross increase","formula":"annualIncrease/12","format":"currency"},{"key":"currentMonthlyTakeHome","label":"Current monthly take-home estimate","formula":"currentAnnual*currentTakeHomeRatio/100/12","format":"currency"},{"key":"newMonthlyTakeHome","label":"New monthly take-home estimate","formula":"newAnnual*newTakeHomeRatio/100/12","format":"currency"},{"key":"monthlyTakeHomeIncrease","label":"Monthly take-home increase","formula":"newMonthlyTakeHome-currentMonthlyTakeHome","format":"currency"},{"key":"realHike","label":"Inflation-adjusted hike","formula":"((1+hikePercent/100)/(1+inflation/100)-1)*100","format":"percent"}],"formulaExplanation":"Applies the hike to annual salary, estimates take-home with user-entered ratios and adjusts the nominal hike for inflation.","example":"A 20% gross hike may produce a smaller bank-account increase if deductions rise.","faqs":[{"question":"Why is take-home increase lower than the hike?","answer":"Tax, PF, variable pay and benefit structure may change."},{"question":"What is a good real hike after inflation?","answer":"A real hike above 0% means purchasing power grew; compare it with your own cost-of-living trend rather than the headline CPI figure."}],"related":["salary-in-hand-calculator-india","job-offer-comparison-calculator-india","bonus-tax-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"bonus-tax-calculator-india","name":"Bonus Tax Calculator India","seoTitle":"Bonus Tax Calculator India 2026 | Estimate Net Bonus","category":"Tax","status":"live","targetKeyword":"bonus tax calculator India","shortDescription":"Estimate the post-tax value of a bonus using marginal tax rate, cess and payroll deductions.","metaDescription":"Estimate how much annual bonus may remain after marginal income tax, cess and other deductions in India.","inputs":[{"key":"grossBonus","label":"Gross bonus","unit":"Rs","default":200000,"min":0,"step":5000},{"key":"marginalTaxRate","label":"Marginal tax rate","unit":"%","default":30,"min":0,"max":50,"step":1},{"key":"cessRate","label":"Cess on income tax","unit":"%","default":4,"min":0,"max":10,"step":0.1},{"key":"otherDeductionRate","label":"Other payroll deductions","unit":"%","default":0,"min":0,"max":30,"step":0.1}],"outputs":[{"key":"baseTax","label":"Estimated income tax","formula":"grossBonus*marginalTaxRate/100","format":"currency"},{"key":"cess","label":"Estimated cess","formula":"baseTax*cessRate/100","format":"currency"},{"key":"otherDeductions","label":"Other deductions","formula":"grossBonus*otherDeductionRate/100","format":"currency"},{"key":"totalDeductions","label":"Estimated total deductions","formula":"baseTax+cess+otherDeductions","format":"currency"},{"key":"netBonus","label":"Estimated net bonus","formula":"grossBonus-totalDeductions","format":"currency"},{"key":"effectiveDeductionRate","label":"Effective deduction rate","formula":"totalDeductions/max(grossBonus,1)*100","format":"percent"}],"formulaExplanation":"Uses the entered marginal rate, applies cess to estimated income tax and adds other entered payroll deductions.","example":"A Rs 2 lakh bonus at 30% plus 4% cess has an estimated tax impact of Rs 62,400 before other deductions.","faqs":[{"question":"Is bonus taxed at a special fixed rate?","answer":"It generally forms part of salary income; actual tax depends on total taxable income and regime."},{"question":"Can employers deduct TDS on a bonus at a flat rate?","answer":"Employers typically estimate TDS using your projected annual tax slab rather than a fixed bonus rate, so the actual deduction can differ from this estimate."}],"related":["income-tax-calculator-old-vs-new-regime-india","salary-increment-calculator-india","salary-in-hand-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"fire-retirement-calculator-india","name":"FIRE Calculator India","seoTitle":"FIRE Calculator India 2026 | Financial Independence Corpus","category":"Retirement","status":"live","targetKeyword":"FIRE calculator India","shortDescription":"Estimate a financial-independence corpus, projected corpus and monthly investment needed from expenses and return assumptions.","metaDescription":"Estimate your FIRE number using expenses, withdrawal rate, current corpus, inflation, return and monthly investment.","inputs":[{"key":"monthlyExpenses","label":"Current monthly expenses","unit":"Rs","default":60000,"min":1,"step":1000},{"key":"withdrawalRate","label":"Planned withdrawal rate","unit":"%","default":3.5,"min":0.5,"max":10,"step":0.1},{"key":"currentCorpus","label":"Current invested corpus","unit":"Rs","default":2000000,"min":0,"step":50000},{"key":"monthlyInvestment","label":"Monthly investment","unit":"Rs","default":50000,"min":0,"step":1000},{"key":"returnRate","label":"Expected annual return","unit":"%","default":10,"min":0.1,"max":30,"step":0.1},{"key":"inflation","label":"Expected inflation","unit":"%","default":6,"min":0,"max":20,"step":0.1},{"key":"yearsToFire","label":"Years to FIRE","unit":"years","default":15,"min":1,"max":50,"step":1}],"outputs":[{"key":"annualExpenses","label":"Current annual expenses","formula":"monthlyExpenses*12","format":"currency"},{"key":"fireNumberToday","label":"FIRE corpus today","formula":"annualExpenses/(withdrawalRate/100)","format":"currency"},{"key":"futureExpenses","label":"Annual expenses at target","formula":"annualExpenses*(1+inflation/100)^yearsToFire","format":"currency"},{"key":"futureFireNumber","label":"Target FIRE corpus","formula":"futureExpenses/(withdrawalRate/100)","format":"currency"},{"key":"monthlyReturn","label":"Monthly return","formula":"(1+returnRate/100)^(1/12)-1","format":"percent","hidden":true},{"key":"projectedCorpus","label":"Projected corpus","formula":"currentCorpus*(1+monthlyReturn)^(yearsToFire*12)+monthlyInvestment*((1+monthlyReturn)^(yearsToFire*12)-1)/monthlyReturn","format":"currency"},{"key":"corpusGap","label":"Projected corpus gap","formula":"futureFireNumber-projectedCorpus","format":"currency"},{"key":"requiredMonthlyInvestment","label":"Monthly investment needed","formula":"max((futureFireNumber-currentCorpus*(1+monthlyReturn)^(yearsToFire*12))*monthlyReturn/((1+monthlyReturn)^(yearsToFire*12)-1),0)","format":"currency"}],"formulaExplanation":"Builds a corpus from expenses divided by withdrawal rate, inflates expenses and projects investments with monthly compounding.","example":"Rs 60,000 monthly expenses at a 3.5% withdrawal rate gives a current FIRE number near Rs 2.06 crore.","faqs":[{"question":"Is the 4% rule guaranteed in India?","answer":"No. Sustainability depends on returns, inflation, tax, asset mix and retirement length."},{"question":"Should I use pre-tax or post-tax expenses for the FIRE number?","answer":"Use realistic post-tax annual expenses, since withdrawals from your corpus will also need to cover any tax due on that income."}],"related":["nps-calculator-india","sip-calculator-india","net-worth-tracker-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"net-worth-tracker-calculator-india","name":"Net Worth Tracker Calculator India","seoTitle":"Net Worth Tracker Calculator India | Assets, Loans & Financial Health","category":"Planning","status":"live","targetKeyword":"net worth tracker calculator India","shortDescription":"Add assets, subtract liabilities and calculate total net worth, liquid net worth and debt-to-asset ratio.","metaDescription":"Track personal net worth from cash, investments, property, retirement accounts, loans and other liabilities, plus a liquid net worth and debt-to-asset ratio.","inputs":[{"key":"cash","label":"Cash and bank balance","unit":"Rs","default":300000,"min":0,"step":10000},{"key":"investments","label":"Investments and deposits","unit":"Rs","default":1500000,"min":0,"step":10000},{"key":"retirementAssets","label":"EPF, NPS and retirement assets","unit":"Rs","default":800000,"min":0,"step":10000},{"key":"property","label":"Property market value","unit":"Rs","default":5000000,"min":0,"step":50000},{"key":"otherAssets","label":"Other assets","unit":"Rs","default":300000,"min":0,"step":10000},{"key":"homeLoan","label":"Home-loan balance","unit":"Rs","default":3000000,"min":0,"step":50000},{"key":"otherLoans","label":"Other loan balances","unit":"Rs","default":400000,"min":0,"step":10000},{"key":"otherLiabilities","label":"Other liabilities","unit":"Rs","default":100000,"min":0,"step":10000}],"outputs":[{"key":"totalAssets","label":"Total assets","formula":"cash+investments+retirementAssets+property+otherAssets","format":"currency"},{"key":"liquidAssets","label":"Liquid financial assets","formula":"cash+investments","format":"currency"},{"key":"totalLiabilities","label":"Total liabilities","formula":"homeLoan+otherLoans+otherLiabilities","format":"currency"},{"key":"netWorth","label":"Net worth","formula":"totalAssets-totalLiabilities","format":"currency"},{"key":"liquidNetWorth","label":"Liquid net worth","formula":"liquidAssets-otherLoans-otherLiabilities","format":"currency"},{"key":"debtToAsset","label":"Debt-to-asset ratio","formula":"totalLiabilities/max(totalAssets,1)*100","format":"percent"}],"formulaExplanation":"Adds entered asset values and subtracts outstanding liabilities. Liquid net worth excludes property and retirement assets.","example":"Assets of Rs 79 lakh and liabilities of Rs 35 lakh produce net worth of Rs 44 lakh.","faqs":[{"question":"Should property use purchase price or current value?","answer":"Use a conservative current market estimate."},{"question":"Is a negative net worth unusual early in a career?","answer":"No. Education loans and a new home loan can make net worth low or negative in the early years before assets accumulate."}],"related":["emergency-fund-calculator-india","fire-retirement-calculator-india","debt-snowball-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"education-loan-emi-tax-benefit-calculator-india","name":"Education Loan EMI & Tax Benefit Calculator India","seoTitle":"Education Loan EMI Calculator India 2026 | Section 80E Estimate","category":"Loans","status":"live","targetKeyword":"education loan EMI tax benefit calculator India","shortDescription":"Calculate education-loan EMI and an illustrative interest-deduction tax impact using user-entered assumptions.","metaDescription":"Calculate education loan EMI, total interest and an illustrative Section 80E tax impact in India.","inputs":[{"key":"loanAmount","label":"Education loan amount","unit":"Rs","default":1500000,"min":1,"step":50000},{"key":"interestRate","label":"Annual interest rate","unit":"%","default":10,"min":0.1,"max":30,"step":0.1},{"key":"loanYears","label":"Repayment tenure","unit":"years","default":10,"min":1,"max":20,"step":1},{"key":"eligibleInterestYears","label":"Interest-benefit years for illustration","unit":"years","default":8,"min":0,"max":8,"step":1},{"key":"marginalTaxRate","label":"Marginal tax rate","unit":"%","default":20,"min":0,"max":50,"step":1},{"key":"cessRate","label":"Cess on tax","unit":"%","default":4,"min":0,"max":10,"step":0.1}],"outputs":[{"key":"months","label":"Loan months","formula":"loanYears*12","format":"number","hidden":true},{"key":"monthlyRate","label":"Monthly rate","formula":"interestRate/1200","format":"percent","hidden":true},{"key":"emi","label":"Monthly EMI","formula":"loanAmount*monthlyRate*(1+monthlyRate)^months/((1+monthlyRate)^months-1)","format":"currency"},{"key":"totalRepayment","label":"Total repayment","formula":"emi*months","format":"currency"},{"key":"totalInterest","label":"Total interest","formula":"totalRepayment-loanAmount","format":"currency"},{"key":"eligibleInterestShare","label":"Illustrative eligible interest share","formula":"totalInterest*min(eligibleInterestYears,loanYears)/loanYears","format":"currency"},{"key":"estimatedTaxReduction","label":"Illustrative tax reduction","formula":"eligibleInterestShare*marginalTaxRate/100*(1+cessRate/100)","format":"currency"},{"key":"netInterestAfterTax","label":"Interest after illustrative tax effect","formula":"totalInterest-estimatedTaxReduction","format":"currency"}],"formulaExplanation":"Calculates reducing-balance EMI and total interest. The tax output is a simplified illustration, not a filing calculation.","example":"Actual annual eligible interest should come from the lender certificate.","faqs":[{"question":"Does Section 80E deduct principal?","answer":"The deduction generally concerns eligible interest, subject to applicable law and eligibility."},{"question":"Is there an upper rupee limit on the Section 80E deduction?","answer":"There is no fixed rupee ceiling on the interest deduction, but eligibility is limited to a specified number of years and applies only to interest, not principal repayment."}],"related":["emi-calculator-india","income-tax-calculator-old-vs-new-regime-india","personal-loan-emi-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"rental-yield-calculator-india","name":"Rental Yield Calculator India","seoTitle":"Rental Yield Calculator India 2026 | Gross & Net Yield","category":"Housing","status":"live","targetKeyword":"rental yield calculator India","shortDescription":"Calculate gross and net rental yield after vacancy, maintenance, property tax and other annual costs.","metaDescription":"Calculate rental yield in India from property value, rent, vacancy, maintenance, tax and annual costs.","inputs":[{"key":"propertyValue","label":"Current property value","unit":"Rs","default":8000000,"min":1,"step":100000},{"key":"monthlyRent","label":"Monthly rent","unit":"Rs","default":30000,"min":0,"step":1000},{"key":"vacancyMonths","label":"Expected vacancy","unit":"months/year","default":1,"min":0,"max":12,"step":0.5},{"key":"annualMaintenance","label":"Annual maintenance","unit":"Rs","default":60000,"min":0,"step":5000},{"key":"propertyTax","label":"Annual property tax","unit":"Rs","default":15000,"min":0,"step":1000},{"key":"otherCosts","label":"Other annual costs","unit":"Rs","default":10000,"min":0,"step":1000},{"key":"annualAppreciation","label":"Appreciation assumption","unit":"%","default":5,"min":-20,"max":30,"step":0.1}],"outputs":[{"key":"grossAnnualRent","label":"Gross annual rent","formula":"monthlyRent*12","format":"currency"},{"key":"effectiveRent","label":"Rent after vacancy","formula":"monthlyRent*(12-vacancyMonths)","format":"currency"},{"key":"annualCosts","label":"Annual ownership costs","formula":"annualMaintenance+propertyTax+otherCosts","format":"currency"},{"key":"netAnnualRent","label":"Net annual rent","formula":"effectiveRent-annualCosts","format":"currency"},{"key":"grossYield","label":"Gross rental yield","formula":"grossAnnualRent/propertyValue*100","format":"percent"},{"key":"netYield","label":"Net rental yield","formula":"netAnnualRent/propertyValue*100","format":"percent"},{"key":"totalReturnIllustration","label":"Yield plus appreciation assumption","formula":"netYield+annualAppreciation","format":"percent"}],"formulaExplanation":"Gross yield divides annual rent by property value. Net yield subtracts vacancy and recurring costs first.","example":"Rs 30,000 monthly rent on an Rs 80 lakh property is 4.5% gross yield before costs.","faqs":[{"question":"Should I use purchase price or current value?","answer":"Current value is more useful for a hold-or-sell comparison."},{"question":"What is considered a good rental yield in India?","answer":"Residential rental yields in most Indian cities typically fall between 2% and 4%, so figures well above that range are worth double-checking against local market rent."}],"related":["rent-vs-buy-calculator-india","home-loan-emi-calculator-india","invest-vs-prepay-home-loan-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"},
-{"slug":"debt-snowball-calculator-india","name":"Debt Snowball Calculator India","seoTitle":"Debt Snowball Calculator India | Payoff Order & Time","category":"Debt","status":"live","targetKeyword":"debt snowball calculator India","shortDescription":"Estimate payoff time for three debts as extra money rolls from the smallest balance to the next debt.","metaDescription":"Plan a debt snowball using three balances, rates, minimum payments and an extra monthly payment.","inputs":[{"key":"debt1","label":"Debt 1 balance","unit":"Rs","default":50000,"min":1,"step":1000},{"key":"rate1","label":"Debt 1 interest rate","unit":"%","default":18,"min":0.1,"max":100,"step":0.1},{"key":"min1","label":"Debt 1 minimum payment","unit":"Rs","default":3000,"min":1,"step":100},{"key":"debt2","label":"Debt 2 balance","unit":"Rs","default":150000,"min":1,"step":1000},{"key":"rate2","label":"Debt 2 interest rate","unit":"%","default":14,"min":0.1,"max":100,"step":0.1},{"key":"min2","label":"Debt 2 minimum payment","unit":"Rs","default":5000,"min":1,"step":100},{"key":"debt3","label":"Debt 3 balance","unit":"Rs","default":400000,"min":1,"step":1000},{"key":"rate3","label":"Debt 3 interest rate","unit":"%","default":11,"min":0.1,"max":100,"step":0.1},{"key":"min3","label":"Debt 3 minimum payment","unit":"Rs","default":9000,"min":1,"step":100},{"key":"extraPayment","label":"Extra monthly payment","unit":"Rs","default":5000,"min":0,"step":500}],"outputs":[{"key":"totalDebt","label":"Total debt","formula":"debt1+debt2+debt3","format":"currency"},{"key":"totalMinimum","label":"Total minimum payments","formula":"min1+min2+min3","format":"currency"},{"key":"startingPayment","label":"Starting monthly payment","formula":"totalMinimum+extraPayment","format":"currency"},{"key":"debt1Months","label":"Estimated months for debt 1","formula":"-log(1-debt1*(rate1/1200)/(min1+extraPayment))/log(1+rate1/1200)","format":"number"},{"key":"rolledPayment2","label":"Payment available for debt 2","formula":"min2+min1+extraPayment","format":"currency"},{"key":"debt2Months","label":"Estimated additional months for debt 2","formula":"-log(1-debt2*(rate2/1200)/rolledPayment2)/log(1+rate2/1200)","format":"number"},{"key":"rolledPayment3","label":"Payment available for debt 3","formula":"min3+min2+min1+extraPayment","format":"currency"},{"key":"debt3Months","label":"Estimated additional months for debt 3","formula":"-log(1-debt3*(rate3/1200)/rolledPayment3)/log(1+rate3/1200)","format":"number"},{"key":"estimatedTotalMonths","label":"Estimated total payoff months","formula":"debt1Months+debt2Months+debt3Months","format":"number"}],"formulaExplanation":"Uses an amortisation approximation in the entered order. Cleared payments roll into the next debt.","example":"Enter debts from smallest balance to largest for the snowball method.","faqs":[{"question":"Should debts be entered by balance or rate?","answer":"For snowball, enter smallest balance first. Avalanche prioritises highest rate."},{"question":"Does the snowball method minimise total interest paid?","answer":"Not always. Paying the highest-interest debt first (avalanche method) usually saves more interest; snowball prioritises quick wins for motivation instead."}],"related":["personal-loan-emi-calculator-india","loan-foreclosure-net-savings-calculator-india","net-worth-tracker-calculator-india"],"lastReviewed":"July 2026","lastReviewedIso":"2026-07-31"}
+  {
+    "slug": "rent-vs-buy-calculator-india",
+    "name": "Rent vs Buy Calculator India",
+    "seoTitle": "Rent vs Buy Calculator India 2026 | Compare Long-Term Cost",
+    "category": "Housing",
+    "status": "live",
+    "targetKeyword": "rent vs buy calculator India",
+    "shortDescription": "Compare renting with buying after loan interest, rent growth, home appreciation, maintenance and investing the down payment.",
+    "metaDescription": "Compare rent vs buy in India using home price, loan, rent growth, appreciation, ownership costs and investment-return assumptions.",
+    "inputs": [
+      {
+        "key": "homePrice",
+        "label": "Home price",
+        "unit": "Rs",
+        "default": 8000000,
+        "min": 100000,
+        "step": 100000
+      },
+      {
+        "key": "downPayment",
+        "label": "Down payment",
+        "unit": "Rs",
+        "default": 1600000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "loanRate",
+        "label": "Home-loan rate",
+        "unit": "%",
+        "default": 8.5,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1
+      },
+      {
+        "key": "years",
+        "label": "Comparison period",
+        "unit": "years",
+        "default": 20,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      },
+      {
+        "key": "monthlyRent",
+        "label": "Current monthly rent",
+        "unit": "Rs",
+        "default": 25000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "rentGrowth",
+        "label": "Annual rent increase",
+        "unit": "%",
+        "default": 6,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "homeGrowth",
+        "label": "Annual home appreciation",
+        "unit": "%",
+        "default": 5,
+        "min": 0.1,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "maintenanceRate",
+        "label": "Annual ownership-cost rate",
+        "unit": "%",
+        "default": 1,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      {
+        "key": "investmentReturn",
+        "label": "Return on invested down payment",
+        "unit": "%",
+        "default": 10,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "loanPrincipal",
+        "label": "Loan amount",
+        "formula": "max(homePrice-downPayment,0)",
+        "format": "currency"
+      },
+      {
+        "key": "months",
+        "label": "Loan months",
+        "formula": "years*12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly loan rate",
+        "formula": "loanRate/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "emi",
+        "label": "Monthly EMI",
+        "formula": "loanPrincipal*monthlyRate*(1+monthlyRate)^months/((1+monthlyRate)^months-1)",
+        "format": "currency"
+      },
+      {
+        "key": "futureHomeValue",
+        "label": "Estimated future home value",
+        "formula": "homePrice*(1+homeGrowth/100)^years",
+        "format": "currency"
+      },
+      {
+        "key": "totalRent",
+        "label": "Estimated total rent",
+        "formula": "monthlyRent*12*((1+rentGrowth/100)^years-1)/(rentGrowth/100)",
+        "format": "currency"
+      },
+      {
+        "key": "ownershipCosts",
+        "label": "Estimated ownership costs",
+        "formula": "homePrice*maintenanceRate/100*((1+homeGrowth/100)^years-1)/(homeGrowth/100)",
+        "format": "currency"
+      },
+      {
+        "key": "investedDownPayment",
+        "label": "Potential invested down-payment value",
+        "formula": "downPayment*(1+investmentReturn/100)^years",
+        "format": "currency"
+      },
+      {
+        "key": "buyNetAsset",
+        "label": "Buy-side net asset estimate",
+        "formula": "futureHomeValue-(emi*months-loanPrincipal)-ownershipCosts",
+        "format": "currency"
+      },
+      {
+        "key": "rentNetAsset",
+        "label": "Rent-side net asset estimate",
+        "formula": "investedDownPayment-totalRent",
+        "format": "currency"
+      },
+      {
+        "key": "buyAdvantage",
+        "label": "Buy-side advantage",
+        "formula": "buyNetAsset-rentNetAsset",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Calculates reducing-balance EMI, estimated rent, ownership costs, future home value and the opportunity cost of the down payment.",
+    "example": "Small changes in appreciation and investment return can reverse the outcome.",
+    "faqs": [
+      {
+        "question": "Does a positive result mean I should buy?",
+        "answer": "No. It only means the entered assumptions favour buying mathematically."
+      },
+      {
+        "question": "What if I don't know future home appreciation?",
+        "answer": "Use a conservative rate for your city; the comparison is most reliable when appreciation and rent-growth assumptions are realistic rather than optimistic."
+      }
+    ],
+    "related": [
+      "home-loan-emi-calculator-india",
+      "rental-yield-calculator-india",
+      "home-affordability-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "home-affordability-calculator-india",
+    "name": "Home Affordability Calculator India",
+    "seoTitle": "Home Affordability Calculator India 2026 | Income & EMI Check",
+    "category": "Housing",
+    "status": "live",
+    "targetKeyword": "home affordability calculator India",
+    "shortDescription": "Estimate an affordable property price from take-home income, existing EMIs, down payment, interest rate and a chosen EMI limit.",
+    "metaDescription": "Find what home price may fit your budget using income, existing EMIs, down payment, rate, tenure and affordability ratio.",
+    "inputs": [
+      {
+        "key": "monthlyIncome",
+        "label": "Monthly take-home income",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "existingEmis",
+        "label": "Existing monthly EMIs",
+        "unit": "Rs",
+        "default": 15000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "maxEmiRatio",
+        "label": "Maximum total EMI ratio",
+        "unit": "%",
+        "default": 40,
+        "min": 5,
+        "max": 80,
+        "step": 1
+      },
+      {
+        "key": "loanRate",
+        "label": "Home-loan rate",
+        "unit": "%",
+        "default": 8.5,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1
+      },
+      {
+        "key": "loanYears",
+        "label": "Loan tenure",
+        "unit": "years",
+        "default": 20,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      },
+      {
+        "key": "downPayment",
+        "label": "Available down payment",
+        "unit": "Rs",
+        "default": 1500000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "buyingCostsRate",
+        "label": "Buying-cost rate",
+        "unit": "%",
+        "default": 8,
+        "min": 0,
+        "max": 20,
+        "step": 0.5
+      }
+    ],
+    "outputs": [
+      {
+        "key": "maxTotalEmi",
+        "label": "Maximum total EMI budget",
+        "formula": "monthlyIncome*maxEmiRatio/100",
+        "format": "currency"
+      },
+      {
+        "key": "availableHomeEmi",
+        "label": "Available home-loan EMI",
+        "formula": "max(maxTotalEmi-existingEmis,0)",
+        "format": "currency"
+      },
+      {
+        "key": "months",
+        "label": "Loan months",
+        "formula": "loanYears*12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly rate",
+        "formula": "loanRate/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "eligibleLoan",
+        "label": "Illustrative loan amount",
+        "formula": "availableHomeEmi*((1+monthlyRate)^months-1)/(monthlyRate*(1+monthlyRate)^months)",
+        "format": "currency"
+      },
+      {
+        "key": "grossBudget",
+        "label": "Budget before buying costs",
+        "formula": "eligibleLoan+downPayment",
+        "format": "currency"
+      },
+      {
+        "key": "buyingCosts",
+        "label": "Estimated buying costs",
+        "formula": "grossBudget*buyingCostsRate/100",
+        "format": "currency"
+      },
+      {
+        "key": "affordablePropertyPrice",
+        "label": "Affordable property price",
+        "formula": "max(grossBudget-buyingCosts,0)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Works backward from a chosen EMI-to-income limit, subtracts existing EMIs and converts the remainder into an illustrative loan principal.",
+    "example": "At Rs 1 lakh take-home, Rs 15,000 existing EMIs and a 40% cap, the home EMI budget is Rs 25,000.",
+    "faqs": [
+      {
+        "question": "Is this the same as bank eligibility?",
+        "answer": "No. Lenders apply their own credit, income, age and policy checks."
+      },
+      {
+        "question": "What EMI ratio should I use?",
+        "answer": "Many lenders cap total EMIs near 40-50% of take-home income, but a lower ratio leaves more room for savings and emergencies."
+      }
+    ],
+    "related": [
+      "home-loan-emi-calculator-india",
+      "emergency-fund-calculator-india",
+      "rent-vs-buy-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "job-offer-comparison-calculator-india",
+    "name": "Job Offer Comparison Calculator India",
+    "seoTitle": "Job Offer Comparison Calculator India | Compare CTC & Value",
+    "category": "Salary",
+    "status": "live",
+    "targetKeyword": "job offer comparison calculator India",
+    "shortDescription": "Compare up to three offers on post-tax in-hand pay, with expected variable pay, provident fund, employer benefits, work costs and joining bonus.",
+    "metaDescription": "Compare up to three salary offers on post-tax in-hand pay rather than headline CTC, including provident fund, benefits, joining bonus and work costs.",
+    "inputs": [
+      {
+        "key": "offerAFixed",
+        "label": "Offer A fixed pay",
+        "unit": "Rs/year",
+        "default": 1500000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "offerAVariable",
+        "label": "Offer A variable pay",
+        "unit": "Rs/year",
+        "default": 200000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "offerAVariableChance",
+        "label": "Offer A expected payout",
+        "unit": "%",
+        "default": 70,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "key": "offerABenefits",
+        "label": "Offer A benefits",
+        "unit": "Rs/year",
+        "default": 100000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "offerACosts",
+        "label": "Offer A work costs",
+        "unit": "Rs/year",
+        "default": 120000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "offerAJoining",
+        "label": "Offer A joining bonus",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "offerBFixed",
+        "label": "Offer B fixed pay",
+        "unit": "Rs/year",
+        "default": 1700000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "offerBVariable",
+        "label": "Offer B variable pay",
+        "unit": "Rs/year",
+        "default": 100000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "offerBVariableChance",
+        "label": "Offer B expected payout",
+        "unit": "%",
+        "default": 90,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "key": "offerBBenefits",
+        "label": "Offer B benefits",
+        "unit": "Rs/year",
+        "default": 80000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "offerBCosts",
+        "label": "Offer B work costs",
+        "unit": "Rs/year",
+        "default": 180000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "offerBJoining",
+        "label": "Offer B joining bonus",
+        "unit": "Rs",
+        "default": 0,
+        "min": 0,
+        "step": 5000
+      }
+    ],
+    "outputs": [
+      {
+        "key": "offerAExpected",
+        "label": "Offer A first-year value",
+        "formula": "offerAFixed+offerAVariable*offerAVariableChance/100+offerABenefits+offerAJoining-offerACosts",
+        "format": "currency"
+      },
+      {
+        "key": "offerBExpected",
+        "label": "Offer B first-year value",
+        "formula": "offerBFixed+offerBVariable*offerBVariableChance/100+offerBBenefits+offerBJoining-offerBCosts",
+        "format": "currency"
+      },
+      {
+        "key": "difference",
+        "label": "Offer B minus Offer A",
+        "formula": "offerBExpected-offerAExpected",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyDifference",
+        "label": "Expected monthly difference",
+        "formula": "difference/12",
+        "format": "currency"
+      },
+      {
+        "key": "offerARecurring",
+        "label": "Offer A recurring value",
+        "formula": "offerAFixed+offerAVariable*offerAVariableChance/100+offerABenefits-offerACosts",
+        "format": "currency"
+      },
+      {
+        "key": "offerBRecurring",
+        "label": "Offer B recurring value",
+        "formula": "offerBFixed+offerBVariable*offerBVariableChance/100+offerBBenefits-offerBCosts",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Converts variable pay into expected value, runs each offer through the same India income-tax calculation for the selected financial year and regime, then adds benefits and subtracts recurring work costs. Provident fund is reported separately because it reduces in-hand pay but remains the employee's money.",
+    "example": "A higher CTC can lose once uncertain variable pay, commuting costs and a lower basic-pay percentage are taken into account.",
+    "faqs": [
+      {
+        "question": "Does this compare offers after income tax?",
+        "answer": "Yes. Each offer is run through the same income-tax calculation for the financial year and regime you select, so the figures compared are in-hand rather than headline CTC. HRA exemption and surcharge above Rs 50 lakh are not modelled."
+      },
+      {
+        "question": "How should I estimate the payout chance for variable pay?",
+        "answer": "Use your own or peers' historical payout track record at each company rather than the maximum advertised bonus."
+      },
+      {
+        "question": "Why does the offer with more in-hand pay sometimes lose on total value?",
+        "answer": "A higher basic-pay percentage means more provident fund is deducted from your salary and matched by the employer. That lowers monthly cash but raises retirement saving, which is still your money, so the calculator reports both."
+      },
+      {
+        "question": "Is the joining bonus counted every year?",
+        "answer": "No. It is taxed as salary but carries no provident fund, so it is shown only in the year-one row. The ongoing-year comparison excludes it."
+      }
+    ],
+    "related": [
+      "salary-increment-calculator-india",
+      "salary-in-hand-calculator-india",
+      "bonus-tax-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "salary-increment-calculator-india",
+    "name": "Salary Increment Calculator India",
+    "seoTitle": "Salary Increment Calculator India 2026 | Hike & Monthly Difference",
+    "category": "Salary",
+    "status": "live",
+    "targetKeyword": "salary increment calculator India",
+    "shortDescription": "Calculate revised annual salary, monthly gross difference, estimated take-home change and real hike after inflation.",
+    "metaDescription": "Calculate salary hike percentage, revised salary, estimated monthly gain and inflation-adjusted increment in India.",
+    "inputs": [
+      {
+        "key": "currentAnnual",
+        "label": "Current annual salary",
+        "unit": "Rs",
+        "default": 1200000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "hikePercent",
+        "label": "Salary hike",
+        "unit": "%",
+        "default": 20,
+        "min": -100,
+        "max": 300,
+        "step": 0.5
+      },
+      {
+        "key": "currentTakeHomeRatio",
+        "label": "Current take-home ratio",
+        "unit": "%",
+        "default": 78,
+        "min": 1,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "key": "newTakeHomeRatio",
+        "label": "New take-home ratio",
+        "unit": "%",
+        "default": 75,
+        "min": 1,
+        "max": 100,
+        "step": 1
+      },
+      {
+        "key": "inflation",
+        "label": "Inflation assumption",
+        "unit": "%",
+        "default": 5,
+        "min": -10,
+        "max": 30,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "newAnnual",
+        "label": "New annual salary",
+        "formula": "currentAnnual*(1+hikePercent/100)",
+        "format": "currency"
+      },
+      {
+        "key": "annualIncrease",
+        "label": "Annual gross increase",
+        "formula": "newAnnual-currentAnnual",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyGrossIncrease",
+        "label": "Monthly gross increase",
+        "formula": "annualIncrease/12",
+        "format": "currency"
+      },
+      {
+        "key": "currentMonthlyTakeHome",
+        "label": "Current monthly take-home estimate",
+        "formula": "currentAnnual*currentTakeHomeRatio/100/12",
+        "format": "currency"
+      },
+      {
+        "key": "newMonthlyTakeHome",
+        "label": "New monthly take-home estimate",
+        "formula": "newAnnual*newTakeHomeRatio/100/12",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyTakeHomeIncrease",
+        "label": "Monthly take-home increase",
+        "formula": "newMonthlyTakeHome-currentMonthlyTakeHome",
+        "format": "currency"
+      },
+      {
+        "key": "realHike",
+        "label": "Inflation-adjusted hike",
+        "formula": "((1+hikePercent/100)/(1+inflation/100)-1)*100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "Applies the hike to annual salary, estimates take-home with user-entered ratios and adjusts the nominal hike for inflation.",
+    "example": "A 20% gross hike may produce a smaller bank-account increase if deductions rise.",
+    "faqs": [
+      {
+        "question": "Why is take-home increase lower than the hike?",
+        "answer": "Tax, PF, variable pay and benefit structure may change."
+      },
+      {
+        "question": "What is a good real hike after inflation?",
+        "answer": "A real hike above 0% means purchasing power grew; compare it with your own cost-of-living trend rather than the headline CPI figure."
+      }
+    ],
+    "related": [
+      "salary-in-hand-calculator-india",
+      "job-offer-comparison-calculator-india",
+      "bonus-tax-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "bonus-tax-calculator-india",
+    "name": "Bonus Tax Calculator India",
+    "seoTitle": "Bonus Tax Calculator India 2026 | Estimate Net Bonus",
+    "category": "Tax",
+    "status": "live",
+    "targetKeyword": "bonus tax calculator India",
+    "shortDescription": "Estimate the post-tax value of a bonus using marginal tax rate, cess and payroll deductions.",
+    "metaDescription": "Estimate how much annual bonus may remain after marginal income tax, cess and other deductions in India.",
+    "inputs": [
+      {
+        "key": "grossBonus",
+        "label": "Gross bonus",
+        "unit": "Rs",
+        "default": 200000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "marginalTaxRate",
+        "label": "Marginal tax rate",
+        "unit": "%",
+        "default": 30,
+        "min": 0,
+        "max": 50,
+        "step": 1
+      },
+      {
+        "key": "cessRate",
+        "label": "Cess on income tax",
+        "unit": "%",
+        "default": 4,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      },
+      {
+        "key": "otherDeductionRate",
+        "label": "Other payroll deductions",
+        "unit": "%",
+        "default": 0,
+        "min": 0,
+        "max": 30,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "baseTax",
+        "label": "Estimated income tax",
+        "formula": "grossBonus*marginalTaxRate/100",
+        "format": "currency"
+      },
+      {
+        "key": "cess",
+        "label": "Estimated cess",
+        "formula": "baseTax*cessRate/100",
+        "format": "currency"
+      },
+      {
+        "key": "otherDeductions",
+        "label": "Other deductions",
+        "formula": "grossBonus*otherDeductionRate/100",
+        "format": "currency"
+      },
+      {
+        "key": "totalDeductions",
+        "label": "Estimated total deductions",
+        "formula": "baseTax+cess+otherDeductions",
+        "format": "currency"
+      },
+      {
+        "key": "netBonus",
+        "label": "Estimated net bonus",
+        "formula": "grossBonus-totalDeductions",
+        "format": "currency"
+      },
+      {
+        "key": "effectiveDeductionRate",
+        "label": "Effective deduction rate",
+        "formula": "totalDeductions/max(grossBonus,1)*100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "Uses the entered marginal rate, applies cess to estimated income tax and adds other entered payroll deductions.",
+    "example": "A Rs 2 lakh bonus at 30% plus 4% cess has an estimated tax impact of Rs 62,400 before other deductions.",
+    "faqs": [
+      {
+        "question": "Is bonus taxed at a special fixed rate?",
+        "answer": "It generally forms part of salary income; actual tax depends on total taxable income and regime."
+      },
+      {
+        "question": "Can employers deduct TDS on a bonus at a flat rate?",
+        "answer": "Employers typically estimate TDS using your projected annual tax slab rather than a fixed bonus rate, so the actual deduction can differ from this estimate."
+      }
+    ],
+    "related": [
+      "income-tax-calculator-old-vs-new-regime-india",
+      "salary-increment-calculator-india",
+      "salary-in-hand-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "fire-retirement-calculator-india",
+    "name": "FIRE Calculator India",
+    "seoTitle": "FIRE Calculator India 2026 | Financial Independence Corpus",
+    "category": "Retirement",
+    "status": "live",
+    "targetKeyword": "FIRE calculator India",
+    "shortDescription": "Estimate a financial-independence corpus, projected corpus and monthly investment needed from expenses and return assumptions.",
+    "metaDescription": "Estimate your FIRE number using expenses, withdrawal rate, current corpus, inflation, return and monthly investment.",
+    "inputs": [
+      {
+        "key": "monthlyExpenses",
+        "label": "Current monthly expenses",
+        "unit": "Rs",
+        "default": 60000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "withdrawalRate",
+        "label": "Planned withdrawal rate",
+        "unit": "%",
+        "default": 3.5,
+        "min": 0.5,
+        "max": 10,
+        "step": 0.1
+      },
+      {
+        "key": "currentCorpus",
+        "label": "Current invested corpus",
+        "unit": "Rs",
+        "default": 2000000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "monthlyInvestment",
+        "label": "Monthly investment",
+        "unit": "Rs",
+        "default": 50000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "returnRate",
+        "label": "Expected annual return",
+        "unit": "%",
+        "default": 10,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1
+      },
+      {
+        "key": "inflation",
+        "label": "Expected inflation",
+        "unit": "%",
+        "default": 6,
+        "min": 0,
+        "max": 20,
+        "step": 0.1
+      },
+      {
+        "key": "yearsToFire",
+        "label": "Years to FIRE",
+        "unit": "years",
+        "default": 15,
+        "min": 1,
+        "max": 50,
+        "step": 1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "annualExpenses",
+        "label": "Current annual expenses",
+        "formula": "monthlyExpenses*12",
+        "format": "currency"
+      },
+      {
+        "key": "fireNumberToday",
+        "label": "FIRE corpus today",
+        "formula": "annualExpenses/(withdrawalRate/100)",
+        "format": "currency"
+      },
+      {
+        "key": "futureExpenses",
+        "label": "Annual expenses at target",
+        "formula": "annualExpenses*(1+inflation/100)^yearsToFire",
+        "format": "currency"
+      },
+      {
+        "key": "futureFireNumber",
+        "label": "Target FIRE corpus",
+        "formula": "futureExpenses/(withdrawalRate/100)",
+        "format": "currency"
+      },
+      {
+        "key": "monthlyReturn",
+        "label": "Monthly return",
+        "formula": "(1+returnRate/100)^(1/12)-1",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "projectedCorpus",
+        "label": "Projected corpus",
+        "formula": "currentCorpus*(1+monthlyReturn)^(yearsToFire*12)+monthlyInvestment*((1+monthlyReturn)^(yearsToFire*12)-1)/monthlyReturn",
+        "format": "currency"
+      },
+      {
+        "key": "corpusGap",
+        "label": "Projected corpus gap",
+        "formula": "futureFireNumber-projectedCorpus",
+        "format": "currency"
+      },
+      {
+        "key": "requiredMonthlyInvestment",
+        "label": "Monthly investment needed",
+        "formula": "max((futureFireNumber-currentCorpus*(1+monthlyReturn)^(yearsToFire*12))*monthlyReturn/((1+monthlyReturn)^(yearsToFire*12)-1),0)",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Builds a corpus from expenses divided by withdrawal rate, inflates expenses and projects investments with monthly compounding.",
+    "example": "Rs 60,000 monthly expenses at a 3.5% withdrawal rate gives a current FIRE number near Rs 2.06 crore.",
+    "faqs": [
+      {
+        "question": "Is the 4% rule guaranteed in India?",
+        "answer": "No. Sustainability depends on returns, inflation, tax, asset mix and retirement length."
+      },
+      {
+        "question": "Should I use pre-tax or post-tax expenses for the FIRE number?",
+        "answer": "Use realistic post-tax annual expenses, since withdrawals from your corpus will also need to cover any tax due on that income."
+      }
+    ],
+    "related": [
+      "nps-calculator-india",
+      "sip-calculator-india",
+      "net-worth-calculator-india",
+      "retirement-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "net-worth-tracker-calculator-india",
+    "name": "Net Worth Tracker Calculator India",
+    "seoTitle": "Net Worth Tracker Calculator India | Assets, Loans & Financial Health",
+    "category": "Planning",
+    "status": "live",
+    "targetKeyword": "net worth tracker calculator India",
+    "shortDescription": "Add assets, subtract liabilities and calculate total net worth, liquid net worth and debt-to-asset ratio.",
+    "metaDescription": "Track personal net worth from cash, investments, property, retirement accounts, loans and other liabilities, plus a liquid net worth and debt-to-asset ratio.",
+    "inputs": [
+      {
+        "key": "cash",
+        "label": "Cash and bank balance",
+        "unit": "Rs",
+        "default": 300000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "investments",
+        "label": "Investments and deposits",
+        "unit": "Rs",
+        "default": 1500000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "retirementAssets",
+        "label": "EPF, NPS and retirement assets",
+        "unit": "Rs",
+        "default": 800000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "property",
+        "label": "Property market value",
+        "unit": "Rs",
+        "default": 5000000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "otherAssets",
+        "label": "Other assets",
+        "unit": "Rs",
+        "default": 300000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "homeLoan",
+        "label": "Home-loan balance",
+        "unit": "Rs",
+        "default": 3000000,
+        "min": 0,
+        "step": 50000
+      },
+      {
+        "key": "otherLoans",
+        "label": "Other loan balances",
+        "unit": "Rs",
+        "default": 400000,
+        "min": 0,
+        "step": 10000
+      },
+      {
+        "key": "otherLiabilities",
+        "label": "Other liabilities",
+        "unit": "Rs",
+        "default": 100000,
+        "min": 0,
+        "step": 10000
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalAssets",
+        "label": "Total assets",
+        "formula": "cash+investments+retirementAssets+property+otherAssets",
+        "format": "currency"
+      },
+      {
+        "key": "liquidAssets",
+        "label": "Liquid financial assets",
+        "formula": "cash+investments",
+        "format": "currency"
+      },
+      {
+        "key": "totalLiabilities",
+        "label": "Total liabilities",
+        "formula": "homeLoan+otherLoans+otherLiabilities",
+        "format": "currency"
+      },
+      {
+        "key": "netWorth",
+        "label": "Net worth",
+        "formula": "totalAssets-totalLiabilities",
+        "format": "currency"
+      },
+      {
+        "key": "liquidNetWorth",
+        "label": "Liquid net worth",
+        "formula": "liquidAssets-otherLoans-otherLiabilities",
+        "format": "currency"
+      },
+      {
+        "key": "debtToAsset",
+        "label": "Debt-to-asset ratio",
+        "formula": "totalLiabilities/max(totalAssets,1)*100",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "Adds entered asset values and subtracts outstanding liabilities. Liquid net worth excludes property and retirement assets.",
+    "example": "Assets of Rs 79 lakh and liabilities of Rs 35 lakh produce net worth of Rs 44 lakh.",
+    "faqs": [
+      {
+        "question": "Should property use purchase price or current value?",
+        "answer": "Use a conservative current market estimate."
+      },
+      {
+        "question": "Is a negative net worth unusual early in a career?",
+        "answer": "No. Education loans and a new home loan can make net worth low or negative in the early years before assets accumulate."
+      }
+    ],
+    "related": [
+      "emergency-fund-calculator-india",
+      "fire-retirement-calculator-india",
+      "debt-snowball-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "education-loan-emi-tax-benefit-calculator-india",
+    "name": "Education Loan EMI & Tax Benefit Calculator India",
+    "seoTitle": "Education Loan EMI Calculator India 2026 | Section 80E Estimate",
+    "category": "Loans",
+    "status": "live",
+    "targetKeyword": "education loan EMI tax benefit calculator India",
+    "shortDescription": "Calculate education-loan EMI and an illustrative interest-deduction tax impact using user-entered assumptions.",
+    "metaDescription": "Calculate education loan EMI, total interest and an illustrative Section 80E tax impact in India.",
+    "inputs": [
+      {
+        "key": "loanAmount",
+        "label": "Education loan amount",
+        "unit": "Rs",
+        "default": 1500000,
+        "min": 1,
+        "step": 50000
+      },
+      {
+        "key": "interestRate",
+        "label": "Annual interest rate",
+        "unit": "%",
+        "default": 10,
+        "min": 0.1,
+        "max": 30,
+        "step": 0.1
+      },
+      {
+        "key": "loanYears",
+        "label": "Repayment tenure",
+        "unit": "years",
+        "default": 10,
+        "min": 1,
+        "max": 20,
+        "step": 1
+      },
+      {
+        "key": "eligibleInterestYears",
+        "label": "Interest-benefit years for illustration",
+        "unit": "years",
+        "default": 8,
+        "min": 0,
+        "max": 8,
+        "step": 1
+      },
+      {
+        "key": "marginalTaxRate",
+        "label": "Marginal tax rate",
+        "unit": "%",
+        "default": 20,
+        "min": 0,
+        "max": 50,
+        "step": 1
+      },
+      {
+        "key": "cessRate",
+        "label": "Cess on tax",
+        "unit": "%",
+        "default": 4,
+        "min": 0,
+        "max": 10,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "months",
+        "label": "Loan months",
+        "formula": "loanYears*12",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "monthlyRate",
+        "label": "Monthly rate",
+        "formula": "interestRate/1200",
+        "format": "percent",
+        "hidden": true
+      },
+      {
+        "key": "emi",
+        "label": "Monthly EMI",
+        "formula": "loanAmount*monthlyRate*(1+monthlyRate)^months/((1+monthlyRate)^months-1)",
+        "format": "currency"
+      },
+      {
+        "key": "totalRepayment",
+        "label": "Total repayment",
+        "formula": "emi*months",
+        "format": "currency"
+      },
+      {
+        "key": "totalInterest",
+        "label": "Total interest",
+        "formula": "totalRepayment-loanAmount",
+        "format": "currency"
+      },
+      {
+        "key": "eligibleInterestShare",
+        "label": "Illustrative eligible interest share",
+        "formula": "totalInterest*min(eligibleInterestYears,loanYears)/loanYears",
+        "format": "currency"
+      },
+      {
+        "key": "estimatedTaxReduction",
+        "label": "Illustrative tax reduction",
+        "formula": "eligibleInterestShare*marginalTaxRate/100*(1+cessRate/100)",
+        "format": "currency"
+      },
+      {
+        "key": "netInterestAfterTax",
+        "label": "Interest after illustrative tax effect",
+        "formula": "totalInterest-estimatedTaxReduction",
+        "format": "currency"
+      }
+    ],
+    "formulaExplanation": "Calculates reducing-balance EMI and total interest. The tax output is a simplified illustration, not a filing calculation.",
+    "example": "Actual annual eligible interest should come from the lender certificate.",
+    "faqs": [
+      {
+        "question": "Does Section 80E deduct principal?",
+        "answer": "The deduction generally concerns eligible interest, subject to applicable law and eligibility."
+      },
+      {
+        "question": "Is there an upper rupee limit on the Section 80E deduction?",
+        "answer": "There is no fixed rupee ceiling on the interest deduction, but eligibility is limited to a specified number of years and applies only to interest, not principal repayment."
+      }
+    ],
+    "related": [
+      "emi-calculator-india",
+      "income-tax-calculator-old-vs-new-regime-india",
+      "personal-loan-emi-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "rental-yield-calculator-india",
+    "name": "Rental Yield Calculator India",
+    "seoTitle": "Rental Yield Calculator India 2026 | Gross & Net Yield",
+    "category": "Housing",
+    "status": "live",
+    "targetKeyword": "rental yield calculator India",
+    "shortDescription": "Calculate gross and net rental yield after vacancy, maintenance, property tax and other annual costs.",
+    "metaDescription": "Calculate rental yield in India from property value, rent, vacancy, maintenance, tax and annual costs.",
+    "inputs": [
+      {
+        "key": "propertyValue",
+        "label": "Current property value",
+        "unit": "Rs",
+        "default": 8000000,
+        "min": 1,
+        "step": 100000
+      },
+      {
+        "key": "monthlyRent",
+        "label": "Monthly rent",
+        "unit": "Rs",
+        "default": 30000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "vacancyMonths",
+        "label": "Expected vacancy",
+        "unit": "months/year",
+        "default": 1,
+        "min": 0,
+        "max": 12,
+        "step": 0.5
+      },
+      {
+        "key": "annualMaintenance",
+        "label": "Annual maintenance",
+        "unit": "Rs",
+        "default": 60000,
+        "min": 0,
+        "step": 5000
+      },
+      {
+        "key": "propertyTax",
+        "label": "Annual property tax",
+        "unit": "Rs",
+        "default": 15000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "otherCosts",
+        "label": "Other annual costs",
+        "unit": "Rs",
+        "default": 10000,
+        "min": 0,
+        "step": 1000
+      },
+      {
+        "key": "annualAppreciation",
+        "label": "Appreciation assumption",
+        "unit": "%",
+        "default": 5,
+        "min": -20,
+        "max": 30,
+        "step": 0.1
+      }
+    ],
+    "outputs": [
+      {
+        "key": "grossAnnualRent",
+        "label": "Gross annual rent",
+        "formula": "monthlyRent*12",
+        "format": "currency"
+      },
+      {
+        "key": "effectiveRent",
+        "label": "Rent after vacancy",
+        "formula": "monthlyRent*(12-vacancyMonths)",
+        "format": "currency"
+      },
+      {
+        "key": "annualCosts",
+        "label": "Annual ownership costs",
+        "formula": "annualMaintenance+propertyTax+otherCosts",
+        "format": "currency"
+      },
+      {
+        "key": "netAnnualRent",
+        "label": "Net annual rent",
+        "formula": "effectiveRent-annualCosts",
+        "format": "currency"
+      },
+      {
+        "key": "grossYield",
+        "label": "Gross rental yield",
+        "formula": "grossAnnualRent/propertyValue*100",
+        "format": "percent"
+      },
+      {
+        "key": "netYield",
+        "label": "Net rental yield",
+        "formula": "netAnnualRent/propertyValue*100",
+        "format": "percent"
+      },
+      {
+        "key": "totalReturnIllustration",
+        "label": "Yield plus appreciation assumption",
+        "formula": "netYield+annualAppreciation",
+        "format": "percent"
+      }
+    ],
+    "formulaExplanation": "Gross yield divides annual rent by property value. Net yield subtracts vacancy and recurring costs first.",
+    "example": "Rs 30,000 monthly rent on an Rs 80 lakh property is 4.5% gross yield before costs.",
+    "faqs": [
+      {
+        "question": "Should I use purchase price or current value?",
+        "answer": "Current value is more useful for a hold-or-sell comparison."
+      },
+      {
+        "question": "What is considered a good rental yield in India?",
+        "answer": "Residential rental yields in most Indian cities typically fall between 2% and 4%, so figures well above that range are worth double-checking against local market rent."
+      }
+    ],
+    "related": [
+      "rent-vs-buy-calculator-india",
+      "home-loan-emi-calculator-india",
+      "invest-vs-prepay-home-loan-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  },
+  {
+    "slug": "debt-snowball-calculator-india",
+    "name": "Debt Snowball Calculator India",
+    "seoTitle": "Debt Snowball Calculator India | Payoff Order & Time",
+    "category": "Debt",
+    "status": "live",
+    "targetKeyword": "debt snowball calculator India",
+    "shortDescription": "Estimate payoff time for three debts as extra money rolls from the smallest balance to the next debt.",
+    "metaDescription": "Plan a debt snowball using three balances, rates, minimum payments and an extra monthly payment.",
+    "inputs": [
+      {
+        "key": "debt1",
+        "label": "Debt 1 balance",
+        "unit": "Rs",
+        "default": 50000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "rate1",
+        "label": "Debt 1 interest rate",
+        "unit": "%",
+        "default": 18,
+        "min": 0.1,
+        "max": 100,
+        "step": 0.1
+      },
+      {
+        "key": "min1",
+        "label": "Debt 1 minimum payment",
+        "unit": "Rs",
+        "default": 3000,
+        "min": 1,
+        "step": 100
+      },
+      {
+        "key": "debt2",
+        "label": "Debt 2 balance",
+        "unit": "Rs",
+        "default": 150000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "rate2",
+        "label": "Debt 2 interest rate",
+        "unit": "%",
+        "default": 14,
+        "min": 0.1,
+        "max": 100,
+        "step": 0.1
+      },
+      {
+        "key": "min2",
+        "label": "Debt 2 minimum payment",
+        "unit": "Rs",
+        "default": 5000,
+        "min": 1,
+        "step": 100
+      },
+      {
+        "key": "debt3",
+        "label": "Debt 3 balance",
+        "unit": "Rs",
+        "default": 400000,
+        "min": 1,
+        "step": 1000
+      },
+      {
+        "key": "rate3",
+        "label": "Debt 3 interest rate",
+        "unit": "%",
+        "default": 11,
+        "min": 0.1,
+        "max": 100,
+        "step": 0.1
+      },
+      {
+        "key": "min3",
+        "label": "Debt 3 minimum payment",
+        "unit": "Rs",
+        "default": 9000,
+        "min": 1,
+        "step": 100
+      },
+      {
+        "key": "extraPayment",
+        "label": "Extra monthly payment",
+        "unit": "Rs",
+        "default": 5000,
+        "min": 0,
+        "step": 500
+      }
+    ],
+    "outputs": [
+      {
+        "key": "totalDebt",
+        "label": "Total debt",
+        "formula": "debt1+debt2+debt3",
+        "format": "currency"
+      },
+      {
+        "key": "totalMinimum",
+        "label": "Total minimum payments",
+        "formula": "min1+min2+min3",
+        "format": "currency"
+      },
+      {
+        "key": "startingPayment",
+        "label": "Starting monthly payment",
+        "formula": "totalMinimum+extraPayment",
+        "format": "currency"
+      },
+      {
+        "key": "debt1Months",
+        "label": "Estimated months for debt 1",
+        "formula": "-log(1-debt1*(rate1/1200)/(min1+extraPayment))/log(1+rate1/1200)",
+        "format": "number"
+      },
+      {
+        "key": "rolledPayment2",
+        "label": "Payment available for debt 2",
+        "formula": "min2+min1+extraPayment",
+        "format": "currency"
+      },
+      {
+        "key": "debt2Months",
+        "label": "Estimated additional months for debt 2",
+        "formula": "-log(1-debt2*(rate2/1200)/rolledPayment2)/log(1+rate2/1200)",
+        "format": "number"
+      },
+      {
+        "key": "rolledPayment3",
+        "label": "Payment available for debt 3",
+        "formula": "min3+min2+min1+extraPayment",
+        "format": "currency"
+      },
+      {
+        "key": "debt3Months",
+        "label": "Estimated additional months for debt 3",
+        "formula": "-log(1-debt3*(rate3/1200)/rolledPayment3)/log(1+rate3/1200)",
+        "format": "number"
+      },
+      {
+        "key": "estimatedTotalMonths",
+        "label": "Estimated total payoff months",
+        "formula": "debt1Months+debt2Months+debt3Months",
+        "format": "number"
+      }
+    ],
+    "formulaExplanation": "Uses an amortisation approximation in the entered order. Cleared payments roll into the next debt.",
+    "example": "Enter debts from smallest balance to largest for the snowball method.",
+    "faqs": [
+      {
+        "question": "Should debts be entered by balance or rate?",
+        "answer": "For snowball, enter smallest balance first. Avalanche prioritises highest rate."
+      },
+      {
+        "question": "Does the snowball method minimise total interest paid?",
+        "answer": "Not always. Paying the highest-interest debt first (avalanche method) usually saves more interest; snowball prioritises quick wins for motivation instead."
+      }
+    ],
+    "related": [
+      "personal-loan-emi-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "net-worth-calculator-india"
+    ],
+    "lastReviewed": "July 2026",
+    "lastReviewedIso": "2026-07-31"
+  }
 ]

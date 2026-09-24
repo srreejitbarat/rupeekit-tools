@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-08-25",
+  "issue": 78,
+  "scope": "All 71 tool records across the seven RupeeKit tool datasets (70 live routes plus the one already-consolidated record)",
+  "evidence": {
+    "authoritativeBaseline": "GitHub issue #57, page-level GSC export for 2026-07-04 through 2026-08-05",
+    "day10Report": "automation/reports/gsc/2026-08-12.json",
+    "day10Status": "bootstrap-partial",
+    "indexingAudit": "automation/reports/indexing-audit-2026-08-11.json",
+    "note": "The Day-10 report has no fresh page rows. Decisions therefore use the authoritative #57 page-level evidence, Day-9 link/canonical audit, ship dates, and the issue-78 rule to be conservative with pages shipped after about 20 July. No zero-traffic page is retired solely because fresh traffic data is unavailable."
+  },
+  "classificationDefinitions": {
+    "keep-and-invest": "Has demonstrated demand or is a differentiated core calculator with a clear place in an established cluster.",
+    "keep-too-new": "Shipped after about 20 July 2026 and needs a fair measurement window before traffic-based judgement.",
+    "merge": "Duplicate intent; unique value belongs in a stronger survivor and the loser must permanently redirect.",
+    "fix-discovery": "Differentiated page with demonstrated or plausible demand whose main remaining weakness is internal discovery/link support.",
+    "retire": "No demonstrated demand, no meaningful differentiation, and no discovery value after a fair measurement window. None meet this bar in this run."
+  },
+  "summary": {
+    "keep-and-invest": 27,
+    "keep-too-new": 38,
+    "merge": 1,
+    "fix-discovery": 5,
+    "retire": 0,
+    "total": 71,
+    "coverage": {
+      "recordsInDatasetsAtSnapshot": 64,
+      "recordsAddedAfterSnapshot": 7,
+      "note": "The first pass of this registry covered 59 of the 64 records that were live on 25 August 2026. The five omitted records (mutual-fund, retirement, stock-portfolio, and the two 8th CPC arrears/pension calculators) and the seven policy-lane calculators shipped on 26 August in #131 were added when this registry was merged to main, so the registry now covers every live tool record."
+    }
+  },
+  "decisions": [
+    {"slug":"salary-in-hand-calculator-india","classification":"keep-and-invest","reason":"Core salary journey; issue #57 recorded 154 impressions and zero clicks, so demand exists and the problem is ranking/click-through rather than portfolio fit."},
+    {"slug":"emi-calculator-india","classification":"keep-and-invest","reason":"Core generic EMI utility with strong internal-link coverage in the Day-9 audit and a distinct generic intent from product-specific loan calculators."},
+    {"slug":"personal-loan-emi-calculator-india","classification":"keep-and-invest","reason":"Established high-impression loan calculator and parent page for the personal-loan cluster."},
+    {"slug":"emergency-fund-calculator-india","classification":"keep-and-invest","reason":"Established priority calculator with demonstrated Search Console demand and supporting editorial coverage."},
+    {"slug":"sip-calculator-india","classification":"keep-and-invest","reason":"Established high-ranking investing calculator; issue #57 explicitly treats the SIP cluster as differentiated pages that should not be merged."},
+    {"slug":"gst-calculator-india","classification":"keep-and-invest","reason":"Distinct tax/compliance intent and live core utility; Day-9 audit confirms sitemap/canonical coverage."},
+    {"slug":"fd-calculator-india","classification":"keep-and-invest","reason":"Established savings calculator with existing search visibility and strong supporting-content links."},
+    {"slug":"income-tax-calculator-old-vs-new-regime-india","classification":"keep-and-invest","reason":"Issue #57 recorded 442 impressions at position 42.1; a major buried-page rescue target with clear demand."},
+    {"slug":"hra-exemption-calculator-india","classification":"keep-and-invest","reason":"Established tax/salary calculator and one of the protected PR #51 measurement pages."},
+    {"slug":"80c-deduction-calculator-india","classification":"keep-and-invest","reason":"Distinct Section 80C planning intent and important supporting node for tax-saving calculators and articles."},
+    {"slug":"gratuity-calculator-india","classification":"keep-and-invest","reason":"Established statutory-benefit calculator with distinct intent from the later gratuity comparison tool."},
+    {"slug":"recurring-deposit-calculator-india","classification":"keep-and-invest","reason":"Distinct savings-product calculation and existing contextual inbound links; no evidence of duplicate intent requiring consolidation."},
+    {"slug":"home-loan-emi-calculator-india","classification":"keep-and-invest","reason":"Core housing/loan calculator and natural hub for affordability, prepayment and EMI-tenure decision tools."},
+    {"slug":"personal-loan-eligibility-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 476 impressions across 91 query variants; highest-value buried-page rescue target."},
+    {"slug":"gold-loan-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 474 impressions and 2 clicks; demonstrated demand and distinct secured-loan intent."},
+    {"slug":"capital-gains-tax-calculator-india","classification":"keep-and-invest","reason":"Established tax calculator with page-one opportunity and explicit scope boundaries; no duplicate calculator serves the same intent."},
+    {"slug":"ppf-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 113 impressions around position 4.5; established small-savings demand."},
+    {"slug":"lumpsum-calculator-india","classification":"keep-and-invest","reason":"Distinct one-time-investment intent within the SIP/mutual-fund cluster; issue #57 says not to merge differentiated members of that cluster."},
+    {"slug":"epf-corpus-calculator-india","classification":"keep-and-invest","reason":"Distinct retirement corpus intent with strong internal-link coverage and supporting EPF content."},
+    {"slug":"8th-pay-commission-salary-calculator-india","classification":"keep-and-invest","reason":"High-impression government-pay opportunity and an established priority calculator with time-sensitive supporting updates."},
+    {"slug":"cagr-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 165 impressions; distinct return-measurement utility rather than a duplicate SIP calculator."},
+    {"slug":"nps-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 205 impressions around position 3.3; established retirement calculator with demonstrated demand."},
+    {"slug":"step-up-sip-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 134 impressions; distinct annual-step-up scenario and explicitly part of the differentiated SIP cluster."},
+    {"slug":"sukanya-samriddhi-yojana-calculator-india","classification":"keep-and-invest","reason":"Issue #57 recorded 201 impressions and 1 click. Day-9 found weak contextual discovery, but demand is proven; keep and strengthen the small-savings cluster."},
+    {"slug":"net-worth-calculator-india","classification":"keep-and-invest","reason":"Canonical survivor selected in issue #57; 344 impressions demonstrated demand and unique tracker metrics were folded into this page."},
+
+    {"slug":"home-loan-swp-stress-test-india","classification":"keep-and-invest","reason":"Differentiated decision calculator with no equivalent core tool; mature enough to retain while Phase 4 measurement develops."},
+    {"slug":"gratuity-2026-old-vs-new-calculator-india","classification":"fix-discovery","reason":"Distinct comparison intent but Day-9 audit found zero contextual inbound links beyond the tools directory; route to Day 24 linking work."},
+    {"slug":"personal-loan-true-apr-calculator-india","classification":"fix-discovery","reason":"Issue #57 recorded about 60 impressions across APR, fee and flat-rate queries; differentiated demand exists and discovery/link support is the next lever."},
+    {"slug":"invest-vs-prepay-home-loan-calculator-india","classification":"keep-and-invest","reason":"Distinct home-loan decision intent and existing contextual links; no evidence supports merging it into the EMI calculator."},
+    {"slug":"loan-foreclosure-net-savings-calculator-india","classification":"fix-discovery","reason":"Issue #57 recorded 41 impressions of foreclosure/preclosure demand and specifically named it for internal-link discovery work."},
+    {"slug":"reduce-emi-vs-tenure-calculator-india","classification":"fix-discovery","reason":"Issue #57 recorded 26 impressions and explicitly named it for internal-link discovery work."},
+
+    {"slug":"rent-vs-buy-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Decision-tool batch shipped after the issue-78 conservative cutoff; differentiated housing decision intent needs a fair post-indexing window."},
+    {"slug":"home-affordability-calculator-india","classification":"fix-discovery","reason":"Issue #57 already recorded 17 impressions and explicitly named it for discovery work; retain despite its recent ship date because demand is evidenced."},
+    {"slug":"job-offer-comparison-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent decision tool with distinct compensation-comparison intent; too early for traffic-based retirement."},
+    {"slug":"salary-increment-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent decision tool with a distinct salary-change scenario; wait for a fair search measurement window."},
+    {"slug":"bonus-tax-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent tax/salary scenario tool; absence of traffic this soon is not evidence of no demand."},
+    {"slug":"fire-retirement-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent long-horizon planning tool with differentiated FIRE intent; needs a fair indexing/ranking window."},
+    {"slug":"net-worth-tracker-calculator-india","classification":"merge","survivor":"net-worth-calculator-india","status":"already-completed-in-issue-57","reason":"Duplicate net-worth intent. Issue #57 already folded unique liquid-net-worth/debt metrics into the survivor, added a one-hop 301, and removed this slug from live sitemap emission."},
+    {"slug":"education-loan-emi-tax-benefit-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent decision tool; Day-9 found zero contextual inbound links, but issue #78 forbids treating newness as evidence for retirement. Day 24 should improve discovery before judgement."},
+    {"slug":"rental-yield-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent housing-investment tool with distinct yield intent; insufficient ageing for a traffic-based decision."},
+    {"slug":"debt-snowball-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-15","reason":"Recent debt-repayment tool with distinct payoff-order intent; wait for a fair measurement window."},
+
+    {"slug":"term-life-insurance-cover-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Insurance batch shipped in early August; distinct protection-planning intent and too new to judge."},
+    {"slug":"health-insurance-coverage-adequacy-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Insurance batch shipped in early August; distinct coverage-gap intent and too new to judge."},
+    {"slug":"car-loan-emi-affordability-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August vehicle-loan calculator with affordability output distinct from generic EMI; too new to judge."},
+    {"slug":"two-wheeler-loan-emi-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August vehicle-loan calculator with a distinct short-tenure/two-wheeler intent; too new to judge."},
+    {"slug":"credit-card-minimum-due-trap-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August debt-cost calculator with unique minimum-due payoff modelling; too new to judge."},
+    {"slug":"credit-card-vs-personal-loan-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August comparison calculator with distinct revolving-credit vs loan intent; too new to judge."},
+
+    {"slug":"sovereign-gold-bond-vs-physical-gold-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Investing batch shipped in early August; differentiated instrument-comparison intent needs more time."},
+    {"slug":"index-fund-vs-active-fund-cost-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August fee-drag comparison with distinct intent; too new for traffic-based consolidation."},
+    {"slug":"elss-lock-in-vs-80c-options-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August lock-in/cost comparison with distinct tax-saving intent; wait for a fair measurement window."},
+    {"slug":"nps-tier-2-vs-mutual-fund-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August product comparison with differentiated Tier-2 intent; too new to judge."},
+    {"slug":"xirr-portfolio-return-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August portfolio-return approximation with distinct cash-flow intent; too new to judge."},
+    {"slug":"rule-of-72-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Early-August educational doubling-time utility; insufficient measurement history for retirement."},
+
+    {"slug":"ops-vs-nps-pension-comparison-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; differentiated pension-comparison intent and too new to judge."},
+    {"slug":"scss-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct small-savings product intent and too new to judge."},
+    {"slug":"post-office-monthly-income-scheme-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct monthly-income product intent and too new to judge."},
+    {"slug":"child-education-cost-planner-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct goal-planning intent and too new to judge."},
+    {"slug":"wedding-cost-planner-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct goal-planning intent and too new to judge."},
+    {"slug":"rent-agreement-stamp-duty-registration-cost-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Government/life-stage batch shipped 8 August; distinct user-entered state-cost estimate and too new to judge."},
+
+    {"slug":"mutual-fund-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Shipped 11 August 2026 in the trends-keyword batch; distinct generic mutual-fund projection intent and inside the issue-78 conservative window."},
+    {"slug":"retirement-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Shipped 11 August 2026; generic retirement-corpus intent that overlaps but does not duplicate the NPS/EPF scheme calculators. Re-check overlap at review."},
+    {"slug":"stock-portfolio-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-21","reason":"Shipped 11 August 2026; distinct equity-portfolio valuation intent and too new for a traffic-based judgement."},
+    {"slug":"8th-pay-commission-arrears-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Shipped 17 August 2026 alongside the 8th CPC pages; distinct arrears computation and too new to judge."},
+    {"slug":"8th-pay-commission-pension-calculator-india","classification":"keep-too-new","reviewDate":"2026-09-28","reason":"Shipped 17 August 2026 alongside the 8th CPC pages; distinct pension-revision intent and too new to judge."},
+
+    {"slug":"new-labour-code-take-home-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct new labour code wage definition impact on take-home; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"gratuity-under-new-wage-code-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct gratuity recomputed on the new wage-code definition; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"room-rent-proportionate-deduction-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct proportionate room-rent deduction on a health claim; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"notional-increment-pension-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct notional-increment effect on pension; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"pension-commutation-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct commutation trade-off between lump sum and monthly pension; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"epf-taxable-interest-rule-9d-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct Rule 9D taxable EPF interest split; classified on ship date only and too new for any traffic-based judgement."},
+    {"slug":"inherited-property-capital-gains-calculator-india","classification":"keep-too-new","reviewDate":"2026-10-07","addedAfterSnapshot":"2026-08-26","reason":"Shipped 26 August 2026 in the policy lane (#131), after this snapshot was written. Distinct capital gains on inherited property with indexation and holding-period inheritance; classified on ship date only and too new for any traffic-based judgement."}
+  ],
+  "actions": {
+    "newMergesThisRun": [],
+    "newRetirementsThisRun": [],
+    "existingMergeVerified": {
+      "source":"/tools/net-worth-tracker-calculator-india",
+      "destination":"/tools/net-worth-calculator-india",
+      "statusCode":301,
+      "oneHop":true,
+      "excludedFromLiveSitemap":true
+    },
+    "day24DiscoveryQueue": [
+      "gratuity-2026-old-vs-new-calculator-india",
+      "personal-loan-true-apr-calculator-india",
+      "loan-foreclosure-net-savings-calculator-india",
+      "reduce-emi-vs-tenure-calculator-india",
+      "home-affordability-calculator-india"
+    ]
+  }
+}

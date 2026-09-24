@@ -1,0 +1,131 @@
+name: Gold rates
+
+# Twice daily, loosely tracking the IBJA AM/PM publication rhythm.
+# 03:00 and 12:00 UTC == 08:30 and 17:30 IST.
+on:
+  schedule:
+    - cron: '0 3 * * *'
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Bypass guardrails (use only to recover from a known-good reading the guards rejected)'
+        type: boolean
+        default: false
+  # Smoke-test the provider adapters whenever the pipeline changes. The local
+  # dev sandbox has no outbound network, so this is the first place the fetch
+  # meets a real response: it is the gate that catches CSV/JSON shape drift.
+  pull_request:
+    paths:
+      - 'scripts/gold/**'
+      - 'scripts/fetch-gold-rates.mjs'
+      - 'scripts/validate-gold-rates.mjs'
+      - 'data/gold-rates/**'
+      - '.github/workflows/gold-rates.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gold-rates-${{ github.event_name == 'pull_request' && github.head_ref || 'scheduled' }}
+  cancel-in-progress: false
+
+jobs:
+  # Dry run only: proves the providers respond and parse. Writes nothing,
+  # commits nothing. A red check here from a third-party outage is not a code
+  # defect -- read the log before assuming the adapters broke.
+  smoke:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Probe first: reports every provider independently so one run diagnoses
+      # both sides. Runs even if the fetch below fails.
+      - name: Probe all providers
+        env:
+          GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
+        run: node scripts/probe-gold-providers.mjs
+
+      - name: Fetch gold rates (dry run, no write)
+        if: always()
+        env:
+          GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
+        run: node scripts/fetch-gold-rates.mjs --dry-run
+
+      - name: Validate committed snapshot
+        run: node scripts/validate-gold-rates.mjs
+
+  refresh:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # actions/checkout pins the SHA that triggered the run. On a re-run that
+      # is the ORIGINAL trigger SHA, which by then sits behind main because an
+      # earlier run of this same workflow already pushed a snapshot — so the
+      # commit lands on stale history and the push is rejected as
+      # non-fast-forward. Take the branch tip instead, with full history so the
+      # rebase in the commit step below can work.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Fail-closed: a non-zero exit here means nothing was written and the
+      # previously committed snapshot stays live with its real, older date.
+      # The red run is the alert; it is not safe to swallow.
+      - name: Fetch gold rates
+        env:
+          GOLDAPI_KEY: ${{ secrets.GOLDAPI_KEY }}
+        run: node scripts/fetch-gold-rates.mjs ${{ inputs.force && '--force' || '' }}
+
+      - name: Validate snapshot
+        run: node scripts/validate-gold-rates.mjs
+
+      - name: Commit updated rates
+        run: |
+          if git diff --quiet -- data/gold-rates; then
+            echo "No change in gold rates; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gold-rates
+          git commit -m "chore(gold-rates): refresh snapshot $(date -u +%Y-%m-%d)"
+          # Another commit can land on main between checkout and here — the
+          # other daily run, or a merge. The fetched rate is perfectly good, so
+          # rebase onto whatever arrived and retry rather than discarding it.
+          # Never force-push: losing someone else's commit is far worse than
+          # skipping one rate update.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt ${attempt}."
+              exit 0
+            fi
+            echo "Push rejected on attempt ${attempt}; rebasing onto origin/main and retrying."
+            git pull --rebase origin main || exit 1
+          done
+          echo "Could not push after 3 attempts; leaving the previous snapshot in place."
+          exit 1

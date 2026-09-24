@@ -7,7 +7,7 @@
 - **Framework**: Next.js 14 (App Router, Static Site Generation)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + Vanilla CSS animations
-- **Hosting**: Vercel (recommended)
+- **Hosting**: Hostinger VPS with Docker + Nginx; Cloudflare authoritative DNS
 
 ## 📦 Features
 

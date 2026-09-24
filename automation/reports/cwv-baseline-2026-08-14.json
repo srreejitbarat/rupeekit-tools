@@ -1,0 +1,38 @@
+{
+  "issue": 67,
+  "auditDate": "2026-09-11",
+  "requestedBaselineDate": "2026-08-14",
+  "status": "partial-static-audit",
+  "source": {
+    "gscReference": "docs/gsc-ctr-improvement-2026-08-04.md",
+    "fieldMonitoring": "@vercel/speed-insights",
+    "liveLabMeasurement": "unavailable in this connector-only run"
+  },
+  "knownHighImpressionPages": [
+    {"path":"/blog/itr-2-ay-2026-27-filing-guide","impressions":961},
+    {"path":"/tools/personal-loan-emi-calculator-india","impressions":602},
+    {"path":"/tools/8th-pay-commission-salary-calculator-india","impressions":521},
+    {"path":"/tools/emergency-fund-calculator-india","impressions":507},
+    {"path":"/blog/zerodha-vs-upstox-vs-angel-one-demat-account","impressions":467},
+    {"path":"/blog/new-labour-code-gratuity-rules-india-2026","impressions":458},
+    {"path":"/tools/income-tax-calculator-old-vs-new-regime-india","impressions":398},
+    {"path":"/tools/capital-gains-tax-calculator-india","impressions":332},
+    {"path":"/tools/sip-calculator-india","impressions":187}
+  ],
+  "staticChecks": {
+    "discoverHeroExplicitWidth": true,
+    "discoverHeroExplicitHeight": true,
+    "discoverHeroResponsiveSizes": true,
+    "discoverHeroPriorityOptIn": true,
+    "discoverHeroAspectRatioReservation": true,
+    "calculatorResultLiveRegion": true,
+    "calculatorResultOutputSemantics": true,
+    "vercelSpeedInsightsInstalled": true
+  },
+  "labMetrics": {
+    "mobile": null,
+    "desktop": null,
+    "reason": "This automation runtime could not clone/run a browser or obtain a complete top-20 CWV lab dataset. No synthetic LCP/INP/CLS values were invented."
+  },
+  "followUp": "After deployment, export production Speed Insights/CrUX for the complete current top-20 impression URLs and record mobile/desktop LCP, INP and CLS. Any failing route should receive its own measured fix before issue closure."
+}

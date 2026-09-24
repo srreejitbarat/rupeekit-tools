@@ -104,9 +104,8 @@ describe('calculateIndianIncomeTax - FY 2025-26 (AY 2026-27)', () => {
     isSalaried: true,
   };
 
-  it('is exposed as an available tax year and is the latest year', () => {
+  it('is exposed as an available tax year', () => {
     expect(availableTaxYears).toContain('2025-26');
-    expect(availableTaxYears[0]).toBe('2025-26');
     expect(indiaIncomeTaxRules['2025-26'].ay).toBe('2026-27');
   });
 
@@ -219,5 +218,139 @@ describe('calculateIndianIncomeTax - FY 2025-26 (AY 2026-27)', () => {
     expect(() => calculateIndianIncomeTax({ ...baseInput, grossSalary: 1000000 }, '2030-31')).toThrow(
       'Tax rules for year 2030-31 not found.'
     );
+  });
+});
+
+// These pin the figures published in the "Income Tax on Rs 12 Lakh Salary" article
+// to the engine, so the two cannot drift apart again. The article previously claimed
+// an all-or-nothing cliff (Rs 63,960 of tax on Rs 12.1 lakh) while the engine had
+// always applied marginal relief correctly.
+//
+// The article is written for FY 2026-27. Budget 2026 left the slabs and the rebate
+// unchanged, so both supported years must produce the same published figures — and
+// running against both is what proves the article's year is genuinely covered.
+describe.each(['2025-26', '2026-27'])(
+  'Section 87A marginal relief - published article figures (FY %s)',
+  (taxYear) => {
+  const STANDARD_DEDUCTION = 75000;
+  const REBATE_LIMIT = 1200000;
+
+  const baseInput: TaxInput = {
+    grossSalary: 0,
+    hraExemption: 0,
+    homeLoanInterest: 0,
+    section80C: 0,
+    section80D: 0,
+    employerNPS: 0,
+    otherDeductionsOldRegime: 0,
+    otherDeductionsBothRegimes: 0,
+    isSalaried: true,
+  };
+
+  const atTaxableIncome = (taxableIncome: number) =>
+    calculateIndianIncomeTax(
+      { ...baseInput, grossSalary: taxableIncome + STANDARD_DEDUCTION },
+      taxYear
+    ).newRegime;
+
+  it('charges Rs 10,400 on taxable income of Rs 12.1 lakh, not the Rs 63,960 cliff', () => {
+    // Slab tax 61,500 = 20,000 + 40,000 + 10,000 * 15%.
+    // Excess over Rs 12L is 10,000, so relief caps tax before cess at 10,000.
+    const result = atTaxableIncome(1210000);
+    expect(result.taxableIncome).toBe(1210000);
+    expect(result.totalSlabTax).toBe(61500);
+    expect(result.rebate).toBe(51500);
+    expect(result.taxAfterRebate).toBe(10000);
+    expect(result.cess).toBe(400);
+    expect(result.finalTax).toBe(10400);
+    expect(result.finalTax).not.toBe(63960);
+  });
+
+  it('charges Rs 52,000 on taxable income of Rs 12.5 lakh', () => {
+    // Slab tax 67,500; excess over Rs 12L is 50,000, so relief still binds.
+    const result = atTaxableIncome(1250000);
+    expect(result.totalSlabTax).toBe(67500);
+    expect(result.taxAfterRebate).toBe(50000);
+    expect(result.cess).toBe(2000);
+    expect(result.finalTax).toBe(52000);
+  });
+
+  it('tapers relief away once slab tax no longer exceeds the excess', () => {
+    // Break-even is at 60,000 / 0.85 = Rs 70,588 above the limit.
+    const stillRelieved = atTaxableIncome(1270000);
+    expect(stillRelieved.totalSlabTax).toBe(70500);
+    expect(stillRelieved.taxAfterRebate).toBe(70000);
+    expect(stillRelieved.finalTax).toBe(72800);
+
+    const noLongerRelieved = atTaxableIncome(1271000);
+    expect(noLongerRelieved.totalSlabTax).toBe(70650);
+    expect(noLongerRelieved.rebate).toBe(0);
+    expect(noLongerRelieved.taxAfterRebate).toBe(70650);
+    expect(noLongerRelieved.finalTax).toBe(73476);
+  });
+
+  it('applies plain slab tax well above the relief band', () => {
+    const result = atTaxableIncome(1300000);
+    expect(result.totalSlabTax).toBe(75000);
+    expect(result.rebate).toBe(0);
+    expect(result.finalTax).toBe(78000);
+  });
+
+  it('caps tax before cess at the excess over Rs 12 lakh throughout the relief band', () => {
+    for (let taxableIncome = 1200500; taxableIncome <= 1270000; taxableIncome += 500) {
+      const result = atTaxableIncome(taxableIncome);
+      expect(result.taxAfterRebate).toBe(taxableIncome - REBATE_LIMIT);
+    }
+  });
+
+  it('never lets tax fall as income rises across the Rs 12 lakh boundary', () => {
+    // The defining property of marginal relief: no cliff anywhere across the threshold.
+    let previousTax = -1;
+    for (let grossSalary = 1270000; grossSalary <= 1400000; grossSalary += 5000) {
+      const { finalTax } = calculateIndianIncomeTax({ ...baseInput, grossSalary }, taxYear).newRegime;
+      expect(finalTax).toBeGreaterThanOrEqual(previousTax);
+      previousTax = finalTax;
+    }
+  });
+  }
+);
+
+describe('FY 2026-27 (AY 2027-28) rules', () => {
+  it('is registered and is the latest supported year', () => {
+    expect(availableTaxYears).toContain('2026-27');
+    expect(availableTaxYears[0]).toBe('2026-27');
+    expect(indiaIncomeTaxRules['2026-27'].ay).toBe('2027-28');
+  });
+
+  it('carries the Finance Act 2025 new-regime structure forward unchanged', () => {
+    // Budget 2026 announced no slab, rebate or standard-deduction change. If a future
+    // Budget does change them, this assertion should fail and be updated deliberately.
+    const y2526 = indiaIncomeTaxRules['2025-26'].newRegime;
+    const y2627 = indiaIncomeTaxRules['2026-27'].newRegime;
+    expect(y2627.slabs).toEqual(y2526.slabs);
+    expect(y2627.rebateLimit).toBe(1200000);
+    expect(y2627.maxRebate).toBe(60000);
+    expect(y2627.standardDeduction).toBe(75000);
+    expect(y2627.marginalReliefOnRebate).toBe(true);
+    expect(indiaIncomeTaxRules['2026-27'].cessRate).toBe(0.04);
+  });
+
+  it('gives zero tax at Rs 12.75 lakh gross salary, matching the article headline', () => {
+    const result = calculateIndianIncomeTax(
+      {
+        grossSalary: 1275000,
+        hraExemption: 0,
+        homeLoanInterest: 0,
+        section80C: 0,
+        section80D: 0,
+        employerNPS: 0,
+        otherDeductionsOldRegime: 0,
+        otherDeductionsBothRegimes: 0,
+        isSalaried: true,
+      },
+      '2026-27'
+    );
+    expect(result.newRegime.taxableIncome).toBe(1200000);
+    expect(result.newRegime.finalTax).toBe(0);
   });
 });

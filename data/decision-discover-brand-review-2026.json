@@ -1,0 +1,12 @@
+[
+  {"slug":"rent-vs-buy-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"home-affordability-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"job-offer-comparison-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"salary-increment-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"bonus-tax-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"fire-retirement-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"net-worth-tracker-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png","consolidatedTo":"net-worth-calculator-india"},
+  {"slug":"education-loan-emi-tax-benefit-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"rental-yield-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"},
+  {"slug":"debt-snowball-calculator-india","logoAsset":"public/brand/rupeekit_logo_horizontal_transparent.png"}
+]

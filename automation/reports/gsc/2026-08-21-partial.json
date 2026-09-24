@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "asOfDate": "2026-08-21",
+  "status": "partial-evidence-not-full-retro",
+  "issue": 74,
+  "source": {
+    "primaryAvailableEvidence": "RupeeKit Search Growth Top-5 Audit, GSC Web export 2026-08-08 through 2026-08-14",
+    "pageLevelIsAuthoritative": true,
+    "queryLevelAggregationProhibited": true,
+    "requestedTrailing28DayPullCompleted": false,
+    "blockers": [
+      "GSC Wizard returned payment_required during the 2026-08-22 implementation run.",
+      "The repository's 2026-08-12 report remains bootstrap-partial because service-account credentials were not available.",
+      "A browser-export log confirms a 2026-08-18 GSC ZIP was downloaded, but the actual extracted page CSV is not available in this repository or automation runtime."
+    ]
+  },
+  "baseline": {
+    "dateRange": "2026-07-04 through 2026-08-05",
+    "clicks": 56,
+    "impressions": 11061,
+    "ctr": 0.005063,
+    "averagePosition": 17.7,
+    "positions3To10": {
+      "impressions": 6412,
+      "clicks": 48,
+      "ctr": 0.007486
+    },
+    "ga4KeyEvents": 0,
+    "revenueInr": 0
+  },
+  "latestUsableGscWindow": {
+    "dateRange": "2026-08-08 through 2026-08-14",
+    "clicks": 18,
+    "impressions": 7798,
+    "ctr": 0.002308,
+    "averagePosition": null,
+    "note": "The supplied audit reports daily average-position values but does not provide the page rows required to reproduce an impression-weighted sitewide average or the 3-10 position-band table. Do not infer either from query rows."
+  },
+  "priorityPages": [
+    {
+      "slug": "8th-pay-commission-salary-calculator-india",
+      "clicks": 4,
+      "impressions": 884,
+      "ctr": 0.004525,
+      "averagePosition": 5.62
+    },
+    {
+      "slug": "gold-loan-calculator-india",
+      "clicks": 0,
+      "impressions": 766,
+      "ctr": 0,
+      "averagePosition": 29.99
+    },
+    {
+      "slug": "personal-loan-eligibility-calculator-india",
+      "clicks": 0,
+      "impressions": 643,
+      "ctr": 0,
+      "averagePosition": 54.62
+    },
+    {
+      "slug": "salary-in-hand-calculator-india",
+      "clicks": 0,
+      "impressions": 528,
+      "ctr": 0,
+      "averagePosition": 13.46
+    },
+    {
+      "slug": "sukanya-samriddhi-yojana-calculator-india",
+      "clicks": 1,
+      "impressions": 457,
+      "ctr": 0.002188,
+      "averagePosition": 37.64
+    }
+  ],
+  "phase3Decision": {
+    "status": "gated",
+    "reason": "Issue #74 requires GA4 key-event status to be confirmed and says a zero/unverified measurement loop outranks Phase 3. Issue #63 remains open with PR #97 unmerged, and live GA4 data could not be queried in this run.",
+    "personalLoanEligibility": "Retains strong rescue priority from available evidence: 643 impressions, 0 clicks, average position 54.62. However, start after the measurement dependency is closed or explicitly waived with fresh data.",
+    "fullRerankCompleted": false,
+    "futureIssuesUpdated": false
+  },
+  "replacementRequirements": [
+    "Run the page-level GSC reporter for a settled trailing 28-day window ending 2026-08-19 or later.",
+    "Produce the position-band table from page rows, not query rows.",
+    "Confirm GA4 key events after PR #97 is merged and the admin checklist is completed.",
+    "Re-rank issues #75-#80 only from that fresh page-level dataset."
+  ]
+}

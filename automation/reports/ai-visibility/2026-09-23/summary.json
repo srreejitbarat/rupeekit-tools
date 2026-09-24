@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-23",
+  "generatedAt": "2026-09-23T10:16:49.894Z",
+  "status": "partial",
+  "missingInputs": [
+    "gsc-ai-chart",
+    "gsc-ai-pages",
+    "gsc-web-pages",
+    "ga4-pages",
+    "observations"
+  ],
+  "generativeAiChartImpressions": null,
+  "chartDates": null,
+  "pages": [
+    {
+      "path": "/money-guides/salary-income-tax",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/home-loan-prepayment",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/personal-loan-apr",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/sip-investment-returns",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/epf-salary-retirement",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/ppf-small-savings",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/credit-card-debt",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/gst-invoice",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/gratuity-labour",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    },
+    {
+      "path": "/money-guides/rent-property-housing",
+      "generativeAiImpressions": null,
+      "webSearchClicks": null,
+      "webSearchImpressions": null,
+      "ga4Views": null,
+      "ga4AverageEngagementSecondsPerActiveUser": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "salary-income-tax-1",
+      "guidePath": "/money-guides/salary-income-tax",
+      "question": "How do I calculate in-hand salary from CTC in India?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "salary-income-tax-2",
+      "guidePath": "/money-guides/salary-income-tax",
+      "question": "Does employer PF reduce in-hand pay from CTC?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "salary-income-tax-3",
+      "guidePath": "/money-guides/salary-income-tax",
+      "question": "Old versus new tax regime for salaried employees: what should I compare?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "home-loan-prepayment-1",
+      "guidePath": "/money-guides/home-loan-prepayment",
+      "question": "Should I reduce EMI or tenure after prepaying a home loan?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "home-loan-prepayment-2",
+      "guidePath": "/money-guides/home-loan-prepayment",
+      "question": "How much interest can a home loan prepayment save?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "home-loan-prepayment-3",
+      "guidePath": "/money-guides/home-loan-prepayment",
+      "question": "Does a longer home loan tenure cost more overall?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "personal-loan-apr-1",
+      "guidePath": "/money-guides/personal-loan-apr",
+      "question": "How do personal loan processing fees affect true APR?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "personal-loan-apr-2",
+      "guidePath": "/money-guides/personal-loan-apr",
+      "question": "What should I check in a personal loan Key Facts Statement?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "personal-loan-apr-3",
+      "guidePath": "/money-guides/personal-loan-apr",
+      "question": "Can a lower EMI make a personal loan more expensive?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "sip-investment-returns-1",
+      "guidePath": "/money-guides/sip-investment-returns",
+      "question": "How much should I invest monthly by SIP to reach my goal?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "sip-investment-returns-2",
+      "guidePath": "/money-guides/sip-investment-returns",
+      "question": "How do SIP returns change if I start one year late?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "sip-investment-returns-3",
+      "guidePath": "/money-guides/sip-investment-returns",
+      "question": "Are SIP calculator returns guaranteed?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "epf-salary-retirement-1",
+      "guidePath": "/money-guides/epf-salary-retirement",
+      "question": "Why is employer EPF not the same as employee PF contribution?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "epf-salary-retirement-2",
+      "guidePath": "/money-guides/epf-salary-retirement",
+      "question": "How do I check EPF and EPS entries in my passbook?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "epf-salary-retirement-3",
+      "guidePath": "/money-guides/epf-salary-retirement",
+      "question": "Should I use a fixed EPF rate for retirement projections?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "ppf-small-savings-1",
+      "guidePath": "/money-guides/ppf-small-savings",
+      "question": "How do changing PPF interest rates affect maturity?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "ppf-small-savings-2",
+      "guidePath": "/money-guides/ppf-small-savings",
+      "question": "What should I compare before choosing PPF or SCSS?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "ppf-small-savings-3",
+      "guidePath": "/money-guides/ppf-small-savings",
+      "question": "When do PPF deposits start earning interest?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "credit-card-debt-1",
+      "guidePath": "/money-guides/credit-card-debt",
+      "question": "Does paying only credit card minimum due avoid interest?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "credit-card-debt-2",
+      "guidePath": "/money-guides/credit-card-debt",
+      "question": "How much interest is left after paying minimum due?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "credit-card-debt-3",
+      "guidePath": "/money-guides/credit-card-debt",
+      "question": "Should I refinance card debt with a personal loan?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "gst-invoice-1",
+      "guidePath": "/money-guides/gst-invoice",
+      "question": "How do I remove GST from a tax-inclusive price?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "gst-invoice-2",
+      "guidePath": "/money-guides/gst-invoice",
+      "question": "What is the difference between GST-inclusive and GST-exclusive quotes?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "gst-invoice-3",
+      "guidePath": "/money-guides/gst-invoice",
+      "question": "How can I check the GST rate for a product HSN code?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "gratuity-labour-1",
+      "guidePath": "/money-guides/gratuity-labour",
+      "question": "How is gratuity calculated from eligible wages?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "gratuity-labour-2",
+      "guidePath": "/money-guides/gratuity-labour",
+      "question": "Does a fixed-term employee need five years for gratuity?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "gratuity-labour-3",
+      "guidePath": "/money-guides/gratuity-labour",
+      "question": "Is gratuity based on CTC or basic wages?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "rent-property-housing-1",
+      "guidePath": "/money-guides/rent-property-housing",
+      "question": "How do I compare rent versus buying a home in India?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "rent-property-housing-2",
+      "guidePath": "/money-guides/rent-property-housing",
+      "question": "What upfront costs besides the down payment are needed to buy a flat?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    },
+    {
+      "id": "rent-property-housing-3",
+      "guidePath": "/money-guides/rent-property-housing",
+      "question": "Where can I check stamp duty for my property transaction?",
+      "observations": null,
+      "aiOverviewObserved": null,
+      "rupeekitCited": null,
+      "latestObservation": null
+    }
+  ],
+  "interpretation": [
+    "The separate Search Console generative AI report counts impressions for AI Overviews and AI Mode; it does not expose query-level citations or clicks.",
+    "Web Search clicks and GA4 engagement are separate metrics. Do not attribute them to AI Overview impressions.",
+    "Page table totals need not equal the property-level chart total because their aggregation differs.",
+    "Manual observations are a small location/device-dependent sample, not a Google ranking or a complete citation count.",
+    "Missing export files produce null metrics. A zero is used only when a provided export contains no matching page rows."
+  ]
+}

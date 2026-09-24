@@ -35,13 +35,26 @@ function formatValue(value: number, format: string) {
   return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 2 }).format(value);
 }
 
+import dynamic from 'next/dynamic';
 import {
   CalculatorResultSummary,
-  CalculatorResultChart,
-  CalculatorBreakdownTable,
-  CalculatorScenarioComparison,
   CalculatorInsightBox,
 } from './CalculatorVisualizations';
+
+// Performance: lazy-load the heavier visualization components so the calculator
+// renders below-the-fold charts/tables only after the interactive core is ready.
+const CalculatorResultChart = dynamic(() =>
+  import('./CalculatorVisualizations').then((m) => m.CalculatorResultChart),
+  { ssr: false }
+);
+const CalculatorBreakdownTable = dynamic(() =>
+  import('./CalculatorVisualizations').then((m) => m.CalculatorBreakdownTable),
+  { ssr: false }
+);
+const CalculatorScenarioComparison = dynamic(() =>
+  import('./CalculatorVisualizations').then((m) => m.CalculatorScenarioComparison),
+  { ssr: false }
+);
 import { isAdvancedCalculator } from '@/lib/advanced-calculators';
 import AdvancedCalculatorRenderer from '@/components/calculators/advanced/AdvancedCalculatorRenderer';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
@@ -54,18 +67,33 @@ import SipPlannerCalculator from '@/components/sip/SipPlannerCalculator';
 import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
+import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
+import GenericCalculatorExperience from '@/components/GenericCalculatorExperience';
+import PlanningExperience, { PLANNING_TOOLS, type PlanningSlug } from '@/components/planning/PlanningExperience';
+import { isMicroTool } from '@/lib/micro-tools/common';
 
 export default function Calculator({ tool }: { tool: Tool }) {
+  let calculator;
+
   if (isAdvancedCalculator(tool.slug)) {
-    return <AdvancedCalculatorRenderer tool={tool} />;
+    calculator = <AdvancedCalculatorRenderer tool={tool} />;
+  } else if (tool.slug === 'personal-loan-emi-calculator-india') {
+    calculator = <PersonalLoanDecisionSimulator tool={tool} />;
+  } else if (tool.slug === 'sip-calculator-india') {
+    calculator = <SipPlannerCalculator tool={tool} />;
+  } else {
+    calculator = <StandardCalculator tool={tool} />;
   }
-  if (tool.slug === 'personal-loan-emi-calculator-india') {
-    return <PersonalLoanDecisionSimulator tool={tool} />;
+
+  if (tool.slug in PLANNING_TOOLS) {
+    return <PlanningExperience slug={tool.slug as PlanningSlug} category={tool.category} quick={calculator} />;
   }
-  if (tool.slug === 'sip-calculator-india') {
-    return <SipPlannerCalculator tool={tool} />;
-  }
-  return <StandardCalculator tool={tool} />;
+
+  return (
+    <CalculatorAnalyticsBoundary toolSlug={tool.slug} toolCategory={tool.category} shareInputs={!isMicroTool(tool.slug)}>
+      {calculator}
+    </CalculatorAnalyticsBoundary>
+  );
 }
 
 function StandardCalculator({ tool }: { tool: Tool }) {
@@ -481,13 +509,16 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           ) : null}
           <div className="mt-6 grid gap-5">
             {tool.inputs.map((input) => (
-              <label key={input.key} className="block">
+              <label key={input.key} className="block" htmlFor={`calculator-input-${input.key}`}>
                 <span className="flex items-center justify-between gap-3 text-sm font-semibold text-slate-800">
                   {input.label}
                   {input.unit ? <span className="font-medium text-slate-500">{input.unit}</span> : null}
                 </span>
                 <input
+                  id={`calculator-input-${input.key}`}
                   type="number"
+                  inputMode="decimal"
+                  aria-describedby={input.help ? `calculator-help-${input.key}` : undefined}
                   value={values[input.key] ?? ''}
                   min={input.min}
                   max={input.max}
@@ -503,7 +534,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                   }}
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white focus:ring-4 focus:ring-brandNavy/10"
                 />
-                {input.help ? <span className="mt-2 block text-xs leading-5 text-slate-500">{input.help}</span> : null}
+                {input.help ? <span id={`calculator-help-${input.key}`} className="mt-2 block text-xs leading-5 text-slate-500">{input.help}</span> : null}
               </label>
             ))}
           </div>
@@ -738,6 +769,10 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           </div>
         </section>
       ) : null}
+
+      {!hasChart && (
+        <GenericCalculatorExperience tool={tool} values={numericValues} results={results} />
+      )}
 
       {/* Visualizations (Chart & What-If Comparison) */}
       {(hasChart || hasComparison) && (

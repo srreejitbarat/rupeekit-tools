@@ -2,7 +2,15 @@
 
 import React, { useState, useMemo } from 'react';
 import type { Tool } from '@/lib/tools';
-import { estimateIncomeTax } from '@/lib/tax/india-income-tax';
+import { estimateIncomeTax, type FinancialYear } from '@/lib/tax/india-income-tax';
+
+// Assessment year and the Budget whose slabs apply, per financial year. Keep in
+// step with FinancialYear in lib/tax/india-income-tax.ts.
+const FY_META: Record<FinancialYear, { ay: string; budget: string }> = {
+  '2026-27': { ay: '2027-28', budget: 'Budget 2025 slabs, unchanged by Budget 2026' },
+  '2025-26': { ay: '2026-27', budget: 'Budget 2025 slabs' },
+  '2024-25': { ay: '2025-26', budget: 'Budget 2024 slabs' },
+};
 
 const formatCurrency = (val: number) => {
   if (!Number.isFinite(val)) return '₹0';
@@ -24,7 +32,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
   const [otherDeductions, setOtherDeductions] = useState<number | ''>(0);
   
   const [regime, setRegime] = useState<'new' | 'old'>('new');
-  const [financialYear, setFinancialYear] = useState<'2024-25' | '2025-26'>('2025-26');
+  const [financialYear, setFinancialYear] = useState<FinancialYear>('2026-27');
   const [ageGroup, setAgeGroup] = useState<'below60' | 'senior' | 'superSenior'>('below60');
 
   // Old regime inputs
@@ -77,6 +85,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
 
   // Tab State for Breakup Table
   const [breakupTab, setBreakupTab] = useState<'monthly' | 'annual'>('monthly');
+  const isMonthlyBreakup = breakupTab === 'monthly';
 
   // Calculate percentage of CTC segments for stacked chart
   const chartSegments = useMemo(() => {
@@ -98,10 +107,10 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
       {/* Disclaimer Top Alert */}
       <div className="rounded-2xl border border-brandNavy/10 bg-brandNavy/5 p-4 text-sm leading-6 text-brandNavy">
         <p className="font-bold flex items-center gap-1.5 text-brandDeepNavy">
-          <span>💼</span> Assessment Year {financialYear === '2025-26' ? '2026-27' : '2025-26'} Estimate
+          <span>💼</span> FY {financialYear} (AY {FY_META[financialYear].ay}) Estimate
         </p>
         <p className="mt-1 text-slate-600">
-          This salary in-hand calculator uses revised tax brackets including the latest Union Budget changes for New Regime ({financialYear === '2025-26' ? 'Budget 2025 slabs' : 'Budget 2024 slabs'}). All calculations are estimates.
+          This salary in-hand calculator uses revised tax brackets including the latest Union Budget changes for New Regime ({FY_META[financialYear].budget}). All calculations are estimates.
         </p>
       </div>
 
@@ -220,6 +229,9 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                   onChange={(e) => setProfessionalTax(e.target.value === '' ? '' : Math.max(0, Number(e.target.value)))}
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white focus:ring-4 focus:ring-brandNavy/10"
                 />
+                <span className="mt-1 block text-xs leading-5 text-slate-500">
+                  State-specific and not universal. Use your payslip amount or enter 0 if it does not apply.
+                </span>
               </label>
 
               <label className="block sm:col-span-2">
@@ -249,10 +261,11 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                 <span className="text-sm font-semibold text-slate-700">Financial Year</span>
                 <select
                   value={financialYear}
-                  onChange={(e) => setFinancialYear(e.target.value as any)}
+                  onChange={(e) => setFinancialYear(e.target.value as FinancialYear)}
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white"
                 >
-                  <option value="2025-26">FY 2025-26 (AY 2026-27 - Latest)</option>
+                  <option value="2026-27">FY 2026-27 (AY 2027-28 - Latest)</option>
+                  <option value="2025-26">FY 2025-26 (AY 2026-27)</option>
                   <option value="2024-25">FY 2024-25 (AY 2025-26)</option>
                 </select>
               </label>
@@ -486,9 +499,9 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
 
             <div className="mt-4 space-y-2 text-sm">
               <div className="flex justify-between border-b border-slate-100 pb-2">
-                <span className="font-semibold text-slate-600">Cost to Company (CTC)</span>
+                <span className="font-semibold text-slate-600">{isMonthlyBreakup ? 'Monthly CTC equivalent' : 'Annual CTC'}</span>
                 <span className="font-bold text-slate-800">
-                  {breakupTab === 'monthly'
+                  {isMonthlyBreakup
                     ? formatCurrency((annualCtc === '' ? 0 : annualCtc) / 12)
                     : formatCurrency(annualCtc === '' ? 0 : annualCtc)}
                 </span>
@@ -497,20 +510,20 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                 <div className="flex justify-between border-b border-slate-100 pb-2">
                   <span className="text-slate-500 pl-3">Less: Employer PF (12% of Basic)</span>
                   <span className="text-slate-700">
-                    - {breakupTab === 'monthly' ? formatCurrency(result.employerPfMonthly) : formatCurrency(result.employerPfAnnual)}
+                    - {isMonthlyBreakup ? formatCurrency(result.employerPfMonthly) : formatCurrency(result.employerPfAnnual)}
                   </span>
                 </div>
               )}
               <div className="flex justify-between border-b border-slate-100 pb-2 font-bold bg-slate-50 p-2 rounded-xl">
-                <span className="text-brandDeepNavy">Gross Annual Salary</span>
+                <span className="text-brandDeepNavy">{isMonthlyBreakup ? 'Gross monthly salary' : 'Gross annual salary'}</span>
                 <span className="text-brandDeepNavy">
-                  {breakupTab === 'monthly' ? formatCurrency(result.grossMonthlySalary) : formatCurrency(result.grossAnnualSalary)}
+                  {isMonthlyBreakup ? formatCurrency(result.grossMonthlySalary) : formatCurrency(result.grossAnnualSalary)}
                 </span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Basic Salary</span>
                 <span className="text-slate-800">
-                  {breakupTab === 'monthly' ? formatCurrency(result.basicMonthly) : formatCurrency(result.basicAnnual)}
+                  {isMonthlyBreakup ? formatCurrency(result.basicMonthly) : formatCurrency(result.basicAnnual)}
                 </span>
               </div>
               
@@ -518,26 +531,26 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Employee PF ({employeePfRate}%)</span>
                 <span className="text-slate-800">
-                  - {breakupTab === 'monthly' ? formatCurrency(result.employeePfMonthly) : formatCurrency(result.employeePfAnnual)}
+                  - {isMonthlyBreakup ? formatCurrency(result.employeePfMonthly) : formatCurrency(result.employeePfAnnual)}
                 </span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Professional Tax</span>
                 <span className="text-slate-800">
-                  - {breakupTab === 'monthly' ? formatCurrency(result.professionalTaxMonthly) : formatCurrency(result.professionalTaxAnnual)}
+                  - {isMonthlyBreakup ? formatCurrency(result.professionalTaxMonthly) : formatCurrency(result.professionalTaxAnnual)}
                 </span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                 <span className="text-slate-500">Estimated Income Tax (TDS)</span>
                 <span className="text-slate-800">
-                  - {breakupTab === 'monthly' ? formatCurrency(result.monthlyTaxTds) : formatCurrency(result.totalTax)}
+                  - {isMonthlyBreakup ? formatCurrency(result.monthlyTaxTds) : formatCurrency(result.totalTax)}
                 </span>
               </div>
               {typeof otherDeductions === 'number' && otherDeductions > 0 && (
                 <div className="flex justify-between border-b border-slate-100 pb-2 pl-3">
                   <span className="text-slate-500">Other Deductions</span>
                   <span className="text-slate-800">
-                    - {breakupTab === 'monthly' ? formatCurrency(result.otherDeductionsMonthly) : formatCurrency(result.otherDeductionsAnnual)}
+                    - {isMonthlyBreakup ? formatCurrency(result.otherDeductionsMonthly) : formatCurrency(result.otherDeductionsAnnual)}
                   </span>
                 </div>
               )}
@@ -545,7 +558,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
               <div className="flex justify-between font-extrabold text-brandGrowthGreen bg-green-50 p-2 rounded-xl mt-3 text-base">
                 <span>Net In-Hand Salary</span>
                 <span>
-                  {breakupTab === 'monthly' ? formatCurrency(result.monthlyInHand) : formatCurrency(result.annualInHand)}
+                  {isMonthlyBreakup ? formatCurrency(result.monthlyInHand) : formatCurrency(result.annualInHand)}
                 </span>
               </div>
             </div>
@@ -632,7 +645,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
           <div>
             <h5 className="font-bold text-slate-900">Is standard deduction applicable automatically?</h5>
             <p className="mt-1">
-              Yes, standard deduction is a flat tax deduction available to all salaried taxpayers and pensioners. For FY 2024-25 and FY 2025-26, it is ₹75,000 for the New Regime, and ₹50,000 for the Old Regime. This has been factored into your calculations automatically based on your regime selection.
+              Yes, standard deduction is a flat tax deduction available to all salaried taxpayers and pensioners. For FY 2024-25 through FY 2026-27, it is ₹75,000 for the New Regime, and ₹50,000 for the Old Regime. This has been factored into your calculations automatically based on your regime selection.
             </p>
           </div>
           <div>
