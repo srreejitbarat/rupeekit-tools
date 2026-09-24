@@ -48,9 +48,13 @@ const nextConfig = {
       // Slugs removed in 71d098d ("Replace old Financial Updates with EPFO
       // story"). Google still has these indexed and keeps re-crawling them,
       // which shows up as a coverage issue in Search Console.
+      {
+        source: '/financial-updates/income-tax-regime-comparison',
+        destination: '/tools/income-tax-calculator-old-vs-new-regime-india',
+        statusCode: 301,
+      },
       ...[
         'rbi-repo-rate-explainer',
-        'income-tax-regime-comparison',
         'gst-council-explainer',
         'sebi-mutual-fund-explainer',
         'banking-fd-rate-tracker',

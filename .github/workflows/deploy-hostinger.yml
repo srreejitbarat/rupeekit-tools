@@ -54,6 +54,14 @@ jobs:
     timeout-minutes: 30
 
     steps:
+      - name: Checkout verification scripts
+        uses: actions/checkout@v4
+
+      - name: Setup Node for production checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Check required deployment secrets
         env:
           HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
@@ -121,3 +129,6 @@ jobs:
 
           staging_headers="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 -I https://staging.rupeekit.co.in/)"
           printf '%s\n' "$staging_headers" | grep -qi '^X-Robots-Tag:.*noindex'
+
+      - name: Verify every submitted page in production
+        run: npm run validate:indexing-live

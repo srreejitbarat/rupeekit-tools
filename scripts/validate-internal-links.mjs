@@ -210,6 +210,7 @@ const expectedRedirects = [
   ['/blog/home-loan-eligibility-40000-salary-india', '/blog/home-loan-eligibility-by-salary-india'],
   ['/blog/home-loan-eligibility-45000-salary-india', '/blog/home-loan-eligibility-by-salary-india'],
   ['/tools/net-worth-tracker-calculator-india', '/tools/net-worth-calculator-india'],
+  ['/financial-updates/income-tax-regime-comparison', '/tools/income-tax-calculator-old-vs-new-regime-india'],
 ];
 for (const [source, destination] of expectedRedirects) {
   if (!redirectsSource.includes(`source: '${source}'`) || !redirectsSource.includes(`destination: '${destination}'`)) {
@@ -220,7 +221,6 @@ if (!redirectsSource.includes('statusCode: 301')) fail('Consolidation redirects 
 
 const removedFinancialUpdateSlugs = [
   'rbi-repo-rate-explainer',
-  'income-tax-regime-comparison',
   'gst-council-explainer',
   'sebi-mutual-fund-explainer',
   'banking-fd-rate-tracker',
