@@ -15,7 +15,7 @@ const siteUrl =
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "rupeekitofficial@gmail.com";
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+const adsenseClient = "ca-pub-9754625493930589";
 const siteDescription =
   "RupeeKit offers free India-focused salary, EMI, SIP, GST, and FD calculators with simple explanations and examples.";
 
@@ -143,6 +143,11 @@ export default function SiteLayout({
       {/* eslint-disable-next-line @next/next/no-head-element -- Shared App Router root document. */}
       <head>
         <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+          crossOrigin="anonymous"
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('rupeekit-theme');var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d)}catch(e){}})()`,
           }}
@@ -173,15 +178,6 @@ export default function SiteLayout({
             </Script>
             <GoogleAnalyticsRouteTracker />
           </>
-        ) : null}
-
-        {adsenseClient ? (
-          <Script
-            id="adsense-auto-ads"
-            strategy="afterInteractive"
-            src={`https://pagead2.googlesyndication.com/pagead/js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-          />
         ) : null}
 
         <SiteHeader locale={locale} />
