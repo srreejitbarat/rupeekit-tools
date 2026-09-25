@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:discover-images && next build",
-    "postbuild": "npm run validate:discover-rendered && npm run validate:discover-guides-rendered && npm run validate:direct-answer-rendered && npm run validate:tool-serp-rendered && node scripts/validate-pre-emi-rendered.mjs && npm run validate:languages-rendered && npm run validate:indexing-rendered",
+    "postbuild": "npm run validate:discover-rendered && npm run validate:discover-guides-rendered && npm run validate:direct-answer-rendered && npm run validate:tool-serp-rendered && node scripts/validate-pre-emi-rendered.mjs && npm run validate:languages-rendered && npm run validate:indexing-rendered && npm run validate:rss-rendered",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
@@ -51,6 +51,7 @@
     "validate:tool-serp-rendered": "node scripts/validate-tool-serp-rendered.mjs",
     "validate:languages-rendered": "node scripts/validate-languages-rendered.mjs",
     "validate:indexing-rendered": "node scripts/validate-indexing-rendered.mjs",
+    "validate:rss-rendered": "node scripts/validate-rss-rendered.mjs",
     "validate:indexing-live": "node scripts/validate-indexing-live.mjs",
     "generate:languages": "node scripts/i18n/generate.mjs",
     "pretypecheck": "npm run generate:languages",

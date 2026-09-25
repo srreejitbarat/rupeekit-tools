@@ -24,7 +24,8 @@ export function human(s) {
 }
 export function sourceFiles() {
  const out=[];
- function walk(d) {for(const n of fs.readdirSync(d)){const p=path.posix.join(d,n);if(p.includes('/localized/')||p.includes('/i18n/')||p.includes('.test.'))continue;if(fs.statSync(p).isDirectory())walk(p);else if(/\.(tsx?|json)$/.test(p))out.push(p)}}
+ // RSS item prose comes from existing catalogs; feed labels are explicitly localized and checked after build.
+ function walk(d) {for(const n of fs.readdirSync(d)){const p=path.posix.join(d,n);if(p==='lib/rss.ts'||p.includes('/localized/')||p.includes('/i18n/')||p.includes('.test.'))continue;if(fs.statSync(p).isDirectory())walk(p);else if(/\.(tsx?|json)$/.test(p))out.push(p)}}
  ROOTS.forEach(walk);return out;
 }
 export function richParts(children) {
@@ -45,7 +46,7 @@ for(const file of sourceFiles()) {
  if(file.endsWith('.json')){function rec(v){if(typeof v==='string')add(v,file);else if(Array.isArray(v))v.forEach(rec);else if(v&&typeof v==='object')Object.entries(v).forEach(([k,x])=>{if(!machineKeys.has(k))rec(x)})}rec(JSON.parse(raw));continue;}
  const tree=ts.createSourceFile(file,raw,ts.ScriptTarget.Latest,true);
  function visit(n) {
-  if(ts.isJsxAttribute(n)&&['className','style','d','fill','stroke','viewBox','id','href','src','type','name','key','data-testid'].includes(n.name.getText(tree)))return;
+  if(ts.isJsxAttribute(n)&&['className','style','d','fill','stroke','viewBox','id','href','src','type','name','key','rel','data-testid'].includes(n.name.getText(tree)))return;
   if(ts.isImportDeclaration(n)||ts.isExportDeclaration(n))return;
   if(ts.isPropertyAssignment(n)&&machineKeys.has(n.name.getText(tree).replace(/['"]/g,'')))return;
   if(ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n)||ts.isJsxText(n)) add(ts.isJsxText(n)||ts.isJsxAttribute(n.parent)?decodeJsxText(n.text):n.text,file);

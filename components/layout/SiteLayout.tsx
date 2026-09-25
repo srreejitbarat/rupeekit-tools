@@ -144,6 +144,7 @@ export default function SiteLayout({
     <html lang={LOCALE_TAGS[locale]} suppressHydrationWarning>
       {/* eslint-disable-next-line @next/next/no-head-element -- Shared App Router root document. */}
       <head>
+        <link rel="alternate" type="application/rss+xml" href={locale === "en" ? "/feed.xml" : `/${locale}/feed.xml`} />
         <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
