@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ToolsExplorer from '@/components/tools/ToolsExplorer';
 import { getLiveTools } from '@/lib/tools';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const TITLE = 'Free Financial Calculators India | RupeeKit';
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   alternates: languageAlternates('/tools'),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: `${SITE_URL}/tools`,

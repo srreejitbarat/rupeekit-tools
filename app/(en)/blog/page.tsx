@@ -2,6 +2,7 @@ import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import { blogPosts } from '@/data/all-blog-posts';
 import BlogListingClient from '@/components/blog/BlogListingClient';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL_CONST = 'https://www.rupeekit.co.in';
 
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: 'Personal Finance Guides India: Tax, Loans & Investing',
     description: 'Browse practical Indian money guides across seven clear topic hubs.',
     url: `${SITE_URL}/blog`,

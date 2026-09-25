@@ -8,6 +8,7 @@ import { EDITORIAL_TEAM_ID, ORGANIZATION_ID } from '@/lib/seo/editorial';
 import { getSourceBackedComparison } from '@/data/source-backed-comparisons';
 import { moneyGuideRevisions } from '@/data/money-guide-revisions';
 import SourceBackedComparison from '@/components/seo/SourceBackedComparison';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 type Props = { params: { slug: string } };
@@ -21,11 +22,11 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!guide) return {};
   const url = `${SITE_URL}/money-guides/${guide.slug}`;
   return {
-    title: { absolute: `${guide.title} | RupeeKit` },
+    title: { absolute: guide.title.length <= 54 ? `${guide.title} | RupeeKit` : guide.title },
     description: guide.description,
     alternates: withLanguageAlternates({ canonical: url }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
-    openGraph: { title: guide.title, description: guide.description, url, type: 'article' },
+    openGraph: { images: [DEFAULT_OG_IMAGE], title: guide.title, description: guide.description, url, siteName: 'RupeeKit', type: 'article', locale: 'en_IN' },
   };
 }
 

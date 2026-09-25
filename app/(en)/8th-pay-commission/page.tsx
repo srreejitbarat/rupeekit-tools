@@ -7,6 +7,7 @@ import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -35,6 +36,7 @@ export const metadata: Metadata = {
   alternates: withLanguageAlternates({ canonical: PAGE_URL }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,

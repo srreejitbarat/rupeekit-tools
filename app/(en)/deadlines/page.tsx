@@ -5,6 +5,7 @@ import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   DEADLINE_CONFIDENCE_LABEL,
   SMALL_SAVINGS_REVIEW_QUARTERS,
@@ -22,7 +23,7 @@ const LAST_REVIEWED_ISO = '2026-08-25';
 
 const TITLE = 'Income Tax Deadlines India: The Statutory Calendar';
 const DESCRIPTION =
-  'Every recurring income tax deadline in the Indian financial year — advance tax instalments, TDS returns, ITR due dates and the 31 March investment cut-off, with which dates get extended.';
+  'Every recurring income tax deadline in India’s financial year: advance tax instalments, TDS returns, ITR due dates, the 31 March cut-off and common extensions.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
   alternates: withLanguageAlternates({ canonical: PAGE_URL }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,

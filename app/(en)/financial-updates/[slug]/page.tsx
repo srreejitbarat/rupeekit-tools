@@ -67,8 +67,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const heroImage = discoverImage ?? update.heroImage;
   const heroImageUrl = heroImage ? `${SITE_URL}${heroImage.src}` : undefined;
 
+  // Keep the brand suffix only while the title still fits a search result.
   return {
-    title: { absolute: `${pageTitle} | RupeeKit Updates` },
+    title: { absolute: `${pageTitle} | RupeeKit Updates`.length <= 65 ? `${pageTitle} | RupeeKit Updates` : pageTitle },
     description: cleanSummary,
     alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: {

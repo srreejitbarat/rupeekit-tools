@@ -13,7 +13,6 @@ interface ChallengeDay {
 }
 
 export default function BudgetChallenge() {
-  const [mounted, setMounted] = useState(false);
   const [completedDays, setCompletedDays] = useState<Record<number, boolean>>({});
 
   const challengeDays: ChallengeDay[] = [
@@ -219,9 +218,9 @@ export default function BudgetChallenge() {
     },
   ];
 
-  // Retrieve progress from localStorage on mount
+  // Retrieve progress from localStorage after hydration; the server renders
+  // the full board with no days completed so crawlers see every task.
   useEffect(() => {
-    setMounted(true);
     try {
       const saved = localStorage.getItem('rupeekit_budget_challenge');
       if (saved) {
@@ -263,14 +262,6 @@ export default function BudgetChallenge() {
   const getPercentage = () => {
     return Math.round((getCompletedCount() / challengeDays.length) * 100);
   };
-
-  if (!mounted) {
-    return (
-      <div className="mx-auto max-w-4xl p-8 text-center rounded-3xl border border-brandBorder bg-white shadow-sm">
-        <p className="text-brandMuted">Loading challenge board...</p>
-      </div>
-    );
-  }
 
   const completedCount = getCompletedCount();
   const percentage = getPercentage();

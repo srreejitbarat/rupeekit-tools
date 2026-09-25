@@ -2,6 +2,7 @@ import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { moneyGuides } from '@/data/money-authority';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -10,6 +11,16 @@ export const metadata: Metadata = {
   description: 'Ten practical money guides connecting RupeeKit calculators, original worked examples, assumptions and official Indian sources.',
   alternates: withLanguageAlternates({ canonical: `${SITE_URL}/money-guides` }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
+  openGraph: {
+    images: [DEFAULT_OG_IMAGE],
+    title: 'Indian Money Decision Guides | RupeeKit',
+    description: 'Ten practical money guides connecting RupeeKit calculators, original worked examples, assumptions and official Indian sources.',
+    url: `${SITE_URL}/money-guides`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: { card: 'summary_large_image', title: 'Indian Money Decision Guides | RupeeKit', description: 'Ten practical money guides connecting RupeeKit calculators, original worked examples, assumptions and official Indian sources.' },
 };
 
 export default function MoneyGuidesPage() {

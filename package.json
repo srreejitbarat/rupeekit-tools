@@ -2,6 +2,16 @@
   "name": "rupeekit-tools",
   "version": "0.1.0",
   "private": true,
+  "imports": {
+    "#i18n-catalog/hi": {
+      "react-server": "./lib/i18n/catalogs/hi.json",
+      "default": "./lib/i18n/catalogs/client-hi.json"
+    },
+    "#i18n-catalog/bn": {
+      "react-server": "./lib/i18n/catalogs/bn.json",
+      "default": "./lib/i18n/catalogs/client-bn.json"
+    }
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:discover-images && next build",

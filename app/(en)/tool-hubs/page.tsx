@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { toolClusters } from '@/data/tool-clusters';
 import { moneyGuides } from '@/data/money-authority';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -11,6 +12,16 @@ export const metadata: Metadata = {
   description: 'Browse RupeeKit calculator hubs for loans, tax, investing, insurance, pensions, life-stage planning and small savings in India.',
   alternates: withLanguageAlternates({ canonical: `${SITE_URL}/tool-hubs` }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
+  openGraph: {
+    images: [DEFAULT_OG_IMAGE],
+    title: 'Financial Calculator Hubs India | RupeeKit',
+    description: 'Browse RupeeKit calculator hubs for loans, tax, investing, insurance, pensions, life-stage planning and small savings in India.',
+    url: `${SITE_URL}/tool-hubs`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: { card: 'summary_large_image', title: 'Financial Calculator Hubs India | RupeeKit', description: 'Browse RupeeKit calculator hubs for loans, tax, investing, insurance, pensions, life-stage planning and small savings in India.' },
 };
 
 export default function ToolHubsPage() {

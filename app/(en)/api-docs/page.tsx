@@ -3,11 +3,22 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { mcpCalculateExampleText } from '@/lib/api-docs-examples';
 import { listPublicCalculators } from '@/lib/public-calculator-api';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 export const metadata: Metadata = {
   title: 'RupeeKit Calculator API and MCP Documentation',
   description: 'Documentation for RupeeKit’s sourced pilot finance calculators through JSON API and MCP tools.',
   alternates: withLanguageAlternates({ canonical: '/api-docs' }),
+  openGraph: {
+    images: [DEFAULT_OG_IMAGE],
+    title: 'RupeeKit Calculator API and MCP Documentation',
+    description: 'Documentation for RupeeKit’s sourced pilot finance calculators through JSON API and MCP tools.',
+    url: '/api-docs',
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: { card: 'summary_large_image', title: 'RupeeKit Calculator API and MCP Documentation', description: 'Documentation for RupeeKit’s sourced pilot finance calculators through JSON API and MCP tools.' },
 };
 
 const requestExample = `POST https://www.rupeekit.co.in/api/v1/calculators/personal-loan-true-apr-calculator-india

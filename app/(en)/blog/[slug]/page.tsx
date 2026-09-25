@@ -7,6 +7,7 @@ import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
 import FcraArticleLayout from '@/components/blog/FcraArticleLayout';
 import FcraOriginalMedia from '@/components/blog/FcraOriginalMedia';
 import { normalizeSerpDescription, normalizeSerpTitle } from '@/lib/seo/ctr-metadata';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -47,7 +48,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
       siteName: 'RupeeKit',
       type: 'article',
       locale: 'en_IN',
-      ...(imageUrl && { images: [{ url: imageUrl, width: heroImageWidth, height: heroImageHeight, alt: heroImageAlt }] }),
+      images: imageUrl ? [{ url: imageUrl, width: heroImageWidth, height: heroImageHeight, alt: heroImageAlt }] : [DEFAULT_OG_IMAGE],
     },
     twitter: { card: 'summary_large_image', title, description, ...(imageUrl && { images: [imageUrl] }) },
   };

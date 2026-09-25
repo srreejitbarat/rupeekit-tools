@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FinancialUpdatesClient from '@/components/updates/FinancialUpdatesClient';
 import { financialUpdates } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const TITLE = 'Latest Financial Updates, Tax, GST and RBI News | RupeeKit';
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: `${SITE_URL}/financial-updates`,

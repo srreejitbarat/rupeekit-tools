@@ -5,6 +5,7 @@ import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -17,7 +18,7 @@ const LAST_REVIEWED_ISO = '2026-08-12';
 
 const TITLE = 'NRI Tax & Money Guide India 2026 | NRE, NRO, Schedule FA';
 const DESCRIPTION =
-  'How NRE and NRO accounts are taxed, what DTAA relief actually does, the USD 1 million repatriation limit, and when Schedule FA and RSU disclosure apply. Sourced to RBI and the Income Tax Department.';
+  'How NRE and NRO accounts are taxed, what DTAA relief does, the USD 1 million repatriation limit and when Schedule FA and RSU disclosure apply.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
   alternates: withLanguageAlternates({ canonical: PAGE_URL }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: PAGE_URL,

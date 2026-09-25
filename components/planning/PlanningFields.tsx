@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { money, monthLabel } from '@/lib/planning/common';
+import { compactIndianNumber } from '@/lib/format/compact-number';
 
 export const panel = 'rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 dark:border-slate-700 dark:bg-slate-900';
 export const secondary = 'rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800';
@@ -100,7 +101,7 @@ export function PlanChart({ title, dates, series, reference }: {
   const min = Math.min(...values), max = Math.max(...values, 1), spread = max - min || 1;
   const x = (i: number) => 86 + i / Math.max(1, dates.length - 1) * 550;
   const y = (value: number) => 222 - (value - min) / spread * 185;
-  const compact = (value: number) => new Intl.NumberFormat('en-IN', { notation: 'compact', maximumFractionDigits: 1 }).format(value);
+  const compact = compactIndianNumber;
   return <figure className={panel}><figcaption id={id} className="font-bold text-slate-900 dark:text-white">{title}</figcaption>
     <svg role="img" aria-labelledby={id} viewBox="0 0 670 270" className="mt-3 w-full text-slate-500 dark:text-slate-400">
       <desc>{series.map(s => `${s.label}: ${money(s.values[0])} to ${money(s.values[s.values.length - 1])}.`).join(' ')} Exact figures are in the tables and CSV.</desc>

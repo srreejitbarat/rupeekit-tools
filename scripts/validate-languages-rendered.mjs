@@ -8,10 +8,15 @@ const routes=JSON.parse(fs.readFileSync('lib/i18n/public-routes.json','utf8'));
 const absolute=(route,locale)=>base+(locale==='en'?'':`/${locale}`)+(route==='/'?'':route);
 const file=(route,locale)=>path.join('.next/server/app',locale==='en'?(route==='/'?'index.html':route.slice(1)+'.html'):locale+(route==='/'?'':route)+'.html');
 const residual=[];
+// One window for every page: a JSDOM instance per page is retained even after
+// window.close() (about 2.5 MB each), which exhausts Node's heap on CI.
+const dom=new JSDOM(''), parser=new dom.window.DOMParser();
 for(const route of routes){
  for(const locale of ['en','hi','bn']){
-  const html=fs.readFileSync(file(route,locale),'utf8');
-  const dom=new JSDOM(html), d=dom.window.document;
+  // Script bodies (mostly the RSC payload) are removed before the text walk
+  // anyway; dropping them before parsing saves memory and time.
+  const html=fs.readFileSync(file(route,locale),'utf8').replace(/(<script\b[^>]*>)[\s\S]*?<\/script>/gi,'$1</script>');
+  const d=parser.parseFromString(html,'text/html');
   assert.equal(d.documentElement.lang,`${locale}-IN`,`${locale}${route}: document language`);
   assert.equal(d.querySelector('link[rel=canonical]')?.getAttribute('href'),absolute(route,locale),`${locale}${route}: self canonical`);
   for(const language of ['en','hi','bn'])assert.equal(d.querySelector(`link[hreflang="${language}-IN"]`)?.getAttribute('href'),absolute(route,language),`${locale}${route}: ${language} alternate`);
@@ -30,9 +35,10 @@ for(const route of routes){
     if((text.match(/\b[A-Z]?[a-z]{2,}\b/g)||[]).length>=3&&!script.test(text)&&!/^https?:\/\//.test(text)&&!codeIdentifiers.test(text))residual.push({locale,route,text});
    }
   }
-  dom.window.close();
+  d.documentElement.remove();
  }
 }
+dom.window.close();
 fs.writeFileSync('.next/i18n-untranslated.json',JSON.stringify(residual,null,2));
 assert.equal(residual.length,0,`${residual.length} untranslated prose nodes; review .next/i18n-untranslated.json`);
 console.log(`Language rendering passed: ${routes.length*3} pages, native headings, reciprocal alternates, self-canonicals and no untranslated prose.`);

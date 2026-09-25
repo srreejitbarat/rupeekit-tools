@@ -2,6 +2,7 @@ import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { allGuideClusters, allGuides } from '@/data/calculator-guides';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
 
@@ -10,6 +11,16 @@ export const metadata: Metadata = {
   description: 'Practical India-focused answers for home loans, SWP, HRA, gratuity, personal-loan APR, emergency funds, prepayment and foreclosure.',
   alternates: withLanguageAlternates({ canonical: `${SITE_URL}/guides` }),
   robots: { index: true, follow: true },
+  openGraph: {
+    images: [DEFAULT_OG_IMAGE],
+    title: 'RupeeKit Calculator Guides | India Money Questions',
+    description: 'Practical India-focused answers for home loans, SWP, HRA, gratuity, personal-loan APR, emergency funds, prepayment and foreclosure.',
+    url: `${SITE_URL}/guides`,
+    siteName: 'RupeeKit',
+    type: 'website',
+    locale: 'en_IN',
+  },
+  twitter: { card: 'summary_large_image', title: 'RupeeKit Calculator Guides | India Money Questions', description: 'Practical India-focused answers for home loans, SWP, HRA, gratuity, personal-loan APR, emergency funds, prepayment and foreclosure.' },
 };
 
 export default function CalculatorGuidesPage() {

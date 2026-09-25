@@ -102,7 +102,7 @@ function UpdateCard({ update }: { update: FinancialUpdate }) {
 
         <div className="rounded-xl bg-green-50 border border-green-100 px-3 py-2">
           <p className="text-[11px] font-semibold text-green-800 line-clamp-2">
-            <span className="font-bold">Verify: </span>{update.whatToVerify.split('.')[0]}.
+            <span className="font-bold">Verify: </span>{update.whatToVerify}
           </p>
         </div>
 

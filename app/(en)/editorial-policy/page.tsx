@@ -1,6 +1,7 @@
 import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 import {
   CORRECTIONS_POLICY_URL,
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   alternates: withLanguageAlternates({ canonical: EDITORIAL_POLICY_URL }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: EDITORIAL_POLICY_URL,

@@ -1,4 +1,4 @@
-import { cloneElement, isValidElement, type ReactNode } from 'react';
+import { cloneElement, createElement, isValidElement, type ComponentType, type ReactElement, type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { languageAlternates, localizedHref, LOCALE_TAGS, type Locale } from './routing';
 import { normalizeSerpTitle } from '../seo/ctr-metadata';
@@ -9,16 +9,61 @@ const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** Pure presentation adapter. Never changes field values, formula variables,
  * URL slugs, arithmetic, data keys, analytics parameters or API contracts. */
-export function createTranslator(locale: Locale, catalog: Catalog) {
+// Month names are fixed here: Node and browsers ship different ICU data (for
+// example "জানুয়ারি" vs "জানুয়ারী"), and any difference breaks hydration.
+const MONTHS: Record<'hi' | 'bn', string[]> = {
+  hi: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'],
+  bn: ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'],
+};
+const IST_OFFSET_MS = 330 * 60 * 1000;
+
+type ClientScope = ComponentType<{ locale: Locale; dict: Catalog; children?: ReactNode }>;
+
+export function createTranslator(locale: Locale, initialCatalog: Catalog, clientScope?: ClientScope) {
+  // Browser and SSR bundles start small and grow through add(): each localized
+  // module registers the slice of strings it can render, and server components
+  // pass translations for the props they hand to client components.
+  const catalog: Catalog = { ...initialCatalog };
   const translatedValues = new Set(Object.values(catalog).map(normalize));
-  const patterns = Object.entries(catalog).filter(([s]) => /ZXQ\d+QXZ/.test(s)).map(([source, target]) => ({
+  let patterns = buildPatterns();
+  function buildPatterns() { return Object.entries(catalog).filter(([s]) => /ZXQ\d+QXZ/.test(s)).map(([source, target]) => ({
     source, target,
     prefix: source.split(/ZXQ\d+QXZ/)[0],
     literals: source.split(/ZXQ\d+QXZ/).filter(part => part.trim()),
     ids: [...source.matchAll(/ZXQ(\d+)QXZ/g)].map(m => Number(m[1])),
     regex: new RegExp('^' + source.split(/ZXQ\d+QXZ/).map(escape).join('(.+?)') + '$'),
-  })).filter(p => p.source.replace(/ZXQ\d+QXZ/g, '').length >= 4).sort((a,b) => b.prefix.length-a.prefix.length || b.source.replace(/ZXQ\d+QXZ/g,'').length-a.source.replace(/ZXQ\d+QXZ/g,'').length);
+  })).filter(p => p.source.replace(/ZXQ\d+QXZ/g, '').length >= 4).sort((a,b) => b.prefix.length-a.prefix.length || b.source.replace(/ZXQ\d+QXZ/g,'').length-a.source.replace(/ZXQ\d+QXZ/g,'').length); }
   const memo = new Map<string, string>();
+  function add(entries: Catalog) {
+    let added = false, templates = false;
+    for (const [source, target] of Object.entries(entries)) {
+      if (catalog[source] === target) continue;
+      catalog[source] = target; translatedValues.add(normalize(target)); added = true;
+      if (/ZXQ\d+QXZ/.test(source)) templates = true;
+    }
+    if (!added) return;
+    memo.clear();
+    if (templates) patterns = buildPatterns();
+  }
+  /** Server side: the translations a client component needs for its props. */
+  function collect(value: unknown, dict: Catalog = {}, seen = new WeakSet<object>()): Catalog {
+    if (typeof value === 'string') {
+      if (value.length < 14000 && /[A-Za-z]/.test(value)) {
+        const translated = text(value);
+        if (translated !== value) dict[normalize(value)] = normalize(translated);
+      }
+      return dict;
+    }
+    if (!value || typeof value !== 'object' || isValidElement(value) || seen.has(value)) return dict;
+    seen.add(value);
+    for (const item of Array.isArray(value) ? value : Object.values(value)) collect(item, dict, seen);
+    return dict;
+  }
+  /** Wraps a client component rendered by a server component. */
+  function Scope({ children }: { children: ReactNode }): ReactNode {
+    if (locale === 'en' || !clientScope || !isValidElement(children)) return children;
+    return createElement(clientScope, { locale, dict: collect((children as ReactElement).props) }, children);
+  }
   function text(value: string): string {
     if (locale === 'en') return value;
     const source = normalize(value);
@@ -52,6 +97,21 @@ export function createTranslator(locale: Locale, catalog: Catalog) {
       memo.set(value, target); return target;
     }
     return value;
+  }
+  /** Deterministic replacement for toLocaleDateString on localized pages.
+   * Dates are shown in India time (or UTC when asked) wherever they render. */
+  function date(value: Date | string | number, options: Intl.DateTimeFormatOptions = {}): string {
+    const parsed = value instanceof Date ? value : new Date(value);
+    if (locale === 'en' || Number.isNaN(parsed.getTime()) || options.weekday || options.hour || options.minute) {
+      return parsed.toLocaleDateString(locale === 'en' ? 'en-IN' : `${LOCALE_TAGS[locale]}-u-nu-latn`, options);
+    }
+    const zoned = new Date(parsed.getTime() + (options.timeZone === 'UTC' ? 0 : IST_OFFSET_MS));
+    const day = zoned.getUTCDate(), monthIndex = zoned.getUTCMonth(), year = zoned.getUTCFullYear();
+    if (!options.month) return options.year && !options.day ? String(year) : `${day}/${monthIndex + 1}/${year}`;
+    const month = options.month === 'numeric' || options.month === '2-digit' ? String(monthIndex + 1) : MONTHS[locale][monthIndex];
+    if (!options.day) return options.year ? `${month} ${year}` : month;
+    if (!options.year) return `${day} ${month}`;
+    return locale === 'bn' ? `${day} ${month}, ${year}` : `${day} ${month} ${year}`;
   }
   function node<T>(value: T): T {
     if (typeof value === 'string') return text(value) as T;
@@ -134,5 +194,5 @@ export function createTranslator(locale: Locale, catalog: Catalog) {
     doc.querySelectorAll('text,title,desc').forEach(n=>{for(const child of Array.from(n.childNodes))if(child.nodeType===3)child.textContent=text(child.textContent || '');});
     return new XMLSerializer().serializeToString(doc);
   }
-  return {text,node,rich,href,jsonLd,metadata,csv,svg};
+  return {text,node,rich,href,jsonLd,metadata,csv,svg,add,collect,Scope,date};
 }

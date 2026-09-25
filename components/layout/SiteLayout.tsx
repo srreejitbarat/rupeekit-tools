@@ -8,6 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import GoogleAnalyticsRouteTracker from "@/components/GoogleAnalyticsRouteTracker";
 import LanguagePreferenceNotice from "@/components/i18n/LanguagePreferenceNotice";
 import { LOCALE_TAGS, type Locale } from "@/lib/i18n/routing";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo/og-image";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
 const siteUrl =
@@ -63,6 +64,7 @@ export const metadata: Metadata = {
     siteName,
     type: "website",
     locale: "en_IN",
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",

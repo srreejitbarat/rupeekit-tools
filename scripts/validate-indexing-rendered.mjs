@@ -37,6 +37,8 @@ for (const entry of redirects) {
 }
 
 // Use Next's compiled matching rules, including trailing-slash redirects.
+const pageWindow = new JSDOM('').window;
+const pageParser = new pageWindow.DOMParser();
 const routes = JSON.parse(fs.readFileSync('.next/routes-manifest.json', 'utf8'));
 const redirectRules = routes.redirects.filter((entry) => !entry.has?.length && !entry.missing?.length);
 for (const value of urls) {
@@ -56,9 +58,10 @@ for (const value of urls) {
     fail(`${value}: missing HTML head`);
     continue;
   }
-  const dom = new JSDOM(html);
+  // Script bodies are irrelevant here; skipping them and reusing one window
+  // keeps memory flat (a JSDOM per page is retained even after close()).
+  const document = pageParser.parseFromString(html.replace(/(<script\b[^>]*>)[\s\S]*?<\/script>/gi, '$1</script>'), 'text/html');
   try {
-    const document = dom.window.document;
     const canonicals = [...document.head.querySelectorAll('link[rel~="canonical"]')];
     if (canonicals.length !== 1) {
       fail(`${value}: expected exactly one canonical in the head, found ${canonicals.length}`);
@@ -86,7 +89,7 @@ for (const value of urls) {
     }
     linksByPage.set(normalize(value), links);
   } finally {
-    dom.window.close();
+    document.documentElement.remove();
   }
 }
 
@@ -122,3 +125,4 @@ if (errors.length) {
 } else {
   console.log(`Rendered indexing validation passed: ${urls.length} self-canonical, indexable pages reachable from the homepage; ${imageUrls.length} image-sitemap pages; ${redirects.length} direct legacy redirects.`);
 }
+pageWindow.close();

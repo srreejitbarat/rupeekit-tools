@@ -13,6 +13,10 @@ FROM node:20-bookworm-slim AS builder
 WORKDIR /app
 
 ENV NEXT_TELEMETRY_DISABLED=1
+# Node caps its heap at about a quarter of host RAM (~2 GB on an 8 GB VPS).
+# Allow the build and its rendered-page checks up to 4 GB. Builder stage only;
+# the runtime image keeps Node's default.
+ENV NODE_OPTIONS=--max-old-space-size=4096
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

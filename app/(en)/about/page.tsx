@@ -2,6 +2,7 @@ import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const TITLE = 'About RupeeKit | Free India Finance Calculators';
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   alternates: withLanguageAlternates({ canonical: `${SITE_URL}/about` }),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: `${SITE_URL}/about`,

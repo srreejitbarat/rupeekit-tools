@@ -84,7 +84,7 @@ export const financialUpdates: FinancialUpdate[] = [
     title: 'Old Income Tax Demand Showing Against Your PAN? A New Help Centre Can Guide You',
     seoTitle: 'Old Tax Demand on Your PAN? Centre Offers Guidance',
     metaDescription:
-      'The Income Tax Department’s Demand Management Facilitation Centre can guide taxpayers with questions about outstanding demands. It does not cancel or reduce a demand or decide whether it is correct.',
+      'The Income Tax Department’s Demand Management Facilitation Centre guides taxpayers on outstanding demands. It cannot cancel, reduce or decide a demand.',
     category: 'Income Tax',
     sourceName: 'Income Tax Department, Ministry of Finance, Government of India',
     sourceUrl: 'https://www.incometax.gov.in/iec/foportal/',
@@ -276,6 +276,9 @@ export const financialUpdates: FinancialUpdate[] = [
   id: 'income-tax-helpdesk-24x7-july-2026',
   slug: 'income-tax-helpdesk-24x7-july-2026',
   title: 'Income Tax Helpdesk Is Open 24x7 Until 31 July: Which Number Should You Call?',
+  seoTitle: 'Income Tax Helpdesk Open 24x7 Till 31 July: Which Number to Call',
+  metaDescription:
+    'Income Tax e-Filing and CPC helplines run 24x7 until 31 July 2026. Call the right number for e-filing, AIS, or PAN and TAN queries.',
   category: 'Income Tax',
   sourceName: 'Income Tax Department, Ministry of Finance, Government of India',
   sourceUrl: 'https://www.incometax.gov.in/iec/foportal/help',
@@ -468,7 +471,7 @@ export const financialUpdates: FinancialUpdate[] = [
     title: 'Foreign Assets Now Visible in AIS: What Indian Taxpayers Should Check Before Filing',
     seoTitle: 'Foreign Assets in AIS: What Taxpayers Should Check',
     metaDescription:
-      'CBDT says eligible taxpayers can now see some foreign asset and income details from partner jurisdictions in AIS. Check the entries against your records before filing; the statement may not show everything.',
+      'CBDT says some foreign asset and income details from partner countries now appear in AIS. Check them against your records before filing; AIS may be incomplete.',
     category: 'Income Tax',
     sourceName: 'Central Board of Direct Taxes, Ministry of Finance, Government of India',
     sourceUrl:
@@ -672,6 +675,9 @@ export const financialUpdates: FinancialUpdate[] = [
     id: 'epfo-services-restored-july-2026',
     slug: 'epfo-services-restored-july-2026',
     title: 'EPFO Services Are Back After an Upgrade: Should You Submit Your Claim Again?',
+    seoTitle: 'EPFO Services Restored: Should You Resubmit Your Claim?',
+    metaDescription:
+      'EPFO member and employer services are live again after a database upgrade. Some claims may move slowly while the new system completes extra checks.',
     category: 'Personal Finance',
     sourceName:
       'Employees’ Provident Fund Organisation, Ministry of Labour & Employment, Government of India',

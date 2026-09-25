@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import scenarios from '@/data/indexable-calculator-scenarios.json';
+import { getToolBySlug } from '@/lib/tools';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -48,6 +50,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     alternates: withLanguageAlternates({ canonical }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: scenario.title,
       description: scenario.metaDescription,
       url: canonical,
@@ -56,7 +59,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       locale: 'en_IN',
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: scenario.title,
       description: scenario.metaDescription,
     },
@@ -68,6 +71,7 @@ export default function CalculatorScenarioPage({ params }: { params: { slug: str
   if (!scenario) notFound();
   const canonical = `${SITE_URL}/tools/scenarios/${scenario.slug}`;
   const calculatorHref = buildCalculatorHref(scenario);
+  const relatedFaqs = (getToolBySlug(scenario.calculatorSlug)?.faqs ?? []).slice(0, 4);
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -125,6 +129,20 @@ export default function CalculatorScenarioPage({ params }: { params: { slug: str
             Open pre-filled calculator
           </Link>
         </div>
+
+        {relatedFaqs.length > 0 && (
+          <section className="mt-8" aria-labelledby="scenario-faqs">
+            <h2 id="scenario-faqs" className="text-xl font-bold text-brandDeepNavy">Related questions</h2>
+            <dl className="mt-4 space-y-4">
+              {relatedFaqs.map((faq) => (
+                <div key={faq.question}>
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-1 text-sm leading-7 text-slate-700">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
 
         <section className="mt-8 border-t border-slate-200 pt-6" aria-labelledby="scenario-methodology">
           <h2 id="scenario-methodology" className="text-lg font-bold text-brandDeepNavy">Source and methodology</h2>

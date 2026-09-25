@@ -4,6 +4,7 @@ import Link from 'next/link';
 import CalculatorJumpSearch from '@/components/home/CalculatorJumpSearch';
 import { blogPosts } from '@/data/all-blog-posts';
 import { getLiveTools, type Tool } from '@/lib/tools';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   alternates: languageAlternates('/'),
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: 'RupeeKit - Free India Salary & Finance Calculators',
     description:
       'Use free India-focused calculators, beginner guides, and visual breakdowns to estimate salary, loans, savings, tax, and everyday money decisions.',

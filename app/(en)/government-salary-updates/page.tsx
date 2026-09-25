@@ -1,6 +1,7 @@
 import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import GovernmentSalaryUpdatesClient from '@/components/updates/GovernmentSalaryUpdatesClient';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const TITLE = 'Government Salary Updates, DA, Pension and Pay News | RupeeKit';
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: `${SITE_URL}/government-salary-updates`,

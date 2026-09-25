@@ -3,6 +3,7 @@
 import { useId } from 'react';
 import { money } from '@/lib/planning/common';
 import { muted, panel } from '@/components/planning/PlanningFields';
+import { compactIndianNumber } from '@/lib/format/compact-number';
 
 const colors = ['#0f766e', '#6366f1', '#c2410c', '#be185d'];
 export function DecisionIntro({ question, text }: { question: string; text: string }) {
@@ -27,7 +28,7 @@ export function CashTrace({ title, labels, series, reserve }: { title: string; l
   const min = Math.min(...all), max = Math.max(...all, 1), spread = max - min || 1;
   const x = (i: number) => 92 + i / Math.max(1, labels.length - 1) * 540;
   const y = (v: number) => 227 - (v - min) / spread * 184;
-  const compact = (v: number) => new Intl.NumberFormat('en-IN', { notation: 'compact', maximumFractionDigits: 1 }).format(v);
+  const compact = compactIndianNumber;
   return <figure className={panel}><figcaption id={id} className="font-bold text-slate-900 dark:text-white">{title}</figcaption>
     <svg viewBox="0 0 670 280" role="img" aria-labelledby={id} className="mt-3 w-full text-slate-500 dark:text-slate-400"><desc>{series.map(s => `${s.name}: starts ${money(s.values[0])}, ends ${money(s.values[s.values.length - 1])}.`).join(' ')} Exact amounts are in the table and CSV.</desc>
       {[0, 0.5, 1].map(f => <g key={f}><line x1="92" x2="632" y1={y(min + spread * f)} y2={y(min + spread * f)} stroke="currentColor" opacity="0.2" /><text x="83" y={y(min + spread * f) + 4} textAnchor="end" fill="currentColor" fontSize="12">₹{compact(min + spread * f)}</text></g>)}

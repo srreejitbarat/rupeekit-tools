@@ -1,11 +1,13 @@
 import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import MoneyHealthCheckQuiz from '@/components/MoneyHealthCheckQuiz';
+import { moneyHealthBands, moneyHealthQuestions } from '@/data/money-health-check';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-const TITLE = 'Money Health Check: Free Personal Finance Self-Assessment | RupeeKit';
+const TITLE = 'Money Health Check: Free Personal Finance Self-Assessment';
 const DESCRIPTION =
-  'Take our 60-second interactive money health check to get a personalized score, identify your next financial milestone, and discover global resources to build a strong foundation.';
+  'Take a free 60-second money health check to get a personal score, find your next financial milestone and see resources to build a strong foundation.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
   },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: TITLE,
     description: DESCRIPTION,
     url: `${SITE_URL}/money-health-check`,
@@ -49,6 +52,23 @@ export default function MoneyHealthCheckPage() {
       </header>
 
       <MoneyHealthCheckQuiz />
+
+      <section className="mx-auto mt-12 max-w-2xl" aria-labelledby="check-covers">
+        <h2 id="check-covers" className="text-2xl font-black text-brandNavy dark:text-white">What the check covers</h2>
+        <p className="mt-3 text-base leading-relaxed text-brandMuted">Eight yes-or-no questions about everyday money habits. Your answers are not saved.</p>
+        <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-7 text-slate-700 dark:text-slate-300">
+          {moneyHealthQuestions.map((question) => <li key={question.id}>{question.text}</li>)}
+        </ol>
+      </section>
+
+      <section className="mx-auto mt-10 max-w-2xl" aria-labelledby="check-score">
+        <h2 id="check-score" className="text-2xl font-black text-brandNavy dark:text-white">How the score works</h2>
+        <p className="mt-3 text-base leading-relaxed text-brandMuted">Each yes adds 12.5 points, so the score runs from 0 to 100. It reflects habits, not income or net worth.</p>
+        <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-700 dark:text-slate-300">
+          {moneyHealthBands.map((band) => <li key={band.range}><strong>{band.range}</strong> · {band.category}</li>)}
+        </ul>
+        <p className="mt-4 text-xs leading-6 text-brandMuted">The check is an educational self-reflection tool, not financial advice.</p>
+      </section>
     </div>
   );
 }

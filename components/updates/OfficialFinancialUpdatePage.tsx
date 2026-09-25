@@ -5,6 +5,7 @@ import type { FinancialUpdate } from '@/data/financial-updates';
 import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { editorialTeamRef } from '@/lib/seo/editorial';
 import FinancialUpdatesSignup from '@/components/updates/FinancialUpdatesSignup';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -19,12 +20,14 @@ export function buildDay18UpdateMetadata(slug: string): Metadata {
   const pageUrl = `${SITE_URL}/financial-updates/${update.slug}`;
   const pageTitle = update.seoTitle ?? update.title;
   const pageDescription = update.metaDescription ?? update.summary;
+  // Keep the brand suffix only while the title still fits a search result.
   return {
-    title: { absolute: `${pageTitle} | RupeeKit Updates` },
+    title: { absolute: `${pageTitle} | RupeeKit Updates`.length <= 65 ? `${pageTitle} | RupeeKit Updates` : pageTitle },
     description: pageDescription,
     alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${pageTitle} | RupeeKit Updates`,
       description: pageDescription,
       url: pageUrl,

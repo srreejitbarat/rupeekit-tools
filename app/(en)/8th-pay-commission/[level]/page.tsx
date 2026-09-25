@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   ASSUMED_CURRENT_DA_PERCENT,
   FITMENT_SCENARIOS,
@@ -65,6 +66,7 @@ export function generateMetadata({ params }: { params: { level: string } }): Met
     alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title,
       description,
       url: pageUrl,

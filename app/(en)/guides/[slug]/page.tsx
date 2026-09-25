@@ -11,6 +11,7 @@ import { getDiscoverImage } from '@/data/discover-images';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 import EditorialByline from '@/components/seo/EditorialByline';
 import FinanceDisclaimer from '@/components/blog/FinanceDisclaimer';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -53,7 +54,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
               alt: discoverImage.alt,
             }],
           }
-        : {}),
+        : { images: [DEFAULT_OG_IMAGE] }),
     },
     twitter: {
       card: 'summary_large_image',

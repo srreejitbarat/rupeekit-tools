@@ -9,12 +9,17 @@ export function human(s) {
   if (!/[A-Za-z]{2}/.test(prose) || /^\/\S+$/.test(s)) return false;
   if (/^(?:rgba?|hsla?|rotate|translate|scale)\(/.test(s) || /^M[\d .,-]+[a-z]/i.test(s) || /^\[aria-/.test(s)) return false;
   if (/[\u0900-\u09ff]/.test(s) || /^[_$]/.test(s)) return false;
-  if (!/[A-Za-z]{2}/.test(s) || /^(https?:|mailto:|tel:|data:|\/?[\w.-]+\/|#|@)/.test(s)) return false;
+  // URLs and paths have no spaces; "Share/print output ..." is prose.
+  if (!/[A-Za-z]{2}/.test(s) || /^(https?:|mailto:|tel:|data:|#|@)/.test(s) || (/^\/?[\w.-]+\//.test(s) && !/\s/.test(s))) return false;
   if (/^[\w]+(?:[-_:./][\w]+)+$/.test(s) || /^[a-z]+[A-Z][\w]*$/.test(s)) return false;
   if (/^\s*(?:\.|#|@|:root|<svg|<\?xml|function\b|\(function)/.test(s)) return false;
   if (/^window\./.test(s) || /\{\s*isolation:\s*isolate;\s*\}/.test(s)) return false;
-  if (/(?:^| )(?:text-|bg-|border-|flex|grid|mt-|px-|dark:|min-h-|rounded-|font-)/.test(s)) return false;
-  if (/^(?:application|image|text)\//.test(s) || /\b(?:const|let|return|import)\b.*[;{}]/.test(s)) return false;
+  // Tailwind class lists: every token is a utility. Prose that merely contains
+  // words such as "flexible" or "grid" is still extracted.
+  if (/(?:^| )(?:text-|bg-|border-|flex|grid|mt-|px-|dark:|min-h-|rounded-|font-)/.test(s) && s.split(/\s+/).every(t => /^[a-z!][\w:\-\[\]\/.%#]*$/.test(t))) return false;
+  if (/^\s*\/\*/.test(s)) return false;
+  // Code fragments, not prose that happens to use "return" and a semicolon.
+  if (/^(?:application|image|text)\//.test(s) || /\b(?:const|let|return|import)\b.*[{}]|\b(?:const|let)\s+\w+\s*=/.test(s)) return false;
   return s.length < 14000;
 }
 export function sourceFiles() {

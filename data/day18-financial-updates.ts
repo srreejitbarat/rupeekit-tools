@@ -16,6 +16,8 @@ export const day18FinancialUpdates: FinancialUpdate[] = [
     slug: '8th-cpc-chandigarh-visit-september-2026',
     title: '8th Pay Commission Chandigarh Visit Set for 16-18 September 2026: What Is Official?',
     seoTitle: '8th Pay Commission Chandigarh Visit: 16–18 September 2026',
+    metaDescription:
+      'The 8th Pay Commission visits Chandigarh on 16-18 September 2026. This confirms the consultation calendar, not a fitment factor, pay matrix or start date.',
     category: 'Government Salary',
     sourceName: '8th Central Pay Commission, Government of India',
     sourceUrl: 'https://8cpc.gov.in/document/notice-regarding-8cpc-visit-to-chandigarh-on-16th-17th-and-18th-september-2026-last-date-25th-august/',
@@ -70,6 +72,9 @@ export const day18FinancialUpdates: FinancialUpdate[] = [
     id: 'rbi-repo-rate-5-25-august-2026',
     slug: 'rbi-repo-rate-5-25-august-2026',
     title: 'RBI Repo Rate Is 5.25% After August 2026 Policy: What Borrowers Should Check',
+    seoTitle: 'RBI Repo Rate 5.25% (August 2026): What Borrowers Should Check',
+    metaDescription:
+      'RBI’s policy repo rate is 5.25% after the August 2026 meeting, with SDF at 5.00% and MSF and Bank Rate at 5.50%. What it means for loan EMIs.',
     category: 'RBI',
     sourceName: 'Reserve Bank of India',
     sourceUrl: 'https://www.rbi.org.in/',
@@ -117,6 +122,8 @@ export const day18FinancialUpdates: FinancialUpdate[] = [
     id: 'small-savings-rates-july-september-2026',
     slug: 'small-savings-rates-july-september-2026',
     title: 'PPF, SSY, SCSS and Post Office MIS Rates for July-September 2026',
+    metaDescription:
+      'Official rates for July-September 2026: PPF 7.1%, Sukanya Samriddhi 8.2%, SCSS 8.2% and Post Office Monthly Income Scheme 7.4%.',
     category: 'Personal Finance',
     sourceName: 'Department of Economic Affairs and India Post, Government of India',
     sourceUrl: 'https://dea.gov.in/budget-division/revision-interest-rates-small-savings-schemes-reg',
@@ -174,7 +181,7 @@ export const day18FinancialUpdates: FinancialUpdate[] = [
     title: 'ITR-7 Online Utility for AY 2026-27 Is Live: What the Tax Portal Confirms',
     seoTitle: 'ITR-7 Utility Live for AY 2026-27',
     metaDescription:
-      'The online ITR-7 utility for AY 2026-27 became available on 11 August. The portal also lists online and offline options for ITR-1 to ITR-5, Excel for ITR-6, and online and Excel utilities for ITR-7.',
+      'The online ITR-7 utility for AY 2026-27 is available from 11 August. See which online, offline and Excel utilities the portal lists for ITR-1 to ITR-7.',
     category: 'Income Tax',
     sourceName: 'Income Tax Department, Government of India',
     sourceUrl: 'https://www.incometax.gov.in/iec/foportal/',
@@ -219,6 +226,9 @@ export const day18FinancialUpdates: FinancialUpdate[] = [
     id: 'epfo-vishwas-amnesty-2026-live',
     slug: 'epfo-vishwas-amnesty-2026-live',
     title: 'EPFO VISHWAS and AMNESTY 2026 Are Live: Who These Schemes Are For',
+    seoTitle: 'EPFO VISHWAS and AMNESTY 2026: Who These Schemes Are For',
+    metaDescription:
+      'EPFO’s VISHWAS 2026 and AMNESTY 2026 are time-bound employer schemes for legacy PF disputes and PF-trust regularisation, not a new withdrawal benefit.',
     category: 'Personal Finance',
     sourceName: 'Employees’ Provident Fund Organisation / Ministry of Labour & Employment',
     sourceUrl: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2291296&lang=1&reg=1',
@@ -253,7 +263,7 @@ export const day18FinancialUpdates: FinancialUpdate[] = [
     methodology: 'RupeeKit reviewed the Ministry of Labour & Employment/PIB release and EPFO references on 20 August 2026 and kept the explainer limited to the scheme scope described by those sources.',
     relatedRupeeKitLinks: [
       { label: 'EPF Corpus Calculator India', href: '/tools/epf-corpus-calculator-india' },
-      { label: 'EPF vs NPS vs PPF Guide', href: '/blog/epf-vs-nps-vs-ppf-retirement-instrument-india' },
+      { label: 'EPF vs NPS vs PPF Guide', href: '/blog/epf-vs-nps-vs-ppf-retirement-india' },
     ],
     faqs: [
       {

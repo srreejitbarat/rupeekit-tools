@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { indexableGovernmentSalaryUpdates } from '@/data/government-salary-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_POLICY_URL,
@@ -54,6 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${update.title} | Government Salary Updates | RupeeKit`,
       description: cleanSummary,
       url: pageUrl,

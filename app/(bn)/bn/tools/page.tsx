@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import Link from 'next/link';
 import ToolsExplorer from '@/components/tools/ToolsExplorer';
 import { getLiveTools } from '@/lib/tools';
@@ -11,7 +12,7 @@ const alternates = languageAlternates('/tools', 'bn');
 
 export const metadata: Metadata = {
   title: { absolute: title }, description, alternates,
-  openGraph: { title, description, url: alternates.canonical, siteName: 'RupeeKit', type: 'website', locale: 'bn_IN', alternateLocale: ['en_IN', 'hi_IN'] },
+  openGraph: { images: [DEFAULT_OG_IMAGE], title, description, url: alternates.canonical, siteName: 'RupeeKit', type: 'website', locale: 'bn_IN', alternateLocale: ['en_IN', 'hi_IN'] },
   twitter: { card: 'summary_large_image', title, description },
 };
 

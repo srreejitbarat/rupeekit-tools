@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getLiveTools } from '@/lib/tools';
 import { getPrimaryClusterForTool, getToolCluster, toolClusters } from '@/data/tool-clusters';
+import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 
@@ -22,7 +23,7 @@ export function generateMetadata({ params }: Props): Metadata {
     description: cluster.description,
     alternates: withLanguageAlternates({ canonical: pageUrl }),
     robots: { index: true, follow: true, 'max-image-preview': 'large' },
-    openGraph: { title: `${cluster.name} Calculators India`, description: cluster.description, url: pageUrl, type: 'website' },
+    openGraph: { images: [DEFAULT_OG_IMAGE], title: `${cluster.name} Calculators India`, description: cluster.description, url: pageUrl, siteName: 'RupeeKit', type: 'website', locale: 'en_IN' },
   };
 }
 
@@ -31,6 +32,11 @@ export default function ToolClusterHubPage({ params }: Props) {
   if (!cluster) notFound();
 
   const tools = getLiveTools().filter((tool) => getPrimaryClusterForTool(tool)?.slug === cluster.slug);
+  // Hubs with only a few tools are otherwise little more than a link list, so
+  // surface each tool's leading FAQs (at most six in total).
+  const relatedFaqs = tools
+    .flatMap((tool) => tool.faqs.slice(0, tools.length > 3 ? 1 : 2))
+    .slice(0, 6);
   const pageUrl = `${SITE_URL}/tool-hubs/${cluster.slug}`;
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -101,6 +107,20 @@ export default function ToolClusterHubPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      {relatedFaqs.length > 0 && (
+        <section className="mt-10" aria-labelledby="hub-faqs">
+          <h2 id="hub-faqs" className="text-2xl font-black text-brandDeepNavy dark:text-white">Related questions</h2>
+          <dl className="mt-5 grid gap-5 md:grid-cols-2">
+            {relatedFaqs.map((faq) => (
+              <div key={faq.question} className="rounded-3xl border border-brandBorder bg-white p-6 dark:border-slate-800 dark:bg-slate-900">
+                <dt className="font-bold text-brandDeepNavy dark:text-white">{faq.question}</dt>
+                <dd className="mt-2 text-sm leading-7 text-slate-700 dark:text-slate-300">{faq.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <section className="mt-10 rounded-3xl border border-amber-200 bg-amber-50 p-6 text-sm leading-7 text-amber-950 dark:border-amber-900/50 dark:bg-amber-950/20 dark:text-amber-100">
         <h2 className="text-lg font-black">Educational planning, not personalised advice</h2>
