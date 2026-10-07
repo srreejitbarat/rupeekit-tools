@@ -33,24 +33,28 @@ describe('issue #71 query-variant and PAA coverage', () => {
     expect(expectedToolSlugs.length + expectedBlogSlugs.length).toBe(10);
   });
 
-  it('adds useful sections and at least two visible PAA-style FAQs per touched page', () => {
+  it('adds non-empty query guidance without a section or FAQ quota', () => {
     for (const slug of expectedToolSlugs) {
       const override = toolOverrides[slug];
-      expect(override.contentSections?.length ?? 0, slug).toBeGreaterThanOrEqual(2);
-      expect(override.faqs?.length ?? 0, slug).toBeGreaterThanOrEqual(2);
+      for (const section of override.contentSections ?? []) {
+        expect(section.heading.trim(), slug).not.toBe('');
+        expect(section.body.trim(), slug).not.toBe('');
+      }
       for (const faq of override.faqs ?? []) {
         expect(faq.question.trim().endsWith('?'), `${slug}: ${faq.question}`).toBe(true);
-        expect(faq.answer.trim().length, `${slug}: ${faq.question}`).toBeGreaterThan(40);
+        expect(faq.answer.trim(), `${slug}: ${faq.question}`).not.toBe('');
       }
     }
 
     for (const slug of expectedBlogSlugs) {
       const override = blogOverrides[slug];
-      expect(override.sections?.length ?? 0, slug).toBeGreaterThanOrEqual(2);
-      expect(override.faqs?.length ?? 0, slug).toBeGreaterThanOrEqual(2);
+      for (const section of override.sections ?? []) {
+        expect(section.title.trim(), slug).not.toBe('');
+        expect(section.paragraphs.every((paragraph) => paragraph.trim()), slug).toBe(true);
+      }
       for (const faq of override.faqs ?? []) {
         expect(faq.question.trim().endsWith('?'), `${slug}: ${faq.question}`).toBe(true);
-        expect(faq.answer.trim().length, `${slug}: ${faq.question}`).toBeGreaterThan(40);
+        expect(faq.answer.trim(), `${slug}: ${faq.question}`).not.toBe('');
       }
     }
   });

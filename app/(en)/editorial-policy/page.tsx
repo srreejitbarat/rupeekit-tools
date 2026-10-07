@@ -95,12 +95,10 @@ export default function EditorialPolicyPage() {
         Who writes and reviews this content
       </h2>
       <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
-        All content is produced by the <strong>{EDITORIAL_TEAM_NAME}</strong>, our
-        in-house personal-finance research desk. We publish under an
-        organisational byline rather than inventing individual expert profiles.
-        Where a topic requires professional judgement — for example, whether a
-        specific deduction applies to your return — we say so and point you to a
-        qualified professional instead of guessing on your behalf.
+        RupeeKit publishes under the <strong>{EDITORIAL_TEAM_NAME}</strong> organisational byline.
+        This identifies the publisher responsible for the page; it does not imply a particular team size,
+        professional qualification or independent specialist review. Where professional judgement is needed,
+        check with an appropriately qualified adviser.
       </p>
       <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
         The editorial team is responsible for research, formulas and publication. A dated source check means the linked
@@ -119,8 +117,9 @@ export default function EditorialPolicyPage() {
         Sources we use
       </h2>
       <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
-        Every rule, rate, threshold and deadline is traced to a primary Indian
-        source. We do not cite other finance blogs as authority for a number.
+        Our sourcing standard is to check changeable rules, rates, thresholds and deadlines against the
+        relevant primary Indian source. Use the exact source and check date shown on a page to assess a claim.
+        A link to an authority&apos;s homepage alone does not verify a particular number.
       </p>
       <ul className="mt-4 space-y-3">
         {primarySources.map((source) => (
@@ -152,8 +151,8 @@ export default function EditorialPolicyPage() {
           our arithmetic rather than trust a black box.
         </li>
         <li>
-          Each calculator has automated tests covering its formula and edge cases;
-          these run on every change before it can be merged.
+          The repository includes formula tests and automated checks. They help detect regressions;
+          passing them does not establish complete test coverage or professional validation of every calculator.
         </li>
         <li>
           A worked example with real numbers is published alongside the tool.
@@ -166,10 +165,20 @@ export default function EditorialPolicyPage() {
       </ol>
 
       <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
+        Automation and editorial responsibility
+      </h2>
+      <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
+        RupeeKit uses AI assistance and automation for drafting, translation and site maintenance.
+        These tools can make mistakes. The publisher remains responsible for the published content.
+        A generated draft, translation or automated check is not a substitute for factual and language review.
+        Sources, assumptions and corrections should be assessed on the specific page rather than inferred from this policy.
+      </p>
+
+      <h2 className="mt-10 text-2xl font-bold text-brandDeepNavy dark:text-white">
         Review cadence
       </h2>
       <p className="mt-4 leading-8 text-brandText dark:text-slate-300">
-        Every page carries a visible &ldquo;last reviewed&rdquo; date. Tax and
+        Where a page has a recorded source review, it carries a &ldquo;last reviewed&rdquo; date. Tax and
         salary pages are re-checked after the Union Budget, at the start of each
         financial year, and whenever the underlying rule changes. Rate-sensitive
         pages (PPF, EPF, NPS, FD, repo-linked loans) are re-checked when the

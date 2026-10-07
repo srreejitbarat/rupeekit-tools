@@ -1244,16 +1244,28 @@
         "format": "percent"
       }
     ],
-    "formulaExplanation": "Gross yield divides annual rent by property value. Net yield subtracts vacancy and recurring costs first.",
-    "example": "Rs 30,000 monthly rent on an Rs 80 lakh property is 4.5% gross yield before costs.",
+    "formulaExplanation": "Gross rental yield = monthly rent x 12 / current property value x 100. Net annual rent = monthly rent x (12 - vacancy months) - annual maintenance - annual property tax - other annual costs. Net yield = net annual rent / current property value x 100. The final illustration adds the appreciation assumption to net yield; it does not compound returns or include a sale.",
+    "example": "For a property valued at Rs 50 lakh with Rs 20,000 monthly rent, one vacant month and Rs 40,000 total annual ownership costs: gross annual rent is Rs 2,40,000, rent after vacancy is Rs 2,20,000 and net annual rent is Rs 1,80,000. Gross yield is 4.8%; net yield is 3.6%. These are illustrative inputs, not a market benchmark.",
     "faqs": [
       {
         "question": "Should I use purchase price or current value?",
-        "answer": "Current value is more useful for a hold-or-sell comparison."
+        "answer": "Use current value to compare keeping the property with selling it today. For a historical cost-based calculation, enter your chosen invested-cost figure and label the result accordingly; do not compare results using different denominators as if they were equivalent."
       },
       {
-        "question": "What is considered a good rental yield in India?",
-        "answer": "Residential rental yields in most Indian cities typically fall between 2% and 4%, so figures well above that range are worth double-checking against local market rent."
+        "question": "What is a good rental yield?",
+        "answer": "There is no universal threshold. Compare verified rents, vacancy, costs and property valuations for similar properties in the same area, then consider tax, financing, liquidity and concentration risk. This tool does not contain a local market-yield dataset."
+      },
+      {
+        "question": "Does net rental yield include my home-loan EMI?",
+        "answer": "No. The net yield deducts only the vacancy and annual cost fields shown. Calculate the loan cash flow separately. An EMI includes principal as well as interest, so it is different from an operating expense."
+      },
+      {
+        "question": "Can net rental yield be negative?",
+        "answer": "Yes. If annual ownership costs exceed rent collected after vacancy, net rent and net yield are negative. Check that all expense inputs are annual figures and that costs have not been counted twice."
+      },
+      {
+        "question": "Is the appreciation result a guaranteed return?",
+        "answer": "No. It adds your price-growth assumption to net rental yield for illustration. It does not model sale timing, reinvestment, transaction costs or an actual investment return."
       }
     ],
     "related": [
@@ -1262,7 +1274,36 @@
       "invest-vs-prepay-home-loan-calculator-india"
     ],
     "lastReviewed": "July 2026",
-    "lastReviewedIso": "2026-07-31"
+    "lastReviewedIso": "2026-07-31",
+    "howToUse": [
+      "Enter a realistic current property value and the monthly rent you expect to collect.",
+      "Enter expected vacant months over a year, including any gap between tenants.",
+      "Add annual maintenance, property tax and other recurring costs once each.",
+      "Read net yield alongside gross yield, then repeat with more vacancy or higher costs.",
+      "Treat appreciation as a separate assumption. Compare loan costs and tax separately before deciding whether to keep or sell."
+    ],
+    "assumptions": [
+      "Rent and recurring expenses are constant during the modelled year; partial vacancy months reduce rent proportionately.",
+      "Property value must be positive. This tool uses the value you enter and does not obtain a valuation or local rental quote.",
+      "Net yield here is before personal income tax and financing costs. EMI, loan interest, purchase stamp duty, registration, sale costs and capital-gains tax are not deducted automatically.",
+      "Yield plus appreciation is a simple illustration, not a forecast, an IRR or cash you can spend. Property prices can fall."
+    ],
+    "commonMistakes": [
+      "Mixing monthly rent with annual expense figures.",
+      "Counting the same maintenance bill under both annual maintenance and other costs.",
+      "Calling gross yield take-home income, or ignoring vacant months.",
+      "Comparing a pre-tax, unlevered property yield with an after-tax or leveraged investment return."
+    ],
+    "contentSections": [
+      {
+        "heading": "How one extra vacant month changes net yield",
+        "body": "Using the worked example, a second vacant month lowers rent after vacancy from Rs 2,20,000 to Rs 2,00,000. With the same Rs 40,000 costs, net rent becomes Rs 1,60,000 and net yield falls from 3.6% to 3.2%. This isolates vacancy risk; it does not assume that rent or property value will stay unchanged."
+      },
+      {
+        "heading": "Using yield for a hold-or-sell comparison",
+        "body": "Current value answers what the rental cash flow earns on the property value today. Your original purchase cost answers a different question about your invested cost. Use a consistent denominator for comparisons, and separately account for sale costs, taxes, loan balance and the income you would give up. A high yield alone does not establish that a property is a good investment."
+      }
+    ]
   },
   {
     "slug": "debt-snowball-calculator-india",

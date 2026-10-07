@@ -50,14 +50,6 @@
   "emergency-fund-calculator-india": {
     "contentSections": [
       {
-        "heading": "Should your emergency fund cover 3, 6, 9 or 12 months?",
-        "body": "Use the month multiplier as a risk buffer rather than a universal rule. A household with stable dual income may test a shorter buffer, while a single-income family, freelancer or household with high unavoidable EMIs may want to compare longer 6-, 9- or 12-month scenarios."
-      },
-      {
-        "heading": "How do EMIs change an emergency fund target?",
-        "body": "Include unavoidable monthly EMIs with essential living costs before multiplying by the number of protection months. This avoids building a fund that covers groceries and rent but ignores debt obligations that continue during a job loss or income interruption."
-      },
-      {
         "heading": "Emergency fund for freelancers and variable-income households",
         "body": "When income is irregular, test a longer protection period and use conservative essential-expense assumptions. The calculator shows a target and shortfall only; it does not predict how long a future income disruption will last."
       }

@@ -387,18 +387,13 @@ function firstSentence(text: string) {
 }
 
 function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
-  const keyInputs = tool.inputs.slice(0, 3).map((input) => input.label);
-  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 3).map((output) => output.label);
   const conciseFormula = firstSentence(tool.formulaExplanation);
   const conciseExample = firstSentence(tool.example);
 
   return {
     title: `${tool.name} Quick Answer`,
     question: `How does this calculator work?`,
-    answer:
-      keyInputs.length > 0 && keyOutputs.length > 0
-        ? `It estimates ${listLabels(keyOutputs)} using inputs such as ${listLabels(keyInputs)}.`
-        : 'It converts your inputs into educational estimate outputs using the calculator formula shown on this page.',
+    answer: tool.shortDescription,
     formula: conciseFormula.length <= 220 ? conciseFormula : undefined,
     example: conciseExample.length <= 220 ? conciseExample : undefined,
     note:
@@ -1000,7 +995,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       ? { href: '/tools/fd-calculator-india', label: 'FD calculator for low-volatility parking scenarios' }
       : null,
     { href: '/resources', label: 'RupeeKit resources hub for checklists and planning guides' },
-  ].filter((item): item is ContextualLink => item !== null);
+  ].filter((item): item is ContextualLink => item !== null && (
+    isHraPage || isPersonalLoanPage || isSalaryClusterPage || isSipPage
+    || related.some((candidate) => item.href === `/tools/${candidate.slug}`)
+    || supportingGuides.some((guide) => item.href === `/guides/${guide.slug}`)
+  ));
 
   const emergencyFundLinks: ContextualLink[] = [
     blogSlugs.has('how-much-emergency-fund')
@@ -1629,8 +1628,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   className="mt-8 scroll-mt-24"
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
-                  {/source and methodology/i.test(section.heading) ? (
-                    <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
+                  {/source and methodology/i.test(section.heading) && tool.lastReviewed ? (
+                    <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p>
                   ) : null}
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
                   {/source and methodology/i.test(section.heading) ? (
@@ -1792,15 +1791,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                         </tbody>
                       </table>
                     </div>
-                  </section>
-
-                  <section className="mt-8 scroll-mt-24">
-                    <h2 className="text-2xl font-bold">Should EMI be included in emergency fund calculation?</h2>
-                    <p className="mt-4 leading-8 text-slate-700">
-                      Yes, EMI commitments are usually included because they remain due during income disruption.
-                      This calculator adds monthly EMI commitments to essential expenses before multiplying by
-                      target months.
-                    </p>
                   </section>
 
                   <section className="mt-8 scroll-mt-24">
@@ -1996,7 +1986,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 <section className="mt-8">
                   <h2 className="text-2xl font-bold">Related calculators and guides</h2>
                   <p className="mt-4 leading-8 text-slate-700">
-                    You can cross-check this estimate using:{' '}
+                    Explore the next step with:{' '}
                     {contextualLinks.map((link, index) => (
                       <span key={link.href}>
                         {index > 0 ? ', ' : ''}
@@ -2017,16 +2007,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 </section>
               ) : null}
 
-              {!isEmergencyFundPage ? (
-                <>
-                  <h2 className="mt-8 text-2xl font-bold">When this tool is useful</h2>
-                  <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
-                    <li>When you want a fast estimate before making a financial or salary decision.</li>
-                    <li>When you want to compare different assumptions in seconds.</li>
-                    <li>When you want to understand the formula behind the result.</li>
-                  </ul>
-                </>
-              ) : null}
             </>
           )}
           {isMicroTool(tool.slug) && <ToolAdPlacement />}
@@ -2138,13 +2118,18 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <FactsTable id="calculator-facts" rows={genericCalculatorFacts} />
       ) : null}
 
+      {['ppf-calculator-india', 'sukanya-samriddhi-yojana-calculator-india', 'scss-calculator-india', 'post-office-monthly-income-scheme-calculator-india'].includes(tool.slug) ? (
+        <p className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-slate-800">
+          The displayed default is a previously checked assumption. Check the official rate for the quarter you need before using this projection.
+        </p>
+      ) : null}
+
       {showGenericSourceMethodology ? (
         <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
           {tool.lastReviewed ? <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p> : null}
           <p className="mt-4 leading-8 text-slate-700">
-            This calculator uses user-entered values and the formula logic shown on this page to generate educational
-            estimates. Method reference: {firstSentence(tool.formulaExplanation)}
+            {tool.formulaExplanation}
           </p>
           <p className="mt-4 leading-8 text-slate-700">
             Inputs are processed in-page to show planning outputs. RupeeKit does not provide personalized financial,

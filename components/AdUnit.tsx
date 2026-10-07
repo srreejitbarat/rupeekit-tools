@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 type AdUnitProps = {
-  /** Descriptive label shown when ad slot is reserved but not served */
+  /** Numeric AdSense slot ID. Legacy descriptive labels use the configured default slot. */
   slotName?: string;
   /** Fixed min-height to reserve (CLS-safe). Defaults to 100px (mobile), 250px (desktop) */
   minHeightClass?: string;
@@ -33,31 +33,21 @@ export default function AdUnit({
   adChannel,
 }: AdUnitProps) {
   const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const slot = /^\d+$/.test(slotName) ? slotName : process.env.NEXT_PUBLIC_ADSENSE_SLOT;
+  const configured = /^ca-pub-\d+$/.test(client ?? '') && /^\d+$/.test(slot ?? '');
   const insetRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
-    if (!client || !insetRef.current) return;
+    if (!configured || !insetRef.current) return;
     try {
       window.adsbygoogle = window.adsbygoogle || [];
       window.adsbygoogle.push({});
     } catch {
       /* Ad blocked or not ready — never break the page */
     }
-  }, [client]);
+  }, [configured, client, slot]);
 
-  if (!client) {
-    // In dev/tests, reserve the slot so layout math is identical to prod.
-    return (
-      <div
-        aria-hidden="true"
-        className={`w-full ${minHeightClass} flex items-center justify-center rounded-xl border border-dashed border-brandBorder bg-brandBgSoft ${className}`}
-      >
-        <span className="text-xs font-medium uppercase tracking-wide text-brandMuted">
-          Advertisement
-        </span>
-      </div>
-    );
-  }
+  if (!configured) return null;
 
   return (
     <div
@@ -69,7 +59,7 @@ export default function AdUnit({
         className="adsbygoogle block w-full"
         style={{ display: "block" }}
         data-ad-client={client}
-        data-ad-slot={slotName}
+        data-ad-slot={slot}
         data-ad-format="auto"
         data-full-width-responsive="true"
         {...(adChannel ? { "data-ad-channel": adChannel } : {})}

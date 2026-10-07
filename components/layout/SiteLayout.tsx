@@ -123,7 +123,7 @@ export default function SiteLayout({
         "@id": `${siteUrl}/#editorial-team`,
         name: `${siteName} Editorial Team`,
         description:
-          "RupeeKit's in-house personal-finance research desk. Every calculator, guide and update is written and reviewed against primary Indian sources — Income Tax Department, RBI, EPFO, PFRDA, PIB and the relevant Finance Act — before publication.",
+          "The organisational byline for the publisher responsible for RupeeKit's educational calculators, guides and updates. Refer to each page for its assumptions, sources and recorded review details.",
         url: `${siteUrl}/editorial-policy`,
         parentOrganization: { "@id": `${siteUrl}/#organization` },
         publishingPrinciples: `${siteUrl}/editorial-policy`,

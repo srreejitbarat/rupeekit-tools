@@ -63,6 +63,7 @@ if (!fs.existsSync(registerPath)) {
       const ageDays = Math.floor((today.getTime() - verified.getTime()) / 86_400_000);
       if (ageDays > entry.reviewIntervalDays) {
         warningCount += 1;
+        if (process.argv.includes('--strict')) fail(`${entry.id}: source review is overdue; record a real source check before review readiness is claimed`);
         console.warn(
           `[freshness] WARNING: ${entry.id} is ${ageDays} days since verification ` +
             `(review interval ${entry.reviewIntervalDays} days). Trigger: ${entry.reviewTrigger}`,

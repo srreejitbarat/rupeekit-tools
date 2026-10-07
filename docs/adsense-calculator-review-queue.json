@@ -1,0 +1,2198 @@
+{
+  "scope": "Composed live calculator registry; literal routes may add their own content. This is a review queue, not an AdSense score or an approval certificate.",
+  "humanReviewStatus": "pending",
+  "toolCount": 74,
+  "tools": [
+    {
+      "path": "/tools/salary-in-hand-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/salary-in-hand-calculator-india",
+        "/bn/tools/salary-in-hand-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-08-17",
+      "sourceLinks": [
+        {
+          "label": "Income Tax Department — Salaried Individuals for AY 2026-27",
+          "href": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1"
+        },
+        {
+          "label": "Employees' Provident Fund Organisation",
+          "href": "https://www.epfindia.gov.in/site_en/index.php"
+        },
+        {
+          "label": "Income Tax Department — ITR-2 online guidance for AY 2026-27",
+          "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/file-itr-2-online"
+        },
+        {
+          "label": "EPFO — Employees' Provident Fund Organisation",
+          "href": "https://www.epfindia.gov.in/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/emi-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/emi-calculator-india",
+        "/bn/tools/emi-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/personal-loan-emi-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/personal-loan-emi-calculator-india",
+        "/bn/tools/personal-loan-emi-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/emergency-fund-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/emergency-fund-calculator-india",
+        "/bn/tools/emergency-fund-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/sip-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/sip-calculator-india",
+        "/bn/tools/sip-calculator-india"
+      ],
+      "category": "Investments",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/gst-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/gst-calculator-india",
+        "/bn/tools/gst-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/fd-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/fd-calculator-india",
+        "/bn/tools/fd-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/income-tax-calculator-old-vs-new-regime-india",
+      "localizedPaths": [
+        "/hi/tools/income-tax-calculator-old-vs-new-regime-india",
+        "/bn/tools/income-tax-calculator-old-vs-new-regime-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [
+        {
+          "label": "Income Tax Department — e-Filing portal",
+          "href": "https://www.incometax.gov.in/iec/foportal/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/hra-exemption-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/hra-exemption-calculator-india",
+        "/bn/tools/hra-exemption-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/80c-deduction-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/80c-deduction-calculator-india",
+        "/bn/tools/80c-deduction-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/gratuity-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/gratuity-calculator-india",
+        "/bn/tools/gratuity-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/recurring-deposit-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/recurring-deposit-calculator-india",
+        "/bn/tools/recurring-deposit-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/home-loan-emi-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/home-loan-emi-calculator-india",
+        "/bn/tools/home-loan-emi-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/personal-loan-eligibility-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/personal-loan-eligibility-calculator-india",
+        "/bn/tools/personal-loan-eligibility-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-08-17",
+      "sourceLinks": [
+        {
+          "label": "SBI — Personal Loan eligibility for salaried employees",
+          "href": "https://sbi.co.in/web/personal-banking/loans/personal-loans/sbi-personal-loan"
+        },
+        {
+          "label": "HDFC Bank — Personal Loan eligibility criteria",
+          "href": "https://v.hdfcbank.com/htdocs/amp/personal-loan/eligibility_criteria.html"
+        },
+        {
+          "label": "ICICI Bank — Personal Loan eligibility check",
+          "href": "https://loan.icicibank.com/asset-portal-all/check-eligibility?loanType=pl"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/gold-loan-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/gold-loan-calculator-india",
+        "/bn/tools/gold-loan-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-08-24",
+      "sourceLinks": [
+        {
+          "label": "RBI — Lending Against Gold and Silver Collateral Directions, 2025",
+          "href": "https://rbi.org.in/scripts/NotificationUser.aspx?Id=12859&Mode=0"
+        },
+        {
+          "label": "RBI — Lending Against Gold and Silver Collateral Directions, 2025",
+          "href": "https://www.rbi.org.in/scripts/SearchResults.aspx?search=Lending%20Against%20Gold%20and%20Silver%20Collateral"
+        },
+        {
+          "label": "RBI — Handbook on Regulations at a Glance: Gold Loans",
+          "href": "https://website.rbi.org.in/documents/d/rbi/handbookg27022025d0f3f53f5d3c4310a6bb2f8ac2175d3a"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/capital-gains-tax-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/capital-gains-tax-calculator-india",
+        "/bn/tools/capital-gains-tax-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [
+        {
+          "label": "Income Tax Department - e-filing portal (tax tools and utilities)",
+          "href": "https://www.incometax.gov.in/iec/foportal/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/ppf-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/ppf-calculator-india",
+        "/bn/tools/ppf-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/lumpsum-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/lumpsum-calculator-india",
+        "/bn/tools/lumpsum-calculator-india"
+      ],
+      "category": "Investments",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/epf-corpus-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/epf-corpus-calculator-india",
+        "/bn/tools/epf-corpus-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/8th-pay-commission-salary-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/8th-pay-commission-salary-calculator-india",
+        "/bn/tools/8th-pay-commission-salary-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-08-22",
+      "sourceLinks": [
+        {
+          "label": "8th Central Pay Commission — About Us",
+          "href": "https://8cpc.gov.in/about-us/"
+        },
+        {
+          "label": "8th Central Pay Commission — Terms of Reference",
+          "href": "https://8cpc.gov.in/terms-of-reference/"
+        },
+        {
+          "label": "PIB — DA increased to 60% from 1 January 2026",
+          "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+        },
+        {
+          "label": "PIB — 7th CPC HRA escalation rules",
+          "href": "https://www.pib.gov.in/newsite/PrintRelease.aspx?relid=166967"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/cagr-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/cagr-calculator-india",
+        "/bn/tools/cagr-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/nps-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/nps-calculator-india",
+        "/bn/tools/nps-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-08-10",
+      "sourceLinks": [
+        {
+          "label": "Income Tax Department — Section 115BAC new-regime deductions",
+          "href": "https://www.incometaxindia.gov.in/w/computation-of-tax-for-individual-1"
+        },
+        {
+          "label": "Income Tax Department — Section 80CCD",
+          "href": "https://www.incometaxindia.gov.in/w/section-80ccd-21"
+        },
+        {
+          "label": "PFRDA — NPS All Citizen Model exit rules",
+          "href": "https://www.pfrda.org.in/en/schemes/national-pension-system/nps-for-all-citizen-models"
+        },
+        {
+          "label": "NPS Trust — tax benefits under NPS",
+          "href": "https://npstrust.org.in/index.php/benefits-of-nps"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/step-up-sip-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/step-up-sip-calculator-india",
+        "/bn/tools/step-up-sip-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/sukanya-samriddhi-yojana-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/sukanya-samriddhi-yojana-calculator-india",
+        "/bn/tools/sukanya-samriddhi-yojana-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": "2026-08-24",
+      "sourceLinks": [
+        {
+          "label": "NSI — Sukanya Samriddhi Account Scheme",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=171"
+        },
+        {
+          "label": "NSI — SSY deposit and maturity rules",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=177"
+        },
+        {
+          "label": "NSI — National Savings Scheme interest rates",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132"
+        },
+        {
+          "label": "India Post — Small Savings Schemes / Sukanya Samriddhi Account",
+          "href": "https://www.indiapost.gov.in/banking-services/savings"
+        },
+        {
+          "label": "National Savings Institute — Sukanya Samriddhi Account Scheme Rules",
+          "href": "https://www.nsiindia.gov.in/writereaddata/SchemeRules/SukanyaSamriddhiAccountSchemeRule.pdf"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/net-worth-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/net-worth-calculator-india",
+        "/bn/tools/net-worth-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": null,
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/mutual-fund-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/mutual-fund-calculator-india",
+        "/bn/tools/mutual-fund-calculator-india"
+      ],
+      "category": "Investments",
+      "recordedSourceReview": "2026-08-10",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/retirement-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/retirement-calculator-india",
+        "/bn/tools/retirement-calculator-india"
+      ],
+      "category": "Planning",
+      "recordedSourceReview": "2026-08-10",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/stock-portfolio-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/stock-portfolio-calculator-india",
+        "/bn/tools/stock-portfolio-calculator-india"
+      ],
+      "category": "Investments",
+      "recordedSourceReview": "2026-08-10",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/pre-emi-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/pre-emi-calculator-india",
+        "/bn/tools/pre-emi-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-09-23",
+      "sourceLinks": [
+        {
+          "label": "RBI housing-loan FAQ: pre-EMI",
+          "href": "https://www.rbi.org.in/commonperson/english/scripts/FAQs.aspx?Id=701"
+        },
+        {
+          "label": "RBI fair practices: charging interest",
+          "href": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12678&Mode=0"
+        },
+        {
+          "label": "ICICI Bank home-loan EMI guide",
+          "href": "https://www.icici.bank.in/personal-banking/loans/home-loan/emi-calculator"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/no-cost-emi-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/no-cost-emi-calculator-india",
+        "/bn/tools/no-cost-emi-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-09-23",
+      "sourceLinks": [
+        {
+          "label": "Apple India — EMI, no-cost EMI and cashback terms",
+          "href": "https://www.apple.com/in/shop/browse/financing/terms"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/freelancer-remittance-fee-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/freelancer-remittance-fee-calculator-india",
+        "/bn/tools/freelancer-remittance-fee-calculator-india"
+      ],
+      "category": "Business",
+      "recordedSourceReview": "2026-09-23",
+      "sourceLinks": [
+        {
+          "label": "Wise India Business — receiving and conversion fees",
+          "href": "https://wise.com/in/pricing/business/receive"
+        },
+        {
+          "label": "PayPal India — commercial transaction and conversion fees",
+          "href": "https://www.paypal.com/in/business/paypal-business-fees"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/company-car-lease-exit-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/company-car-lease-exit-calculator-india",
+        "/bn/tools/company-car-lease-exit-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-09-23",
+      "sourceLinks": [
+        {
+          "label": "ORIX India — corporate employee lease arrangements",
+          "href": "https://www.orixindia.com/leasing/web/orix-lease-plus/corporate-lease"
+        },
+        {
+          "label": "Ayvens India — employee car lease choices",
+          "href": "https://www.ayvens.com/en-in/leasing-with-us/leasing-solutions/employee-car-lease/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/home-loan-swp-stress-test-india",
+      "localizedPaths": [
+        "/hi/tools/home-loan-swp-stress-test-india",
+        "/bn/tools/home-loan-swp-stress-test-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [
+        {
+          "label": "SEBI investor SIP calculator disclaimer",
+          "href": "https://investor.sebi.gov.in/calculators/sip_calculator.html"
+        },
+        {
+          "label": "SEBI Riskometer guidance",
+          "href": "https://investor.sebi.gov.in/riskometer.html"
+        },
+        {
+          "label": "SEBI exit-load explainer",
+          "href": "https://investor.sebi.gov.in/exit_load.html"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/gratuity-2026-old-vs-new-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/gratuity-2026-old-vs-new-calculator-india",
+        "/bn/tools/gratuity-2026-old-vs-new-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [
+        {
+          "label": "Ministry of Labour fixed-term employee FAQ, March 2026",
+          "href": "https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf"
+        },
+        {
+          "label": "Ministry of Labour general FAQ, January 2026",
+          "href": "https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/personal-loan-true-apr-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/personal-loan-true-apr-calculator-india",
+        "/bn/tools/personal-loan-true-apr-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [
+        {
+          "label": "RBI Key Facts Statement for Loans and Advances",
+          "href": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12663&Mode=0"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/invest-vs-prepay-home-loan-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/invest-vs-prepay-home-loan-calculator-india",
+        "/bn/tools/invest-vs-prepay-home-loan-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [
+        {
+          "label": "SEBI Riskometer guidance",
+          "href": "https://investor.sebi.gov.in/riskometer.html"
+        },
+        {
+          "label": "RBI pre-payment charges directions",
+          "href": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/loan-foreclosure-net-savings-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/loan-foreclosure-net-savings-calculator-india",
+        "/bn/tools/loan-foreclosure-net-savings-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [
+        {
+          "label": "RBI pre-payment charges directions",
+          "href": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/reduce-emi-vs-tenure-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/reduce-emi-vs-tenure-calculator-india",
+        "/bn/tools/reduce-emi-vs-tenure-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-07-16",
+      "sourceLinks": [
+        {
+          "label": "RBI pre-payment charges directions",
+          "href": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=12878&Mode=0"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/8th-pay-commission-arrears-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/8th-pay-commission-arrears-calculator-india",
+        "/bn/tools/8th-pay-commission-arrears-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-08-17",
+      "sourceLinks": [
+        {
+          "label": "8th Central Pay Commission — official website",
+          "href": "https://8cpc.gov.in/"
+        },
+        {
+          "label": "PIB — 8th CPC terms of reference and 18-month report period",
+          "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289"
+        },
+        {
+          "label": "PIB — DA and DR increased to 60% from 1 January 2026",
+          "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/8th-pay-commission-pension-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/8th-pay-commission-pension-calculator-india",
+        "/bn/tools/8th-pay-commission-pension-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-08-17",
+      "sourceLinks": [
+        {
+          "label": "8th Central Pay Commission — official website",
+          "href": "https://8cpc.gov.in/"
+        },
+        {
+          "label": "PIB — 8th CPC terms of reference and 18-month report period",
+          "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289"
+        },
+        {
+          "label": "PIB — DA and DR increased to 60% from 1 January 2026",
+          "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/rent-vs-buy-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/rent-vs-buy-calculator-india",
+        "/bn/tools/rent-vs-buy-calculator-india"
+      ],
+      "category": "Housing",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/home-affordability-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/home-affordability-calculator-india",
+        "/bn/tools/home-affordability-calculator-india"
+      ],
+      "category": "Housing",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/job-offer-comparison-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/job-offer-comparison-calculator-india",
+        "/bn/tools/job-offer-comparison-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/salary-increment-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/salary-increment-calculator-india",
+        "/bn/tools/salary-increment-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/bonus-tax-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/bonus-tax-calculator-india",
+        "/bn/tools/bonus-tax-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/fire-retirement-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/fire-retirement-calculator-india",
+        "/bn/tools/fire-retirement-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/education-loan-emi-tax-benefit-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/education-loan-emi-tax-benefit-calculator-india",
+        "/bn/tools/education-loan-emi-tax-benefit-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/rental-yield-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/rental-yield-calculator-india",
+        "/bn/tools/rental-yield-calculator-india"
+      ],
+      "category": "Housing",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/debt-snowball-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/debt-snowball-calculator-india",
+        "/bn/tools/debt-snowball-calculator-india"
+      ],
+      "category": "Debt",
+      "recordedSourceReview": "2026-07-31",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/term-life-insurance-cover-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/term-life-insurance-cover-calculator-india",
+        "/bn/tools/term-life-insurance-cover-calculator-india"
+      ],
+      "category": "Insurance",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/health-insurance-coverage-adequacy-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/health-insurance-coverage-adequacy-calculator-india",
+        "/bn/tools/health-insurance-coverage-adequacy-calculator-india"
+      ],
+      "category": "Insurance",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/car-loan-emi-affordability-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/car-loan-emi-affordability-calculator-india",
+        "/bn/tools/car-loan-emi-affordability-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/two-wheeler-loan-emi-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/two-wheeler-loan-emi-calculator-india",
+        "/bn/tools/two-wheeler-loan-emi-calculator-india"
+      ],
+      "category": "Loans",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/credit-card-minimum-due-trap-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/credit-card-minimum-due-trap-calculator-india",
+        "/bn/tools/credit-card-minimum-due-trap-calculator-india"
+      ],
+      "category": "Debt",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/credit-card-vs-personal-loan-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/credit-card-vs-personal-loan-calculator-india",
+        "/bn/tools/credit-card-vs-personal-loan-calculator-india"
+      ],
+      "category": "Debt",
+      "recordedSourceReview": "2026-08-03",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/sovereign-gold-bond-vs-physical-gold-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/sovereign-gold-bond-vs-physical-gold-calculator-india",
+        "/bn/tools/sovereign-gold-bond-vs-physical-gold-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": "2026-08-05",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/index-fund-vs-active-fund-cost-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/index-fund-vs-active-fund-cost-calculator-india",
+        "/bn/tools/index-fund-vs-active-fund-cost-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": "2026-08-05",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/elss-lock-in-vs-80c-options-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/elss-lock-in-vs-80c-options-calculator-india",
+        "/bn/tools/elss-lock-in-vs-80c-options-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": "2026-08-05",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/nps-tier-2-vs-mutual-fund-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/nps-tier-2-vs-mutual-fund-calculator-india",
+        "/bn/tools/nps-tier-2-vs-mutual-fund-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": "2026-08-05",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/xirr-portfolio-return-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/xirr-portfolio-return-calculator-india",
+        "/bn/tools/xirr-portfolio-return-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": "2026-08-05",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/rule-of-72-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/rule-of-72-calculator-india",
+        "/bn/tools/rule-of-72-calculator-india"
+      ],
+      "category": "Investing",
+      "recordedSourceReview": "2026-08-05",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/ops-vs-nps-pension-comparison-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/ops-vs-nps-pension-comparison-calculator-india",
+        "/bn/tools/ops-vs-nps-pension-comparison-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-08-08",
+      "sourceLinks": [
+        {
+          "label": "PFRDA Government Sector NPS exit FAQs",
+          "href": "https://www.pfrda.org.in/w/faqs/exits-for-government-sector-model-cg-and-cab"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/scss-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/scss-calculator-india",
+        "/bn/tools/scss-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": "2026-08-08",
+      "sourceLinks": [
+        {
+          "label": "NSI small-savings interest rates",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132"
+        },
+        {
+          "label": "NSI scheme features",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=27"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/post-office-monthly-income-scheme-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/post-office-monthly-income-scheme-calculator-india",
+        "/bn/tools/post-office-monthly-income-scheme-calculator-india"
+      ],
+      "category": "Savings",
+      "recordedSourceReview": "2026-08-08",
+      "sourceLinks": [
+        {
+          "label": "NSI small-savings interest rates",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=132"
+        },
+        {
+          "label": "NSI scheme features",
+          "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=27"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/child-education-cost-planner-india",
+      "localizedPaths": [
+        "/hi/tools/child-education-cost-planner-india",
+        "/bn/tools/child-education-cost-planner-india"
+      ],
+      "category": "Planning",
+      "recordedSourceReview": "2026-08-08",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/wedding-cost-planner-india",
+      "localizedPaths": [
+        "/hi/tools/wedding-cost-planner-india",
+        "/bn/tools/wedding-cost-planner-india"
+      ],
+      "category": "Planning",
+      "recordedSourceReview": "2026-08-08",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/rent-agreement-stamp-duty-registration-cost-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/rent-agreement-stamp-duty-registration-cost-calculator-india",
+        "/bn/tools/rent-agreement-stamp-duty-registration-cost-calculator-india"
+      ],
+      "category": "Housing",
+      "recordedSourceReview": "2026-08-08",
+      "sourceLinks": [],
+      "errors": [],
+      "review": [
+        "Check whether input instructions are sufficient in the UI",
+        "Review rounding, timing, units and model exclusions",
+        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/new-labour-code-take-home-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/new-labour-code-take-home-calculator-india",
+        "/bn/tools/new-labour-code-take-home-calculator-india"
+      ],
+      "category": "Salary",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "Code on Wages, 2019 (Ministry of Labour and Employment)",
+          "href": "https://labour.gov.in/sites/default/files/the_code_on_wages_2019.pdf"
+        },
+        {
+          "label": "EPFO — provident fund contribution rates",
+          "href": "https://www.epfindia.gov.in/site_en/index.php"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/gratuity-under-new-wage-code-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/gratuity-under-new-wage-code-calculator-india",
+        "/bn/tools/gratuity-under-new-wage-code-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "Payment of Gratuity Act, 1972 (Ministry of Labour and Employment)",
+          "href": "https://labour.gov.in/sites/default/files/paymentofgratuityact.pdf"
+        },
+        {
+          "label": "Code on Social Security, 2020",
+          "href": "https://labour.gov.in/sites/default/files/ss_code_gazette.pdf"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/room-rent-proportionate-deduction-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/room-rent-proportionate-deduction-calculator-india",
+        "/bn/tools/room-rent-proportionate-deduction-calculator-india"
+      ],
+      "category": "Insurance",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "IRDAI — Insurance Regulatory and Development Authority of India",
+          "href": "https://irdai.gov.in/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/notional-increment-pension-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/notional-increment-pension-calculator-india",
+        "/bn/tools/notional-increment-pension-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "Department of Personnel and Training — pension rules and orders",
+          "href": "https://persmin.gov.in/pension/rules.html"
+        },
+        {
+          "label": "Department of Pension and Pensioners' Welfare",
+          "href": "https://pensionersportal.gov.in/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/pension-commutation-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/pension-commutation-calculator-india",
+        "/bn/tools/pension-commutation-calculator-india"
+      ],
+      "category": "Retirement",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "CCS (Commutation of Pension) Rules, 1981",
+          "href": "https://persmin.gov.in/pension/rules_new/ccs_coprules_1981_060613.pdf"
+        },
+        {
+          "label": "Department of Pension and Pensioners' Welfare",
+          "href": "https://pensionersportal.gov.in/"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/epf-taxable-interest-rule-9d-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/epf-taxable-interest-rule-9d-calculator-india",
+        "/bn/tools/epf-taxable-interest-rule-9d-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "EPFO — Employees' Provident Fund Organisation",
+          "href": "https://www.epfindia.gov.in/site_en/index.php"
+        },
+        {
+          "label": "Income Tax Department — Income-tax Rules",
+          "href": "https://incometaxindia.gov.in/pages/rules/income-tax-rules-1962.aspx"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    },
+    {
+      "path": "/tools/inherited-property-capital-gains-calculator-india",
+      "localizedPaths": [
+        "/hi/tools/inherited-property-capital-gains-calculator-india",
+        "/bn/tools/inherited-property-capital-gains-calculator-india"
+      ],
+      "category": "Tax",
+      "recordedSourceReview": "2026-08-25",
+      "sourceLinks": [
+        {
+          "label": "Income Tax Department — cost inflation index notifications",
+          "href": "https://incometaxindia.gov.in/pages/utilities/cost-inflation-index.aspx"
+        },
+        {
+          "label": "Income Tax Department — capital gains",
+          "href": "https://incometaxindia.gov.in/pages/tools/income-tax-calculator.aspx"
+        }
+      ],
+      "errors": [],
+      "review": [
+        "Reproduce the example and inspect zero/boundary inputs",
+        "Confirm factual accuracy, distinct reader value and relevant next steps",
+        "Review Hindi and Bengali wording"
+      ],
+      "ownerReview": {
+        "reviewer": null,
+        "date": null,
+        "primaryClaimsVerified": false,
+        "exampleReproduced": false,
+        "distinctValueConfirmed": false,
+        "languageReviewComplete": false
+      }
+    }
+  ],
+  "otherPageFamilies": [
+    "blog",
+    "guides",
+    "money-guides",
+    "financial-updates",
+    "government-salary-updates",
+    "8th-pay-commission",
+    "nri",
+    "resources",
+    "trust and legal pages"
+  ],
+  "otherPageReview": "Use the production sitemap and rendered route manifest as the complete URL inventory. Review these families separately; calculator checks do not certify them."
+}

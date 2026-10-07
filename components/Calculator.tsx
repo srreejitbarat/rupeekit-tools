@@ -669,7 +669,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
                 ? 'This result is an estimate for educational use. RupeeKit does not provide tax, legal or filing advice. Your final exemption may depend on salary structure, employer policy, proof submission and applicable tax rules.'
                 : isEmergencyFundPage
                   ? 'Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice. The result is for planning support only.'
-                : 'This calculator gives an educational estimate. Verify final numbers with your payslip, lender, tax advisor or official source.'}
+                : 'This calculator gives an educational estimate based on your inputs and the stated assumptions. Check the underlying records before making a decision.'}
             </p>
           </div>
         </div>

@@ -56,15 +56,19 @@ function mergeUniqueStrings(base: string[] = [], extra: string[] = []): string[]
   return [...new Set([...base, ...extra])];
 }
 
+function contentKey(value: string): string {
+  return value.normalize('NFKC').toLocaleLowerCase('en-IN').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+}
+
 function mergeUniqueFaqs(base: ToolFaq[] = [], extra: ToolFaq[] = []): ToolFaq[] {
   const byQuestion = new Map<string, ToolFaq>();
-  [...base, ...extra].forEach((faq) => byQuestion.set(faq.question, faq));
+  [...base, ...extra].forEach((faq) => byQuestion.set(contentKey(faq.question), faq));
   return [...byQuestion.values()];
 }
 
 function mergeUniqueContentSections(base: ToolContentSection[] = [], extra: ToolContentSection[] = []): ToolContentSection[] {
   const byHeading = new Map<string, ToolContentSection>();
-  [...base, ...extra].forEach((section) => byHeading.set(section.heading, section));
+  [...base, ...extra].forEach((section) => byHeading.set(contentKey(section.heading), section));
   return [...byHeading.values()];
 }
 
@@ -110,25 +114,11 @@ function enrichLegacyTool(tool: Tool): Tool {
   const quickAnswer = tool.quickAnswer ?? {
     title: `${tool.name} Quick Answer`,
     question: `How does the ${tool.name} work?`,
-    answer:
-      inputLabels.length > 0 && outputLabels.length > 0
-        ? `It estimates ${listLabels(outputLabels)} from inputs such as ${listLabels(inputLabels)} using the formula shown on this page.`
-        : 'It converts the values you enter into formula-based educational estimates.',
+    answer: tool.shortDescription,
     formula: formulaLine.length <= 220 ? formulaLine : undefined,
     example: exampleLine.length <= 220 ? exampleLine : undefined,
     note: 'Educational estimate only. RupeeKit does not provide personalized financial, tax, legal, investment, or loan advice.',
   };
-
-  const hasMethodology = (tool.contentSections ?? []).some((section) => /source|methodology/i.test(section.heading));
-  const contentSections = hasMethodology
-    ? tool.contentSections
-    : [
-        ...(tool.contentSections ?? []),
-        {
-          heading: 'Source and methodology',
-          body: `This calculator uses the formula and assumptions described on this page. ${formulaLine} Values are calculated in-browser from user-entered inputs and are not saved by default. Verify tax, regulatory, lender, scheme or product rules with the relevant official source where applicable.`,
-        },
-      ];
 
   const factRows = tool.factRows?.length
     ? tool.factRows
@@ -143,7 +133,8 @@ function enrichLegacyTool(tool: Tool): Tool {
   return {
     ...tool,
     quickAnswer,
-    contentSections,
+    contentSections: mergeUniqueContentSections(tool.contentSections),
+    faqs: mergeUniqueFaqs(tool.faqs),
     factRows,
   };
 }
@@ -152,19 +143,7 @@ export const allTools = sourceTools.map((tool) => {
   const priorityOverride = prioritySearchOverrides[tool.slug];
   const priorityMergedTool = priorityOverride ? { ...tool, ...priorityOverride } : tool;
   const rescueOverride = issue76Overrides[tool.slug];
-  const mergedTool = rescueOverride
-    ? {
-        ...priorityMergedTool,
-        ...rescueOverride,
-        contentSections: [
-          ...(priorityMergedTool.contentSections ?? []),
-          ...(rescueOverride.contentSections ?? []),
-        ],
-        faqs: [...priorityMergedTool.faqs, ...(rescueOverride.faqs ?? [])],
-        officialSources: mergeUniqueSources(priorityMergedTool.officialSources, rescueOverride.officialSources),
-        related: mergeUniqueStrings(priorityMergedTool.related, rescueOverride.related),
-      }
-    : priorityMergedTool;
+  const mergedTool = mergeToolOverride(priorityMergedTool, rescueOverride);
   const seoOverride = ctrSeoOverrides[tool.slug];
   const directAnswer = directAnswers[tool.slug];
   const queryVariant = queryVariants[tool.slug];

@@ -2,10 +2,15 @@ import fs from 'node:fs';
 import {catalogProblems} from './catalog-quality.mjs';
 import {writeUtf8} from './write-file.mjs';
 
-const sources=JSON.parse(fs.readFileSync('lib/i18n/catalogs/supplemental-sources.json','utf8'));
+const repairFixes=JSON.parse(fs.readFileSync('docs/adsense-repair-translations.json','utf8'));
+const sources=[...new Set([
+  ...JSON.parse(fs.readFileSync('lib/i18n/catalogs/supplemental-sources.json','utf8')),
+  ...Object.keys(repairFixes.hi),
+  ...Object.keys(repairFixes.bn),
+])];
 const fixes={
-  hi:JSON.parse(fs.readFileSync('docs/hindi-visible-copy-fixes.json','utf8')),
-  bn:JSON.parse(fs.readFileSync('docs/bengali-visible-copy-fixes.json','utf8')),
+  hi:{...JSON.parse(fs.readFileSync('docs/hindi-visible-copy-fixes.json','utf8')), ...repairFixes.hi},
+  bn:{...JSON.parse(fs.readFileSync('docs/bengali-visible-copy-fixes.json','utf8')), ...repairFixes.bn},
 };
 
 for(const locale of ['hi','bn']){

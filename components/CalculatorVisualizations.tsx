@@ -1004,7 +1004,7 @@ export function CalculatorInsightBox() {
         <span>💡</span> Educational Estimates Only
       </p>
       <p className="mt-1 text-slate-600">
-        This visual breakdown and compounding model is for educational understanding only. Actual outcomes can vary depending on interest accrual dates, taxation brackets, processing fees, and individual employer/lender terms.
+        This visual shows estimates from the calculator inputs and assumptions. It does not predict actual outcomes. Read the methodology and exclusions before using the result.
       </p>
     </div>
   );

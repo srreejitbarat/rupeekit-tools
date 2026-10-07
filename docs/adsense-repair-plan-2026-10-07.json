@@ -1,0 +1,65 @@
+{
+  "site": "https://www.rupeekit.co.in",
+  "plannedAt": "2026-10-07",
+  "baselineCommit": "669a10aaeb146de4405eee689945f1c137b23cec",
+  "notice": "Low value content is a site-quality finding. Google has not identified particular offending URLs. These repairs address observed defects; neither code checks nor this plan can guarantee approval.",
+  "googleGuidance": [
+    {"url":"https://support.google.com/adsense/answer/10015918", "requirement":"Provide original value, minimise repeated content, and make navigation work on desktop and mobile."},
+    {"url":"https://support.google.com/publisherpolicies/answer/11035931", "requirement":"Ad-supported content must comply with Google Search spam policies."},
+    {"url":"https://support.google.com/webmasters/answer/9044175#thin-content", "requirement":"Thin content must add meaningful value. Check Search Console separately before assuming a Search manual action exists."},
+    {"url":"https://developers.google.com/search/docs/fundamentals/creating-helpful-content", "requirement":"Use original work, accuracy, transparent authorship and a reader-first purpose. Google has no preferred word count."},
+    {"url":"https://developers.google.com/search/docs/essentials/spam-policies", "requirement":"Avoid scaled low-value content, doorway variants, scraping, keyword stuffing and thin affiliate pages."},
+    {"url":"https://support.google.com/publisherpolicies/answer/11190248", "requirement":"Curate automatically generated material; copied or rewritten material needs added value."},
+    {"url":"https://support.google.com/publisherpolicies/answer/11112688", "requirement":"Do not place ads on empty, low-value, unfinished or navigation-only screens."},
+    {"url":"https://support.google.com/publisherpolicies/answer/11169917", "requirement":"Publisher content must outweigh advertisements and paid promotions."},
+    {"url":"https://support.google.com/adsense/answer/3394713", "requirement":"Keep ads distinct from content, navigation and download actions."},
+    {"url":"https://support.google.com/adsense/answer/48182", "requirement":"Follow the wider programme rules, including valid traffic, ad implementation and privacy obligations."},
+    {"url":"https://support.google.com/adsense/answer/10502938", "requirement":"Represent the publisher honestly; protect privacy and avoid misleading inventory or ad interactions."},
+    {"url":"https://developers.google.com/search/docs/appearance/page-experience", "requirement":"Make main content accessible, mobile friendly and usable without intrusive ads."},
+    {"url":"https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls", "requirement":"Keep canonical, sitemap and internal links consistent; redirect genuinely retired duplicates rather than removing useful distinct tools."}
+  ],
+  "observedDefects": [
+    {"priority":"P0", "location":"lib/tools.ts", "finding":"Legacy tools receive synthetic field-list answers and generic methodology; override merges can accumulate duplicate FAQs and headings.", "repair":"Use authored purpose text, normalise exact duplicates, and display the complete method without adding filler sections."},
+    {"priority":"P0", "location":"components/Calculator.tsx; components/CalculatorVisualizations.tsx", "finding":"Shared disclaimers mention payslips, lenders and compounding even where irrelevant.", "repair":"State the actual estimate boundary in neutral language."},
+    {"priority":"P0", "location":"app/(en)/tools/[slug]/page.tsx", "finding":"Emergency-fund explanations recur; legacy tools get a repeated usefulness list and unrelated cross-check links.", "repair":"Keep one explanation per topic and use explicit related-tool and guide relationships."},
+    {"priority":"P0", "location":"data/decision-tools-2026.json", "finding":"Rental yield has a shallow example and an unsupported market-yield benchmark.", "repair":"Provide an independently checkable worked example, vacancy sensitivity, input guidance, model exclusions and relevant FAQs."},
+    {"priority":"P0", "location":"app/(en)/editorial-policy/page.tsx", "finding":"Claims of an in-house research desk, universal tests and universal source checks are not supported by repository evidence.", "repair":"Describe publisher responsibility, automation assistance and actual verification limits honestly."},
+    {"priority":"P1", "location":"components/AdUnit.tsx", "finding":"Named labels are passed as slot IDs, and unconfigured placements leave empty boxes.", "repair":"Render manual units only with valid publisher and numeric slot IDs; retain space for configured units."},
+    {"priority":"P1", "location":"components/GenericCalculatorExperience.tsx", "finding":"Bars can compare rupees, percentages and months on the same scale; zero is shown with a positive bar.", "repair":"Use separate scales by unit and show zero accurately."},
+    {"priority":"P1", "location":"scripts/validate-ai-seo-readiness.mjs", "finding":"FAQ quotas encourage padding.", "repair":"Validate useful non-empty questions and visible/schema alignment rather than an arbitrary count."}
+  ],
+  "implementationOrder": [
+    "Repair shared rendering, metadata-safe deduplication and honest editorial claims.",
+    "Improve rental yield and remove overlapping emergency-fund copy without changing calculation formulas.",
+    "Translate changed visible text into Hindi and Bengali and verify generated pages.",
+    "Add substantive content checks to repository validation and generate a full tool-review queue.",
+    "Run validation, lint, type checking, formula tests and production rendering checks.",
+    "Prepare a reviewable branch and pull request; record deployment and live checks separately.",
+    "Complete human source, language and usability review across the remaining inventory, then request AdSense review."
+  ],
+  "contentStandard": {
+    "calculator":"A useful working calculation, clear input units, reproducible example, assumptions and exclusions, interpretation of outputs, realistic comparison, relevant next step, and primary references for external rules.",
+    "article":"A specific reader question, original analysis or a worked case, verified primary evidence, decision limits, related tool when useful, accurate author attribution and genuine review dates.",
+    "financialNews":"Distinguish proposal from notification and announcement from effective date; link the primary document; explain who is affected and what to check.",
+    "affiliate":"Disclose the relationship, verify official product details, explain comparison criteria and drawbacks, and avoid payout-driven rankings or unsupported recommendations.",
+    "translation":"Complete understandable Hindi/Bengali copy, correct units, dates, formula meaning and local-language navigation; a generated catalog check does not replace language review.",
+    "noQuotas":"No minimum word count, article count, FAQ count or traffic number is treated as an AdSense approval rule."
+  },
+  "publishingGate": {
+    "requiredBeforeNewPublication":["Named accountable publisher review", "Exact primary sources and check dates for external factual claims", "Original added value", "Reproduced arithmetic and edge cases", "Readability and language checks", "Working relevant links", "Metadata, canonical and schema consistency"],
+    "automation":"Use AI to draft and identify issues. Publish through a reviewed pull request. Do not allow daily keyword-driven automation to push new pages directly to main.",
+    "externalWorkflowStatus":"The supplied n8n runbook describes direct publishing. Active n8n settings and repository branch protection have not been verified or changed; the owner must check the live instance.",
+    "sourceRule":"A source homepage alone does not prove a particular tax rate or deadline. Save the exact notification, provision, product disclosure or official calculation method.",
+    "dateRule":"Change a reviewed date only after a real recorded check. A copy edit is not proof that all financial rules were reverified."
+  },
+  "reviewExitCriteria": [
+    "Repository checks pass and the reviewed changes are deployed.",
+    "Every indexable content family and all flagged weak pages receive human review, including Hindi and Bengali.",
+    "No outstanding inaccurate financial claim, broken calculation, deceptive author claim, irrelevant filler or unfinished ad-bearing page.",
+    "Live mobile calculations, navigation, sharing/printing and ad layout are verified.",
+    "AdSense ownership access, publisher ID, ads.txt, privacy disclosures and applicable consent configuration are verified in the actual account and deployment.",
+    "Search Console Security and Manual Actions reports are checked separately. Use reconsideration only if a Search manual action exists.",
+    "AdSense Sites status and policy details are reread; confirm issues fixed and Request review only after the above checks."
+  ],
+  "ownerOnlyChecks": ["Live n8n workflow publication controls", "Truth of author credentials and organisational claims", "Primary-source signoff on regulated financial content", "Native-language editorial review", "AdSense account and consent settings", "Search Console Manual Actions status", "Final live deployment verification"]
+}

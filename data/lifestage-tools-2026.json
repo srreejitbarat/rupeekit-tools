@@ -127,7 +127,7 @@
     "status": "live",
     "targetKeyword": "SCSS calculator India",
     "shortDescription": "Estimate quarterly SCSS interest and five-year payout using the current rate or your own rate assumption.",
-    "metaDescription": "Calculate SCSS quarterly interest and 5-year interest using a deposit up to ₹30 lakh and the current 8.2% rate for Jul-Sep 2026.",
+    "metaDescription": "Calculate SCSS quarterly interest and 5-year interest using a deposit up to Rs 30 lakh and an editable rate. The 8.2% default was checked for Jul-Sep 2026.",
     "inputs": [
       {
         "key": "deposit",
@@ -221,7 +221,7 @@
     "status": "live",
     "targetKeyword": "post office monthly income scheme calculator",
     "shortDescription": "Estimate monthly income from a Post Office Monthly Income Scheme deposit.",
-    "metaDescription": "Calculate Post Office MIS monthly interest using the current 7.4% rate for Jul-Sep 2026. Includes single-account ₹9 lakh cap guidance.",
+    "metaDescription": "Calculate Post Office MIS monthly interest with an editable rate. The 7.4% default was checked for Jul-Sep 2026. Includes single-account Rs 9 lakh cap guidance.",
     "inputs": [
       {
         "key": "deposit",

@@ -85,11 +85,8 @@ for (const slug of PRIORITY_TOOL_SLUGS) {
     `quickAnswer.answer missing for ${slug}`
   );
 
-  const minimumFaqCount = 8;
-  ensure(
-    Array.isArray(tool.faqs) && tool.faqs.length >= minimumFaqCount,
-    `Priority tool must have at least ${minimumFaqCount} FAQs: ${slug}`
-  );
+  ensure(Array.isArray(tool.faqs), `Priority tool FAQ data must be an array: ${slug}`);
+  ensure((tool.faqs ?? []).every((faq) => faq.question?.trim() && faq.answer?.trim()), `Empty priority FAQ: ${slug}`);
   ensure(typeof tool.lastReviewed === 'string' && tool.lastReviewed.trim().length > 0, `Priority tool missing lastReviewed: ${slug}`);
 
   const hasSourceMethodology = Array.isArray(tool.contentSections)
@@ -110,10 +107,6 @@ for (const slug of PRIORITY_TOOL_SLUGS) {
   }
 
   if (slug === 'personal-loan-emi-calculator-india') {
-    ensure(
-      Array.isArray(tool.faqs) && tool.faqs.length >= 10,
-      'Personal loan tool must have at least 10 visible FAQs'
-    );
     ensure(
       typeof tool.quickAnswer?.question === 'string'
         && /how is personal loan emi calculated\?/i.test(tool.quickAnswer.question),
@@ -314,10 +307,6 @@ ensure(
     && dedicatedIncomeTaxToolSource.includes("publisher: { '@id': `${SITE_URL}/#organization` }"),
   'Dedicated income-tax WebApplication schema should link to the site publisher and identify language'
 );
-ensure(
-  [...dedicatedIncomeTaxToolSource.matchAll(/question:\s*'[^']+'/g)].length >= 8,
-  'Dedicated income-tax calculator should include at least 8 visible FAQs'
-);
 
 const disallowedSchemaTokens = [
   /@type['"]?\s*:\s*['"]Product['"]/,
@@ -384,10 +373,6 @@ for (const slug of PRIORITY_BLOG_SLUGS) {
   ensure(/question:\s*'[^']+/.test(block), `Priority blog quickAnswer.question missing: ${slug}`);
   ensure(/answer:\s*'[^']+/.test(block), `Priority blog quickAnswer.answer missing: ${slug}`);
   ensure(/answerEngineSummary:\s*'[^']+/.test(block), `Priority blog missing answerEngineSummary: ${slug}`);
-  ensure(
-    [...block.matchAll(/question:\s*'[^']+'/g)].length >= 8,
-    `Priority blog must have at least 8 FAQs: ${slug}`
-  );
 }
 
 ensure(

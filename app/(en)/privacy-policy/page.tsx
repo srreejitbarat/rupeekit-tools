@@ -66,6 +66,16 @@ export default function PrivacyPolicyPage() {
         only non-identifying events such as form viewed, form submitted and confirmation-page reached; the email address
         itself is not an analytics parameter. You can control cookies through your browser settings.
       </p>
+      <h2 className="mt-8 text-2xl font-bold">Google advertising</h2>
+      <p className="mt-4 leading-8 text-slate-700">
+        When Google ads are served, Google and other third parties may place or read cookies and use web beacons,
+        IP addresses or other identifiers to deliver and measure advertising. This can include personalised advertising
+        where permitted by the applicable consent settings. Calculator inputs are not sent as advertising parameters.
+      </p>
+      <p className="mt-4 leading-8 text-slate-700">
+        Learn <a href="https://policies.google.com/technologies/partner-sites" className="font-semibold underline underline-offset-2">how Google uses data on partner sites</a> and
+        manage ad preferences through <a href="https://myadcenter.google.com/" className="font-semibold underline underline-offset-2">My Ad Center</a>.
+      </p>
       <h2 className="mt-8 text-2xl font-bold">Sensitive data handling</h2>
       <p className="mt-4 leading-8 text-slate-700">
         We avoid collecting sensitive financial or identity data such as PAN, Aadhaar, bank account details, or card

@@ -789,14 +789,6 @@
         "answer": "Many salaried households may start with 3 to 6 months of monthly survival cost and then increase the buffer based on dependants, EMI burden and income stability."
       },
       {
-        "question": "Is 6 months of expenses enough?",
-        "answer": "Six months is often used as a planning baseline, but some households may consider 9 to 12 months when income is less stable or fixed obligations are high."
-      },
-      {
-        "question": "Should I include EMI in emergency fund calculation?",
-        "answer": "Yes, EMI commitments are usually included because they are fixed obligations that continue even during income disruption."
-      },
-      {
         "question": "Should emergency fund be based on salary or expenses?",
         "answer": "Emergency corpus is generally expense-led. This calculator uses essential monthly expenses plus EMI commitments as the core planning base."
       },
@@ -819,10 +811,6 @@
       {
         "question": "Is this emergency fund calculator financial advice?",
         "answer": "No. This is an educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice."
-      },
-      {
-        "question": "Is this the same as a savings or emergency savings calculator?",
-        "answer": "Yes, in effect. It estimates the emergency savings corpus you should target based on your expenses, EMIs, dependants and income stability, so it works as an emergency savings calculator for Indian households."
       }
     ],
     "related": [
@@ -844,7 +832,8 @@
     "assumptions": [
       "Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice. The result is for planning support only.",
       "Expenses and EMIs entered by the user are assumed to be accurate and stable for planning.",
-      "Actual outcomes may vary due to job changes, income disruption, inflation, interest rates and personal spending patterns."
+      "Actual outcomes may vary due to job changes, income disruption, inflation, interest rates and personal spending patterns.",
+      "The savings timeline is meaningful only when monthly saving capacity is greater than zero. With no contributions, the tool cannot give a realistic completion date."
     ],
     "contentSections": [
       {
@@ -865,19 +854,14 @@
         "body": "A practical emergency fund target may vary by household structure, number of dependants and income certainty. The table below gives planning ranges only."
       },
       {
-        "heading": "3-Month vs 6-Month vs 12-Month Emergency Fund",
-        "body": "A 3 month corpus may help with short disruptions, while a 6 month corpus is a common baseline for many households. A 9 to 12 month emergency savings calculator target may be more suitable when income is uncertain or obligations are high."
-      },
-      {
         "heading": "What Counts as Essential Monthly Expenses?",
-        "body": "Use core monthly costs needed to run your household without lifestyle extras.",
+        "body": "Enter core household costs in essential expenses and put loan EMIs in the separate EMI field. Do not count the same EMI twice.",
         "bullets": [
           "Rent or maintenance",
           "Groceries and utilities",
           "Insurance premiums",
           "Basic transport",
-          "School fees and unavoidable household bills",
-          "Monthly EMI commitments"
+          "School fees and unavoidable household bills"
         ]
       },
       {

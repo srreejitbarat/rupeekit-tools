@@ -32,7 +32,7 @@ export default function AboutPage() {
       <h1 className="text-4xl font-black tracking-tight">About RupeeKit</h1>
       <AnswerEngineSummary
         className="mt-6"
-        summary="RupeeKit is an independent, calculator-first educational finance website for India. Its in-house editorial team builds and reviews calculators against primary Indian sources; RupeeKit is not a lender, tax firm, or SEBI-registered investment adviser."
+        summary="RupeeKit is an independent, calculator-first educational finance website for India. The publisher is responsible for the calculators and guides, which use stated assumptions and primary sources where relevant. RupeeKit is not a lender, tax firm, or SEBI-registered investment adviser."
       />
 
       <section aria-labelledby="who-runs-rupeekit" className="mt-8">
