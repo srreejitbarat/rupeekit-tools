@@ -107,15 +107,7 @@ export default function ToolsIndexPage() {
           products. Each one shows the formula, a worked example, common mistakes and FAQs, so you
           understand the math rather than just the final number. All results are educational
           estimates — verify major tax, loan and investment decisions with official sources or a
-          qualified professional. New here? Start with the{' '}
-          <Link href="/start-here" className="font-bold text-brandNavy hover:underline dark:text-brandBrightGreen">
-            Start Here guide
-          </Link>{' '}
-          or take the{' '}
-          <Link href="/money-health-check" className="font-bold text-brandNavy hover:underline dark:text-brandBrightGreen">
-            Money Health Check
-          </Link>
-          .
+          qualified professional.
         </p>
       </section>
     </div>

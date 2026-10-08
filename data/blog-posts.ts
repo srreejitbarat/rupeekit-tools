@@ -3022,8 +3022,6 @@ export const blogPosts: BlogPost[] = [
         { label: 'Estimate your gratuity with the Gratuity Calculator', href: '/tools/gratuity-calculator-india' },
         { label: 'See your gratuity on the revised wage base', href: '/tools/gratuity-under-new-wage-code-calculator-india' },
         { label: 'Check what the 50% wage rule does to your take-home', href: '/tools/new-labour-code-take-home-calculator-india' },
-        { label: 'Compare old vs new gratuity wage-base scenarios', href: '/guides/gratuity-2026-old-vs-new' },
-        { label: 'Fixed-term employee one-year gratuity guide', href: '/guides/fixed-term-employee-gratuity-one-year' },
       ],
     },
     answerEngineSummary: 'India\'s four Labour Codes took effect on 21 November 2025. Under the Code on Social Security, 2020, a fixed-term employee qualifies for gratuity after one year of service under the contract. The general five-year continuous-service condition continues for regular employees unless another statutory exception applies.',

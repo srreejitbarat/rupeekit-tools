@@ -23,17 +23,15 @@ const toolSource = read('app', '(en)', 'tools', '[slug]', 'page.tsx');
 const taxToolSource = read('app', '(en)', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
 const blogSource = read('app', '(en)', 'blog', '[slug]', 'page.tsx');
 const blogLayoutSource = read('components', 'blog', 'BlogArticleLayout.tsx');
-const guideSource = read('app', '(en)', 'guides', '[slug]', 'page.tsx');
+const guideSource = read('app', '(en)', 'money-guides', '[slug]', 'page.tsx');
 const financialUpdateSource = read('app', '(en)', 'financial-updates', '[slug]', 'page.tsx');
-const governmentUpdateSource = read('app', '(en)', 'government-salary-updates', '[slug]', 'page.tsx');
 
 const schemaSources = [
   ['tool route', toolSource],
   ['dedicated income-tax route', taxToolSource],
   ['blog route', blogSource],
-  ['guide route', guideSource],
+  ['money guide route', guideSource],
   ['financial update route', financialUpdateSource],
-  ['government salary update route', governmentUpdateSource],
 ];
 
 for (const [label, source] of schemaSources) {
@@ -74,16 +72,11 @@ ensure(blogLayoutSource.includes('<FAQSection faqs={post.faqs} />'), 'blog FAQ s
 ensure(blogSource.includes("item: `${siteUrl}/blog`"), 'blog breadcrumb schema must point to /blog');
 ensure(blogSource.includes('item: pageUrl'), 'blog breadcrumb final item must equal the canonical page URL');
 
-// Calculator guides visibly render methodSteps as an ordered list, so HowTo mirrors visible steps.
-ensure(count(guideSource, "'@type': 'Article'") === 1, 'guide route should define exactly one Article schema');
-ensure(count(guideSource, "'@type': 'BreadcrumbList'") === 1, 'guide route should define exactly one BreadcrumbList schema');
-ensure(count(guideSource, "'@type': 'FAQPage'") === 1, 'guide route should define exactly one FAQPage schema');
-ensure(count(guideSource, "'@type': 'HowTo'") === 1, 'guide route should define exactly one HowTo schema');
-ensure(guideSource.includes("'@type': 'HowToStep'"), 'guide HowTo schema is missing HowToStep entries');
-ensure(guideSource.includes('step: cluster.methodSteps.map'), 'guide HowTo schema must derive from visible methodSteps');
-ensure(guideSource.includes('{cluster.methodSteps.map((step, index) => ('), 'guide page must visibly render the same methodSteps used by HowTo schema');
-ensure(guideSource.includes('dateModified: guide.lastReviewedIso'), 'guide Article dateModified should derive from stored review data');
-ensure(guideSource.includes("item: `${SITE_URL}/guides`"), 'guide breadcrumb schema must point to /guides');
+// Money guides publish one Article and one BreadcrumbList bound to stored review data.
+ensure(count(guideSource, "'@type': 'Article'") === 1, 'money guide route should define exactly one Article schema');
+ensure(count(guideSource, "'@type': 'BreadcrumbList'") === 1, 'money guide route should define exactly one BreadcrumbList schema');
+ensure(guideSource.includes('dateModified: guide.lastReviewedIso'), 'money guide Article dateModified should derive from stored review data');
+ensure(guideSource.includes('name: guide.title, item: url'), 'money guide breadcrumb final item must equal the canonical page URL');
 
 // Financial updates already use a current-content date fallback and conditionally visible FAQs.
 ensure(financialUpdateSource.includes('const dateModified = update.modifiedDate || update.publishedDate'), 'financial update should derive dateModified from stored dates');
@@ -92,13 +85,6 @@ ensure(financialUpdateSource.includes("'@type': 'BreadcrumbList'"), 'financial u
 ensure(financialUpdateSource.includes('const faqSchema = update.faqs && update.faqs.length > 0'), 'financial update FAQPage must be conditional on FAQ data');
 ensure(financialUpdateSource.includes('update.faqs.map'), 'financial update page should visibly use the same FAQ collection as schema');
 ensure(financialUpdateSource.includes("item: `${SITE_URL}/financial-updates`"), 'financial update breadcrumb must point to /financial-updates');
-
-// Government salary updates intentionally have no FAQ schema because the data model has no visible FAQ collection.
-ensure(governmentUpdateSource.includes("'@type': 'Article'"), 'government salary update is missing Article schema');
-ensure(governmentUpdateSource.includes("'@type': 'BreadcrumbList'"), 'government salary update is missing BreadcrumbList schema');
-ensure(governmentUpdateSource.includes('const dateModified ='), 'government salary update is missing a stored dateModified fallback');
-ensure(governmentUpdateSource.includes("item: `${SITE_URL}/government-salary-updates`"), 'government salary breadcrumb must point to /government-salary-updates');
-ensure(!governmentUpdateSource.includes("'@type': 'FAQPage'"), 'government salary update must not emit FAQPage without visible FAQs');
 
 if (errors > 0) {
   console.error(`\nStructured-data validation failed with ${errors} issue(s).`);

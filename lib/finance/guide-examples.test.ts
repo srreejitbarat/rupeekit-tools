@@ -18,11 +18,10 @@ describe('money decision guide calculations and references', () => {
     expect(() => reducingBalanceEmi(-1, 9, 12)).toThrow(RangeError);
   });
 
-  it('publishes ten distinct guides with supported examples and working catalog targets', () => {
-    expect(moneyGuides).toHaveLength(10);
-    expect(moneyGuides.filter((guide) => guide.priority === 'P0')).toHaveLength(5);
-    expect(moneyGuides.filter((guide) => guide.priority === 'P1')).toHaveLength(5);
-    expect(new Set(moneyGuides.map((guide) => guide.slug)).size).toBe(10);
+  it('publishes the two kept guides with supported examples and working catalog targets', () => {
+    // Eight thinner guides were retired as duplicates of their calculators.
+    expect(moneyGuides.map((guide) => guide.slug)).toEqual(['home-loan-prepayment', 'personal-loan-apr']);
+    expect(moneyGuides.every((guide) => guide.priority === 'P0')).toBe(true);
     const slugs = new Set(moneyGuides.map((guide) => guide.slug));
     for (const guide of moneyGuides) {
       expect(GUIDE_EXAMPLES[guide.slug]).toBeTruthy();

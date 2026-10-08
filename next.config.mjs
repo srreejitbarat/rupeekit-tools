@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+
+const retiredPages = JSON.parse(fs.readFileSync(new URL('./data/retired-pages.json', import.meta.url), 'utf8'));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -42,32 +46,20 @@ const nextConfig = {
         'delhi-government-employee-payroll-format',
       ].map((slug) => ({
         source: `/government-salary-updates/${slug}`,
-        destination: '/government-salary-updates',
+        // The tracker itself was later retired (data/retired-pages.json), so
+        // point straight at its replacement to avoid a redirect chain.
+        destination: '/8th-pay-commission',
         statusCode: 301,
       })),
-      // Generic beginner posts consolidated into stronger existing pages.
-      ...Object.entries({
-        'how-to-create-a-monthly-budget': '/resources/30-day-budget-challenge',
-        '50-30-20-budget-rule': '/resources/30-day-budget-challenge',
-        'how-to-track-expenses': '/resources/30-day-budget-challenge',
-        'build-better-money-habits': '/money-health-check',
-        'best-personal-finance-books-for-beginners': '/start-here',
-        'saving-vs-investing-for-beginners': '/money-guides/sip-investment-returns',
-        'debt-repayment-planning-for-beginners': '/tools/debt-snowball-calculator-india',
-      }).flatMap(([slug, destination]) =>
+      // Pages retired during the AdSense low-value-content review. Each one
+      // redirects, in every language, to the kept page covering the same need.
+      ...Object.entries(retiredPages).flatMap(([source, destination]) =>
         ['', '/hi', '/bn'].map((prefix) => ({
-          source: `${prefix}/blog/${slug}`,
+          source: `${prefix}${source}`,
           destination: `${prefix}${destination}`,
           statusCode: 301,
         })),
       ),
-      // Unfinished "coming soon" resource page retired so no ad-bearing
-      // placeholder screen remains indexable or linked.
-      ...['', '/hi', '/bn'].map((prefix) => ({
-        source: `${prefix}/resources/recommended-money-tools`,
-        destination: `${prefix}/resources`,
-        statusCode: 301,
-      })),
       // Slugs removed in 71d098d ("Replace old Financial Updates with EPFO
       // story"). Google still has these indexed and keeps re-crawling them,
       // which shows up as a coverage issue in Search Console.

@@ -1,5 +1,4 @@
 import { blogPosts } from '@/data/all-blog-posts';
-import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { financialUpdates } from '@/data/financial-updates';
 import hindiCatalog from '@/lib/i18n/catalogs/hi.json';
 import bengaliCatalog from '@/lib/i18n/catalogs/bn.json';
@@ -59,7 +58,7 @@ export function buildRssFeed(locale: Locale): string {
   for (const post of blogPosts) {
     add(`/blog/${post.slug}`, post.title, post.metaDescription, post.modifiedDateISO || post.publishedDateISO);
   }
-  for (const update of [...day18FinancialUpdates, ...financialUpdates]) {
+  for (const update of [...financialUpdates]) {
     if (update.status === 'sample') continue;
     add(`/financial-updates/${update.slug}`, update.title, update.summary, update.modifiedDate || update.publishedDate);
   }

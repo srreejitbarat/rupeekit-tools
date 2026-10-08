@@ -18,7 +18,6 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in
 // not automatically expose it through REST and MCP before its sources and tests are ready.
 export const PUBLIC_API_CALCULATOR_SLUGS = [
   'home-loan-swp-stress-test-india',
-  'gratuity-2026-old-vs-new-calculator-india',
   'personal-loan-true-apr-calculator-india',
   'invest-vs-prepay-home-loan-calculator-india',
   'loan-foreclosure-net-savings-calculator-india',

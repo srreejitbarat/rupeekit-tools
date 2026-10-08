@@ -1,7 +1,5 @@
 import { blogPosts as coreBlogPosts } from './blog-posts';
-import { extraBlogPosts } from './extra-blog-posts';
 import { day4ComplianceBlogPosts } from './day4-compliance-blog-posts';
-import { day7ComparisonBlogPosts } from './day7-comparison-blog-posts';
 import queryVariantBlogOverrides from './query-variant-blog-overrides-2026-08-18.json';
 import issue76BlogOverrides from './issue-76-blog-overrides-2026-08-23.json';
 import issue80BlogOverrides from './issue-80-blog-overrides-2026-08-27.json';
@@ -29,9 +27,7 @@ const issue76Overrides = issue76BlogOverrides as Record<string, Partial<Issue76B
 const issue80Overrides = issue80BlogOverrides as Record<string, Issue80BlogOverride>;
 
 export const blogPosts = [
-  ...day7ComparisonBlogPosts,
   ...day4ComplianceBlogPosts,
-  ...extraBlogPosts,
   ...coreBlogPosts,
 ]
   .filter((post) => !CONSOLIDATED_BLOG_SLUGS.has(post.slug))

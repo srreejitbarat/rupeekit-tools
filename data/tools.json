@@ -182,7 +182,7 @@
       }
     ],
     "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
-    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
+    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the EMI is about ₹20,758 a month. Over the full tenure you repay about ₹12,45,501, of which about ₹2,45,501 is interest.",
     "faqs": [
       {
         "question": "Can this be used for home loan EMI?",
@@ -1269,7 +1269,7 @@
       }
     ],
     "formulaExplanation": "FD maturity is estimated using compound interest: P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
-    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
+    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the maturity value is about ₹1,23,144, of which about ₹23,144 is interest earned before tax.",
     "faqs": [
       {
         "question": "Is TDS included in FD calculator results?",

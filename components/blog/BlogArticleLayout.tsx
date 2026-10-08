@@ -12,9 +12,8 @@ import BookRecommendationCard from './BookRecommendationCard';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
-import { BlogInlineVisual, BlogSharePreviewCard } from './BlogVisuals';
+import { BlogInlineVisual } from './BlogVisuals';
 import BrokerComparisonCard from './BrokerComparisonCard';
-import { Tax2026Stats, Tax2026CTA, Tax2026CompactCTA, CommonMistakesCards } from './Tax2026Visuals';
 import {
   FilingDeadlineTimeline,
   CapitalGainsRateShift,
@@ -112,28 +111,11 @@ function EmergencyFundExamplesTable() {
   );
 }
 
-function formatBlogDateLabel(isoDate?: string, fallback?: string) {
-  if (!isoDate) return fallback ?? 'Not specified';
-  const parsed = new Date(isoDate);
-  if (Number.isNaN(parsed.getTime())) return fallback ?? 'Not specified';
-  return parsed.toLocaleDateString('en-IN', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'Asia/Kolkata',
-  });
-}
-
 export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
   const isEmergencyFundGuide = post.slug === 'how-much-emergency-fund';
   const showTaxCrossLinks =
     post.slug === 'itr-2-ay-2026-27-filing-guide' ||
-    post.slug === 'income-tax-calculator-2026-calculator-guide' ||
     post.slug === 'personal-finance-checklist-for-salaried-people';
-  const lastUpdatedLabel = formatBlogDateLabel(post.modifiedDateISO || post.publishedDateISO, post.date);
-  const answerEngineSummary =
-    post.answerEngineSummary ||
-    `${post.h1} explains the key assumptions, practical steps, and common mistakes so you can plan with clearer estimates. This article is educational information only and should be cross-verified with official rules and records where required.`;
 
   const slugify = (text: string) => {
     return text
@@ -179,12 +161,11 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             answer={post.quickAnswer.answer}
             formula={post.quickAnswer.formula}
             example={post.quickAnswer.example}
-            note={post.quickAnswer.note}
             links={post.quickAnswer.links}
           />
-        ) : (
-          <AnswerEngineSummary summary={answerEngineSummary} />
-        )}
+        ) : post.answerEngineSummary ? (
+          <AnswerEngineSummary summary={post.answerEngineSummary} />
+        ) : null}
       </section>
 
       <EditorialByline
@@ -203,17 +184,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
             <p className="text-base md:text-lg leading-relaxed text-slate-800 font-medium">
               {post.intro}
             </p>
-
-            {post.quickAnswer ? <AnswerEngineSummary className="mt-6" summary={answerEngineSummary} /> : null}
-
-            <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-700">
-                Last updated: {lastUpdatedLabel}
-              </p>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600">
-                Educational information only. Verify applicability with official guidance and qualified professionals where needed.
-              </p>
-            </div>
 
             {isEmergencyFundGuide ? (
               <>
@@ -295,20 +265,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               </div>
             )}
 
-            {post.slug === 'income-tax-calculator-2026-calculator-guide' && (
-              <>
-                <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-amber-900">
-                    ⚠️ Educational Estimate Only
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-amber-800">
-                    Tax rules can change by financial year. This guide is for educational planning only. Verify the latest slabs, deductions, rebates, and filing rules before making tax decisions.
-                  </p>
-                </div>
-                <Tax2026CompactCTA />
-              </>
-            )}
-
             {/* Sections */}
             <div className="mt-8 space-y-10">
               {post.sections.map((section, idx) => {
@@ -368,17 +324,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
                         <RebateComparison />
                       </>
                     )}
-                    {post.slug === 'income-tax-calculator-2026-calculator-guide' && section.title === 'Why Use an Income Tax Calculator for 2026?' && (
-                      <Tax2026Stats />
-                    )}
-                    {post.slug === 'income-tax-calculator-2026-calculator-guide' && section.title === 'Common Mistakes to Avoid' && (
-                      <CommonMistakesCards />
-                    )}
-                    {post.slug === 'income-tax-calculator-2026-calculator-guide' && section.title === 'How to Project Your Future Taxes' && (
-                      <div className="mt-8 mb-8">
-                        <Tax2026CTA />
-                      </div>
-                    )}
                   </Fragment>
                 );
               })}
@@ -397,24 +342,24 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
               </div>
             )}
 
-            <div className="mt-10 border-t border-brandBorder pt-8">
-              <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                  <h4 className="font-bold text-brandDeepNavy">Estimate Your Own Finances</h4>
-                  <p className="text-xs text-brandMuted mt-1">
-                    {isEmergencyFundGuide
-                      ? 'Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.'
-                      : 'Try our free interactive calculators to plan your savings, loans, and taxes.'}
-                  </p>
+            {isEmergencyFundGuide ? (
+              <div className="mt-10 border-t border-brandBorder pt-8">
+                <div className="rounded-2xl bg-brandBgSoft border border-brandBorder p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div>
+                    <h4 className="font-bold text-brandDeepNavy">Estimate Your Own Finances</h4>
+                    <p className="text-xs text-brandMuted mt-1">
+                      Use the dedicated emergency fund calculator to estimate your safety corpus target and shortfall.
+                    </p>
+                  </div>
+                  <Link
+                    href="/tools/emergency-fund-calculator-india"
+                    className="rounded-full bg-brandGrowthGreen px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-brandBrightGreen hover:shadow-md transition whitespace-nowrap"
+                  >
+                    Go to Calculator
+                  </Link>
                 </div>
-                <Link
-                  href={isEmergencyFundGuide ? '/tools/emergency-fund-calculator-india' : '/#calculators'}
-                  className="rounded-full bg-brandGrowthGreen px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-brandBrightGreen hover:shadow-md transition whitespace-nowrap"
-                >
-                  {isEmergencyFundGuide ? 'Go to Calculator' : 'Go to Calculators'}
-                </Link>
               </div>
-            </div>
+            ) : null}
           </div>
 
           <FAQSection faqs={post.faqs} />
@@ -442,7 +387,6 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         <aside className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
           <TableOfContents sections={post.sections} />
           <RelatedCalculatorLinks slugs={post.relatedCalculators} />
-          {post.visualType && <BlogSharePreviewCard post={post} />}
         </aside>
       </div>
     </div>

@@ -30,16 +30,6 @@
     "avoid": ["zero tax guaranteed", "refund promise", "government branding", "fake notice", "text-heavy infographic"]
   },
   {
-    "path": "/blog/new-tax-regime-vs-old-regime-fy-2026-27",
-    "priority": "P0",
-    "contentType": "article",
-    "safeHook": "Old or New?",
-    "story": "A salaried taxpayer compares a deduction-heavy old-regime setup with a simpler new-regime setup before deciding which estimate is lower.",
-    "composition": "Balanced A-vs-B visual with one person between two document stacks; neither side visually endorsed as universally better.",
-    "generationPrompt": "Create a balanced 16:9 Indian personal-finance editorial image showing one salaried taxpayer comparing two neutral tax-planning paths: one side with deduction documents such as rent, insurance and investments, the other side with a simpler salary-and-tax calculation setup. No side should look like the guaranteed winner. If text is used, use only 'Old or New?'. Keep the comparison clear at mobile size and avoid official government branding or fabricated tax forms.",
-    "avoid": ["winner badge", "guaranteed savings", "government seal", "fake forms", "sensational arrows"]
-  },
-  {
     "path": "/blog/how-to-calculate-in-hand-salary-from-ctc-india",
     "priority": "P0",
     "contentType": "article",

@@ -6,7 +6,6 @@ import EighthPayCommissionCalculator from '@/components/calculators/advanced/Eig
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
-import { PAY_MATRIX_LEVELS } from '@/data/pay-matrix-levels';
 import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
@@ -267,11 +266,6 @@ const relatedReading = [
     href: '/blog/new-labour-code-gratuity-rules-india-2026',
     label: 'New Labour Code Gratuity Rules 2026',
     note: 'How the wage definition change interacts with basic pay.',
-  },
-  {
-    href: '/government-salary-updates',
-    label: 'Government Salary Updates',
-    note: 'DA, pay revision, pension and allowance tracking.',
   },
 ];
 
@@ -680,33 +674,6 @@ export default function EighthPayCommissionHubPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-brandDeepNavy">
-          Scenarios by pay matrix level
-        </h2>
-        <p className="mt-4 leading-8 text-slate-700">
-          Each level starts from a different cell of the current matrix, so the
-          same fitment factor produces a very different figure. Pick your level
-          to see the four published scenarios applied to its entry pay, and how
-          much of the apparent rise is really the DA merge.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-2">
-          {PAY_MATRIX_LEVELS.map((entry) => (
-            <Link
-              key={entry.slug}
-              href={`/8th-pay-commission/${entry.slug}`}
-              className="rounded-full border border-brandBorder bg-white px-4 py-2 text-sm font-semibold text-brandNavy transition hover:border-brandNavy/40 hover:bg-slate-50"
-            >
-              Level {entry.level}
-            </Link>
-          ))}
-        </div>
-        <p className="mt-4 text-sm leading-6 text-slate-500">
-          Levels 15 to 18 are fixed-pay apex posts held by a very small number of
-          officers and are not published as separate pages.
-        </p>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold text-brandDeepNavy">
           Calculators for this cluster
         </h2>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -725,27 +692,7 @@ export default function EighthPayCommissionHubPage() {
 
       <section className="mt-12 rounded-3xl border border-brandBorder bg-slate-50 p-5 md:p-6">
         <h2 className="text-2xl font-bold text-brandDeepNavy">Related pages in this cluster</h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-3">
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-slate-500">Pay matrix</h3>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li>
-                <Link href="/8th-pay-commission/level-1" className="font-semibold text-brandNavy underline underline-offset-2">
-                  Level 1 pay matrix scenarios
-                </Link>
-              </li>
-              <li>
-                <Link href="/8th-pay-commission/level-7" className="font-semibold text-brandNavy underline underline-offset-2">
-                  Level 7 pay matrix scenarios
-                </Link>
-              </li>
-              <li>
-                <Link href="/8th-pay-commission/level-10" className="font-semibold text-brandNavy underline underline-offset-2">
-                  Level 10 pay matrix scenarios
-                </Link>
-              </li>
-            </ul>
-          </div>
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wide text-slate-500">Pension</h3>
             <ul className="mt-3 space-y-2 text-sm">
@@ -769,11 +716,6 @@ export default function EighthPayCommissionHubPage() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wide text-slate-500">DA and allowances</h3>
             <ul className="mt-3 space-y-2 text-sm">
-              <li>
-                <Link href="/government-salary-updates" className="font-semibold text-brandNavy underline underline-offset-2">
-                  DA revision tracking
-                </Link>
-              </li>
               <li>
                 <Link href={ARREARS_CALCULATOR_URL} className="font-semibold text-brandNavy underline underline-offset-2">
                   8th CPC arrears calculator

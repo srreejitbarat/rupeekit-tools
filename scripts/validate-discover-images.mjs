@@ -2,10 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const manifest = [
-  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8')),
-  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images-fcra.json'), 'utf8')),
-];
+const manifest = JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8'));
 const creativeBriefs = JSON.parse(
   fs.readFileSync(path.join(root, 'data', 'discover-creative-briefs-2026-08-24.json'), 'utf8'),
 );
@@ -19,18 +16,6 @@ const policyTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'policy-t
 const tools = [...baseTools, ...growthTools, ...decisionTools, ...insuranceTools, ...investingTools, ...lifestageTools, ...policyTools];
 const errors = [];
 const warnings = [];
-const day7BlogSource = fs.readFileSync(
-  path.join(root, 'data', 'day7-comparison-blog-posts.ts'),
-  'utf8',
-);
-const day7ImageSlugs = [
-  'epf-vs-nps-vs-ppf-retirement-india',
-  'cashback-vs-rewards-credit-cards-india',
-  'salary-hike-negotiation-beyond-base-pay-india',
-  'robo-advisors-vs-diy-index-investing-india',
-  'gold-asset-class-sgb-etf-physical-gold-loan-india-2026',
-  'fy-2026-27-money-moves-salaried-indians-mid-year-checklist',
-];
 
 const CONSOLIDATED_TOOL_SLUGS = new Set(
   fs
@@ -53,19 +38,10 @@ if (!robotsSource.includes('/image-sitemap.xml')) {
   errors.push('robots.ts does not advertise the image sitemap.');
 }
 
-// Includes the three September micro-niche decision tools.
-if (manifest.length !== 101) {
-  errors.push(`Expected 101 Discover images, found ${manifest.length}.`);
-}
-
-for (const slug of day7ImageSlugs) {
-  const imageSource = `/images/discover/${slug}.webp`;
-  if (!manifest.some((image) => image.path === `/blog/${slug}` && image.src === imageSource)) {
-    errors.push(`Day 7 blog is missing its Discover manifest entry: ${slug}`);
-  }
-  if (!day7BlogSource.includes(`heroImage: '${imageSource}'`)) {
-    errors.push(`Day 7 blog card is missing its hero image reference: ${slug}`);
-  }
+// Includes the three September micro-niche decision tools; pages retired in the
+// AdSense low-value-content review (data/retired-pages.json) no longer have images.
+if (manifest.length !== 77) {
+  errors.push(`Expected 77 Discover images, found ${manifest.length}.`);
 }
 
 const paths = new Set();
@@ -134,8 +110,9 @@ for (const tool of tools) {
 // Creative quality governance for the highest-value Discover candidates.
 // These checks deliberately validate the brief and safety constraints rather than pretending
 // static code can judge whether a generated person's face, currency symbol, or document is visually correct.
-if (!Array.isArray(creativeBriefs) || creativeBriefs.length !== 24) {
-  errors.push(`Expected 24 priority Discover creative briefs, found ${Array.isArray(creativeBriefs) ? creativeBriefs.length : 0}.`);
+// 24 at launch; the brief for the retired FY 2026-27 regime post was dropped.
+if (!Array.isArray(creativeBriefs) || creativeBriefs.length !== 23) {
+  errors.push(`Expected 23 priority Discover creative briefs, found ${Array.isArray(creativeBriefs) ? creativeBriefs.length : 0}.`);
 } else {
   const manifestByPath = new Map(manifest.map((image) => [image.path, image]));
   const briefPaths = new Set();

@@ -30,7 +30,7 @@ describe('issue #85 owned update channel', () => {
 
   it('shows capture only on high-intent calculator results and financial update pages', () => {
     const boundary = read('components/CalculatorAnalyticsBoundary.tsx');
-    const updatePage = read('components/updates/OfficialFinancialUpdatePage.tsx');
+    const updatePage = read('app/(en)/financial-updates/[slug]/page.tsx');
 
     expect(boundary).toContain('UPDATE_ALERT_TOOL_SLUGS');
     expect(boundary).toContain("placement=\"calculator_result\"");

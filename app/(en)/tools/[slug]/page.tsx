@@ -3,25 +3,22 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
-import calculatorScenarios from '@/data/indexable-calculator-scenarios.json';
 import Calculator from '@/components/Calculator';
 import PlanningFeatureSummary from '@/components/planning/PlanningFeatureSummary';
 import ToolAdPlacement from '@/components/micro-tools/ToolAdPlacement';
 import { isMicroTool } from '@/lib/micro-tools/common';
 import DownloadHraChecklistButton from '@/components/hra/DownloadHraChecklistButton';
 import PersonalLoanDecisionSimulator from '@/components/personal-loan/PersonalLoanDecisionSimulator';
-import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
 import AnalyticsLink from '@/components/AnalyticsLink';
 import EditorialByline from '@/components/seo/EditorialByline';
 import { editorialTeamRef } from '@/lib/seo/editorial';
-import { getGuidesForTool } from '@/data/calculator-guides';
 import { getMoneyGuidesForTool } from '@/data/money-authority';
 import SourceBackedComparison from '@/components/seo/SourceBackedComparison';
 import { getDiscoverImage } from '@/data/discover-images';
-import { getLiveTools, getRelatedTools, getToolBySlug, type Tool, type ToolQuickAnswer } from '@/lib/tools';
+import { getLiveTools, getRelatedTools, getToolBySlug, type Tool } from '@/lib/tools';
 import { buildGoldLoanExamples } from '@/lib/gold-rates';
 
 const SITE_URL = 'https://www.rupeekit.co.in';
@@ -38,8 +35,6 @@ const EIGHTH_PAY_CLUSTER_SLUGS = new Set([
   EIGHTH_PAY_ARREARS_SLUG,
   EIGHTH_PAY_PENSION_SLUG,
 ]);
-const PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY =
-  'RupeeKit\'s Personal Loan EMI Calculator estimates monthly EMI, total interest, total repayment, processing fee impact, EMI burden, tenure comparison, and repayment schedule using user-entered assumptions. It is a neutral educational calculator and does not provide loan approval, lender recommendations, or live bank interest rates.';
 
 /**
  * Single source of truth for per-calculator SEO/content overrides.
@@ -372,72 +367,6 @@ function getToolHeading(slug: string, fallback: string) {
 
 function getToolDescription(slug: string, fallback: string) {
   return TOOL_SEO_OVERRIDES[slug]?.heroDescription ?? fallback;
-}
-
-function listLabels(labels: string[]) {
-  if (labels.length === 0) return '';
-  if (labels.length === 1) return labels[0];
-  if (labels.length === 2) return `${labels[0]} and ${labels[1]}`;
-  return `${labels.slice(0, -1).join(', ')}, and ${labels[labels.length - 1]}`;
-}
-
-function firstSentence(text: string) {
-  const match = text.trim().match(/[^.!?]+[.!?]?/);
-  return match ? match[0].trim() : text.trim();
-}
-
-function buildFallbackQuickAnswer(tool: Tool): ToolQuickAnswer {
-  const conciseFormula = firstSentence(tool.formulaExplanation);
-  const conciseExample = firstSentence(tool.example);
-
-  return {
-    title: `${tool.name} Quick Answer`,
-    question: `How does this calculator work?`,
-    answer: tool.shortDescription,
-    formula: conciseFormula.length <= 220 ? conciseFormula : undefined,
-    example: conciseExample.length <= 220 ? conciseExample : undefined,
-    note:
-      'Educational estimate only. RupeeKit does not provide personalized financial, tax, legal, investment, or loan advice.',
-  };
-}
-
-function buildGenericAnswerEngineSummary(tool: Tool) {
-  const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
-  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
-  const methodLine = firstSentence(tool.formulaExplanation);
-  const inputText = keyInputs.length > 0 ? listLabels(keyInputs) : 'the values you enter';
-  const outputText = keyOutputs.length > 0 ? listLabels(keyOutputs) : 'the result metrics';
-
-  return `This calculator estimates ${outputText} using ${inputText}. ${methodLine} Results are educational estimates only and should be verified with official records, lender statements, payroll data, or filing utilities where applicable.`;
-}
-
-function buildGenericCalculatorFacts(tool: Tool) {
-  if (tool.factRows?.length) return tool.factRows;
-  const keyInputs = tool.inputs.slice(0, 4).map((input) => input.label);
-  const keyOutputs = tool.outputs.filter((output) => !output.hidden).slice(0, 4).map((output) => output.label);
-  return [
-    {
-      topic: 'Calculation type',
-      explanation: 'Formula-based educational estimate from user-entered values',
-    },
-    {
-      topic: 'Key inputs',
-      explanation: keyInputs.length > 0 ? listLabels(keyInputs) : 'Depends on calculator mode and input fields',
-    },
-    {
-      topic: 'Primary outputs',
-      explanation: keyOutputs.length > 0 ? listLabels(keyOutputs) : 'Depends on calculator mode and output fields',
-    },
-    {
-      topic: 'Method reference',
-      explanation: firstSentence(tool.formulaExplanation),
-    },
-    {
-      topic: 'Advice boundary',
-      explanation:
-        'RupeeKit provides educational information only and does not provide personalized financial, tax, legal, investment, or loan advice.',
-    },
-  ];
 }
 
 // These calculators have their own literal routes under app/tools.
@@ -828,9 +757,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const discoverImage = getDiscoverImage(`/tools/${tool.slug}`);
 
   const related = getRelatedTools(tool);
-  const supportingGuides = getGuidesForTool(tool.slug);
   const moneyGuideLinks = getMoneyGuidesForTool(tool.slug);
-  const workedExamples = calculatorScenarios.filter((scenario) => scenario.calculatorSlug === tool.slug);
 
   const salaryClusterSlugs = new Set([
     'gratuity-calculator-india',
@@ -903,30 +830,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       href: `/tools/${SIP_SLUG}`,
       label: 'SIP calculator for a market-linked goal scenario',
     } : null,
-    liveToolSlugs.has('salary-in-hand-calculator-india') && tool.slug !== 'salary-in-hand-calculator-india' ? {
-      href: '/tools/salary-in-hand-calculator-india',
-      label: 'salary in-hand calculator',
-    } : null,
-    liveToolSlugs.has('income-tax-calculator-old-vs-new-regime-india') ? {
-      href: '/tools/income-tax-calculator-old-vs-new-regime-india',
-      label: 'Old vs New Tax Regime Calculator',
-    } : null,
-    liveToolSlugs.has('80c-deduction-calculator-india') ? {
-      href: '/tools/80c-deduction-calculator-india',
-      label: '80C deduction calculator',
-    } : null,
-    liveToolSlugs.has('emi-calculator-india') ? {
-      href: '/tools/emi-calculator-india',
-      label: 'EMI calculator',
-    } : null,
-    blogSlugs.has('itr-2-ay-2026-27-filing-guide') ? {
-      href: '/blog/itr-2-ay-2026-27-filing-guide',
-      label: 'ITR-2 filing guide',
-    } : null,
-    blogSlugs.has('how-much-emergency-fund') ? {
-      href: '/blog/how-much-emergency-fund',
-      label: 'emergency fund guide',
-    } : null,
   ].filter((item): item is ContextualLink => item !== null);
 
   const hraLinks: ContextualLink[] = [
@@ -962,11 +865,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           label: 'personal loan eligibility calculator to estimate a safe loan amount',
         }
       : null,
-    { href: '/guides/personal-loan-apr-processing-fee-gst', label: 'true APR guide covering processing fee and GST' },
-    {
-      href: '/guides/flat-rate-vs-reducing-rate-personal-loan',
-      label: 'flat-rate versus reducing-balance interest guide',
-    },
     liveToolSlugs.has('loan-foreclosure-net-savings-calculator-india')
       ? {
           href: '/tools/loan-foreclosure-net-savings-calculator-india',
@@ -994,11 +892,9 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     liveToolSlugs.has('fd-calculator-india')
       ? { href: '/tools/fd-calculator-india', label: 'FD calculator for low-volatility parking scenarios' }
       : null,
-    { href: '/resources', label: 'RupeeKit resources hub for checklists and planning guides' },
   ].filter((item): item is ContextualLink => item !== null && (
     isHraPage || isPersonalLoanPage || isSalaryClusterPage || isSipPage
     || related.some((candidate) => item.href === `/tools/${candidate.slug}`)
-    || supportingGuides.some((guide) => item.href === `/guides/${guide.slug}`)
   ));
 
   const emergencyFundLinks: ContextualLink[] = [
@@ -1020,7 +916,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     liveToolSlugs.has('salary-in-hand-calculator-india')
       ? { href: '/tools/salary-in-hand-calculator-india', label: 'in-hand salary calculator to size monthly savings' }
       : null,
-    { href: '/guides/emergency-fund-with-home-loan-emi', label: 'guide to emergency funds when you have a home-loan EMI' },
   ].filter((item): item is ContextualLink => item !== null);
 
   const sipLinks: ContextualLink[] = [
@@ -1051,7 +946,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     liveToolSlugs.has('net-worth-calculator-india')
       ? { href: '/tools/net-worth-calculator-india', label: 'net worth calculator to track overall progress' }
       : null,
-    { href: '/resources', label: 'RupeeKit resources hub' },
   ].filter((item): item is ContextualLink => item !== null);
 
   if (
@@ -1073,9 +967,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const showTaxGuideLink = blogSlugs.has('itr-2-ay-2026-27-filing-guide') && taxGuideToolSlugs.has(tool.slug);
   const showPersonalLoanLinkOnEmiPage =
     tool.slug === 'emi-calculator-india' && liveToolSlugs.has(PERSONAL_LOAN_SLUG);
-  const effectiveQuickAnswer = tool.quickAnswer ?? buildFallbackQuickAnswer(tool);
-  const genericAnswerEngineSummary = buildGenericAnswerEngineSummary(tool);
-  const genericCalculatorFacts = buildGenericCalculatorFacts(tool);
+  const effectiveQuickAnswer = tool.quickAnswer;
+  const showsFormulaSections = !isPersonalLoanPage && !isEmergencyFundPage && !isHraPage && !isSipPage;
   const buriedIntentSections = BURIED_TOOL_INTENT_CONTENT[tool.slug] ?? [];
   const personalLoanFacts = [
     {
@@ -1114,8 +1007,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   const hasSourceMethodologyInSections =
     Array.isArray(tool.contentSections)
     && tool.contentSections.some((section) => /source and methodology/i.test(section.heading));
+  // The formula is already shown under "Formula used" (except on the emergency
+  // fund page), so only render this section when it adds references or review
+  // details of its own.
   const showGenericSourceMethodology =
-    !isHraPage && !isPersonalLoanPage && !isSipPage && !hasSourceMethodologyInSections;
+    !isHraPage && !isPersonalLoanPage && !isSipPage && !hasSourceMethodologyInSections
+    && (isEmergencyFundPage || Boolean(tool.officialSources?.length || tool.calculationVersion || tool.nextReviewTrigger));
 
   const pageUrl = `${SITE_URL}/tools/${tool.slug}`;
   const discoverImageUrl = discoverImage ? `${SITE_URL}${discoverImage.src}` : undefined;
@@ -1300,7 +1197,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                 Emergency fund outputs are planning estimates only and are not financial or investment advice.
               </p>
             ) : null}
-            <p className="mt-2 text-xs text-amber-800">See the Source and methodology section below for details.</p>
           </div>
         </div>
       </header>
@@ -1369,7 +1265,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             <PersonalLoanDecisionSimulator
               tool={tool}
               quickAnswer={effectiveQuickAnswer}
-              answerEngineSummary={PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY}
             />
           </div>
       ) : (
@@ -1380,45 +1275,22 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           <PlanningFeatureSummary slug={tool.slug} />
           {effectiveQuickAnswer ? (
             <section className="mt-6">
+              {/* The formula and example have their own sections on standard
+                  calculator pages, and the page header carries the disclaimer. */}
               <QuickAnswerBox
                 title={effectiveQuickAnswer.title}
                 question={effectiveQuickAnswer.question}
                 answer={effectiveQuickAnswer.answer}
-                formula={effectiveQuickAnswer.formula}
-                example={effectiveQuickAnswer.example}
-                note={effectiveQuickAnswer.note}
+                formula={showsFormulaSections ? undefined : effectiveQuickAnswer.formula}
+                example={showsFormulaSections ? undefined : effectiveQuickAnswer.example}
                 links={effectiveQuickAnswer.links}
               />
             </section>
           ) : null}
-          <AnswerEngineSummary
-            id="answer-engine-summary"
-            summary={
-              isSipPage
-                ? 'A SIP calculator estimates the future value of monthly investments using SIP amount, expected annual return, and investment duration. RupeeKit\'s SIP calculator also shows step-up SIP, goal SIP, missed SIP impact, pause-and-restart scenarios, inflation-adjusted value, and EMI-to-SIP redirect scenarios. Results are educational estimates only because mutual fund returns are market-linked and not guaranteed.'
-                : genericAnswerEngineSummary
-            }
-          />
         </>
       )}
 
       <SourceBackedComparison slug={tool.slug} linkToGuide />
-
-      {workedExamples.length > 0 ? (
-        <section className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-7" aria-labelledby="worked-examples">
-          <h2 id="worked-examples" className="text-2xl font-bold text-slate-950">Worked examples</h2>
-          <p className="mt-2 text-sm leading-6 text-slate-700">See the assumptions behind an example, then adjust them in this calculator.</p>
-          <ul className="mt-4 space-y-3">
-            {workedExamples.map((scenario) => (
-              <li key={scenario.slug}>
-                <Link href={`/tools/scenarios/${scenario.slug}`} className="inline-flex min-h-11 items-center font-bold text-sky-800 hover:underline">
-                  {scenario.h1}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
 
       {buriedIntentSections.length > 0 ? (
         <section className="mt-8 grid gap-5 lg:grid-cols-2">
@@ -1431,41 +1303,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               </ul>
             </article>
           ))}
-        </section>
-      ) : null}
-
-      {supportingGuides.length > 0 ? (
-        <section className="mt-8 rounded-3xl border border-sky-200 bg-sky-50 p-5 md:p-7">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-800">Supporting answers</p>
-              <h2 className="mt-2 text-2xl font-bold text-slate-950">Questions this calculator helps answer</h2>
-            </div>
-            <AnalyticsLink
-              href="/guides"
-              analyticsEvent="tool_cta_click"
-              toolSlug={tool.slug}
-              toolCategory={tool.category}
-              ctaType="resource"
-              className="text-sm font-bold text-sky-800 hover:underline"
-            >
-              Browse all calculator guides
-            </AnalyticsLink>
-          </div>
-          <div className="mt-5 grid gap-3 md:grid-cols-2">
-            {supportingGuides.map((guide) => (
-              <AnalyticsLink
-                key={guide.slug}
-                href={`/guides/${guide.slug}`}
-                analyticsEvent="guide_click"
-                toolSlug={tool.slug}
-                toolCategory={tool.category}
-                className="rounded-2xl border border-sky-100 bg-white p-4 font-bold text-slate-900 transition hover:border-sky-300 hover:text-sky-800 hover:shadow-sm"
-              >
-                {guide.title}
-              </AnalyticsLink>
-            ))}
-          </div>
         </section>
       ) : null}
 
@@ -1628,17 +1465,14 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   className="mt-8 scroll-mt-24"
                 >
                   <h2 className="text-2xl font-bold">{section.heading}</h2>
-                  {/source and methodology/i.test(section.heading) && tool.lastReviewed ? (
-                    <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p>
-                  ) : null}
                   <p className="mt-4 leading-8 text-slate-700">{section.body}</p>
-                  {/source and methodology/i.test(section.heading) ? (
+                  {/source and methodology/i.test(section.heading)
+                    && (tool.calculationVersion || tool.nextReviewTrigger || tool.officialSources?.length) ? (
                     <div className="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700">
                       {tool.calculationVersion ? (
                         <p><strong>Calculation version:</strong> {tool.calculationVersion}{tool.factsCheckedIso ? <> · <strong>Facts checked:</strong> {tool.factsCheckedIso}</> : null}</p>
                       ) : null}
                       {tool.nextReviewTrigger ? <p><strong>Next review trigger:</strong> {tool.nextReviewTrigger}</p> : null}
-                      <p>Educational estimate only. RupeeKit does not provide personalized financial, investment, legal, tax or loan advice.</p>
                       {tool.officialSources?.length ? (
                         <div>
                           <p className="font-bold text-slate-900">Primary references</p>
@@ -1894,14 +1728,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                       on the outstanding principal each month — the standard for most bank personal loans. A{' '}
                       <strong>flat rate</strong> charges interest on the full original loan amount for the whole tenure,
                       so a &quot;10% flat&quot; loan can cost roughly as much as an 17-19% reducing-balance loan over a
-                      typical tenure. Always confirm which method a lender quotes before comparing offers, and read the{' '}
-                      <Link
-                        href="/guides/flat-rate-vs-reducing-rate-personal-loan"
-                        className="font-medium text-sky-700 hover:underline"
-                      >
-                        flat-rate versus reducing-balance guide
-                      </Link>{' '}
-                      for worked examples.
+                      typical tenure. Always confirm which method a lender quotes before comparing offers.
                     </p>
                   </section>
                 </>
@@ -2114,8 +1941,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           title="Personal Loan EMI Calculator Facts"
           rows={personalLoanFacts}
         />
-      ) : !isSipPage ? (
-        <FactsTable id="calculator-facts" rows={genericCalculatorFacts} />
+      ) : !isSipPage && tool.factRows?.length ? (
+        <FactsTable id="calculator-facts" rows={tool.factRows} />
       ) : null}
 
       {['ppf-calculator-india', 'sukanya-samriddhi-yojana-calculator-india', 'scss-calculator-india', 'post-office-monthly-income-scheme-calculator-india'].includes(tool.slug) ? (
@@ -2127,14 +1954,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       {showGenericSourceMethodology ? (
         <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
-          {tool.lastReviewed ? <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed}</p> : null}
-          <p className="mt-4 leading-8 text-slate-700">
-            {tool.formulaExplanation}
-          </p>
-          <p className="mt-4 leading-8 text-slate-700">
-            Inputs are processed in-page to show planning outputs. RupeeKit does not provide personalized financial,
-            tax, legal, investment, or loan advice.
-          </p>
+          {isEmergencyFundPage ? (
+            <p className="mt-4 leading-8 text-slate-700">
+              {tool.formulaExplanation}
+            </p>
+          ) : null}
           {tool.calculationVersion ? (
             <p className="mt-4 text-sm leading-6 text-slate-700">
               <strong>Calculation version:</strong> {tool.calculationVersion}

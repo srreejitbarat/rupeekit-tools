@@ -1,17 +1,17 @@
 [
   {
     "id": "salary-income-tax-1",
-    "guidePath": "/money-guides/salary-income-tax",
+    "guidePath": "/tools/salary-in-hand-calculator-india",
     "question": "How do I calculate in-hand salary from CTC in India?"
   },
   {
     "id": "salary-income-tax-2",
-    "guidePath": "/money-guides/salary-income-tax",
+    "guidePath": "/tools/salary-in-hand-calculator-india",
     "question": "Does employer PF reduce in-hand pay from CTC?"
   },
   {
     "id": "salary-income-tax-3",
-    "guidePath": "/money-guides/salary-income-tax",
+    "guidePath": "/tools/salary-in-hand-calculator-india",
     "question": "Old versus new tax regime for salaried employees: what should I compare?"
   },
   {
@@ -46,107 +46,107 @@
   },
   {
     "id": "sip-investment-returns-1",
-    "guidePath": "/money-guides/sip-investment-returns",
+    "guidePath": "/tools/sip-calculator-india",
     "question": "How much should I invest monthly by SIP to reach my goal?"
   },
   {
     "id": "sip-investment-returns-2",
-    "guidePath": "/money-guides/sip-investment-returns",
+    "guidePath": "/tools/sip-calculator-india",
     "question": "How do SIP returns change if I start one year late?"
   },
   {
     "id": "sip-investment-returns-3",
-    "guidePath": "/money-guides/sip-investment-returns",
+    "guidePath": "/tools/sip-calculator-india",
     "question": "Are SIP calculator returns guaranteed?"
   },
   {
     "id": "epf-salary-retirement-1",
-    "guidePath": "/money-guides/epf-salary-retirement",
+    "guidePath": "/tools/epf-corpus-calculator-india",
     "question": "Why is employer EPF not the same as employee PF contribution?"
   },
   {
     "id": "epf-salary-retirement-2",
-    "guidePath": "/money-guides/epf-salary-retirement",
+    "guidePath": "/tools/epf-corpus-calculator-india",
     "question": "How do I check EPF and EPS entries in my passbook?"
   },
   {
     "id": "epf-salary-retirement-3",
-    "guidePath": "/money-guides/epf-salary-retirement",
+    "guidePath": "/tools/epf-corpus-calculator-india",
     "question": "Should I use a fixed EPF rate for retirement projections?"
   },
   {
     "id": "ppf-small-savings-1",
-    "guidePath": "/money-guides/ppf-small-savings",
+    "guidePath": "/tools/ppf-calculator-india",
     "question": "How do changing PPF interest rates affect maturity?"
   },
   {
     "id": "ppf-small-savings-2",
-    "guidePath": "/money-guides/ppf-small-savings",
+    "guidePath": "/tools/ppf-calculator-india",
     "question": "What should I compare before choosing PPF or SCSS?"
   },
   {
     "id": "ppf-small-savings-3",
-    "guidePath": "/money-guides/ppf-small-savings",
+    "guidePath": "/tools/ppf-calculator-india",
     "question": "When do PPF deposits start earning interest?"
   },
   {
     "id": "credit-card-debt-1",
-    "guidePath": "/money-guides/credit-card-debt",
+    "guidePath": "/tools/credit-card-minimum-due-trap-calculator-india",
     "question": "Does paying only credit card minimum due avoid interest?"
   },
   {
     "id": "credit-card-debt-2",
-    "guidePath": "/money-guides/credit-card-debt",
+    "guidePath": "/tools/credit-card-minimum-due-trap-calculator-india",
     "question": "How much interest is left after paying minimum due?"
   },
   {
     "id": "credit-card-debt-3",
-    "guidePath": "/money-guides/credit-card-debt",
+    "guidePath": "/tools/credit-card-minimum-due-trap-calculator-india",
     "question": "Should I refinance card debt with a personal loan?"
   },
   {
     "id": "gst-invoice-1",
-    "guidePath": "/money-guides/gst-invoice",
+    "guidePath": "/tools/gst-calculator-india",
     "question": "How do I remove GST from a tax-inclusive price?"
   },
   {
     "id": "gst-invoice-2",
-    "guidePath": "/money-guides/gst-invoice",
+    "guidePath": "/tools/gst-calculator-india",
     "question": "What is the difference between GST-inclusive and GST-exclusive quotes?"
   },
   {
     "id": "gst-invoice-3",
-    "guidePath": "/money-guides/gst-invoice",
+    "guidePath": "/tools/gst-calculator-india",
     "question": "How can I check the GST rate for a product HSN code?"
   },
   {
     "id": "gratuity-labour-1",
-    "guidePath": "/money-guides/gratuity-labour",
+    "guidePath": "/tools/gratuity-calculator-india",
     "question": "How is gratuity calculated from eligible wages?"
   },
   {
     "id": "gratuity-labour-2",
-    "guidePath": "/money-guides/gratuity-labour",
+    "guidePath": "/tools/gratuity-calculator-india",
     "question": "Does a fixed-term employee need five years for gratuity?"
   },
   {
     "id": "gratuity-labour-3",
-    "guidePath": "/money-guides/gratuity-labour",
+    "guidePath": "/tools/gratuity-calculator-india",
     "question": "Is gratuity based on CTC or basic wages?"
   },
   {
     "id": "rent-property-housing-1",
-    "guidePath": "/money-guides/rent-property-housing",
+    "guidePath": "/tools/rent-vs-buy-calculator-india",
     "question": "How do I compare rent versus buying a home in India?"
   },
   {
     "id": "rent-property-housing-2",
-    "guidePath": "/money-guides/rent-property-housing",
+    "guidePath": "/tools/rent-vs-buy-calculator-india",
     "question": "What upfront costs besides the down payment are needed to buy a flat?"
   },
   {
     "id": "rent-property-housing-3",
-    "guidePath": "/money-guides/rent-property-housing",
+    "guidePath": "/tools/rent-vs-buy-calculator-india",
     "question": "Where can I check stamp duty for my property transaction?"
   }
 ]

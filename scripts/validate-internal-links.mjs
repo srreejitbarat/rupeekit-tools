@@ -53,16 +53,6 @@ function extractBlogSlugs() {
   return slugs;
 }
 
-function extractSampleSlugs(source) {
-  const slugs = [];
-  for (const entry of source.matchAll(/\{([\s\S]*?)\n\s*\},?/g)) {
-    if (!/status\s*:\s*['"]sample['"]/.test(entry[1])) continue;
-    const slug = entry[1].match(/slug\s*:\s*['"]([^'"]+)['"]/)?.[1];
-    if (slug) slugs.push(slug);
-  }
-  return slugs;
-}
-
 function addInbound(target, source, kind) {
   if (!inbound.has(target)) inbound.set(target, []);
   inbound.get(target).push({ source, kind });
@@ -80,41 +70,20 @@ const liveTools = tools.filter((tool) => tool.status === 'live' && !consolidated
 const liveToolBySlug = new Map(liveTools.map((tool) => [tool.slug, tool]));
 const blogSlugs = new Set([...extractBlogSlugs()].filter((slug) => !consolidatedBlogs.has(slug)));
 const issue79Related = JSON.parse(read('data/issue-79-related-overrides.json'));
+const issue80Overrides = JSON.parse(read('data/issue-80-tool-overrides-2026-08-27.json'));
 
 const inbound = new Map();
 
 for (const tool of liveTools) addInbound(`/tools/${tool.slug}`, '/tools', 'hub');
 for (const slug of blogSlugs) addInbound(`/blog/${slug}`, '/blog', 'hub');
 
-// Each live calculator should be rendered inside exactly one orienting cluster
-// hub. That is stronger than a flat directory link because the hub explains when
-// to use the tool and what to compare next. The hub route only renders a tool
-// whose category is claimed by a cluster, so the inbound link is credited from
-// the same category mapping rather than assumed for every live tool.
-const clusterCategories = new Map();
-for (const block of read('data/tool-clusters.ts').matchAll(/slug: '([a-z0-9-]+)',[\s\S]*?sourceCategories: \[([^\]]*)\]/g)) {
-  const categories = [...block[2].matchAll(/'([^']+)'/g)].map((match) => match[1]);
-  for (const category of categories) {
-    if (clusterCategories.has(category)) {
-      fail(`Category ${category} is claimed by more than one cluster hub: ${clusterCategories.get(category)} and ${block[1]}`);
-      continue;
-    }
-    clusterCategories.set(category, block[1]);
-  }
-}
-for (const tool of liveTools) {
-  const cluster = clusterCategories.get(tool.category);
-  if (!cluster) {
-    fail(`Live tool has no cluster hub for its category: /tools/${tool.slug} (${tool.category})`);
-    continue;
-  }
-  addInbound(`/tools/${tool.slug}`, `/tool-hubs/${cluster}`, 'cluster-hub');
-}
-
 for (const tool of liveTools) {
   for (const relatedSlug of tool.related || []) {
     if (!liveToolBySlug.has(relatedSlug)) continue;
     addInbound(`/tools/${relatedSlug}`, `/tools/${tool.slug}`, 'related-tool');
+  }
+  for (const relatedSlug of issue80Overrides[tool.slug]?.related || []) {
+    if (liveToolBySlug.has(relatedSlug)) addInbound(`/tools/${relatedSlug}`, `/tools/${tool.slug}`, 'related-tool');
   }
   for (const relatedSlug of issue79Related[tool.slug] || []) {
     if (!liveToolBySlug.has(relatedSlug)) {
@@ -137,6 +106,9 @@ for (const rel of fs.readdirSync(path.join(ROOT, 'data'))) {
 }
 
 for (const rel of [...walk('app'), ...walk('components'), ...walk('data')]) {
+  // Hindi/Bengali routes and components are generated mirrors of app/(en) and
+  // components; scanning the sources covers them without stale local copies.
+  if (/^app\/\((hi|bn)\)\/|^components\/localized\//.test(rel.split(path.sep).join('/'))) continue;
   const source = read(rel);
   for (const match of source.matchAll(/['"]\/(tools|blog)\/([a-z0-9-]+)['"]/g)) {
     const target = `/${match[1]}/${match[2]}`;
@@ -169,7 +141,7 @@ for (const slug of namedDiscoveryTargets) {
 }
 
 const sitemapSource = read('app/sitemap.ts');
-for (const required of ['getLiveTools()', 'toolClusters.map', 'blogPosts.map', 'indexableFinancialUpdates.map', 'indexableGovernmentSalaryUpdates']) {
+for (const required of ['getLiveTools()', 'blogPosts.map', 'indexableFinancialUpdates.map']) {
   if (!sitemapSource.includes(required)) fail(`app/sitemap.ts is missing expected route source: ${required}`);
 }
 for (const slug of consolidatedTools) {
@@ -179,14 +151,20 @@ for (const slug of consolidatedBlogs) {
   if (blogSlugs.has(slug)) fail(`Consolidated blog still treated as live: ${slug}`);
 }
 
-const clusterSource = read('data/tool-clusters.ts');
-const hubRouteSource = read('app/(en)/tool-hubs/[slug]/page.tsx');
-const headerSource = read('components/SiteHeader.tsx');
-for (const slug of ['loans-emi', 'tax-compliance', 'investing-markets', 'insurance-protection', 'government-pension', 'life-stage-planning', 'small-savings']) {
-  if (!clusterSource.includes(`slug: '${slug}'`)) fail(`Missing required calculator cluster: ${slug}`);
+// Pages retired in the AdSense low-value-content review must redirect and must
+// not be linked from rendered code or content any more.
+const retiredPages = JSON.parse(read('data/retired-pages.json'));
+for (const [source, destination] of Object.entries(retiredPages)) {
+  if (retiredPages[destination]) fail(`Retired page redirects into another retired page: ${source} -> ${destination}`);
+  const refs = (inbound.get(source) || []).filter((ref) => ref.kind === 'in-body');
+  for (const ref of refs) fail(`Retired page is still linked: ${source} (from ${ref.source})`);
 }
-if (!hubRouteSource.includes('getPrimaryClusterForTool')) fail('Cluster hub route does not render live tools by primary cluster');
-if (!headerSource.includes("href: '/tool-hubs'")) fail('Primary navigation does not expose calculator hubs');
+const headerSource = read('components/SiteHeader.tsx');
+const footerSource = read('components/SiteFooter.tsx');
+if (!headerSource.includes("href: '/tools'")) fail('Primary navigation does not expose the calculator index');
+for (const trustPage of ['/about', '/contact', '/privacy-policy', '/terms', '/disclaimer']) {
+  if (!footerSource.includes(`href: '${trustPage}'`)) fail(`Footer does not link the trust page ${trustPage}`);
+}
 
 const toolRoute = read('app/(en)/tools/[slug]/page.tsx');
 const blogRoute = read('app/(en)/blog/[slug]/page.tsx');
@@ -237,24 +215,13 @@ for (const slug of removedFinancialUpdateSlugs) {
   }
 }
 
-const governmentUpdateSource = read('data/government-salary-updates.ts');
-const sampleGovernmentUpdateSlugs = extractSampleSlugs(governmentUpdateSource);
-const governmentHubSource = read('components/updates/GovernmentSalaryUpdatesClient.tsx');
-const governmentDetailSource = read('app/(en)/government-salary-updates/[slug]/page.tsx');
-
-if (!governmentHubSource.includes('indexableGovernmentSalaryUpdates')) {
-  fail('Government salary hub can expose sample update links');
+// The government-salary tracker only ever held sample entries and was retired;
+// its legacy sample URLs must go straight to the 8th Pay Commission hub.
+if (fs.existsSync(path.join(ROOT, 'app/(en)/government-salary-updates'))) {
+  fail('Retired government-salary tracker routes must not be published');
 }
-if (!governmentDetailSource.includes('indexableGovernmentSalaryUpdates')) {
-  fail('Government salary detail route can render sample updates');
-}
-if (governmentDetailSource.includes('index: false') || governmentDetailSource.includes('follow: false')) {
-  fail('Government salary detail route still emits noindex/nofollow metadata');
-}
-for (const slug of sampleGovernmentUpdateSlugs) {
-  if (!redirectsSource.includes(`'${slug}'`)) {
-    fail(`Missing retired-sample redirect: /government-salary-updates/${slug} -> /government-salary-updates`);
-  }
+if (!redirectsSource.includes('source: `/government-salary-updates/${slug}`') || !redirectsSource.includes("destination: '/8th-pay-commission'")) {
+  fail('Legacy government-salary sample URLs must redirect directly to /8th-pay-commission');
 }
 
 const auditRows = liveTools.map((tool) => {
@@ -278,4 +245,4 @@ if (failures > 0) {
   process.exit(1);
 }
 
-console.log('✅ Cluster hubs, contextual inbound links, sitemap sources, canonical/robots metadata, redirects, and zero-orphan crawl paths validated.');
+console.log('✅ Contextual inbound links, sitemap sources, canonical/robots metadata, redirects, retired-page links and zero-orphan crawl paths validated.');

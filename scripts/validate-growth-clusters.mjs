@@ -3,7 +3,6 @@ import path from 'node:path';
 
 const root = process.cwd();
 const growthTools = JSON.parse(fs.readFileSync(path.join(root, 'data', 'growth-tools.json'), 'utf8'));
-const guideSource = fs.readFileSync(path.join(root, 'data', 'calculator-guides.ts'), 'utf8');
 
 const expectedGrowthSlugs = new Set([
   'home-loan-swp-stress-test-india',
@@ -40,27 +39,18 @@ for (const tool of growthTools) {
   }
 }
 
-const guideSlugMatches = [...guideSource.matchAll(/\n\s+slug: '([^']+)'/g)].map((match) => match[1]);
-ensure(guideSlugMatches.length === 34, `Expected 34 supporting guide records, found ${guideSlugMatches.length}`);
-ensure(new Set(guideSlugMatches).size === 34, 'Supporting guide slugs must be unique');
-ensure(guideSource.includes("id: 'home-loan-swp'"), 'SWP guide cluster is missing');
-ensure(guideSource.includes("toolSlug: 'hra-exemption-calculator-india'"), 'HRA guide cluster is missing');
-ensure(guideSource.includes("toolSlug: 'emergency-fund-calculator-india'"), 'Emergency-fund guide cluster is missing');
-
-const toolPage = fs.readFileSync(path.join(root, 'app', '(en)', 'tools', '[slug]', 'page.tsx'), 'utf8');
+// The templated /guides question pages that once supported these calculators
+// were retired as duplicates of the calculators themselves (data/retired-pages.json).
 const sitemap = fs.readFileSync(path.join(root, 'app', 'sitemap.ts'), 'utf8');
 const llms = fs.readFileSync(path.join(root, 'public', 'llms.txt'), 'utf8');
-ensure(toolPage.includes('getGuidesForTool'), 'Calculator pages do not link their supporting guides');
-// `allGuides` is the merged view of the original 34 calculator guides plus the
-// policy guides added later. Asserting on it keeps the original intent — every
-// guide reaches the sitemap — while covering both sets.
-ensure(sitemap.includes('allGuides.map'), 'Supporting guides are missing from sitemap generation');
+ensure(!fs.existsSync(path.join(root, 'app', '(en)', 'guides')), 'Retired /guides routes must not be published');
+ensure(!sitemap.includes('/guides/'), 'Retired /guides pages must not be submitted in the sitemap');
 ensure(llms.includes('/tools/home-loan-swp-stress-test-india'), 'llms.txt is missing the SWP stress test');
-ensure(llms.includes('/guides/can-swp-pay-home-loan-emi'), 'llms.txt is missing the SWP guide cluster');
+ensure(!llms.includes('/guides/'), 'llms.txt must not list retired /guides pages');
 
 if (errors) {
   console.error(`\nGrowth-cluster validation failed with ${errors} error(s).`);
   process.exit(1);
 }
 
-console.log('Validated 8 new calculators and 34 supporting guides.');
+console.log('Validated 8 growth calculators; retired /guides pages stay unpublished.');

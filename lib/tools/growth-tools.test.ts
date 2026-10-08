@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { Parser } from 'expr-eval';
-import { calculatorGuideClusters, calculatorGuides } from '../../data/calculator-guides';
 import { solveMonthlyIrr } from '../finance/apr';
 
 type FormulaTool = {
@@ -45,17 +44,6 @@ function evaluate(tool: FormulaTool) {
 }
 
 describe('growth calculator clusters', () => {
-  it('publishes 34 unique supporting pages with four to six per calculator', () => {
-    expect(calculatorGuides).toHaveLength(34);
-    expect(new Set(calculatorGuides.map((guide) => guide.slug)).size).toBe(34);
-
-    for (const cluster of calculatorGuideClusters) {
-      const count = calculatorGuides.filter((guide) => guide.clusterId === cluster.id).length;
-      expect(count, cluster.id).toBeGreaterThanOrEqual(4);
-      expect(count, cluster.id).toBeLessThanOrEqual(6);
-    }
-  });
-
   it('models the Rs 80 lakh SWP example and makes the stress path weaker', () => {
     const tool = loadGrowthTools().find((item) => item.slug === 'home-loan-swp-stress-test-india');
     expect(tool).toBeDefined();

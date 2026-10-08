@@ -10,7 +10,6 @@ const posts = [];
 
 const discoverManifest = [
   ...JSON.parse(fs.readFileSync(path.join(dataDir, 'discover-images.json'), 'utf8')),
-  ...JSON.parse(fs.readFileSync(path.join(dataDir, 'discover-images-fcra.json'), 'utf8')),
 ];
 const discoverPaths = new Set(discoverManifest.map((item) => item.path));
 

@@ -4,7 +4,6 @@ import {
   EDITORIAL_TEAM_NAME,
   formatBylineDate,
 } from '@/lib/seo/editorial';
-import LatestOfficialUpdateLink from '@/components/seo/LatestOfficialUpdateLink';
 
 type EditorialBylineProps = {
   /** ISO date the page was first published. */
@@ -71,7 +70,6 @@ export default function EditorialByline({
           Report a correction
         </Link>
       </div>
-      <LatestOfficialUpdateLink />
     </>
   );
 }

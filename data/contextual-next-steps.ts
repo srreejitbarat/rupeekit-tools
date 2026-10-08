@@ -121,12 +121,6 @@ export const CONTEXTUAL_NEXT_STEPS: Record<string, ContextualNextStep[]> = {
       href: '/blog/itr-2-ay-2026-27-filing-guide',
       destinationType: 'guide',
     },
-    {
-      question: 'Want to measure the investment return before tax?',
-      label: 'Calculate XIRR for irregular cash flows',
-      href: '/tools/xirr-portfolio-return-calculator-india',
-      destinationType: 'tool',
-    },
   ],
   'nps-calculator-india': [
     {
@@ -171,12 +165,6 @@ export const CONTEXTUAL_NEXT_STEPS: Record<string, ContextualNextStep[]> = {
     },
   ],
   'cagr-calculator-india': [
-    {
-      question: 'Were there multiple deposits or withdrawals between start and end?',
-      label: 'Use XIRR for irregular cash flows',
-      href: '/tools/xirr-portfolio-return-calculator-india',
-      destinationType: 'tool',
-    },
     {
       question: 'Want to project a one-time investment forward?',
       label: 'Use the lumpsum calculator',

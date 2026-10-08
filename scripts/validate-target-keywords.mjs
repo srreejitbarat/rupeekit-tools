@@ -55,9 +55,6 @@ const requiredClusterSlugs = [
   'step-up-sip-calculator-india',
   'lumpsum-calculator-india',
   'index-fund-vs-active-fund-cost-calculator-india',
-  'nps-tier-2-vs-mutual-fund-calculator-india',
-  'xirr-portfolio-return-calculator-india',
-  'elss-lock-in-vs-80c-options-calculator-india',
 ];
 for (const slug of requiredClusterSlugs) {
   if (!toolOverrides[slug]?.targetKeyword) {
@@ -67,7 +64,6 @@ for (const slug of requiredClusterSlugs) {
 
 const requiredBlogSlugs = [
   'mutual-funds-for-beginners-india',
-  'robo-advisors-vs-diy-index-investing-india',
 ];
 for (const slug of requiredBlogSlugs) {
   if (!blogOverrides[slug]?.targetKeyword) {

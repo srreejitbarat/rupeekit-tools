@@ -1,36 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import relatedOverrides from '../data/issue-79-related-overrides.json';
-import { getPrimaryClusterForTool, toolClusters } from '../data/tool-clusters';
+import retiredPages from '../data/retired-pages.json';
 import { getLiveTools } from './tools';
 
-describe('issue 79 cluster hubs and discovery links', () => {
-  it('defines the required clusters, including freelance business, with unique target keywords', () => {
-    expect(toolClusters.map((cluster) => cluster.slug)).toEqual([
-      'freelance-business',
-      'loans-emi',
-      'tax-compliance',
-      'investing-markets',
-      'insurance-protection',
-      'government-pension',
-      'life-stage-planning',
-      'small-savings',
-    ]);
-
-    const keywords = toolClusters.map((cluster) => cluster.targetKeyword.toLowerCase());
-    expect(new Set(keywords).size).toBe(keywords.length);
-
-    const toolKeywords = new Set(getLiveTools().map((tool) => tool.targetKeyword.toLowerCase()));
-    for (const keyword of keywords) expect(toolKeywords.has(keyword)).toBe(false);
-  });
-
-  it('assigns every live calculator to exactly one primary cluster', () => {
-    const liveTools = getLiveTools();
-    expect(liveTools.length).toBeGreaterThan(0);
-    for (const tool of liveTools) {
-      const matches = toolClusters.filter((cluster) => cluster.sourceCategories.includes(tool.category));
-      expect(matches, `${tool.slug} (${tool.category}) cluster assignment`).toHaveLength(1);
-      expect(getPrimaryClusterForTool(tool)?.slug).toBe(matches[0].slug);
-    }
+describe('issue 79 discovery links', () => {
+  it('retires the cluster hub pages that only repeated calculator cards and FAQs', () => {
+    expect(fs.existsSync(path.join(process.cwd(), 'app/(en)/tool-hubs'))).toBe(false);
+    expect(Object.keys(retiredPages)).toEqual(expect.arrayContaining(['/tool-hubs', '/tool-hubs/loans-emi']));
   });
 
   it('gives each named discovery target at least two explicit inbound source tools', () => {
