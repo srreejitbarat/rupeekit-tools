@@ -7,14 +7,12 @@ const toolSlugs = [
   'step-up-sip-calculator-india',
   'lumpsum-calculator-india',
   'index-fund-vs-active-fund-cost-calculator-india',
-  'nps-tier-2-vs-mutual-fund-calculator-india',
-  'xirr-portfolio-return-calculator-india',
-  'elss-lock-in-vs-80c-options-calculator-india',
 ] as const;
 
+// The NPS Tier 2, XIRR and ELSS lock-in calculators and the robo-adviser post
+// were later retired as thin or misleading; their URLs redirect to kept pages.
 const blogSlugs = [
   'mutual-funds-for-beginners-india',
-  'robo-advisors-vs-diy-index-investing-india',
 ] as const;
 
 const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
@@ -42,7 +40,7 @@ describe('issue #80 SIP and mutual-fund cannibalisation controls', () => {
     }
   });
 
-  it('gives the two investing blogs separate intent and descriptive calculator routes', () => {
+  it('gives the beginner investing blog its own intent and descriptive calculator routes', () => {
     const posts = blogSlugs.map((slug) => blogPosts.find((post) => post.slug === slug));
     expect(posts.every(Boolean)).toBe(true);
     const keywords = posts.map((post) => normalize(post!.targetKeyword ?? ''));
@@ -54,10 +52,6 @@ describe('issue #80 SIP and mutual-fund cannibalisation controls', () => {
     expect(beginner.relatedCalculators).toContain('sip-calculator-india');
     expect(beginner.relatedCalculators).toContain('lumpsum-calculator-india');
     expect(beginner.quickAnswer?.links?.some((link) => link.href === '/tools/index-fund-vs-active-fund-cost-calculator-india')).toBe(true);
-
-    const robo = posts[1]!;
-    expect(robo.h1.toLowerCase()).toContain('robo');
-    expect(robo.relatedCalculators).toContain('index-fund-vs-active-fund-cost-calculator-india');
   });
 
   it('does not collapse distinct calculator intents into redirects or replacements', () => {

@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+
+const retiredPages = JSON.parse(fs.readFileSync(new URL('./data/retired-pages.json', import.meta.url), 'utf8'));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -42,9 +46,20 @@ const nextConfig = {
         'delhi-government-employee-payroll-format',
       ].map((slug) => ({
         source: `/government-salary-updates/${slug}`,
-        destination: '/government-salary-updates',
+        // The tracker itself was later retired (data/retired-pages.json), so
+        // point straight at its replacement to avoid a redirect chain.
+        destination: '/8th-pay-commission',
         statusCode: 301,
       })),
+      // Pages retired during the AdSense low-value-content review. Each one
+      // redirects, in every language, to the kept page covering the same need.
+      ...Object.entries(retiredPages).flatMap(([source, destination]) =>
+        ['', '/hi', '/bn'].map((prefix) => ({
+          source: `${prefix}${source}`,
+          destination: `${prefix}${destination}`,
+          statusCode: 301,
+        })),
+      ),
       // Slugs removed in 71d098d ("Replace old Financial Updates with EPFO
       // story"). Google still has these indexed and keeps re-crawling them,
       // which shows up as a coverage issue in Search Console.

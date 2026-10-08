@@ -4,13 +4,12 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import FinancialUpdatesClient from '@/components/updates/FinancialUpdatesClient';
 import { financialUpdates } from '@/data/financial-updates';
-import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
-const TITLE = 'Latest Financial Updates, Tax, GST and RBI News | RupeeKit';
+const TITLE = 'Income Tax and Personal Finance Updates | RupeeKit';
 const DESCRIPTION =
-  'Follow important finance, tax, GST, RBI, SEBI, market and personal finance updates with simple educational summaries from RupeeKit.';
+  'Educational summaries of official income tax and personal finance updates for India, with the source to check and what to do next.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -56,7 +55,7 @@ function LoadingFallback() {
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap gap-2">
-        {['All', 'RBI', 'Income Tax', 'GST', 'SEBI', 'Banking'].map((c) => (
+        {['All', 'Income Tax'].map((c) => (
           <div key={c} className="h-7 w-20 rounded-full bg-brandBgSoft border border-brandBorder animate-pulse" />
         ))}
       </div>
@@ -84,7 +83,7 @@ const officialGovtSources = [
 ];
 
 export default function FinancialUpdatesPage() {
-  const archive = [...day18FinancialUpdates, ...financialUpdates]
+  const archive = [...financialUpdates]
     .filter((update) => update.status !== 'sample')
     .sort((left, right) => right.publishedDate.localeCompare(left.publishedDate));
   return (
@@ -101,18 +100,9 @@ export default function FinancialUpdatesPage() {
             Financial &amp; Tax Updates
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">
-            Follow important finance, income tax, GST, RBI policy, SEBI, banking, and personal finance
-            updates explained simply. All summaries are educational — always verify with the official
-            source before acting.
+            Official income tax and personal finance updates, explained simply. All summaries are
+            educational — always verify with the official source before acting.
           </p>
-          <div className="mt-6">
-            <Link
-              href="/updates"
-              className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-5 py-2 text-sm font-bold text-white hover:bg-white/20 transition"
-            >
-              ← Back to Updates Hub
-            </Link>
-          </div>
         </div>
       </section>
 

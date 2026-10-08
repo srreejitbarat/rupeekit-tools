@@ -4,10 +4,9 @@ import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { financialUpdates, FinancialUpdate } from '@/data/financial-updates';
-import { day18FinancialUpdates } from '@/data/day18-financial-updates';
 import UpdateVisual from '@/components/updates/UpdateVisual';
 
-const allFinancialUpdates = [...day18FinancialUpdates, ...financialUpdates];
+const allFinancialUpdates = [...financialUpdates];
 
 const CATEGORIES = [
   'All',
@@ -24,6 +23,11 @@ const CATEGORIES = [
 type CategoryFilter = (typeof CATEGORIES)[number];
 
 const ALLOWED_CATEGORIES = CATEGORIES.filter((c) => c !== 'All') as readonly string[];
+
+// Only offer filters that lead to at least one published update.
+const VISIBLE_CATEGORIES = CATEGORIES.filter(
+  (c) => c === 'All' || allFinancialUpdates.some((update) => update.category === c),
+);
 
 type VisualKey =
   | 'rbi'
@@ -135,7 +139,7 @@ export default function FinancialUpdatesClient() {
   return (
     <div className="space-y-8">
       <div className="flex flex-wrap gap-2">
-        {CATEGORIES.map((cat) => {
+        {VISIBLE_CATEGORIES.map((cat) => {
           const isActive = activeCategory === cat;
           return (
             <button

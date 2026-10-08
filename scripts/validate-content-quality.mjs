@@ -8,6 +8,8 @@ const bannedCopy = [
   ['components/CalculatorVisualizations.tsx', 'This visual breakdown and compounding model'],
   ['app/(en)/tools/[slug]/page.tsx', 'When you want a fast estimate before making a financial or salary decision.'],
   ['components/layout/SiteLayout.tsx', "RupeeKit's in-house personal-finance research desk."],
+  ['lib/seo/editorial.ts', 'in-house personal-finance research desk'],
+  ['data/issue-76-tool-overrides-2026-08-23.json', 'this calculator accepts monthly tax as an input'],
 ];
 for (const [path, text] of bannedCopy) {
   if (fs.readFileSync(path, 'utf8').includes(text)) failures.push(`${path}: obsolete boilerplate or unsupported claim`);

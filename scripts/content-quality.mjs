@@ -47,6 +47,7 @@ export function inspectTool(tool) {
   if (!tool.assumptions?.length) review.push('Review rounding, timing, units and model exclusions');
   if (!tool.officialSources?.length) review.push('Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation');
   if (duplicateKeys(tool.faqs ?? [], 'answer').length) review.push('Review identical FAQ answers and consolidate overlapping questions');
+  if (!/\d/.test(tool.example ?? '')) review.push('Worked example has no concrete numbers; reproduce an input and output case rather than describing the calculator');
   review.push('Reproduce the example and inspect zero/boundary inputs', 'Confirm factual accuracy, distinct reader value and relevant next steps', 'Review Hindi and Bengali wording');
   return { errors, review };
 }

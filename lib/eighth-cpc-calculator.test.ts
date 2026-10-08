@@ -39,7 +39,8 @@ describe('8th CPC hub freshness and indexing', () => {
     expect(hubMetadata.alternates?.canonical).toBe('https://www.rupeekit.co.in/8th-pay-commission');
     for (const prefix of ['', '/hi', '/bn']) {
       const url='https://www.rupeekit.co.in'+prefix+'/8th-pay-commission';
-      expect(indexingMiddleware(new NextRequest(url)).headers.get('X-Robots-Tag')).toBeNull();
+      // Translations stay noindexed until their language review is complete.
+      expect(indexingMiddleware(new NextRequest(url)).headers.get('X-Robots-Tag')).toBe(prefix ? 'noindex, follow' : null);
       expect(indexingMiddleware(new NextRequest(url+'?rk_salary=75000')).headers.get('X-Robots-Tag')).toBe('noindex, follow');
     }
   });
@@ -58,11 +59,14 @@ describe('8th CPC hub query fan-out', () => {
     expect(hub).toContain(heading);
   });
 
-  it('links out to the pay matrix, pension and DA cluster pages', () => {
-    expect(hub).toContain('/8th-pay-commission/level-1');
+  it('links out to the pension and allowance calculators, not the retired level or tracker pages', () => {
     expect(hub).toContain('{PENSION_CALCULATOR_URL}');
     expect(hub).toContain('/tools/pension-commutation-calculator-india');
-    expect(hub).toContain('/government-salary-updates');
+    expect(hub).toContain('{ARREARS_CALCULATOR_URL}');
+    // Per-level pages and the sample-only salary tracker were retired; the
+    // calculator's own pay-level selector covers every level.
+    expect(hub).not.toContain('/8th-pay-commission/level-');
+    expect(hub).not.toContain('/government-salary-updates');
   });
 });
 

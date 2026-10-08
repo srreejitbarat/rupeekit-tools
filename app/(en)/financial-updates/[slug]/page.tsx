@@ -7,6 +7,7 @@ import { financialUpdates } from '@/data/financial-updates';
 import { getDiscoverImage } from '@/data/discover-images';
 import UpdateVisual from '@/components/updates/UpdateVisual';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
+import FinancialUpdatesSignup from '@/components/updates/FinancialUpdatesSignup';
 import {
   CORRECTIONS_POLICY_URL,
   EDITORIAL_TEAM_NAME,
@@ -175,7 +176,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
     : null;
 
   return (
-    <main className="mx-auto max-w-5xl space-y-8 px-4 py-8 md:py-12">
+    <div className="mx-auto max-w-5xl space-y-8 px-4 py-8 md:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -193,8 +194,6 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
 
       <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs font-medium text-brandMuted">
         <Link href="/" className="transition hover:text-brandNavy">Home</Link>
-        <span aria-hidden="true">›</span>
-        <Link href="/updates" className="transition hover:text-brandNavy">Updates</Link>
         <span aria-hidden="true">›</span>
         <Link href="/financial-updates" className="transition hover:text-brandNavy">Financial Updates</Link>
         <span aria-hidden="true">›</span>
@@ -467,6 +466,8 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
+      <FinancialUpdatesSignup placement="financial_update" context={update.slug} />
+
       <section className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted">
         <p className="font-bold text-brandDeepNavy">Educational disclaimer</p>
         <p className="mt-2">
@@ -478,10 +479,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
         <Link href="/financial-updates" className="inline-flex items-center gap-2 text-sm font-bold text-brandNavy transition hover:text-brandDeepNavy">
           ← Back to Financial Updates
         </Link>
-        <Link href="/updates" className="inline-flex items-center gap-2 text-sm font-semibold text-brandMuted transition hover:text-brandNavy">
-          Browse all updates →
-        </Link>
       </div>
-    </main>
+    </div>
   );
 }

@@ -182,7 +182,7 @@
       }
     ],
     "formulaExplanation": "EMI is calculated using the reducing balance loan formula: P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate and n is number of monthly payments.",
-    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the calculator estimates the EMI and total interest over the full tenure.",
+    "example": "For a ₹10,00,000 loan at 9% annual interest for 5 years, the EMI is about ₹20,758 a month. Over the full tenure you repay about ₹12,45,501, of which about ₹2,45,501 is interest.",
     "faqs": [
       {
         "question": "Can this be used for home loan EMI?",
@@ -1269,7 +1269,7 @@
       }
     ],
     "formulaExplanation": "FD maturity is estimated using compound interest: P × (1 + r/n)^(n×t), where P is principal, r is annual rate, n is compounding frequency and t is tenure.",
-    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the calculator estimates maturity value and interest earned.",
+    "example": "For a ₹1,00,000 FD at 7% for 3 years with quarterly compounding, the maturity value is about ₹1,23,144, of which about ₹23,144 is interest earned before tax.",
     "faqs": [
       {
         "question": "Is TDS included in FD calculator results?",
@@ -2171,7 +2171,7 @@
       },
       {
         "question": "What is the TDS threshold for RD interest in India?",
-        "answer": "For most individuals, banks deduct TDS if the total interest earned on all RDs and FDs with that bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to avoid TDS."
+        "answer": "For bank deposit interest, the annual TDS threshold is generally ₹50,000, or ₹1,00,000 for a resident senior citizen. Interest from RDs and FDs is combined across branches of the same bank under core banking. A nil-TDS declaration requires eligibility; check the bank's current declaration process. No TDS does not make the interest tax-free."
       },
       {
         "question": "Is this calculator financial or tax advice?",
@@ -2237,12 +2237,22 @@
       },
       {
         "heading": "Taxation on RD Interest in India",
-        "body": "The interest earned on your Recurring Deposit is considered 'Income from Other Sources' and is fully taxable as per your applicable income tax slab in India. If the total interest earned from all your RDs and FDs with a particular bank exceeds ₹40,000 in a financial year (₹50,000 for senior citizens), the bank will deduct TDS at a rate of 10%. If you do not provide your PAN, the TDS rate can be higher. You can avoid TDS by submitting Form 15G (for non-senior citizens) or Form 15H (for senior citizens) if your total income falls below the taxable limit. Remember to declare your RD interest income when filing your Income Tax Return.",
+        "body": "RD interest is taxable income. For bank deposits, the annual TDS threshold is generally ₹50,000, or ₹1,00,000 for a resident senior citizen, with RD and FD interest combined bank-wise under core banking. Crossing the threshold triggers withholding on the interest, rather than only on the excess above the threshold. TDS is an advance tax credit; final tax depends on total income and applicable rules. The post-tax output here applies only your entered tax percentage and does not calculate annual TDS, declaration eligibility or a tax refund.",
         "bullets": [
           "RD interest is taxable as 'Income from Other Sources'.",
-          "TDS is applicable if interest exceeds ₹40,000 (₹50,000 for seniors) per bank per year.",
-          "Submit Form 15G/15H to avoid TDS if eligible."
+          "Bank deposit-interest TDS thresholds are generally ₹50,000, or ₹1,00,000 for resident senior citizens, per year.",
+          "Check eligibility and the bank's current process before submitting a nil-TDS declaration."
         ]
+      }
+    ],
+    "officialSources": [
+      {
+        "label": "Income Tax Department — Bank deposit interest TDS thresholds",
+        "href": "https://www.incometaxindia.gov.in/w/threshold-limits-under-income-tax-act"
+      },
+      {
+        "label": "Income Tax Department — TDS transition from 1 April 2026",
+        "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/tax-payments-faq"
       }
     ],
     "lastReviewed": "May 2026"
@@ -4973,37 +4983,37 @@
       },
       {
         "key": "requiredMonthlySip",
-        "label": "Required monthly SIP to meet target",
+        "label": "Additional monthly SIP to meet target",
         "formula": "corpusShortfall * (sipReturn / 12 / 100) / ((((1 + (sipReturn / 12 / 100)) ^ ((retirementAge - currentAge) * 12)) - 1) * (1 + (sipReturn / 12 / 100)))",
         "format": "currency"
       }
     ],
-    "formulaExplanation": "Retirement corpus = (monthly expenses at retirement × years in retirement) / (post-retirement return - inflation rate). Uses perpetuity formula.",
-    "example": "A 30-year-old earning ₹50,000/month wanting to retire at 60 needs approximately ₹1.5-2 crore corpus (today's value) at 6% inflation and 8% post-retirement return.",
+    "formulaExplanation": "The model uses a finite annual annuity: corpus in today's rupees = annual spending × [1 - (1 + r)^(-N)] / r. Annual spending is current monthly expenses × 12 after the entered expense reduction; N is expected life age minus retirement age. The model approximates the return after inflation as r = max(post-retirement return - inflation, 1%), with rates expressed as decimals. This 1% floor is a calculation limit, not a guaranteed real return, and can understate the target when returns fail to beat inflation. The retirement-date target compounds today's corpus by inflation for the years remaining. Existing savings grow annually; SIP contributions are assumed at the beginning of each month.",
+    "example": "With current age 30, retirement at 60, expected life age 85, ₹50,000 monthly expenses, a 20% expense reduction, 6% inflation and 8% post-retirement return, the model funds 25 retirement years at a 2% return-after-inflation approximation. It estimates ₹93.71 lakh in today's rupees, equivalent to ₹5.38 crore at retirement. With no existing corpus and a ₹10,000 monthly SIP growing at an assumed 12%, projected savings are ₹3.53 crore at retirement. The gap is ₹1.85 crore, requiring about ₹5,248 extra monthly SIP beyond the entered ₹10,000. These are constant-rate scenarios, not guaranteed outcomes.",
     "faqs": [
       {
         "question": "How much corpus do I need for retirement?",
-        "answer": "A common estimate is 20-25x your annual expenses at retirement. For ₹6 lakh/year expenses, you need ₹1.2-1.5 crore."
+        "answer": "This model derives the target from your expenses, retirement horizon and assumed return after inflation. Compare the target in today's rupees with today's spending, and compare the inflation-adjusted retirement-date target with projected savings at retirement. A fixed spending multiple does not account for all of those inputs."
       },
       {
         "question": "When should I start planning for retirement?",
-        "answer": "The earlier, the better. Starting at 25 vs 35 can reduce required monthly SIP by 40-50% due to compounding."
+        "answer": "A longer saving period gives both contributions and investment growth more time. Compare different current ages while keeping retirement age, expenses and return assumptions fixed to see the effect in this model. Actual investment growth can vary."
       },
       {
-        "question": "What investments are best for retirement?",
-        "answer": "Pre-retirement: Equity mutual funds (SIP) for growth. Post-retirement: Debt instruments and balanced portfolios."
+        "question": "Does this calculator choose retirement investments?",
+        "answer": "No. The saving return and post-retirement return are inputs you supply. The calculator does not select funds, forecast market returns or model an investment portfolio."
       },
       {
-        "question": "Should I rely on NPS for retirement?",
-        "answer": "NPS is a good tool with tax benefits (80CCD), but use it as part of a diversified plan including PF, PPF, and mutual funds."
+        "question": "Does this model include NPS or other pension income?",
+        "answer": "No. It calculates the corpus needed to fund the entered expenses without pension income. Any NPS annuity or other pension would need a separate cash-flow assessment; do not count the same corpus twice."
       },
       {
-        "question": "What is the 4% rule in retirement planning?",
-        "answer": "Withdraw 4% of corpus annually (adjusted for inflation). For ₹1 crore, this gives ₹4 lakh/year."
+        "question": "Does this calculator use the 4% rule?",
+        "answer": "No. A 4% initial withdrawal is equivalent to 25 times annual spending. This calculator instead uses a finite retirement horizon and an assumed return after inflation. Neither arithmetic approach guarantees that savings will last under changing returns or expenses."
       },
       {
         "question": "How does inflation affect retirement planning?",
-        "answer": "₹50,000/month today may need ₹1.2-1.5 lakh/month at retirement (6% inflation, 30 years)."
+        "answer": "At 6% annual inflation, ₹50,000 monthly spending becomes about ₹2.87 lakh after 30 years if the spending level otherwise stays the same. With the default 20% expense reduction, ₹40,000 in today's monthly spending becomes about ₹2.30 lakh at retirement. Future inflation may differ from the entered constant rate."
       }
     ],
     "related": [
@@ -5016,29 +5026,31 @@
     "quickAnswer": {
       "title": "Retirement Calculator Quick Answer",
       "question": "How much do I need for retirement?",
-      "answer": "Typically 20-25x your annual expenses at retirement. For ₹6 lakh/year, you need ₹1.2-1.5 crore (today's value).",
+      "answer": "Enter today's expenses, your retirement horizon, inflation and return assumptions to estimate a finite retirement corpus. The page shows both today's rupees and the inflation-adjusted target at retirement so each can be compared with figures from the same date.",
       "note": "Educational estimate. Actual needs depend on lifestyle, healthcare costs, and inflation."
     },
     "howToUse": [
       "Enter current age, retirement age, and expected life age.",
       "Enter current monthly expenses and reduction post-retirement.",
       "Enter existing corpus and current monthly SIP.",
-      "Review corpus needed, projected corpus, and shortfall."
+      "Review the retirement-date corpus target, projected savings and shortfall. The required SIP output is the extra monthly saving needed beyond your entered SIP."
     ],
     "assumptions": [
-      "Expenses reduce post-retirement (no EMI, fewer discretionary expenses).",
+      "The post-retirement expense reduction is your input assumption, not an automatic fall in household costs.",
       "Inflation is constant throughout the planning period.",
       "Returns are estimated — actual returns vary.",
-      "No Social Security or pension income included."
+      "Pension income, taxes, fees, one-time medical costs and market return fluctuations are not modelled.",
+      "The annual return-after-inflation approximation is floored at 1%; it does not model zero or negative real returns.",
+      "The finite annuity assumes annual spending at year-end and funding only through your entered expected life age."
     ],
     "contentSections": [
       {
         "heading": "Why retirement planning matters",
-        "body": "India's average life expectancy is 70+ years. With retirement at 60, you may need funds for 25+ years."
+        "body": "The default horizon runs from retirement at 60 through age 85, a 25-year funding period. Expected life age is an input rather than a prediction; extending it increases the years of spending that the model must fund."
       },
       {
         "heading": "The power of starting early",
-        "body": "Investing ₹5,000/month from age 25 at 12% gives ₹1.1 crore by 60. Starting at 35 requires ₹12,000/month."
+        "body": "At an assumed 12% annual return compounded monthly with deposits at the start of each month, ₹5,000 a month for 35 years projects to about ₹3.25 crore. Reaching the same mathematical target in 25 years requires about ₹17,114 a month. The comparison holds the return constant and excludes tax and fees; it does not predict actual investment performance."
       },
       {
         "heading": "Common retirement mistakes",

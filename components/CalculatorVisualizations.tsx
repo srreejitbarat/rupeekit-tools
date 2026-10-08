@@ -996,16 +996,3 @@ export function CalculatorScenarioComparison({ tool, values }: { tool: Tool; val
   );
 }
 
-// 5. Insight box component
-export function CalculatorInsightBox() {
-  return (
-    <div className="rounded-2xl border border-brandNavy/10 bg-brandNavy/5 px-5 py-4 text-sm leading-6 text-brandMuted">
-      <p className="font-bold text-brandDeepNavy flex items-center gap-1.5">
-        <span>💡</span> Educational Estimates Only
-      </p>
-      <p className="mt-1 text-slate-600">
-        This visual shows estimates from the calculator inputs and assumptions. It does not predict actual outcomes. Read the methodology and exclusions before using the result.
-      </p>
-    </div>
-  );
-}

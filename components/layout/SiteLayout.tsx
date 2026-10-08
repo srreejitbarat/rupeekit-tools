@@ -9,6 +9,7 @@ import GoogleAnalyticsRouteTracker from "@/components/GoogleAnalyticsRouteTracke
 import LanguagePreferenceNotice from "@/components/i18n/LanguagePreferenceNotice";
 import { LOCALE_TAGS, type Locale } from "@/lib/i18n/routing";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo/og-image";
+import { EDITORIAL_TEAM_DESCRIPTION } from "@/lib/seo/editorial";
 
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "RupeeKit";
 const siteUrl =
@@ -122,8 +123,7 @@ export default function SiteLayout({
         "@type": "Organization",
         "@id": `${siteUrl}/#editorial-team`,
         name: `${siteName} Editorial Team`,
-        description:
-          "The organisational byline for the publisher responsible for RupeeKit's educational calculators, guides and updates. Refer to each page for its assumptions, sources and recorded review details.",
+        description: EDITORIAL_TEAM_DESCRIPTION,
         url: `${siteUrl}/editorial-policy`,
         parentOrganization: { "@id": `${siteUrl}/#organization` },
         publishingPrinciples: `${siteUrl}/editorial-policy`,

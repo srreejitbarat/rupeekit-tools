@@ -1,7 +1,7 @@
 {
   "scope": "Composed live calculator registry; literal routes may add their own content. This is a review queue, not an AdSense score or an approval certificate.",
   "humanReviewStatus": "pending",
-  "toolCount": 74,
+  "toolCount": 60,
   "tools": [
     {
       "path": "/tools/salary-in-hand-calculator-india",
@@ -315,10 +315,18 @@
       ],
       "category": "Savings",
       "recordedSourceReview": null,
-      "sourceLinks": [],
+      "sourceLinks": [
+        {
+          "label": "Income Tax Department — Bank deposit interest TDS thresholds",
+          "href": "https://www.incometaxindia.gov.in/w/threshold-limits-under-income-tax-act"
+        },
+        {
+          "label": "Income Tax Department — TDS transition from 1 April 2026",
+          "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/tax-payments-faq"
+        }
+      ],
       "errors": [],
       "review": [
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
         "Reproduce the example and inspect zero/boundary inputs",
         "Confirm factual accuracy, distinct reader value and relevant next steps",
         "Review Hindi and Bengali wording"
@@ -738,62 +746,12 @@
       }
     },
     {
-      "path": "/tools/mutual-fund-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/mutual-fund-calculator-india",
-        "/bn/tools/mutual-fund-calculator-india"
-      ],
-      "category": "Investments",
-      "recordedSourceReview": "2026-08-10",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
       "path": "/tools/retirement-calculator-india",
       "localizedPaths": [
         "/hi/tools/retirement-calculator-india",
         "/bn/tools/retirement-calculator-india"
       ],
       "category": "Planning",
-      "recordedSourceReview": "2026-08-10",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/stock-portfolio-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/stock-portfolio-calculator-india",
-        "/bn/tools/stock-portfolio-calculator-india"
-      ],
-      "category": "Investments",
       "recordedSourceReview": "2026-08-10",
       "sourceLinks": [],
       "errors": [],
@@ -964,39 +922,6 @@
         {
           "label": "SEBI exit-load explainer",
           "href": "https://investor.sebi.gov.in/exit_load.html"
-        }
-      ],
-      "errors": [],
-      "review": [
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/gratuity-2026-old-vs-new-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/gratuity-2026-old-vs-new-calculator-india",
-        "/bn/tools/gratuity-2026-old-vs-new-calculator-india"
-      ],
-      "category": "Salary",
-      "recordedSourceReview": "2026-07-16",
-      "sourceLinks": [
-        {
-          "label": "Ministry of Labour fixed-term employee FAQ, March 2026",
-          "href": "https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf"
-        },
-        {
-          "label": "Ministry of Labour general FAQ, January 2026",
-          "href": "https://www.labour.gov.in/static/uploads/2026/01/de4758d5bfeffc456d7de97a801891b0.pdf"
         }
       ],
       "errors": [],
@@ -1222,6 +1147,7 @@
         "Check whether input instructions are sufficient in the UI",
         "Review rounding, timing, units and model exclusions",
         "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Worked example has no concrete numbers; reproduce an input and output case rather than describing the calculator",
         "Reproduce the example and inspect zero/boundary inputs",
         "Confirm factual accuracy, distinct reader value and relevant next steps",
         "Review Hindi and Bengali wording"
@@ -1276,6 +1202,7 @@
         "Check whether input instructions are sufficient in the UI",
         "Review rounding, timing, units and model exclusions",
         "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Worked example has no concrete numbers; reproduce an input and output case rather than describing the calculator",
         "Reproduce the example and inspect zero/boundary inputs",
         "Confirm factual accuracy, distinct reader value and relevant next steps",
         "Review Hindi and Bengali wording"
@@ -1384,6 +1311,7 @@
         "Check whether input instructions are sufficient in the UI",
         "Review rounding, timing, units and model exclusions",
         "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
+        "Worked example has no concrete numbers; reproduce an input and output case rather than describing the calculator",
         "Reproduce the example and inspect zero/boundary inputs",
         "Confirm factual accuracy, distinct reader value and relevant next steps",
         "Review Hindi and Bengali wording"
@@ -1504,60 +1432,6 @@
       }
     },
     {
-      "path": "/tools/car-loan-emi-affordability-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/car-loan-emi-affordability-calculator-india",
-        "/bn/tools/car-loan-emi-affordability-calculator-india"
-      ],
-      "category": "Loans",
-      "recordedSourceReview": "2026-08-03",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/two-wheeler-loan-emi-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/two-wheeler-loan-emi-calculator-india",
-        "/bn/tools/two-wheeler-loan-emi-calculator-india"
-      ],
-      "category": "Loans",
-      "recordedSourceReview": "2026-08-03",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
       "path": "/tools/credit-card-minimum-due-trap-calculator-india",
       "localizedPaths": [
         "/hi/tools/credit-card-minimum-due-trap-calculator-india",
@@ -1612,33 +1486,6 @@
       }
     },
     {
-      "path": "/tools/sovereign-gold-bond-vs-physical-gold-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/sovereign-gold-bond-vs-physical-gold-calculator-india",
-        "/bn/tools/sovereign-gold-bond-vs-physical-gold-calculator-india"
-      ],
-      "category": "Investing",
-      "recordedSourceReview": "2026-08-05",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
       "path": "/tools/index-fund-vs-active-fund-cost-calculator-india",
       "localizedPaths": [
         "/hi/tools/index-fund-vs-active-fund-cost-calculator-india",
@@ -1652,145 +1499,6 @@
         "Check whether input instructions are sufficient in the UI",
         "Review rounding, timing, units and model exclusions",
         "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/elss-lock-in-vs-80c-options-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/elss-lock-in-vs-80c-options-calculator-india",
-        "/bn/tools/elss-lock-in-vs-80c-options-calculator-india"
-      ],
-      "category": "Investing",
-      "recordedSourceReview": "2026-08-05",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/nps-tier-2-vs-mutual-fund-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/nps-tier-2-vs-mutual-fund-calculator-india",
-        "/bn/tools/nps-tier-2-vs-mutual-fund-calculator-india"
-      ],
-      "category": "Investing",
-      "recordedSourceReview": "2026-08-05",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/xirr-portfolio-return-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/xirr-portfolio-return-calculator-india",
-        "/bn/tools/xirr-portfolio-return-calculator-india"
-      ],
-      "category": "Investing",
-      "recordedSourceReview": "2026-08-05",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/rule-of-72-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/rule-of-72-calculator-india",
-        "/bn/tools/rule-of-72-calculator-india"
-      ],
-      "category": "Investing",
-      "recordedSourceReview": "2026-08-05",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/ops-vs-nps-pension-comparison-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/ops-vs-nps-pension-comparison-calculator-india",
-        "/bn/tools/ops-vs-nps-pension-comparison-calculator-india"
-      ],
-      "category": "Retirement",
-      "recordedSourceReview": "2026-08-08",
-      "sourceLinks": [
-        {
-          "label": "PFRDA Government Sector NPS exit FAQs",
-          "href": "https://www.pfrda.org.in/w/faqs/exits-for-government-sector-model-cg-and-cab"
-        }
-      ],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
         "Reproduce the example and inspect zero/boundary inputs",
         "Confirm factual accuracy, distinct reader value and relevant next steps",
         "Review Hindi and Bengali wording"
@@ -1861,87 +1569,6 @@
       "review": [
         "Check whether input instructions are sufficient in the UI",
         "Review rounding, timing, units and model exclusions",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/child-education-cost-planner-india",
-      "localizedPaths": [
-        "/hi/tools/child-education-cost-planner-india",
-        "/bn/tools/child-education-cost-planner-india"
-      ],
-      "category": "Planning",
-      "recordedSourceReview": "2026-08-08",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/wedding-cost-planner-india",
-      "localizedPaths": [
-        "/hi/tools/wedding-cost-planner-india",
-        "/bn/tools/wedding-cost-planner-india"
-      ],
-      "category": "Planning",
-      "recordedSourceReview": "2026-08-08",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
-        "Reproduce the example and inspect zero/boundary inputs",
-        "Confirm factual accuracy, distinct reader value and relevant next steps",
-        "Review Hindi and Bengali wording"
-      ],
-      "ownerReview": {
-        "reviewer": null,
-        "date": null,
-        "primaryClaimsVerified": false,
-        "exampleReproduced": false,
-        "distinctValueConfirmed": false,
-        "languageReviewComplete": false
-      }
-    },
-    {
-      "path": "/tools/rent-agreement-stamp-duty-registration-cost-calculator-india",
-      "localizedPaths": [
-        "/hi/tools/rent-agreement-stamp-duty-registration-cost-calculator-india",
-        "/bn/tools/rent-agreement-stamp-duty-registration-cost-calculator-india"
-      ],
-      "category": "Housing",
-      "recordedSourceReview": "2026-08-08",
-      "sourceLinks": [],
-      "errors": [],
-      "review": [
-        "Check whether input instructions are sufficient in the UI",
-        "Review rounding, timing, units and model exclusions",
-        "Check whether external rules need exact primary references; pure arithmetic does not require a regulatory citation",
         "Reproduce the example and inspect zero/boundary inputs",
         "Confirm factual accuracy, distinct reader value and relevant next steps",
         "Review Hindi and Bengali wording"
@@ -2185,13 +1812,10 @@
   ],
   "otherPageFamilies": [
     "blog",
-    "guides",
     "money-guides",
     "financial-updates",
-    "government-salary-updates",
     "8th-pay-commission",
     "nri",
-    "resources",
     "trust and legal pages"
   ],
   "otherPageReview": "Use the production sitemap and rendered route manifest as the complete URL inventory. Review these families separately; calculator checks do not certify them."

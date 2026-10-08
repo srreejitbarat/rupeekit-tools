@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { englishPath, hasTranslatedPage, localizedHref, languageAlternates, LOCALES, PUBLISHED_TRANSLATIONS } from './routing';
+import { englishPath, hasTranslatedPage, isIndexedLocale, localizedHref, languageAlternates, LOCALE_TAGS, LOCALES, PUBLISHED_TRANSLATIONS } from './routing';
 import { getLiveTools } from '../tools';
 import { hindiToolCatalog } from '../../data/hi/tool-catalog';
 import { bengaliToolCatalog } from '../../data/bn/tool-catalog';
@@ -38,15 +38,23 @@ describe('published translations', () => {
       const en = languageAlternates(path);
       const translations = LOCALES.map((locale) => languageAlternates(path, locale));
       expect(new Set(translations.map((metadata) => metadata.canonical)).size).toBe(3);
-      expect(Object.keys(en.languages!)).toEqual(['en-IN', 'hi-IN', 'bn-IN', 'x-default']);
-      expect(en.languages?.['x-default']).toBe(en.canonical);
+      const indexed = LOCALES.filter(isIndexedLocale);
+      if (indexed.length > 1) {
+        expect(Object.keys(en.languages!)).toEqual([...indexed.map((locale) => LOCALE_TAGS[locale]), 'x-default']);
+        expect(en.languages?.['x-default']).toBe(en.canonical);
+      } else {
+        expect(en.languages).toBeUndefined();
+      }
       for (const metadata of translations) {
         expect(metadata.languages).toEqual(en.languages);
+      }
+      for (const locale of indexed) {
+        const metadata = languageAlternates(path, locale);
         expect(routes.find((entry) => entry.url === metadata.canonical)?.alternates?.languages).toEqual(metadata.languages);
       }
     }
     for (const locale of ['hi', 'bn'] as const) {
-      expect(routes.filter((entry) => new URL(entry.url).pathname.startsWith(`/${locale}`)).length).toBe(PUBLISHED_TRANSLATIONS[locale].length);
+      expect(routes.filter((entry) => new URL(entry.url).pathname.startsWith(`/${locale}`)).length).toBe(isIndexedLocale(locale) ? PUBLISHED_TRANSLATIONS[locale].length : 0);
     }
   });
 

@@ -1455,8 +1455,8 @@
         "format": "number"
       }
     ],
-    "formulaExplanation": "Uses an amortisation approximation in the entered order. Cleared payments roll into the next debt.",
-    "example": "Enter debts from smallest balance to largest for the snowball method.",
+    "formulaExplanation": "For each debt, estimated months = -log(1 - balance × monthly rate / payment) / log(1 + monthly rate). The monthly rate is the annual percentage rate divided by 1,200. Extra payment goes to debt 1, then its cleared minimum payment rolls into debt 2, and both cleared payments roll into debt 3. The calculator adds these stage estimates using each debt's original balance; it does not reduce later balances by minimum payments made during earlier stages. The total is therefore an approximation, not a month-by-month repayment schedule. A payment must exceed monthly interest for the balance to fall.",
+    "example": "Enter debts of ₹50,000 at 18%, ₹1,50,000 at 14% and ₹4,00,000 at 11%, with minimum payments of ₹3,000, ₹5,000 and ₹9,000, plus ₹5,000 extra each month. Total debt is ₹6,00,000 and the starting monthly payment is ₹22,000. Stage payments are ₹8,000, ₹13,000 and ₹22,000, giving about 6.6, 12.5 and 20.0 months respectively, or 39.1 months in this model. The total uses original balances at each stage; an actual schedule that credits ongoing minimum payments to later debts can finish sooner.",
     "faqs": [
       {
         "question": "Should debts be entered by balance or rate?",

@@ -1,8 +1,4 @@
-import { blogPosts } from '../../data/blog-posts';
-import {
-  calculatorGuideClusters,
-  calculatorGuides,
-} from '../../data/calculator-guides';
+import { blogPosts } from '../../data/all-blog-posts';
 import { financialUpdates } from '../../data/financial-updates';
 import { getLiveTools, type Tool } from '../tools';
 
@@ -78,7 +74,6 @@ export function buildLlmsFullCatalog(): string {
     '## Core indexes',
     '',
     `- [All calculators](${SITE_URL}/tools)`,
-    `- [Calculator-backed decision guides](${SITE_URL}/guides)`,
     `- [Personal finance articles](${SITE_URL}/blog)`,
     `- [XML sitemap](${SITE_URL}/sitemap.xml)`,
     `- [About RupeeKit](${SITE_URL}/about)`,
@@ -105,26 +100,6 @@ export function buildLlmsFullCatalog(): string {
         ''
       );
     }
-  }
-
-  lines.push(`## Calculator-backed decision guides (${calculatorGuides.length})`, '');
-
-  for (const cluster of calculatorGuideClusters) {
-    const guides = calculatorGuides.filter((guide) => guide.clusterId === cluster.id);
-    lines.push(
-      `### ${cluster.title}`,
-      '',
-      `${concise(cluster.description)} Use the [${cluster.toolName}](${SITE_URL}/tools/${cluster.toolSlug}) to test personal assumptions.`,
-      ''
-    );
-
-    for (const guide of guides) {
-      lines.push(
-        `- [${guide.title}](${SITE_URL}/guides/${guide.slug}): ${concise(guide.answer)}`
-      );
-    }
-
-    lines.push('');
   }
 
   lines.push(`## Personal finance articles (${blogPosts.length})`, '');

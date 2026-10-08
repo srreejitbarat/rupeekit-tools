@@ -42,8 +42,7 @@ export default function MoneyGuidePage({ params }: Props) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Money guides', item: `${SITE_URL}/money-guides` },
-      { '@type': 'ListItem', position: 3, name: guide.title, item: url },
+      { '@type': 'ListItem', position: 2, name: guide.title, item: url },
     ],
   };
   // Structured data mirrors the visible content and the actual official links.
@@ -66,13 +65,11 @@ export default function MoneyGuidePage({ params }: Props) {
   const json = (value: object) => JSON.stringify(value).replace(/</g, '\\u003c');
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+    <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json(breadcrumb) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json(article) }} />
       <nav className="text-sm text-brandMuted" aria-label="Breadcrumb">
         <Link href="/" className="font-semibold text-brandNavy hover:underline">Home</Link>
-        <span className="mx-2">/</span>
-        <Link href="/money-guides" className="font-semibold text-brandNavy hover:underline">Money guides</Link>
         <span className="mx-2">/</span>
         <span>{guide.title}</span>
       </nav>
@@ -238,6 +235,6 @@ export default function MoneyGuidePage({ params }: Props) {
           </ul>
         </section>
       </article>
-    </main>
+    </div>
   );
 }

@@ -14,7 +14,6 @@ const PRIORITY_TOOL_SLUGS = [
 const PRIORITY_BLOG_SLUGS = [
   'how-much-emergency-fund',
   'itr-2-ay-2026-27-filing-guide',
-  'income-tax-calculator-2026-calculator-guide',
 ];
 
 let errors = 0;
@@ -41,10 +40,15 @@ const tools = [
   ...readJson('data', 'growth-tools.json'),
 ];
 const toolBySlug = new Map(tools.map((tool) => [tool.slug, tool]));
+// Consolidated calculators keep their data records but are no longer published.
+const consolidatedToolSlugs = new Set(
+  [...(readText('lib', 'consolidated-routes.ts').match(/CONSOLIDATED_TOOL_SLUGS = new Set\(\[([\s\S]*?)\]\)/)?.[1] ?? '')
+    .matchAll(/'([^']+)'/g)].map((match) => match[1]),
+);
+const isPublishedTool = (tool) => tool.status === 'live' && !consolidatedToolSlugs.has(tool.slug);
 
 const toolPageSource = readText('app', '(en)', 'tools', '[slug]', 'page.tsx');
 const homePageSource = readText('app', '(en)', 'page.tsx');
-const resourcesPageSource = readText('app', '(en)', 'resources', 'page.tsx');
 const blogPageSource = readText('app', '(en)', 'blog', '[slug]', 'page.tsx');
 const blogLayoutSource = readText('components', 'blog', 'BlogArticleLayout.tsx');
 const blogFaqSectionSource = readText('components', 'blog', 'FAQSection.tsx');
@@ -52,7 +56,7 @@ const factsTableSource = readText('components', 'seo', 'FactsTable.tsx');
 const sipCalculatorSource = readText('components', 'sip', 'SipPlannerCalculator.tsx');
 const dedicatedIncomeTaxToolSource = readText('app', '(en)', 'tools', 'income-tax-calculator-old-vs-new-regime-india', 'page.tsx');
 const rootLayoutSource = readText('components', 'layout', 'SiteLayout.tsx');
-const guidePageSource = readText('app', '(en)', 'guides', '[slug]', 'page.tsx');
+const guidePageSource = readText('app', '(en)', 'money-guides', '[slug]', 'page.tsx');
 const robotsSource = readText('app', 'robots.ts');
 const sitemapSource = readText('app', 'sitemap.ts');
 const blogDataSource = readText('data', 'blog-posts.ts');
@@ -113,11 +117,6 @@ for (const slug of PRIORITY_TOOL_SLUGS) {
       'Personal loan quickAnswer question is missing or misaligned'
     );
     ensure(
-      toolPageSource.includes('PERSONAL_LOAN_ANSWER_ENGINE_SUMMARY')
-        && toolPageSource.includes('id="answer-engine-summary"'),
-      'Personal loan page is missing the dedicated Answer Engine Summary block'
-    );
-    ensure(
       toolPageSource.includes('Personal Loan EMI Calculator Facts')
         && toolPageSource.includes('id="personal-loan-calculator-facts"'),
       'Personal loan page is missing the Personal Loan EMI Calculator Facts table'
@@ -173,11 +172,6 @@ for (const slug of PRIORITY_TOOL_SLUGS) {
       'SIP page rendering block is missing in app/tools/[slug]/page.tsx'
     );
     ensure(
-      toolPageSource.includes('AnswerEngineSummary')
-        && toolPageSource.includes('id="answer-engine-summary"'),
-      'SIP page is missing the Answer Engine Summary block'
-    );
-    ensure(
       toolPageSource.includes('What happens if you miss a SIP?')
         && toolPageSource.includes('Can you pause and restart SIP later?')
         && toolPageSource.includes('What is step-up SIP?')
@@ -219,7 +213,7 @@ ensure(
   'public/llms.txt should include the SIP calculator URL'
 );
 
-for (const tool of tools.filter((item) => item.status === 'live')) {
+for (const tool of tools.filter(isPublishedTool)) {
   ensure(
     llmsTxtSource.includes(`https://www.rupeekit.co.in/tools/${tool.slug}`),
     `public/llms.txt is missing live calculator URL: ${tool.slug}`
@@ -237,10 +231,9 @@ ensure(
 );
 ensure(
   llmsFullCatalogSource.includes('getLiveTools')
-    && llmsFullCatalogSource.includes('calculatorGuides')
     && llmsFullCatalogSource.includes('blogPosts')
     && llmsFullCatalogSource.includes('financialUpdates'),
-  'Full content catalog must derive calculators, guides, articles, and explainers from source data'
+  'Full content catalog must derive calculators, articles, and explainers from source data'
 );
 
 ensure(
@@ -253,9 +246,9 @@ ensure(
 );
 ensure(
   guidePageSource.includes("inLanguage: 'en-IN'")
-    && guidePageSource.includes('citation: cluster.sources.map')
+    && guidePageSource.includes('citation: [...new Set([')
     && guidePageSource.includes("isPartOf: { '@id': `${SITE_URL}/#website` }"),
-  'Guide Article schema should identify language, site entity, and visible primary-source citations'
+  'Money guide Article schema should identify language, site entity, and visible primary-source citations'
 );
 ensure(
   toolPageSource.includes("browserRequirements: 'Requires a JavaScript-enabled web browser.'")
@@ -275,17 +268,19 @@ ensure(
   toolPageSource.includes('tool.faqs.length > 0'),
   'Tool FAQPage schema should only render when visible FAQs exist'
 );
+// Quick answers and fact tables render only when authored for a tool;
+// generated stand-ins that restated the page were removed as filler.
 ensure(
-  toolPageSource.includes('buildFallbackQuickAnswer') && toolPageSource.includes('effectiveQuickAnswer'),
-  'Tool page should provide quick answer fallback support for all calculators'
+  toolPageSource.includes('effectiveQuickAnswer') && !toolPageSource.includes('buildFallbackQuickAnswer'),
+  'Tool page should render authored quick answers only, without a generated fallback'
 );
 ensure(
-  toolPageSource.includes('id="answer-engine-summary"'),
-  'Tool page should include a visible Answer Engine Summary block'
+  !toolPageSource.includes('id="answer-engine-summary"'),
+  'Tool page should not repeat the quick answer in a generated Answer Engine Summary'
 );
 ensure(
-  toolPageSource.includes('id="calculator-facts"'),
-  'Tool page should include a visible Calculator Facts section for non-SIP calculators'
+  toolPageSource.includes('id="calculator-facts"') && toolPageSource.includes('tool.factRows?.length'),
+  'Tool page should render the Calculator Facts table only for authored fact rows'
 );
 ensure(
   toolPageSource.includes('showGenericSourceMethodology') && toolPageSource.includes('id="source-and-methodology"'),
@@ -293,10 +288,9 @@ ensure(
 );
 ensure(
   dedicatedIncomeTaxToolSource.includes('QuickAnswerBox')
-    && dedicatedIncomeTaxToolSource.includes('id="answer-engine-summary"')
     && dedicatedIncomeTaxToolSource.includes('id="calculator-facts"')
     && dedicatedIncomeTaxToolSource.includes('id="source-and-methodology"'),
-  'Dedicated income-tax calculator page should include quick answer, answer summary, facts, and methodology sections'
+  'Dedicated income-tax calculator page should include quick answer, facts, and methodology sections'
 );
 ensure(
   dedicatedIncomeTaxToolSource.includes('const faqSchema = faqs.length > 0 ?'),
@@ -326,7 +320,7 @@ const staticRoutes = new Set(
 );
 
 const liveToolPaths = tools
-  .filter((tool) => tool.status === 'live')
+  .filter(isPublishedTool)
   .map((tool) => `/tools/${tool.slug}`);
 
 const blogSlugs = new Set(
@@ -345,8 +339,6 @@ const priorityPaths = [
   '/tools/income-tax-calculator-old-vs-new-regime-india',
   '/blog/how-much-emergency-fund',
   '/blog/itr-2-ay-2026-27-filing-guide',
-  '/blog/income-tax-calculator-2026-calculator-guide',
-  '/resources',
 ];
 
 for (const pagePath of priorityPaths) {
@@ -360,7 +352,7 @@ ensure(
 ensure(
   sitemapSource.includes("['', latestSiteDate]")
     && sitemapSource.includes("['/tools', latestToolDate]")
-    && sitemapSource.includes("['/guides', latestGuideDate]"),
+    && sitemapSource.includes("['/blog', latestBlogDate]"),
   'Sitemap hubs should use the newest verifiable date from their underlying content'
 );
 
@@ -380,12 +372,12 @@ ensure(
   'Blog quick answer rendering is missing in BlogArticleLayout'
 );
 ensure(
-  blogLayoutSource.includes('AnswerEngineSummary') && blogLayoutSource.includes('answerEngineSummary'),
-  'Blog answer engine summary rendering is missing in BlogArticleLayout'
+  blogLayoutSource.includes('<AnswerEngineSummary summary={post.answerEngineSummary} />'),
+  'Blog layout should show an authored answer summary only when a post has no quick answer'
 );
 ensure(
-  blogLayoutSource.includes('Last updated:') && blogLayoutSource.includes('Educational information only.'),
-  'Blog layout should show last updated and educational note near the top'
+  blogLayoutSource.includes('<EditorialByline') && blogLayoutSource.includes('updatedIso={post.modifiedDateISO}'),
+  'Blog layout should show published and updated dates in the editorial byline near the top'
 );
 const blogQuickAnswerIndex = blogLayoutSource.indexOf('post.quickAnswer');
 const blogAnswerSummaryIndex = blogLayoutSource.indexOf('<AnswerEngineSummary');
@@ -430,10 +422,6 @@ ensure(
 );
 
 ensure(homePageSource.includes("alternates: languageAlternates('/')"), 'Homepage must use the shared self-canonical and language-alternate helper (also verified in rendered output)');
-ensure(
-  resourcesPageSource.includes('canonical: `${SITE_URL}/resources`'),
-  'Resources page canonical is missing or not self-canonical'
-);
 ensure(
   toolPageSource.includes('canonical: pageUrl') && toolPageSource.includes('const pageUrl = `${SITE_URL}/tools/${tool.slug}`;'),
   'Tool page canonical is missing or not self-canonical'

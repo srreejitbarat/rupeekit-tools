@@ -115,7 +115,7 @@ export default function DeadlinesPage() {
   ];
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
       {schemas.map((schema) => (
         <script
           key={schema['@type']}
@@ -211,14 +211,7 @@ export default function DeadlinesPage() {
         </div>
         <p className="mt-4 leading-8 text-slate-700">
           A revision announced for one quarter does not change interest already credited for
-          earlier quarters. RupeeKit records each revision as it is notified on the{' '}
-          <Link
-            href="/financial-updates"
-            className="font-semibold text-brandNavy underline underline-offset-2"
-          >
-            official updates page
-          </Link>
-          .
+          earlier quarters.
         </p>
       </section>
 
@@ -240,6 +233,6 @@ export default function DeadlinesPage() {
       </section>
 
       <AnswerEngineSummary className="mt-12" summary={answerEngineSummary} />
-    </main>
+    </div>
   );
 }

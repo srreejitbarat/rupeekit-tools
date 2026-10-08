@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
 import { getDiscoverImage } from '@/data/discover-images';
 import BlogArticleLayout from '@/components/blog/BlogArticleLayout';
-import FcraArticleLayout from '@/components/blog/FcraArticleLayout';
-import FcraOriginalMedia from '@/components/blog/FcraOriginalMedia';
 import { normalizeSerpDescription, normalizeSerpTitle } from '@/lib/seo/ctr-metadata';
 import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
@@ -106,12 +104,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     mainEntity: post.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })),
   } : null;
 
-  const isFcraGuide = post.slug === 'fcra-2-0-india-2026-explained';
-
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
-    {isFcraGuide ? <><FcraArticleLayout post={postWithHero} /><FcraOriginalMedia /></> : <BlogArticleLayout post={postWithHero} />}
+    <BlogArticleLayout post={postWithHero} />
   </>;
 }

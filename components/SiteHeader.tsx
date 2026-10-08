@@ -28,11 +28,10 @@ export default function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
   const copy = siteMessages(locale);
   const navLinks = [
     { name: copy.tools, href: '/tools' },
-    { name: copy.hubs, href: '/tool-hubs' },
+    { name: copy.pay, href: '/8th-pay-commission' },
     { name: copy.blog, href: '/blog' },
-    { name: copy.guides, href: '/guides' },
-    { name: copy.resources, href: '/resources' },
-    { name: copy.start, href: '/start-here' },
+    { name: copy.deadlines, href: '/deadlines' },
+    { name: copy.nri, href: '/nri' },
   ];
   const linkTitle = (href: string) => locale !== 'en' && !hasTranslatedPage(href, locale) ? copy.englishOnly : undefined;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -107,12 +106,6 @@ export default function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           >
             <ThemeIcon dark={darkMode} />
           </button>
-          <Link
-            href={localizedHref('/money-health-check', locale)} title={linkTitle('/money-health-check')}
-            className="hidden min-h-11 items-center rounded-full bg-brandGrowthGreen xl:flex px-5 text-sm font-black text-white shadow-sm transition hover:bg-brandBrightGreen hover:shadow-md"
-          >
-            {copy.health}
-          </Link>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -180,13 +173,6 @@ export default function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
                 </div>
               </div>
 
-              <Link
-                href={localizedHref('/money-health-check', locale)} title={linkTitle('/money-health-check')}
-                onClick={closeMobileMenu}
-                className="mt-5 flex min-h-12 items-center justify-center rounded-xl bg-brandGrowthGreen px-5 text-sm font-black text-white shadow-sm transition hover:bg-brandBrightGreen"
-              >
-                {copy.health}
-              </Link>
               <button type="button" onClick={toggleTheme} className="mt-3 flex min-h-11 items-center gap-2 rounded-xl px-3 text-sm font-bold sm:hidden">
                 <ThemeIcon dark={darkMode} /> {darkMode ? copy.light : copy.dark}
               </button>

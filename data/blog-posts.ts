@@ -971,7 +971,7 @@ export const blogPosts: BlogPost[] = [
     date: 'August 2026',
     readTime: '9 min read',
     h1: 'ITR-2 AY 2026-27: Deadline, Documents and Late Filing Guide',
-    intro: 'Tax season can bring anxiety, especially if your income sources have grown over the last year. If you recently started investing in mutual funds, sold some company stocks, or bought a second house, the basic ITR-1 form might no longer apply to you. Instead, you will need to step up to ITR-2.',
+    intro: "Choose the return form from your complete income and residential status for AY 2026-27. An investment sale or two house properties does not automatically require ITR-2: eligible ITR-1 filers can report limited Section 112A long-term gains and income from two house properties. ITR-2 covers individuals and HUFs without business or professional income whose circumstances fall outside the simpler form.",
     quickAnswer: {
       title: 'ITR-2 AY 2026-27: Deadline and Filing Status',
       question: 'What is the ITR-2 filing and deadline status for AY 2026-27?',
@@ -986,6 +986,10 @@ export const blogPosts: BlogPost[] = [
       ],
     },
     answerEngineSummary: 'This guide explains who usually falls under ITR-2 for AY 2026-27, what key changes to review, and how to prepare filing documents before submission. It also outlines checklist-driven steps to reconcile Form 16, AIS, and capital-gains records. Use RupeeKit tax calculators for preliminary educational comparison before final filing checks.',
+    officialSources: [
+      { label: 'Income Tax Department — AY 2026-27 return utilities and ITR-1/ITR-2 eligibility', href: 'https://www.incometax.gov.in/iec/foportal/downloads' },
+      { label: 'Income Tax Department — Schedule FA instructions and NR/RNOR exclusions', href: 'https://www.incometax.gov.in/iec/foportal/sites/default/files/2025-01/Refer%20annexure%20and%20step%20by%20step%20guide.pdf' },
+    ],
     relatedCalculators: ['capital-gains-tax-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', 'hra-exemption-calculator-india', '80c-deduction-calculator-india'],
     sections: [
       {
@@ -1009,12 +1013,12 @@ export const blogPosts: BlogPost[] = [
       {
         title: 'Who must file ITR-2 for AY 2026-27?',
         paragraphs: [
-          'You must file your return using ITR-2 if your financial profile matches any of the following conditions for the financial year:'
+          "For an individual or HUF without business or professional income, check whether these circumstances take the return outside ITR-1 eligibility. Use the AY 2026-27 instructions; the asset or income label alone does not decide the form:"
         ],
         bullets: [
-          'Capital Gains: You made a profit (or loss) from selling equity shares, mutual funds, real estate, or gold.',
+          "Capital Gains: ITR-1 allows Section 112A long-term gains up to ₹1.25 lakh for otherwise eligible filers. Short-term gains, other capital-gain categories or loss reporting require checking the wider return-form instructions.",
           'High Income: Your total income for the financial year exceeded ₹50 Lakhs.',
-          'Multiple Properties: You own and earn income from more than one house property.',
+          "House Properties: AY 2026-27 ITR-1 permits income from two house properties for otherwise eligible filers. More complex property-income or loss situations need a separate form check.",
           'Foreign Income/Assets: You hold foreign bank accounts, foreign stocks (like RSUs from your employer), or earn income from outside India.',
           'Company Directorship: You are a Director in a company.',
           'Unlisted Shares: You held unlisted equity shares at any point during the financial year.',
@@ -1050,11 +1054,11 @@ export const blogPosts: BlogPost[] = [
       {
         title: 'Who should not file ITR-2?',
         paragraphs: [
-          'ITR-2 is not for everyone. If your only income is salary or pension, one house property and other sources (like interest), your total income is up to ₹50 lakh, and you have no capital gains, foreign assets, directorship or unlisted shares, the simpler ITR-1 (Sahaj) usually applies.',
+          "ITR-1 can apply to an otherwise eligible resident individual, other than a resident not ordinarily resident, with total income up to ₹50 lakh and permitted income from salary, two house properties, other sources and Section 112A long-term gains up to ₹1.25 lakh. Check all exclusions in the AY 2026-27 instructions; a small investment sale alone does not force ITR-2.",
           'At the other end, if you have income from business or profession — including intraday trading treated as speculative business income or F&O trading treated as non-speculative business income — ITR-2 cannot be used; ITR-3 (or ITR-4 for presumptive cases) is the relevant form. When in doubt, check the form-applicability help on the e-filing portal or consult a professional.'
         ],
         bullets: [
-          'Simple salary + one house property + interest income within ₹50 lakh: usually ITR-1, not ITR-2.',
+          "Eligible resident individual within ₹50 lakh: check ITR-1, including its two-house-property and limited Section 112A gain provisions.",
           'Any business or professional income (including F&O/intraday trading): ITR-3 or ITR-4, not ITR-2.',
           'Presumptive business income under Sections 44AD/44ADA/44AE: usually ITR-4.',
         ]
@@ -1076,8 +1080,8 @@ export const blogPosts: BlogPost[] = [
       {
         title: 'Foreign assets and foreign income (Schedule FA)',
         paragraphs: [
-          'If you held any foreign asset at any time during the relevant period — foreign bank accounts, foreign stocks (including employer RSUs of a foreign parent company), foreign mutual funds or ESOPs — Schedule FA disclosure is mandatory in ITR-2, even if you sold nothing and earned no income from them.',
-          'Foreign income (dividends on US stocks, foreign interest) must also be reported, with foreign tax credit claimed via Form 67 where a tax treaty applies. Non-disclosure of foreign assets carries severe penalties under the Black Money Act, so treat Schedule FA as a hard requirement, not an optional extra.'
+          "Schedule FA generally applies to a resident and ordinarily resident taxpayer with reportable foreign assets. The official instructions exclude non-residents and residents who are not ordinarily resident (RNOR). Where it applies, check the specified reporting period and overseas accounts, shares, employer RSUs and other reportable interests even if no sale occurred.",
+          "Foreign-income taxation and foreign-tax-credit eligibility are separate checks that depend on residential status, the income and applicable rules. Do not infer a Schedule FA obligation solely from holding a foreign asset or from returning to India. Follow the AY 2026-27 return instructions for the relevant schedules and any eligible credit claim."
         ]
       },
       {
@@ -1159,7 +1163,7 @@ export const blogPosts: BlogPost[] = [
         bullets: [
           'Ignoring the AIS: The tax department already knows about your mutual fund redemptions, dividends, and high-value FD transactions. Failing to report them will trigger an automatic defect notice.',
           'Forgetting to carry forward losses: If you had a net loss in the stock market, you must file your ITR-2 on time to carry those losses forward to set off against future gains.',
-          'Missing Foreign Asset Disclosure (Schedule FA): Holding RSUs (Restricted Stock Units) of a foreign parent company (like Google, Amazon, or Microsoft) means you hold foreign assets. This is mandatory to disclose in ITR-2, even if you did not sell them.'
+          "Missing an applicable Schedule FA disclosure: resident and ordinarily resident taxpayers should check reportable foreign employer shares and other assets; NR and RNOR taxpayers are excluded from this schedule."
         ]
       },
       {
@@ -1178,7 +1182,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         question: 'Can I file ITR-1 if I only sold a few mutual funds?',
-        answer: 'No. Even if you sold a single mutual fund unit or stock, it constitutes a capital gain or loss, and this guide indicates ITR-2 should be used instead of ITR-1.'
+        answer: "Possibly. For AY 2026-27, an otherwise eligible ITR-1 filer can report Section 112A long-term gains up to ₹1.25 lakh. A mutual-fund sale can also produce short-term gains, gains outside Section 112A or a loss, so identify the gain category and check all ITR-1 exclusions before choosing the form."
       },
       {
         question: 'Which tax regime is better if my salary is Rs 12 lakhs?',
@@ -1632,7 +1636,10 @@ export const blogPosts: BlogPost[] = [
         { label: 'ITR-2 AY 2026-27 Filing Guide', href: '/blog/itr-2-ay-2026-27-filing-guide' },
       ],
     },
-    answerEngineSummary: 'For AY 2026-27, India taxes short-term capital gains on equity at 20% and long-term capital gains at 12.5% with a Rs 1.25 lakh annual exemption. Holding equity for at least 12 months qualifies for the lower rate. Key legal strategies: tax-loss harvesting, LTCG harvesting up to Rs 1.25L every year before March 31, spreading large redemptions across financial years. ITR-2 is required if you have any capital gains. Buyback proceeds are now taxed as dividend at slab rates.',
+    answerEngineSummary: "For AY 2026-27, India taxes short-term capital gains on equity at 20% and long-term capital gains at 12.5% with a Rs 1.25 lakh annual exemption. Holding equity for at least 12 months qualifies for the lower rate. Key legal strategies: tax-loss harvesting, LTCG harvesting up to Rs 1.25L every year before March 31, spreading large redemptions across financial years. An otherwise eligible ITR-1 filer can report Section 112A long-term gains up to Rs 1.25 lakh for AY 2026-27; ITR-2 is relevant outside ITR-1 eligibility only where there is no business or professional income. Buyback proceeds are now taxed as dividend at slab rates.",
+    officialSources: [
+      { label: 'Income Tax Department — AY 2026-27 ITR-1/ITR-2 eligibility', href: 'https://www.incometax.gov.in/iec/foportal/downloads' },
+    ],
     relatedCalculators: ['capital-gains-tax-calculator-india', 'income-tax-calculator-old-vs-new-regime-india', '80c-deduction-calculator-india'],
     sections: [
       {
@@ -1690,7 +1697,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: '7. Which ITR Form to Use for Capital Gains?',
         paragraphs: [
-          'If you have any capital gains — even a small profit from selling one mutual fund unit — you cannot use ITR-1. You must file ITR-2 for AY 2026-27.',
+          "For AY 2026-27, an otherwise eligible ITR-1 filer can report Section 112A long-term gains up to Rs 1.25 lakh. Short-term gains, gains outside that category or loss reporting require checking the wider form instructions. Use ITR-2 only where there is no business or professional income; business income can require ITR-3 or another applicable form.",
           'Ensure you reconcile your capital gains data with your AIS (Annual Information Statement) and broker-issued capital gains statements. Discrepancies between what you report and what appears in AIS frequently trigger tax notices.',
           'For equity mutual funds, the fund house provides a Capital Gains Statement accessible via the AMC or CAMS and KFin portals. Download this before filing and use it to prefill your ITR-2 data accurately.',
         ],
@@ -1715,7 +1722,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'Do I need to file ITR-2 if I have capital gains from mutual funds?',
-        answer: 'Yes. Any capital gains — even a small profit from redeeming one mutual fund unit — requires ITR-2. You cannot use ITR-1 if you have capital gains income.',
+        answer: "Not always. AY 2026-27 ITR-1 allows Section 112A long-term gains up to Rs 1.25 lakh for otherwise eligible filers. Check the gain category, losses and other exclusions. ITR-2 is for individuals and HUFs without business or professional income; business income requires a different form.",
       },
       {
         question: 'What changed in capital gains tax in Budget 2024?',
@@ -2514,7 +2521,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'home-loan-eligibility-by-salary-india',
     seoTitle: 'Home Loan Eligibility by Salary India 2026: Full Table',
     title: 'Home Loan Eligibility by Monthly Salary in India 2026: Complete Guide',
-    metaDescription: 'Home loan eligibility table by salary for Rs 20,000 to Rs 1 lakh monthly income in India 2026. Based on RBI FOIR norms, bank benchmarks, and 9% interest rate.',
+    metaDescription: "Illustrative home loan amounts for Rs 20,000 to Rs 1 lakh monthly salary using an assumed 50% EMI budget, 9% rate and 20-year term. Lender approval varies.",
     category: 'Loans',
     date: 'July 2026',
     publishedDateISO: '2026-07-13',
@@ -2524,39 +2531,39 @@ export const blogPosts: BlogPost[] = [
     visualSubtitle: 'Ready-reckoner: eligible loan at 50% FOIR, 9% rate, 20yr tenure',
     visualAlt: 'Chart showing home loan eligibility across different salary levels in India',
     h1: 'Home Loan Eligibility by Salary India 2026: How Much Can You Get?',
-    intro: 'Home loan eligibility in India is primarily determined by your net monthly salary and the bank\'s Fixed Obligation to Income Ratio (FOIR). Most banks set a 50% FOIR limit, meaning your total monthly EMIs (including the new home loan) cannot exceed half your take-home pay. This guide gives you a ready-reckoner table across salary ranges, plus the key factors that change the final number.',
+    intro: "This guide models loan amounts using a 50% budget for total EMIs, a 9% annual rate and a 20-year term. The 50% figure is an illustration, not a universal RBI rule or an approval promise. A lender checks income, existing repayments, property value, credit history and its own policy before offering a loan.",
     quickAnswer: {
       question: 'How much home loan can I get based on my salary in India?',
       answer: 'Rule of thumb: You can borrow approximately 55–60 times your monthly net salary as a home loan (20-year tenure, 9% rate, 50% FOIR). Examples: Rs 25K salary → ~Rs 14L | Rs 40K → ~Rs 22L | Rs 50K → ~Rs 27.7L | Rs 75K → ~Rs 41.7L | Rs 1 lakh → ~Rs 55.6L.',
       formula: 'Home Loan ≈ (Net Salary × 50% FOIR) / (EMI per lakh) × 1,00,000. At 9%, 20yr: EMI per lakh ≈ Rs 900.',
       note: 'These are estimates. Actual sanction depends on credit score, existing obligations, tenure chosen, and lender policy.',
     },
-    answerEngineSummary: 'Home loan eligibility in India is roughly 55 times monthly salary for a 20-year tenure at 9% interest under the 50% FOIR norm. A Rs 30,000 salary gives ~Rs 16.7L, Rs 50,000 gives ~Rs 27.7L, and Rs 1 lakh salary gives ~Rs 55.6L, assuming no existing EMIs and a CIBIL score above 700.',
+    answerEngineSummary: "At an illustrative 9% annual rate over 20 years, an EMI budget of half the net salary models a loan of about 55.6 times monthly salary before existing EMIs. This is a calculation scenario; a lender’s actual affordability policy, property assessment and underwriting can produce a different result.",
     officialSources: [
-      { label: 'RBI — Guidelines on Housing Finance', href: 'https://www.rbi.org.in' },
-      { label: 'PMAY — Pradhan Mantri Awas Yojana (eligibility calculator)', href: 'https://pmaymis.gov.in' },
+      { label: 'RBI — Home-loan consumer guidance', href: 'https://www.rbi.org.in/commonman/english/scripts/FAQs.aspx?Id=701' },
+      { label: 'PIB — PMAY-U 2.0 Interest Subsidy Scheme criteria and instalment conditions', href: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2147921' },
     ],
     sections: [
       {
         title: 'Home loan eligibility table by salary (India 2026)',
         paragraphs: [
-          'The table below uses standard industry benchmarks: 50% FOIR, 9% annual interest, 20-year tenure, and no existing EMIs. Amounts are approximate. Actual bank sanction may differ by ±10–15% based on your credit profile and lender policy.',
+          "The table uses assumed inputs: 50% of net salary available for total EMIs, 9% annual interest, a 20-year term and no existing EMIs. Amounts are approximate calculation results. An actual sanction can differ substantially; no approval tolerance is implied.",
           'Monthly salary Rs 20,000: Max EMI Rs 10,000 → Eligible loan ~Rs 11.1 lakh. Monthly salary Rs 25,000: Max EMI Rs 12,500 → Eligible loan ~Rs 13.9 lakh. Monthly salary Rs 30,000: Max EMI Rs 15,000 → Eligible loan ~Rs 16.7 lakh. Monthly salary Rs 40,000: Max EMI Rs 20,000 → Eligible loan ~Rs 22.2 lakh. Monthly salary Rs 45,000: Max EMI Rs 22,500 → Eligible loan ~Rs 25 lakh. Monthly salary Rs 50,000: Max EMI Rs 25,000 → Eligible loan ~Rs 27.7 lakh. Monthly salary Rs 75,000: Max EMI Rs 37,500 → Eligible loan ~Rs 41.7 lakh. Monthly salary Rs 1,00,000: Max EMI Rs 50,000 → Eligible loan ~Rs 55.6 lakh.',
         ],
         bullets: [
           'Tenure 30yr instead of 20yr increases eligibility by ~12%',
-          'Adding a co-applicant nearly doubles the eligible amount',
+          "A co-applicant’s accepted income and obligations can change the lender’s assessment",
           'Clearing existing EMIs frees up full FOIR headroom',
-          'PMAY subsidy can reduce effective loan cost by Rs 2–2.5 lakh for eligible buyers',
+          "Check the current PMAY-U 2.0 scheme criteria and release conditions separately from loan eligibility",
         ],
       },
       {
         title: 'Key factors that affect eligibility beyond salary',
         paragraphs: [
-          'CIBIL score: A score of 750+ is the gateway to best rates. Below 650, most banks decline. A higher score does not directly change the formula amount but can result in a lower rate, which means you can afford a higher loan at the same EMI.',
+          "Credit history: a lender considers the report and its own underwriting criteria. A score threshold is not a universal approval rule, and a higher score does not guarantee a particular rate or loan amount.",
           'Existing EMIs: Every Rs 5,000 in existing monthly obligations reduces eligible home loan by approximately Rs 5.5 lakh. Clearing small loans before applying has significant impact.',
-          'Age: Most banks cap the loan tenure at retirement age (60 for salaried, 65 for self-employed). A 50-year-old applying for a 20-year home loan can only get a 10-year tenure in practice, which raises the EMI per lakh from Rs 900 to Rs 1,100, reducing eligibility by roughly 18%.',
-          'Employment type: Government employees and PSU staff often get a higher FOIR allowance (up to 60%) and preferential rates. Private sector employees at listed companies generally get the same rates as government employees at most banks.',
+          "Age and tenure: confirm the lender’s maximum term and age-at-maturity policy. A shorter repayment term raises the EMI for the same principal and rate; reproduce that calculation rather than assuming one retirement-age rule applies to every borrower.",
+          "Employment type: income stability, accepted salary components and lender-specific terms affect assessment. Ask for the applicable policy instead of assuming a fixed FOIR allowance or preferential rate for an employment category.",
         ],
       },
       {
@@ -2565,7 +2572,7 @@ export const blogPosts: BlogPost[] = [
           'Add a co-applicant: a spouse, parent, or sibling with regular income is the single most effective way to increase eligibility. Banks add both incomes to calculate the combined FOIR headroom.',
           'Prepay existing debt: before applying, channel any savings into prepaying personal loans or car loans. This is often more impactful than salary increases.',
           'Choose a longer tenure: 30 years vs 20 years increases eligibility by ~12% — a meaningful difference. Only do this if you plan to prepay when income rises.',
-          'Use PMAY CLSS: if you are a first-time home buyer with income up to Rs 18 lakh/year, apply for the PMAY Credit Linked Subsidy. The subsidy is credited upfront to the loan, effectively reducing your outstanding principal.',
+          "Check PMAY-U 2.0: use the linked official Interest Subsidy Scheme criteria for household income, property and loan limits, ownership conditions and instalment releases. Do not apply old CLSS income bands or assume an upfront subsidy when assessing a current loan.",
         ],
       },
       {
@@ -2816,27 +2823,29 @@ export const blogPosts: BlogPost[] = [
     visualSubtitle: 'From last working day to credit: timeline and steps',
     visualAlt: 'Process timeline showing steps to withdraw EPF online after resignation in India',
     h1: 'How to Withdraw EPF After Resignation in India 2026: Complete Online Process',
-    intro: 'After resigning, you can withdraw your full EPF balance — but not right away. You need to wait 2 months from your last working day, and then file the claim online using your UAN. The whole thing is paperless if your KYC is already linked. Here is the step-by-step process, what documents you will need, and when the withdrawal becomes taxable.',
+    intro: "Resigning does not by itself establish eligibility for full EPF settlement. Check the applicable waiting period, employment status and exceptions before choosing a claim. This guide separates final settlement from an advance and account transfer, and shows which records to check before submitting an online claim.",
     quickAnswer: {
       question: 'How do I withdraw EPF after resignation in India?',
-      answer: 'Wait 2 months after resignation date. Then log in to the EPFO Unified Member Portal (unifiedportal-mem.epfindia.gov.in), go to Online Services → Claim (Form-31, 19 & 10C), select Full EPF Settlement, and submit. Processing takes 15–20 working days. Your Aadhaar must be linked to UAN.',
-      note: 'Official source: EPFO India (epfindia.gov.in). The Employees\' Provident Funds & Miscellaneous Provisions Act, 1952 governs withdrawal rules.',
+      answer: "Confirm final-settlement eligibility and the recorded date of exit before applying through the EPFO Unified Member Portal. Choose the settlement claim rather than PF Advance, verify the payment details and follow the current authentication steps. Do not rely on an old two-month waiting-period summary: official reform announcements describe changes, and the operative scheme and claim conditions must be checked.",
+      note: "The linked dated PIB and EPFO guidance distinguish announced reforms, claim categories and account records. A press announcement does not replace the operative scheme or your specific claim eligibility.",
     },
-    answerEngineSummary: 'EPF can be withdrawn after resignation by waiting 2 months and then applying online via the EPFO Unified Member Portal. You need an active UAN linked to Aadhaar and verified bank account. Full withdrawal is tax-free if total service across all employers is 5 years or more. Processing takes 15–20 working days. Source: EPFO India (epfindia.gov.in).',
+    answerEngineSummary: "Before withdrawing EPF after resignation, verify final-settlement eligibility, the date of exit and your account details. An advance, a transfer and final settlement are different claims. Check the current official scheme and tax-year rules rather than assuming that an older waiting period or TDS summary still applies.",
     officialSources: [
-      { label: 'EPFO Unified Member Portal (for withdrawal)', href: 'https://unifiedportal-mem.epfindia.gov.in' },
-      { label: 'EPFO — Withdrawal Guidelines', href: 'https://www.epfindia.gov.in' },
+      { label: 'EPFO — Official claim-status facility', href: 'https://www.epfindia.gov.in/site_en/KYCS.php' },
+      { label: 'PIB — EPFO withdrawal reform announcement dated 15 October 2025', href: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2179689' },
+      { label: 'Income Tax Department — Provident-fund TDS rates for AY 2026-27', href: 'https://www.incometaxindia.gov.in/w/tds-rates-1' },
+      { label: 'Income Tax Department — Form 121 nil-tax declaration conditions', href: 'https://www.incometax.gov.in/iec/foportal/newformpage/forms/from121-um' },
     ],
     sections: [
       {
         title: 'When can you withdraw EPF after resignation?',
         paragraphs: [
-          'Under the EPF (Employees\' Provident Funds & Miscellaneous Provisions) Act, 1952, you can withdraw your full EPF balance only after leaving a job and remaining unemployed for at least 2 months. This rule is enforced to preserve retirement savings — EPF is primarily a retirement corpus.',
+          "Check the applicable final-settlement waiting period and exceptions before applying. The Ministry of Labour’s 15 October 2025 release describes reforms to premature settlement; do not assume that a two-month rule copied from older guidance is the current rule for your claim. Confirm the operative scheme and the conditions shown by EPFO.",
           'If you resign and immediately join a new employer, you should transfer your old EPF account to the new employer\'s PF trust (via EPFO\'s online transfer facility) rather than withdrawing. This preserves tax-free status and maintains the 5-year continuous service count.',
           'EPFO allows partial advance withdrawal (without the 2-month waiting period) for specific purposes like housing, medical, education, or marriage — even while employed. This is separate from the full resignation-based withdrawal.',
         ],
         bullets: [
-          'Full withdrawal: requires 2 months of unemployment after resignation',
+          "Full settlement: verify the current waiting period, employment status and applicable exceptions",
           'Transfer to new employer: can be done immediately — preferred for continuity',
           'Partial withdrawal (advance): allowed while employed, for specific purposes',
           'EPFO online portal: unifiedportal-mem.epfindia.gov.in',
@@ -2847,9 +2856,9 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           'Step 1 — Activate UAN: Your UAN (Universal Account Number) must be activated at the EPFO Member Portal. If you have not activated it, go to unifiedportal-mem.epfindia.gov.in → Activate UAN, and complete KYC (Aadhaar, PAN, bank account).',
           'Step 2 — Check that Aadhaar and bank are verified: Go to Manage → KYC in the portal. Both must show a green "Verified" tick. If either is pending, the claim will be rejected — sort this before you try to submit.',
-          'Step 3 — Wait 2 months after the last day of employment: The system checks the date of exit recorded by your previous employer. If your employer has not updated your Exit Date on the EPFO portal, contact HR to update it first.',
-          'Step 4 — Submit the claim: Log in → Online Services → Claim (Form-31, 19 & 10C). Select "PF Advance (Form 31)" or "Only PF Withdrawal (Form 19)" for full settlement. Verify bank account details. Enter the reason and submit the claim.',
-          'Step 5 — Track and receive: Track at Online Services → Track Claim Status. Processing takes 15–20 working days. Amount is credited to your registered bank account.',
+          "Step 3 — Verify the date of exit and eligibility: compare the recorded exit date with your employment records and check the current final-settlement conditions. Resolve missing or incorrect account records before submitting the claim.",
+          "Step 4 — Submit the correct claim: use the final-settlement option for settlement and PF Advance only for an eligible advance. Verify the bank details, complete the declarations and follow the portal’s current authentication instructions.",
+          "Step 5 — Track the claim: use the official claim-status facility and retain the acknowledgement. Processing time depends on claim type, validation and any further checks; an estimate is not a payment deadline.",
         ],
       },
       {
@@ -2862,16 +2871,16 @@ export const blogPosts: BlogPost[] = [
           'Online: No physical documents needed if KYC is complete',
           'Offline: Composite Claim Form (Aadhaar) or (Non-Aadhaar)',
           'Cancelled cheque or bank passbook copy (for offline)',
-          'Form 15G/15H: submit if total EPF is less than Rs 2.5 lakh and service < 5 years to avoid TDS',
+          "A nil-tax declaration requires the applicable form and all eligibility conditions; an EPF balance below a chosen amount is not sufficient",
         ],
       },
       {
         title: 'Tax on EPF withdrawal: when is it taxable?',
         paragraphs: [
-          'EPF withdrawal is completely tax-free if your total continuous service (combined across all employers, provided you transferred EPF without gap) is 5 years or more. This is one of the most significant tax benefits for long-term EPF members.',
-          'If you withdraw before 5 years of service, the entire amount is taxable in the year of withdrawal — your employer\'s contribution and interest earned are added to your income and taxed at your slab rate. On top of that, EPFO also deducts TDS at 10% if the withdrawal exceeds Rs 50,000 and your PAN is on record (30% if PAN is missing).',
-          'If your taxable income for that year is below the basic exemption limit, you can submit Form 15G (below 60 years) or Form 15H (senior citizens) to EPFO to avoid TDS. Submit these at the time of filing the withdrawal claim on the member portal.',
-          'For tax on EPF, refer to Section 10(12) of the Income Tax Act and Rule 8 of Part A of the 4th Schedule to the IT Act. Verify the latest rules at incometax.gov.in.',
+          "The tax treatment of a final-settlement payment and tax deducted at source are separate questions. Check the applicable exemption conditions, service history and transfer records instead of treating every payment before five years as automatically taxable in the same way.",
+          "A taxable provident-fund payment can attract TDS under the applicable tax-year rules. PAN status, the payment and any valid declaration or certificate affect the deduction; the deducted amount is not automatically your final tax liability.",
+          "Submit a nil-tax declaration only if every condition is satisfied. The Income Tax Department describes Form 121 under the 2026 rules as a declaration of nil estimated tax liability on total income for specified payments; older Form 15G/15H instructions are not a blanket permission based on EPF balance.",
+          "Use the linked Income Tax Department guidance for the relevant year and ask for a calculation if the exemption or withholding treatment is unclear. Do not infer that no TDS means no tax."
         ],
       },
     ],
@@ -2879,11 +2888,11 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         question: 'How long does EPF withdrawal take after resignation?',
-        answer: 'EPF withdrawal processing typically takes 15–20 working days from the date of claim submission. Claims submitted via the EPFO online portal tend to be processed faster than offline claims. You can track claim status at unifiedportal-mem.epfindia.gov.in → Online Services → Track Claim Status.',
+        answer: "Track the submitted claim through EPFO’s official status facility and retain the acknowledgement. Settlement time depends on claim type, account validation and further checks. A processing estimate does not guarantee when the bank credit will arrive.",
       },
       {
         question: 'Can I withdraw EPF immediately after resignation?',
-        answer: 'No. You must wait 2 months after your resignation date before submitting a full EPF withdrawal claim. This 2-month waiting period is mandated by the EPF scheme rules. During this time, you can initiate the UAN KYC process and ensure your exit date has been updated by your previous employer.',
+        answer: "Do not assume immediate settlement or rely on an old two-month summary. Verify the applicable waiting period, employment status and exceptions under the operative scheme. Keep your exit date and account records accurate before applying.",
       },
       {
         question: 'What if my employer has not updated my exit date on EPFO?',
@@ -2891,7 +2900,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         question: 'Is EPF withdrawal taxable if I have less than 5 years of service?',
-        answer: 'Yes. EPF withdrawal before completing 5 years of continuous service is taxable. The withdrawal amount (employer contribution + interest) is added to your income for the year and taxed at your slab rate. EPFO also deducts TDS at 10% (with PAN) or 30% (without PAN) on amounts exceeding Rs 50,000. Submit Form 15G to avoid TDS if your income is below the basic exemption.',
+        answer: "It can be taxable, but service length alone is not the complete tax test: exemption exceptions and transferred service records can matter. TDS and final liability are separate. Confirm the relevant tax-year rules and any valid nil-tax declaration or certificate before submitting a claim.",
       },
       {
         question: 'Can I transfer EPF instead of withdrawing after resignation?',
@@ -2917,52 +2926,53 @@ export const blogPosts: BlogPost[] = [
     intro: 'The EPFO allows members to make partial withdrawals (called "advances") from their EPF account for specific purposes without resigning from their job. These are not loans — the amount is deducted from your EPF balance and does not need to be repaid. The six main purposes are housing, medical, education, marriage, pre-retirement, and natural calamity. Each has different eligibility criteria, waiting period, and withdrawal limits.',
     quickAnswer: {
       question: 'Can I withdraw EPF partially while still employed in India?',
-      answer: 'Yes. EPFO allows partial withdrawal (advance) from your EPF account while employed for specific purposes: housing (up to 90% after 5 years), medical (up to 6 months basic salary, anytime), education/marriage (up to 50% employee share after 7 years), and pre-retirement (up to 90% after age 57). Apply online at unifiedportal-mem.epfindia.gov.in.',
-      note: 'Source: The Employees\' Provident Funds Scheme, 1952 (Paragraphs 68B, 68BB, 68K, 68N, 68NN). Official site: epfindia.gov.in.',
+      answer: "An employed member may apply for a permitted EPF advance, but the eligible amount and conditions depend on the applicable scheme and claim category. Identify the purpose, check service and balance requirements, and follow the current portal declarations. Do not apply one housing percentage or a single service period to every advance.",
+      note: "Older paragraph-based summaries and dated reform announcements may describe different frameworks. Use the operative EPFO scheme and the category actually available for your claim.",
     },
-    answerEngineSummary: 'EPF partial withdrawal (advance) is allowed in India for housing, medical, education, marriage, and pre-retirement without quitting the job. The housing withdrawal permits up to 90% of EPF balance after 5 years of service. Medical advances are available at any time with no minimum service requirement. Apply online via the EPFO Unified Member Portal.',
+    answerEngineSummary: "EPF advances and final settlement are different. For an advance, check the purpose, eligible balance, service conditions, frequency and current declarations. Official self-certification guidance means that a marriage card or medical certificate should not be presented as a universal upload requirement.",
     officialSources: [
-      { label: 'EPFO — EPF Scheme 1952 (Paragraphs 68B, 68K, 68N)', href: 'https://www.epfindia.gov.in' },
-      { label: 'EPFO Unified Member Portal (apply online)', href: 'https://unifiedportal-mem.epfindia.gov.in' },
+      { label: 'PIB — Composite Claim Form and self-certification for specified advances', href: 'https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1484759' },
+      { label: 'EPFO — Medical advance self-certification circular', href: 'https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Manual_Amend_Para68N_68J_2704.pdf' },
+      { label: 'PIB — EPFO withdrawal reform announcement dated 15 October 2025', href: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2179689' },
+      { label: 'EPFO Unified Member Portal (apply online)', href: 'https://unifiedportal-mem.epfindia.gov.in/memberinterface/' },
     ],
     sections: [
       {
-        title: 'EPF partial withdrawal for housing loan or purchase (Paragraph 68B)',
+        title: "EPF housing advances: identify the applicable route",
         paragraphs: [
-          'Under Paragraph 68B of the EPF Scheme 1952, you can withdraw up to 90% of your EPF balance (employee + employer share + interest) for purchasing or constructing a house or land, or repaying an outstanding housing loan.',
-          'Eligibility: minimum 5 years of EPF membership (not just service at current employer — cumulative across all employers). The property must be registered in your name or jointly with your spouse.',
-          'This advance can be taken only once in a lifetime. For repaying a housing loan, the remaining loan term must be at least 3 years.',
-          'Under Paragraph 68BB (introduced in 2017), you can also withdraw up to 90% specifically for construction on land you already own — with the same 5-year membership condition.',
+          "Buying a site, purchasing or constructing a house, improving an existing home and repaying a housing loan are different claim purposes. Do not treat an older paragraph number as proof that all of them permit withdrawal of 90% of the total balance.",
+          "Match the claim to the operative scheme and confirm its service requirement, eligible balance, ownership conditions and payment destination. The amount may be limited by more than one condition; use the applicable claim instructions rather than choosing the largest percentage from another route.",
+          "The Ministry of Labour’s dated reform announcement describes changes to the withdrawal framework. Check the notified provisions and the current EPFO claim category before relying on older service periods or frequency limits.",
+          "Keep the property or loan information needed to make a truthful declaration. PIB’s composite-claim guidance describes self-certification for specified advances; do not assume every housing claim requires an additional document upload."
         ],
         bullets: [
-          'Purpose: purchase land, construct house, or repay home loan',
-          'Amount: up to 90% of total EPF balance',
-          'Minimum service: 5 years EPF membership',
-          'Can be claimed only once in a lifetime',
-          'Property must be in your name or spouse\'s name',
+          "Identify purchase, construction, improvement or loan-repayment purpose",
+          "Check the eligible balance and the applicable amount limit",
+          "Verify service, ownership and frequency conditions for that route",
+          "Follow the current claim declaration and payment instructions"
         ],
       },
       {
-        title: 'EPF withdrawal for medical emergency (Paragraph 68J)',
+        title: "EPF advances for illness: check the claim conditions",
         paragraphs: [
-          'Under Paragraph 68J, you can withdraw from EPF for major medical treatment of yourself, spouse, children, or dependent parents. There is no minimum service requirement — you can claim this even in the first year of employment.',
-          'The maximum amount allowed is 6 months of your basic salary plus dearness allowance (or your entire employee share with interest, whichever is lower).',
-          'Eligible medical conditions: hospitalisation of more than 1 month, major surgery, or treatment for specified serious illnesses like cancer, tuberculosis, paralysis, heart disease, leprosy, or mental illness. Your doctor\'s certificate recommending hospitalisation or treatment is required.',
-          'Medical advances are tax-free when received. Verify the latest list of eligible illnesses at epfindia.gov.in.',
+          "Confirm that the current illness-advance category covers the member or family member and the treatment for which the claim is made. Service conditions and eligible balance should be checked under the operative framework, not assumed from an older paragraph summary.",
+          "Use the applicable amount limit and the balance eligible for that category. Check both constraints before entering the amount; the requested amount is not automatically the sanctioned amount.",
+          "Check the current illness category and its eligibility conditions before applying. EPFO’s self-certification circular removed blanket medical-certificate requirements for the specified advance; follow the declarations currently required for your claim.",
+          "Keep the claim acknowledgement and accurate treatment details. A permitted advance and final settlement are separate claims; do not transfer final-settlement tax assumptions to an illness advance.",
         ],
       },
       {
-        title: 'EPF withdrawal for marriage or higher education (Paragraph 68K)',
+        title: "EPF advances for marriage or education",
         paragraphs: [
-          'Under Paragraph 68K, you can withdraw up to 50% of your own (employee) contribution with interest for: your own marriage, marriage of a sibling or child, or higher education of yourself or your child after Class 10.',
-          'Minimum service required: 7 years of EPF membership. This advance can be taken a maximum of 3 times in your working life.',
-          'For marriage, a wedding invitation or marriage certificate is required. For education, an admission letter from a college or educational institution is needed.',
+          "Check whether the intended marriage or education expense and the family relationship are covered by the current claim category. An advance reduces the EPF balance available for retirement.",
+          "Verify the current service, balance and repeat-claim conditions. Older summaries of a seven-year period or a fixed number of claims should not be treated as operative rules without checking the applicable scheme.",
+          "PIB’s composite-claim guidance states that a marriage card is not required for the specified self-certified marriage advance. Do not assume every marriage or education claim requires an attachment; follow the current declaration and any purpose-specific instructions.",
         ],
         bullets: [
-          'Purpose: own wedding, sibling/child wedding, or higher education',
-          'Amount: up to 50% of employee EPF contribution (not employer share)',
-          'Minimum service: 7 years EPF membership',
-          'Can be claimed up to 3 times in total',
+          "Identify the covered person and eligible marriage or education purpose",
+          "Calculate the amount from the balance eligible for that category",
+          "Check the current service and frequency conditions",
+          "Make the declaration required by the current claim route"
         ],
       },
       {
@@ -2972,7 +2982,7 @@ export const blogPosts: BlogPost[] = [
           'Step 2 — Ensure KYC is complete: Aadhaar, PAN, and bank account must be verified (green tick under Manage → KYC).',
           'Step 3 — Go to Online Services → Claim (Form-31, 19 & 10C). Select "PF Advance (Form 31)".',
           'Step 4 — Choose the purpose of advance from the dropdown (housing, medical, marriage, etc.). Enter the required amount.',
-          'Step 5 — Upload supporting documents if required (medical certificate for 68J; wedding invitation for 68K). Submit.',
+          "Step 5 — Complete the required declarations and any claim-specific evidence requested by the current portal. Do not upload or obtain a certificate merely because an older summary calls it mandatory.",
           'Processing time: 15–20 working days. Amount is credited to your registered bank account. You can track at Online Services → Track Claim Status.',
         ],
       },
@@ -2981,19 +2991,19 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         question: 'Is EPF partial withdrawal taxable in India?',
-        answer: 'For most permitted purposes, EPF partial withdrawals are not taxable. Medical advances are fully tax-free. Housing, education, and marriage advances are also not treated as income by the IT department. The exception: if your total continuous service is under 5 years and the withdrawal exceeds Rs 50,000, EPFO deducts TDS at 10%. Submit Form 15G if your income is below the basic exemption limit to avoid TDS. Verify at incometax.gov.in or consult a CA for your specific situation.',
+        answer: "An advance and a taxable final-settlement payment are different categories. Do not apply a final-settlement service or TDS rule automatically to a permitted advance. If the tax treatment is unclear, confirm the exact claim category and relevant tax-year provisions with EPFO and the Income Tax Department.",
       },
       {
         question: 'How much EPF can I withdraw for a home loan down payment?',
-        answer: 'Under Paragraph 68B of the EPF Scheme, you can withdraw up to 90% of your total EPF balance (employee + employer contributions + interest) after 5 years of membership, for the purpose of purchasing or constructing a house. The amount can be used as a down payment. However, this reduces your EPF retirement corpus significantly — carefully weigh this before withdrawing.',
+        answer: "The amount depends on the housing claim route and its conditions. Site purchase, house construction and loan repayment should not all be modelled as 90% of total balance after five years. Check the eligible balance, limit, service and ownership conditions for the purpose you select; withdrawing also reduces the retirement corpus.",
       },
       {
         question: 'Can I withdraw EPF for my sister\'s wedding?',
-        answer: 'Yes. Under Paragraph 68K of the EPF Scheme 1952, you can withdraw up to 50% of your employee contribution with interest for the wedding of a sibling (brother or sister), subject to a minimum of 7 years of EPF membership. Supporting document (wedding invitation or marriage certificate) is required.',
+        answer: "A sibling’s marriage is a purpose addressed in EPFO’s older advance framework. Check the current category, service, balance and frequency conditions before claiming. PIB’s composite-claim guidance provides self-certification for the specified marriage advance rather than a blanket marriage-card requirement.",
       },
       {
         question: 'What is the maximum number of EPF advances allowed?',
-        answer: 'It depends on the purpose. Housing advance (68B): once in a lifetime. Medical advance (68J): no explicit limit, but subject to reason and documentation. Marriage/education advance (68K): maximum 3 times in your working life.',
+        answer: "Frequency depends on the applicable scheme and claim purpose. Verify the current category and its limits before repeating a claim; do not use an old housing or marriage limit as a universal rule for all advances.",
       },
     ],
   },
@@ -3022,8 +3032,6 @@ export const blogPosts: BlogPost[] = [
         { label: 'Estimate your gratuity with the Gratuity Calculator', href: '/tools/gratuity-calculator-india' },
         { label: 'See your gratuity on the revised wage base', href: '/tools/gratuity-under-new-wage-code-calculator-india' },
         { label: 'Check what the 50% wage rule does to your take-home', href: '/tools/new-labour-code-take-home-calculator-india' },
-        { label: 'Compare old vs new gratuity wage-base scenarios', href: '/guides/gratuity-2026-old-vs-new' },
-        { label: 'Fixed-term employee one-year gratuity guide', href: '/guides/fixed-term-employee-gratuity-one-year' },
       ],
     },
     answerEngineSummary: 'India\'s four Labour Codes took effect on 21 November 2025. Under the Code on Social Security, 2020, a fixed-term employee qualifies for gratuity after one year of service under the contract. The general five-year continuous-service condition continues for regular employees unless another statutory exception applies.',

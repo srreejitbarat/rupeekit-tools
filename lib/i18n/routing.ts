@@ -8,6 +8,15 @@ export const LOCALE_LABELS: Record<Locale, string> = { en: 'English', hi: 'เคนเค
 // translated. Never publish an English-only copy under a translated URL.
 export const PUBLISHED_TRANSLATIONS = { hi: publicRoutes, bn: publicRoutes } as const;
 export const LANGUAGE_RELEASE_DATE = '2026-09-24';
+
+// Translated pages stay available to readers but are kept out of search
+// indexes (noindex, no sitemap or hreflang entries) until a native-language
+// editorial review of each locale is complete. Add a locale here once reviewed.
+export const INDEXED_TRANSLATIONS: readonly Locale[] = [];
+
+export function isIndexedLocale(locale: Locale): boolean {
+  return locale === 'en' || INDEXED_TRANSLATIONS.includes(locale);
+}
 export const LANGUAGE_PREFERENCE_KEY = 'rupeekit-language';
 
 export function englishPath(pathname: string): string {
@@ -42,7 +51,7 @@ export function languageAlternates(pathname: string, locale: Locale = 'en') {
     const path = localizedHref(pathname, language);
     return path === '/' ? baseUrl : `${baseUrl}${path}`;
   };
-  const available = LOCALES.filter((language) => hasTranslatedPage(pathname, language));
+  const available = LOCALES.filter((language) => isIndexedLocale(language) && hasTranslatedPage(pathname, language));
   const languages: Record<string, string> = Object.fromEntries(available.map((language) => [LOCALE_TAGS[language], absolute(language)]));
   languages['x-default'] = absolute('en');
   return { canonical: absolute(locale), ...(available.length > 1 ? { languages } : {}) };

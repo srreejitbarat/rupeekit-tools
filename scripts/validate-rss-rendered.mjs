@@ -8,6 +8,7 @@ const origin = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in'
 const sitemap = new JSDOM(fs.readFileSync(path.join(appDir, 'sitemap.xml.body'), 'utf8'), { contentType: 'text/xml' });
 const canonicalUrls = new Set([...sitemap.window.document.querySelectorAll('url > loc')].map((loc) => loc.textContent.trim()));
 sitemap.window.close();
+const indexedTranslations = [...(fs.readFileSync('lib/i18n/routing.ts', 'utf8').match(/INDEXED_TRANSLATIONS[^=]*=\s*\[([^\]]*)\]/)?.[1] ?? '').matchAll(/'(hi|bn)'/g)].map((m) => m[1]);
 
 for (const [locale, route, script] of [
   ['en', 'feed.xml', /[A-Za-z]/],
@@ -29,7 +30,10 @@ for (const [locale, route, script] of [
     const url = item.querySelector('link')?.textContent || '';
     const date = item.querySelector('pubDate')?.textContent || '';
     assert(script.test(title) && script.test(description), `${route}: untranslated title or description: ${url}`);
-    assert(canonicalUrls.has(url), `${route}: URL is not in sitemap: ${url}`);
+    // Unindexed translations are left out of the sitemap; their items must
+    // still be localized copies of submitted English pages.
+    const sitemapUrl = locale !== 'en' && !indexedTranslations.includes(locale) ? url.replace(`${origin}/${locale}/`, `${origin}/`) : url;
+    assert(canonicalUrls.has(sitemapUrl), `${route}: URL is not in sitemap: ${sitemapUrl}`);
     assert(url.startsWith(`${origin}${locale === 'en' ? '/' : `/${locale}/`}`), `${route}: wrong language URL: ${url}`);
     assert(!urls.has(url), `${route}: duplicate URL: ${url}`);
     assert.equal(item.querySelector('guid')?.textContent, url, `${route}: GUID differs from canonical`);

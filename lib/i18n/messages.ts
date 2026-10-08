@@ -1,25 +1,23 @@
 import type { Locale } from './routing';
 
 const en = {
-  home: 'Home', tools: 'Calculators', hubs: 'Topics', blog: 'Blog', guides: 'Guides',
-  resources: 'Resources', start: 'Start here', health: 'Money Health Check',
+  home: 'Home', tools: 'Calculators', blog: 'Blog', about: 'About RupeeKit', api: 'Calculator API',
   light: 'Use light theme', dark: 'Use dark theme', openMenu: 'Open menu', closeMenu: 'Close menu',
   primary: 'Primary navigation', mobile: 'Mobile navigation', categories: 'Calculator categories',
   navigation: 'Explore', legal: 'Policies', contact: 'Contact',
   contactDescription: 'For questions, feedback, or tool ideas:',
   description: 'Free India-focused calculators for salary, EMI, SIP, GST, FD, and personal finance planning.',
   disclaimerTitle: 'About these estimates',
-  disclaimer: 'RupeeKit provides educational calculators, reading lists, and money tools. Content is for general information only and is not financial, tax, legal, or investment advice.',
+  disclaimer: 'RupeeKit provides educational calculators and articles. Content is for general information only and is not financial, tax, legal, or investment advice.',
   rights: 'All rights reserved.', tagline: 'Money tools for India',
-  pay: '8th Pay Commission', deadlines: 'Tax deadlines', nri: 'NRI guide', recommended: 'Recommended tools',
+  pay: '8th Pay Commission', deadlines: 'Tax deadlines', nri: 'NRI guide',
   editorial: 'Editorial policy', corrections: 'Corrections policy', privacy: 'Privacy policy',
   affiliate: 'Affiliate disclosure', terms: 'Terms of use', disclaimerLink: 'Disclaimer',
   englishOnly: 'Available in English',
 };
 
 const hi: typeof en = {
-  home: 'होम', tools: 'कैलकुलेटर', hubs: 'विषय', blog: 'लेख', guides: 'गाइड',
-  resources: 'काम की जानकारी', start: 'यहाँ से शुरू करें', health: 'अपनी पैसों की स्थिति जाँचें',
+  home: 'होम', tools: 'कैलकुलेटर', blog: 'लेख', about: 'RupeeKit के बारे में', api: 'कैलकुलेटर API',
   light: 'हल्का रंग चुनें', dark: 'गहरा रंग चुनें', openMenu: 'मेन्यू खोलें', closeMenu: 'मेन्यू बंद करें',
   primary: 'मुख्य मेन्यू', mobile: 'मोबाइल मेन्यू', categories: 'कैलकुलेटर के विषय',
   navigation: 'और देखें', legal: 'हमारी नीतियाँ', contact: 'संपर्क करें',
@@ -28,15 +26,14 @@ const hi: typeof en = {
   disclaimerTitle: 'इन अनुमानों के बारे में',
   disclaimer: 'RupeeKit के कैलकुलेटर और लेख समझने और सीखने में मदद करते हैं। यह सामान्य जानकारी है, व्यक्तिगत वित्तीय, टैक्स, कानूनी या निवेश सलाह नहीं।',
   rights: 'सभी अधिकार सुरक्षित।', tagline: 'भारत के लिए पैसों का आसान हिसाब',
-  pay: '8वाँ वेतन आयोग', deadlines: 'टैक्स की आखिरी तारीखें', nri: 'NRI के लिए गाइड', recommended: 'काम के दूसरे टूल',
+  pay: '8वाँ वेतन आयोग', deadlines: 'टैक्स की आखिरी तारीखें', nri: 'NRI के लिए गाइड',
   editorial: 'लेख कैसे तैयार होते हैं', corrections: 'गलती सुधारने की नीति', privacy: 'निजता की नीति',
   affiliate: 'एफिलिएट लिंक की जानकारी', terms: 'इस्तेमाल की शर्तें', disclaimerLink: 'ज़रूरी सूचना',
   englishOnly: 'अंग्रेज़ी में उपलब्ध',
 };
 
 const bn: typeof en = {
-  home: 'হোম', tools: 'ক্যালকুলেটর', hubs: 'বিষয়', blog: 'লেখা', guides: 'গাইড',
-  resources: 'কাজের তথ্য', start: 'এখান থেকে শুরু করুন', health: 'নিজের টাকার অবস্থা যাচাই করুন',
+  home: 'হোম', tools: 'ক্যালকুলেটর', blog: 'লেখা', about: 'RupeeKit সম্পর্কে', api: 'ক্যালকুলেটর API',
   light: 'হালকা রং বেছে নিন', dark: 'গাঢ় রং বেছে নিন', openMenu: 'মেনু খুলুন', closeMenu: 'মেনু বন্ধ করুন',
   primary: 'মূল মেনু', mobile: 'মোবাইল মেনু', categories: 'ক্যালকুলেটরের বিষয়',
   navigation: 'আরও দেখুন', legal: 'আমাদের নীতি', contact: 'যোগাযোগ করুন',
@@ -45,7 +42,7 @@ const bn: typeof en = {
   disclaimerTitle: 'এই অনুমানগুলি সম্পর্কে',
   disclaimer: 'RupeeKit-এর ক্যালকুলেটর ও লেখা বুঝতে এবং শিখতে সাহায্য করে। এগুলি সাধারণ তথ্য, ব্যক্তিগত আর্থিক, ট্যাক্স, আইনি বা বিনিয়োগের পরামর্শ নয়।',
   rights: 'সমস্ত অধিকার সংরক্ষিত।', tagline: 'ভারতের জন্য টাকার সহজ হিসাব',
-  pay: 'অষ্টম বেতন কমিশন', deadlines: 'ট্যাক্সের শেষ তারিখ', nri: 'NRI-দের জন্য গাইড', recommended: 'কাজের অন্যান্য টুল',
+  pay: 'অষ্টম বেতন কমিশন', deadlines: 'ট্যাক্সের শেষ তারিখ', nri: 'NRI-দের জন্য গাইড',
   editorial: 'লেখা কীভাবে তৈরি হয়', corrections: 'ভুল সংশোধনের নীতি', privacy: 'গোপনীয়তার নীতি',
   affiliate: 'অ্যাফিলিয়েট লিঙ্কের তথ্য', terms: 'ব্যবহারের শর্ত', disclaimerLink: 'জরুরি তথ্য',
   englishOnly: 'ইংরেজিতে পাওয়া যাবে',

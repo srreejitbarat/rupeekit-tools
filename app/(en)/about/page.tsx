@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
+    <div className="mx-auto max-w-3xl px-4 py-12">
       <h1 className="text-4xl font-black tracking-tight">About RupeeKit</h1>
       <AnswerEngineSummary
         className="mt-6"
@@ -75,6 +75,6 @@ export default function AboutPage() {
           PAN, Aadhaar, bank statements or other sensitive financial documents to investigate a correction.
         </p>
       </section>
-    </main>
+    </div>
   );
 }

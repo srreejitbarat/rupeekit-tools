@@ -205,7 +205,7 @@ export function ITR2TriggerMatrix() {
   return (
     <div ref={ref} className="my-8 rounded-2xl border border-brandBorder bg-white p-6 shadow-sm" aria-label="ITR-2 Trigger Matrix Checklist">
       <h3 className="text-lg font-bold text-brandDeepNavy mb-4">When do you need ITR-2?</h3>
-      <p className="text-sm text-slate-600 mb-6">If any of the following apply to you, you must use ITR-2 instead of ITR-1:</p>
+      <p className="text-sm text-slate-600 mb-6">For individuals and HUFs without business or professional income, these circumstances can require ITR-2. An otherwise eligible ITR-1 filer can report Section 112A long-term gains up to ₹1.25 lakh and income from two house properties for AY 2026-27. Check all form exclusions before deciding; business or professional income requires a different form.</p>
       
       <div className="grid sm:grid-cols-2 gap-3">
         {triggerMatrix.map((trigger, idx) => (
@@ -228,7 +228,9 @@ export function ITR2TriggerMatrix() {
         ))}
       </div>
       <p className="mt-6 text-xs text-slate-400">
-        Source: Income Tax Department / Finance (No.2) Act 2024 / PIB
+        <a href="https://www.incometax.gov.in/iec/foportal/downloads" target="_blank" rel="noopener noreferrer" className="underline hover:text-brandNavy">
+          Source: Income Tax Department — AY 2026-27 ITR-1 and ITR-2 eligibility
+        </a>
       </p>
     </div>
   );

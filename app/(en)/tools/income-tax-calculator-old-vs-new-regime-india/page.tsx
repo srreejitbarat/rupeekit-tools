@@ -1,7 +1,6 @@
 import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import FactsTable from '@/components/seo/FactsTable';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import DiscoverHeroImage from '@/components/seo/DiscoverHeroImage';
@@ -329,13 +328,6 @@ export default function IncomeTaxCalculatorPage() {
         <span className="font-medium text-slate-900">Old vs New Tax Regime Calculator</span>
       </nav>
 
-      <p className="mb-6 text-sm leading-7 text-slate-700 no-print">
-        Need to connect your tax result to the payslip? See the{' '}
-        <Link href="/money-guides/salary-income-tax" className="font-semibold text-brandNavy underline">
-          salary and income-tax decision guide
-        </Link>{' '}for a worked gross-to-in-hand example and official sources.
-      </p>
-
       <header className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.52fr] lg:items-start no-print">
         <div>
           <span className="mb-4 inline-block rounded-full bg-brandNavy/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brandNavy">
@@ -384,15 +376,8 @@ export default function IncomeTaxCalculatorPage() {
           title="Tax Regime Quick Answer"
           question="Which is better: old tax regime or new tax regime?"
           answer="The new tax regime may be simpler for taxpayers with fewer deductions, while the old tax regime may save more tax when deductions such as 80C, HRA, NPS, health insurance and home loan interest are high. Use this calculator to compare both regimes using your income and deductions. This is an educational estimate, not tax advice."
-          note="Educational estimate only. Verify final tax with official filing utility output, Form 16, AIS/Form 26AS and qualified tax guidance."
         />
       </section>
-
-      <AnswerEngineSummary
-        id="answer-engine-summary"
-        className="mb-10 no-print"
-        summary={`This old-vs-new tax regime calculator compares estimated taxable income, rebate impact, cess, and final tax for supported financial years (${availableTaxYears.map((year) => `FY ${year}`).join(', ')}). It helps scenario planning for FY ${TARGET_FY} decisions but should be cross-checked with official return utilities before filing.`}
-      />
 
       <TaxCalculatorApp />
 
@@ -619,13 +604,6 @@ export default function IncomeTaxCalculatorPage() {
               ITR-2 AY 2026-27 filing guide
             </Link>
             {' '}for document readiness and filing checkpoints.
-          </p>
-          <p className="mt-3 text-sm leading-7 text-slate-700">
-            Also review the{' '}
-            <Link href="/blog/income-tax-calculator-2026-calculator-guide" className="font-semibold text-brandNavy hover:underline">
-              Income Tax Calculator 2026 planning guide
-            </Link>
-            {' '}for scenario setup.
           </p>
         </div>
       </section>

@@ -7,6 +7,9 @@ const base=(process.env.NEXT_PUBLIC_SITE_URL||'https://www.rupeekit.co.in').repl
 const routes=JSON.parse(fs.readFileSync('lib/i18n/public-routes.json','utf8'));
 const absolute=(route,locale)=>base+(locale==='en'?'':`/${locale}`)+(route==='/'?'':route);
 const file=(route,locale)=>path.join('.next/server/app',locale==='en'?(route==='/'?'index.html':route.slice(1)+'.html'):locale+(route==='/'?'':route)+'.html');
+// Mirror lib/i18n/routing.ts: hreflang alternates list only search-indexed locales.
+const indexedTranslations=[...(fs.readFileSync('lib/i18n/routing.ts','utf8').match(/INDEXED_TRANSLATIONS[^=]*=\s*\[([^\]]*)\]/)?.[1]??'').matchAll(/'(hi|bn)'/g)].map(m=>m[1]);
+const indexedLocales=['en',...indexedTranslations];
 const residual=[];
 // One window for every page: a JSDOM instance per page is retained even after
 // window.close() (about 2.5 MB each), which exhausts Node's heap on CI.
@@ -19,8 +22,12 @@ for(const route of routes){
   const d=parser.parseFromString(html,'text/html');
   assert.equal(d.documentElement.lang,`${locale}-IN`,`${locale}${route}: document language`);
   assert.equal(d.querySelector('link[rel=canonical]')?.getAttribute('href'),absolute(route,locale),`${locale}${route}: self canonical`);
-  for(const language of ['en','hi','bn'])assert.equal(d.querySelector(`link[hreflang="${language}-IN"]`)?.getAttribute('href'),absolute(route,language),`${locale}${route}: ${language} alternate`);
-  assert.equal(d.querySelector('link[hreflang="x-default"]')?.getAttribute('href'),absolute(route,'en'),`${locale}${route}: x-default`);
+  if(indexedLocales.length>1){
+   for(const language of ['en','hi','bn'])assert.equal(d.querySelector(`link[hreflang="${language}-IN"]`)?.getAttribute('href'),indexedLocales.includes(language)?absolute(route,language):undefined,`${locale}${route}: ${language} alternate`);
+   assert.equal(d.querySelector('link[hreflang="x-default"]')?.getAttribute('href'),absolute(route,'en'),`${locale}${route}: x-default`);
+  }else{
+   assert.equal(d.querySelectorAll('link[hreflang]').length,0,`${locale}${route}: no alternates while translations are not indexed`);
+  }
   assert.equal(d.querySelectorAll('h1').length,1,`${locale}${route}: one main heading`);
   if(locale!=='en'){
    const script=locale==='hi'?/[\u0900-\u097f]/:/[\u0980-\u09ff]/;
@@ -41,4 +48,4 @@ for(const route of routes){
 dom.window.close();
 fs.writeFileSync('.next/i18n-untranslated.json',JSON.stringify(residual,null,2));
 assert.equal(residual.length,0,`${residual.length} untranslated prose nodes; review .next/i18n-untranslated.json`);
-console.log(`Language rendering passed: ${routes.length*3} pages, native headings, reciprocal alternates, self-canonicals and no untranslated prose.`);
+console.log(`Language rendering passed: ${routes.length*3} pages, native headings, alternates for indexed locales (${indexedLocales.join(', ')}), self-canonicals and no untranslated prose.`);

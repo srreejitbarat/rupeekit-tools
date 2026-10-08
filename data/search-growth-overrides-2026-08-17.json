@@ -470,7 +470,7 @@
   "salary-in-hand-calculator-india": {
     "shortDescription": "Reconcile annual CTC with gross pay, employer PF, employee PF, estimated income tax, professional tax and monthly take-home for FY 2026-27 (AY 2027-28).",
     "formulaExplanation": "Annual gross salary = annual CTC minus employer PF only when employer PF is included in CTC. Monthly in-hand = annual gross/12 minus employee PF, user-entered professional tax, estimated monthly income tax and other monthly deductions. Every result is labelled monthly or annual.",
-    "example": "For ₹12,00,000 annual CTC, 50% basic, employer PF included, 12% employee PF, new regime FY 2026-27 and ₹200 monthly professional tax, the model reconciles annual CTC to monthly gross and then subtracts employee-side deductions to estimate take-home.",
+    "example": "For ₹12,00,000 annual CTC, 50% basic, employer PF included, 12% PF, new regime FY 2026-27, ₹200 monthly professional tax and no other deductions: employer PF is ₹72,000 a year, so gross salary is ₹11,28,000 a year or ₹94,000 a month. Employee PF is ₹6,000 a month and the modelled income tax is ₹0. Monthly take-home is ₹94,000 − ₹6,000 − ₹200 = ₹87,800. This is a worked model example, not a payroll quote.",
     "quickAnswer": {
       "title": "Salary In-Hand Quick Answer",
       "question": "How is monthly in-hand salary calculated from CTC?",
@@ -526,7 +526,7 @@
       },
       {
         "heading": "Source and Methodology",
-        "body": "Tax rules are versioned by financial year in the income-tax engine. Employer and employee PF, professional tax and other deductions are shown as separate reconciliation lines. Calculation version 2026-08-17.1 adds a ₹12 lakh annual-to-monthly reconciliation fixture and explicit unit labels."
+        "body": "The estimate uses the selected financial year, regime and entered deductions. PF is modelled from the entered basic-pay percentage and PF rate; this may differ from an employer's capped PF wage or payroll policy. The breakup separates employer PF from employee deductions and labels annual and monthly amounts. Check the modelled components against your offer letter and payslip before using the take-home estimate in a budget."
       }
     ],
     "lastReviewed": "17 August 2026",

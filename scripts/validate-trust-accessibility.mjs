@@ -38,8 +38,8 @@ requireMatch('components/calculators/advanced/PriorityCalculatorPrimitives.tsx',
 requireMatch('components/blog/FinanceDisclaimer.tsx', /educational/i, 'financial guides need an educational disclaimer');
 requireMatch('app/(en)/tools/\[slug\]/page.tsx', /EditorialByline/, 'calculator pages need visible editorial attribution');
 requireMatch('app/(en)/tools/\[slug\]/page.tsx', /source/i, 'calculator pages need a visible sourcing path');
-requireMatch('app/(en)/guides/\[slug\]/page.tsx', /FinanceDisclaimer|disclaimer/i, 'calculator guides need an educational disclaimer');
-requireMatch('app/(en)/guides/\[slug\]/page.tsx', /EditorialByline/, 'calculator guides need visible editorial attribution');
+requireMatch('app/(en)/money-guides/\[slug\]/page.tsx', /professional advice/i, 'money guides need an advice boundary');
+requireMatch('app/(en)/money-guides/\[slug\]/page.tsx', /RupeeKit Editorial Team/, 'money guides need visible editorial attribution');
 
 // The current repository does not ship @playwright/test as a direct dev dependency.
 // These checks protect the shared primitives used by the top-tool set in normal CI;

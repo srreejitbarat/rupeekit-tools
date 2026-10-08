@@ -11,7 +11,6 @@ const siteUrl = renderedImageSitemap.match(/<loc>(https?:\/\/[^/]+)\//)?.[1]
   ?? 'https://www.rupeekit.co.in';
 const manifest = [
   ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images.json'), 'utf8')),
-  ...JSON.parse(fs.readFileSync(path.join(root, 'data', 'discover-images-fcra.json'), 'utf8')),
 ];
 const creativeBriefs = JSON.parse(
   fs.readFileSync(path.join(root, 'data', 'discover-creative-briefs-2026-08-24.json'), 'utf8'),

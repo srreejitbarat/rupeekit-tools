@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { blogPosts } from '../../data/blog-posts';
-import { calculatorGuides } from '../../data/calculator-guides';
+import { blogPosts } from '../../data/all-blog-posts';
+import retiredPages from '../../data/retired-pages.json';
 import { financialUpdates } from '../../data/financial-updates';
 import { getLiveTools } from '../tools';
 import { buildLlmsFullCatalog, SITE_URL } from './llms-full';
@@ -15,17 +15,19 @@ describe('llms-full content catalog', () => {
     }
   });
 
-  it('includes every supporting guide, article, and reviewed financial explainer', () => {
-    for (const guide of calculatorGuides) {
-      expect(catalog).toContain(`${SITE_URL}/guides/${guide.slug}`);
-    }
-
+  it('includes every published article and reviewed financial explainer', () => {
     for (const post of blogPosts) {
       expect(catalog).toContain(`${SITE_URL}/blog/${post.slug}`);
     }
 
     for (const update of financialUpdates) {
       expect(catalog).toContain(`${SITE_URL}/financial-updates/${update.slug}`);
+    }
+  });
+
+  it('never lists a retired page', () => {
+    for (const retired of Object.keys(retiredPages)) {
+      expect(catalog).not.toContain(`${SITE_URL}${retired})`);
     }
   });
 
