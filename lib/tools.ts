@@ -91,51 +91,14 @@ function mergeToolOverride(base: Tool, override?: Partial<Tool>): Tool {
   } as Tool;
 }
 
-function firstSentence(value: string) {
-  const cleaned = value.replace(/\s+/g, ' ').trim();
-  const match = cleaned.match(/[\s\S]*?[.!?](?=\s|$)/);
-  return (match?.[0] ?? cleaned).trim();
-}
-
-function listLabels(labels: string[]) {
-  if (labels.length === 0) return '';
-  if (labels.length === 1) return labels[0];
-  if (labels.length === 2) return `${labels[0]} and ${labels[1]}`;
-  return `${labels.slice(0, -1).join(', ')}, and ${labels[labels.length - 1]}`;
-}
-
+// Quick answers and fact tables are shown only when authored for the tool.
+// Generated stand-ins restated the description, formula and disclaimer that
+// the page already shows, which read as templated filler.
 function enrichLegacyTool(tool: Tool): Tool {
-  const visibleOutputs = tool.outputs.filter((output) => !output.hidden);
-  const inputLabels = tool.inputs.slice(0, 3).map((input) => input.label);
-  const outputLabels = visibleOutputs.slice(0, 3).map((output) => output.label);
-  const formulaLine = firstSentence(tool.formulaExplanation);
-  const exampleLine = firstSentence(tool.example);
-
-  const quickAnswer = tool.quickAnswer ?? {
-    title: `${tool.name} Quick Answer`,
-    question: `How does the ${tool.name} work?`,
-    answer: tool.shortDescription,
-    formula: formulaLine.length <= 220 ? formulaLine : undefined,
-    example: exampleLine.length <= 220 ? exampleLine : undefined,
-    note: 'Educational estimate only. RupeeKit does not provide personalized financial, tax, legal, investment, or loan advice.',
-  };
-
-  const factRows = tool.factRows?.length
-    ? tool.factRows
-    : [
-        { topic: 'Calculation type', explanation: 'Formula-based educational estimate from user-entered values' },
-        { topic: 'Key inputs', explanation: inputLabels.length ? listLabels(inputLabels) : 'Depends on the calculator fields' },
-        { topic: 'Primary outputs', explanation: outputLabels.length ? listLabels(outputLabels) : 'Depends on the calculator outputs' },
-        { topic: 'Method reference', explanation: formulaLine },
-        { topic: 'Privacy', explanation: 'Values are processed in the browser and are not saved by default.' },
-      ];
-
   return {
     ...tool,
-    quickAnswer,
     contentSections: mergeUniqueContentSections(tool.contentSections),
     faqs: mergeUniqueFaqs(tool.faqs),
-    factRows,
   };
 }
 

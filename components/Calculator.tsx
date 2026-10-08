@@ -38,7 +38,6 @@ function formatValue(value: number, format: string) {
 import dynamic from 'next/dynamic';
 import {
   CalculatorResultSummary,
-  CalculatorInsightBox,
 } from './CalculatorVisualizations';
 
 // Performance: lazy-load the heavier visualization components so the calculator
@@ -663,15 +662,13 @@ function StandardCalculator({ tool }: { tool: Tool }) {
               />
             ) : null}
           </div>
-          <div className="mt-6">
-            <p className="rounded-2xl bg-white/70 p-4 text-sm leading-6 text-brandMuted border border-brandBorder">
-              {showHraRuleUpdate
-                ? 'This result is an estimate for educational use. RupeeKit does not provide tax, legal or filing advice. Your final exemption may depend on salary structure, employer policy, proof submission and applicable tax rules.'
-                : isEmergencyFundPage
-                  ? 'Educational estimate only. RupeeKit does not provide financial, investment, legal or tax advice. The result is for planning support only.'
-                : 'This calculator gives an educational estimate based on your inputs and the stated assumptions. Check the underlying records before making a decision.'}
-            </p>
-          </div>
+          {showHraRuleUpdate ? (
+            <div className="mt-6">
+              <p className="rounded-2xl bg-white/70 p-4 text-sm leading-6 text-brandMuted border border-brandBorder">
+                This result is an estimate for educational use. RupeeKit does not provide tax, legal or filing advice. Your final exemption may depend on salary structure, employer policy, proof submission and applicable tax rules.
+              </p>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -820,8 +817,6 @@ function StandardCalculator({ tool }: { tool: Tool }) {
       {/* Amortization/Compounding Schedule */}
       {hasBreakdown && <CalculatorBreakdownTable tool={tool} values={numericValues} />}
 
-      {/* Dynamic Insight disclaimer box */}
-      <CalculatorInsightBox />
     </div>
   );
 }

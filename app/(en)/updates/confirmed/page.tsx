@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function UpdatesConfirmedPage() {
   return (
-    <main className="mx-auto max-w-2xl px-4 py-16">
+    <div className="mx-auto max-w-2xl px-4 py-16">
       <NewsletterConfirmedTracker />
       <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-8 text-center shadow-sm">
         <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-700">Subscription confirmed</p>
@@ -25,6 +25,6 @@ export default function UpdatesConfirmedPage() {
           Browse financial updates
         </Link>
       </section>
-    </main>
+    </div>
   );
 }

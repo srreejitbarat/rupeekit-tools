@@ -288,9 +288,11 @@ export default function CalculatorAnalyticsBoundary({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm font-semibold text-slate-900">{shareInputs ? 'Share this calculator scenario' : 'Share this planning calculator'}</p>
-            <p className="mt-1 text-xs leading-5 text-slate-600">
-              {shareInputs ? 'Copy a permalink that restores the current inputs. Shared parameter URLs are kept out of search indexing and canonicalize to the base calculator.' : 'Share a link to the calculator. Use the PDF or CSV above when you want to share your actual plan and input snapshot.'}
-            </p>
+            {shareInputs ? null : (
+              <p className="mt-1 text-xs leading-5 text-slate-600">
+                Share a link to the calculator. Use the PDF or CSV above when you want to share your actual plan and input snapshot.
+              </p>
+            )}
           </div>
           <button
             type="button"
@@ -301,9 +303,6 @@ export default function CalculatorAnalyticsBoundary({
           </button>
         </div>
         {shareStatus ? <p className="mt-3 text-xs font-medium text-slate-700" role="status">{shareStatus}</p> : null}
-        <p className="mt-2 text-[11px] leading-4 text-slate-500">
-          {shareInputs ? 'The link contains only the values you explicitly entered. RupeeKit does not send those values as analytics event parameters.' : 'This planner keeps financial inputs out of share URLs and analytics event parameters.'}
-        </p>
       </div>
     </div>
   );

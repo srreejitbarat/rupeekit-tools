@@ -33,7 +33,6 @@ export default function GenericCalculatorExperience({ tool, values, results }: {
         </div>;
       })}
       <details className="mt-5 rounded-2xl border border-slate-200 p-4"><summary className="cursor-pointer text-sm font-semibold text-slate-800">Inputs used in this result</summary><dl className="mt-3 grid gap-2 sm:grid-cols-2">{tool.inputs.map((input) => <div key={input.key} className="flex justify-between gap-3 text-xs"><dt className="text-slate-600">{input.label}</dt><dd className="font-semibold text-slate-900">{new Intl.NumberFormat('en-IN',{maximumFractionDigits:2}).format(values[input.key] ?? 0)}{input.unit ? ` ${input.unit}` : ''}</dd></div>)}</dl></details>
-      <p className="mt-4 text-xs leading-5 text-slate-500">Share/print output contains user-entered values and educational estimates only. Verify important decisions with the relevant official source or professional.</p>
     </section>
   );
 }
