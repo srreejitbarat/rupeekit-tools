@@ -53,11 +53,17 @@ describe('issue #76 tax and salary rescue', () => {
 
   it('adds CTC-component depth without changing salary calculator formulas', () => {
     const tool = getToolBySlug(SALARY_TOOL);
+    const explanation = (tool?.contentSections ?? [])
+      .flatMap((section) => [section.body, ...(section.bullets ?? [])])
+      .join(' ')
+      .toLowerCase();
     expect(tool).toBeDefined();
     expect(tool?.contentSections?.some((section) => section.heading.includes('CTC'))).toBe(true);
-    expect(tool?.contentSections?.some((section) => section.body.includes('employer PF'))).toBe(true);
-    expect(tool?.contentSections?.some((section) => section.body.includes('gratuity'))).toBe(true);
-    expect(tool?.contentSections?.some((section) => section.body.includes('professional tax'))).toBe(true);
+    expect(explanation).toContain('employer pf');
+    expect(explanation).toContain('gratuity');
+    expect(explanation).toContain('professional tax');
+    expect(explanation).toContain('the quick calculator computes tax');
+    expect(explanation).not.toContain('accepts monthly tax as an input');
 
     expect(tool?.outputs.find((output) => output.key === 'monthlyGross')?.formula).toBe('annualCtc / 12');
     expect(tool?.outputs.find((output) => output.key === 'monthlyInHand')?.formula).toBe(
