@@ -30,7 +30,7 @@
     "contentSections": [
       {
         "heading": "What parts of CTC may not become monthly in-hand salary?",
-        "body": "CTC is an employer-cost figure, not a guaranteed bank-credit figure. Depending on the offer structure, it can include employer PF, gratuity accrual, insurance premiums, annual or variable bonus, retention pay, meal or transport benefits and other employer-funded items. This calculator preserves its existing formula and treats annual CTC divided by 12 as the starting monthly amount, so users whose CTC contains large employer-side or deferred components should enter deductions conservatively and compare the result with the salary breakup in the offer letter or payslip.",
+        "body": "When employer PF is included in CTC, the calculator removes its modelled contribution before estimating monthly gross cash salary. Gratuity accrual, insurance, variable bonuses and other non-cash or deferred components are not automatically separated. Use the fixed-pay component from your offer letter and check the employer-PF setting; use the salary cash planner for bonus timing and job-switch cash flow.",
         "bullets": [
           "Basic salary: the fixed salary component used for several payroll calculations.",
           "HRA: a salary component that may be part of gross pay; income-tax exemption depends on eligibility and regime rules.",
@@ -42,23 +42,11 @@
         ]
       },
       {
-        "heading": "How basic salary, HRA, PF, gratuity and professional tax affect take-home pay",
-        "body": "Basic salary and HRA describe the salary structure, while employee PF, TDS and professional tax are common deductions from cash salary. Employer PF and gratuity can increase CTC without increasing the monthly bank credit by the same amount. The exact split differs by employer and state, so a CTC-to-in-hand estimate should be reconciled with the employer's salary breakup instead of assuming every CTC rupee is monthly gross pay."
-      },
-      {
         "heading": "Why the tax-regime comparison belongs in the salary journey",
-        "body": "TDS is one of the largest deductions for many salaried employees, but this calculator accepts monthly tax as an input rather than calculating final income tax itself. Use the Old vs New Tax Regime Calculator for a rule-driven tax estimate, then bring the resulting monthly TDS assumption back here when modelling take-home pay. This keeps salary structure and tax calculation as separate, auditable steps."
-      },
-      {
-        "heading": "Source and methodology for the salary breakdown",
-        "body": "The calculator's numeric formulas are unchanged. The additional explanation documents what the existing inputs do and where CTC can differ from monthly gross cash salary. PF treatment should be checked against the employee's actual EPF-covered wage and employer payroll policy; professional tax depends on the applicable state; and final TDS should be reconciled with Form 16, payroll declarations and the Income Tax Department filing utility."
+        "body": "Choose a supported financial year and switch between old and new regimes to compare estimated income tax and monthly take-home. The quick calculator computes tax from salary and the entered deductions; it does not ask you to enter monthly TDS. HRA and eligible deduction inputs affect the old-regime estimate. Actual payroll withholding can differ because of prior income, declarations, bonus timing and employer adjustments; reconcile it with your payslip and Form 16."
       }
     ],
     "faqs": [
-      {
-        "question": "Does CTC divided by 12 always equal monthly gross salary?",
-        "answer": "No. CTC may include employer PF, gratuity, insurance, annual bonus or other non-monthly employer costs. Check the offer-letter salary breakup before treating CTC divided by 12 as monthly gross cash salary."
-      },
       {
         "question": "Does HRA increase in-hand salary?",
         "answer": "HRA can be part of gross salary and therefore part of monthly cash pay, but its tax treatment is separate. HRA exemption eligibility depends on rent, salary, location and the applicable tax-regime rules."
@@ -69,7 +57,7 @@
       },
       {
         "question": "Why should I compare tax regimes before estimating in-hand salary?",
-        "answer": "Payroll TDS depends on the tax rules and declarations used for the year. Comparing old and new regime estimates separately can give you a more realistic monthly TDS input for this take-home calculator."
+        "answer": "The regime choice changes the calculator's estimated income tax and monthly take-home. Keep the same salary inputs, switch regimes and enter the deductions you actually qualify for. The result is an estimate; payroll TDS may also reflect income and deductions outside this model."
       }
     ],
     "related": [

@@ -21,7 +21,7 @@ export const CORRECTIONS_POLICY_URL = `${SITE_URL}/corrections-policy`;
 export const EDITORIAL_TEAM_NAME = 'RupeeKit Editorial Team';
 
 export const EDITORIAL_TEAM_DESCRIPTION =
-  'RupeeKit’s in-house personal-finance research desk. Every calculator, guide and update is written and reviewed against primary Indian sources — Income Tax Department, RBI, EPFO, PFRDA, PIB and the relevant Finance Act — before publication.';
+  "The organisational byline for the publisher responsible for RupeeKit's educational calculators, guides and updates. Refer to each page for its assumptions, sources and recorded review details.";
 
 /**
  * `author` / `reviewedBy` node used by every article-shaped page.

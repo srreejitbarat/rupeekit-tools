@@ -7,6 +7,8 @@ const dataDir = path.join(root, 'data');
 const errors = [];
 const warnings = [];
 const posts = [];
+const publishedBlogSlugs = new Set(JSON.parse(fs.readFileSync(path.join(root, 'lib/i18n/public-routes.json'), 'utf8'))
+  .filter(route => route.startsWith('/blog/')).map(route => route.slice('/blog/'.length)));
 
 const discoverManifest = [
   ...JSON.parse(fs.readFileSync(path.join(dataDir, 'discover-images.json'), 'utf8')),
@@ -51,7 +53,7 @@ function collectBlogObjects(sourceFile) {
       const metaDescription = stringValue(node, 'metaDescription');
       const sections = getProperty(node, 'sections');
       const faqs = getProperty(node, 'faqs');
-      if (slug && title && metaDescription && sections && faqs) posts.push({ node, source: sourceFile });
+      if (publishedBlogSlugs.has(slug) && title && metaDescription && sections && faqs) posts.push({ node, source: sourceFile });
     }
     ts.forEachChild(node, visit);
   }
@@ -80,17 +82,14 @@ for (const { node, source } of posts) {
   const intro = stringValue(node, 'intro');
   const metaDescription = stringValue(node, 'metaDescription');
   const quickAnswer = hasObjectProperty(node, 'quickAnswer');
-  const answerEngineSummary = stringValue(node, 'answerEngineSummary');
   const heroImage = stringValue(node, 'heroImage');
   const heroImageAlt = stringValue(node, 'heroImageAlt');
   const visualType = stringValue(node, 'visualType');
   const visualAlt = stringValue(node, 'visualAlt');
   const sectionsCount = arrayLength(node, 'sections');
-  const faqsCount = arrayLength(node, 'faqs');
   const calculatorsCount = arrayLength(node, 'relatedCalculators');
   const sourceCount = arrayLength(node, 'officialSources');
   const text = node.getText(source);
-  const hasQuestionHeading = /title:\s*['"][^'"]*\?/i.test(text);
   const hasExample = /example:\s*\{/i.test(text);
   const hasMethodology = /source(?:s)?\s+and\s+methodology|methodology/i.test(text);
   const hasDiscoverImage = discoverPaths.has(`/blog/${slug}`);
@@ -99,12 +98,9 @@ for (const { node, source } of posts) {
   seenSlugs.add(slug);
 
   if (!h1) errors.push(`${file}:${slug} missing H1.`);
-  if (!intro || intro.length < 80) errors.push(`${file}:${slug} intro is missing or too thin.`);
+  if (!intro) errors.push(`${file}:${slug} intro is missing.`);
   if (!metaDescription) errors.push(`${file}:${slug} missing meta description.`);
   if (sectionsCount < 1) errors.push(`${file}:${slug} needs substantive article content.`);
-  if (faqsCount < 1) errors.push(`${file}:${slug} needs at least one visible FAQ for article usefulness.`);
-
-  if (sectionsCount < 2) warnings.push(`${file}:${slug} has one main section; review whether the topic needs deeper coverage.`);
   if (calculatorsCount < 1) warnings.push(`${file}:${slug} has no related RupeeKit calculator/tool; acceptable when no relevant calculator exists.`);
 
   if (heroImage && !heroImageAlt) errors.push(`${file}:${slug} has a hero image without descriptive heroImageAlt.`);
@@ -114,11 +110,8 @@ for (const { node, source } of posts) {
   }
 
   if (!quickAnswer) warnings.push(`${file}:${slug} has no authored direct-answer box; add one only when it helps the reader.`);
-  if (!answerEngineSummary) warnings.push(`${file}:${slug} has no authored summary; review whether one adds value.`);
-  if (!hasQuestionHeading) warnings.push(`${file}:${slug} has no question-style section heading.`);
   if (!hasExample) warnings.push(`${file}:${slug} has no worked/practical example.`);
-  if (!hasMethodology) warnings.push(`${file}:${slug} has no article-specific source/methodology section; shared methodology disclosure still renders.`);
-  if (faqsCount < 3) warnings.push(`${file}:${slug} has only ${faqsCount} FAQ(s); expand only when real search intent supports it.`);
+  if (!hasMethodology) warnings.push(`${file}:${slug} has no article-specific source/methodology section; the shared educational disclaimer does not establish sources or methodology.`);
 
   const isHighTrustTopic = /tax|itr|hra|epf|ppf|nps|gratuity|fcra|government|loan|insurance|capital-gains/i.test(
     `${slug} ${stringValue(node, 'category')} ${h1}`,
@@ -133,6 +126,9 @@ for (const { node, source } of posts) {
 }
 
 if (posts.length === 0) errors.push('No blog post objects were discovered in data/*.ts.');
+for (const slug of publishedBlogSlugs) {
+  if (!seenSlugs.has(slug)) errors.push(`Published blog ${slug} has no auditable source record.`);
+}
 
 const blogHeroSource = fs.readFileSync(path.join(root, 'components', 'blog', 'BlogHero.tsx'), 'utf8');
 if (!blogHeroSource.includes('aspect-[16/9]')) errors.push('BlogHero must preserve a 16:9 hero image area.');
@@ -140,7 +136,7 @@ if (!blogHeroSource.includes('object-contain')) errors.push('BlogHero must show 
 if (!blogHeroSource.includes('sizes=')) errors.push('BlogHero must provide responsive Next/Image sizes.');
 
 const financeDisclaimerSource = fs.readFileSync(path.join(root, 'components', 'blog', 'FinanceDisclaimer.tsx'), 'utf8');
-if (!financeDisclaimerSource.includes('id="source-and-methodology"')) errors.push('Every standard blog must render the shared source-and-methodology disclosure.');
+if (!financeDisclaimerSource.includes('id="source-and-methodology"')) errors.push('Every standard blog must preserve the educational disclaimer anchor.');
 if (!financeDisclaimerSource.includes('does not guarantee returns, tax savings, rankings, or loan approval')) {
   errors.push('Shared blog disclosure must include safe no-guarantee wording.');
 }

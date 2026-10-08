@@ -239,7 +239,7 @@
       }
     ],
     "formulaExplanation": "Subtracts each expense ratio from the same assumed gross return and compounds both net return assumptions for the selected period.",
-    "example": "The comparison isolates fee drag only; it does not assume either fund generates better or worse gross performance.",
+    "example": "For a ₹5,00,000 lumpsum held for 15 years, assume both funds earn 12% a year before costs. An index-fund expense ratio of 0.2% gives an 11.8% net return assumption and about ₹26.64 lakh. An active-fund expense ratio of 1.5% gives a 10.5% net return assumption and about ₹22.36 lakh. The modelled difference is about ₹4.29 lakh from fees alone. These constant-return assumptions exclude tax, exit loads and tracking differences; they do not forecast either fund's actual performance.",
     "faqs": [
       {
         "question": "Does a lower expense ratio guarantee a higher return?",

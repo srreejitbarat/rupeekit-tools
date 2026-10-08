@@ -16,7 +16,7 @@ const report = {
     ...inspectTool(tool),
     ownerReview: { reviewer: null, date: null, primaryClaimsVerified: false, exampleReproduced: false, distinctValueConfirmed: false, languageReviewComplete: false },
   })),
-  otherPageFamilies: ['blog', 'guides', 'money-guides', 'financial-updates', 'government-salary-updates', '8th-pay-commission', 'nri', 'resources', 'trust and legal pages'],
+  otherPageFamilies: ['blog', 'money-guides', 'financial-updates', '8th-pay-commission', 'nri', 'trust and legal pages'],
   otherPageReview: 'Use the production sitemap and rendered route manifest as the complete URL inventory. Review these families separately; calculator checks do not certify them.',
 };
 const destination = process.argv[2] ?? 'docs/adsense-calculator-review-queue.json';

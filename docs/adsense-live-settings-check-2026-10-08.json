@@ -1,0 +1,59 @@
+{
+  "checkedOn": "2026-10-08",
+  "timezone": "Asia/Calcutta",
+  "scope": "Read-only production browser check of consent rendering and ad execution; account setting verification is blocked by AdSense access.",
+  "productionUrl": "https://www.rupeekit.co.in/tools/salary-in-hand-calculator-india",
+  "publisherId": "ca-pub-9754625493930589",
+  "observations": {
+    "adScript": "Google adsbygoogle and show_ads_impl requests returned HTTP 200, matching the site's publisher ID.",
+    "adExecution": "A Google ad request returned HTTP 200 and created an aswift ad iframe. A hidden adsbygoogle-noablate slot was marked unfilled with 0 by 0 dimensions. No google-auto-placed elements or visible ads were observed on the sampled page.",
+    "ordinaryConsentDisplay": "No consent dialog or consent/privacy-choice text was observed in this browser session on the production salary page.",
+    "europeanMessagePreview": "The official ?fc=alwaysshow&fctype=gdpr preview showed no European regulations message. AdSense requests succeeded; no Funding Choices/CMP resource or consent nodes were observed in the captured top-level network and DOM checks.",
+    "accountAccess": "AdSense returned Access denied for the signed-in Google account. The owning account must be signed in to inspect saved settings."
+  },
+  "verificationStatus": {
+    "liveAdScriptAndExecution": "Verified on the sampled production page",
+    "autoAdsEnabled": "Unknown: cannot infer the saved switch from an ad script or hidden unfilled slot",
+    "autoAdsFormatsDensityAndExclusions": "Blocked by account access",
+    "publishedConsentMessageAndSiteAssignment": "Unverified; preview did not render",
+    "consentModeAndFallbackCoverage": "Blocked by account access",
+    "normalEuropeanVisitorBehavior": "Not tested from a confirmed EEA, UK or Switzerland network location"
+  },
+  "limits": [
+    "The current browser was not established as a fresh incognito or cleared-cookie session. User cookies and consent choices were not changed.",
+    "The preview ignores region and is a rendering test; it does not establish normal regional behavior or prove correct consent signals.",
+    "No message in this session alone cannot establish that consent is disabled, unpublished, misconfigured or legally noncompliant.",
+    "Account-level fallback consent can be provided by Google through adsbygoogle even without a separate local CMP implementation.",
+    "An unfilled slot does not establish AdSense approval, actual ad delivery or whether Auto ads is enabled."
+  ],
+  "accountFieldsToVerifyOnceAccessible": {
+    "autoAds": [
+      "Correct production domain and account publisher ID",
+      "Auto ads and Auto optimize enabled/disabled state",
+      "Current experiments and saved/published settings",
+      "Intent-driven, overlay and in-page formats",
+      "Maximum ad count, minimum spacing and existing-ad optimization",
+      "Excluded areas and exact page/prefix exclusions"
+    ],
+    "consent": [
+      "European regulations message published status and selected domain",
+      "Languages, privacy-policy URL and decline controls",
+      "Consent mode advertising/analytics settings",
+      "Allow Google to maximize message coverage",
+      "Normal regional display, consent choice and revocation behavior"
+    ]
+  },
+  "settingsChanges": "None",
+  "evidence": {
+    "previewScreenshot": "artifacts/adsense-live-check-2026-10-08/consent-preview.png"
+  },
+  "officialReferences": [
+    "https://support.google.com/adsense/answer/10924669?hl=en",
+    "https://support.google.com/adsense/answer/9305577?hl=en",
+    "https://support.google.com/adsense/answer/9262311?hl=en",
+    "https://support.google.com/adsense/answer/10960768?hl=en",
+    "https://support.google.com/adsense/answer/16053245?hl=en",
+    "https://support.google.com/adsense/answer/17341119?hl=en",
+    "https://support.google.com/adsense/answer/13554116?hl=en"
+  ]
+}

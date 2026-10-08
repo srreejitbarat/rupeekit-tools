@@ -1,0 +1,149 @@
+{
+  "reviewDate": "2026-10-08",
+  "scope": "One local content-quality review and repair round on PR 222. Automated checks identify structural defects and review candidates; they do not determine Google AdSense approval, originality or financial accuracy.",
+  "previewUrl": "http://localhost:3000/",
+  "publicationStatus": "Review evidence was collected locally before publishing the changes. Production deployment of these changes was not verified in this review; no AdSense submission was performed.",
+  "inventory": {
+    "activeEnglishRoutes": 102,
+    "renderedRoutesAcrossEnglishHindiBengali": 306,
+    "liveCalculators": 60,
+    "publishedBlogs": 22,
+    "moneyGuides": 2,
+    "financialUpdates": 2,
+    "retiredCalculatorRecordsRemovedFromQueue": 14,
+    "translationIndexing": "Hindi and Bengali remain noindex under the existing policy until native editorial review. No hreflang or sitemap inclusion was enabled."
+  },
+  "repairs": [
+    {
+      "area": "Salary calculator",
+      "change": "Removed contradictory monthly-tax-input and CTC-breakdown claims, consolidated overlapping explanations and added a reproducible worked example.",
+      "example": "Rs 12 lakh CTC, 50% basic, 12% PF, employer PF included, FY 2026-27 new regime, Rs 200 monthly professional tax and no other deductions gives Rs 87,800 monthly net in the supported model."
+    },
+    {
+      "area": "Retirement calculator",
+      "change": "Explained the finite annual-annuity model, disclosed its 1% floor for assumed real returns, corrected the worked example and labelled required SIP as an additional monthly SIP. Formula behavior was preserved."
+    },
+    {
+      "area": "Debt snowball calculator",
+      "change": "Disclosed that the model adds stages using original later-debt balances rather than simulating ongoing minimum payments. Added a reproducible numerical example. Formula behavior was preserved."
+    },
+    {
+      "area": "Fund cost comparison",
+      "change": "Added a reproduced fee-drag example and removed a duplicate FAQ. Equal-fee and example regressions passed."
+    },
+    {
+      "area": "Recurring deposits",
+      "change": "Corrected outdated bank-interest TDS thresholds, bank-wise aggregation and declaration conditions; distinguished withholding from tax liability. Added exact official references."
+    },
+    {
+      "area": "NRI guide",
+      "change": "Separated FEMA and tax residency, corrected NR/RNOR Schedule FA exclusions, separated remittance routes and qualified certificate/current-form requirements. Removed a duplicate summary and unsupported reviewer attribution."
+    },
+    {
+      "area": "Five existing blogs and ITR chart",
+      "change": "Corrected ITR-1 exceptions, related capital-gains wording, outdated PMAY claims and unsupported EPF eligibility/tax/document assertions. EPFO reform announcements are distinguished from operative provisions; unverified current limits are not certified."
+    },
+    {
+      "area": "Reader trust",
+      "change": "Exposed officialSources on every blog that configures them, labelled the shared disclaimer honestly and replaced unsupported blanket research/review claims in shared schema. Existing full-review dates were preserved."
+    },
+    {
+      "area": "Hindi and Bengali",
+      "change": "Translated revised content and fixed corrupted Hindi Pre-EMI text. Added a regression detector for translated batch markers. Catalog coverage is an automated completeness check, not native editorial signoff."
+    },
+    {
+      "area": "Calculator readability",
+      "change": "Fixed six white content-card wrappers that inherited near-white text in dark mode, making educational, example, related, methodology and FAQ headings readable. Added dark-theme colors for the calculator title and introduction; browser verification confirmed the title renders white in dark mode. Copy was preserved."
+    },
+    {
+      "area": "Review tooling",
+      "change": "Aligned calculator/blog inventories with active pages, removed mandatory length/FAQ-count heuristics and made rendered locale checks honor noindex in HTTP headers as well as meta tags. Added a review flag for examples without concrete numbers."
+    }
+  ],
+  "validation": {
+    "calculatorAndTaxRegressions": "13 passed",
+    "translationMarkerRegressions": "3 passed",
+    "contentIntegrity": "Passed for 60 live calculators",
+    "blogStructure": "Passed for 22 published blogs with 35 nonblocking review warnings",
+    "internalLinks": "Passed; no live calculator lacks a contextual discovery link",
+    "structuredData": "Passed inventory and source-binding checks",
+    "lint": "Passed with six existing analytics-hook dependency warnings across source and generated locales",
+    "catalogs": "Passed: 12,278/12,278 required messages per locale, zero missing or invalid. Added 151 new translations per language and repaired two Hindi strings.",
+    "typecheck": "Passed after final generation, including the six content-card and two hero readability class changes.",
+    "renderedPages": "Passed: 306/306 pages return HTTP 200 with zero automated review flags. Two cold-preview timeouts passed on a focused retry; earlier attempts remain recorded.",
+    "retiredRoutes": "Passed: 490/490 checks (360 redirects, 129 destination pages and sitemap); three cold-preview timeouts passed on a focused retry, preserving the previous attempts.",
+    "adsenseReadiness": "Incomplete: 60 calculator owner-review records pending and 10 overdue source-review groups.",
+    "finalBrowserSpotCheck": "Salary calculator returns HTTP 200 after the final style-only changes, shows Rs 87,800, and its title is readable in dark mode. The 306-page and 490-route checks completed before the last two hero color classes; routes and text were unchanged. Local preview was restarted and remains running."
+  },
+  "remainingWork": {
+    "overdueSourceGroups": [
+      "official-financial-updates",
+      "small-savings-current-quarter",
+      "8th-cpc-calculators",
+      "itr2-ay-2026-27",
+      "tax-deadlines-hub",
+      "broker-comparison",
+      "epfo-pages",
+      "labour-code-gratuity-pages",
+      "government-da-dr-pages",
+      "gold-rate-pages"
+    ],
+    "fullEditorialReview": "All 60 calculator signoffs and full review of the other page families remain pending. Limited source checks in this round do not refresh a whole family's verification date.",
+    "specificCandidates": [
+      "Reproduce concrete examples for rent-vs-buy, job-offer comparison and education-loan calculators.",
+      "Review the basis and usefulness of the health-insurance model's illustrative per-member and age/city factors.",
+      "Inspect the 19 registry-level missing-assumption flags against any page-specific calculator UI before adding copy.",
+      "Address remaining blog source, example and methodology review warnings where they help the reader.",
+      "Complete native Hindi and Bengali review before enabling translation indexing.",
+      "Verify operative EPFO provisions from the notification/scheme rather than relying only on a reform announcement."
+    ],
+    "unperformed": [
+      "Production deployment and rendered production recheck",
+      "Saved AdSense account settings and regional consent verification; live script execution and consent preview were sampled in the follow-up report",
+      "Search Console indexing/Google-selected canonical verification",
+      "AdSense review submission"
+    ]
+  },
+  "googlePolicyCrossCheck": {
+    "method": "Read current official Google help/policy pages, opened the inventory-value guidance in the in-app Browser and inspected source plus local HTML. This is not an AdSense account Policy Center result or an approval certificate.",
+    "inventoryValue": "Worked examples, model limitations and original calculators add reader value; content quantity and passing automated structure checks do not certify originality or approval. Existing human/native review remains incomplete.",
+    "manualPlacements": "One labeled, configured placement per microtool after article content. Salary-page HTML contained zero manual ad units; live Auto ads density was not verified.",
+    "privacyAndAdsTxt": "Advertising cookie/data disclosures and Google partner-data links are present. Local ads.txt returned HTTP 200 and matches the shared script publisher ID.",
+    "autoAds": "The AdSense script is loaded globally, including confirmation/error screens and noindex translations. Script presence alone does not prove ads are served. Verify account Auto ads exclusions or route eligibility before serving ads on navigation, alert/error or unreviewed screens; noindex does not restrict AdSense serving.",
+    "consent": "No local CMP/TCF or ad-consent gating was found. An account-configured Google message may exist. Verify the certified TCF CMP requirement if serving personalized ads to EEA, UK or Switzerland visitors, and applicable cookie/data consent. Traffic regions, account messages and live consent behavior remain unverified.",
+    "accountAccess": "The AdSense dashboard returned Access denied for the signed-in Google account. Account policy issues, site-review status, Auto ads exclusions and account consent messages could not be inspected.",
+    "accountChanges": "None",
+    "liveVerificationFollowUp": "docs/adsense-live-settings-check-2026-10-08.json"
+  },
+  "primaryReferences": [
+    "https://support.google.com/publisherpolicies/answer/11112688",
+    "https://support.google.com/publisherpolicies/answer/10502938",
+    "https://support.google.com/publisherpolicies/answer/11190248",
+    "https://support.google.com/adsense/answer/12176698",
+    "https://support.google.com/adsense/answer/13554116",
+    "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag",
+    "https://www.incometax.gov.in/iec/foportal/downloads",
+    "https://www.incometaxindia.gov.in/w/threshold-limits-under-income-tax-act",
+    "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/tax-payments-faq",
+    "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/non%20resident%20-faq",
+    "https://www.incometax.gov.in/iec/foportal/sites/default/files/2025-01/Refer%20annexure%20and%20step%20by%20step%20guide.pdf",
+    "https://www.rbi.org.in/commonman/Upload/English/FAQs/PDFs/Accountresidents16012025.pdf",
+    "https://www.incometaxindia.gov.in/documents/d/guest/fn-41",
+    "https://www.incometaxindia.gov.in/documents/d/guest/fn-146",
+    "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2147921",
+    "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2179689",
+    "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1484759",
+    "https://www.incometax.gov.in/iec/foportal/newformpage/forms/from121-um"
+  ],
+  "evidence": {
+    "calculatorQueue": "docs/adsense-calculator-review-queue.json",
+    "initialRenderedAudit": "artifacts/adsense-round-2026-10-08/rendered-before/summary.json",
+    "initialAuditLimit": "Initial rendered run occurred while source repairs were being made and before catalog regeneration. Its hreflang warnings were false positives under the intentional noindex policy; the auditor was corrected before the final run.",
+    "finalRenderedAudit": "artifacts/adsense-round-2026-10-08/rendered-after/summary.json",
+    "retiredRouteChecks": "artifacts/pr-222-runtime-check/results.json",
+    "salaryExampleScreenshot": "artifacts/adsense-round-2026-10-08/salary-after.png",
+    "salaryDarkCardsScreenshot": "artifacts/adsense-round-2026-10-08/salary-dark-after.png",
+    "salaryDarkHeroScreenshot": "artifacts/adsense-round-2026-10-08/salary-hero-dark-after.png"
+  }
+}

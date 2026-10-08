@@ -114,10 +114,6 @@
     ],
     "faqs": [
       {
-        "question": "Does a lower expense ratio guarantee better investment returns?",
-        "answer": "No. The calculator deliberately keeps gross return equal to isolate fees. Real funds can have different holdings, tracking differences and performance."
-      },
-      {
         "question": "Should I use this page to calculate my SIP corpus?",
         "answer": "Use the regular or Step-Up SIP calculator for contribution-based corpus projections. Use this page when the question is specifically the long-term cost difference between expense ratios."
       }

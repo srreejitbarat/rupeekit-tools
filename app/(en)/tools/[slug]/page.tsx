@@ -1135,11 +1135,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             {tool.category}
           </span>
 
-          <h1 className="mt-5 max-w-4xl text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+          <h1 className="mt-5 max-w-4xl text-4xl font-black tracking-tight text-slate-950 dark:text-white md:text-5xl">
             {heading}
           </h1>
 
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{description}</p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">{description}</p>
 
           {isMicroTool(tool.slug) && <a href="#calculator" className="mt-5 inline-flex rounded-xl bg-teal-800 px-5 py-3 text-sm font-bold text-white hover:bg-teal-900">Try the calculator ↓</a>}
 
@@ -1352,7 +1352,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       ) : null}
 
       <section className="mt-12 grid gap-6 lg:grid-cols-[1fr_0.7fr]">
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+        <article className="rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm md:p-8">
           {isHraPage ? (
             <HraEducationalContent links={contextualLinks} />
           ) : isSipPage ? (
@@ -1854,7 +1854,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
               </ul>
             </div>
           ) : null}
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm md:p-8">
             <h2 className="text-xl font-bold">Related calculators</h2>
 
             <div className="mt-5 grid gap-3">
@@ -1899,7 +1899,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       </section>
 
       {isHraPage ? (
-        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
+        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
           <p className="mt-4 leading-8 text-slate-700">
             This calculator compares actual HRA, rent paid minus 10% of salary, and city-based salary cap. It is
@@ -1952,7 +1952,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       ) : null}
 
       {showGenericSourceMethodology ? (
-        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
+        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
           {isEmergencyFundPage ? (
             <p className="mt-4 leading-8 text-slate-700">
@@ -1994,7 +1994,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
       <section
         id="faqs"
-        className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24"
+        className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm md:p-8 scroll-mt-24"
       >
         <h2 className="text-2xl font-bold">FAQs</h2>
 
@@ -2009,7 +2009,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       </section>
 
       {isPersonalLoanPage ? (
-        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 scroll-mt-24">
+        <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 text-slate-900 shadow-sm md:p-8 scroll-mt-24">
           <h2 className="text-2xl font-bold">Source and methodology</h2>
           <p className="mt-2 text-sm text-slate-500">Last reviewed: {tool.lastReviewed ?? 'July 2026'}</p>
           <p className="mt-4 leading-8 text-slate-700">

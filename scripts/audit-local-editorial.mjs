@@ -7,6 +7,9 @@ if (!['localhost', '127.0.0.1', '[::1]'].includes(new URL(base).hostname)) throw
 const output = process.argv[2] || 'artifacts/editorial-audit';
 fs.mkdirSync(output, { recursive: true });
 const routes = JSON.parse(fs.readFileSync('lib/i18n/public-routes.json', 'utf8'));
+const indexedConfig = fs.readFileSync('lib/i18n/routing.ts', 'utf8').match(/INDEXED_TRANSLATIONS[^=]*=\s*\[([^\]]*)\]/);
+if (!indexedConfig) throw new Error('Cannot read translation indexing policy.');
+const indexedLocales = ['en', ...[...indexedConfig[1].matchAll(/['"](hi|bn)['"]/g)].map(match => match[1])];
 const selectedLocale = process.argv.find(a=>a.startsWith('--locale='))?.slice(9);
 if(selectedLocale && !['en','hi','bn'].includes(selectedLocale)) throw Error('Unsupported locale');
 const allJobs = (selectedLocale ? [selectedLocale] : ['en', 'hi', 'bn']).flatMap(locale => routes.map(route => ({locale, route, url: (locale === 'en' ? '' : `/${locale}`) + (route === '/' ? '' : route) || '/'})));
@@ -34,12 +37,16 @@ async function worker() {
       row.h1 = [...d.querySelectorAll('h1')].map(n => n.textContent.trim());
       row.lang = d.documentElement.lang;
       row.canonical = d.querySelector('link[rel=canonical]')?.href || '';
+      row.robots = [...d.querySelectorAll('meta[name=robots],meta[name=googlebot]')].map(n => n.content).join(', ');
+      row.robotsHeader = response.headers.get('x-robots-tag') || '';
       row.alternates = Object.fromEntries([...d.querySelectorAll('link[hreflang]')].map(n => [n.hreflang,n.href]));
       for (const field of ['title','description','canonical']) if (!row[field]) row.issues.push(`missing-${field}`);
       if (row.h1.length !== 1) row.issues.push('h1-count');
       if (row.lang !== `${row.locale}-IN`) row.issues.push('document-language');
       if (row.canonical && new URL(row.canonical).pathname.replace(/\/$/,'') !== row.url.replace(/\/$/,'')) row.issues.push('canonical-path');
-      for (const language of ['en','hi','bn']) {
+      if (!indexedLocales.includes(row.locale) && !/\bnoindex\b/i.test(`${row.robots}, ${row.robotsHeader}`)) row.issues.push('unreviewed-locale-indexable');
+      // Unreviewed locales deliberately have no hreflang or sitemap entries.
+      for (const language of indexedLocales.length > 1 ? indexedLocales : []) {
         const expected = (language === 'en' ? '' : `/${language}`) + (row.route === '/' ? '' : row.route);
         if (!row.alternates[`${language}-IN`] || new URL(row.alternates[`${language}-IN`]).pathname.replace(/\/$/,'') !== expected) row.issues.push(`alternate-${language}`);
       }
@@ -57,6 +64,7 @@ async function worker() {
       const prose=[];
       while(walker.nextNode()) { const s=walker.currentNode.textContent.replace(/\s+/g,' ').trim(); if(s)prose.push(s); }
       row.textCharacters = prose.join(' ').length;
+      row.mainContentCharacters = text('main').length;
       const suspicious = prose.filter(s=>/Answer Engine Summary|उत्तर इंजन सारांश|উত্তর ইঞ্জিন সারাংশ|\b(?:delve|game.changer|unlock your|seamlessly|ever.evolving|financial journey)\b/i.test(s));
       if(suspicious.length) {row.issues.push('editorial-style-review');row.samples.style=suspicious.slice(0,8);}
       const aiMeta=prose.filter(s=>/\b(?:as an? (?:AI|language model)|AI[- ]generated (?:text|content)|written by (?:AI|ChatGPT)|insert (?:text|content) here)\b/i.test(s));

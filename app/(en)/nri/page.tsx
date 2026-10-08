@@ -2,7 +2,6 @@ import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
 import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
@@ -40,23 +39,23 @@ export const metadata: Metadata = {
 const accountComparison = [
   {
     feature: 'What you can pay in',
-    nre: 'Foreign earnings only, converted to rupees on credit.',
+    nre: 'Overseas remittances, transfers from eligible NRE/FCNR(B) accounts and other permitted credits, including eligible current income from India.',
     nro: 'Indian-source income — rent, dividends, interest, pension, property sale proceeds — and foreign funds.',
   },
   {
     feature: 'Tax on interest in India',
-    nre: 'Interest is exempt from Indian income tax while you qualify as a non-resident.',
+    nre: 'Interest exemption depends on FEMA residential status or RBI permission to maintain the account, not income-tax residency alone.',
     nro: 'Interest is fully taxable in India.',
   },
   {
     feature: 'TDS on interest',
     nre: 'No TDS while the exemption applies.',
-    nro: 'Deducted at source under section 195 at 30% plus applicable surcharge and 4% health and education cess — 31.2% before surcharge.',
+    nro: 'Withholding applies under the rules for the relevant tax year. Treaty relief or a valid lower-deduction certificate can change the rate.',
   },
   {
     feature: 'Repatriation',
     nre: 'Principal and interest are freely repatriable.',
-    nro: 'Up to USD 1 million per financial year, after taxes are paid and Form 15CA/15CB is filed.',
+    nro: 'Current income has a separate remittance route. Other eligible NRO balances and assets share a USD 1 million annual facility, subject to RBI conditions and tax compliance.',
   },
   {
     feature: 'Typical use',
@@ -69,27 +68,27 @@ const faqs = [
   {
     question: 'Is NRE account interest taxable in India?',
     answer:
-      'No. Interest on an NRE account is exempt from Indian income tax for as long as you qualify as a non-resident under the Income Tax Act. The exemption is tied to your residential status, not to the account label — if you return to India and become a resident, the account has to be redesignated and the exemption stops. The interest may still be taxable in your country of residence.',
+      'NRE interest is exempt when the account is maintained under FEMA and you are a person resident outside India under FEMA, or RBI permits you to maintain it. Income-tax residential status is a separate test. Returning to India can require account redesignation even if you remain resident but not ordinarily resident for income tax. Check the bank rules before assuming the exemption continues; your country of residence may also tax the interest.',
   },
   {
     question: 'How much TDS is deducted on NRO interest?',
     answer:
-      'Banks deduct TDS on NRO interest under section 195 at 30% plus surcharge (where applicable) and 4% health and education cess, so the base rate works out to 31.2% before surcharge. There is no minimum threshold — TDS applies from the first rupee. If your actual tax liability is lower, you can either claim a DTAA rate up-front or claim a refund by filing an Indian return.',
+      'NRO interest is taxable and the bank applies the withholding rules for the relevant tax year. The amount withheld is not automatically your final tax liability. Ask the bank to confirm the applicable rate, surcharge and cess, and whether treaty documents or a valid lower-deduction certificate change the deduction. A return may establish an excess-tax refund, subject to your facts and filing requirements.',
   },
   {
     question: 'What does DTAA actually do for me?',
     answer:
-      'A Double Taxation Avoidance Agreement stops the same income being fully taxed twice. In practice it does one of two things: it caps the rate India can deduct at source (often lower than 31.2% on interest), or it gives you a credit in your country of residence for tax already paid in India. To claim the lower Indian rate you generally need a Tax Residency Certificate from your country of residence plus Form 10F and a self-declaration filed with the bank — the reduced rate is not applied automatically.',
+      'A Double Taxation Avoidance Agreement can provide relief through the relevant treaty article, such as a withholding limit or a credit for tax paid in the other country. Eligibility depends on the income and the treaty conditions. Provide a Tax Residency Certificate and the required declaration: Form 41 under the Income-tax Rules, 2026 replaces Form 10F under the earlier rules. Ask the bank which tax-year documents it needs before applying a treaty rate.',
   },
   {
     question: 'How much can I repatriate from my NRO account?',
     answer:
-      'RBI permits repatriation of up to USD 1 million per financial year from your NRO account. The limit is per person, not per property or per transaction, and it pools everything you send out that year — rent, dividends, interest, property sale proceeds and inherited funds. Each remittance needs Form 15CA from you and Form 15CB from a chartered accountant confirming Indian taxes have been paid. Going above USD 1 million in one financial year requires RBI approval through your bank.',
+      'RBI distinguishes remittance of current income, such as rent, dividends, pension and interest, from the USD 1 million per financial year facility for other eligible NRO balances and assets. Do not automatically count current-income remittances against that asset facility. Ask your authorised dealer bank to classify the funds, check taxes and confirm documents. The accountant’s certificate, now Form 146 under the 2026 rules (previously Form 15CB), is conditional; taxability, amount and an assessing-officer certificate can affect the requirement.',
   },
   {
     question: 'Do I have to disclose foreign assets in my Indian return?',
     answer:
-      'Schedule FA applies to residents who hold foreign assets — foreign bank accounts, overseas shares, RSUs and ESOPs from a foreign parent, foreign property, and foreign retirement accounts. It does not apply to non-residents. The common trap is the year you return to India: once you become a resident, foreign assets you have held for years become disclosable, and vested RSUs in a foreign parent company are the most frequently missed item. Schedule FA is filed with ITR-2 or ITR-3, not ITR-1.',
+      'Schedule FA generally applies to a resident and ordinarily resident taxpayer with reportable foreign assets. The official instructions exclude non-residents and residents who are not ordinarily resident (RNOR). Returning to India does not by itself make Schedule FA mandatory: establish your status for the relevant year and follow that return’s reporting period. When applicable, check overseas accounts, shares, property and other reportable interests; use the appropriate ITR-2 or ITR-3 instructions rather than ITR-1.',
   },
   {
     question: 'Are foreign assets already visible to the tax department?',
@@ -141,12 +140,28 @@ const relatedReading = [
 
 const officialSources = [
   {
-    label: 'Reserve Bank of India — FEMA deposit and remittance rules',
-    href: 'https://www.rbi.org.in/',
+    label: 'RBI — Accounts in India by Non-residents, permitted credits and repatriation (16 January 2025)',
+    href: 'https://www.rbi.org.in/commonman/Upload/English/FAQs/PDFs/Accountresidents16012025.pdf',
   },
   {
-    label: 'Income Tax Department — residential status, DTAA and Schedule FA',
-    href: 'https://www.incometax.gov.in/',
+    label: 'Income Tax Department — Non-Resident FAQs, NRE exemption and FEMA status (questions 23–24)',
+    href: 'https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/non%20resident%20-faq',
+  },
+  {
+    label: 'Income Tax Department — Schedule FA instructions and NR/RNOR exclusions (page 4)',
+    href: 'https://www.incometax.gov.in/iec/foportal/sites/default/files/2025-01/Refer%20annexure%20and%20step%20by%20step%20guide.pdf',
+  },
+  {
+    label: 'Income Tax Department — Form 15CB conditions and certificate requirements',
+    href: 'https://www.incometax.gov.in/iec/foportal/help/statutory-forms/popular-form/form15cb-faq',
+  },
+  {
+    label: 'Income Tax Department — Form 146, current remittance certificate conditions',
+    href: 'https://www.incometaxindia.gov.in/documents/d/guest/fn-146',
+  },
+  {
+    label: 'Income Tax Department — Form 41, treaty declaration replacing Form 10F',
+    href: 'https://www.incometaxindia.gov.in/documents/d/guest/fn-41',
   },
   {
     label: 'Income Tax Department — Annual Information Statement',
@@ -167,7 +182,6 @@ export default function NriHubPage() {
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@type': 'Thing', name: 'NRI taxation and banking in India' },
       author: editorialTeamRef,
-      reviewedBy: editorialTeamRef,
       publisher: { '@id': `${SITE_URL}/#organization` },
       publishingPrinciples: EDITORIAL_POLICY_URL,
       correctionsPolicy: CORRECTIONS_POLICY_URL,
@@ -231,26 +245,21 @@ export default function NriHubPage() {
       <QuickAnswerBox
         title="Quick Answer"
         question="How are NRE and NRO accounts taxed in India?"
-        answer="NRE interest is exempt from Indian income tax while you are a non-resident. NRO interest is fully taxable, with TDS deducted at source under section 195 at 30% plus surcharge and 4% cess — 31.2% before surcharge. A DTAA can reduce that rate, but only if you file a Tax Residency Certificate and Form 10F with the bank first. NRO funds are repatriable up to USD 1 million per financial year once taxes are paid."
-        note="Educational information only, not personal tax advice. Residential status is decided under the Income Tax Act by day-count, not by which account you hold. Verify against incometax.gov.in and rbi.org.in before acting."
+        answer="NRE interest exemption depends on FEMA status or RBI permission. NRO interest is taxable, with withholding subject to the applicable tax-year rules and any available treaty relief. RBI treats current-income remittances separately from the USD 1 million annual facility for other eligible NRO balances and assets. Schedule FA excludes non-residents and RNOR taxpayers."
+        note="FEMA residence and income-tax residence are separate tests. Confirm account eligibility, tax-year rules and remittance documents with the bank and the exact official sources below."
       />
       </div>
-
-      <AnswerEngineSummary
-        className="mt-6"
-        summary="RupeeKit's NRI hub explains Indian tax and remittance rules for non-resident Indians: NRE interest is tax-exempt in India while non-resident status holds; NRO interest is taxable with section 195 TDS at 30% plus surcharge and 4% cess; DTAA relief requires a Tax Residency Certificate and Form 10F; NRO repatriation is capped at USD 1 million per financial year with Forms 15CA and 15CB; and Schedule FA foreign-asset disclosure applies to residents, including RSUs in a foreign parent company, filed with ITR-2 or ITR-3."
-      />
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold text-brandDeepNavy">
           NRE vs NRO: the difference that decides your tax
         </h2>
         <p className="mt-4 leading-8 text-slate-700">
-          Both are rupee accounts held by non-residents, and banks often open them
-          together, which is exactly why they get mixed up. The distinction that
-          matters is <strong>where the money came from</strong>: NRE holds money
-          you earned abroad, NRO holds money that arose in India. That one
-          difference drives the tax treatment, the TDS and the repatriation limit.
+          Check <strong>account eligibility and permitted credits</strong> before
+          routing a payment. NRE accounts can receive eligible overseas funds and
+          some permitted Indian current income; NRO accounts can receive Indian
+          income and overseas remittances. The source of money alone does not
+          establish income-tax residence or determine every remittance condition.
         </p>
 
         <div className="mt-6 overflow-x-auto">
@@ -280,21 +289,20 @@ export default function NriHubPage() {
           Claiming DTAA relief is a paperwork problem, not a rate problem
         </h2>
         <p className="mt-4 leading-8 text-slate-700">
-          Most people discover DTAA after the bank has already deducted 31.2% on
-          their NRO interest. The treaty rate is not applied by default. To get it
+          Check treaty eligibility before the bank credits interest. A reduced
+          treaty rate is not applied by default. To claim it
           at source you generally have to give the bank, before the interest is
           credited:
         </p>
         <ul className="mt-4 list-disc space-y-2 pl-5 leading-8 text-slate-700">
           <li>A Tax Residency Certificate issued by your country of residence.</li>
-          <li>Form 10F, filed electronically on the income tax portal.</li>
-          <li>A self-declaration that you have no permanent establishment in India.</li>
+          <li>Form 41 under the 2026 rules, or Form 10F where the earlier rules apply, filed electronically on the income tax portal.</li>
+          <li>Any additional declarations the bank requires to establish the applicable treaty conditions.</li>
         </ul>
         <p className="mt-4 leading-8 text-slate-700">
-          These are annual, not one-time. If you miss the window, the money is not
-          lost — you file an Indian return and claim a refund of the excess. That
-          is slower, and it is the reason a lot of NRIs have refunds sitting
-          unclaimed for years.
+          Check the validity period and the bank’s document requirements for the
+          relevant year. If excess tax was withheld, a refund depends on your
+          final liability and an appropriate return; it is not automatic.
         </p>
       </section>
 
@@ -303,12 +311,13 @@ export default function NriHubPage() {
           Schedule FA: the year you move back is the risky one
         </h2>
         <p className="mt-4 leading-8 text-slate-700">
-          Schedule FA is a <em>resident</em> obligation. As a non-resident you do
-          not file it. The problem is the transition year: the moment your
-          day-count makes you a resident, foreign assets you have quietly held for
-          a decade become disclosable — the overseas bank account you never
-          closed, the brokerage account, the foreign pension, and above all
-          vested RSUs or ESOPs in a foreign parent company.
+          The official instructions exclude <strong>non-residents and residents
+          who are not ordinarily resident (RNOR)</strong> from Schedule FA. A
+          returning taxpayer should first establish whether the relevant year’s
+          status is NR, RNOR or resident and ordinarily resident. Where disclosure
+          applies, check the return’s reporting period and each reportable foreign
+          account, investment or other interest. A change in bank-account status
+          does not by itself decide Schedule FA eligibility.
         </p>
         <p className="mt-4 leading-8 text-slate-700">
           Schedule FA cannot be filed with ITR-1. If it applies to you, you are on
@@ -376,12 +385,17 @@ export default function NriHubPage() {
       <section id="source-and-methodology" className="mt-12 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
         <h2 className="text-2xl font-bold text-brandDeepNavy">Source and methodology</h2>
         <p className="mt-4 leading-8 text-slate-700">
-          Rates, limits and disclosure requirements on this page are stated as
-          they apply under current Indian rules and are traced to the primary
-          sources below. Tax treatment depends on your residential status under
-          the Income Tax Act, which is determined by day-count for the relevant
-          previous year — not by the type of bank account you hold, your passport,
-          or your visa.
+          The linked documents support the distinctions between FEMA and tax
+          residence, permitted account credits, current-income and asset
+          remittances, conditional accountant certification and the NR/RNOR
+          exclusion from Schedule FA. Income-tax residence depends on the
+          applicable year’s tests and exceptions; FEMA uses a separate definition.
+        </p>
+        <p className="mt-3 text-sm leading-7 text-slate-600">
+          These specific source corrections were checked on 8 October 2026.
+          This is a limited source check, not a full review of every treaty,
+          withholding rate or filing requirement. Use the instructions for your
+          tax year, including any replacement form numbers under the new Act.
         </p>
         <ul className="mt-4 space-y-2">
           {officialSources.map((source) => (

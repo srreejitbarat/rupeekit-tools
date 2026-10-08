@@ -49,5 +49,5 @@ export const triggerMatrix = [
   'LTCG u/s 112A above ₹1.25L',
   'Unlisted shares held',
   'Foreign assets/income/signing authority',
-  'Total income above ₹50L (excluding eligible 112A relief logic)'
+  'Total income above ₹50 lakh'
 ];

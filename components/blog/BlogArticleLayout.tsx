@@ -363,12 +363,13 @@ export default function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
           </div>
 
           <FAQSection faqs={post.faqs} />
-          {isEmergencyFundGuide && post.officialSources?.length ? (
+          {post.officialSources?.length ? (
             <section className="rounded-2xl border border-brandBorder bg-white p-5 text-sm leading-relaxed text-brandMuted shadow-sm">
-              <h2 className="text-base font-bold text-brandDeepNavy">Official references checked</h2>
+              <h2 className="text-base font-bold text-brandDeepNavy">Sources and references</h2>
               <p className="mt-2">
-                These references support the deposit-protection and product-risk explanations. The 3 to 12-month
-                figures on this page are transparent planning scenarios, not rules issued by these authorities.
+                {isEmergencyFundGuide
+                  ? 'These references support the deposit-protection and product-risk explanations. The 3 to 12-month figures on this page are transparent planning scenarios, not rules issued by these authorities.'
+                  : 'Use these links to check the rules, eligibility and limits discussed in this article. Confirm the version that applies to your financial year before acting.'}
               </p>
               <ul className="mt-3 list-disc space-y-2 pl-5">
                 {post.officialSources.map((source) => (

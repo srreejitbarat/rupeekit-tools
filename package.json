@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "predev": "npm run generate:languages",
     "dev": "next dev",
     "build": "npm run validate:discover-images && next build",
     "postbuild": "npm run validate:discover-rendered && npm run validate:direct-answer-rendered && npm run validate:tool-serp-rendered && node scripts/validate-pre-emi-rendered.mjs && npm run validate:languages-rendered && npm run validate:indexing-rendered && npm run validate:rss-rendered",

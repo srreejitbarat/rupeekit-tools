@@ -36,16 +36,6 @@
       "notes": "Official site currently lists consultation/appointment activity, including Chandigarh 16-18 Sep and Bengaluru 7-8 Oct; no final fitment factor is treated as notified."
     },
     {
-      "id": "8th-cpc-level-pages",
-      "pagePattern": "/8th-pay-commission/level-*",
-      "fact": "Scenario labels and disclaimer that fitment factors are illustrative rather than notified pay revisions",
-      "primarySource": "https://8cpc.gov.in/",
-      "verificationDate": "2026-09-05",
-      "reviewIntervalDays": 14,
-      "reviewTrigger": "Commission recommendation, report, fitment factor, pay matrix or Government implementation order",
-      "owner": "content"
-    },
-    {
       "id": "itr2-ay-2026-27",
       "pagePattern": "/blog/itr-2-ay-2026-27-filing-guide",
       "fact": "AY 2026-27 filing availability, due-date status and late/revised-return guidance",
