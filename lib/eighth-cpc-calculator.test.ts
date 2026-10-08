@@ -39,7 +39,8 @@ describe('8th CPC hub freshness and indexing', () => {
     expect(hubMetadata.alternates?.canonical).toBe('https://www.rupeekit.co.in/8th-pay-commission');
     for (const prefix of ['', '/hi', '/bn']) {
       const url='https://www.rupeekit.co.in'+prefix+'/8th-pay-commission';
-      expect(indexingMiddleware(new NextRequest(url)).headers.get('X-Robots-Tag')).toBeNull();
+      // Translations stay noindexed until their language review is complete.
+      expect(indexingMiddleware(new NextRequest(url)).headers.get('X-Robots-Tag')).toBe(prefix ? 'noindex, follow' : null);
       expect(indexingMiddleware(new NextRequest(url+'?rk_salary=75000')).headers.get('X-Robots-Tag')).toBe('noindex, follow');
     }
   });

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isIndexedLocale, type Locale } from '@/lib/i18n/routing';
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
@@ -10,7 +11,11 @@ export function middleware(request: NextRequest) {
     path === '/8th-pay-commission';
   const hasParameters = request.nextUrl.searchParams.size > 0;
 
-  if (isShareableCalculatorPath && hasParameters) {
+  const locale = request.nextUrl.pathname.match(/^\/(hi|bn)(?=\/|$)/)?.[1] as Locale | undefined;
+
+  if (locale && !isIndexedLocale(locale)) {
+    response.headers.set('X-Robots-Tag', 'noindex, follow');
+  } else if (isShareableCalculatorPath && hasParameters) {
     response.headers.set('X-Robots-Tag', 'noindex, follow');
   }
 

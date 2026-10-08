@@ -49,13 +49,6 @@
     "height": 900
   },
   {
-    "path": "/blog/how-to-track-expenses",
-    "src": "/images/discover/how-to-track-expenses.webp",
-    "alt": "Indian professional categorizing daily expenses from receipts, a phone and a notebook",
-    "width": 1600,
-    "height": 900
-  },
-  {
     "path": "/blog/zerodha-vs-upstox-vs-angel-one-demat-account",
     "src": "/images/discover/zerodha-vs-upstox-vs-angel-one-demat-account.webp",
     "alt": "Indian investor objectively comparing three mobile demat account interfaces",
@@ -329,51 +322,9 @@
     "height": 900
   },
   {
-    "path": "/blog/how-to-create-a-monthly-budget",
-    "src": "/images/discover/how-to-create-a-monthly-budget.webp",
-    "alt": "Indian couple creating a practical monthly household budget with a notebook and calculator",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/50-30-20-budget-rule",
-    "src": "/images/discover/50-30-20-budget-rule.webp",
-    "alt": "Indian professional dividing a monthly plan into three budgeting envelopes",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/best-personal-finance-books-for-beginners",
-    "src": "/images/discover/best-personal-finance-books-for-beginners.webp",
-    "alt": "Indian beginner reading personal finance books and taking notes at home",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/saving-vs-investing-for-beginners",
-    "src": "/images/discover/saving-vs-investing-for-beginners.webp",
-    "alt": "Indian beginner comparing short-term saving with a long-term investment plan",
-    "width": 1600,
-    "height": 900
-  },
-  {
     "path": "/blog/monthly-expense-planning-for-family",
     "src": "/images/discover/monthly-expense-planning-for-family.webp",
     "alt": "Indian family planning recurring household, grocery and education expenses together",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/debt-repayment-planning-for-beginners",
-    "src": "/images/discover/debt-repayment-planning-for-beginners.webp",
-    "alt": "Indian professional organizing several debt repayments into a manageable plan",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "path": "/blog/build-better-money-habits",
-    "src": "/images/discover/build-better-money-habits.webp",
-    "alt": "Indian professional building a consistent weekly money management routine",
     "width": 1600,
     "height": 900
   },

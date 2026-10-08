@@ -1,4 +1,4 @@
-import { PUBLISHED_TRANSLATIONS, LANGUAGE_RELEASE_DATE, type Locale, languageAlternates } from '@/lib/i18n/routing';
+import { PUBLISHED_TRANSLATIONS, LANGUAGE_RELEASE_DATE, type Locale, isIndexedLocale, languageAlternates } from '@/lib/i18n/routing';
 import type { MetadataRoute } from 'next';
 import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/all-blog-posts';
@@ -148,7 +148,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lowPriorityRoutes.has(route) ? 0.3 :
         0.5,
     })),
-    ...Object.entries(PUBLISHED_TRANSLATIONS).flatMap(([locale, routes]) => routes.map((route) => ({
+    ...Object.entries(PUBLISHED_TRANSLATIONS).filter(([locale]) => isIndexedLocale(locale as Locale)).flatMap(([locale, routes]) => routes.map((route) => ({
       url: languageAlternates(route, locale as Locale).canonical,
       lastModified: new Date(LANGUAGE_RELEASE_DATE),
       changeFrequency: 'weekly' as const,

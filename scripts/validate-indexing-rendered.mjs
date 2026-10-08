@@ -27,11 +27,26 @@ const submitted = new Set(urls.map(normalize));
 const linksByPage = new Map();
 if (submitted.size !== urls.length) fail('sitemap.xml: duplicate page URLs');
 
+// Translations not yet search-indexed (lib/i18n/routing.ts INDEXED_TRANSLATIONS)
+// are absent from the sitemap by design; their redirects must still land on the
+// localized copy of a submitted English page.
+const indexedTranslations = [...(fs.readFileSync('lib/i18n/routing.ts', 'utf8').match(/INDEXED_TRANSLATIONS[^=]*=\s*\[([^\]]*)\]/)?.[1] ?? '').matchAll(/'(hi|bn)'/g)].map((m) => m[1]);
+const unindexedLocalePath = (pathname) => {
+  const locale = pathname.match(/^\/(hi|bn)(?=\/|$)/)?.[1];
+  return locale && !indexedTranslations.includes(locale) ? pathname.slice(locale.length + 1) || '/' : null;
+};
+
 const redirects = await nextConfig.redirects();
 const redirectSources = new Set(redirects.map((entry) => entry.source));
 for (const entry of redirects) {
   if (redirectSources.has(entry.destination)) fail(`${entry.source}: redirect chain via ${entry.destination}`);
-  if (entry.destination.startsWith('/') && !submitted.has(normalize(`${origin}${entry.destination}`))) {
+  const englishDestination = entry.destination.startsWith('/') ? unindexedLocalePath(entry.destination) : null;
+  if (englishDestination) {
+    const pageFile = path.join(appDir, `${entry.destination}.html`);
+    if (!submitted.has(normalize(`${origin}${englishDestination === '/' ? '' : englishDestination}`)) || !fs.existsSync(pageFile)) {
+      fail(`${entry.source}: localized redirect destination is not a built copy of a submitted page: ${entry.destination}`);
+    }
+  } else if (entry.destination.startsWith('/') && !submitted.has(normalize(`${origin}${entry.destination}`))) {
     fail(`${entry.source}: redirect destination is absent from the page sitemap: ${entry.destination}`);
   }
 }

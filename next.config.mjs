@@ -45,6 +45,22 @@ const nextConfig = {
         destination: '/government-salary-updates',
         statusCode: 301,
       })),
+      // Generic beginner posts consolidated into stronger existing pages.
+      ...Object.entries({
+        'how-to-create-a-monthly-budget': '/resources/30-day-budget-challenge',
+        '50-30-20-budget-rule': '/resources/30-day-budget-challenge',
+        'how-to-track-expenses': '/resources/30-day-budget-challenge',
+        'build-better-money-habits': '/money-health-check',
+        'best-personal-finance-books-for-beginners': '/start-here',
+        'saving-vs-investing-for-beginners': '/money-guides/sip-investment-returns',
+        'debt-repayment-planning-for-beginners': '/tools/debt-snowball-calculator-india',
+      }).flatMap(([slug, destination]) =>
+        ['', '/hi', '/bn'].map((prefix) => ({
+          source: `${prefix}/blog/${slug}`,
+          destination: `${prefix}${destination}`,
+          statusCode: 301,
+        })),
+      ),
       // Unfinished "coming soon" resource page retired so no ad-bearing
       // placeholder screen remains indexable or linked.
       ...['', '/hi', '/bn'].map((prefix) => ({

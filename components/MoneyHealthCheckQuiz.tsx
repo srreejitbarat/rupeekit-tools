@@ -49,8 +49,6 @@ export default function MoneyHealthCheckQuiz() {
         message: 'You are at the beginning of your financial journey. Establishing basic habits like tracking monthly spending and laying out a simple budget will help build your confidence.',
         roadmapStage: 1,
         actions: [
-          { text: 'Read: How to Track Expenses Guide', href: '/blog/how-to-track-expenses' },
-          { text: 'Read: How to Create a Monthly Budget', href: '/blog/how-to-create-a-monthly-budget' },
           { text: 'Start: The 30-Day Budget Challenge', href: '/resources/30-day-budget-challenge' },
         ],
       };
@@ -61,9 +59,8 @@ export default function MoneyHealthCheckQuiz() {
         message: 'You understand the basics but are still building a consistent routine. Focusing on saving automatically and building a dedicated emergency buffer will strengthen your progress.',
         roadmapStage: 3,
         actions: [
-          { text: 'Read: 50/30/20 Budgeting Rule', href: '/blog/50-30-20-budget-rule' },
           { text: 'Explore: How Much Emergency Fund You Need', href: '/blog/how-much-emergency-fund' },
-          { text: 'Explore: Personal Finance Books for Beginners', href: '/blog/best-personal-finance-books-for-beginners' },
+          { text: 'Start: The 30-Day Budget Challenge', href: '/resources/30-day-budget-challenge' },
         ],
       };
     } else if (score < 80) {
@@ -73,8 +70,6 @@ export default function MoneyHealthCheckQuiz() {
         message: 'You have solid money habits. Optimizing your current liabilities, clearing high-interest debt, and mapping out long-term saving vs investing goals is your next step.',
         roadmapStage: 5,
         actions: [
-          { text: 'Read: Saving vs Investing Differences', href: '/blog/saving-vs-investing-for-beginners' },
-          { text: 'Read: Debt Repayment Planning (Snowball vs Avalanche)', href: '/blog/debt-repayment-planning-for-beginners' },
           { text: 'Estimate: Interactive Loan Calculator', href: '/tools/emi-calculator-india' },
         ],
       };
@@ -85,8 +80,6 @@ export default function MoneyHealthCheckQuiz() {
         message: 'Fantastic! You have constructed a highly disciplined financial framework. Keep reviewing your progress monthly, adjust your investments, and build compounding wealth.',
         roadmapStage: 6,
         actions: [
-          { text: 'Read: Build Better Money Habits Guide', href: '/blog/build-better-money-habits' },
-          { text: 'Read: Saving vs Investing Differences', href: '/blog/saving-vs-investing-for-beginners' },
           { text: 'Explore: How Much Emergency Fund You Need', href: '/blog/how-much-emergency-fund' },
         ],
       };

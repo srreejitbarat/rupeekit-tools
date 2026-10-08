@@ -27,16 +27,12 @@ export default function BudgetChallenge() {
       title: 'List Fixed Expenses',
       task: 'Document your predictable monthly costs like rent/mortgages, utilities, minimum loan obligations, and insurance premiums.',
       category: 'Expenses',
-      linkText: 'Create a Monthly Budget Guide',
-      linkHref: '/blog/how-to-create-a-monthly-budget',
     },
     {
       day: 3,
       title: 'Identify Variable Expenses',
       task: 'List flexible costs like groceries, transit, dining out, and shopping. Look at recent statements to find your actual average.',
       category: 'Expenses',
-      linkText: 'Learn to Track Expenses',
-      linkHref: '/blog/how-to-track-expenses',
     },
     {
       day: 4,
@@ -55,8 +51,6 @@ export default function BudgetChallenge() {
       title: 'Learn Budgeting Methods',
       task: 'Understand frameworks like the 50/30/20 budget rule to divide net income into needs, wants, and savings.',
       category: 'Income & Budget',
-      linkText: 'Study the 50/30/20 Rule',
-      linkHref: '/blog/50-30-20-budget-rule',
     },
     {
       day: 7,
@@ -93,8 +87,6 @@ export default function BudgetChallenge() {
       title: 'Define a Short-Term Goal',
       task: 'Write down one realistic, specific milestone you want to save for over the next 6 months (e.g. holiday buffer, device replacement).',
       category: 'Mindset',
-      linkText: 'Check Best Personal Finance Books',
-      linkHref: '/blog/best-personal-finance-books-for-beginners',
     },
     {
       day: 13,
@@ -109,8 +101,6 @@ export default function BudgetChallenge() {
       title: 'Review Outstanding Liabilities',
       task: 'List all debt interest rates and minimum monthly payments. Highlight high-interest debt that requires prioritization.',
       category: 'Debt',
-      linkText: 'Debt Repayment Planning',
-      linkHref: '/blog/debt-repayment-planning-for-beginners',
     },
     {
       day: 15,
@@ -147,8 +137,6 @@ export default function BudgetChallenge() {
       title: 'Automate a Small Savings Transfer',
       task: 'Schedule a tiny, automatic transfer to your goal account on payday. Paying yourself first removes decision fatigue.',
       category: 'Savings',
-      linkText: 'Learn to Build Discipline',
-      linkHref: '/blog/build-better-money-habits',
     },
     {
       day: 21,
@@ -169,8 +157,6 @@ export default function BudgetChallenge() {
       title: 'Study Saving vs Investing',
       task: 'Understand how saving protects capital while investing builds long-term purchasing power to beat inflation.',
       category: 'Investing & Taxes',
-      linkText: 'Saving vs Investing Guide',
-      linkHref: '/blog/saving-vs-investing-for-beginners',
     },
     {
       day: 24,

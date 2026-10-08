@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createTranslator } from './translator';
+import { isIndexedLocale } from './routing';
 
 const hi=createTranslator('hi', {
   'Monthly investment':'मासिक निवेश',
@@ -57,11 +58,11 @@ describe('translation at the presentation boundary',()=>{
   const out=JSON.parse(hi.jsonLd({__html:JSON.stringify(raw)}).__html);
   expect(out).toEqual({...raw,name:'कर कैलकुलेटर',inLanguage:'hi-IN',url:'https://www.rupeekit.co.in/hi/tools/sip-calculator-india'});
  });
- it('creates self canonicals with reciprocal language links',()=>{
+ it('creates self canonicals with language links only for indexed translations',()=>{
   const out=hi.metadata({title:'Tax calculator',alternates:{canonical:'https://www.rupeekit.co.in/tools/sip-calculator-india'}});
   expect(out.title).toBe('कर कैलकुलेटर');
   expect(out.alternates?.canonical).toBe('https://www.rupeekit.co.in/hi/tools/sip-calculator-india');
-  expect(out.alternates?.languages?.['bn-IN']).toBe('https://www.rupeekit.co.in/bn/tools/sip-calculator-india');
+  expect(out.alternates?.languages?.['bn-IN']).toBe(isIndexedLocale('bn')?'https://www.rupeekit.co.in/bn/tools/sip-calculator-india':undefined);
  });
  it('preserves CSV columns, escaped quotes and numbers',()=>{
   expect(hi.csv('"Annual income","Value, INR"\n"125000","18,642.57"')).toBe('"वार्षिक आय","राशि, INR"\r\n"125000","18,642.57"');
