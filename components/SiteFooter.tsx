@@ -54,7 +54,6 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
     { name: copy.deadlines, href: '/deadlines' },
     { name: copy.nri, href: '/nri' },
     { name: copy.resources, href: '/resources' },
-    { name: copy.recommended, href: '/resources/recommended-money-tools' },
   ];
 
   const legalLinks = [

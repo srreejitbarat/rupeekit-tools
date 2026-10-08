@@ -45,6 +45,13 @@ const nextConfig = {
         destination: '/government-salary-updates',
         statusCode: 301,
       })),
+      // Unfinished "coming soon" resource page retired so no ad-bearing
+      // placeholder screen remains indexable or linked.
+      ...['', '/hi', '/bn'].map((prefix) => ({
+        source: `${prefix}/resources/recommended-money-tools`,
+        destination: `${prefix}/resources`,
+        statusCode: 301,
+      })),
       // Slugs removed in 71d098d ("Replace old Financial Updates with EPFO
       // story"). Google still has these indexed and keeps re-crawling them,
       // which shows up as a coverage issue in Search Console.

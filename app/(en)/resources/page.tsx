@@ -331,67 +331,10 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section className="space-y-5 rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
-        <div className="max-w-2xl">
-          <h2 className="text-2xl font-black text-brandDeepNavy">Recommended Money Planning Resources</h2>
-          <p className="mt-2 text-sm leading-relaxed text-brandMuted">
-            Explore upcoming educational resource collections designed for practical money planning workflows.
-          </p>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          <Link
-            href="/resources/recommended-money-tools"
-            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
-          >
-            <p className="text-sm font-bold text-brandDeepNavy">Budget planners and expense trackers</p>
-            <p className="mt-1 text-xs text-brandMuted">Internal picks and templates coming soon.</p>
-          </Link>
-          <Link
-            href="/resources/recommended-money-tools"
-            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
-          >
-            <p className="text-sm font-bold text-brandDeepNavy">Tax document organizers</p>
-            <p className="mt-1 text-xs text-brandMuted">Checklist-ready formats for filing prep.</p>
-          </Link>
-          <Link
-            href="/resources/recommended-money-tools"
-            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
-          >
-            <p className="text-sm font-bold text-brandDeepNavy">Personal finance books</p>
-            <p className="mt-1 text-xs text-brandMuted">Beginner-friendly reading tracks.</p>
-          </Link>
-          <Link
-            href="/resources/recommended-money-tools"
-            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
-          >
-            <p className="text-sm font-bold text-brandDeepNavy">Emergency fund planning tools</p>
-            <p className="mt-1 text-xs text-brandMuted">Step-by-step planning kits and worksheets.</p>
-          </Link>
-          <Link
-            href="/resources/recommended-money-tools"
-            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
-          >
-            <p className="text-sm font-bold text-brandDeepNavy">Loan comparison worksheets</p>
-            <p className="mt-1 text-xs text-brandMuted">EMI comparison templates by tenure and fee.</p>
-          </Link>
-          <Link
-            href="/resources/recommended-money-tools"
-            className="rounded-2xl border border-brandBorder bg-brandBgSoft p-4 transition hover:border-brandNavy/30"
-          >
-            <p className="text-sm font-bold text-brandDeepNavy">RupeeKit downloadable templates</p>
-            <p className="mt-1 text-xs text-brandMuted">Calculator-friendly planning sheets.</p>
-          </Link>
-        </div>
-
+      <section className="rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8">
         <p className="text-sm leading-7 text-brandMuted">
           Read <Link href="/about" className="font-semibold text-brandNavy hover:underline">about RupeeKit</Link> and how these resources are created.
           Developers can explore the <Link href="/api-docs" className="font-semibold text-brandNavy hover:underline">calculator API documentation</Link>.
-        </p>
-
-        <p className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed text-slate-600">
-          Some future resource links may be affiliate links. RupeeKit will disclose affiliate relationships clearly and
-          will only link to relevant educational tools or resources.
         </p>
       </section>
     </div>
