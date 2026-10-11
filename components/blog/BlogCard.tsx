@@ -34,7 +34,7 @@ export default function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group flex flex-col justify-between rounded-3xl border border-brandBorder bg-white overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-brandNavy/35"
+      className="group flex flex-col justify-between rounded-3xl border border-brandBorder bg-white overflow-hidden shadow-sm transition duration-300 hover:shadow-sm hover:border-brandNavy/35"
     >
       <div>
         {/* Visual Thumbnail */}
@@ -71,23 +71,23 @@ export default function BlogCard({
           )}
         </div>
 
-        <div className="p-6">
+        <div className="p-5">
           <div className="flex items-center justify-between gap-2">
             <span className="inline-block rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brandNavy">
               {category}
             </span>
             <span className="text-[11px] text-brandMuted">{readTime}</span>
           </div>
-          <h3 className="mt-4 text-xl font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition line-clamp-3 md:line-clamp-none">
+          <h3 className="mt-3 text-lg font-bold tracking-tight text-brandDeepNavy group-hover:text-brandNavy transition line-clamp-3 md:line-clamp-none">
             {title}
           </h3>
-          <p className="mt-3 text-sm leading-relaxed text-brandMuted line-clamp-2">
+          <p className="mt-2 text-sm leading-6 text-brandMuted line-clamp-2">
             {intro}
           </p>
         </div>
       </div>
 
-      <div className="mx-6 mb-6 pt-4 border-t border-brandBorder flex items-center justify-between text-xs">
+      <div className="mx-5 mb-5 pt-3 border-t border-brandBorder flex items-center justify-between text-xs">
         <span className="text-brandMuted">{date}</span>
         <span className="font-bold text-brandGrowthGreen group-hover:text-brandBrightGreen transition">
           Read Article →

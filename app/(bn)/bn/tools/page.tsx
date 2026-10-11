@@ -32,12 +32,9 @@ export default function BengaliToolsPage() {
         },
       }) }} />
       <nav aria-label="আপনি এখানে আছেন" className="text-sm leading-7 text-brandMuted dark:text-slate-400"><Link href="/bn" className="font-bold hover:underline">হোম</Link><span className="mx-2" aria-hidden="true">/</span><span aria-current="page">ক্যালকুলেটর</span></nav>
-      <header className="mt-6 rounded-3xl bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-6 text-white md:p-10">
-        <p className="text-sm font-bold leading-7 text-brandBrightGreen">{tools.length}টি বিনামূল্যের টুল · সাইনআপের প্রয়োজন নেই</p>
-        <h1 className="mt-3 text-3xl font-extrabold leading-relaxed md:text-4xl md:leading-relaxed">আপনার প্রশ্নের সঠিক ক্যালকুলেটর</h1>
-        <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200">বাংলা বা ইংরেজিতে নাম লিখুন, অথবা নীচে বিষয় বেছে নিন। যেমন: বেতন, হোম লোন, SIP বা ট্যাক্স।</p>
+      <header className="tool-page-heading">
+        <h1>ক্যালকুলেটর</h1>
       </header>
-      <p className="mt-5 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">নিজের দরকারের ক্যালকুলেটর বেছে নিন। তার প্রশ্ন, ফলাফল ও রিপোর্ট বাংলায় দেখতে পারবেন।</p>
       <ToolsExplorer tools={tools} locale="bn" />
     </div>
   );

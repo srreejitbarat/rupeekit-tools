@@ -200,7 +200,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
         <span className="max-w-[220px] truncate text-brandText">{update.title}</span>
       </nav>
 
-      <header className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 px-6 py-8 text-white shadow-xl md:px-10 md:py-10">
+      <header className="relative overflow-hidden rounded-3xl border border-brandBorder bg-white dark:bg-slate-900 px-6 py-8 text-brandText shadow-card md:px-10 md:py-10">
         <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brandGrowthGreen/20 blur-3xl" aria-hidden="true" />
         <div className="relative z-10 grid items-center gap-7 lg:grid-cols-[1.08fr_0.92fr]">
           <div>
@@ -213,7 +213,7 @@ export default function FinancialUpdateDetailPage({ params }: PageProps) {
                 Official-source explainer
               </span>
             </div>
-            <h1 className="text-3xl font-black leading-tight tracking-tight text-white md:text-5xl">
+            <h1 className="text-3xl font-black leading-tight tracking-tight text-brandText md:text-5xl">
               {update.title}
             </h1>
             <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-slate-300">

@@ -129,44 +129,13 @@ export default function PreEmiPage() {
           <span>/</span>
           <span>Pre-EMI planner</span>
         </nav>
-        <header className="pe-hero">
-          <div>
-            <span className="pe-eyebrow">
-              FOR THE HOME YOU’RE STILL WAITING FOR
-            </span>
-            <h1>
-              Pre-EMI calculator.
-              <span>
-                Plan the wait.
-                <br />
-                Protect your cash.
-              </span>
-            </h1>
-            <p className="pe-hero-copy">
-              The EMI is only part of the story. See how staged loan payments,
-              rent and a delayed possession fit into your life—before you
-              commit.
-            </p>
-            <div className="pe-hero-tags">
-              <span>3 repayment strategies</span>
-              <span>Real cash-flow planning</span>
-              <span>No signup</span>
-            </div>
-          </div>
-          <figure className="pe-hero-art">
-            <Image
-              src={image}
-              width={1600}
-              height={900}
-              alt="A staged home-loan plan connects construction payments, possession and a protected cash reserve."
-              sizes="(max-width: 550px) calc(100vw - 32px), (max-width: 850px) 40vw, 450px"
-              priority
-            />
-            <figcaption>
-              Your home loan and your household cash, in one plan.
-            </figcaption>
-          </figure>
+        <header className="tool-page-heading">
+          <h1>Pre-EMI calculator</h1>
         </header>
+        <PreEmiPlanner initialMonth={initialMonth} />
+        <details className="tool-guide">
+          <summary>How to use this calculator</summary>
+          <div className="tool-guide-content">
         <p className="pe-quick-answer">
           <strong>What is pre-EMI?</strong> Interest on the portion of a home
           loan already disbursed, before regular EMI starts. For a full month,
@@ -174,7 +143,19 @@ export default function PreEmiPage() {
           <strong>₹8,500</strong> of interest. Principal repayment, rent and
           possession delays need a separate cash-flow check.
         </p>
-        <PreEmiPlanner initialMonth={initialMonth} />
+          <figure className="pe-hero-art">
+            <Image
+              src={image}
+              width={1600}
+              height={900}
+              alt="A staged home-loan plan connects construction payments, possession and a protected cash reserve."
+              sizes="(max-width: 550px) calc(100vw - 32px), (max-width: 850px) 40vw, 450px"
+            />
+            <figcaption>
+              Your home loan and your household cash, in one plan.
+            </figcaption>
+          </figure>
+
         <div className="pe-editorial">
           <article>
             <span className="pe-eyebrow">UNDERSTAND THE NUMBERS</span>
@@ -292,6 +273,8 @@ export default function PreEmiPage() {
           Calculation version {MODEL_VERSION} · Educational estimate; verify the
           disbursement schedule and repayment rules with your lender.
         </p>
+          </div>
+        </details>
       </div>
     </section>
   );

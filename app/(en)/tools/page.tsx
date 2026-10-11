@@ -72,23 +72,8 @@ export default function ToolsIndexPage() {
         <span>Calculators</span>
       </nav>
 
-      <header className="relative mt-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 px-6 py-10 text-white shadow-elevated md:px-10 md:py-12">
-        <div
-          aria-hidden="true"
-          className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-brandBrightGreen/20 blur-3xl"
-        />
-        <div className="relative max-w-3xl">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-brandBrightGreen">
-            {tools.length} free tools · no signup
-          </p>
-          <h1 className="mt-4 text-4xl font-black tracking-tight text-white md:text-display">
-            One clear place for every money calculation
-          </h1>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-200 md:text-base">
-            Search by goal, narrow by category, and open an India-focused calculator that explains
-            the formula as clearly as the result.
-          </p>
-        </div>
+      <header className="tool-page-heading">
+        <h1>Calculators</h1>
       </header>
 
       <ToolsExplorer
@@ -102,7 +87,7 @@ export default function ToolsIndexPage() {
 
       <section className="mt-16 rounded-3xl border border-brandBorder bg-white p-6 shadow-card dark:border-slate-800 dark:bg-slate-900 md:p-8">
         <h2 className="text-xl font-black text-brandDeepNavy dark:text-white">Made to show the working</h2>
-        <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-brandMuted">
           RupeeKit calculators are built for Indian salary structures, tax rules and financial
           products. Each one shows the formula, a worked example, common mistakes and FAQs, so you
           understand the math rather than just the final number. All results are educational

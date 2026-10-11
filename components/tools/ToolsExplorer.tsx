@@ -87,8 +87,8 @@ export default function ToolsExplorer({ tools, locale = 'en' }: { tools: Explore
   }
 
   return (
-    <section className="mt-10" aria-label={copy.catalog}>
-      <div className="sticky top-[4.5rem] z-30 rounded-3xl border border-brandBorder bg-white/95 p-4 shadow-soft backdrop-blur-xl dark:border-slate-700 dark:bg-slate-900/95 md:p-5">
+    <section className="mt-5" aria-label={copy.catalog}>
+      <div className=" rounded-3xl border border-brandBorder bg-white p-4 shadow-soft  dark:border-slate-700 dark:bg-slate-900 md:p-5">
         <label htmlFor="tools-search" className="text-sm font-black text-brandDeepNavy dark:text-white">
           {copy.search}
         </label>
@@ -123,7 +123,7 @@ export default function ToolsExplorer({ tools, locale = 'en' }: { tools: Explore
                 type="button"
                 onClick={() => selectCategory(category)}
                 aria-pressed={isActive}
-                className={`min-h-11 shrink-0 rounded-full px-4 text-sm font-bold transition ${
+                className={`min-h-11 shrink-0 rounded-lg px-4 text-sm font-bold transition ${
                   isActive
                     ? 'bg-brandNavy text-white shadow-sm'
                     : 'border border-brandBorder bg-white text-brandText hover:border-brandNavy/40 hover:text-brandNavy dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:text-white'
@@ -162,18 +162,18 @@ export default function ToolsExplorer({ tools, locale = 'en' }: { tools: Explore
               key={tool.slug}
               href={localizedHref(`/tools/${tool.slug}`, locale)}
               hrefLang={isLocalized && hasTranslatedPage(`/tools/${tool.slug}`, locale) ? `${locale}-IN` : 'en-IN'}
-              className="group flex min-h-64 flex-col rounded-3xl border border-brandBorder bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brandNavy/30 hover:shadow-cardHover dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600"
+              className="group flex min-h-40 flex-col rounded-3xl border border-brandBorder bg-white p-5 shadow-card transition duration-300  hover:border-brandNavy/30 hover:shadow-cardHover dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-600"
             >
-              <span className="w-fit rounded-full bg-brandNavy/10 px-3 py-1 text-xs font-black uppercase tracking-wide text-brandNavy dark:bg-brandBrightGreen/10 dark:text-brandBrightGreen">
+              <span className="w-fit rounded-lg bg-brandNavy/10 px-3 py-1 text-xs font-black uppercase tracking-wide text-brandNavy dark:bg-brandBrightGreen/10 dark:text-brandBrightGreen">
                 {categoryLabel(tool.category, locale)}
               </span>
-              <h2 className="mt-5 text-lg font-black leading-snug text-brandDeepNavy transition group-hover:text-brandNavy dark:text-white dark:group-hover:text-brandBrightGreen">
+              <h2 className="mt-3 text-lg font-black leading-snug text-brandDeepNavy transition group-hover:text-brandNavy dark:text-white dark:group-hover:text-brandBrightGreen">
                 {tool.name}
               </h2>
               <p className="mt-3 line-clamp-3 text-sm leading-6 text-brandMuted dark:text-slate-400">
                 {tool.shortDescription}
               </p>
-              <span className="mt-auto flex items-center gap-2 border-t border-brandBorder pt-5 text-sm font-black text-brandGrowthGreen dark:border-slate-800 dark:text-brandBrightGreen">
+              <span className="mt-auto flex items-center gap-2 border-t border-brandBorder mt-4 pt-3 text-sm font-black text-brandGrowthGreen dark:border-slate-800 dark:text-brandBrightGreen">
                 {copy.open} <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </span>
               {isLocalized && !hasTranslatedPage(`/tools/${tool.slug}`, locale) ? <span className="mt-2 text-xs leading-6 text-brandMuted dark:text-slate-400">{copy.english}</span> : null}

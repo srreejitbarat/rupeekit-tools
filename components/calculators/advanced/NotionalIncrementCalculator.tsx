@@ -32,17 +32,7 @@ export default function NotionalIncrementCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">Who this applies to</p>
-        <p className="mt-1">
-          Central government employees who retired on <strong>30 June</strong> or{' '}
-          <strong>31 December</strong> — one day before their annual increment fell due. A Supreme
-          Court judgment of 20 February 2025 held that the increment should be counted notionally
-          when pension is fixed, and a Department of Personnel office memorandum of 20 May 2025
-          followed. The increment counts for pension only, not for other pensionary benefits, and
-          no arrears run for any period before 30 April 2023.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -198,6 +188,17 @@ export default function NotionalIncrementCalculator({ tool }: { tool: Tool }) {
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">Who this applies to</p>
+        <p className="mt-1">
+          Central government employees who retired on <strong>30 June</strong> or{' '}
+          <strong>31 December</strong> — one day before their annual increment fell due. A Supreme
+          Court judgment of 20 February 2025 held that the increment should be counted notionally
+          when pension is fixed, and a Department of Personnel office memorandum of 20 May 2025
+          followed. The increment counts for pension only, not for other pensionary benefits, and
+          no arrears run for any period before 30 April 2023.
+        </p>
+      </div>
     </div>
   );
 }

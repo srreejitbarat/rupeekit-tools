@@ -3,7 +3,7 @@
 import { useId, useRef, useState, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
-import { muted, primary, secondary } from './PlanningFields';
+import { primary, secondary } from './PlanningFields';
 
 const loading = () => <p className="p-6 text-sm" role="status">Loading your planner…</p>;
 const HomeLoanPlanner = dynamic(() => import('./HomeLoanPlanner'), { loading });
@@ -25,12 +25,6 @@ export default function PlanningExperience({ slug, category, quick }: { slug: Pl
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   function choose(next: boolean) { setActive(next); if (next) setLoaded(true); }
   return <div className="space-y-5 text-slate-800 dark:text-slate-100">
-    <section className="rounded-2xl border border-teal-200 bg-teal-50 p-5 sm:p-6 dark:border-teal-800 dark:bg-teal-950" aria-label="Planning upgrade">
-      <p className="text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-200">Go from an estimate to a plan</p>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">{config.title}</h2>
-      <p className={`mt-3 max-w-3xl ${muted}`}>{config.description}</p>
-      <ul className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-teal-950 dark:text-teal-100">{config.features.map(feature => <li key={feature} className="rounded-full border border-teal-200 px-3 py-1.5 dark:border-teal-700">{feature}</li>)}</ul>
-    </section>
     <div role="tablist" aria-label="Calculator experience" className="flex flex-wrap gap-3" onKeyDown={e => {
       if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
       e.preventDefault(); const next = e.key === 'Home' ? false : e.key === 'End' ? true : !active; choose(next); buttons.current[next ? 1 : 0]?.focus();

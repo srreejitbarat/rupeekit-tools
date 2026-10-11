@@ -37,15 +37,7 @@ export default function PensionCommutationCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">Take the commutation factor from the official table</p>
-        <p className="mt-1">
-          The factor depends on your <strong>age next birthday</strong> and is set by the table in
-          the CCS (Commutation of Pension) Rules. Published copies of that table differ between
-          websites, so this calculator asks you to enter the figure rather than guessing it. Read
-          it off the rules or ask your pension disbursing authority.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -187,6 +179,15 @@ export default function PensionCommutationCalculator({ tool }: { tool: Tool }) {
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">Take the commutation factor from the official table</p>
+        <p className="mt-1">
+          The factor depends on your <strong>age next birthday</strong> and is set by the table in
+          the CCS (Commutation of Pension) Rules. Published copies of that table differ between
+          websites, so this calculator asks you to enter the figure rather than guessing it. Read
+          it off the rules or ask your pension disbursing authority.
+        </p>
+      </div>
     </div>
   );
 }

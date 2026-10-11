@@ -109,16 +109,7 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">What this models — and what it does not</p>
-        <p className="mt-1">
-          This compares your current salary structure with one where basic + DA is lifted to at
-          least half of your cash remuneration, which is the structural effect of the wage
-          definition in the labour codes. It does not assert the date on which your employer must
-          restructure: states notify rules separately and payroll cycles differ. Confirm your own
-          revised breakup with your employer before acting on these figures.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -277,6 +268,16 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">What this models — and what it does not</p>
+        <p className="mt-1">
+          This compares your current salary structure with one where basic + DA is lifted to at
+          least half of your cash remuneration, which is the structural effect of the wage
+          definition in the labour codes. It does not assert the date on which your employer must
+          restructure: states notify rules separately and payroll cycles differ. Confirm your own
+          revised breakup with your employer before acting on these figures.
+        </p>
+      </div>
     </div>
   );
 }

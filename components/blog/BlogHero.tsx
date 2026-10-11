@@ -38,24 +38,24 @@ export default function BlogHero({
   const discoverBrief = pathname ? getDiscoverCreativeBrief(pathname) : undefined;
 
   return (
-    <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 text-white shadow-xl">
+    <section className="relative overflow-hidden rounded-[2rem] border border-brandBorder bg-white dark:border-slate-800 dark:bg-slate-900 text-brandText shadow-xl">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brandGrowthGreen/20 blur-3xl"
+        className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full hidden"
       />
 
       <div className="relative z-10 px-6 pb-6 pt-7 sm:px-8 sm:pb-8 sm:pt-9 md:px-12 md:pt-11">
         <div className="max-w-4xl">
-          <span className="inline-block rounded-full border border-brandGrowthGreen/30 bg-brandGrowthGreen/15 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brandBrightGreen">
+          <span className="inline-block rounded-full border border-brandGrowthGreen/30 bg-brandGrowthGreen/15 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-brandGrowthGreen dark:text-brandBrightGreen">
             {category}
           </span>
-          <h1 className="mt-5 text-3xl font-black leading-tight tracking-tight text-white md:text-5xl">
+          <h1 className="mt-5 text-3xl font-black leading-tight tracking-tight text-brandText md:text-5xl">
             {title}
           </h1>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-brandMuted md:text-base">
             {description}
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-slate-300">
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-brandMuted">
             <span>Published: {date}</span>
             <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-slate-400" />
             <span>{readTime}</span>
@@ -83,7 +83,7 @@ export default function BlogHero({
                     className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex min-h-[42%] items-end bg-gradient-to-t from-slate-950/90 via-slate-950/48 to-transparent p-4 sm:p-6 md:p-8"
                   >
                     <div className="max-w-[88%] sm:max-w-2xl">
-                      <p className="text-2xl font-black leading-tight tracking-tight text-white drop-shadow-lg sm:text-3xl md:text-4xl">
+                      <p className="text-2xl font-black leading-tight tracking-tight text-brandText drop-shadow-lg sm:text-3xl md:text-4xl">
                         {discoverBrief.safeHook}
                       </p>
                       <div className="mt-3 inline-flex items-center rounded-xl bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm sm:mt-4 sm:px-4">

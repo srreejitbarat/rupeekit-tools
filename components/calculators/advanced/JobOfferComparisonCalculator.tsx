@@ -296,14 +296,7 @@ export default function JobOfferComparisonCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 text-sm leading-6 text-sky-950">
-        <p className="font-bold">CTC is not comparable across employers</p>
-        <p className="mt-1">
-          Two offers at the same CTC pay differently because basic pay is a different share of each,
-          and provident fund is a percentage of basic. Every offer below is run through the same
-          income-tax calculation, so the figures compared are post-tax rather than headline.
-        </p>
-      </div>
+
 
       <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
         <h3 className="text-lg font-bold text-brandDeepNavy">Shared tax assumptions</h3>
@@ -500,6 +493,14 @@ export default function JobOfferComparisonCalculator({ tool }: { tool: Tool }) {
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 text-sm leading-6 text-sky-950">
+        <p className="font-bold">CTC is not comparable across employers</p>
+        <p className="mt-1">
+          Two offers at the same CTC pay differently because basic pay is a different share of each,
+          and provident fund is a percentage of basic. Every offer below is run through the same
+          income-tax calculation, so the figures compared are post-tax rather than headline.
+        </p>
+      </div>
     </div>
   );
 }

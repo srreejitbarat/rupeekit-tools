@@ -29,12 +29,11 @@ export default function CalculatorPresets({
   const activePreset = presets.find((preset) => preset.id === activePresetId);
 
   return (
-    <div
-      className={`rounded-2xl border border-brandBorder bg-slate-50 p-4 ${className ?? ''}`}
-      role="group"
+    <details
+      className={`rounded-lg border border-brandBorder bg-white p-3 ${className ?? ''}`}
       aria-label={title}
     >
-      <p className="text-xs font-bold uppercase tracking-wide text-slate-700">{title}</p>
+      <summary className="cursor-pointer text-sm font-medium text-brandMuted">{title}</summary>
       <div className="mt-3 flex flex-wrap gap-2">
         {presets.map((preset) => {
           const isActive = preset.id === activePresetId;
@@ -62,6 +61,6 @@ export default function CalculatorPresets({
         </p>
       ) : null}
       <p className="mt-3 text-[11px] leading-4 text-slate-500">{note}</p>
-    </div>
+    </details>
   );
 }

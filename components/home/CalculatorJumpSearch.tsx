@@ -3,7 +3,6 @@
 import { FormEvent, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import HeroMotionBackdrop from '@/components/home/HeroMotionBackdrop';
 
 type SearchTool = {
   slug: string;
@@ -37,10 +36,7 @@ export default function CalculatorJumpSearch({ tools }: { tools: SearchTool[] })
   }
 
   return (
-    <>
-      <HeroMotionBackdrop />
-
-      <div className="relative mx-auto mt-9 w-full max-w-3xl">
+      <div className="relative mx-auto mt-6 w-full max-w-3xl">
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
           <label className="sr-only" htmlFor="homepage-calculator-search">
             Search calculators
@@ -64,20 +60,20 @@ export default function CalculatorJumpSearch({ tools }: { tools: SearchTool[] })
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search EMI, tax, salary, SIP…"
               autoComplete="off"
-              className="h-16 w-full rounded-2xl border border-white/30 bg-white pl-14 pr-4 text-base font-semibold text-slate-950 shadow-lg outline-none ring-0 placeholder:text-slate-500 focus:border-brandBrightGreen focus:ring-4 focus:ring-brandBrightGreen/25 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400"
+              className="h-12 w-full rounded-lg border border-brandBorder bg-white pl-14 pr-4 text-base font-semibold text-slate-950 outline-none ring-0 placeholder:text-slate-500 focus:border-brandBrightGreen focus:ring-4 focus:ring-brandBrightGreen/25 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-400"
             />
           </div>
           <button
             type="submit"
             disabled={matches.length === 0}
-            className="h-16 rounded-2xl bg-brandGrowthGreen px-8 text-base font-black text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-brandBrightGreen disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50"
+            className="h-12 rounded-lg bg-brandGrowthGreen px-8 text-base font-semibold text-white transition hover:bg-brandBrightGreen disabled:cursor-not-allowed disabled:translate-y-0 disabled:opacity-50"
           >
             Open calculator
           </button>
         </form>
 
         {query.trim() ? (
-          <div className="absolute inset-x-0 top-[4.75rem] z-20 overflow-hidden rounded-2xl border border-brandBorder bg-white shadow-2xl sm:right-48 dark:border-slate-700 dark:bg-slate-900">
+          <div className="relative mt-3 z-20 overflow-hidden rounded-lg border border-brandBorder bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
             {matches.length ? (
               <ul aria-label="Calculator search results" className="divide-y divide-brandBorder dark:divide-slate-700">
                 {matches.map((tool) => (
@@ -109,6 +105,5 @@ export default function CalculatorJumpSearch({ tools }: { tools: SearchTool[] })
           </div>
         ) : null}
       </div>
-    </>
   );
 }

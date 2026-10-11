@@ -34,10 +34,7 @@ export default function GoldLoanCalculatorV2({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 text-sm leading-6 text-sky-950">
-        <p className="font-bold">RBI 2026 consumption-loan LTV tiers applied</p>
-        <p className="mt-1">Up to ₹2.5 lakh: 85%; above ₹2.5 lakh to ₹5 lakh: 80%; above ₹5 lakh: 75%. The lender still decides valuation, credit approval, charges and final sanction.</p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
         <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -104,6 +101,10 @@ export default function GoldLoanCalculatorV2({ tool }: { tool: Tool }) {
       </section>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 text-sm leading-6 text-sky-950">
+        <p className="font-bold">RBI 2026 consumption-loan LTV tiers applied</p>
+        <p className="mt-1">Up to ₹2.5 lakh: 85%; above ₹2.5 lakh to ₹5 lakh: 80%; above ₹5 lakh: 75%. The lender still decides valuation, credit approval, charges and final sanction.</p>
+      </div>
     </div>
   );
 }

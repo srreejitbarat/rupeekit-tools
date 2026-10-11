@@ -281,15 +281,7 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">Every figure below is a scenario, not an announcement</p>
-        <p className="mt-1">
-          The 8th Central Pay Commission was constituted on 3 November 2025 with an 18-month window to
-          report, so recommendations are expected around mid-2027. No fitment factor, pay matrix, HRA
-          structure, transport-allowance rate, pension formula or implementation date has been notified.
-          You choose the multiplier; the calculator shows what it would mean.
-        </p>
-      </div>
+
 
       {/* Mode toggle */}
       <div
@@ -842,6 +834,15 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
       </p>
 
       {tool ? <CalculatorGovernanceStrip tool={tool} /> : null}
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">Every figure below is a scenario, not an announcement</p>
+        <p className="mt-1">
+          The 8th Central Pay Commission was constituted on 3 November 2025 with an 18-month window to
+          report, so recommendations are expected around mid-2027. No fitment factor, pay matrix, HRA
+          structure, transport-allowance rate, pension formula or implementation date has been notified.
+          You choose the multiplier; the calculator shows what it would mean.
+        </p>
+      </div>
     </div>
   );
 }

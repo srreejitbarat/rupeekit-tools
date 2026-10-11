@@ -36,12 +36,12 @@ for (const [slug, answer] of Object.entries(directAnswers)) {
     continue;
   }
 
-  // Calculator UI is client-interactive but server-rendered. A direct answer must
-  // occur before the first form so the answer is visible before calculator inputs.
-  const formIndex = html.indexOf('<form');
-  if (formIndex >= 0 && answerIndex > formIndex) {
-    errors.push(`Direct answer appears after calculator inputs for ${route}`);
+  // Calculator inputs take priority. Keep the explanatory answer in the guide below.
+  const calculatorIndex = html.indexOf('id="calculator"');
+  if (calculatorIndex < 0 || answerIndex < calculatorIndex) {
+    errors.push(`Calculator must precede its supporting direct answer for ${route}`);
   }
+
 }
 
 for (const route of positionBandBlogs) {

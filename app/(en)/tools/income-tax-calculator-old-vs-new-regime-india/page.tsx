@@ -304,7 +304,7 @@ export default function IncomeTaxCalculatorPage() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
+    <div className="mx-auto max-w-6xl px-4 py-5 md:px-6 md:py-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -320,7 +320,7 @@ export default function IncomeTaxCalculatorPage() {
         />
       ) : null}
 
-      <nav className="mb-8 text-sm text-slate-500 no-print">
+      <nav className="text-sm text-brandMuted no-print">
         <Link href="/" className="transition hover:text-slate-950">Home</Link>
         <span className="mx-2">/</span>
         <Link href="/tools" className="transition hover:text-slate-950">Calculators</Link>
@@ -328,14 +328,22 @@ export default function IncomeTaxCalculatorPage() {
         <span className="font-medium text-slate-900">Old vs New Tax Regime Calculator</span>
       </nav>
 
+      <header className="tool-page-heading no-print">
+        <h1>Old vs New Tax Regime Calculator India</h1>
+      </header>
+      <section id="calculator" className="tool-calculator" aria-label="Old vs New Tax Regime Calculator India">
+        <TaxCalculatorApp />
+      </section>
+      <p className="mt-4 text-xs leading-6 text-brandMuted no-print">Educational estimate only</p>
+      <details className="tool-guide no-print">
+        <summary>How to use this calculator</summary>
+        <div className="tool-guide-content">
       <header className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.52fr] lg:items-start no-print">
         <div>
           <span className="mb-4 inline-block rounded-full bg-brandNavy/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-brandNavy">
             Tax Planning
           </span>
-          <h1 className="text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl lg:text-6xl">
-            Old vs New Tax Regime Calculator India
-          </h1>
+
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
             Compare old vs new regime tax estimates for FY {TARGET_FY} (AY {TARGET_AY}) using your salary and
             deduction inputs. FY {TARGET_FY} slabs, the Rs 75,000 new-regime standard deduction, the Section 87A
@@ -345,7 +353,7 @@ export default function IncomeTaxCalculatorPage() {
           <EditorialByline className="mt-4" updatedIso="2026-08-03" />
         </div>
         <div className="space-y-4">
-          {DISCOVER_IMAGE ? <DiscoverHeroImage image={DISCOVER_IMAGE} priority /> : null}
+          {DISCOVER_IMAGE ? <DiscoverHeroImage image={DISCOVER_IMAGE} /> : null}
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-amber-900 shadow-sm">
             <p className="font-bold">Educational estimate only</p>
             <p className="mt-2 text-amber-800">
@@ -379,7 +387,7 @@ export default function IncomeTaxCalculatorPage() {
         />
       </section>
 
-      <TaxCalculatorApp />
+
 
       <section className="mt-12 space-y-8 no-print">
         <section id="how-does-the-old-vs-new-tax-regime-calculator-work" className="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
@@ -619,6 +627,8 @@ export default function IncomeTaxCalculatorPage() {
           ))}
         </div>
       </section>
+        </div>
+      </details>
     </div>
   );
 }

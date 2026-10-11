@@ -13,7 +13,6 @@ export default function CarLeaseCalculator() {
   const d = f.draft, r = f.result, input = f.committed;
   const number = (key: keyof CarLeaseInput, label: string, hint?: string, max?: number, min = 0, step: number | 'any' = 'any') => <Field label={label} value={d[key] as number} onChange={v => f.set(key, numeric(v))} hint={hint} min={min} max={max} step={step} />;
   return <div className="space-y-6">
-    <DecisionIntro question="Changing jobs? Check what happens to your company car." text="Compare the future car cost of staying, buying out, returning or continuing an approved lease. See the cash needed at exit, any loan left later, and whether your reserve survives. This compares the car arrangement, not the value of your job offer." />
     <PlanningGuide name="car-lease-exit" steps={[
       { title: 'Choose the date and the cash you can use', text: 'Count the months left on your current lease. Choose when you might leave and the money available for the car after other household costs.' },
       { title: 'Use payroll’s actual take-home impact', text: 'Enter the lease deduction and the monthly tax saving confirmed by payroll. Do not assume the highest tax rate applies to the entire lease payment.' },
@@ -77,5 +76,6 @@ export default function CarLeaseCalculator() {
         <MethodDetails assumptions={LEASE_ASSUMPTIONS} />
       </>}
     </div>
+    <DecisionIntro question="Changing jobs? Check what happens to your company car." text="Compare the future car cost of staying, buying out, returning or continuing an approved lease. See the cash needed at exit, any loan left later, and whether your reserve survives. This compares the car arrangement, not the value of your job offer." />
   </div>;
 }

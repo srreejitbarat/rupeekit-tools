@@ -33,10 +33,7 @@ export default function PersonalLoanEligibilityCalculatorV2({ tool }: { tool: To
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-950">
-        <p className="font-bold">Instant estimate — no phone number, lead form or bureau lookup</p>
-        <p className="mt-1">The calculation runs in your browser. It estimates repayment capacity only; it is not pre-approval, sanction or a guaranteed rate.</p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
         <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -79,6 +76,10 @@ export default function PersonalLoanEligibilityCalculatorV2({ tool }: { tool: To
       </section>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-950">
+        <p className="font-bold">Instant estimate — no phone number, lead form or bureau lookup</p>
+        <p className="mt-1">The calculation runs in your browser. It estimates repayment capacity only; it is not pre-approval, sanction or a guaranteed rate.</p>
+      </div>
     </div>
   );
 }

@@ -51,44 +51,10 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
 
   return (
     <div>
-      <section className="mt-12" aria-labelledby="blog-cluster-heading">
-        <div className="text-center">
-          <h2 id="blog-cluster-heading" className="text-2xl font-black text-brandDeepNavy">Explore by financial goal</h2>
-          <p className="mt-2 text-sm leading-6 text-brandMuted">Seven clear topic hubs replace overlapping tags and make the next useful guide easier to find.</p>
-        </div>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {BLOG_CLUSTERS.filter((cluster) => clusterCounts.has(cluster.label)).map((cluster) => (
-            <article key={cluster.id} className={`rounded-2xl border p-4 transition ${activeCategory === cluster.label ? 'border-brandNavy bg-brandNavy/5 ring-2 ring-brandNavy/10' : 'border-brandBorder bg-white hover:border-brandNavy/30'}`}>
-              <button
-                type="button"
-                onClick={() => setActiveCategory(cluster.label)}
-                className="w-full text-left"
-                aria-pressed={activeCategory === cluster.label}
-                aria-controls="blog-article-library"
-              >
-                <span className="flex items-center justify-between gap-3">
-                  <span className="font-bold text-brandDeepNavy">{cluster.label}</span>
-                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{clusterCounts.get(cluster.label)} guides</span>
-                </span>
-                <span className="mt-2 block text-xs leading-5 text-brandMuted">{cluster.description}</span>
-              </button>
-              <a href={cluster.calculatorHref} className="mt-3 inline-flex text-xs font-bold text-brandNavy hover:underline">
-                {cluster.calculatorLabel} →
-              </a>
-              {cluster.secondaryCalculatorHref && cluster.secondaryCalculatorLabel ? (
-                <a href={cluster.secondaryCalculatorHref} className="ml-3 mt-3 inline-flex text-xs font-bold text-brandNavy hover:underline">
-                  {cluster.secondaryCalculatorLabel} →
-                </a>
-              ) : null}
-            </article>
-          ))}
-        </div>
-      </section>
-
       {/* Search + Category Filters */}
-      <div className="mt-10 space-y-5">
+      <div className="mt-5 space-y-4">
         {/* Search */}
-        <div className="relative max-w-md mx-auto">
+        <div className="relative max-w-2xl">
           <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center">
             <svg className="h-4 w-4 text-brandMuted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -99,18 +65,18 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
             placeholder="Search finance guides…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-full border border-brandBorder bg-white py-3 pl-10 pr-4 text-sm text-brandDeepNavy placeholder-brandMuted shadow-sm outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
+            className="w-full rounded-lg border border-brandBorder bg-white py-3 pl-10 pr-4 text-sm text-brandDeepNavy placeholder-brandMuted shadow-sm outline-none transition focus:border-brandNavy focus:ring-1 focus:ring-brandNavy"
             aria-label="Search finance guides"
           />
         </div>
 
         {/* Category chips */}
-        <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Filter by category">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full border px-4 py-1.5 text-xs font-bold transition ${
+              className={`min-h-11 rounded-lg border px-4 py-2 text-xs font-bold transition ${
                 activeCategory === cat
                   ? 'border-brandNavy bg-brandNavy text-white shadow-sm'
                   : 'border-brandBorder bg-white text-brandMuted hover:border-brandNavy/40 hover:text-brandNavy'
@@ -133,7 +99,7 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
       )}
 
       {/* Article Grid */}
-      <section id="blog-article-library" className="mt-10 scroll-mt-24" aria-label="Article list">
+      <section id="blog-article-library" className="mt-6 scroll-mt-24" aria-label="Article list">
         {filtered.length > 0 ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((post) => (
@@ -166,6 +132,38 @@ export default function BlogListingClient({ posts }: BlogListingClientProps) {
           </div>
         )}
       </section>
+      <details className="tool-guide">
+        <summary>Explore by financial goal</summary>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {BLOG_CLUSTERS.filter((cluster) => clusterCounts.has(cluster.label)).map((cluster) => (
+            <article key={cluster.id} className={`rounded-2xl border p-4 transition ${activeCategory === cluster.label ? 'border-brandNavy bg-brandNavy/5 ring-2 ring-brandNavy/10' : 'border-brandBorder bg-white hover:border-brandNavy/30'}`}>
+              <button
+                type="button"
+                onClick={() => setActiveCategory(cluster.label)}
+                className="w-full text-left"
+                aria-pressed={activeCategory === cluster.label}
+                aria-controls="blog-article-library"
+              >
+                <span className="flex items-center justify-between gap-3">
+                  <span className="font-bold text-brandDeepNavy">{cluster.label}</span>
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">{clusterCounts.get(cluster.label)} guides</span>
+                </span>
+                <span className="mt-2 block text-xs leading-5 text-brandMuted">{cluster.description}</span>
+              </button>
+              <a href={cluster.calculatorHref} className="mt-3 inline-flex text-xs font-bold text-brandNavy hover:underline">
+                {cluster.calculatorLabel} →
+              </a>
+              {cluster.secondaryCalculatorHref && cluster.secondaryCalculatorLabel ? (
+                <a href={cluster.secondaryCalculatorHref} className="ml-3 mt-3 inline-flex text-xs font-bold text-brandNavy hover:underline">
+                  {cluster.secondaryCalculatorLabel} →
+                </a>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </details>
+
     </div>
   );
 }

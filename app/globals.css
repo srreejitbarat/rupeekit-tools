@@ -6,8 +6,8 @@
   --background: #f8fafc;
   --foreground: #0f172a;
   --brand-navy: #003080;
-  --brand-deep-navy: #002070;
-  --brand-growth-green: #43A047;
+  --brand-deep-navy: #172b4d;
+  --brand-growth-green: #287a3d;
   --brand-bright-green: #50B040;
   --brand-bg-soft: #f8fafc;
   --brand-border: #e5eaf0;
@@ -152,4 +152,64 @@ html:lang(bn-IN) h2,
 html:lang(bn-IN) h3 {
   line-height: 1.6;
   letter-spacing: normal;
+}
+
+/* Keep page titles and structural panels quiet across all calculator and article layouts.
+   Result values, chart colors, validation states and print output retain their own styles. */
+@media screen {
+  main h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+  }
+
+  main :is(article, section, header)[class*="rounded-["],
+  main :is(div, a)[class*="rounded-[2rem]"] {
+    border-radius: 0.75rem;
+  }
+
+  main :is(article, section, header, a).shadow-xl {
+    box-shadow: 0 1px 3px rgb(15 23 42 / 0.04);
+  }
+}
+
+/* Tool pages start with the working calculator; optional reading follows it. */
+.tool-page-heading {
+  margin: 1rem 0 1.25rem;
+}
+.tool-page-heading h1 {
+  color: var(--brand-text);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.35;
+}
+.tool-calculator {
+  min-width: 0;
+  scroll-margin-top: 6rem;
+}
+.tool-guide {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+.tool-guide > summary {
+  cursor: pointer;
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.tool-guide-content {
+  padding: 0.5rem 0 1.5rem;
+}
+.tool-guide-content > :first-child {
+  margin-top: 0;
+}
+.tool-calculator :is(h2, h3) {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+@media (min-width: 640px) {
+  .tool-calculator :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select) {
+    min-height: 2.75rem;
+  }
 }

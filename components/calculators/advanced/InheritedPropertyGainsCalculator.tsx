@@ -54,14 +54,7 @@ export default function InheritedPropertyGainsCalculator({ tool }: { tool: Tool 
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">Inheritance itself is not taxed — the sale is</p>
-        <p className="mt-1">
-          There is no tax when you inherit. When you sell, the gain is worked out from the{' '}
-          <strong>previous owner&apos;s</strong> cost and their holding period, not yours. That is
-          why a generic capital gains calculator gives the wrong answer here.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -301,6 +294,14 @@ export default function InheritedPropertyGainsCalculator({ tool }: { tool: Tool 
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">Inheritance itself is not taxed — the sale is</p>
+        <p className="mt-1">
+          There is no tax when you inherit. When you sell, the gain is worked out from the{' '}
+          <strong>previous owner&apos;s</strong> cost and their holding period, not yours. That is
+          why a generic capital gains calculator gives the wrong answer here.
+        </p>
+      </div>
     </div>
   );
 }

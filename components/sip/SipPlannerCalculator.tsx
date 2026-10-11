@@ -1711,27 +1711,21 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-8">
-        <h2 className="text-lg font-bold text-brandDeepNavy">Choose SIP mode</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          {SIP_MODE_OPTIONS.map((option) => (
-            <button
-              key={option.key}
-              type="button"
-              onClick={() => {
-                setActiveSipPresetId(null);
-                setMode(option.key);
-              }}
-              className={`rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
-                mode === option.key
-                  ? 'border-brandNavy bg-brandNavy/10 text-brandNavy'
-                  : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+      <section className="rounded-lg border border-brandBorder bg-white p-4">
+        <label htmlFor="sip-mode" className="flex flex-wrap items-center gap-3 text-sm font-semibold text-brandText">
+          <span>Choose SIP mode</span>
+          <select
+            id="sip-mode"
+            value={mode}
+            onChange={(event) => {
+              setActiveSipPresetId(null);
+              setMode(event.target.value as SipMode);
+            }}
+            className="min-h-11 w-full rounded-lg border border-brandBorder bg-white px-3 text-sm text-brandText sm:w-auto"
+          >
+            {SIP_MODE_OPTIONS.map((option) => <option key={option.key} value={option.key}>{option.label}</option>)}
+          </select>
+        </label>
         <CalculatorPresets
           className="mt-4"
           presets={SIP_PRESETS}
@@ -2205,7 +2199,11 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
         </section>
       ) : null}
 
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+
+      <details className="tool-guide">
+        <summary>Detailed breakdown</summary>
+        <div className="space-y-6 pt-2">
+<section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h3 className="text-lg font-bold text-brandDeepNavy">What if you delay SIP by 1 year?</h3>
         <p className="mt-2 text-sm text-slate-600">
           Delay cost is an estimate based on the same assumed return and duration. It is not a guarantee.
@@ -2671,6 +2669,8 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
           ))}
         </ul>
       </section>
+            </div>
+      </details>
     </div>
   );
 }

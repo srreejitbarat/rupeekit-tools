@@ -978,11 +978,7 @@ export default function PersonalLoanDecisionSimulator({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-3">
-        <p className="text-sm font-semibold text-emerald-900">
-          Free educational calculator. No login. No documents. RupeeKit is not a lender.
-        </p>
-      </section>
+
 
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <div className="rounded-3xl border border-brandBorder bg-white p-5 shadow-sm md:p-8">
@@ -1074,6 +1070,15 @@ export default function PersonalLoanDecisionSimulator({
         </div>
       </section>
 
+
+      <details className="tool-guide">
+        <summary>Detailed breakdown</summary>
+        <div className="space-y-6 pt-2">
+<section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-3">
+        <p className="text-sm font-semibold text-emerald-900">
+          Free educational calculator. No login. No documents. RupeeKit is not a lender.
+        </p>
+      </section>
       {quickAnswer ? (
         <QuickAnswerBox
           title={quickAnswer.title}
@@ -1501,6 +1506,8 @@ export default function PersonalLoanDecisionSimulator({
           ) : null}
         </AdvancedSectionCard>
       </section>
+            </div>
+      </details>
     </div>
   );
 }

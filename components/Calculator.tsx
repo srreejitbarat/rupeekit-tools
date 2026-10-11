@@ -672,7 +672,11 @@ function StandardCalculator({ tool }: { tool: Tool }) {
         </div>
       </section>
 
-      {isPersonalLoanPage && personalLoanSummary ? (
+
+      <details className="tool-guide">
+        <summary>Detailed breakdown</summary>
+        <div className="space-y-6 pt-2">
+{isPersonalLoanPage && personalLoanSummary ? (
         <PersonalLoanVisualBreakdown
           principal={Math.max(0, numericValues.principal ?? 0)}
           totalInterestForSelectedTenure={personalLoanReportData?.totalInterest ?? 0}
@@ -817,6 +821,8 @@ function StandardCalculator({ tool }: { tool: Tool }) {
       {/* Amortization/Compounding Schedule */}
       {hasBreakdown && <CalculatorBreakdownTable tool={tool} values={numericValues} />}
 
+            </div>
+      </details>
     </div>
   );
 }

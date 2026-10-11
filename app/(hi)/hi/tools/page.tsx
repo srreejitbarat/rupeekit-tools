@@ -33,12 +33,9 @@ export default function HindiToolsPage() {
         },
       }) }} />
       <nav aria-label="आप यहाँ हैं" className="text-sm leading-7 text-brandMuted dark:text-slate-400"><Link href="/hi" className="font-bold hover:underline">होम</Link><span className="mx-2" aria-hidden="true">/</span><span aria-current="page">कैलकुलेटर</span></nav>
-      <header className="mt-6 rounded-3xl bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 p-6 text-white md:p-10">
-        <p className="text-sm font-bold leading-7 text-brandBrightGreen">{tools.length} मुफ़्त टूल · साइनअप की ज़रूरत नहीं</p>
-        <h1 className="mt-3 text-3xl font-extrabold leading-relaxed md:text-4xl md:leading-relaxed">आपके सवाल का सही कैलकुलेटर</h1>
-        <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200">हिंदी या अंग्रेज़ी में नाम लिखें, या नीचे विषय चुनें। जैसे: सैलरी, होम लोन, SIP या टैक्स।</p>
+      <header className="tool-page-heading">
+        <h1>कैलकुलेटर</h1>
       </header>
-      <p className="mt-5 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">अपनी ज़रूरत का कैलकुलेटर चुनें। उसके सवाल, नतीजे और रिपोर्ट हिंदी में देख सकते हैं।</p>
       <ToolsExplorer tools={tools} locale="hi" />
     </div>
   );
