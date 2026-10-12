@@ -40,12 +40,13 @@ describe('issue #76 tax and salary rescue', () => {
     expect(appSource).toContain("useState<string>(availableTaxYears[0] ?? '2025-26')");
   });
 
-  it('puts a representative old-vs-new comparison before tax inputs and preserves scope language', () => {
+  it('puts tax inputs before the optional comparison and preserves scope language', () => {
     const appSource = readFileSync('components/tax/TaxCalculatorApp.tsx', 'utf8');
     const comparisonIndex = appSource.indexOf('Old vs new tax regime at representative salaries');
     const inputFormIndex = appSource.indexOf('<TaxInputForm');
     expect(comparisonIndex).toBeGreaterThan(-1);
-    expect(inputFormIndex).toBeGreaterThan(comparisonIndex);
+    expect(comparisonIndex).toBeGreaterThan(inputFormIndex);
+    expect(appSource).toContain('className="tool-guide"');
     expect(appSource).toContain('special-rate income');
     expect(appSource).toContain('/tools/salary-in-hand-calculator-india');
     JOURNEY_BLOGS.forEach((slug) => expect(appSource).toContain(`/blog/${slug}`));

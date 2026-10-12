@@ -7,13 +7,13 @@ const config: Config = {
     extend: {
       colors: {
         brandNavy: '#003080',
-        brandDeepNavy: '#002070',
-        brandGrowthGreen: '#43A047',
+        brandDeepNavy: '#172B4D',
+        brandGrowthGreen: '#287A3D',
         brandBrightGreen: '#50B040',
-        brandBgSoft: '#F8FAFC',
-        brandBorder: '#E5EAF0',
-        brandText: '#0F172A',
-        brandMuted: '#64748B',
+        brandBgSoft: 'var(--brand-bg-soft)',
+        brandBorder: 'var(--brand-border)',
+        brandText: 'var(--brand-text)',
+        brandMuted: 'var(--brand-muted)',
         // Retain original for safety
         brand: {
           50: '#eef9ff',
@@ -24,13 +24,16 @@ const config: Config = {
         },
       },
       borderRadius: {
-        '4xl': '2rem',
+        '2xl': '0.625rem',
+        '3xl': '0.75rem',
+        '4xl': '0.875rem',
       },
+      fontWeight: { extrabold: '700', black: '700' },
       boxShadow: {
-        card: '0 1px 2px rgb(15 23 42 / 0.04), 0 10px 28px rgb(15 23 42 / 0.06)',
-        cardHover: '0 20px 44px rgb(15 23 42 / 0.12)',
-        elevated: '0 24px 64px rgb(2 32 112 / 0.22)',
-        soft: '0 10px 30px rgb(15 23 42 / 0.08)',
+        card: '0 1px 2px rgb(15 23 42 / 0.03)',
+        cardHover: '0 1px 4px rgb(15 23 42 / 0.06)',
+        elevated: '0 1px 3px rgb(15 23 42 / 0.04)',
+        soft: '0 1px 3px rgb(15 23 42 / 0.04)',
       },
       fontSize: {
         display: ['clamp(2.75rem, 5vw, 3.5rem)', { lineHeight: '1.04', letterSpacing: '-0.04em' }],

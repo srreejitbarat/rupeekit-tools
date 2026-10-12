@@ -13,7 +13,6 @@ export default function NoCostEmiCalculator() {
   const d = f.draft, r = f.result, input = f.committed;
   const number = (key: keyof NoCostInput, label: string, hint?: string, max?: number, min = 0, step: number | 'any' = 'any') => <Field label={label} value={d[key] as number} onChange={v => f.set(key, numeric(v))} hint={hint} min={min} max={max} step={step} />;
   return <div className="space-y-6">
-    <DecisionIntro question="Is the EMI offer cheaper than paying upfront?" text="See the full purchase cost, then ask a second question: what happens to your money if you return the item? The example includes a partial return; replace it with your issuer’s quote." />
     <PlanningGuide name="no-cost-emi" steps={[
       { title: 'Start with the two purchase prices', text: 'Enter the EMI purchase price and any extra discount for paying upfront. Choose the full upfront interest subsidy or copy the financed principal from the issuer.' },
       { title: 'Add the charges outside the EMI', text: 'Enter processing fees, the tax charged on interest and fees, and any separate cashback. Example rates are editable; check your statement.' },
@@ -73,5 +72,6 @@ export default function NoCostEmiCalculator() {
         <MethodDetails assumptions={EMI_ASSUMPTIONS} />
       </>}
     </div>
+    <DecisionIntro question="Is the EMI offer cheaper than paying upfront?" text="See the full purchase cost, then ask a second question: what happens to your money if you return the item? The example includes a partial return; replace it with your issuer’s quote." />
   </div>;
 }

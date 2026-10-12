@@ -28,17 +28,17 @@ export default function BengaliHomePage() {
         '@context': 'https://schema.org', '@type': 'WebPage', name: title, description,
         url: alternates.canonical, inLanguage: 'bn-IN',
       }) }} />
-      <section className="bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-950 text-white">
-        <div className="mx-auto max-w-5xl px-4 py-12 text-center md:px-6 md:py-20">
-          <p className="font-bold leading-7 text-brandBrightGreen">RupeeKit এখন বাংলায়</p>
-          <h1 className="mx-auto mt-4 max-w-4xl text-3xl font-extrabold leading-relaxed sm:text-4xl sm:leading-relaxed md:text-5xl md:leading-relaxed">টাকার সিদ্ধান্ত নেওয়ার আগে,<br className="hidden sm:block" /> হিসাবটা বুঝে নিন।</h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-200 md:text-lg md:leading-9">মাসে কত বেতন হাতে পাবেন? লোনের কিস্তি কত হবে? সঞ্চয় কতটা বাড়তে পারে? নিজের দরকারের ক্যালকুলেটর বেছে নিয়ে সম্ভাব্য হিসাব দেখুন।</p>
-          <Link href="/bn/tools" className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-brandGrowthGreen px-7 py-3 text-base font-bold text-white shadow-soft transition hover:bg-brandBrightGreen focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brandNavy">নিজের ক্যালকুলেটর খুঁজুন <span aria-hidden="true" className="ml-2">→</span></Link>
-          <p className="mt-5 text-sm leading-7 text-slate-200">{count}টি বিনামূল্যের ক্যালকুলেটর · সাইনআপের প্রয়োজন নেই</p>
+      <section className="border-b border-brandBorder bg-brandBgSoft text-brandText">
+        <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+          <p className="font-semibold leading-7 text-brandGrowthGreen dark:text-brandBrightGreen">RupeeKit এখন বাংলায়</p>
+          <h1 className="mt-4 max-w-4xl text-3xl font-extrabold leading-relaxed sm:text-4xl sm:leading-relaxed md:text-5xl md:leading-relaxed">টাকার সিদ্ধান্ত নেওয়ার আগে,<br className="hidden sm:block" /> হিসাবটা বুঝে নিন।</h1>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-brandMuted md:text-base md:leading-9">মাসে কত বেতন হাতে পাবেন? লোনের কিস্তি কত হবে? সঞ্চয় কতটা বাড়তে পারে? নিজের দরকারের ক্যালকুলেটর বেছে নিয়ে সম্ভাব্য হিসাব দেখুন।</p>
+          <Link href="/bn/tools" className="mt-7 inline-flex min-h-12 items-center justify-center rounded-lg bg-brandGrowthGreen px-7 py-3 text-base font-bold text-white shadow-soft transition hover:bg-brandBrightGreen focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brandNavy">নিজের ক্যালকুলেটর খুঁজুন <span aria-hidden="true" className="ml-2">→</span></Link>
+          <p className="mt-5 text-sm leading-7 text-brandMuted">{count}টি বিনামূল্যের ক্যালকুলেটর · সাইনআপের প্রয়োজন নেই</p>
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
         <p className="mt-7 rounded-2xl border border-sky-100 bg-sky-50 p-4 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">ক্যালকুলেটর, ফলাফল, রিপোর্ট, ব্লগ ও নির্দেশিকা বাংলায় পড়ুন। উপরের বিকল্প দিয়ে যে কোনও পেজের ভাষা বদলাতে পারেন।</p>
         <section id="calculators" className="mt-10 scroll-mt-24">
           <h2 className="text-2xl font-bold leading-relaxed text-brandDeepNavy dark:text-white">আজ আপনি কী জানতে চান?</h2>

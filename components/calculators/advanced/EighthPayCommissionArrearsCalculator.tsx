@@ -113,12 +113,7 @@ export default function EighthPayCommissionArrearsCalculator({ tool }: { tool: T
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">Unofficial arrears scenario — no arrears have been notified</p>
-        <p className="mt-1">
-          Enter every date and pay component yourself. The 8th CPC has not notified an implementation date, payment date, arrears period, pay matrix, HRA rule or pension method.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
         <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -183,6 +178,12 @@ export default function EighthPayCommissionArrearsCalculator({ tool }: { tool: T
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">Unofficial arrears scenario — no arrears have been notified</p>
+        <p className="mt-1">
+          Enter every date and pay component yourself. The 8th CPC has not notified an implementation date, payment date, arrears period, pay matrix, HRA rule or pension method.
+        </p>
+      </div>
     </div>
   );
 }

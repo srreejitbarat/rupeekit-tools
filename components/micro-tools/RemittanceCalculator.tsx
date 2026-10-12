@@ -15,7 +15,6 @@ export default function RemittanceCalculator() {
     f.setDraft(current => ({ ...current, routes: current.routes.map((route, i) => i === index ? { ...route, [key]: value } : route) as typeof current.routes }));
   }
   return <div className="space-y-6">
-    <DecisionIntro question="Your invoice says one amount. Your bank shows another." text="Trace every entered fee and the exchange-rate difference, compare two quotes, then work backwards from the INR you want to receive. Example rates below are fictional planning inputs, not live prices." />
     <PlanningGuide name="remittance-fees" steps={[
       { title: 'Use one invoice and one quote date', text: 'Choose the invoice currency, amount and reference INR exchange rate. Compare quotes from the same date and payment route.' },
       { title: 'Separate foreign and rupee charges', text: 'Foreign fees are deducted before conversion. Bank, certificate and additional tax charges are entered in rupees. Do not count a tax-inclusive fee twice.' },
@@ -91,5 +90,6 @@ export default function RemittanceCalculator() {
         <MethodDetails assumptions={REMITTANCE_ASSUMPTIONS} />
       </>}
     </div>
+    <DecisionIntro question="Your invoice says one amount. Your bank shows another." text="Trace every entered fee and the exchange-rate difference, compare two quotes, then work backwards from the INR you want to receive. Example rates below are fictional planning inputs, not live prices." />
   </div>;
 }

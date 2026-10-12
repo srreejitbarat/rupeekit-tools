@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { withLanguageAlternates } from '@/lib/i18n/metadata';
 import type { Metadata } from 'next';
 import { blogPosts } from '@/data/all-blog-posts';
@@ -35,19 +36,10 @@ export const metadata: Metadata = {
 
 export default function BlogListingPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
-      {/* Blog Listing Header — server-rendered for SEO */}
-      <section className="text-center max-w-3xl mx-auto">
-        <span className="rounded-full bg-brandNavy/10 border border-brandNavy/20 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-brandNavy">
-          RupeeKit Library
-        </span>
-        <h1 className="mt-4 text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">
-          Personal Finance Guides for India
-        </h1>
-        <p className="mt-4 text-brandMuted text-lg leading-relaxed">
-          Start with one of seven focused hubs for budgeting, loans, income tax, salary, savings, investing, or government compliance—then move directly to the calculator that supports the decision.
-        </p>
-      </section>
+    <div className="mx-auto max-w-6xl px-4 py-6 md:px-6">
+      <header className="tool-page-heading">
+        <h1 className="text-brandText">Personal Finance Guides for India</h1>
+      </header>
 
       {/* Client component handles search, filter, featured badge */}
       <BlogListingClient posts={blogPosts} />
@@ -81,21 +73,9 @@ export default function BlogListingPage() {
         }}
       />
 
-      {/* Bottom Educational Banner */}
-      <section className="mt-16 rounded-[2rem] border border-brandBorder bg-white p-8 text-center shadow-sm max-w-4xl mx-auto">
-        <h2 className="text-xl font-bold text-brandDeepNavy">Need Interactive Estimations?</h2>
-        <p className="mt-2 text-sm text-brandMuted max-w-xl mx-auto">
-          Our articles explain the rules, but you can compute exact outcomes for your income, EMIs, mutual funds, or tax deductions instantly.
-        </p>
-        <div className="mt-6">
-          <a
-            href="/#calculators"
-            className="rounded-full bg-brandNavy px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-brandDeepNavy hover:shadow-md transition"
-          >
-            Explore All Calculators
-          </a>
-        </div>
-      </section>
+      <Link href="/tools" className="mt-8 inline-flex min-h-11 items-center text-sm font-semibold text-brandNavy hover:underline dark:text-brandBrightGreen">
+        <span>Explore All Calculators</span><span aria-hidden="true" className="ml-2">→</span>
+      </Link>
     </div>
   );
 }

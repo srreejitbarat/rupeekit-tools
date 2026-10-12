@@ -6,7 +6,6 @@ import "@/app/globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import GoogleAnalyticsRouteTracker from "@/components/GoogleAnalyticsRouteTracker";
-import LanguagePreferenceNotice from "@/components/i18n/LanguagePreferenceNotice";
 import { LOCALE_TAGS, type Locale } from "@/lib/i18n/routing";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo/og-image";
 import { EDITORIAL_TEAM_DESCRIPTION } from "@/lib/seo/editorial";
@@ -184,7 +183,6 @@ export default function SiteLayout({
         ) : null}
 
         <SiteHeader locale={locale} />
-        {locale === 'en' ? <LanguagePreferenceNotice /> : null}
 
         <main className="flex-grow">{children}</main>
 

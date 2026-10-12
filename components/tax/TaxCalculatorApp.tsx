@@ -85,6 +85,41 @@ export function TaxCalculatorApp() {
       toolCategory="Tax"
     >
     <div className="mx-auto w-full max-w-6xl">
+      <div className="mb-5 flex flex-wrap gap-2 border-b border-brandBorder pb-4">
+        <button
+          onClick={() => setActiveTab('current')}
+          className={`min-h-11 rounded-lg px-4 py-2 text-sm font-bold transition ${activeTab === 'current' ? 'bg-brandNavy text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+        >
+          Current Calculation
+        </button>
+        <button
+          onClick={() => setActiveTab('future')}
+          className={`min-h-11 rounded-lg px-4 py-2 text-sm font-bold transition ${activeTab === 'future' ? 'bg-brandGrowthGreen text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+        >
+          Future Projection
+        </button>
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
+        <div className="space-y-6">
+          {activeTab === 'current' ? (
+            <TaxInputForm
+              input={input}
+              onChange={setInput}
+              taxYear={taxYear}
+              onTaxYearChange={setTaxYear}
+            />
+          ) : (
+            <TaxFutureProjection baseInput={input} taxYear={taxYear} />
+          )}
+        </div>
+        <div>
+          <TaxResultPanel result={result} input={input} taxYear={taxYear} />
+        </div>
+      </div>
+      <details className="tool-guide">
+        <summary>Old vs new tax regime at representative salaries</summary>
+        <div className="tool-guide-content">
       <section className="mb-6 rounded-3xl border border-sky-200 bg-sky-50/70 p-5 shadow-sm md:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -151,38 +186,8 @@ export function TaxCalculatorApp() {
         </div>
       </nav>
 
-      <div className="mb-6 flex gap-2 border-b border-brandBorder pb-4">
-        <button
-          onClick={() => setActiveTab('current')}
-          className={`rounded-full px-5 py-2 text-sm font-bold transition ${activeTab === 'current' ? 'bg-brandNavy text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
-        >
-          Current Calculation
-        </button>
-        <button
-          onClick={() => setActiveTab('future')}
-          className={`rounded-full px-5 py-2 text-sm font-bold transition ${activeTab === 'future' ? 'bg-brandGrowthGreen text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
-        >
-          Future Projection
-        </button>
-      </div>
-
-      <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
-        <div className="space-y-6">
-          {activeTab === 'current' ? (
-            <TaxInputForm 
-              input={input} 
-              onChange={setInput} 
-              taxYear={taxYear} 
-              onTaxYearChange={setTaxYear} 
-            />
-          ) : (
-            <TaxFutureProjection baseInput={input} taxYear={taxYear} />
-          )}
         </div>
-        <div>
-          <TaxResultPanel result={result} input={input} taxYear={taxYear} />
-        </div>
-      </div>
+      </details>
     </div>
     </CalculatorAnalyticsBoundary>
   );

@@ -89,17 +89,17 @@ export default function FinancialUpdatesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-12 space-y-10">
       {/* Hero */}
-      <section className="rounded-3xl bg-gradient-to-br from-brandDeepNavy via-brandNavy to-slate-900 px-6 py-10 md:px-12 md:py-12 text-white shadow-xl relative overflow-hidden">
+      <section className="rounded-3xl border border-brandBorder bg-white dark:bg-slate-900 px-6 py-10 md:px-12 md:py-12 text-brandText shadow-card relative overflow-hidden">
         <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-brandGrowthGreen/20 blur-3xl pointer-events-none" />
         <div className="absolute -left-16 -bottom-16 w-64 h-64 rounded-full bg-brandNavy/40 blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl">
           <span className="inline-block rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/20 mb-4">
             Educational Summaries
           </span>
-          <h1 className="text-3xl font-black tracking-tight leading-tight md:text-5xl text-white">
+          <h1 className="text-3xl font-black tracking-tight leading-tight md:text-4xl text-brandText">
             Financial &amp; Tax Updates
           </h1>
-          <p className="mt-4 text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-brandMuted md:text-base">
             Official income tax and personal finance updates, explained simply. All summaries are
             educational — always verify with the official source before acting.
           </p>

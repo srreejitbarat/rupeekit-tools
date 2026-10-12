@@ -34,15 +34,7 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">An estimate, not an entitlement</p>
-        <p className="mt-1">
-          Gratuity is paid on the wages actually recorded by your employer at exit. This tool shows
-          how the revised wage definition changes that base. It does not confirm your eligibility,
-          your employer&apos;s coverage under the Payment of Gratuity Act, or the date your
-          structure changes.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -161,6 +153,15 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">An estimate, not an entitlement</p>
+        <p className="mt-1">
+          Gratuity is paid on the wages actually recorded by your employer at exit. This tool shows
+          how the revised wage definition changes that base. It does not confirm your eligibility,
+          your employer&apos;s coverage under the Payment of Gratuity Act, or the date your
+          structure changes.
+        </p>
+      </div>
     </div>
   );
 }

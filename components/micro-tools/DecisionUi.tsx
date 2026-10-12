@@ -7,12 +7,10 @@ import { compactIndianNumber } from '@/lib/format/compact-number';
 
 const colors = ['#0f766e', '#6366f1', '#c2410c', '#be185d'];
 export function DecisionIntro({ question, text }: { question: string; text: string }) {
-  return <section className="rounded-2xl border border-teal-200 bg-teal-50 p-5 sm:p-7 dark:border-teal-800 dark:bg-teal-950">
-    <p className="text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-200">See the whole money decision</p>
-    <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-950 dark:text-white">{question}</h2>
-    <p className={`mt-3 ${muted}`}>{text}</p>
-    <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-teal-900 dark:text-teal-100"><li>No signup</li><li>Editable examples</li><li>Private browser calculation</li><li>PDF + CSV</li></ul>
-  </section>;
+  return <details className="tool-guide">
+    <summary>{question}</summary>
+    <p className={`pb-4 ${muted}`}>{text}</p>
+  </details>;
 }
 export function ComparisonBars({ title, items }: { title: string; items: { name: string; value: number }[] }) {
   const maximum = Math.max(1, ...items.map(item => Math.abs(item.value)));

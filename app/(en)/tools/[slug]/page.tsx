@@ -1084,7 +1084,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
+    <div className="tool-page mx-auto max-w-6xl px-4 py-5 md:px-6 md:py-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -1129,20 +1129,24 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <span>{heading}</span>
       </nav>
 
-      <header className="mt-8 grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-end">
+      <header className="tool-page-heading">
+        <h1>{heading}</h1>
+      </header>
+      <section id="calculator" className="tool-calculator" aria-label={tool.name}>
+        {isPersonalLoanPage ? (
+          <PersonalLoanDecisionSimulator tool={tool} quickAnswer={effectiveQuickAnswer} />
+        ) : (
+          <Calculator tool={tool} />
+        )}
+      </section>
+      <p className="mt-4 text-xs leading-6 text-brandMuted">Educational estimate only</p>
+
+      <details className="tool-guide">
+        <summary>How to use this calculator</summary>
+        <div className="tool-guide-content">
+      <div className="grid gap-6 md:grid-cols-[1fr_0.5fr]">
         <div>
-          <span className="rounded-full bg-sky-100 px-4 py-2 text-xs font-bold uppercase tracking-wide text-sky-700">
-            {tool.category}
-          </span>
-
-          <h1 className="mt-5 max-w-4xl text-4xl font-black tracking-tight text-slate-950 dark:text-white md:text-5xl">
-            {heading}
-          </h1>
-
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">{description}</p>
-
-          {isMicroTool(tool.slug) && <a href="#calculator" className="mt-5 inline-flex rounded-xl bg-teal-800 px-5 py-3 text-sm font-bold text-white hover:bg-teal-900">Try the calculator ↓</a>}
-
+          <p className="text-sm leading-7 text-brandMuted">{description}</p>
           <EditorialByline
             className="mt-4"
             updatedIso={tool.lastReviewedIso ?? TOOL_SEO_OVERRIDES[tool.slug]?.lastReviewedIso}
@@ -1175,7 +1179,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="space-y-4">
-          {discoverImage ? <DiscoverHeroImage image={discoverImage} priority /> : null}
+          {discoverImage ? <DiscoverHeroImage image={discoverImage} /> : null}
           <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-900">
             <p className="font-bold">Educational estimate only</p>
             <p className="mt-2">
@@ -1199,7 +1203,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             ) : null}
           </div>
         </div>
-      </header>
+      </div>
 
       {isCapitalGainsPage ? (
         <section className="mt-6 rounded-2xl border border-sky-200 bg-sky-50 p-5">
@@ -1260,35 +1264,19 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         </section>
       ) : null}
 
-      {isPersonalLoanPage ? (
-          <div className="mt-10">
-            <PersonalLoanDecisionSimulator
-              tool={tool}
-              quickAnswer={effectiveQuickAnswer}
-            />
-          </div>
-      ) : (
-        <>
-          <div className="mt-10" id="calculator">
-            <Calculator tool={tool} />
-          </div>
-          <PlanningFeatureSummary slug={tool.slug} />
-          {effectiveQuickAnswer ? (
-            <section className="mt-6">
-              {/* The formula and example have their own sections on standard
-                  calculator pages, and the page header carries the disclaimer. */}
-              <QuickAnswerBox
-                title={effectiveQuickAnswer.title}
-                question={effectiveQuickAnswer.question}
-                answer={effectiveQuickAnswer.answer}
-                formula={showsFormulaSections ? undefined : effectiveQuickAnswer.formula}
-                example={showsFormulaSections ? undefined : effectiveQuickAnswer.example}
-                links={effectiveQuickAnswer.links}
-              />
-            </section>
-          ) : null}
-        </>
-      )}
+      {!isPersonalLoanPage ? <PlanningFeatureSummary slug={tool.slug} /> : null}
+      {!isPersonalLoanPage && effectiveQuickAnswer ? (
+        <section className="mt-6">
+          <QuickAnswerBox
+            title={effectiveQuickAnswer.title}
+            question={effectiveQuickAnswer.question}
+            answer={effectiveQuickAnswer.answer}
+            formula={showsFormulaSections ? undefined : effectiveQuickAnswer.formula}
+            example={showsFormulaSections ? undefined : effectiveQuickAnswer.example}
+            links={effectiveQuickAnswer.links}
+          />
+        </section>
+      ) : null}
 
       <SourceBackedComparison slug={tool.slug} linkToGuide />
 
@@ -1836,7 +1824,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
             </>
           )}
-          {isMicroTool(tool.slug) && <ToolAdPlacement />}
+
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
@@ -2031,6 +2019,9 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           </p>
         </section>
       ) : null}
+        </div>
+      </details>
+      {isMicroTool(tool.slug) && <ToolAdPlacement />}
     </div>
   );
 }

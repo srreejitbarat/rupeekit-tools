@@ -47,16 +47,7 @@ export default function Rule9dEpfInterestCalculator({ tool }: { tool: Tool }) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">How Rule 9D works</p>
-        <p className="mt-1">
-          Where your own provident fund contributions exceed the threshold in a year, the fund is
-          maintained as two notional accounts — taxable and non-taxable. Interest is credited to
-          each separately and only the taxable account&apos;s interest is charged to tax. Both
-          balances carry forward, so the taxable interest grows every year even if your
-          contribution does not.
-        </p>
-      </div>
+
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
@@ -254,6 +245,16 @@ export default function Rule9dEpfInterestCalculator({ tool }: { tool: Tool }) {
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
+      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+        <p className="font-bold">How Rule 9D works</p>
+        <p className="mt-1">
+          Where your own provident fund contributions exceed the threshold in a year, the fund is
+          maintained as two notional accounts — taxable and non-taxable. Interest is credited to
+          each separately and only the taxable account&apos;s interest is charged to tax. Both
+          balances carry forward, so the taxable interest grows every year even if your
+          contribution does not.
+        </p>
+      </div>
     </div>
   );
 }

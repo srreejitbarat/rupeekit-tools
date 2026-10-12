@@ -70,7 +70,7 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
 
   return (
     <footer className="mt-16 border-t border-brandBorder bg-white dark:border-slate-800 dark:bg-slate-950">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-16">
+      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-10">
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Logo & About Section */}
           <div className="flex flex-col gap-4">
@@ -88,7 +88,7 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-brandBorder text-brandMuted transition hover:scale-105 hover:border-brandNavy/30 hover:text-brandNavy dark:border-slate-800 dark:text-slate-400 dark:hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-brandBorder text-brandMuted transition  hover:border-brandNavy/30 hover:text-brandNavy dark:border-slate-800 dark:text-slate-400 dark:hover:text-white"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -138,8 +138,8 @@ export default function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
         {locale !== 'en' ? <p className="mt-6 text-sm leading-7 text-brandMuted dark:text-slate-400">{locale === 'bn' ? 'ক্যালকুলেটর, নিবন্ধ, নির্দেশিকা ও নীতিগুলি বাংলায় পড়ুন। উপরের ভাষার বিকল্প দিয়ে একই পেজের ভাষা বদলাতে পারেন।' : 'कैलकुलेटर, लेख, गाइड और नीतियाँ हिंदी में पढ़ें। ऊपर दिए भाषा विकल्प से इसी पेज की भाषा बदल सकते हैं।'}</p> : null}
 
         {/* Brand Disclaimer & Copyright */}
-        <div className="mt-12 border-t border-brandBorder pt-8 dark:border-slate-800">
-          <div className="rounded-2xl border border-brandBorder bg-brandBgSoft p-5 text-xs leading-relaxed text-brandMuted shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+        <div className="mt-6 border-t border-brandBorder pt-8 dark:border-slate-800">
+          <div className="border-l-2 border-brandBorder pl-4 text-xs leading-relaxed text-brandMuted shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
             <p className="mb-1 font-bold text-brandDeepNavy dark:text-white">{copy.disclaimerTitle}</p>
             <p>
               {copy.disclaimer}
