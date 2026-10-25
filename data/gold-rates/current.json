@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "status": "ok",
   "asOf": "2026-10-25",
-  "fetchedAt": "2026-10-25T07:50:52.032Z",
+  "fetchedAt": "2026-10-25T15:20:06.198Z",
   "derived": {
     "perGramFine": 14030.12,
     "perGram": {
@@ -51,23 +51,23 @@
       {
         "provider": "gold-api.com",
         "xauUsd": 3996.899902,
-        "fetchedAt": "2026-10-25T07:50:51.097Z"
+        "fetchedAt": "2026-10-25T15:20:05.497Z"
       },
       {
         "provider": "coinbase-paxg",
-        "xauUsd": 3998.555,
-        "fetchedAt": "2026-10-25T07:50:51.255Z"
+        "xauUsd": 4000.4,
+        "fetchedAt": "2026-10-25T15:20:05.622Z"
       },
       {
         "provider": "yahoo-gc-f",
         "xauUsd": 4007.9,
-        "fetchedAt": "2026-10-25T07:50:51.535Z"
+        "fetchedAt": "2026-10-25T15:20:05.786Z"
       }
     ],
     "fx": {
       "provider": "frankfurter",
       "usdInr": 94.94,
-      "fetchedAt": "2026-10-25T07:50:51.871Z"
+      "fetchedAt": "2026-10-25T15:20:06.035Z"
     },
     "levies": {
       "importDutyPct": 15,
