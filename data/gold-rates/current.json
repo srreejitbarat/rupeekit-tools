@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "asOf": "2026-10-31",
-  "fetchedAt": "2026-10-31T16:36:52.684Z",
+  "asOf": "2026-11-01",
+  "fetchedAt": "2026-11-01T09:49:37.336Z",
   "derived": {
     "perGramFine": 13608.57,
     "perGram": {
@@ -41,7 +41,7 @@
   "loanValuation": {
     "carat": "22K",
     "basis": "30-day trailing average of 22K per-gram bullion value",
-    "averagePerGram": 13267.82,
+    "averagePerGram": 13233.18,
     "sampleDays": 30,
     "sufficient": true,
     "note": null
@@ -51,23 +51,23 @@
       {
         "provider": "gold-api.com",
         "xauUsd": 3876.399902,
-        "fetchedAt": "2026-10-31T16:36:51.998Z"
+        "fetchedAt": "2026-11-01T09:49:36.994Z"
       },
       {
         "provider": "coinbase-paxg",
-        "xauUsd": 3894.81,
-        "fetchedAt": "2026-10-31T16:36:52.133Z"
+        "xauUsd": 3893.24,
+        "fetchedAt": "2026-11-01T09:49:37.085Z"
       },
       {
         "provider": "yahoo-gc-f",
         "xauUsd": 3898.9,
-        "fetchedAt": "2026-10-31T16:36:52.317Z"
+        "fetchedAt": "2026-11-01T09:49:37.159Z"
       }
     ],
     "fx": {
       "provider": "frankfurter",
       "usdInr": 94.95,
-      "fetchedAt": "2026-10-31T16:36:52.552Z"
+      "fetchedAt": "2026-11-01T09:49:37.254Z"
     },
     "levies": {
       "importDutyPct": 15,
