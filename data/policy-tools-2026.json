@@ -6,7 +6,7 @@
     "category": "Salary",
     "status": "live",
     "targetKeyword": "new labour code take home salary calculator",
-    "shortDescription": "See what happens to your monthly take-home, PF and gratuity when basic pay is lifted to at least half of your cash salary under the labour codes' wage definition.",
+    "shortDescription": "Estimate changes to take-home pay, PF and gratuity using a simplified 50% cash-pay scenario.",
     "metaDescription": "Compare your salary before and after the 50% wage rule. See the change to take-home, PF and gratuity from your CTC and current basic percentage.",
     "inputs": [
       {
@@ -78,7 +78,7 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The Code on Wages defines wages as basic pay plus dearness allowance plus retaining allowance, and adds a proviso: where the excluded allowances exceed one half of all remuneration, the excess is added back to wages. In practice this sets a floor, because wages cannot settle below half of the cash pay actually given to the employee. Provident fund is contributed at 12% by both the employee and the employer on those wages, and gratuity accrues at 15 days of wages for every completed year of service, so lifting the wage base raises all three at once. Because employer PF and gratuity accrual usually sit inside CTC, a higher wage base leaves less room for cash pay, which is why monthly take-home falls even though total CTC has not changed. The interactive calculator resolves that circular relationship and shows both structures side by side; it reports take-home before income tax, since the tax you owe depends on your regime and deductions rather than on the restructuring itself.",
+    "formulaExplanation": "Under the Code on Wages, the applicable exclusions above 50% of remuneration are added back to statutory wages. This estimate uses half of cash pay as a proxy and assumes a 12% PF contribution on each side. It applies the current Rs 25,000 ceiling when selected. At a fixed CTC, higher employer PF or gratuity provisions can reduce the cash component. The calculator compares both structures before income tax.",
     "example": "Take a package of Rs 12 lakh a year with basic set at 30% of CTC. Wages today are Rs 30,000 a month, so employee PF is Rs 3,600 and gratuity accrues on that same base. Once wages are lifted to half of cash pay, the wage base rises to roughly Rs 46,000, employee and employer PF each rise to about Rs 5,500, and gratuity accrual rises in step. Monthly take-home falls by roughly 5%, while the amount set aside for retirement each month rises by about Rs 4,600. Nothing about the Rs 12 lakh CTC has changed; only the split between cash today and money locked away for later.",
     "faqs": [
       {
@@ -91,15 +91,15 @@
       },
       {
         "question": "What counts as remuneration for the 50% test?",
-        "answer": "Broadly, the cash components of your salary: basic, dearness allowance and every allowance paid to you. Employer contributions to provident fund and gratuity are not part of that figure. This calculator applies the floor to cash pay on that basis, which is why the revised wage figure is not simply half of your CTC."
+        "answer": "The Labour Ministry includes statutory employer PF and pension contributions, statutory bonus and overtime in the relevant calculation. Gratuity and ESI are excluded. This calculator uses half of cash pay as a simplified proxy. Ask payroll for the wage base calculated from your actual components."
       },
       {
         "question": "When does this apply to me?",
-        "answer": "RupeeKit does not state a date on which your structure must change. The codes are implemented alongside state-level rules, and employers restructure on their own payroll cycles. Your revised breakup should come from your employer; this tool shows the shape of the change, not its timing for you."
+        "answer": "The wage definition took effect on 21 November 2025. The updated Rs 25,000 monthly PF ceiling took effect on 17 September 2026. Use your employer's payroll statement to confirm your wage base and contribution treatment."
       },
       {
-        "question": "Why does the calculator ask whether PF uses the Rs 15,000 ceiling?",
-        "answer": "Provident fund can be contributed either on actual wages or restricted to the statutory wage ceiling of Rs 15,000 a month. Employers who apply the ceiling see almost no change in PF when wages rise, so the impact on take-home is much smaller. Check your payslip to see which basis your employer uses."
+        "question": "When should I use the Rs 25,000 PF ceiling?",
+        "answer": "Select the ceiling if your payroll limits PF contributions to the statutory wage base. From 17 September 2026 the model uses the lower of actual PF wages and Rs 25,000. At 12%, that is up to Rs 3,000 per side each month."
       }
     ],
     "related": [
@@ -120,14 +120,14 @@
       "Total CTC is held constant, so a higher wage base reduces the cash left for take-home.",
       "Provident fund is contributed at 12% by both the employee and the employer.",
       "Gratuity accrues at 15 days of wages for each completed year of service, divided by 26.",
-      "The 50% floor is applied to cash remuneration rather than to total CTC.",
+      "The model uses half of cash pay as a proxy for the statutory wage base.",
       "Take-home is reported before income tax, which depends on your regime and deductions.",
       "Employer practice on the provident fund ceiling and on whether employer PF sits inside CTC follows the toggles you set."
     ],
     "commonMistakes": [
       "Applying the 50% test to CTC rather than to cash remuneration, which overstates the revised wage base.",
       "Reading a lower take-home as a pay cut, when the difference has moved into provident fund and gratuity.",
-      "Forgetting that employers who contribute PF only on the Rs 15,000 ceiling will see a far smaller change.",
+      "Using an outdated PF ceiling for payroll after 17 September 2026.",
       "Entering gross salary instead of basic plus dearness allowance when setting the current basic percentage.",
       "Assuming the restructuring changes income tax directly, when the tax effect flows from the change in taxable components.",
       "Treating the output as a confirmed revised payslip rather than an estimate to check with your employer."
@@ -152,10 +152,10 @@
         ]
       }
     ],
-    "lastReviewed": "August 2026",
-    "lastReviewedIso": "2026-08-25",
-    "calculationVersion": "labour-code-2026.1",
-    "factsCheckedIso": "2026-08-25",
+    "lastReviewed": "November 2026",
+    "lastReviewedIso": "2026-11-09",
+    "calculationVersion": "labour-code-2026.2",
+    "factsCheckedIso": "2026-11-09",
     "nextReviewTrigger": "Any notification changing the wage definition, the provident fund wage ceiling, or the gratuity accrual formula.",
     "officialSources": [
       {
@@ -163,8 +163,12 @@
         "href": "https://labour.gov.in/sites/default/files/the_code_on_wages_2019.pdf"
       },
       {
-        "label": "EPFO — provident fund contribution rates",
-        "href": "https://www.epfindia.gov.in/site_en/index.php"
+        "label": "EPFO guidance on the revised Rs 25,000 wage ceiling",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2314111&lang=1&reg=3"
+      },
+      {
+        "label": "Labour Ministry FAQs on the wage definition",
+        "href": "https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf"
       }
     ]
   },
@@ -175,7 +179,7 @@
     "category": "Retirement",
     "status": "live",
     "targetKeyword": "gratuity new labour code calculator",
-    "shortDescription": "Work out how much more gratuity you accrue once basic pay is lifted to half of your cash salary, including the one-year rule for fixed-term employees.",
+    "shortDescription": "Compare gratuity estimates on current and revised wages, including service rounding and fixed-term contract expiry.",
     "metaDescription": "Estimate your gratuity on the revised wage base under the labour codes. Compare payouts on your current basic and on the 50% wage floor.",
     "inputs": [
       {
@@ -200,32 +204,55 @@
       },
       {
         "key": "yearsOfService",
-        "label": "Completed years of service",
+        "label": "Total years of continuous service",
         "unit": "years",
         "default": 10,
         "min": 0,
         "max": 45,
-        "step": 0.5,
-        "help": "Six months or more in the final year is generally counted as a full year."
+        "step": 0.01,
+        "help": "Enter service as a decimal, such as 5.75 for 5 years and 9 months."
+      },
+      {
+        "key": "isFixedTermEmployee",
+        "label": "Direct fixed-term contract expiry",
+        "unit": "optional",
+        "default": 0,
+        "min": 0,
+        "max": 1,
+        "step": 1
       }
     ],
     "outputs": [
       {
+        "key": "regularServiceYears",
+        "label": "Qualifying years for regular service",
+        "formula": "floor(yearsOfService) + max(0, sign(yearsOfService - floor(yearsOfService) - 0.5))",
+        "format": "number",
+        "hidden": true
+      },
+      {
+        "key": "payableServiceYears",
+        "label": "Payable years of service",
+        "formula": "if(isFixedTermEmployee, if(floor(yearsOfService), yearsOfService, 0), regularServiceYears * max(0, 1 + min(0, sign(yearsOfService - 5))))",
+        "format": "number",
+        "hidden": true
+      },
+      {
         "key": "revisedWages",
         "label": "Wage base after the 50% floor",
-        "formula": "max(currentMonthlyBasic, 0.5 * monthlyGrossCash)",
+        "formula": "max(min(currentMonthlyBasic, monthlyGrossCash), 0.5 * monthlyGrossCash)",
         "format": "currency"
       },
       {
         "key": "gratuityOnCurrentWages",
         "label": "Gratuity on your current wages",
-        "formula": "(currentMonthlyBasic / 26) * 15 * yearsOfService",
+        "formula": "(min(currentMonthlyBasic, monthlyGrossCash) / 26) * 15 * payableServiceYears",
         "format": "currency"
       },
       {
         "key": "gratuityOnRevisedWages",
         "label": "Gratuity on the revised wages",
-        "formula": "(revisedWages / 26) * 15 * yearsOfService",
+        "formula": "(revisedWages / 26) * 15 * payableServiceYears",
         "format": "currency"
       },
       {
@@ -241,7 +268,7 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "Gratuity under the Payment of Gratuity Act is fifteen days of wages for every completed year of service, where a month is treated as twenty-six working days. The payout is therefore last drawn wages divided by twenty-six, multiplied by fifteen, multiplied by completed years of service. What the labour codes change is not the formula but the wage base it runs on: once basic plus dearness allowance is lifted to at least half of cash remuneration, the same years of service produce a larger payout. Two eligibility rules matter alongside the arithmetic. Permanent employees generally qualify after five years of continuous service, while fixed-term employees accrue gratuity from one year. The statutory ceiling holds the payable amount at twenty lakh rupees however large the calculated figure becomes.",
+    "formulaExplanation": "Section 53 of the Code on Social Security calculates monthly-rated gratuity as last-drawn wages divided by 26, multiplied by 15 and the qualifying service period. Ordinary service generally requires five years and rounds up a partial year only if it exceeds six months. Direct fixed-term employment uses actual service at contract expiry, with at least one year required. The calculator applies the Rs 20 lakh statutory ceiling and uses half of cash pay as a simplified revised wage base.",
     "example": "Consider an employee with ten completed years of service, basic plus DA of Rs 30,000 a month and gross cash pay of Rs 1,00,000. On the current wage base the calculation gives Rs 30,000 divided by 26, multiplied by 15, multiplied by 10 — about Rs 1.73 lakh. Once wages are lifted to half of cash pay, the base becomes Rs 50,000 and the same ten years produce about Rs 2.88 lakh. The formula never changed; only the wage base did. The difference of roughly Rs 1.15 lakh is the value of the revised definition to this employee.",
     "faqs": [
       {
@@ -250,11 +277,11 @@
       },
       {
         "question": "Do fixed-term employees really get gratuity after one year?",
-        "answer": "Fixed-term employees accrue gratuity on completing one year of service under their contract, rather than waiting the five years that applies to permanent employees. This calculator applies whichever threshold you select, and reports what would accrue once you cross it."
+        "answer": "A direct fixed-term employee can qualify at contract expiry after at least one year of service under the contract. The amount is prorated to actual service. Contractor-supplied staff follow a different eligibility rule."
       },
       {
         "question": "Is gratuity taxable?",
-        "answer": "For employees covered by the Payment of Gratuity Act, gratuity up to twenty lakh rupees is exempt from income tax. Amounts above the ceiling, and payments made by employers outside the Act, follow different rules, so check your position before assuming the whole amount is tax free."
+        "answer": "The Rs 20 lakh statutory gratuity ceiling concerns the payment estimate. Income tax exemptions depend on your employment category and circumstances."
       },
       {
         "question": "Which wages are used — my first salary or my last?",
@@ -270,17 +297,17 @@
     "howToUse": [
       "Enter your current basic plus dearness allowance from your latest payslip.",
       "Enter your monthly gross cash pay, adding every allowance but excluding employer PF.",
-      "Enter the years of service you have completed, counting six months or more as a full year.",
-      "Tick the fixed-term box if you are on a fixed-term contract rather than permanent employment.",
+      "Enter your continuous service in decimal years. The calculator applies the qualifying-year rule.",
+      "Select the fixed-term option if your direct fixed-term contract is ending at its expiry.",
       "Compare the payout on your current wages with the payout on the revised wage base.",
       "Check the capped figure if your calculated gratuity exceeds twenty lakh rupees."
     ],
     "assumptions": [
-      "Gratuity accrues at fifteen days of wages for each completed year, using a twenty-six day month.",
+      "Gratuity uses fifteen days of wages per qualifying year, with a divisor of 26 for monthly-rated employees.",
       "The revised wage base is the greater of your current basic and half of your cash remuneration.",
       "Permanent employees qualify after five years and fixed-term employees after one year.",
       "The statutory ceiling holds the payable amount at twenty lakh rupees.",
-      "Your employer is covered by the Payment of Gratuity Act."
+      "The estimate assumes coverage under the Code on Social Security and ordinary exit or direct fixed-term contract expiry."
     ],
     "commonMistakes": [
       "Using gross salary rather than basic plus dearness allowance as the wage base.",
@@ -300,19 +327,19 @@
         ]
       }
     ],
-    "lastReviewed": "August 2026",
-    "lastReviewedIso": "2026-08-25",
-    "calculationVersion": "labour-code-gratuity-2026.1",
-    "factsCheckedIso": "2026-08-25",
+    "lastReviewed": "November 2026",
+    "lastReviewedIso": "2026-11-09",
+    "calculationVersion": "labour-code-gratuity-2026.2",
+    "factsCheckedIso": "2026-11-09",
     "nextReviewTrigger": "Any notification changing the gratuity formula, the eligibility period, or the twenty lakh ceiling.",
     "officialSources": [
       {
-        "label": "Payment of Gratuity Act, 1972 (Ministry of Labour and Employment)",
-        "href": "https://labour.gov.in/sites/default/files/paymentofgratuityact.pdf"
+        "label": "Labour Ministry FAQs on fixed-term gratuity",
+        "href": "https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf"
       },
       {
-        "label": "Code on Social Security, 2020",
-        "href": "https://labour.gov.in/sites/default/files/ss_code_gazette.pdf"
+        "label": "Code on Social Security, 2020, section 53",
+        "href": "https://www.labour.gov.in/static/uploads/2025/07/b0620548445580767b5c0d18c95c26f7.pdf"
       }
     ]
   },
@@ -894,7 +921,7 @@
       {
         "key": "tdsAtTenPercent",
         "label": "TDS at 10% with linked PAN",
-        "formula": "taxableInterest * 0.1",
+        "formula": "max(0, sign(taxableInterest - 10000)) * taxableInterest * 0.1",
         "format": "currency"
       },
       {
@@ -904,8 +931,8 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "Interest on an employee's own provident fund contributions above a yearly threshold is taxable. Rule 9D gives effect to this by requiring the fund to be maintained as two notional accounts, one holding non-taxable contributions and the other holding contributions above the threshold. Interest is credited to each account separately and only the interest arising in the taxable account is charged to tax. Both balances carry forward, which is the feature people underestimate: once a taxable balance exists it keeps earning taxable interest in later years even if contributions fall back below the threshold. The threshold is two lakh fifty thousand rupees where the employer also contributes to the fund and five lakh rupees where the employer makes no contribution, which is the position for many government employees. Tax is deducted at source at ten per cent under section 194A once accrued interest for the year exceeds five thousand rupees, or at twenty per cent where PAN is not linked.",
-    "example": "An employee contributing Rs 4,00,000 a year to a fund where the employer also contributes crosses the Rs 2,50,000 threshold by Rs 1,50,000. That excess goes into the taxable account. At an interest rate of 8.25 per cent the first year produces about Rs 12,375 of taxable interest, on which TDS of about Rs 1,238 applies because the amount exceeds five thousand rupees. In the second year the taxable account holds the previous balance plus its interest plus a further Rs 1,50,000, so the taxable interest rises even though the contribution has not changed. The interactive calculator projects that compounding across as many years as you choose.",
+    "formulaExplanation": "Interest on an employee's own provident fund contributions above a yearly threshold is taxable. Rule 277 of the Income-tax Rules, 2026, which succeeds Rule 9D, gives effect to this by requiring the fund to be maintained as two notional accounts, one holding non-taxable contributions and the other holding contributions above the threshold. Interest is credited to each account separately and only the interest arising in the taxable account is charged to tax. Both balances carry forward, which is the feature people underestimate: once a taxable balance exists it keeps earning taxable interest in later years even if contributions fall back below the threshold. The threshold is two lakh fifty thousand rupees where the employer also contributes to the fund and five lakh rupees where the employer makes no contribution, which is the position for many government employees. For resident members, the estimate applies TDS at ten per cent when taxable interest exceeds Rs 10,000 under section 393, or twenty per cent without a linked PAN.",
+    "example": "An employee contributing Rs 4,00,000 a year to a fund where the employer also contributes crosses the Rs 2,50,000 threshold by Rs 1,50,000. That excess goes into the taxable account. At an interest rate of 8.25 per cent the first year produces about Rs 12,375 of taxable interest, on which TDS of about Rs 1,238 applies because the amount exceeds Rs 10,000. In the second year the taxable account holds the previous balance plus its interest plus a further Rs 1,50,000, so the taxable interest rises even though the contribution has not changed. The interactive calculator projects that compounding across as many years as you choose.",
     "faqs": [
       {
         "question": "Does my employer's contribution count towards the threshold?",
@@ -942,7 +969,7 @@
       "Only the employee's own contributions, including voluntary provident fund, count towards the threshold.",
       "Interest is credited at the same rate to both notional accounts.",
       "Interest is applied to the opening balance plus the whole year's contribution rather than monthly running balances.",
-      "TDS applies at ten per cent where accrued interest exceeds five thousand rupees and PAN is linked.",
+      "Resident TDS is estimated at ten per cent when taxable interest exceeds Rs 10,000 and PAN is linked.",
       "The threshold entered matches your employer contribution position."
     ],
     "commonMistakes": [
@@ -965,9 +992,9 @@
     ],
     "lastReviewed": "August 2026",
     "lastReviewedIso": "2026-08-25",
-    "calculationVersion": "rule-9d-2026.1",
+    "calculationVersion": "rule-9d-2026.2",
     "factsCheckedIso": "2026-08-25",
-    "nextReviewTrigger": "Any change to the Rule 9D thresholds, the TDS rate under section 194A, or the interest rate declared by EPFO.",
+    "nextReviewTrigger": "Any change to Rule 277, the TDS rules under section 393, or the interest rate declared by EPFO.",
     "officialSources": [
       {
         "label": "EPFO — Employees' Provident Fund Organisation",
@@ -975,7 +1002,11 @@
       },
       {
         "label": "Income Tax Department — Income-tax Rules",
-        "href": "https://incometaxindia.gov.in/pages/rules/income-tax-rules-1962.aspx"
+        "href": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf"
+      },
+      {
+        "label": "Income Tax Department — Income-tax Act, 2025 as amended by Finance Act, 2026",
+        "href": "https://www.incometaxindia.gov.in/documents/d/guest/income_tax_act_2025_as_amended_by_fa_act_2026-pdf"
       }
     ]
   },

@@ -181,7 +181,7 @@ export default function EighthPayCommissionArrearsCalculator({ tool }: { tool: T
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
         <p className="font-bold">Unofficial arrears scenario — no arrears have been notified</p>
         <p className="mt-1">
-          Enter every date and pay component yourself. The 8th CPC has not notified an implementation date, payment date, arrears period, pay matrix, HRA rule or pension method.
+          The example starts in January 2026, when the DA rate was 60%. Use 63% for periods from July 2026. If your pay or DA changes, work out each period separately. The government has yet to announce the 8th Pay Commission arrears rules or dates.
         </p>
       </div>
     </div>

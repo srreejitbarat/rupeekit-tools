@@ -1,13 +1,13 @@
 {
   "8th-pay-commission-salary-calculator-india": {
-    "shortDescription": "Compare unofficial 8th Pay Commission fitment-factor scenarios without double-counting current DA, with current and projected X/Y/Z HRA shown monthly and annually.",
-    "formulaExplanation": "Current gross baseline = current basic + current DA + current HRA + current transport allowance. Revised basic scenario = current basic × selected fitment factor. Projected gross = revised basic + projected DA + projected HRA + projected transport allowance. Current DA is not added to revised basic a second time.",
-    "example": "For current basic pay of ₹44,900, 60% current DA, 30% current HRA and ₹3,600 transport allowance, current gross is ₹88,910. A 2.57× scenario gives revised basic of ₹1,15,393. Projected allowances are then applied separately.",
+    "shortDescription": "See how different 8th Pay Commission pay increases could change your salary or pension. Compare each estimate with your current pay.",
+    "formulaExplanation": "Current gross pay adds basic pay, DA, house rent allowance, transport allowance and DA on transport allowance. The calculator multiplies your basic pay by the factor you choose and rounds to the nearest ₹100. The estimate then adds house rent and transport allowances and assumes 0% DA.",
+    "example": "On basic pay of ₹44,900, 63% DA, 30% house rent allowance and ₹3,600 transport allowance, current gross pay is ₹92,525 including DA on transport allowance. A 2.57× multiplier gives estimated basic pay of ₹1,15,400 after rounding.",
     "quickAnswer": {
       "title": "8th Pay Commission status",
       "question": "When will the 8th Pay Commission be implemented?",
-      "answer": "No implementation date has been notified. The Commission was constituted on 3 November 2025 with an 18-month window to submit its report, which places its recommendations around May 2027. The fitment factor, pay matrix, revised HRA and any arrears order all remain unsettled, so every salary figure circulating now — including the ones on this page — is a scenario, not a decision. Central government employees widely expect the award to apply from 1 January 2026 with arrears once approved, but that has not been officially confirmed.",
-      "note": "Status as of 22 August 2026. The Commission is still holding regional consultations. Verify against PIB and the Department of Expenditure before acting on any figure."
+      "answer": "The government has yet to announce a start date or the new pay rules. The Commission was set up on 3 November 2025 and given 18 months to report. For now, employees and pensioners covered by the 7th Pay Commission get DA or DR at 63% from 1 July 2026.",
+      "note": "Official notices checked on 9 November 2026. The salary and pension figures below are estimates based on your choices."
     },
     "faqs": [
       {
@@ -16,11 +16,11 @@
       },
       {
         "question": "Why does projected DA default to 0%?",
-        "answer": "Current DA belongs in the current-pay baseline. A pay-revision fitment factor is applied to current basic pay, and any DA on revised basic must be entered as a separate future assumption. Defaulting projected DA to 0% prevents current DA from being counted twice and avoids implying an official starting rate."
+        "answer": "The estimate starts revised pay at 0% DA and counts your current DA only in your current pay. The government will set the starting rate for the new pay structure."
       },
       {
         "question": "What current DA and HRA values does the calculator use?",
-        "answer": "It defaults current DA to 60%, the rate approved with effect from 1 January 2026. Current HRA options are 30%, 20% and 10% for X, Y and Z cities after the 7th CPC DA-linked escalation. Change the values if your payslip differs."
+        "answer": "The calculator starts with 63% DA, the current rate from 1 July 2026. It uses 30%, 20% or 10% for house rent allowance, depending on your city category. Choose the rate and category on your payslip."
       },
       {
         "question": "Is revised basic the same as the increase in gross salary?",
@@ -36,16 +36,16 @@
       "Confirm current DA and select the current X, Y or Z HRA category.",
       "Enter current transport allowance to build the gross baseline.",
       "Choose a fitment-factor scenario; none is labelled official.",
-      "Choose a projected X, Y or Z HRA scenario and review its monthly and annual difference.",
-      "Open advanced assumptions only if you want to model projected DA or transport allowance.",
+      "Check how the house rent allowance estimate changes for your city category.",
+      "Adjust the transport allowance if the amount on your payslip is different.",
       "Compare revised basic separately from gross-to-gross change."
     ],
     "assumptions": [
       "All fitment factors are illustrative user-selected scenarios, not official recommendations.",
-      "Current DA defaults to the 60% rate effective 1 January 2026 and can be edited.",
+      "The current DA rate is 63% from 1 July 2026. Select 60% for January to June 2026.",
       "Current HRA uses the 7th CPC DA-linked 30%, 20% and 10% X/Y/Z rates.",
-      "Projected DA, HRA and transport allowance are independent assumptions because 8th CPC values are not notified.",
-      "Other allowances, deductions, pension, NPS, tax and arrears are excluded."
+      "The pay estimate assumes 0% DA, uses an estimated house rent allowance and carries forward the current transport allowance.",
+      "The estimate does not include income tax, professional tax or department-specific allowances."
     ],
     "commonMistakes": [
       "Adding current DA to basic before applying the fitment factor and thereby counting DA twice.",
@@ -64,7 +64,7 @@
       },
       {
         "heading": "Basic-to-basic versus gross-to-gross",
-        "body": "A fitment factor produces a revised-basic scenario, not an in-hand salary. The gross comparison adds only the projected allowances entered by the user. Tax, NPS, CGHS, pension, other allowances and arrears are outside this calculator."
+        "body": "Basic pay is your pay before allowances. Gross pay includes the allowances shown in the calculator. The take-home estimate deducts the selected pension contribution and group insurance. It excludes income tax and other deductions that may appear on your payslip."
       },
       {
         "heading": "Current versus projected government HRA",
@@ -72,15 +72,15 @@
       },
       {
         "heading": "Source and Methodology",
-        "body": "The status and constitution date come from the official 8th CPC website. Current DA is based on the PIB approval effective 1 January 2026. Current HRA categories follow the PIB-published 7th CPC DA-linked escalation. Calculation version 2026-08-17.2 is covered by DA double-counting and HRA monthly-to-annual regression tests."
+        "body": "The 8th Pay Commission website lists when the Commission was set up and when its report is due. The Cabinet approved 63% DA and DR from 1 July 2026. The current house rent allowance rates follow the 7th Pay Commission rules."
       },
       {
         "heading": "How this calculator builds its scenarios",
         "body": "It first builds a current 7th CPC gross-pay baseline, then applies your selected fitment factor once to current basic pay. Projected DA, HRA and transport allowance are separate scenario inputs, so current DA is not counted twice."
       }
     ],
-    "lastReviewed": "22 August 2026",
-    "lastReviewedIso": "2026-08-22",
+    "lastReviewed": "9 November 2026",
+    "lastReviewedIso": "2026-11-09",
     "officialSources": [
       {
         "label": "8th Central Pay Commission — About Us",
@@ -91,8 +91,8 @@
         "href": "https://8cpc.gov.in/terms-of-reference/"
       },
       {
-        "label": "PIB — DA increased to 60% from 1 January 2026",
-        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+        "label": "PIB — 63% DA and DR from 1 July 2026",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2329485&lang=1&reg=3"
       },
       {
         "label": "PIB — 7th CPC HRA escalation rules",
@@ -122,7 +122,7 @@
       }
     ],
     "calculationVersion": "2026-08-17.2",
-    "factsCheckedIso": "2026-08-22",
+    "factsCheckedIso": "2026-11-09",
     "nextReviewTrigger": "Official 8th CPC report, pay matrix, fitment factor, allowance rule or implementation notification; or a new central DA order.",
     "formulaHold": false,
     "calculationTests": [
@@ -351,7 +351,7 @@
       "question": "When does an SSY account mature and how long can deposits be made?",
       "answer": "Deposits may be made for 15 years from the account-opening date, and the account matures after 21 years from that opening date. The girl's age checks whether the account could be opened before age 10; it does not set the maturity term.",
       "formula": "Remaining deposits = 15 − account age; time to maturity = 21 − account age",
-      "note": "The 8.2% default is the official Jul-Sep 2026 rate. Future quarterly rates can change, so maturity is a projection."
+      "note": "The 8.2% default is the official October-December 2026 rate. Future quarterly rates can change, so maturity is a projection."
     },
     "faqs": [
       {
@@ -363,8 +363,8 @@
         "answer": "Deposits may be made until completion of 15 years from account opening. The balance can then continue earning the applicable scheme interest until the account completes its 21-year term."
       },
       {
-        "question": "What is the SSY interest rate for July to September 2026?",
-        "answer": "The National Savings Institute rate table shows 8.2% for the Sukanya Samriddhi Account Scheme for Jul-Sep 2026. Rates are government-notified and may change for future quarters, so the calculator keeps the projection rate editable."
+        "question": "What is the SSY interest rate for October-December 2026?",
+        "answer": "India Post lists 8.2% for the Sukanya Samriddhi Account Scheme for October-December 2026. Rates are government-notified and may change for future quarters, so the calculator keeps the projection rate editable."
       },
       {
         "question": "Why does an existing SSY account need a current balance?",
@@ -384,7 +384,7 @@
       "Enter completed years since account opening; use zero for a new account.",
       "For an existing account, enter the latest passbook balance.",
       "Enter the annual amount planned for each remaining deposit year.",
-      "Use 8.2% for the Jul-Sep 2026 assumption or enter another scenario.",
+      "Use 8.2% for the October-December 2026 assumption or enter another scenario.",
       "Review remaining deposit years, remaining term, deposits and projected interest separately."
     ],
     "assumptions": [
@@ -413,7 +413,7 @@
       },
       {
         "heading": "Source and Methodology",
-        "body": "Deposit and maturity terms come from the Sukanya Samriddhi Account Scheme published by the National Savings Institute. The default 8.2% rate is checked against the official Jul-Sep 2026 small-savings table. Calculation version 2026-08-17.1 tests new and existing accounts, the 15-year deposit cut-off and 21-year maturity."
+        "body": "Deposit and maturity terms come from the Sukanya Samriddhi Account Scheme published by the National Savings Institute. The default 8.2% rate is checked against the October-December 2026 government order. Calculation version 2026-08-17.1 tests new and existing accounts, the 15-year deposit cut-off and 21-year maturity."
       }
     ],
     "lastReviewed": "17 August 2026",
@@ -447,7 +447,7 @@
       },
       {
         "topic": "Rate assumption",
-        "explanation": "8.2% for Jul-Sep 2026; editable because future quarterly rates can change"
+        "explanation": "8.2% for October-December 2026; editable because future quarterly rates can change"
       },
       {
         "topic": "Tax boundary",

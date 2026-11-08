@@ -74,9 +74,9 @@
   },
   "sukanya-samriddhi-yojana-calculator-india": {
     "quickAnswer": {
-      "title": "SSY Rules and 8.2% Rate — Jul-Sep 2026",
+      "title": "SSY Rules and 8.2% Rate — October-December 2026",
       "question": "How does Sukanya Samriddhi Yojana work in 2026?",
-      "answer": "For the July-September 2026 quarter, the notified SSY rate is 8.2% p.a. An account is opened for a girl before age 10, deposits can be made for 15 years from opening, and maturity is 21 years from opening. The annual deposit range is ₹250 to ₹1.5 lakh. Future quarterly interest rates can change.",
+      "answer": "For the October-December 2026 quarter, the notified SSY rate is 8.2% p.a. An account is opened for a girl before age 10, deposits can be made for 15 years from opening, and maturity is 21 years from opening. The annual deposit range is ₹250 to ₹1.5 lakh. Future quarterly interest rates can change.",
       "formula": "Projection = current balance grown for remaining term + each future annual deposit compounded to the 21-year maturity date.",
       "example": "Example: a new account opened when the girl is 5 with ₹50,000 deposited each year is modelled for 15 deposit years and then allowed to continue until 21 years from account opening. At a constant 8.2% planning assumption the calculator shows an illustrative maturity value; actual SSY rates are reset by government from time to time.",
       "note": "Rate and scheme rules verified 24 August 2026 from India Post / National Savings Institute. Educational projection only.",
@@ -105,7 +105,7 @@
       }
     ],
     "factRows": [
-      { "topic": "Rate for Jul-Sep 2026", "explanation": "8.2% p.a.; small-savings rates are reviewed/notified periodically and future quarters can differ" },
+      { "topic": "Rate for October-December 2026", "explanation": "8.2% p.a.; small-savings rates are reviewed/notified periodically and future quarters can differ" },
       { "topic": "Opening age", "explanation": "Account must be opened before the girl attains age 10" },
       { "topic": "Annual deposit", "explanation": "Minimum ₹250; maximum ₹1.5 lakh per financial year" },
       { "topic": "Deposit window", "explanation": "Up to 15 years from account opening" },
@@ -116,7 +116,7 @@
     "faqs": [
       {
         "question": "Is the SSY 8.2% interest rate fixed for all 21 years?",
-        "answer": "No. 8.2% is the notified rate used for the July-September 2026 quarter. Government small-savings rates are reviewed periodically, so future SSY rates can rise, fall or remain unchanged."
+        "answer": "No. 8.2% is the notified rate used for the October-December 2026 quarter. Government small-savings rates are reviewed periodically, so future SSY rates can rise, fall or remain unchanged."
       },
       {
         "question": "Do I deposit into SSY for 15 years or 21 years?",
@@ -142,9 +142,9 @@
         "href": "https://www.nsiindia.gov.in/writereaddata/SchemeRules/SukanyaSamriddhiAccountSchemeRule.pdf"
       }
     ],
-    "lastReviewed": "24 August 2026",
-    "lastReviewedIso": "2026-08-24",
-    "factsCheckedIso": "2026-08-24",
+    "lastReviewed": "9 November 2026",
+    "lastReviewedIso": "2026-11-09",
+    "factsCheckedIso": "2026-11-09",
     "nextReviewTrigger": "Quarterly small-savings rate notification or amendment to Sukanya Samriddhi Account Scheme rules."
   },
   "ppf-calculator-india": {

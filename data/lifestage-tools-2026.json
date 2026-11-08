@@ -127,7 +127,7 @@
     "status": "live",
     "targetKeyword": "SCSS calculator India",
     "shortDescription": "Estimate quarterly SCSS interest and five-year payout using the current rate or your own rate assumption.",
-    "metaDescription": "Calculate SCSS quarterly interest and 5-year interest using a deposit up to Rs 30 lakh and an editable rate. The 8.2% default was checked for Jul-Sep 2026.",
+    "metaDescription": "See how much an SCSS deposit pays every quarter. Try up to ₹30 lakh at 8.2%, the October-December 2026 rate, or enter your own rate.",
     "inputs": [
       {
         "key": "deposit",
@@ -146,7 +146,7 @@
         "min": 0.1,
         "max": 20,
         "step": 0.1,
-        "help": "8.2% is the notified rate for July-September 2026; rates for new deposits are notified periodically."
+        "help": "8.2% is the notified rate for October-December 2026; rates for new deposits are notified periodically."
       },
       {
         "key": "tenureYears",
@@ -188,8 +188,8 @@
     "example": "A ₹15 lakh deposit at 8.2% produces estimated interest of ₹30,750 per quarter and ₹1,23,000 per year.",
     "faqs": [
       {
-        "question": "What is the SCSS rate for July-September 2026?",
-        "answer": "The National Savings Institute lists 8.2% per annum for the July-September 2026 quarter."
+        "question": "What is the SCSS rate for October-December 2026?",
+        "answer": "India Post lists 8.2% per annum for the October-December 2026 quarter."
       },
       {
         "question": "What is the SCSS deposit limit?",
@@ -210,8 +210,8 @@
         "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=27"
       }
     ],
-    "lastReviewed": "August 2026",
-    "lastReviewedIso": "2026-08-08"
+    "lastReviewed": "9 November 2026",
+    "lastReviewedIso": "2026-11-09"
   },
   {
     "slug": "post-office-monthly-income-scheme-calculator-india",
@@ -221,7 +221,7 @@
     "status": "live",
     "targetKeyword": "post office monthly income scheme calculator",
     "shortDescription": "Estimate monthly income from a Post Office Monthly Income Scheme deposit.",
-    "metaDescription": "Calculate Post Office MIS monthly interest with an editable rate. The 7.4% default was checked for Jul-Sep 2026. Includes single-account Rs 9 lakh cap guidance.",
+    "metaDescription": "See how much a Post Office MIS deposit can pay each month. The October-December 2026 rate is 7.4%. Enter the amount for your account.",
     "inputs": [
       {
         "key": "deposit",
@@ -241,7 +241,7 @@
         "min": 0.1,
         "max": 20,
         "step": 0.1,
-        "help": "7.4% is the notified rate for July-September 2026."
+        "help": "7.4% is the notified rate for October-December 2026."
       },
       {
         "key": "tenureYears",
@@ -283,8 +283,8 @@
     "example": "₹9 lakh at 7.4% gives an estimated ₹5,550 monthly interest payout.",
     "faqs": [
       {
-        "question": "What is the POMIS rate for July-September 2026?",
-        "answer": "The National Savings Institute lists 7.4% per annum for the July-September 2026 quarter."
+        "question": "What is the POMIS rate for October-December 2026?",
+        "answer": "India Post lists 7.4% per annum for the October-December 2026 quarter."
       },
       {
         "question": "What is the maximum POMIS deposit?",
@@ -305,8 +305,8 @@
         "href": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=27"
       }
     ],
-    "lastReviewed": "August 2026",
-    "lastReviewedIso": "2026-08-08"
+    "lastReviewed": "9 November 2026",
+    "lastReviewedIso": "2026-11-09"
   },
   {
     "slug": "child-education-cost-planner-india",

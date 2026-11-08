@@ -106,10 +106,17 @@ export function TaxPrintSummary({ input, result, taxYear }: TaxPrintSummaryProps
             <td className="p-2 text-right">₹{result.newRegime.taxableIncome.toLocaleString('en-IN')}</td>
           </tr>
           <tr className="border-b border-gray-200">
-            <td className="p-2">Rebate Applied (87A)</td>
+            <td className="p-2">Tax rebate</td>
             <td className="p-2 text-right">₹{result.oldRegime.rebate.toLocaleString('en-IN')}</td>
             <td className="p-2 text-right">₹{result.newRegime.rebate.toLocaleString('en-IN')}</td>
           </tr>
+          {(result.oldRegime.surcharge > 0 || result.newRegime.surcharge > 0) && (
+            <tr className="border-b border-gray-200">
+              <td className="p-2">Surcharge after marginal relief</td>
+              <td className="p-2 text-right">₹{result.oldRegime.surcharge.toLocaleString('en-IN')}</td>
+              <td className="p-2 text-right">₹{result.newRegime.surcharge.toLocaleString('en-IN')}</td>
+            </tr>
+          )}
           <tr className="border-b border-gray-200">
             <td className="p-2">Health & Education Cess</td>
             <td className="p-2 text-right">₹{result.oldRegime.cess.toLocaleString('en-IN')}</td>

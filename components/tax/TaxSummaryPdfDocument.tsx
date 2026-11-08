@@ -226,7 +226,7 @@ export function TaxSummaryPdfDocument({ data }: Props) {
             <Text style={styles.logoSub}>Old vs New Regime Estimate</Text>
           </View>
           <View style={styles.metaRight}>
-            <Text style={styles.metaBold}>FY {data.financialYear} / AY {data.assessmentYear}</Text>
+            <Text style={styles.metaBold}>{data.assessmentYear ? `FY ${data.financialYear} / AY ${data.assessmentYear}` : `Tax Year ${data.financialYear}`}</Text>
             <Text style={styles.metaText}>Generated: {data.generatedAt}</Text>
             <Text style={styles.metaText}>Educational estimate only</Text>
           </View>
@@ -235,7 +235,7 @@ export function TaxSummaryPdfDocument({ data }: Props) {
         {/* ── Section 1: Inputs ──────────────────────────────────── */}
         <Text style={styles.sectionTitle}>1. Your Input Summary</Text>
         <View style={styles.card}>
-          <KV label="Financial Year" value={`FY ${data.financialYear} (AY ${data.assessmentYear})`} />
+          <KV label="Tax period" value={data.assessmentYear ? `FY ${data.financialYear} (AY ${data.assessmentYear})` : `Tax Year ${data.financialYear}`} />
           <KV label="Salaried Employee" value={data.isSalaried ? 'Yes' : 'No'} />
           <KV label="Gross Annual Income" value={fmt(data.grossIncome)} />
           {data.standardDeductionOld > 0 && <KV label="Standard Deduction (Old Regime)" value={fmt(data.standardDeductionOld)} />}
@@ -294,7 +294,10 @@ export function TaxSummaryPdfDocument({ data }: Props) {
         <CompRow label="Total Deductions" old={fmt(data.old_totalDeductions)} neu={fmt(data.new_totalDeductions)} alt />
         <CompRow label="Taxable Income" old={fmt(data.old_taxableIncome)} neu={fmt(data.new_taxableIncome)} />
         <CompRow label="Slab Tax (before rebate)" old={fmt(data.old_totalSlabTax)} neu={fmt(data.new_totalSlabTax)} alt />
-        <CompRow label="Rebate (Sec 87A)" old={fmt(data.old_rebate)} neu={fmt(data.new_rebate)} />
+        <CompRow label="Rebate" old={fmt(data.old_rebate)} neu={fmt(data.new_rebate)} />
+        {(data.old_surcharge > 0 || data.new_surcharge > 0) && (
+          <CompRow label="Surcharge after marginal relief" old={fmt(data.old_surcharge)} neu={fmt(data.new_surcharge)} />
+        )}
         <CompRow label="Health & Edu. Cess (4%)" old={fmt(data.old_cess)} neu={fmt(data.new_cess)} alt />
         <CompRow
           label="Final Estimated Tax"

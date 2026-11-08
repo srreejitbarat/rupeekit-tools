@@ -4,6 +4,7 @@ import { getLiveTools } from '@/lib/tools';
 import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { moneyGuides } from '@/data/money-authority';
+import { TAX_DEADLINES_LAST_REVIEWED } from '@/data/tax-deadlines';
 
 const STATIC_LAST_MODIFIED = new Date('2026-05-29');
 
@@ -84,6 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/tools', latestToolDate],
     ['/blog', latestBlogDate],
     ['/financial-updates', latestFinancialUpdateDate],
+    ['/deadlines', new Date(TAX_DEADLINES_LAST_REVIEWED)],
   ]);
 
   const hubRoutes = new Set(['/blog', '/tools', '/nri', '/8th-pay-commission']);

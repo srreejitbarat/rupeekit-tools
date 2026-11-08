@@ -18,11 +18,11 @@
       "pagePattern": "/tools/{ppf-calculator-india,sukanya-samriddhi-yojana-calculator-india,scss-calculator-india,post-office-monthly-income-scheme-calculator-india}",
       "fact": "Current PPF, SSY, SCSS and Post Office MIS interest rates",
       "primarySource": "Department of Economic Affairs small-savings notification and India Post savings pages",
-      "verificationDate": "2026-09-05",
+      "verificationDate": "2026-11-09",
       "reviewIntervalDays": 30,
       "reviewTrigger": "Quarterly small-savings rate notification; mandatory review before 1 Jan, 1 Apr, 1 Jul and 1 Oct",
       "owner": "calculators",
-      "notes": "The recorded source check is for Jul-Sep 2026, which is now a past quarter. Verify the Oct-Dec 2026 notification before describing those defaults as current; do not imply a rate is guaranteed for the full tenure."
+      "sourceUrl": "https://utilities.cept.gov.in/dop/pdfbind.ashx?id=15533"
     },
     {
       "id": "8th-cpc-calculators",
@@ -51,7 +51,7 @@
       "pagePattern": "/deadlines",
       "fact": "Recurring statutory tax dates and explicit commonly-extended status",
       "primarySource": "Income Tax Department / CBDT",
-      "verificationDate": "2026-09-05",
+      "verificationDate": "2026-11-09",
       "reviewIntervalDays": 30,
       "reviewTrigger": "CBDT circular/order, Budget/Finance Act change, or a statutory deadline amendment",
       "owner": "tax-content"

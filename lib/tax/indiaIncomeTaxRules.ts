@@ -15,7 +15,7 @@ export type TaxRegimeConfig = {
 
 export type TaxYearConfig = {
   fy: string;
-  ay: string;
+  ay?: string;
   oldRegime: TaxRegimeConfig;
   newRegime: TaxRegimeConfig;
   cessRate: number;
@@ -126,7 +126,6 @@ export const indiaIncomeTaxRules: Record<string, TaxYearConfig> = {
   },
   '2026-27': {
     fy: '2026-27',
-    ay: '2027-28',
     cessRate: 0.04,
     oldRegime: {
       slabs: [
@@ -142,7 +141,7 @@ export const indiaIncomeTaxRules: Record<string, TaxYearConfig> = {
       marginalReliefOnRebate: false,
     },
     newRegime: {
-      // Budget 2026 announced no change to the slabs, the Section 87A rebate or the
+      // The 2026 transition to sections 202 and 156 did not change the slabs, rebate or the
       // standard deduction, so the Finance Act 2025 structure carries into FY 2026-27.
       slabs: [
         { min: 0, max: 400000, rate: 0 },

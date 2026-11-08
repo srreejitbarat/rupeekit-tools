@@ -166,17 +166,17 @@ export const COMPARISON_FACTORS = FITMENT_PRESETS.map((preset) => preset.value);
 
 export const DEFAULT_FITMENT_FACTOR = 2.28;
 
-/**
- * DA presets for the 7th CPC baseline. 60% is the rate approved with effect
- * from 1 January 2026. The 64% option is a projection of the July 2026
- * revision and has not been notified.
- */
-export const DA_PRESETS: { value: number; label: string; notified: boolean }[] = [
-  { value: 60, label: '60% (notified, w.e.f. 1 Jan 2026)', notified: true },
-  { value: 64, label: '64% (July 2026 projection, not notified)', notified: false },
-];
+/** Latest notified 7th CPC DA and DR rate, effective from 1 July 2026. */
+export const DEFAULT_DA_PERCENT = 63;
 
-export const DEFAULT_DA_PERCENT = 60;
+export const DA_REVISION_SOURCE = 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2329485&lang=1&reg=3';
+
+/** Keep the previous notified rate and the old what-if rate for shared scenarios. */
+export const DA_PRESETS: { value: number; label: string; notified: boolean }[] = [
+  { value: DEFAULT_DA_PERCENT, label: '63% (from 1 July 2026)', notified: true },
+  { value: 60, label: '60% (January to June 2026)', notified: true },
+  { value: 64, label: '64% (what-if rate)', notified: false },
+];
 
 /** Default basic pay: Level 7 cell 1, the most commonly searched starting point. */
 export const DEFAULT_BASIC_PAY = 44_900;

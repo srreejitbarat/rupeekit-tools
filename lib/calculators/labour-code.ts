@@ -3,19 +3,14 @@
 // The Code on Wages defines "wages" as basic pay + dearness allowance +
 // retaining allowance, and adds a proviso: where the excluded components
 // exceed one half of all remuneration, the excess is added back to wages.
-// The practical effect is a floor — wages cannot settle below 50% of the
-// remuneration actually paid to the employee.
-//
-// RupeeKit does not assert a commencement date for the codes here. States
-// notify rules separately and employers restructure on their own payroll
-// cycle, so the calculator models the structural change rather than claiming
-// a date on which it applies to any given reader.
+// These estimates use cash remuneration as a proxy. The statutory test can
+// also include employer PF or pension contributions and statutory bonus.
 
 export const EMPLOYEE_PF_RATE = 0.12;
 export const EMPLOYER_PF_RATE = 0.12;
 
-/** Statutory PF wage ceiling. Employers may contribute on actual wages instead. */
-export const PF_WAGE_CEILING = 15_000;
+/** Monthly PF wage ceiling from 17 September 2026 under S.O. 5109(E). */
+export const PF_WAGE_CEILING = 25_000;
 
 /** Gratuity accrues at 15 days of wages for each completed year of service. */
 export const GRATUITY_DAYS_PER_YEAR = 15;
@@ -32,7 +27,7 @@ export type LabourCodeInputs = {
   employerPfInCtc: boolean;
   /** Whether the employer's gratuity accrual is counted inside CTC. */
   gratuityAccrualInCtc: boolean;
-  /** Whether PF is contributed on the 15,000 ceiling rather than actual wages. */
+  /** Whether contributions are limited by the current PF wage ceiling. */
   applyPfCeiling: boolean;
 };
 
@@ -61,7 +56,7 @@ export type LabourCodeResult = {
   takeHomeChangePercent: number;
   monthlyRetirementSavingChange: number;
   annualRetirementSavingChange: number;
-  /** True when the current structure already satisfies the 50% floor. */
+  /** True when the current structure meets the model's cash-based floor. */
   alreadyCompliant: boolean;
 };
 
@@ -164,9 +159,9 @@ export type NewWageGratuityInputs = {
   currentMonthlyBasic: number;
   /** Monthly cash remuneration (basic + DA + all allowances). */
   monthlyGrossCash: number;
-  /** Completed years of service. */
+  /** Total continuous service in years, including fractional years. */
   yearsOfService: number;
-  /** Fixed-term employees accrue from one year; others from five. */
+  /** Whether employment ends at the expiry of a direct fixed-term contract. */
   isFixedTermEmployee: boolean;
 };
 
@@ -178,7 +173,7 @@ export type NewWageGratuityResult = {
   gratuityIncrease: number;
   eligibilityYears: number;
   isEligible: boolean;
-  /** The Payment of Gratuity Act ceiling. */
+  /** Estimated gratuity after applying the statutory ceiling. */
   cappedGratuity: number;
 };
 
@@ -189,12 +184,19 @@ export function calculateNewWageGratuity(inputs: NewWageGratuityInputs): NewWage
   const currentWages = Math.min(safe(inputs.currentMonthlyBasic), grossCash);
   const revisedWages = Math.max(currentWages, 0.5 * grossCash);
   const years = safe(inputs.yearsOfService);
+  const eligibilityYears = inputs.isFixedTermEmployee ? 1 : 5;
+  const isEligible = years >= eligibilityYears;
+  const completedYears = Math.floor(years);
+  // Section 53(2) prorates fixed-term service and rounds other service up
+  // only when the remainder exceeds six months.
+  const qualifyingYears = inputs.isFixedTermEmployee
+    ? years
+    : completedYears + Number(years - completedYears > 0.5);
+  const payableYears = isEligible ? qualifyingYears : 0;
 
   const perYear = (wages: number) => (wages / GRATUITY_DIVISOR) * GRATUITY_DAYS_PER_YEAR;
-  const gratuityOnCurrentWages = perYear(currentWages) * years;
-  const gratuityOnRevisedWages = perYear(revisedWages) * years;
-
-  const eligibilityYears = inputs.isFixedTermEmployee ? 1 : 5;
+  const gratuityOnCurrentWages = perYear(currentWages) * payableYears;
+  const gratuityOnRevisedWages = perYear(revisedWages) * payableYears;
 
   return {
     currentWages,
@@ -203,7 +205,7 @@ export function calculateNewWageGratuity(inputs: NewWageGratuityInputs): NewWage
     gratuityOnRevisedWages,
     gratuityIncrease: gratuityOnRevisedWages - gratuityOnCurrentWages,
     eligibilityYears,
-    isEligible: years >= eligibilityYears,
+    isEligible,
     cappedGratuity: Math.min(gratuityOnRevisedWages, GRATUITY_CEILING),
   };
 }

@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
   GRATUITY_CEILING,
-  PF_WAGE_CEILING,
   calculateLabourCodeImpact,
   calculateNewWageGratuity,
   type LabourCodeInputs,
@@ -52,13 +51,21 @@ describe('calculateLabourCodeImpact', () => {
     expect(result.monthlyRetirementSavingChange).toBeCloseTo(0, 2);
   });
 
-  it('caps PF at the statutory wage ceiling when that option is chosen', () => {
-    const result = calculateLabourCodeImpact({ ...baseInputs, applyPfCeiling: true });
-
-    expect(result.after.monthlyEmployeePf).toBeCloseTo(0.12 * PF_WAGE_CEILING, 6);
-    expect(result.after.monthlyEmployerPf).toBeCloseTo(0.12 * PF_WAGE_CEILING, 6);
-    // With PF pinned to the ceiling, only gratuity accrual still tracks wages.
-    expect(result.monthlyTakeHomeChange).toBeLessThanOrEqual(0);
+  it.each([
+    [20_000, 2_400],
+    [25_000, 3_000],
+    [30_000, 3_000],
+  ])('caps PF on wages of %i at a contribution of %i per side', (wages, contribution) => {
+    const result = calculateLabourCodeImpact({
+      ...baseInputs,
+      annualCtc: wages * 24,
+      currentBasicPercent: 50,
+      applyPfCeiling: true,
+    });
+    for (const scenario of [result.before, result.after]) {
+      expect(scenario.monthlyEmployeePf).toBeCloseTo(contribution, 6);
+      expect(scenario.monthlyEmployerPf).toBeCloseTo(contribution, 6);
+    }
   });
 
   it('drops employer PF from CTC when the employer pays it on top', () => {
@@ -104,12 +111,26 @@ describe('calculateNewWageGratuity', () => {
     expect(result.gratuityIncrease).toBeGreaterThan(0);
   });
 
-  it('requires five years for a permanent employee and one for fixed-term', () => {
-    expect(calculateNewWageGratuity({ ...inputs, yearsOfService: 3 }).isEligible).toBe(false);
-    expect(
-      calculateNewWageGratuity({ ...inputs, yearsOfService: 3, isFixedTermEmployee: true })
-        .isEligible
-    ).toBe(true);
+  it.each([
+    [4.99, 0],
+    [5, 5],
+    [5.5, 5],
+    [5.51, 6],
+  ])('counts %s years of regular service as %s payable years', (serviceYears, payableYears) => {
+    const result = calculateNewWageGratuity({ ...inputs, yearsOfService: serviceYears });
+    expect(result.isEligible).toBe(payableYears > 0);
+    expect(result.gratuityOnCurrentWages).toBeCloseTo((30_000 / 26) * 15 * payableYears);
+    expect(result.cappedGratuity).toBeCloseTo((50_000 / 26) * 15 * payableYears);
+  });
+
+  it.each([
+    [0.99, 0],
+    [1, 1],
+    [1.75, 1.75],
+  ])('prorates %s years at fixed-term contract expiry as %s payable years', (serviceYears, payableYears) => {
+    const result = calculateNewWageGratuity({ ...inputs, yearsOfService: serviceYears, isFixedTermEmployee: true });
+    expect(result.isEligible).toBe(payableYears > 0);
+    expect(result.cappedGratuity).toBeCloseTo((50_000 / 26) * 15 * payableYears);
   });
 
   it('holds the payout at the statutory ceiling', () => {

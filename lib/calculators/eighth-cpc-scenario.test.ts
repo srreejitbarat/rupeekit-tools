@@ -3,6 +3,7 @@ import {
   CGEGIS_BY_GROUP,
   COMPARISON_FACTORS,
   CURRENT_HRA_FLOORS,
+  DEFAULT_DA_PERCENT,
   PAY_LEVEL_BANDS,
   SEVENTH_CPC_MINIMUM_BASIC,
 } from '../../data/eighth-cpc-pay-matrix';
@@ -90,6 +91,16 @@ describe('HRA floor protection', () => {
 });
 
 describe('calculateEighthCpcEmployee', () => {
+  it('includes 63% DA on basic and transport in the current 7th CPC example', () => {
+    const result = calculateEighthCpcEmployee({ ...employeeBase, currentDaPercent: DEFAULT_DA_PERCENT, fitmentFactor: 2.57 });
+
+    expect(result.currentDa).toBe(28_287);
+    expect(result.currentDaOnTransport).toBe(2_268);
+    expect(result.currentGross).toBe(92_525);
+    expect(result.revisedBasic).toBe(115_400);
+    expect(result.revisedDa).toBe(0);
+  });
+
   it('resets DA to zero on the revised structure', () => {
     const result = calculateEighthCpcEmployee(employeeBase);
 
@@ -237,6 +248,14 @@ describe('calculateEighthCpcPensioner', () => {
     fitmentFactor: 2.28,
     currentDrPercent: 60,
   };
+
+  it('includes 63% DR only in current pension', () => {
+    const result = calculateEighthCpcPensioner({ ...pensionerBase, currentBasicPension: 25_000, currentDrPercent: DEFAULT_DA_PERCENT });
+
+    expect(result.currentDr).toBe(15_750);
+    expect(result.currentTotal).toBe(40_750);
+    expect(result.revisedDr).toBe(0);
+  });
 
   it('applies the factor to basic pension and resets dearness relief', () => {
     const result = calculateEighthCpcPensioner(pensionerBase);

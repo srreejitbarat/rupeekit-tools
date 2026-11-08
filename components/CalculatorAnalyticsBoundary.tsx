@@ -60,7 +60,8 @@ export default function CalculatorAnalyticsBoundary({
   const [hasInteracted, setHasInteracted] = useState(false);
   const [hasCalculated, setHasCalculated] = useState(false);
   const [shareStatus, setShareStatus] = useState('');
-  const rootRef = useRef<HTMLDivElement | null>(null);
+  const calculatorRef = useRef<HTMLDivElement | null>(null);
+  const restoringInputsRef = useRef(false);
   const mountedAtRef = useRef<number>(0);
   const calculationCountRef = useRef(0);
   const resultPanelViewedRef = useRef(false);
@@ -75,32 +76,37 @@ export default function CalculatorAnalyticsBoundary({
   // interaction is recorded, so a restored scenario is not counted as a
   // user-entered calculation.
   useEffect(() => {
-    const root = rootRef.current;
+    const root = calculatorRef.current;
     if (!root || typeof window === 'undefined' || !shareInputs) return;
     const params = new URLSearchParams(window.location.search);
     if (![...params.keys()].some((key) => key.startsWith(SHARE_PARAM_PREFIX))) return;
 
     const fields = root.querySelectorAll<ShareableField>('input, select, textarea');
-    fields.forEach((field) => {
-      const key = getShareKey(field);
-      if (!key) return;
-      const raw = params.get(`${SHARE_PARAM_PREFIX}${key}`);
-      if (raw === null) return;
+    restoringInputsRef.current = true;
+    try {
+      fields.forEach((field) => {
+        const key = getShareKey(field);
+        if (!key) return;
+        const raw = params.get(`${SHARE_PARAM_PREFIX}${key}`);
+        if (raw === null) return;
 
-      if (field instanceof HTMLInputElement && ['number', 'range'].includes(field.type)) {
-        const parsed = Number(raw);
-        if (!Number.isFinite(parsed)) return;
-        const min = field.min === '' ? undefined : Number(field.min);
-        const max = field.max === '' ? undefined : Number(field.max);
-        let safe = parsed;
-        if (Number.isFinite(min)) safe = Math.max(min as number, safe);
-        if (Number.isFinite(max)) safe = Math.min(max as number, safe);
-        setNativeValue(field, String(safe));
-        return;
-      }
+        if (field instanceof HTMLInputElement && ['number', 'range'].includes(field.type)) {
+          const parsed = Number(raw);
+          if (!Number.isFinite(parsed)) return;
+          const min = field.min === '' ? undefined : Number(field.min);
+          const max = field.max === '' ? undefined : Number(field.max);
+          let safe = parsed;
+          if (Number.isFinite(min)) safe = Math.max(min as number, safe);
+          if (Number.isFinite(max)) safe = Math.min(max as number, safe);
+          setNativeValue(field, String(safe));
+          return;
+        }
 
-      setNativeValue(field, raw);
-    });
+        setNativeValue(field, raw);
+      });
+    } finally {
+      restoringInputsRef.current = false;
+    }
   }, [shareInputs]);
 
   const elapsedMs = () => {
@@ -134,6 +140,7 @@ export default function CalculatorAnalyticsBoundary({
   };
 
   const scheduleCalculation = () => {
+    if (restoringInputsRef.current) return;
     setHasInteracted(true);
     if (calculationTimerRef.current) clearTimeout(calculationTimerRef.current);
     calculationTimerRef.current = setTimeout(recordCalculation, CALCULATION_DEBOUNCE_MS);
@@ -145,10 +152,11 @@ export default function CalculatorAnalyticsBoundary({
   };
 
   useEffect(() => {
-    if (!hasInteracted || resultPanelViewedRef.current || !rootRef.current) return;
+    const calculator = calculatorRef.current;
+    if (!hasInteracted || resultPanelViewedRef.current || !calculator) return;
 
-    const labelledResults = rootRef.current.querySelector<HTMLElement>('[aria-label="Estimated results"]');
-    const resultsHeading = Array.from(rootRef.current.querySelectorAll<HTMLElement>('h2, h3')).find((node) =>
+    const labelledResults = calculator.querySelector<HTMLElement>('[aria-label="Estimated results"]');
+    const resultsHeading = Array.from(calculator.querySelectorAll<HTMLElement>('h2, h3')).find((node) =>
       node.textContent?.trim().toLowerCase().includes('estimated results')
     );
     const resultPanel = labelledResults ?? resultsHeading?.parentElement ?? null;
@@ -222,7 +230,7 @@ export default function CalculatorAnalyticsBoundary({
   const showUpdateSignup = hasInteracted && UPDATE_ALERT_TOOL_SLUGS.has(toolSlug);
 
   const buildPermalink = () => {
-    const root = rootRef.current;
+    const root = calculatorRef.current;
     if (!root || typeof window === 'undefined') return null;
     const url = new URL(window.location.href);
     url.search = '';
@@ -271,13 +279,15 @@ export default function CalculatorAnalyticsBoundary({
   };
 
   return (
-    <div
-      ref={rootRef}
-      onChangeCapture={scheduleCalculation}
-      onInputCapture={scheduleCalculation}
-      onClickCapture={markButtonUse}
-    >
-      {children}
+    <div>
+      <div
+        ref={calculatorRef}
+        onChangeCapture={scheduleCalculation}
+        onInputCapture={scheduleCalculation}
+        onClickCapture={markButtonUse}
+      >
+        {children}
+      </div>
       <ContextualNextSteps toolSlug={toolSlug} toolCategory={toolCategory} visible={hasCalculated} />
       {showUpdateSignup ? (
         <div className="mt-6">

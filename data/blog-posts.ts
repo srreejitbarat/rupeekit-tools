@@ -1495,7 +1495,7 @@ export const blogPosts: BlogPost[] = [
     visualAlt: 'Side-by-side comparison of renting vs home loan in India showing EMI, equity build-up, Section 24b and 80C tax deductions.',
     seoTitle: 'Home Loan vs Rent India 2026: Which Is Better?',
     publishedDateISO: '2026-07-11T08:00:00Z',
-    modifiedDateISO: '2026-07-11T08:00:00Z',
+    modifiedDateISO: '2026-11-09',
     title: 'Home Loan vs Rent in India: Which Is the Smarter Financial Choice?',
     metaDescription: 'Home loan vs rent in India — compare EMI costs, equity building, Section 24b/80C tax savings and opportunity cost to find what is better for you.',
     category: 'Loans',
@@ -1523,7 +1523,7 @@ export const blogPosts: BlogPost[] = [
         ],
         example: {
           title: 'Mumbai Example — Rs 60L Home',
-          details: 'Home purchase: Rs 60L at 8.5% for 20 years = EMI of Rs 52,051 per month. Section 24b deduction: Rs 2L per year saves Rs 5,208 per month in the 30% bracket. Effective EMI: approximately Rs 46,843 per month. Comparable rent: Rs 25,000 to Rs 30,000 per month. Rent-saving difference: Rs 17,000 to Rs 22,000 per month.',
+          details: 'A Rs 60L home with Rs 12L down requires a Rs 48L loan. At 8.5% a year for 20 years, the EMI is about Rs 41,656. Rent of Rs 25,000 to Rs 30,000 is roughly Rs 11,700 to Rs 16,700 less per month before taxes, maintenance and other ownership costs.',
         },
       },
       {
@@ -1548,7 +1548,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           'Renting wins financially when three conditions align: the EMI is substantially higher than the rent (typically 1.8 times or more), you have the discipline to invest the monthly difference in SIPs or other instruments, and you do not intend to stay in one location for more than 4 to 5 years.',
           'For young professionals in IT cities who switch employers, move between cities, or are early in their careers, renting maximises flexibility. The ability to upgrade or downsize quickly without stamp duty, registration, and brokerage costs is a real economic advantage.',
-          'The "rent trap" — the idea that rent is "wasted money" — is a financial myth. If your rent is Rs 20,000 and you invest Rs 15,000 in SIPs every month for 20 years at 12% CAGR, that corpus grows to approximately Rs 1.65 crore. Buying the Rs 60L home with a Rs 52,000 EMI over 20 years costs Rs 1.25 crore in interest alone, on top of the principal.',
+          'If you invest a Rs 15,000 monthly difference for 20 years at an assumed 1% monthly return, end-of-month contributions grow to about Rs 1.48 crore before taxes and fees. The Rs 48L mortgage in the Mumbai example costs about Rs 1 crore in total repayments, including about Rs 52L of interest. A full comparison also accounts for the down payment, property value, upkeep and changes in rent.',
         ],
       },
       {
@@ -1559,8 +1559,8 @@ export const blogPosts: BlogPost[] = [
           'Home ownership also provides non-financial value: stability for children\'s schooling, ability to renovate, freedom from landlord relationships, and retirement housing security. These are legitimate factors that pure financial models ignore.',
         ],
         example: {
-          title: 'When Buying Clearly Wins',
-          details: 'A Rs 40L flat in Lucknow at 8.5% for 15 years: EMI = Rs 39,396. Comparable rent: Rs 18,000 to Rs 22,000. Section 24b + 80C saves approximately Rs 8,000 per month in the 30% bracket. Effective buying cost: approximately Rs 31,000 per month — only Rs 9,000 to Rs 13,000 more than renting, while building equity in a market growing at 7 to 8% per year.',
+          title: 'Lucknow Example — Rs 40L Home',
+          details: 'A Rs 40L flat with Rs 8L down requires a Rs 32L loan. At 8.5% a year for 15 years, the EMI is about Rs 31,512. With comparable rent of Rs 18,000 to Rs 22,000, the EMI is roughly Rs 9,500 to Rs 13,500 more per month before taxes, maintenance and other ownership costs.',
         },
       },
       {
@@ -1574,7 +1574,7 @@ export const blogPosts: BlogPost[] = [
     ],
     faqs: [
       {
-        question: 'Is it better to buy a house or rent in India in 2025?',
+        question: 'Is it better to buy a house or rent in India?',
         answer: 'Neither is universally better. Buying makes sense when EMI is close to local rent, you have a 7-plus year horizon, and you can claim Section 24b and 80C tax benefits under the old regime. Renting and investing the difference can build more wealth when EMI is 2 times or more the rent or when you need flexibility.',
       },
       {
@@ -2761,7 +2761,7 @@ export const blogPosts: BlogPost[] = [
         paragraphs: [
           'Step 1 — Identify non-cash CTC components: Employer PF (12% of Basic) + Gratuity (4.81% of Basic) + Insurance premium + any other benefits. Subtract these from CTC to get Gross Monthly Salary.',
           'Step 2 — Calculate Gross Monthly Salary: Gross Salary = (CTC − Employer PF − Gratuity) / 12.',
-          'Step 3 — Compute Employee PF: 12% of Basic salary per month (or capped at Rs 1,800/month if Basic ≤ Rs 15,000).',
+          'Step 3 — Compute employee PF using your payroll wage base. At 12%, contributions capped on the Rs 25,000 wage ceiling are up to Rs 3,000 a month from 17 September 2026.',
           'Step 4 — Compute TDS (monthly): Estimate annual taxable income = Gross Salary × 12 − Standard Deduction (Rs 75,000 under new regime) − eligible employer NPS deduction under Section 80CCD(2), if included in the salary structure. Do not subtract the employee\'s Section 80CCD(1B) self-contribution under the new regime. Apply the new-regime rules and divide the annual tax estimate by 12.',
           'Step 5 — Professional Tax: Typically Rs 200/month in most states (varies — Karnataka, Maharashtra, AP, Telangana apply it; many states do not).',
           'Step 6 — In-Hand = Gross Monthly Salary − Employee PF − TDS − Professional Tax.',

@@ -59,8 +59,15 @@ export function TaxSlabBreakdown({ oldRegime, newRegime }: TaxSlabBreakdownProps
 
         {result.rebate > 0 && (
           <div className="flex justify-between text-brandGrowthGreen font-medium">
-            <span>Rebate u/s 87A</span>
+            <span>Tax rebate</span>
             <span>- ₹{result.rebate.toLocaleString('en-IN')}</span>
+          </div>
+        )}
+
+        {result.surcharge > 0 && (
+          <div className="flex justify-between text-slate-600">
+            <span>Surcharge after marginal relief</span>
+            <span>+ ₹{result.surcharge.toLocaleString('en-IN')}</span>
           </div>
         )}
 

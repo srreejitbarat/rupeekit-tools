@@ -4,7 +4,7 @@ import { indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 export interface TaxPdfData {
   generatedAt: string;
   financialYear: string;
-  assessmentYear: string;
+  assessmentYear?: string;
   // Input
   isSalaried: boolean;
   grossIncome: number;
@@ -26,6 +26,7 @@ export interface TaxPdfData {
   old_taxableIncome: number;
   old_totalSlabTax: number;
   old_rebate: number;
+  old_surcharge: number;
   old_cess: number;
   old_finalTax: number;
   old_effectiveTaxRate: number;
@@ -34,6 +35,7 @@ export interface TaxPdfData {
   new_taxableIncome: number;
   new_totalSlabTax: number;
   new_rebate: number;
+  new_surcharge: number;
   new_cess: number;
   new_finalTax: number;
   new_effectiveTaxRate: number;
@@ -56,7 +58,7 @@ export function buildTaxPdfData(
 ): TaxPdfData {
   const config = indiaIncomeTaxRules[selectedTaxYear];
   const fy = config?.fy ?? selectedTaxYear;
-  const ay = config?.ay ?? 'N/A';
+  const ay = config?.ay;
 
   const standardDeductionOld = input.isSalaried ? (config?.oldRegime.standardDeduction ?? 0) : 0;
   const standardDeductionNew = input.isSalaried ? (config?.newRegime.standardDeduction ?? 0) : 0;
@@ -88,6 +90,7 @@ export function buildTaxPdfData(
     old_taxableIncome: result.oldRegime.taxableIncome,
     old_totalSlabTax: result.oldRegime.totalSlabTax,
     old_rebate: result.oldRegime.rebate,
+    old_surcharge: result.oldRegime.surcharge,
     old_cess: result.oldRegime.cess,
     old_finalTax: result.oldRegime.finalTax,
     old_effectiveTaxRate: result.oldRegime.effectiveTaxRate,
@@ -95,6 +98,7 @@ export function buildTaxPdfData(
     new_taxableIncome: result.newRegime.taxableIncome,
     new_totalSlabTax: result.newRegime.totalSlabTax,
     new_rebate: result.newRegime.rebate,
+    new_surcharge: result.newRegime.surcharge,
     new_cess: result.newRegime.cess,
     new_finalTax: result.newRegime.finalTax,
     new_effectiveTaxRate: result.newRegime.effectiveTaxRate,

@@ -68,14 +68,14 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
             />
             <NumericField
               id="gr-years"
-              label="Completed years of service"
+              label="Total years of continuous service"
               unit="years"
               value={yearsOfService}
               onChange={setYearsOfService}
               min={0}
               max={45}
-              step={0.5}
-              help="Six months or more in the final year is generally counted as a full year."
+              step={0.01}
+              help="Enter service as a decimal, such as 5.75 for 5 years and 9 months."
             />
             <label
               htmlFor="gr-fixed-term"
@@ -90,10 +90,10 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
               />
               <span>
                 <span className="block text-sm font-semibold text-slate-700">
-                  I am a fixed-term employee
+                  My direct fixed-term contract is ending
                 </span>
                 <span className="mt-1 block text-xs leading-5 text-slate-500">
-                  Fixed-term employees accrue gratuity from one year of service rather than five.
+                  At contract expiry, eligible fixed-term employees with at least one year of service receive a prorated amount.
                 </span>
               </span>
             </label>
@@ -105,7 +105,7 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {result.isEligible
               ? 'What the revised wage base is worth to you'
-              : `Not yet eligible — ${formatNumber(result.eligibilityYears, 0)} years of service required`}
+              : `This scenario requires ${formatNumber(result.eligibilityYears, 0)} years of service`}
           </h3>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -123,7 +123,7 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
             <ResultCard
               label="On your current wages"
               value={formatCurrency(result.gratuityOnCurrentWages)}
-              detail="15/26 × wages × years of service"
+              detail="15/26 × wages × qualifying service"
             />
             <ResultCard
               label="On the revised wages"
@@ -131,35 +131,31 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
               detail={
                 hitsCeiling
                   ? `Held at the ₹20 lakh statutory ceiling`
-                  : '15/26 × revised wages × years of service'
+                  : '15/26 × revised wages × qualifying service'
               }
             />
           </div>
 
           {!result.isEligible ? (
             <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-xs leading-5 text-amber-950">
-              These figures show what would accrue once you cross{' '}
-              {formatNumber(result.eligibilityYears, 0)} years. Gratuity is generally payable
-              earlier only on death or disablement.
+              Special rules can apply to death, disablement and some categories of employment.
             </p>
           ) : null}
 
           <p className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 text-xs leading-5 text-slate-600">
-            Gratuity up to ₹20 lakh is exempt from income tax for employees covered by the Act.
-            Amounts above the ceiling, and payments from employers outside the Act, follow different
-            rules.
+            The statutory gratuity ceiling is ₹20 lakh. Income tax exemptions depend on your employment category and circumstances.
           </p>
         </section>
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">An estimate, not an entitlement</p>
+        <p className="font-bold">How this estimate works</p>
         <p className="mt-1">
-          Gratuity is paid on the wages actually recorded by your employer at exit. This tool shows
-          how the revised wage definition changes that base. It does not confirm your eligibility,
-          your employer&apos;s coverage under the Payment of Gratuity Act, or the date your
-          structure changes.
+          Section 53 of the Code on Social Security uses last-drawn wages. For regular service,
+          a partial year counts as a full year only when it exceeds six months. This comparison
+          uses half of cash pay as a simplified wage base. Check your last-drawn wages and
+          eligibility with your employer.
         </p>
       </div>
     </div>

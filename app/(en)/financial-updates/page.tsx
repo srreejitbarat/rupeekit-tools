@@ -103,6 +103,9 @@ export default function FinancialUpdatesPage() {
             Official income tax and personal finance updates, explained simply. All summaries are
             educational — always verify with the official source before acting.
           </p>
+          <Link href="/deadlines" className="mt-4 inline-block text-sm font-semibold text-brandNavy underline underline-offset-4 dark:text-sky-300">
+            Tax deadlines
+          </Link>
         </div>
       </section>
 

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Tool } from '@/lib/tools';
-import { calculateLabourCodeImpact } from '@/lib/calculators/labour-code';
+import { calculateLabourCodeImpact, PF_WAGE_CEILING } from '@/lib/calculators/labour-code';
 import {
   CalculatorGovernanceStrip,
   NumericField,
@@ -170,10 +170,10 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
             />
             <ToggleField
               id="lc-pf-ceiling"
-              label="PF is contributed on the ₹15,000 ceiling"
+              label={`Apply the ${formatCurrency(PF_WAGE_CEILING)} monthly PF wage ceiling`}
               checked={applyPfCeiling}
               onChange={setApplyPfCeiling}
-              help="Some employers restrict PF to the statutory ceiling instead of actual wages. This sharply reduces the impact."
+              help="Use this if your payroll caps PF contributions. The current ceiling took effect on 17 September 2026."
             />
           </div>
         </section>
@@ -182,7 +182,7 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Before vs after</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {result.alreadyCompliant
-              ? 'Your structure already clears the 50% floor'
+              ? 'Your current wages already reach half of cash pay'
               : takeHomeFalls
                 ? 'Your monthly take-home falls, your retirement saving rises'
                 : 'Your structure changes, with little effect on take-home'}
@@ -269,13 +269,11 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
 
       <CalculatorGovernanceStrip tool={tool} />
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">What this models — and what it does not</p>
+        <p className="font-bold">How this estimate works</p>
         <p className="mt-1">
-          This compares your current salary structure with one where basic + DA is lifted to at
-          least half of your cash remuneration, which is the structural effect of the wage
-          definition in the labour codes. It does not assert the date on which your employer must
-          restructure: states notify rules separately and payroll cycles differ. Confirm your own
-          revised breakup with your employer before acting on these figures.
+          This estimate uses half of cash pay as a shortcut for the wage base. The statutory
+          calculation can also include employer PF or pension contributions and statutory bonus.
+          Confirm the wage base and deductions on your payroll statement.
         </p>
       </div>
     </div>

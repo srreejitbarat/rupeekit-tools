@@ -7,6 +7,7 @@ import {
   ARREARS_REFERENCE_ISO,
   COMPARISON_FACTORS,
   DA_PRESETS,
+  DA_REVISION_SOURCE,
   DEFAULT_BASIC_PAY,
   DEFAULT_BASIC_PENSION,
   DEFAULT_DA_PERCENT,
@@ -485,7 +486,7 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
           <div className="border-t border-slate-100 pt-5">
             <label htmlFor="cpc-da" className="block">
               <span className="text-sm font-semibold text-slate-700">
-                {isPensioner ? 'Current dearness relief' : 'Current DA at implementation'}
+                {isPensioner ? 'Current dearness relief' : 'Current dearness allowance'}
               </span>
               <select
                 id="cpc-da"
@@ -502,9 +503,12 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
             </label>
             {!DA_PRESETS.find((preset) => preset.value === numeric(daPercent))?.notified ? (
               <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900">
-                64% is a projection of the July 2026 revision. It has not been notified.
+                You selected a what-if rate. The notified rate is 63% from 1 July 2026.
               </p>
             ) : null}
+            <a href={DA_REVISION_SOURCE} className="mt-2 inline-block text-xs font-medium text-brandNavy underline underline-offset-2">
+              Read the government notice on DA and DR
+            </a>
           </div>
 
           {!isPensioner ? (

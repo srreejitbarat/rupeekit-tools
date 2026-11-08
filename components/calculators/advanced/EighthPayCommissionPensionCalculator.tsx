@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Tool } from '@/lib/tools';
+import { DEFAULT_DA_PERCENT } from '@/data/eighth-cpc-pay-matrix';
 import { calculateEighthPayCommissionPension } from '@/lib/calculators/search-growth';
 import {
   CalculatorGovernanceStrip,
@@ -17,7 +18,7 @@ const MULTIPLIER_SCENARIOS = [1.92, 2.08, 2.57, 2.86, 3];
 
 export default function EighthPayCommissionPensionCalculator({ tool }: { tool: Tool }) {
   const [currentBasicPension, setCurrentBasicPension] = useState<NumericValue>(25_000);
-  const [currentDrPercent, setCurrentDrPercent] = useState<NumericValue>(60);
+  const [currentDrPercent, setCurrentDrPercent] = useState<NumericValue>(DEFAULT_DA_PERCENT);
   const [revisionMultiplier, setRevisionMultiplier] = useState<NumericValue>(2.57);
   const [projectedDrPercent, setProjectedDrPercent] = useState<NumericValue>(0);
   const [additionalPensionPercent, setAdditionalPensionPercent] = useState<NumericValue>(0);
@@ -40,7 +41,7 @@ export default function EighthPayCommissionPensionCalculator({ tool }: { tool: T
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">Compare current pension with one scenario</h3>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <NumericField id="pension-current-basic" label="Current basic pension" unit="₹ / month" value={currentBasicPension} onChange={setCurrentBasicPension} step={100} help="Use basic pension before DR and any age-related additional pension." />
-            <NumericField id="pension-current-dr" label="Current DR" unit="% of basic pension" value={currentDrPercent} onChange={setCurrentDrPercent} max={200} help="Defaults to 60%. Change it if the rate applicable to you differs." />
+            <NumericField id="pension-current-dr" label="Current DR" unit="% of basic pension" value={currentDrPercent} onChange={setCurrentDrPercent} max={200} help="Enter the dearness relief rate on your pension slip." />
             <label htmlFor="pension-multiplier" className="block">
               <span className="text-sm font-semibold text-slate-700">Revision multiplier scenario</span>
               <select

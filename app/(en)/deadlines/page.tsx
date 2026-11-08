@@ -10,6 +10,7 @@ import {
   DEADLINE_CONFIDENCE_LABEL,
   SMALL_SAVINGS_REVIEW_QUARTERS,
   TAX_DEADLINES,
+  TAX_DEADLINES_LAST_REVIEWED,
 } from '@/data/tax-deadlines';
 import {
   CORRECTIONS_POLICY_URL,
@@ -19,7 +20,9 @@ import {
 } from '@/lib/seo/editorial';
 
 const PAGE_URL = `${SITE_URL}/deadlines`;
-const LAST_REVIEWED_ISO = '2026-08-25';
+const FIRST_PUBLISHED_ISO = '2026-08-25';
+const AUDIT_EXTENSION = 'For Assessment Year 2026–27, the CBDT moved the return deadline to 21 November 2026 for specified audit cases.';
+const AUDIT_EXTENSION_SOURCE = 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2316050&lang=1&reg=3';
 
 const TITLE = 'Income Tax Deadlines India: The Statutory Calendar';
 const DESCRIPTION =
@@ -48,8 +51,8 @@ export default function DeadlinesPage() {
   const quickAnswer = {
     question: 'What are the income tax deadlines in India?',
     answer:
-      'Advance tax is due in four instalments on 15 June, 15 September, 15 December and 15 March, at 15%, 45%, 75% and 100% of estimated liability cumulatively. Quarterly TDS returns are due one month after each quarter ends, on 31 July, 31 October, 31 January and 31 May. Employers issue Form 16 by 15 June. The statutory income tax return due date is 31 July for non-audit cases and 31 October for audit cases, and belated or revised returns can be filed until 31 December. Tax-saving investments must be made by 31 March to count for that financial year.',
-    note: 'The 31 July and 31 October return dates have been extended by CBDT circular in several recent years. An extension only exists once it is notified — plan for the statutory date.',
+      'For most salaried people, the usual return deadline is 31 July. Eligible businesses without an audit have until 31 August. The usual date for tax audit cases is 31 October. If you missed your deadline, you can usually file by 31 December. To correct a return you already filed, you usually have until 31 March.',
+    note: AUDIT_EXTENSION,
     links: [
       {
         label: 'Estimate your liability before an instalment',
@@ -57,11 +60,12 @@ export default function DeadlinesPage() {
       },
       { label: '80C deduction calculator', href: '/tools/80c-deduction-calculator-india' },
       { label: 'Latest official updates', href: '/financial-updates' },
+      { label: 'CBDT audit filing extension', href: AUDIT_EXTENSION_SOURCE },
     ],
   };
 
   const answerEngineSummary =
-    'India’s income tax calendar runs on the financial year from April to March. Advance tax is payable in four cumulative instalments on 15 June (15%), 15 September (45%), 15 December (75%) and 15 March (100%), with taxpayers under the presumptive schemes of sections 44AD and 44ADA paying in a single 15 March instalment. Quarterly TDS statements fall due on 31 July, 31 October, 31 January and 31 May, and Form 16 follows the final statement, reaching employees by 15 June. The statutory return due date is 31 July for taxpayers not subject to audit and 31 October where accounts must be audited under section 44AB; belated and revised returns are permitted until 31 December. Tax-saving investments claimed under the old regime must be completed by 31 March, which is also the minimum-deposit deadline for PPF and Sukanya Samriddhi accounts. Return due dates have been extended by CBDT circular in several recent years, but an extension takes effect only when notified.';
+    'The income tax year runs from April to March. Advance tax payments usually reach 15% by 15 June, 45% by 15 September, 75% by 15 December and 100% by 15 March. Late returns usually close on 31 December. Revised returns usually close on 31 March. Use the income tax portal to check the deadline for your filing category.';
 
   const schemas = [
     {
@@ -70,8 +74,8 @@ export default function DeadlinesPage() {
       headline: TITLE,
       description: DESCRIPTION,
       url: PAGE_URL,
-      datePublished: LAST_REVIEWED_ISO,
-      dateModified: LAST_REVIEWED_ISO,
+      datePublished: FIRST_PUBLISHED_ISO,
+      dateModified: TAX_DEADLINES_LAST_REVIEWED,
       author: editorialTeamRef,
       reviewedBy: editorialTeamRef,
       publishingPrinciples: EDITORIAL_POLICY_URL,
@@ -96,10 +100,10 @@ export default function DeadlinesPage() {
         },
         {
           '@type': 'Question',
-          name: 'Will the ITR due date be extended this year?',
+          name: 'What is the extended deadline for eligible audit cases?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'An extension exists only once the CBDT notifies it by circular. The date has been extended in several recent years, but that is not a guarantee and no extension can be relied on before it is announced. Plan for the statutory date of 31 July for non-audit cases.',
+            text: AUDIT_EXTENSION,
           },
         },
         {
@@ -133,7 +137,7 @@ export default function DeadlinesPage() {
           which dates are fixed by statute and which get extended by circular. Missing one of these
           costs interest or a fee; assuming an extension that has not been announced costs the same.
         </p>
-        <EditorialByline className="mt-4" updatedIso={LAST_REVIEWED_ISO} />
+        <EditorialByline className="mt-4" updatedIso={TAX_DEADLINES_LAST_REVIEWED} />
       </header>
 
       <div className="mt-8">

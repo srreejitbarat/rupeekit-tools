@@ -1933,7 +1933,7 @@
         "min": 0,
         "max": 40,
         "step": 1,
-        "help": "If covered under the Act: Service of 5 years and 6 months or more counts as a full year (e.g., 5 years 7 months = 6 years, 5 years 5 months = 5 years). Enter this rounded value."
+        "help": "For ordinary statutory gratuity, round up only when the remaining service exceeds six months. Enter 5 for 5 years 6 months or 6 for 5 years 7 months."
       },
       {
         "key": "effectiveYearsForNonCovered",
@@ -1960,7 +1960,7 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "The gratuity calculation in India is primarily governed by the Payment of Gratuity Act, 1972, for covered employers, and common practices for those not covered. If your employer falls under the Act, the gratuity is typically calculated using the formula: (Last Drawn Basic Salary + Dearness Allowance / 26) * 15 * Effective Years of Service. Here, 'Effective Years of Service' is rounded up if the service period includes six months or more (e.g., 5 years 7 months counts as 6 years). For employers not covered by the Act, the common practice is to use the formula: (Last Drawn Basic Salary + Dearness Allowance / 30) * 15 * Completed Years of Service, where 'Effective Years of Service' is usually truncated to completed years. This calculator uses your input for 'isCoveredUnderGratuityAct' (1 for Yes, 0 for No) to apply the appropriate calculation method. It also considers the maximum gratuity limit of ₹20 Lakh as stipulated by the Act, ensuring your estimated payout does not exceed this cap. The results provided are estimates for informational purposes.",
+    "formulaExplanation": "For ordinary statutory gratuity, divide last-drawn monthly wages by 26, multiply by 15, and multiply by the effective service years you enter. A partial year rounds up only when it exceeds six months. Section 53 of the Code on Social Security sets this method. The non-covered estimate uses a 30-day divisor and the completed years you enter. Employer terms can differ. Use the linked revised-wage calculator for fixed-term contract expiry.",
     "example": "Consider Mr. Sharma, an employee with 7 years and 8 months of service. His last drawn Basic Salary plus Dearness Allowance is ₹50,000 per month. Assuming his employer is covered under the Gratuity Act, 1972, his service period of 7 years and 8 months would be rounded up to 8 effective years for gratuity calculation. To use the calculator, Mr. Sharma would input: Last Drawn Basic + DA = ₹50,000, select '1' for 'Is your employer covered under the Gratuity Act, 1972?', and enter '8' for 'Effective Years for Gratuity (if covered under Act)'. The RupeeKit calculator would then provide an estimated gratuity amount based on these inputs, subject to the maximum limit of ₹20 Lakh. This example illustrates how to derive an estimated figure.",
     "faqs": [
       {
@@ -2021,7 +2021,7 @@
       "The calculator provides an estimate based on current understanding of the Gratuity Act and common practices; actual payouts may vary."
     ],
     "commonMistakes": [
-      "Incorrectly calculating 'Effective Years of Service': Users might not round up service periods of 6 months or more for covered employers, or might round up for non-covered employers.",
+      "Rounding up exactly six months for ordinary statutory gratuity. The partial year must exceed six months.",
       "Not including Dearness Allowance (DA): Gratuity calculation for covered employees requires Basic Salary + DA, not just Basic Salary.",
       "Ignoring the maximum gratuity limit: Forgetting that the maximum payable gratuity is capped at ₹20 Lakh, regardless of the calculated amount.",
       "Misidentifying employer's coverage: Incorrectly assuming whether an employer is covered under the Gratuity Act, leading to the wrong formula application.",
@@ -3360,12 +3360,12 @@
     "inputs": [
       {
         "key": "monthlyBasicDa",
-        "label": "Monthly basic salary + DA",
+        "label": "Monthly wage base used for EPF",
         "unit": "Rs",
-        "default": 30000,
+        "default": 25000,
         "min": 0,
         "step": 1000,
-        "help": "EPF contributions are calculated on basic salary plus dearness allowance, not full CTC."
+        "help": "Use the wage base shown on your payslip. For capped contributions, use the lower of actual PF wages and Rs 25,000 from 17 September 2026."
       },
       {
         "key": "employeePercent",
@@ -3385,7 +3385,7 @@
         "min": 0,
         "max": 12,
         "step": 0.01,
-        "help": "Of the employer's 12%, typically 8.33% goes to the pension scheme (EPS) and 3.67% to your EPF account."
+        "help": "Enter the percentage credited to EPF after any EPS pension allocation. The 3.67% example assumes eligible EPS membership and contributions on the same wage base."
       },
       {
         "key": "annualRate",
@@ -3434,20 +3434,20 @@
         "format": "currency"
       }
     ],
-    "formulaExplanation": "Monthly contribution = basic+DA x (employee% + employer EPF%). The corpus is the future value of that monthly contribution compounded at the EPF rate: contribution x ((1+i)^n - 1)/i, where i is the monthly rate and n the number of months. Salary is assumed constant; real corpora grow faster as salary rises.",
-    "example": "On a Rs 30,000 basic+DA with 12% employee and 3.67% employer EPF contributions (Rs 4,701 per month), 20 years at 8.25% builds a corpus of about Rs 28,57,000 — Rs 11,28,000 of contributions plus about Rs 17,28,000 of interest.",
+    "formulaExplanation": "Monthly EPF contribution equals the contribution wage base times the combined employee and employer EPF rates. The model compounds that monthly amount using contribution × ((1+i)^n − 1)/i, where i is the monthly interest rate and n is the number of months. The amount and interest rate stay constant in this estimate.",
+    "example": "On a Rs 25,000 wage base, 12% employee and 3.67% employer EPF contributions total about Rs 3,918 per month. After 20 years at an assumed 8.25%, the estimated corpus is Rs 23.81 lakh, including Rs 9.40 lakh in contributions.",
     "quickAnswer": {
       "title": "EPF Quick Answer",
       "question": "How much EPF corpus will I have at retirement?",
-      "answer": "Your EPF corpus is the future value of monthly contributions — 12% of basic+DA from you plus 3.67% from your employer (8.33% of the employer share goes to EPS pension) — compounded at the EPFO-declared rate, currently around 8.25%. On a Rs 30,000 basic, that builds roughly Rs 28.6 lakh in 20 years even with no salary growth; real corpora are larger because salaries rise.",
+      "answer": "Your EPF corpus depends on the employee and employer amounts credited to your EPF account. On a Rs 25,000 contribution base, a combined 15.67% contribution at an assumed 8.25% yields about Rs 23.81 lakh after 20 years. Use your payslip's wage base and EPF rates for your estimate.",
       "formula": "Corpus = Monthly contribution x ((1+i)^n - 1) / i",
-      "example": "Rs 30,000 basic+DA for 20 years at 8.25% gives about Rs 28.57 lakh.",
+      "example": "Rs 25,000 contribution wages at a combined 15.67% rate gives about Rs 23.81 lakh after 20 years at 8.25%.",
       "note": "Educational estimate with constant salary. EPS pension contributions and rate changes are not included in the corpus figure."
     },
     "faqs": [
       {
         "question": "How is EPF contribution calculated?",
-        "answer": "You contribute 12% of basic salary plus DA. Your employer also contributes 12%, but typically 8.33% of that goes to the Employees' Pension Scheme (capped on Rs 15,000 wages) and only 3.67% reaches your EPF account."
+        "answer": "Many employees contribute 12% of PF wages and the employer contributes a matching amount. From 17 September 2026, capped contributions use actual PF wages up to Rs 25,000. For eligible EPS members, part of the employer contribution goes to EPS. Check your payslip for the amount credited to EPF."
       },
       {
         "question": "What is the current EPF interest rate?",
@@ -3455,7 +3455,7 @@
       },
       {
         "question": "Why does my employer's full 12% not reach my EPF?",
-        "answer": "Because 8.33% of employer contribution (on wages up to Rs 15,000) is diverted to the pension scheme (EPS), which pays a monthly pension after 58 rather than adding to the lump-sum corpus."
+        "answer": "For an eligible EPS member, 8.33% of pensionable wages up to Rs 25,000 generally goes to EPS from the employer's share, up to about Rs 2,083 a month. The remainder goes to EPF. The effective EPF percentage varies with wages and EPS eligibility."
       },
       {
         "question": "Does this calculator account for salary increases?",
@@ -3488,14 +3488,14 @@
       "epf-taxable-interest-rule-9d-calculator-india"
     ],
     "howToUse": [
-      "Enter your monthly basic salary plus DA from your payslip.",
+      "Enter the monthly wage base used for EPF on your payslip.",
       "Keep 12% employee contribution, or raise it if you use VPF.",
-      "Keep 3.67% employer EPF share unless your structure differs.",
+      "Enter the employer percentage credited to your EPF account, excluding EPS.",
       "Set the current EPF rate and years until retirement or withdrawal.",
       "Read your estimated corpus, total contributions and interest."
     ],
     "assumptions": [
-      "Basic+DA stays constant for the whole period — real corpora are larger as salaries grow.",
+      "The EPF contribution base stays constant for the whole period.",
       "Interest compounds monthly at a constant rate; EPFO's actual crediting is annual on monthly running balances.",
       "EPS pension contributions are excluded from the corpus figure.",
       "Educational estimate only. Check your actual balance on the EPFO portal or UMANG app."
@@ -3510,10 +3510,10 @@
     "contentSections": [
       {
         "heading": "How EPF builds your retirement corpus",
-        "body": "Every month, 12% of your basic+DA plus 3.67% from your employer flows into your EPF account and compounds at the EPFO-declared rate. Over a full career, interest usually ends up larger than the contributions themselves — in the 20-year example above, about Rs 17.3 lakh of a Rs 28.6 lakh corpus is interest.",
+        "body": "Both employee and employer EPF contributions add to the account balance. This example grows about Rs 9.40 lakh in contributions to Rs 23.81 lakh over 20 years at an assumed 8.25%.",
         "bullets": [
           "Contributions are on basic+DA, not CTC.",
-          "Employer share splits: 8.33% to EPS pension, 3.67% to EPF.",
+          "The employer EPF share depends on the EPS allocation and the wage base used by payroll.",
           "Interest compounds on the running balance year after year."
         ]
       },
@@ -3535,7 +3535,13 @@
         "body": "This calculator computes the future value of a constant monthly EPF contribution (employee plus employer EPF share) compounded monthly at the rate you enter. EPS contributions, salary growth, VPF changes and the Rs 2.5 lakh interest-tax threshold are not modelled. Educational estimate only."
       }
     ],
-    "lastReviewed": "July 2026"
+    "lastReviewed": "November 2026",
+    "officialSources": [
+      {
+        "label": "EPFO guidance on the revised Rs 25,000 wage ceiling",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2314111&lang=1&reg=3"
+      }
+    ]
   },
   {
     "slug": "8th-pay-commission-salary-calculator-india",
