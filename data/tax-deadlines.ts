@@ -6,6 +6,8 @@
 
 export type DeadlineConfidence = 'statutory' | 'commonly-extended';
 
+export const TAX_DEADLINES_LAST_REVIEWED = '2026-11-09';
+
 export type TaxDeadline = {
   id: string;
   date: string;
@@ -30,9 +32,9 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     date: '15 June',
     monthOrder: 3,
     title: 'First advance tax instalment',
-    who: 'Anyone whose tax liability after TDS exceeds ₹10,000 in the year',
+    who: 'People who still owe ₹10,000 or more after tax deducted at source',
     detail:
-      'Fifteen per cent of your estimated liability for the year is due. Shortfalls attract interest under sections 234B and 234C, which is why the instalment matters even when the amount is small.',
+      'Pay 15% of your estimated tax for the year. Resident senior citizens with no business or professional income are exempt from advance tax.',
     confidence: 'statutory',
     relatedHref: '/tools/income-tax-calculator-old-vs-new-regime-india',
     relatedLabel: 'Estimate your liability first',
@@ -41,10 +43,10 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     id: 'form-16',
     date: '15 June',
     monthOrder: 3,
-    title: 'Form 16 issued by employers',
+    title: 'Salary TDS certificate due from employers',
     who: 'Salaried employees',
     detail:
-      'Employers issue Form 16 for the previous financial year by this date. Check it against your own payslips and Form 26AS before filing, because corrections take time to flow through.',
+      'Check the certificate against your payslips and the tax credit shown on the income tax portal before you file.',
     confidence: 'statutory',
   },
   {
@@ -52,9 +54,9 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     date: '31 July',
     monthOrder: 4,
     title: 'Income tax return due — non-audit cases',
-    who: 'Salaried individuals and others not subject to audit',
+    who: 'Most salaried people and other filers without business income',
     detail:
-      'The statutory due date for most individual filers. The CBDT has extended this date in several recent years, but an extension is announced by circular and cannot be assumed in advance. File on the statutory date unless an extension has actually been notified.',
+      'Use 31 July if this is your filing category. Check the income tax portal for any extension that applies to you.',
     confidence: 'commonly-extended',
     relatedHref: '/blog/itr-2-ay-2026-27-filing-guide',
     relatedLabel: 'ITR-2 filing guide',
@@ -66,7 +68,16 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     title: 'TDS return for the April–June quarter',
     who: 'Deductors, including employers',
     detail:
-      'Quarterly TDS statements are due one month after the quarter ends. Late filing carries a daily fee under section 234E, and unfiled statements are the usual reason credit is missing from an employee’s Form 26AS.',
+      'Employers report tax deducted in April, May and June. If the tax credit is missing on the income tax portal, ask your employer to check the statement.',
+    confidence: 'statutory',
+  },
+  {
+    id: 'itr-business-non-audit',
+    date: '31 August',
+    monthOrder: 5,
+    title: 'Income tax return due for eligible businesses without an audit',
+    who: 'People with business or professional income in the non-audit category',
+    detail: 'The law gives this category until 31 August. A separate deadline applies if you have a transfer pricing reporting requirement.',
     confidence: 'statutory',
   },
   {
@@ -86,7 +97,7 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     title: 'Income tax return due — audit cases',
     who: 'Businesses and professionals subject to tax audit',
     detail:
-      'Applies where accounts must be audited under section 44AB. The audit report itself is generally due a month earlier, and both dates have been extended in some years.',
+      'This is the usual return deadline for cases requiring a tax audit. Check the current extension and whether a separate transfer pricing deadline applies.',
     confidence: 'commonly-extended',
   },
   {
@@ -113,10 +124,10 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     id: 'belated-return',
     date: '31 December',
     monthOrder: 9,
-    title: 'Belated and revised returns',
-    who: 'Anyone who missed the due date or needs to correct a filed return',
+    title: 'Last date for a late return',
+    who: 'People who missed their original filing deadline',
     detail:
-      'The last ordinary opportunity to file late or revise a return for the assessment year. A belated return carries a fee under section 234F and forfeits the right to carry forward certain losses.',
+      'You can usually file a late return up to 31 December, or until the tax department completes your assessment if that happens sooner. Late filing can cost you a fee.',
     confidence: 'statutory',
   },
   {
@@ -136,10 +147,19 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     title: 'Final advance tax instalment',
     who: 'Anyone paying advance tax, including presumptive taxpayers',
     detail:
-      'The full estimated liability must be paid by this date. Taxpayers under the presumptive schemes in sections 44AD and 44ADA pay their entire advance tax in this single instalment rather than in four.',
+      'Pay the rest of your estimated tax by this date. Eligible small businesses and professionals using presumptive tax can pay it all in this instalment.',
     confidence: 'statutory',
     relatedHref: '/tools/income-tax-calculator-old-vs-new-regime-india',
     relatedLabel: 'Check your liability',
+  },
+  {
+    id: 'revised-return',
+    date: '31 March',
+    monthOrder: 12,
+    title: 'Last date to correct a return you already filed',
+    who: 'People revising a return from Assessment Year 2026–27 onward',
+    detail: 'You can usually revise up to 31 March, or until the tax department completes your assessment if that happens sooner. A fee applies to revisions after 31 December.',
+    confidence: 'statutory',
   },
   {
     id: 'investment-proofs',
@@ -160,7 +180,7 @@ export const TAX_DEADLINES: TaxDeadline[] = [
     title: 'TDS return for the January–March quarter',
     who: 'Deductors, including employers',
     detail:
-      'The final quarterly statement for the year just ended. Form 16 is generated from it, which is why employers cannot issue Form 16 before this statement is filed.',
+      'This is the final quarterly statement for the tax year that ended in March. Your annual salary TDS certificate includes this quarter.',
     confidence: 'statutory',
   },
 ];

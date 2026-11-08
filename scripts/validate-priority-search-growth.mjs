@@ -57,7 +57,7 @@ for (const slug of targets) {
   // original review date, because a global bump would claim reviews that never
   // happened.
   const REVIEWED = {
-    '8th-pay-commission-salary-calculator-india': '2026-08-22',
+    '8th-pay-commission-salary-calculator-india': '2026-11-09',
     'gold-loan-calculator-india': '2026-08-22',
   };
   const expectedReview = REVIEWED[slug] ?? '2026-08-17';

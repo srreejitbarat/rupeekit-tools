@@ -128,7 +128,7 @@ export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) 
             Cess note: both estimates include 4% health and education cess after rebate handling.
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-2 text-xs">
-            Rebate note: Section 87A rebate and available marginal relief logic are applied based on configured year rules.
+            The estimate applies the rebate and marginal relief rules for the selected year.
           </div>
         </div>
       </div>

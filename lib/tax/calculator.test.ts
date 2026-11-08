@@ -315,11 +315,71 @@ describe.each(['2025-26', '2026-27'])(
   }
 );
 
-describe('FY 2026-27 (AY 2027-28) rules', () => {
+describe('salary surcharge', () => {
+  const input: TaxInput = {
+    grossSalary: 0,
+    hraExemption: 0,
+    homeLoanInterest: 0,
+    section80C: 0,
+    section80D: 0,
+    employerNPS: 0,
+    otherDeductionsOldRegime: 0,
+    otherDeductionsBothRegimes: 0,
+    isSalaried: true,
+  };
+
+  it.each(availableTaxYears)('applies no surcharge at Rs 50 lakh and grants relief one rupee above it in %s', (year) => {
+    for (const regime of ['oldRegime', 'newRegime'] as const) {
+      const standardDeduction = indiaIncomeTaxRules[year][regime].standardDeduction;
+      const grossSalary = 5_000_000 + standardDeduction;
+      const atLimit = calculateIndianIncomeTax({ ...input, grossSalary }, year)[regime];
+      const aboveLimit = calculateIndianIncomeTax({ ...input, grossSalary: grossSalary + 1 }, year)[regime];
+
+      expect(atLimit.surcharge).toBe(0);
+      expect(aboveLimit.rebate).toBe(0);
+      expect(aboveLimit.surcharge).toBeCloseTo(0.70);
+      expect(aboveLimit.taxAfterRebate + aboveLimit.surcharge).toBeCloseTo(atLimit.taxAfterRebate + 1);
+    }
+  });
+
+  it('charges ten percent surcharge before cess on Rs 60 lakh salary', () => {
+    const result = calculateIndianIncomeTax({ ...input, grossSalary: 6_000_000 }, '2026-27');
+
+    expect(result.newRegime.surcharge).toBe(135_750);
+    expect(result.newRegime.cess).toBe(59_730);
+    expect(result.newRegime.finalTax).toBe(1_552_980);
+    expect(result.oldRegime.surcharge).toBe(159_750);
+    expect(result.oldRegime.finalTax).toBe(1_827_540);
+  });
+
+  it.each([10_000_000, 20_000_000, 50_000_000])('measures relief against the previous surcharge band at Rs %i', (threshold) => {
+    const year = '2026-27';
+    for (const regime of ['oldRegime', 'newRegime'] as const) {
+      const grossSalary = threshold + indiaIncomeTaxRules[year][regime].standardDeduction;
+      const atLimit = calculateIndianIncomeTax({ ...input, grossSalary }, year)[regime];
+      const aboveLimit = calculateIndianIncomeTax({ ...input, grossSalary: grossSalary + 1 }, year)[regime];
+      const expectedIncrease = threshold === 50_000_000 && regime === 'newRegime' ? 0.375 : 1;
+
+      expect(aboveLimit.taxAfterRebate + aboveLimit.surcharge).toBeCloseTo(
+        atLimit.taxAfterRebate + atLimit.surcharge + expectedIncrease,
+      );
+    }
+  });
+
+  it('caps the new regime at 25% while the old regime reaches 37% above Rs 5 crore', () => {
+    const result = calculateIndianIncomeTax({ ...input, grossSalary: 60_000_000 }, '2026-27');
+
+    expect(result.newRegime.surcharge).toBeCloseTo(result.newRegime.taxAfterRebate * 0.25);
+    expect(result.oldRegime.surcharge).toBeCloseTo(result.oldRegime.taxAfterRebate * 0.37);
+  });
+});
+
+describe('Tax Year 2026-27 rules', () => {
   it('is registered and is the latest supported year', () => {
     expect(availableTaxYears).toContain('2026-27');
     expect(availableTaxYears[0]).toBe('2026-27');
-    expect(indiaIncomeTaxRules['2026-27'].ay).toBe('2027-28');
+    expect(indiaIncomeTaxRules['2026-27'].ay).toBeUndefined();
+    expect(indiaIncomeTaxRules['2025-26'].ay).toBe('2026-27');
   });
 
   it('carries the Finance Act 2025 new-regime structure forward unchanged', () => {

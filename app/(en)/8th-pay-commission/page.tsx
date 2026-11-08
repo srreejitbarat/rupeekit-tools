@@ -6,6 +6,7 @@ import EighthPayCommissionCalculator from '@/components/calculators/advanced/Eig
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { DA_REVISION_SOURCE } from '@/data/eighth-cpc-pay-matrix';
 import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
@@ -18,8 +19,8 @@ const PAGE_URL = `${SITE_URL}/8th-pay-commission`;
 const CALCULATOR_URL = '/tools/8th-pay-commission-salary-calculator-india';
 const ARREARS_CALCULATOR_URL = '/tools/8th-pay-commission-arrears-calculator-india';
 const PENSION_CALCULATOR_URL = '/tools/8th-pay-commission-pension-calculator-india';
-const LAST_REVIEWED_ISO = '2026-09-08';
-const STATUS_AS_OF = '8 September 2026';
+const LAST_REVIEWED_ISO = '2026-11-09';
+const STATUS_AS_OF = '9 November 2026';
 
 // News velocity on this cluster is high and the status block is dated, so the
 // page is revalidated hourly rather than pinned to a build.
@@ -27,7 +28,7 @@ export const revalidate = 3600;
 
 const TITLE = '8th Pay Commission 2026: Fitment Factor, Salary & Status';
 const DESCRIPTION =
-  'Status as of September 2026: no 8th CPC fitment factor is final. Model your revised basic, HRA, net pay and arrears across every fitment-factor scenario.';
+  'See the latest 8th Pay Commission status and compare possible salary and pension changes. The current 7th Pay Commission DA and DR rate is 63%.';
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -120,24 +121,14 @@ const officialStatus = [
 
 const currentActivities = [
   {
-    activity: 'Chennai stakeholder visit',
-    schedule: '7-8 September 2026',
-    deadline: 'Representations requested by 18 August 2026',
-  },
-  {
-    activity: 'Puducherry stakeholder visit',
-    schedule: '9 September 2026',
-    deadline: 'Representations requested by 18 August 2026',
-  },
-  {
-    activity: 'Chandigarh stakeholder visit',
-    schedule: '16-18 September 2026',
-    deadline: 'Representations requested by 25 August 2026',
-  },
-  {
     activity: 'Bengaluru stakeholder visit',
     schedule: '7-8 October 2026',
     deadline: 'Representations requested by 18 September 2026',
+  },
+  {
+    activity: 'Mumbai stakeholder visit',
+    schedule: '22-23 October 2026',
+    deadline: 'Representations requested by 10 October 2026',
   },
 ];
 
@@ -286,6 +277,10 @@ const officialSources = [
     label: 'PIB — terms of reference and 18-month report period',
     href: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289',
   },
+  {
+    label: 'PIB — 63% DA and DR from 1 July 2026',
+    href: DA_REVISION_SOURCE,
+  },
 ];
 
 export default function EighthPayCommissionHubPage() {
@@ -370,14 +365,10 @@ export default function EighthPayCommissionHubPage() {
           Government Salary
         </span>
         <h1 className="mt-5 text-4xl font-black tracking-tight text-brandDeepNavy md:text-5xl">
-          8th Pay Commission September 2026: Fitment Factor &amp; Latest Status
+          8th Pay Commission 2026: Fitment Factor and Latest Status
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-          Almost every 8th Pay Commission number in circulation is a projection
-          wearing the clothes of a decision. This page separates what is actually
-          settled from what is not, explains the arithmetic that will apply
-          whatever the final factor turns out to be, and points you at the
-          official sources.
+          Check what the government has announced and use your basic pay or pension to see how different pay rises could affect you.
         </p>
         <EditorialByline className="mt-4" updatedIso={LAST_REVIEWED_ISO} />
       </header>
@@ -390,9 +381,10 @@ export default function EighthPayCommissionHubPage() {
           Latest verified update — {STATUS_AS_OF}
         </p>
         <p className="mt-2 text-lg font-bold leading-8 text-brandDeepNavy">
-          The official 8th CPC calendar lists the Chennai stakeholder visit for 7-8 September and Puducherry
-          for 9 September. No fitment factor is final: the Commission has not submitted its report, and the
-          government has not issued a resolution, pay matrix, HRA structure or implementation date.
+          The 8th Pay Commission has yet to publish its report. The government has yet to announce revised pay, allowances or a start date.
+        </p>
+        <p className="mt-2 text-sm leading-6 text-slate-700">
+          Under the current 7th Pay Commission rules, dearness allowance for employees and dearness relief for pensioners rose from 60% to 63% on 1 July 2026.
         </p>
         <dl className="mt-4 grid gap-4 sm:grid-cols-3">
           <div className="rounded-2xl bg-slate-50 p-4">
@@ -417,7 +409,7 @@ export default function EighthPayCommissionHubPage() {
             </dd>
           </div>
         </dl>
-        <p className="mt-4 text-sm font-semibold text-slate-700">Consultation schedule currently listed:</p>
+        <p className="mt-4 text-sm font-semibold text-slate-700">Recent consultation notices</p>
         <ul className="mt-2 space-y-1.5 text-sm leading-6 text-slate-600">
           {currentActivities.map((item) => (
             <li key={item.activity}>
@@ -456,7 +448,7 @@ export default function EighthPayCommissionHubPage() {
 
       <AnswerEngineSummary
         className="mt-6"
-        summary="RupeeKit's 8th Pay Commission hub explains that revised basic pay equals current basic pay multiplied by a fitment factor, that no fitment factor has been officially notified as at 8 September 2026, and that widely quoted figures such as 2.57 are references to the 7th Pay Commission rather than decisions. The official 8th CPC calendar lists stakeholder consultations in Chennai on 7-8 September and Puducherry on 9 September. Because accumulated dearness allowance is merged into the revised basic and restarts from a low base, the increase in take-home pay is materially smaller than the fitment factor suggests. Arrears and pension revision depend on the government resolution accepting the recommendations, not on the Commission's report alone."
+        summary="The current 7th Pay Commission DA and DR rate is 63% from 1 July 2026. The government has yet to announce an 8th Pay Commission fitment factor, pay matrix or start date. This calculator uses a multiplier you choose to show a possible change in basic pay or pension. Actual revised pay and arrears will depend on government orders."
       />
 
       {/* The calculator is the reason this page exists: a snippet can restate
@@ -503,17 +495,10 @@ export default function EighthPayCommissionHubPage() {
           8th CPC fitment factor for government employees
         </h2>
         <p className="mt-4 leading-8 text-slate-700">
-          For a serving employee the factor multiplies basic pay only. Take a Level 7 employee on a basic of
-          Rs 44,900: at 2.28 the revised basic is Rs 1,02,400, and at 2.57 it is Rs 1,15,400. Both look like
-          large jumps, and both overstate the change to take-home pay, because the 60% DA currently sitting on
-          top of that basic is merged into the revised figure and then restarts from zero.
+          The calculator applies the multiplier to basic pay. For a Level 7 employee on Rs 44,900 basic pay, a factor of 2.28 gives an estimated Rs 1,02,400 after rounding. At 2.57, the estimate is Rs 1,15,400. Current gross pay already includes 63% DA on basic pay. The example assumes 0% DA on the new basic pay.
         </p>
         <p className="mt-4 leading-8 text-slate-700">
-          Two further mechanics move the net figure. HRA reverts from the current 30/20/10 rates to 24/16/8,
-          and transport allowance stays a flat amount that no longer attracts DA. Against that, the
-          minimum-HRA floors scale with the fitment factor, which is what protects an employee on the Rs 18,000
-          minimum basic from losing money on the HRA line when the percentage drops. Compare revised gross
-          against current gross, never revised basic against current basic.
+          The calculator also assumes house rent allowance of 24%, 16% or 8%, depending on the city, with a minimum amount. It keeps the transport allowance the same and assumes 0% DA on it. Compare the two gross pay figures to see the effect of these assumptions together.
         </p>
       </section>
 

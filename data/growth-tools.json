@@ -1470,6 +1470,10 @@
       {
         "label": "PIB — DA and DR increased to 60% from 1 January 2026",
         "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+      },
+      {
+        "label": "PIB — 63% DA and DR from 1 July 2026",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2329485&lang=1&reg=3"
       }
     ],
     "factRows": [
@@ -1528,7 +1532,7 @@
         "key": "currentDrPercent",
         "label": "Current DR",
         "unit": "%",
-        "default": 60,
+        "default": 63,
         "min": 0,
         "max": 200,
         "step": 1
@@ -1612,7 +1616,7 @@
       }
     ],
     "formulaExplanation": "Current monthly pension is current basic pension plus entered DR. The illustrative revised basic pension equals current basic pension multiplied by a user-selected scenario. Projected DR and any user-entered additional pension are then added separately.",
-    "example": "For Rs 25,000 current basic pension and 60% DR, current monthly pension is Rs 40,000. A 2.57x flat-multiplier scenario gives Rs 64,250 revised basic before projected DR or additional pension.",
+    "example": "With Rs 25,000 basic pension and 63% dearness relief, the current monthly pension is Rs 40,750. At a multiplier of 2.57, the estimated new basic pension is Rs 64,250 before any relief or additional pension.",
     "quickAnswer": {
       "title": "8th CPC Pension Scenario Quick Answer",
       "question": "How can I compare an 8th Pay Commission pension scenario?",
@@ -1697,8 +1701,8 @@
         "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2183289"
       },
       {
-        "label": "PIB — DA and DR increased to 60% from 1 January 2026",
-        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2253245&lang=1&reg=3"
+        "label": "PIB — 63% DA and DR from 1 July 2026",
+        "href": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2329485&lang=1&reg=3"
       }
     ],
     "factRows": [

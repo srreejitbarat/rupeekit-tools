@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { NextRequest } from 'next/server';
 import { middleware as indexingMiddleware } from '../middleware';
 import { metadata as hubMetadata } from '../app/(en)/8th-pay-commission/page';
+import { DA_PRESETS, DA_REVISION_SOURCE, DEFAULT_DA_PERCENT } from '../data/eighth-cpc-pay-matrix';
 
 const root = process.cwd();
 const read = (file: string) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -16,7 +17,7 @@ const middleware = read('middleware.ts');
 describe('8th CPC hub freshness and indexing', () => {
   it('carries a dated status block near the top of the page', () => {
     expect(hub).toContain('Latest verified update — {STATUS_AS_OF}');
-    expect(hub).toContain("const STATUS_AS_OF = '8 September 2026'");
+    expect(hub).toContain("const STATUS_AS_OF = '9 November 2026'");
     // The status block must precede the calculator in the document.
     expect(hub.indexOf('id="status"')).toBeLessThan(hub.indexOf('id="calculator"'));
   });
@@ -26,7 +27,7 @@ describe('8th CPC hub freshness and indexing', () => {
   });
 
   it('keeps dateModified aligned with the review date', () => {
-    expect(hub).toContain("const LAST_REVIEWED_ISO = '2026-09-08'");
+    expect(hub).toContain("const LAST_REVIEWED_ISO = '2026-11-09'");
     expect(hub).toContain('dateModified: LAST_REVIEWED_ISO');
   });
 
@@ -78,9 +79,14 @@ describe('scenario-based positioning', () => {
     expect(hub).toContain('Not announced');
   });
 
-  it('labels the 64% DA preset as unnotified', () => {
-    expect(matrix).toContain("label: '60% (notified, w.e.f. 1 Jan 2026)', notified: true");
-    expect(matrix).toContain('not notified');
+  it('defaults to the notified July 2026 DA and DR, keeping old scenarios selectable', () => {
+    expect(DEFAULT_DA_PERCENT).toBe(63);
+    expect(DA_REVISION_SOURCE).toContain('PRID=2329485');
+    expect(DA_PRESETS).toMatchObject([
+      { value: 63, notified: true },
+      { value: 60, notified: true },
+      { value: 64, notified: false },
+    ]);
   });
 
   it('defaults the fitment factor to the most cited projection', () => {

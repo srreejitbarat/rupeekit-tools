@@ -1,3 +1,4 @@
+import { PF_WAGE_CEILING } from '../calculators/labour-code';
 import { estimateIncomeTax, type FinancialYear } from '../tax/india-income-tax';
 import { inRange, monthAt, monthIndex, sustainedLead } from './common';
 
@@ -35,10 +36,10 @@ export const SALARY_CASH_EXAMPLE: SalaryCashInput = {
   priorGross: 676_800, priorTaxPaid: 37_331, priorPf: 43_200, priorProfessionalTax: 1_200,
   deduction80C: 0, deduction80D: 0, otherOldDeductions: 0,
   offers: [
-    { id: 'current', name: 'Stay in current job', fixedCtc: 1_440_000, basicPercent: 50, pfRate: 12, capPf: false, monthlyPfWageCap: 15_000,
+    { id: 'current', name: 'Stay in current job', fixedCtc: 1_440_000, basicPercent: 50, pfRate: 12, capPf: false, monthlyPfWageCap: PF_WAGE_CEILING,
       employerPfIncluded: true, professionalTax: 200, otherDeductions: 0, variablePay: 0, variablePayoutPercent: 100,
       variableMonth: 6, joiningBonus: 0, joiningMonth: 1, clawbackMonths: 12, firstPayDelay: 0, switchingCost: 0, workCost: 3_000 },
-    { id: 'offer', name: 'New offer', fixedCtc: 1_800_000, basicPercent: 40, pfRate: 12, capPf: false, monthlyPfWageCap: 15_000,
+    { id: 'offer', name: 'New offer', fixedCtc: 1_800_000, basicPercent: 40, pfRate: 12, capPf: false, monthlyPfWageCap: PF_WAGE_CEILING,
       employerPfIncluded: true, professionalTax: 200, otherDeductions: 0, variablePay: 200_000, variablePayoutPercent: 70,
       variableMonth: 6, joiningBonus: 100_000, joiningMonth: 2, clawbackMonths: 12, firstPayDelay: 1, switchingCost: 75_000, workCost: 8_000 },
   ],

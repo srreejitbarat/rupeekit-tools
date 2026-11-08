@@ -96,6 +96,13 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
   },
 ];
 
+const QUICK_PICKS = [
+  { slug: 'salary-in-hand-calculator-india', topic: 'Salary', question: 'How much salary will I get in hand?' },
+  { slug: 'emi-calculator-india', topic: 'Loans', question: 'What will my monthly loan payment be?' },
+  { slug: 'income-tax-calculator-old-vs-new-regime-india', topic: 'Tax', question: 'How much income tax will I pay?' },
+  { slug: 'sip-calculator-india', topic: 'Investing', question: 'How could my monthly investments grow?' },
+];
+
 function toolsForGroup(tools: Tool[], group: CategoryGroup) {
   return tools.filter((tool) => group.sourceCategories.includes(tool.category));
 }
@@ -110,19 +117,37 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
-      <section className="max-w-3xl">
-        <h1 className="text-3xl font-bold tracking-tight text-brandText md:text-4xl">Search calculators</h1>
-        <p className="mt-4 text-base leading-7 text-brandMuted">
-          Free India-focused calculators for salary, tax, loans, savings and investing.
-        </p>
-        <CalculatorJumpSearch
-          tools={tools.map(({ slug, name, category, shortDescription }) => ({ slug, name, category, shortDescription }))}
-        />
+      <section className="grid items-center gap-6 rounded-2xl border border-brandBorder bg-white p-5 sm:p-7 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-8 dark:bg-slate-900">
+        <div className="min-w-0">
+          <h1 className="text-balance text-brandText">Free money calculators for India</h1>
+          <p className="mt-3 max-w-lg text-base leading-7 text-brandMuted">
+            Check your in-hand salary, loan EMI, tax or savings. Enter your own numbers to see an estimate.
+          </p>
+          <CalculatorJumpSearch
+            tools={tools.map(({ slug, name, category, shortDescription }) => ({ slug, name, category, shortDescription }))}
+          />
+        </div>
+        <div className="rounded-xl border border-brandBorder bg-brandBgSoft p-4 sm:p-5">
+          <h2 className="text-base font-semibold text-brandText">Start with a common question</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {QUICK_PICKS.map(({ slug, topic, question }) => (
+              <li key={slug}>
+                <Link href={`/tools/${slug}`} className="group flex h-full items-start justify-between gap-2 rounded-lg border border-brandBorder bg-white px-3 py-2.5 transition-colors hover:border-brandGrowthGreen dark:bg-slate-900 dark:hover:border-brandBrightGreen">
+                  <span>
+                    <span className="block text-xs font-semibold text-brandGrowthGreen dark:text-brandBrightGreen">{topic}</span>
+                    <span className="mt-1 block text-sm font-medium leading-5 text-brandText group-hover:underline">{question}</span>
+                  </span>
+                  <span aria-hidden="true" className="shrink-0 self-center text-brandMuted">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section id="calculators" className="mt-12 scroll-mt-28">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-brandBorder pb-4 dark:border-slate-800">
-          <h2 className="text-xl font-semibold text-brandText">Calculators</h2>
+          <h2 className="text-xl font-semibold text-brandText">Browse calculators by topic</h2>
           <Link href="/tools" className="inline-flex min-h-11 items-center text-sm font-semibold text-brandNavy hover:underline dark:text-brandBrightGreen">
             View all calculators <span aria-hidden="true" className="ml-2">→</span>
           </Link>
@@ -147,7 +172,7 @@ export default function HomePage() {
 
       <section className="mt-12 border-t border-brandBorder pt-6 dark:border-slate-800">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-xl font-semibold text-brandText">Recent reading</h2>
+          <h2 className="text-xl font-semibold text-brandText">Latest guides</h2>
           <Link href="/blog" className="inline-flex min-h-11 items-center text-sm font-semibold text-brandNavy hover:underline dark:text-brandBrightGreen">Browse all articles <span aria-hidden="true">→</span></Link>
         </div>
         <div className="mt-4 grid gap-6 md:grid-cols-3">

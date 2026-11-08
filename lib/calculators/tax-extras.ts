@@ -8,8 +8,8 @@ export const RULE_9D_THRESHOLD_WITH_EMPLOYER = 250_000;
 /** Threshold where the employer makes no contribution — the government case. */
 export const RULE_9D_THRESHOLD_WITHOUT_EMPLOYER = 500_000;
 
-/** TDS under section 194A applies once accrued taxable interest passes this. */
-export const RULE_9D_TDS_THRESHOLD = 5_000;
+/** Resident TDS threshold for this interest under section 393(1), Table 5(iii). */
+export const RULE_9D_TDS_THRESHOLD = 10_000;
 
 export const RULE_9D_TDS_RATE_WITH_PAN = 0.1;
 export const RULE_9D_TDS_RATE_WITHOUT_PAN = 0.2;

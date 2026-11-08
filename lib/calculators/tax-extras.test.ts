@@ -54,10 +54,10 @@ describe('calculateRule9d', () => {
     expect(result.rows[1].taxableInterest).toBeCloseTo(expectedYearTwoBase * 0.0825, 4);
   });
 
-  it('deducts TDS at 10% once taxable interest passes 5,000', () => {
+  it('deducts TDS at 10% once taxable interest passes 10,000', () => {
     const result = calculateRule9d(rule9dBase);
 
-    expect(result.rows[0].taxableInterest).toBeGreaterThan(5_000);
+    expect(result.rows[0].taxableInterest).toBeGreaterThan(10_000);
     expect(result.rows[0].tdsDeducted).toBeCloseTo(result.rows[0].taxableInterest * 0.1, 6);
   });
 
@@ -67,11 +67,14 @@ describe('calculateRule9d', () => {
     expect(result.rows[0].tdsDeducted).toBeCloseTo(result.rows[0].taxableInterest * 0.2, 6);
   });
 
-  it('skips TDS when taxable interest stays under the threshold', () => {
-    const result = calculateRule9d({ ...rule9dBase, annualEmployeeContribution: 255_000 });
-
-    // 5,000 of taxable contribution earns about 412 of interest.
-    expect(result.rows[0].taxableInterest).toBeLessThan(5_000);
+  it.each([80_000, 100_000])('skips resident TDS on interest at or below the threshold with a taxable balance of %i', (openingTaxableBalance) => {
+    const result = calculateRule9d({
+      ...rule9dBase,
+      annualEmployeeContribution: 250_000,
+      interestRatePercent: 10,
+      openingTaxableBalance,
+    });
+    expect(result.rows[0].taxableInterest).toBe(openingTaxableBalance / 10);
     expect(result.rows[0].tdsDeducted).toBe(0);
   });
 

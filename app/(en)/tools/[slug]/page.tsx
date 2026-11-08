@@ -167,7 +167,7 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
       'Calculate Sukanya Samriddhi Yojana maturity using 15 deposit years and a 21-year term from account opening. Editable 8.2% rate, post office and bank SSY.',
     h1: 'Sukanya Samriddhi Yojana (SSY) Calculator 2026',
     heroDescription:
-      'Project a new or existing SSY account using the correct account-opening timeline: deposits for 15 years and maturity after 21 years. The 8.2% default is an editable Jul-Sep 2026 assumption, not a lifetime guarantee.',
+      'Project a new or existing SSY account using the correct account-opening timeline: deposits for 15 years and maturity after 21 years. The 8.2% default is an editable October-December 2026 assumption, not a lifetime guarantee.',
     lastReviewedIso: '2026-08-17',
   },
   'salary-in-hand-calculator-india': {
@@ -341,7 +341,7 @@ const BURIED_TOOL_INTENT_CONTENT: Record<string, SearchIntentSection[]> = {
       bullets: [
         'Use account age 0 and current balance 0 for a new account.',
         'For an existing account, enter the latest passbook balance so historical credited rates are preserved.',
-        'The 8.2% default is checked for Jul-Sep 2026 and remains editable because rates can change quarterly.',
+        'The 8.2% default is checked for October-December 2026 and remains editable because rates can change quarterly.',
         'Review future deposits and projected interest separately; no fixed 80C tax saving is assumed.',
       ],
     },
@@ -774,6 +774,14 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     tool.slug === CAPITAL_GAINS_SLUG ? {
       href: '/nri',
       label: 'NRI tax guide covering NRE/NRO, DTAA and Schedule FA',
+    } : null,
+    tool.slug === 'fd-calculator-india' && liveToolSlugs.has('recurring-deposit-calculator-india') ? {
+      href: '/tools/recurring-deposit-calculator-india',
+      label: 'recurring deposit calculator',
+    } : null,
+    tool.slug === 'rent-vs-buy-calculator-india' && blogSlugs.has('home-loan-vs-rent-india') ? {
+      href: '/blog/home-loan-vs-rent-india',
+      label: 'Home Loan vs Renting — Side by Side',
     } : null,
     isSalaryClusterPage && blogSlugs.has('new-labour-code-gratuity-rules-india-2026') ? {
       href: '/blog/new-labour-code-gratuity-rules-india-2026',

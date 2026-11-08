@@ -201,11 +201,11 @@ describe('salary cash calendar and fixed-pay solver', () => {
     expect(uncapped.gross).toBe(1_128_000);
     expect(uncapped.pf).toBe(72_000);
     input.offers[0].capPf = true;
-    expect(regularSalary(input.offers[0], input).pf).toBe(21_600);
+    expect(regularSalary(input.offers[0], input).pf).toBe(36_000);
     input.offers[0].pfRate = 10;
-    expect(regularSalary(input.offers[0], input).pf).toBe(18_000);
-    input.offers[0].monthlyPfWageCap = 25_000;
     expect(regularSalary(input.offers[0], input).pf).toBe(30_000);
+    input.offers[0].monthlyPfWageCap = 15_000;
+    expect(regularSalary(input.offers[0], input).pf).toBe(18_000);
   });
 });
 

@@ -76,7 +76,7 @@ export function TaxInputForm({ input, onChange, taxYear, onTaxYearChange }: TaxI
         >
           {availableTaxYears.map((year) => (
             <option key={year} value={year}>
-              FY {year} (AY {indiaIncomeTaxRules[year].ay})
+              {indiaIncomeTaxRules[year].ay ? `FY ${year} (AY ${indiaIncomeTaxRules[year].ay})` : `Tax Year ${year}`}
             </option>
           ))}
         </select>

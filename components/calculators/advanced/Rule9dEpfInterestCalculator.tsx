@@ -196,7 +196,7 @@ export default function Rule9dEpfInterestCalculator({ tool }: { tool: Tool }) {
           <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
             <table className="w-full border-collapse text-sm">
               <caption className="sr-only">
-                Year-by-year split of provident fund interest under Rule 9D
+                Year-by-year split of provident fund interest
               </caption>
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50">
@@ -238,15 +238,15 @@ export default function Rule9dEpfInterestCalculator({ tool }: { tool: Tool }) {
           <p className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 text-xs leading-5 text-slate-600">
             Interest is applied here to the opening balance plus the whole year&apos;s
             contribution. A real fund credits interest on monthly running balances, so the first
-            year of each contribution is slightly overstated. TDS is shown where taxable interest
-            for the year exceeds ₹5,000; the interest remains taxable in your hands either way.
+            year of each contribution is slightly overstated. For residents, this estimate shows TDS
+            when yearly taxable interest exceeds ₹10,000. The interest remains taxable either way.
           </p>
         </section>
       </div>
 
       <CalculatorGovernanceStrip tool={tool} />
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-        <p className="font-bold">How Rule 9D works</p>
+        <p className="font-bold">How taxable PF interest is calculated</p>
         <p className="mt-1">
           Where your own provident fund contributions exceed the threshold in a year, the fund is
           maintained as two notional accounts — taxable and non-taxable. Interest is credited to

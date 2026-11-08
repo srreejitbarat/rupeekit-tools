@@ -9,7 +9,7 @@ import { editorialTeamRef } from '@/lib/seo/editorial';
 import { TaxCalculatorApp } from '@/components/tax/TaxCalculatorApp';
 import { getDiscoverImage } from '@/data/discover-images';
 import { calculateIndianIncomeTax, type TaxInput } from '@/lib/tax/calculator';
-import { availableTaxYears, indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
+import { availableTaxYears } from '@/lib/tax/indiaIncomeTaxRules';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rupeekit.co.in';
 const PAGE_URL = `${SITE_URL}/tools/income-tax-calculator-old-vs-new-regime-india`;
@@ -17,12 +17,10 @@ const DISCOVER_IMAGE = getDiscoverImage('/tools/income-tax-calculator-old-vs-new
 const DISCOVER_IMAGE_URL = DISCOVER_IMAGE ? `${SITE_URL}${DISCOVER_IMAGE.src}` : undefined;
 
 const latestSupportedFy = availableTaxYears[0];
-const latestSupportedRules = indiaIncomeTaxRules[latestSupportedFy];
 
 // Derived from the rules table so the copy cannot drift from the year actually
 // used for the calculations below.
 const TARGET_FY = latestSupportedFy;
-const TARGET_AY = latestSupportedRules.ay;
 
 const pageTitle = 'Old vs New Tax Regime Calculator | Compare Tax & Savings';
 const pageDescription =
@@ -170,18 +168,18 @@ const faqs = [
       'The new regime may be the default in many filing flows, but taxpayers should verify current-year option rules and eligibility before final submission.',
   },
   {
-    question: 'Does the calculator include Section 87A rebate and cess?',
+    question: 'Does the calculator include the tax rebate and cess?',
     answer:
       'Yes. Rebate logic for supported years and 4% health and education cess are included in the estimate output.',
   },
   {
     question: 'Which financial years are currently supported here?',
-    answer: `This calculator supports ${availableTaxYears.map((year) => `FY ${year}`).join(', ')}. FY ${TARGET_FY} (AY ${TARGET_AY}) is the default. Budget 2026 left the new-regime slabs unchanged, so it applies the Finance Act, 2025 slabs, the Rs 75,000 standard deduction for salaried taxpayers, the Section 87A rebate up to Rs 60,000 with marginal relief, and 4% health and education cess.`,
+    answer: `Tax Year ${TARGET_FY} under the Income-tax Act, 2025 is the default. It uses the new-regime slabs under section 202 and the section 156 rebate with marginal relief. Earlier financial years remain available under the Income-tax Act, 1961.`,
   },
   {
     question: 'Does this calculator handle capital gains or other special-rate income?',
     answer:
-      'No. It compares regimes for normal slab-rate income such as salary for a resident individual. Equity STCG, LTCG and other special-rate income follow separate rates and different Section 87A rebate treatment, so total tax can differ when such income exists. Use the capital gains calculator for equity gains and verify combined liability in the official filing utility.',
+      'No. It compares regimes for normal slab-rate income such as salary for a resident individual. Equity STCG, LTCG and other special-rate income follow separate rates and different rebate treatment, so total tax can differ when such income exists. Use the capital gains calculator for equity gains and verify combined liability in the official filing utility.',
   },
   {
     question: 'Should I rely on this as final tax advice?',
@@ -200,7 +198,7 @@ const faqs = [
   },
   {
     question: '12 लाख की आय पर कितना टैक्स लगेगा?',
-    answer: `नई टैक्स रिज़ीम में वित्त वर्ष ${TARGET_FY} के लिए, यदि आपकी सामान्य दर वाली कर योग्य आय ₹12 लाख तक है तो धारा 87A की छूट (अधिकतम ₹60,000) से कर शून्य हो सकता है। वेतनभोगी करदाताओं के लिए ₹75,000 की स्टैंडर्ड डिडक्शन जोड़कर यह सीमा लगभग ₹12.75 लाख सकल वेतन तक पहुँच जाती है। ₹12 लाख से थोड़ा ऊपर जाने पर पूरा टैक्स एकदम से नहीं लगता — मार्जिनल रिलीफ़ के कारण सेस से पहले कर उतना ही सीमित रहता है जितनी आय ₹12 लाख से ऊपर है। विशेष दर वाली आय होने पर गणना बदल सकती है।`,
+    answer: `नई टैक्स रिज़ीम में वित्त वर्ष ${TARGET_FY} के लिए, यदि आपकी सामान्य दर वाली कर योग्य आय ₹12 लाख तक है तो धारा 156 की छूट (अधिकतम ₹60,000) से कर शून्य हो सकता है। वेतनभोगी करदाताओं के लिए ₹75,000 की स्टैंडर्ड डिडक्शन जोड़कर यह सीमा लगभग ₹12.75 लाख सकल वेतन तक पहुँच जाती है। ₹12 लाख से थोड़ा ऊपर जाने पर पूरा टैक्स एकदम से नहीं लगता — मार्जिनल रिलीफ़ के कारण सेस से पहले कर उतना ही सीमित रहता है जितनी आय ₹12 लाख से ऊपर है। विशेष दर वाली आय होने पर गणना बदल सकती है।`,
   },
 ];
 
@@ -345,10 +343,9 @@ export default function IncomeTaxCalculatorPage() {
           </span>
 
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Compare old vs new regime tax estimates for FY {TARGET_FY} (AY {TARGET_AY}) using your salary and
-            deduction inputs. FY {TARGET_FY} slabs, the Rs 75,000 new-regime standard deduction, the Section 87A
-            rebate up to Rs 60,000 with marginal relief, and 4% cess are configured and tested. Earlier years remain
-            selectable.
+            Compare old vs new regime tax estimates for Tax Year {TARGET_FY} using your salary and
+            deduction inputs. The new regime includes a Rs 75,000 standard deduction, a rebate of up to
+            Rs 60,000 with marginal relief, and 4% cess. Earlier years remain selectable.
           </p>
           <EditorialByline className="mt-4" updatedIso="2026-08-03" />
         </div>
@@ -369,7 +366,7 @@ export default function IncomeTaxCalculatorPage() {
         <p className="mt-2 text-sm leading-6 text-slate-700">
           This comparison assumes a resident individual with normal slab-rate income (mainly salary) and the
           deduction inputs shown below. Capital gains and other special-rate income (for example, equity STCG or
-          LTCG) are taxed at separate rates with different Section 87A treatment and are not modelled here. If you
+          LTCG) are taxed at separate rates with different rebate treatment and are not modelled here. If you
           have special-rate income, your total tax can be more than this estimate even when taxable income is
           within the rebate limit — income up to Rs 12 lakh is not automatically tax-free in that case. Use the{' '}
           <Link href="/tools/capital-gains-tax-calculator-india" className="font-semibold text-sky-700 hover:underline">
@@ -445,7 +442,7 @@ export default function IncomeTaxCalculatorPage() {
           <h2 className="text-2xl font-bold text-brandDeepNavy">Salary example table (educational estimate)</h2>
           <p className="mt-4 text-sm leading-7 text-slate-600">
             Illustration for salaried profile with no extra deductions beyond built-in supported-year logic. Rule year used:
-            {' '}FY {latestSupportedFy} (AY {latestSupportedRules.ay}).
+            {' '}Tax Year {latestSupportedFy}.
           </p>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[900px] rounded-2xl border border-slate-200 text-left text-sm text-slate-700">

@@ -161,7 +161,8 @@ export function TaxCalculatorApp() {
         </div>
         <p className="mt-3 text-xs leading-6 text-slate-600">
           Scope: resident-individual normal slab-rate income only. Equity STCG/LTCG and other special-rate income
-          are outside this comparison and can change Section 87A treatment.
+          are outside this comparison and can change rebate eligibility.
+          Surcharge uses the bands for salary. Use the official estimator for dividends or special-rate income.
         </p>
       </section>
 
