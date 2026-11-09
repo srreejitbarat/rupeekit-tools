@@ -110,9 +110,12 @@ function toolsForGroup(tools: Tool[], group: CategoryGroup) {
 export default function HomePage() {
   const tools = getLiveTools();
   const recentPosts = [...blogPosts]
-    .sort((a, b) =>
-      (b.modifiedDateISO ?? b.publishedDateISO ?? b.date).localeCompare(a.modifiedDateISO ?? a.publishedDateISO ?? a.date),
-    )
+    .sort((a, b) => {
+      const firstPublished = a.publishedDateISO ?? a.date;
+      const secondPublished = b.publishedDateISO ?? b.date;
+      return (b.modifiedDateISO ?? secondPublished).localeCompare(a.modifiedDateISO ?? firstPublished)
+        || secondPublished.localeCompare(firstPublished);
+    })
     .slice(0, 3);
 
   return (
