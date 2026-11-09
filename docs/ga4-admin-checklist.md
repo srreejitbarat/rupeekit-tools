@@ -20,9 +20,9 @@ Suggested smoke-test routes: personal-loan EMI, home-loan SWP stress test, rent-
 
 ## Count visits with a valid calculation
 
-In the RupeeKit GA4 property, `valid_calculation` is a key event with the **Once per session** counting method and no default value. Use the **Key events** metric for this event to count visits with a calculation. The raw Event count can include several valid calculations in one session.
+In the RupeeKit GA4 property, `valid_calculation` is a key event with the **Once per session** counting method and no default value. The site uses the existing Google tag session ID to send the first valid calculation. It stores the latest session marker in the browser and uses a browser lock where available. If the browser blocks storage, the open page can still suppress repeat sends. The event payload contains tool details, the page title, path-only URLs, and optional timing.
 
-`calculation_completed` belongs to the previous measurement period. Start a fresh comparison after the `valid_calculation` rollout. For a smoke test, open a calculator, leave its defaults alone, enter an invalid input, then enter a valid one. Only the valid result should send the new event. Make a second valid calculation on a different tool in the same session and confirm that GA4 credits one key event to that session.
+`calculation_completed` belongs to the previous measurement period. Start a fresh comparison after the `valid_calculation` rollout. For a smoke test, open a calculator, leave its defaults alone, enter an invalid input, then enter a valid one. Only the valid result should send the new event. Make a second valid calculation on a different tool in the same session and confirm that the site sends no additional `valid_calculation` event.
 
 ## Register custom dimensions
 
