@@ -1,20 +1,45 @@
 // @vitest-environment jsdom
 import React from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { trackValidCalculation } from "@/lib/analytics";
 import PreEmiPlanner from "./PreEmiPlanner";
 
-vi.mock("@/lib/analytics", () => ({ trackAnalyticsEvent: vi.fn() }));
+vi.mock("@/lib/analytics", () => ({ trackAnalyticsEvent: vi.fn(), trackValidCalculation: vi.fn() }));
 beforeEach(() => {
   localStorage.clear();
 });
 afterEach(() => {
   cleanup();
+  vi.useRealTimers();
+  vi.clearAllMocks();
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
 });
 describe("Pre-EMI planner user journeys", () => {
+  it("only tracks a valid user calculation, excluding defaults and reset", () => {
+    vi.useFakeTimers();
+    render(<PreEmiPlanner initialMonth="2026-10" />);
+    const waitForCalculation = () => act(() => vi.advanceTimersByTime(400));
+    const loan = screen.getByLabelText("Sanctioned loan");
+    waitForCalculation();
+    fireEvent.change(loan, { target: { value: "" } });
+    waitForCalculation();
+    expect(trackValidCalculation).not.toHaveBeenCalled();
+
+    fireEvent.change(loan, { target: { value: "5000000" } });
+    waitForCalculation();
+    expect(trackValidCalculation).toHaveBeenCalledExactlyOnceWith({
+      tool_slug: "pre-emi-calculator-india",
+      tool_category: "Loans",
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: "Reset example" }));
+    fireEvent.click(screen.getByRole("button", { name: "Reset inputs" }));
+    waitForCalculation();
+    expect(trackValidCalculation).toHaveBeenCalledTimes(1);
+  });
   it("switches strategies and shows the cash reserve trade-off", async () => {
     const user = userEvent.setup();
     render(<PreEmiPlanner initialMonth="2026-10" />);

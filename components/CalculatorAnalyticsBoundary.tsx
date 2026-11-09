@@ -1,10 +1,11 @@
 'use client';
 
 import type { ReactNode, SyntheticEvent } from 'react';
-import { useEffect, useRef, useState } from 'react';
-import { trackAnalyticsEvent } from '@/lib/analytics';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { trackAnalyticsEvent, trackValidCalculation } from '@/lib/analytics';
 import FinancialUpdatesSignup from '@/components/updates/FinancialUpdatesSignup';
 import ContextualNextSteps from '@/components/ContextualNextSteps';
+import { CalculatorResultContext } from '@/components/useCalculatorResult';
 
 const UPDATE_ALERT_TOOL_SLUGS = new Set([
   '8th-pay-commission-salary-calculator-india',
@@ -45,17 +46,21 @@ function setNativeValue(field: ShareableField, value: string) {
 }
 
 const CALCULATION_DEBOUNCE_MS = 350;
+const INPUT_RESULT_WINDOW_MS = 1_000;
+const RESULT_MARKER = 'data-calculator-result';
 
 export default function CalculatorAnalyticsBoundary({
   toolSlug,
   toolCategory,
   children,
   shareInputs = true,
+  analyticsOnly = false,
 }: {
   toolSlug: string;
   toolCategory: string;
   children: ReactNode;
   shareInputs?: boolean;
+  analyticsOnly?: boolean;
 }) {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [hasCalculated, setHasCalculated] = useState(false);
@@ -67,6 +72,8 @@ export default function CalculatorAnalyticsBoundary({
   const resultPanelViewedRef = useRef(false);
   const summarySentRef = useRef(false);
   const calculationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const inputAtRef = useRef<number | null>(null);
+  const analyticsBase = useMemo(() => ({ tool_slug: toolSlug, tool_category: toolCategory }), [toolSlug, toolCategory]);
 
   useEffect(() => {
     mountedAtRef.current = performance.now();
@@ -77,7 +84,7 @@ export default function CalculatorAnalyticsBoundary({
   // user-entered calculation.
   useEffect(() => {
     const root = calculatorRef.current;
-    if (!root || typeof window === 'undefined' || !shareInputs) return;
+    if (!root || typeof window === 'undefined' || !shareInputs || analyticsOnly) return;
     const params = new URLSearchParams(window.location.search);
     if (![...params.keys()].some((key) => key.startsWith(SHARE_PARAM_PREFIX))) return;
 
@@ -107,55 +114,76 @@ export default function CalculatorAnalyticsBoundary({
     } finally {
       restoringInputsRef.current = false;
     }
-  }, [shareInputs]);
+  }, [shareInputs, analyticsOnly]);
 
-  const elapsedMs = () => {
+  const elapsedMs = useCallback(() => {
     if (!mountedAtRef.current) return 0;
     return Math.max(0, Math.round(performance.now() - mountedAtRef.current));
-  };
+  }, []);
 
-  const baseParameters = () => ({ tool_slug: toolSlug, tool_category: toolCategory });
-
-  const recordCalculation = () => {
+  const recordCalculation = useCallback(() => {
+    calculationTimerRef.current = null;
     calculationCountRef.current += 1;
     setHasCalculated(true);
-    const calculationNumber = calculationCountRef.current;
-    const parameters = baseParameters();
+    const firstCalculation = calculationCountRef.current === 1;
+    if (firstCalculation) {
+      trackAnalyticsEvent('calculator_used', analyticsBase);
+      trackAnalyticsEvent('result_viewed', analyticsBase);
+    }
+    trackValidCalculation({
+      ...analyticsBase,
+      time_to_first_calculation_ms: firstCalculation ? elapsedMs() : undefined,
+    });
+  }, [analyticsBase, elapsedMs]);
 
-    if (calculationNumber === 1) {
-      trackAnalyticsEvent('calculator_used', parameters);
-      trackAnalyticsEvent('result_viewed', parameters);
-      trackAnalyticsEvent('calculation_completed', {
-        ...parameters,
-        calculation_number: calculationNumber,
-        time_to_first_calculation_ms: elapsedMs(),
-      });
+  const clearScheduledCalculation = useCallback(() => {
+    if (calculationTimerRef.current === null) return;
+    clearTimeout(calculationTimerRef.current);
+    calculationTimerRef.current = null;
+  }, []);
+
+  const recordInput = (event: SyntheticEvent<HTMLElement>) => {
+    if (restoringInputsRef.current) return;
+    const target = event.target;
+    if (target instanceof Element && target.hasAttribute('data-calculation-ignore')) {
+      inputAtRef.current = null;
       return;
     }
-
-    trackAnalyticsEvent('calculation_completed', {
-      ...parameters,
-      calculation_number: calculationNumber,
-    });
-  };
-
-  const scheduleCalculation = () => {
-    if (restoringInputsRef.current) return;
     setHasInteracted(true);
-    if (calculationTimerRef.current) clearTimeout(calculationTimerRef.current);
-    calculationTimerRef.current = setTimeout(recordCalculation, CALCULATION_DEBOUNCE_MS);
+    clearScheduledCalculation();
+    if (target instanceof HTMLInputElement && target.type === 'number' &&
+        (target.value === '' || target.validity.badInput || target.validity.rangeUnderflow || target.validity.rangeOverflow)) {
+      inputAtRef.current = null;
+      return;
+    }
+    inputAtRef.current = performance.now();
   };
 
-  const markButtonUse = (event: SyntheticEvent<HTMLElement>) => {
-    const target = event.target;
-    if (target instanceof Element && target.closest('button')) scheduleCalculation();
+  const markCalculationAction = (event: SyntheticEvent<HTMLElement>) => {
+    const button = event.target instanceof Element ? event.target.closest('button') : null;
+    if (button?.hasAttribute('data-calculation-action')) recordInput(event);
+    else inputAtRef.current = null;
   };
+
+  const reportResult = useCallback((valid: boolean, submitted: boolean) => {
+    if (restoringInputsRef.current) return;
+    const inputAt = inputAtRef.current;
+    inputAtRef.current = null;
+    if (!submitted && (inputAt === null || performance.now() - inputAt > INPUT_RESULT_WINDOW_MS)) return;
+
+    setHasInteracted(true);
+    clearScheduledCalculation();
+    if (!valid) return;
+    if (submitted) recordCalculation();
+    else calculationTimerRef.current = setTimeout(recordCalculation, CALCULATION_DEBOUNCE_MS);
+  }, [clearScheduledCalculation, recordCalculation]);
 
   useEffect(() => {
     const calculator = calculatorRef.current;
-    if (!hasInteracted || resultPanelViewedRef.current || !calculator) return;
+    if (!hasCalculated || resultPanelViewedRef.current || !calculator) return;
 
-    const labelledResults = calculator.querySelector<HTMLElement>('[aria-label="Estimated results"]');
+    const labelledResults = calculator.querySelector<HTMLElement>(`[${RESULT_MARKER}]`) ??
+      calculator.querySelector<HTMLElement>('[aria-label="Estimated results"]');
     const resultsHeading = Array.from(calculator.querySelectorAll<HTMLElement>('h2, h3')).find((node) =>
       node.textContent?.trim().toLowerCase().includes('estimated results')
     );
@@ -166,7 +194,7 @@ export default function CalculatorAnalyticsBoundary({
       if (resultPanelViewedRef.current) return;
       resultPanelViewedRef.current = true;
       trackAnalyticsEvent('result_panel_viewed', {
-        ...baseParameters(),
+        ...analyticsBase,
         calculation_number: Math.max(calculationCountRef.current, 1),
       });
     };
@@ -188,22 +216,18 @@ export default function CalculatorAnalyticsBoundary({
     );
     observer.observe(resultPanel);
     return () => observer.disconnect();
-  }, [hasInteracted, toolCategory, toolSlug]);
+  }, [analyticsBase, hasCalculated]);
 
   useEffect(() => {
     const finishSession = (reason: 'pagehide' | 'unmount') => {
       if (summarySentRef.current) return;
       summarySentRef.current = true;
-      if (calculationTimerRef.current) {
-        clearTimeout(calculationTimerRef.current);
-        calculationTimerRef.current = null;
-      }
+      clearScheduledCalculation();
 
       const engagementTime = elapsedMs();
-      const parameters = baseParameters();
       if (calculationCountRef.current === 0) {
         trackAnalyticsEvent('calculator_abandoned', {
-          ...parameters,
+          ...analyticsBase,
           engagement_time_msec: engagementTime,
           reason,
         });
@@ -211,7 +235,7 @@ export default function CalculatorAnalyticsBoundary({
       }
 
       trackAnalyticsEvent('calculator_session_summary', {
-        ...parameters,
+        ...analyticsBase,
         calculations: calculationCountRef.current,
         recalculations: Math.max(calculationCountRef.current - 1, 0),
         result_panel_viewed: resultPanelViewedRef.current,
@@ -225,7 +249,7 @@ export default function CalculatorAnalyticsBoundary({
       window.removeEventListener('pagehide', onPageHide);
       finishSession('unmount');
     };
-  }, [toolCategory, toolSlug]);
+  }, [analyticsBase, clearScheduledCalculation, elapsedMs]);
 
   const showUpdateSignup = hasInteracted && UPDATE_ALERT_TOOL_SLUGS.has(toolSlug);
 
@@ -250,7 +274,6 @@ export default function CalculatorAnalyticsBoundary({
   const shareResult = async () => {
     const permalink = buildPermalink();
     if (!permalink) return;
-    const analyticsBase = baseParameters();
     const shareData = {
       title: 'RupeeKit calculator result',
       text: shareInputs ? 'Open this RupeeKit calculator with the same input values.' : 'Explore this RupeeKit planning calculator.',
@@ -278,16 +301,22 @@ export default function CalculatorAnalyticsBoundary({
     }
   };
 
+  const calculator = (
+    <div
+      ref={calculatorRef}
+      onChangeCapture={recordInput}
+      onInputCapture={recordInput}
+      onClickCapture={markCalculationAction}
+    >
+      <CalculatorResultContext.Provider value={reportResult}>{children}</CalculatorResultContext.Provider>
+    </div>
+  );
+
+  if (analyticsOnly) return calculator;
+
   return (
     <div>
-      <div
-        ref={calculatorRef}
-        onChangeCapture={scheduleCalculation}
-        onInputCapture={scheduleCalculation}
-        onClickCapture={markButtonUse}
-      >
-        {children}
-      </div>
+      {calculator}
       <ContextualNextSteps toolSlug={toolSlug} toolCategory={toolCategory} visible={hasCalculated} />
       {showUpdateSignup ? (
         <div className="mt-6">

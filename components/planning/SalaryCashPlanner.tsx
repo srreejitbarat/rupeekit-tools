@@ -74,7 +74,7 @@ export default function SalaryCashPlanner() {
       </Step>
       <UpdatePlan dirty={p.dirty} label="Update cash comparison" />
     </form>
-    <div ref={p.resultsRef} tabIndex={-1} aria-label="Estimated results" className="space-y-5 outline-none">
+    <div data-calculator-result ref={p.resultsRef} tabIndex={-1} aria-label="Estimated results" className="space-y-5 outline-none">
       <Errors errors={r.errors} />
       {!r.errors.length && option && <>
         {p.dirty && <Note warning>These results still use the previous inputs. Update the cash comparison to refresh them.</Note>}

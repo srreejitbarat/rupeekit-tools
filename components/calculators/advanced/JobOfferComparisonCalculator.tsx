@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import {
   MAX_OFFERS,
@@ -244,6 +245,12 @@ export default function JobOfferComparisonCalculator({ tool }: { tool: Tool }) {
 
   const { results, bestByCashIndex, bestByTotalValueIndex, rankingsDisagree, cashGapToRunnerUp } =
     comparison;
+  const hasCompleteOffers = drafts.every((draft) => numeric(draft.fixedAnnual) > 0 &&
+    [draft.fixedAnnual, draft.variableAnnual, draft.variablePayoutPercent, draft.basicPercent,
+      draft.benefitsAnnual, draft.workCostsAnnual, draft.joiningBonus].every(Number.isFinite));
+  useCalculatorResult(comparison, hasCompleteOffers &&
+    [monthlyProfessionalTax, input80C, input80D].every(Number.isFinite) &&
+    results.every((result) => Number.isFinite(result.recurringNetCashValue)));
   const cashWinner = results[bestByCashIndex];
   const valueWinner = results[bestByTotalValueIndex];
 
@@ -399,7 +406,7 @@ export default function JobOfferComparisonCalculator({ tool }: { tool: Tool }) {
       ) : null}
 
       {cashWinner && valueWinner ? (
-        <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5">
+        <div data-calculator-result className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5">
           <p className="text-xs font-bold uppercase tracking-wide text-emerald-800">
             On ongoing-year net cash
           </p>

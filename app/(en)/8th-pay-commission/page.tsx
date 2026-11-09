@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import EighthPayCommissionCalculator from '@/components/calculators/advanced/EighthPayCommissionCalculator';
+import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
 import AnswerEngineSummary from '@/components/seo/AnswerEngineSummary';
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
@@ -465,7 +466,9 @@ export default function EighthPayCommissionHubPage() {
           CGEGIS to reach a net figure. Pensioners can switch modes for a basic-pension projection.
         </p>
         <div className="mt-6">
-          <EighthPayCommissionCalculator />
+          <CalculatorAnalyticsBoundary toolSlug="8th-pay-commission-salary-calculator-india" toolCategory="Salary" analyticsOnly>
+            <EighthPayCommissionCalculator />
+          </CalculatorAnalyticsBoundary>
         </div>
       </section>
 

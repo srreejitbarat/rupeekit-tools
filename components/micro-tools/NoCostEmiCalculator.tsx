@@ -45,7 +45,7 @@ export default function NoCostEmiCalculator() {
       </Step>
       <UpdatePlan dirty={f.dirty} label="Compare purchase and return costs" />
     </form>
-    <div ref={f.resultsRef} tabIndex={-1} className="space-y-6 outline-none" aria-label="Estimated results">
+    <div data-calculator-result ref={f.resultsRef} tabIndex={-1} className="space-y-6 outline-none" aria-label="Estimated results">
       <Errors errors={r.errors} />
       {!r.errors.length && <>
         <section className={panel}><p className="text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-200">If you buy and keep it</p>

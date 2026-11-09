@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { calculateLabourCodeImpact, PF_WAGE_CEILING } from '@/lib/calculators/labour-code';
 import {
@@ -104,6 +105,9 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
     ]
   );
 
+  useCalculatorResult(result, numeric(annualCtc) > 0 &&
+    [annualCtc, currentBasicPercent, monthlyProfessionalTax, result.after.monthlyTakeHome].every(Number.isFinite));
+
   const { before, after } = result;
   const takeHomeFalls = result.monthlyTakeHomeChange < -1;
 
@@ -178,7 +182,7 @@ export default function LabourCodeTakeHomeCalculator({ tool }: { tool: Tool }) {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Before vs after</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {result.alreadyCompliant

@@ -67,6 +67,7 @@ import CalculatorPresets, { type CalculatorPreset } from '@/components/calculato
 import type { PersonalLoanEmiReportPdfData } from '@/components/personal-loan/PersonalLoanEmiReportPdfDocument';
 import type { EmergencyFundPlanPdfData } from '@/components/emergency-fund/EmergencyFundPlanPdfDocument';
 import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
+import { hasValidToolInputs, useCalculatorResult } from '@/components/useCalculatorResult';
 import GenericCalculatorExperience from '@/components/GenericCalculatorExperience';
 import PlanningExperience, { PLANNING_TOOLS, type PlanningSlug } from '@/components/planning/PlanningExperience';
 import { isMicroTool } from '@/lib/micro-tools/common';
@@ -150,6 +151,8 @@ function StandardCalculator({ tool }: { tool: Tool }) {
     () => results.filter((result) => !result.hidden),
     [results]
   );
+  useCalculatorResult(results, hasValidToolInputs(tool.inputs, values) &&
+    visibleResults.length > 0 && visibleResults.every((result) => Number.isFinite(result.value)));
 
   const hasChart = useMemo(() => {
     return [
@@ -539,7 +542,7 @@ function StandardCalculator({ tool }: { tool: Tool }) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8 flex flex-col justify-between">
+        <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8 flex flex-col justify-between">
           <div>
             <h2 className="text-xl font-bold text-brandDeepNavy">Estimated results</h2>
             <div className="mt-6">

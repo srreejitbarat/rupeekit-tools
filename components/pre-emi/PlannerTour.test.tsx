@@ -5,7 +5,7 @@ import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testi
 import userEvent from "@testing-library/user-event";
 import PreEmiPlanner from "./PreEmiPlanner";
 
-vi.mock("@/lib/analytics", () => ({ trackAnalyticsEvent: vi.fn() }));
+vi.mock("@/lib/analytics", () => ({ trackAnalyticsEvent: vi.fn(), trackValidCalculation: vi.fn() }));
 const seenKey = "rupeekit:pre-emi:tour:v1";
 const planKey = "rupeekit:pre-emi:plan:v1";
 const originalDialog = {

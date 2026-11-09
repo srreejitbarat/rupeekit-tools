@@ -1,13 +1,12 @@
 {
   "salary-in-hand-calculator-india": {
-    "shortDescription": "Estimate monthly take-home pay from CTC-based salary assumptions, employee PF, TDS, professional tax and other deductions, while checking which employer-side CTC items may sit outside monthly cash salary.",
+    "shortDescription": "Estimate what reaches your bank account each month using your CTC, basic pay, PF and tax details.",
     "quickAnswer": {
-      "title": "CTC to In-Hand Salary Quick Answer",
+      "title": "From CTC to take-home pay",
       "question": "How do I estimate in-hand salary from CTC?",
-      "answer": "Start with the monthly cash-salary base in your offer or payslip, then subtract employee PF, TDS or income tax, professional tax and recurring employee-side deductions. CTC can also contain employer PF, gratuity, insurance, variable pay or benefits that are not paid as monthly cash, so CTC divided by 12 can overstate gross monthly salary for some structures.",
-      "formula": "Estimated in-hand = monthly salary base − employee PF − TDS − professional tax − other employee deductions",
-      "example": "For a ₹12 lakh annual CTC, first check whether employer PF, gratuity, bonus or insurance are included in the ₹12 lakh before treating ₹1 lakh as monthly gross cash salary.",
-      "note": "Educational estimate only. Use your offer letter and latest payslip for the most reliable component values.",
+      "answer": "Start with gross monthly pay. Subtract your employee provident fund (PF), income tax withheld (TDS), professional tax and other payroll deductions. The CTC on your offer can also include employer PF, gratuity, insurance and bonuses outside regular monthly pay.",
+      "formula": "Estimated take-home = monthly gross pay − employee PF − estimated TDS − professional tax − other payroll deductions",
+      "note": "Educational estimate only. Check your offer letter and payslip before relying on the result.",
       "links": [
         {
           "label": "Compare old vs new tax regime",
@@ -29,35 +28,30 @@
     },
     "contentSections": [
       {
-        "heading": "What parts of CTC may not become monthly in-hand salary?",
-        "body": "When employer PF is included in CTC, the calculator removes its modelled contribution before estimating monthly gross cash salary. Gratuity accrual, insurance, variable bonuses and other non-cash or deferred components are not automatically separated. Use the fixed-pay component from your offer letter and check the employer-PF setting; use the salary cash planner for bonus timing and job-switch cash flow.",
+        "heading": "What CTC, gross pay and take-home mean",
+        "body": "CTC is what your employer budgets for your pay and benefits. Gross pay is your cash salary before deductions. Take-home is the amount that reaches your bank account.",
         "bullets": [
-          "Basic salary: the fixed salary component used for several payroll calculations.",
-          "HRA: a salary component that may be part of gross pay; income-tax exemption depends on eligibility and regime rules.",
-          "Employee PF: deducted from salary where applicable and therefore reduces monthly take-home.",
-          "Employer PF: an employer-side contribution that may be included in CTC but is not monthly take-home cash.",
-          "Gratuity: often shown as a CTC cost or accrual; it is not normally a monthly cash payment to the employee.",
-          "Professional tax: a state-specific payroll deduction where applicable.",
-          "TDS: payroll withholding based on estimated taxable income, declarations and the selected tax regime."
+          "Your offer can include employer PF, gratuity, insurance and bonuses as part of CTC.",
+          "Your payslip shows deductions from gross pay, including employee PF, income tax and professional tax."
         ]
       },
       {
-        "heading": "Why the tax-regime comparison belongs in the salary journey",
-        "body": "Choose a supported financial year and switch between old and new regimes to compare estimated income tax and monthly take-home. The quick calculator computes tax from salary and the entered deductions; it does not ask you to enter monthly TDS. HRA and eligible deduction inputs affect the old-regime estimate. Actual payroll withholding can differ because of prior income, declarations, bonus timing and employer adjustments; reconcile it with your payslip and Form 16."
+        "heading": "Compare tax regimes and job offers",
+        "body": "The Quick calculator computes tax from your salary and eligible deductions. Keep the salary inputs the same when comparing tax regimes. Use the Salary cash planner to compare offers month by month when bonuses, a delayed first pay or switching costs matter."
       }
     ],
     "faqs": [
       {
         "question": "Does HRA increase in-hand salary?",
-        "answer": "HRA can be part of gross salary and therefore part of monthly cash pay, but its tax treatment is separate. HRA exemption eligibility depends on rent, salary, location and the applicable tax-regime rules."
+        "answer": "HRA can be part of your gross pay. Whether any of it is exempt from tax depends on your tax regime, rent, salary and location."
       },
       {
         "question": "Is gratuity deducted from my monthly salary?",
-        "answer": "An employer may show gratuity as part of CTC without paying that amount as monthly cash. Whether and when gratuity becomes payable depends on the applicable employment and gratuity rules, so use the employer's salary structure rather than treating it as a routine employee-side monthly deduction."
+        "answer": "Gratuity in your CTC usually shows an employer cost. Check your offer to see how it is listed and your payslip to see your actual monthly deductions."
       },
       {
         "question": "Why should I compare tax regimes before estimating in-hand salary?",
-        "answer": "The regime choice changes the calculator's estimated income tax and monthly take-home. Keep the same salary inputs, switch regimes and enter the deductions you actually qualify for. The result is an estimate; payroll TDS may also reflect income and deductions outside this model."
+        "answer": "Your tax regime changes the estimated tax deducted from your pay. Compare both with the same salary, using only deductions you qualify for. Your employer may withhold a different amount."
       }
     ],
     "related": [
@@ -71,8 +65,8 @@
         "href": "https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1"
       },
       {
-        "label": "Income Tax Department — ITR-2 online guidance for AY 2026-27",
-        "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/file-itr-2-online"
+        "label": "Income Tax Department — Tax Year 2026–27 estimator guide",
+        "href": "https://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/income-and-tax-estimator-um"
       },
       {
         "label": "EPFO — Employees' Provident Fund Organisation",
@@ -80,6 +74,19 @@
       }
     ],
     "lastReviewed": "12 September 2026",
-    "lastReviewedIso": "2026-09-12"
+    "lastReviewedIso": "2026-09-12",
+    "formulaExplanation": "Start with the monthly gross pay shown by the calculator. Subtract employee PF, estimated monthly income tax (TDS), professional tax and other payroll deductions to get your estimated take-home pay.",
+    "example": "Suppose your annual CTC is ₹12 lakh and your monthly basic pay is ₹50,000. With employer PF of ₹6,000 a month included in CTC, gross pay is ₹94,000 a month. Subtract ₹6,000 employee PF and ₹200 professional tax. With no other income or deductions and ₹0 estimated income tax under the new regime for Tax Year 2026–27, take-home is ₹87,800 a month. This example assumes both PF contributions are 12% of full basic pay and the package has no other employer costs or separate bonuses.",
+    "howToUse": [
+      "Enter your fixed annual pay from the offer. Leave out bonuses paid separately, gratuity, insurance and other costs that do not reach you as regular pay.",
+      "Use basic pay from your offer or payslip. If you know it, turn off the automatic estimate and enter annual basic pay as a percentage of the annual amount you entered.",
+      "Check whether employer PF is already in that amount. Set your employee PF rate, professional tax and other monthly deductions using your payslip.",
+      "Select your tax year and regime. Use the monthly breakdown to check gross pay, estimated tax and take-home. For the old regime, enter only rent and deductions you qualify for."
+    ],
+    "assumptions": [
+      "The Quick calculator assumes employer PF is 12% of basic pay when you include it in CTC. It applies your employee PF rate to full basic pay. If your employer caps PF or uses a different wage base, check the actual amounts with payroll.",
+      "Monthly tax is an estimate based on salary and the year and regime you select. Actual withholding can change with bonuses, declarations or earlier income.",
+      "The Quick calculator excludes the surcharge on taxable income above ₹50 lakh. Use the income tax calculator for an estimate that includes the salary surcharge."
+    ]
   }
 }

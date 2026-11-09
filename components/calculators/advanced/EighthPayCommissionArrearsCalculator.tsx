@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { calculateEighthPayCommissionArrears } from '@/lib/calculators/search-growth';
 import {
@@ -111,6 +112,14 @@ export default function EighthPayCommissionArrearsCalculator({ tool }: { tool: T
     oneTimeDeductions,
   ]);
 
+  const completeInputs = [
+    currentBasic, projectedBasic, currentDa, projectedDa, currentHra, projectedHra,
+    currentOtherPay, projectedOtherPay, oneTimeDeductions,
+  ].every(Number.isFinite);
+  const validResult = completeInputs && numeric(currentBasic) > 0 && numeric(projectedBasic) > 0 &&
+    result.arrearsMonths > 0 && Object.values(result).every(Number.isFinite);
+  useCalculatorResult(result, validResult);
+
   return (
     <div className="space-y-6">
 
@@ -148,7 +157,7 @@ export default function EighthPayCommissionArrearsCalculator({ tool }: { tool: T
         </div>
 
         <div className="space-y-5">
-          <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+          <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
             <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Illustrative result</p>
             <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">Arrears scenario</h3>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">

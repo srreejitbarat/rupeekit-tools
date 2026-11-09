@@ -9,6 +9,7 @@ import type { SipPlanPdfData } from '@/components/sip/SipPlanPdfDocument';
 import { trackToolEvent } from '@/lib/events';
 import { getSipReturnPresetKey, isSipReturnPreset } from '@/lib/sip/presets';
 import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 
 type SipMode = 'regular' | 'step-up' | 'goal' | 'compare';
 type CatchUpPreference = 'none' | 'equal';
@@ -1589,6 +1590,18 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
     regularResult,
   ]);
 
+  const validProjection = mode === 'goal'
+    ? targetCorpus > 0 && goalYears > 0
+    : monthlySip > 0 && durationYears > 0;
+  useCalculatorResult(summaryCards, validProjection && summaryCards.every((card) => Number.isFinite(card.value)));
+  useCalculatorResult(inflationAdjusted, validProjection && Number.isFinite(inflationAdjusted.futureValue));
+  useCalculatorResult(consistencySimulation, validProjection && Number.isFinite(consistencySimulation.projection.futureValue));
+  useCalculatorResult(pauseWithRestart, durationYears > 0 && monthlySip > 0 && Number.isFinite(pauseWithRestart.futureValue));
+  useCalculatorResult(salaryHikePlan, salaryPlannerCurrentSip > 0 && salaryPlannerDurationYears > 0 &&
+    Number.isFinite(salaryHikePlan.projection.futureValue));
+  useCalculatorResult(emiRedirectWithIncrease, redirectEmiAmount > 0 && redirectDurationYears > 0 &&
+    Number.isFinite(emiRedirectWithIncrease.projection.futureValue));
+
   const presetActive = useMemo(() => {
     return getSipReturnPresetKey(expectedReturn);
   }, [expectedReturn]);
@@ -1716,6 +1729,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
           <span>Choose SIP mode</span>
           <select
             id="sip-mode"
+            data-calculation-ignore
             value={mode}
             onChange={(event) => {
               setActiveSipPresetId(null);
@@ -1845,6 +1859,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
               <div className="mt-3 flex flex-wrap gap-2">
                 <button
                   type="button"
+                  data-calculation-action
                   onClick={() => setExpectedReturn(8)}
                   className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                     presetActive === '8'
@@ -1856,6 +1871,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
                 </button>
                 <button
                   type="button"
+                  data-calculation-action
                   onClick={() => setExpectedReturn(10)}
                   className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                     presetActive === '10'
@@ -1867,6 +1883,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
                 </button>
                 <button
                   type="button"
+                  data-calculation-action
                   onClick={() => setExpectedReturn(12)}
                   className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                     presetActive === '12'
@@ -1927,7 +1944,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8 flex flex-col justify-between">
+        <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8 flex flex-col justify-between">
           <div>
             <h2 className="text-xl font-bold text-brandDeepNavy">Estimated results</h2>
             <div className="mt-6">
@@ -2241,6 +2258,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
             <div className="mt-2 flex flex-wrap gap-2">
               <button
                 type="button"
+                data-calculation-action
                 onClick={() => setCatchUpPreference('none')}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                   catchUpPreference === 'none'
@@ -2252,6 +2270,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
               </button>
               <button
                 type="button"
+                data-calculation-action
                 onClick={() => setCatchUpPreference('equal')}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                   catchUpPreference === 'equal'
@@ -2306,6 +2325,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
             <div className="mt-2 flex flex-wrap gap-2">
               <button
                 type="button"
+                data-calculation-action
                 onClick={() => setRestartMode('same')}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                   restartMode === 'same'
@@ -2317,6 +2337,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
               </button>
               <button
                 type="button"
+                data-calculation-action
                 onClick={() => setRestartMode('higher')}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                   restartMode === 'higher'
@@ -2397,6 +2418,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
             <div className="mt-2 flex flex-wrap gap-2">
               <button
                 type="button"
+                data-calculation-action
                 onClick={() => setSalaryIncreaseMode('hike-share')}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                   salaryIncreaseMode === 'hike-share'
@@ -2408,6 +2430,7 @@ export default function SipPlannerCalculator({ tool }: { tool: Tool }) {
               </button>
               <button
                 type="button"
+                data-calculation-action
                 onClick={() => setSalaryIncreaseMode('fixed')}
                 className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                   salaryIncreaseMode === 'fixed'

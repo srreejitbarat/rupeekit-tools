@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { GRATUITY_CEILING, calculateNewWageGratuity } from '@/lib/calculators/labour-code';
 import {
@@ -29,6 +30,10 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
       }),
     [currentMonthlyBasic, monthlyGrossCash, yearsOfService, isFixedTermEmployee]
   );
+
+  useCalculatorResult(result, numeric(monthlyGrossCash) > 0 &&
+    numeric(currentMonthlyBasic) <= numeric(monthlyGrossCash) &&
+    [currentMonthlyBasic, monthlyGrossCash, yearsOfService, result.cappedGratuity].every(Number.isFinite));
 
   const hitsCeiling = result.gratuityOnRevisedWages > GRATUITY_CEILING;
 
@@ -100,7 +105,7 @@ export default function NewWageGratuityCalculator({ tool }: { tool: Tool }) {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Estimate</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {result.isEligible

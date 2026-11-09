@@ -1,24 +1,30 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { trackAnalyticsEvent } from './analytics';
+import { trackAnalyticsEvent, trackValidCalculation } from './analytics';
 
 describe('issue #82 calculator journey analytics', () => {
   afterEach(() => vi.unstubAllGlobals());
 
-  it('records time to first calculation without financial values', () => {
+  it('records a valid calculation without inputs or share URL parameters', () => {
     const gtag = vi.fn();
-    vi.stubGlobal('window', { gtag });
+    vi.stubGlobal('window', {
+      gtag,
+      location: new URL('https://www.rupeekit.co.in/tools/emi-calculator-india?rk_principal=123456#result'),
+    });
+    vi.stubGlobal('document', { referrer: 'https://www.rupeekit.co.in/tools?rk_salary=99999' });
 
-    expect(trackAnalyticsEvent('calculation_completed', {
+    const calculation = {
       tool_slug: 'personal-loan-emi-calculator-india',
       tool_category: 'Loans',
-      calculation_number: 1,
       time_to_first_calculation_ms: 4200,
-    })).toBe(true);
+      principal: 123456,
+    };
+    expect(trackValidCalculation(calculation)).toBe(true);
 
-    expect(gtag).toHaveBeenCalledWith('event', 'calculation_completed', {
+    expect(gtag).toHaveBeenCalledWith('event', 'valid_calculation', {
       tool_slug: 'personal-loan-emi-calculator-india',
       tool_category: 'Loans',
-      calculation_number: 1,
+      page_location: 'https://www.rupeekit.co.in/tools/emi-calculator-india',
+      page_referrer: 'https://www.rupeekit.co.in/tools',
       time_to_first_calculation_ms: 4200,
     });
   });

@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { calculateRule9d } from '@/lib/calculators/tax-extras';
 import {
@@ -44,6 +45,10 @@ export default function Rule9dEpfInterestCalculator({ tool }: { tool: Tool }) {
       openingNonTaxableBalance,
     ]
   );
+
+  useCalculatorResult(result, numeric(years) > 0 &&
+    [annualEmployeeContribution, interestRatePercent, years, openingTaxableBalance,
+      openingNonTaxableBalance, result.finalTaxableBalance].every(Number.isFinite));
 
   return (
     <div className="space-y-6">
@@ -157,7 +162,7 @@ export default function Rule9dEpfInterestCalculator({ tool }: { tool: Tool }) {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Projection</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {result.entirelyBelowThreshold

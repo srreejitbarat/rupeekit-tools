@@ -3,32 +3,60 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { useState } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import CalculatorAnalyticsBoundary from './CalculatorAnalyticsBoundary';
-import { trackAnalyticsEvent } from '@/lib/analytics';
+import { useCalculatorResult } from './useCalculatorResult';
+import { usePlanForm } from '@/components/planning/PlanningFields';
+import { trackAnalyticsEvent, trackValidCalculation } from '@/lib/analytics';
 
-vi.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: vi.fn() }));
+vi.mock('@/lib/analytics', () => ({ trackAnalyticsEvent: vi.fn(), trackValidCalculation: vi.fn() }));
 
 const toolPath = '/tools/ppf-calculator-india';
 
-function Calculator() {
+function CalculatorFields() {
   const [amount, setAmount] = useState('1000');
+  useCalculatorResult(amount, Number(amount) >= 100);
 
   return (
-    <CalculatorAnalyticsBoundary toolSlug="ppf-calculator-india" toolCategory="Investments">
+    <>
       <label>
         Amount
-        <input id="calculator-input-amount" type="number" value={amount} onChange={(event) => setAmount(event.target.value)} />
+        <input id="calculator-input-amount" type="number" min={100} value={amount} onChange={(event) => setAmount(event.target.value)} />
       </label>
       <output>Estimated amount: {amount}</output>
+      <button type="button">Download results</button>
+      <button type="button" data-calculation-action onClick={() => setAmount('1800')}>Use example</button>
+    </>
+  );
+}
+
+function Calculator() {
+  return (
+    <CalculatorAnalyticsBoundary toolSlug="ppf-calculator-india" toolCategory="Investments">
+      <CalculatorFields />
     </CalculatorAnalyticsBoundary>
   );
 }
 
-function completeDebounce() {
-  act(() => vi.advanceTimersByTime(350));
+function calculatePlan(amount: string) {
+  return { errors: Number(amount) > 0 ? [] : ['Enter a positive amount'] };
 }
 
-function completedCalculations() {
-  return vi.mocked(trackAnalyticsEvent).mock.calls.filter(([event]) => event === 'calculation_completed');
+function PlannerFields() {
+  const { draft, setDraft, submit } = usePlanForm('1000', calculatePlan);
+  return (
+    <form noValidate onSubmit={submit}>
+      <label>
+        Plan amount
+        <input type="number" value={draft} onChange={(event) => setDraft(event.target.value)} />
+      </label>
+      <button type="submit">Update plan</button>
+    </form>
+  );
+}
+
+function completeDebounce() {
+  act(() => {
+    vi.advanceTimersByTime(350);
+  });
 }
 
 describe('calculator sharing and analytics', () => {
@@ -51,7 +79,7 @@ describe('calculator sharing and analytics', () => {
 
     fireEvent.change(screen.getByLabelText('Amount'), { target: { value: '1200' } });
     completeDebounce();
-    expect(completedCalculations()).toHaveLength(1);
+    expect(trackValidCalculation).toHaveBeenCalledOnce();
 
     fireEvent.change(screen.getByLabelText('Email address'), { target: { value: 'draft@example.test' } });
     await act(async () => {
@@ -62,7 +90,7 @@ describe('calculator sharing and analytics', () => {
     expect(writeText).toHaveBeenCalledOnce();
     const url = new URL(writeText.mock.calls[0][0]);
     expect([...url.searchParams]).toEqual([['rk_amount', '1200']]);
-    expect(completedCalculations()).toHaveLength(1);
+    expect(trackValidCalculation).toHaveBeenCalledOnce();
     expect(trackAnalyticsEvent).toHaveBeenCalledWith('result_shared', expect.objectContaining({ share_method: 'copy_link' }));
   });
 
@@ -72,11 +100,56 @@ describe('calculator sharing and analytics', () => {
 
     expect(screen.getByText('Estimated amount: 1400')).toBeTruthy();
     completeDebounce();
-    expect(completedCalculations()).toHaveLength(0);
+    expect(trackValidCalculation).not.toHaveBeenCalled();
     expect(screen.queryByLabelText('Email address')).toBeNull();
 
     fireEvent.change(screen.getByLabelText('Amount'), { target: { value: '1500' } });
     completeDebounce();
-    expect(completedCalculations()).toHaveLength(1);
+    expect(trackValidCalculation).toHaveBeenCalledOnce();
+  });
+
+  it('counts only a settled valid result after live edits or a calculation preset', () => {
+    render(<Calculator />);
+    fireEvent.click(screen.getByRole('button', { name: 'Download results' }));
+    completeDebounce();
+    expect(trackValidCalculation).not.toHaveBeenCalled();
+
+    const input = screen.getByLabelText('Amount');
+    fireEvent.change(input, { target: { value: '1200' } });
+    fireEvent.change(input, { target: { value: '' } });
+    completeDebounce();
+    fireEvent.change(input, { target: { value: '50' } });
+    completeDebounce();
+    expect(trackValidCalculation).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Use example' }));
+    completeDebounce();
+    expect(trackValidCalculation).toHaveBeenCalledExactlyOnceWith({
+      tool_slug: 'ppf-calculator-india',
+      tool_category: 'Investments',
+      time_to_first_calculation_ms: expect.any(Number),
+    });
+  });
+
+  it('counts a submitted plan only after the committed calculation succeeds', () => {
+    render(
+      <CalculatorAnalyticsBoundary toolSlug="planner" toolCategory="Planning" shareInputs={false}>
+        <PlannerFields />
+      </CalculatorAnalyticsBoundary>
+    );
+    const input = screen.getByLabelText('Plan amount');
+    const update = screen.getByRole('button', { name: 'Update plan' });
+
+    fireEvent.change(input, { target: { value: '1500' } });
+    completeDebounce();
+    expect(trackValidCalculation).not.toHaveBeenCalled();
+
+    fireEvent.change(input, { target: { value: '' } });
+    fireEvent.click(update);
+    expect(trackValidCalculation).not.toHaveBeenCalled();
+
+    fireEvent.change(input, { target: { value: '1500' } });
+    fireEvent.click(update);
+    expect(trackValidCalculation).toHaveBeenCalledOnce();
   });
 });

@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { DEFAULT_DA_PERCENT } from '@/data/eighth-cpc-pay-matrix';
 import { calculateEighthPayCommissionPension } from '@/lib/calculators/search-growth';
@@ -31,6 +32,12 @@ export default function EighthPayCommissionPensionCalculator({ tool }: { tool: T
     additionalPensionPercent: numeric(additionalPensionPercent),
   }), [currentBasicPension, currentDrPercent, revisionMultiplier, projectedDrPercent, additionalPensionPercent]);
 
+  const completeInputs = [currentBasicPension, currentDrPercent, revisionMultiplier, projectedDrPercent, additionalPensionPercent]
+    .every(Number.isFinite);
+  const validResult = completeInputs && numeric(currentBasicPension) > 0 && numeric(revisionMultiplier) > 0 &&
+    Object.values(result).every(Number.isFinite);
+  useCalculatorResult(result, validResult);
+
   return (
     <div className="space-y-6">
 
@@ -59,7 +66,7 @@ export default function EighthPayCommissionPensionCalculator({ tool }: { tool: T
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Illustrative result</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">Current vs projected pension</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">

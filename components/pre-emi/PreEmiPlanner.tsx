@@ -17,7 +17,7 @@ import {
   type PlanInput,
   type Tranche,
 } from "@/lib/pre-emi/engine";
-import { trackAnalyticsEvent } from "@/lib/analytics";
+import { trackAnalyticsEvent, trackValidCalculation } from "@/lib/analytics";
 import PlanCharts from "./PlanCharts";
 import PlannerTour from "./PlannerTour";
 import { compactMoney, money } from "./format";
@@ -210,18 +210,16 @@ export default function PreEmiPlanner({
     }
   }, []);
   useEffect(() => {
-    if (!interacted.current || errors.length) return;
+    if (!interacted.current || !current || !baseline) return;
     const timer = window.setTimeout(() => {
+      interacted.current = false;
       calculations.current += 1;
       if (calculations.current === 1)
         trackAnalyticsEvent("calculator_used", analytics);
-      trackAnalyticsEvent("calculation_completed", {
-        ...analytics,
-        calculation_number: calculations.current,
-      });
+      trackValidCalculation(analytics);
     }, 400);
     return () => clearTimeout(timer);
-  }, [input, mode, errors]);
+  }, [current, baseline]);
 
   const envelope = () => ({
     version: 1,
@@ -236,7 +234,7 @@ export default function PreEmiPlanner({
     if (data?.version !== 1 || !MODES.includes(data.mode))
       throw new Error("Choose a RupeeKit pre-EMI plan file (version 1).");
     const restored = parsePlan(data.input);
-    changed();
+    interacted.current = false;
     setInput(restored);
     setMode(data.mode);
     setStatus(
@@ -355,7 +353,9 @@ export default function PreEmiPlanner({
               type="button"
               className="pe-button pe-button-small"
               onClick={() => {
-                patch(createDefaultPlan(initialMonth));
+                interacted.current = false;
+                setStatus("");
+                setInput(createDefaultPlan(initialMonth));
                 setMode("pre-emi");
                 setShowReset(false);
               }}
@@ -1003,6 +1003,7 @@ export default function PreEmiPlanner({
                       key={r.mode}
                       aria-pressed={mode === r.mode}
                       onClick={() => {
+                        if (mode === r.mode) return;
                         changed();
                         setMode(r.mode);
                       }}

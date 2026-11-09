@@ -55,7 +55,7 @@ export default function CarLeaseCalculator() {
       <Note>Changing the exit month changes the timing in this model. Obtain new buyout, return and continuation quotes for that month; the amounts do not update automatically.</Note>
       <UpdatePlan dirty={f.dirty} label="Compare car lease exit options" />
     </form>
-    <div ref={f.resultsRef} tabIndex={-1} className="space-y-6 outline-none" aria-label="Estimated results">
+    <div data-calculator-result ref={f.resultsRef} tabIndex={-1} className="space-y-6 outline-none" aria-label="Estimated results">
       <Errors errors={r.errors} />
       {!r.errors.length && <>
         <section className={panel}><p className="text-xs font-bold uppercase tracking-widest text-teal-800 dark:text-teal-200">The cash needed when you leave</p>

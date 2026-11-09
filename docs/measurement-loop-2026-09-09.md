@@ -42,7 +42,7 @@ Therefore the current snapshot is useful for validating ingestion but **cannot c
 ## Manual prerequisites to finish #146
 
 1. In Google Search Console, export **Performance → Search results → Pages** for the latest settled trailing 28 days, with the matching Chart.csv.
-2. In GA4, export the same settled 28-day period for the Overview metrics and an Events breakdown that includes `calculation_completed` (or the deployed calculator completion event) and `tool_cta_click`.
+2. In GA4, export the same settled 28-day period for the Overview metrics and an Events breakdown that includes the **Key events** metric for `valid_calculation` and the event count for `tool_cta_click`. Start a new baseline after the November 2026 rollout. Earlier `calculation_completed` counts used a different definition.
 3. Run the importer without `--allow-partial`; a successful exit is the signal that the input window is complete enough for the next-day verdict.
 4. Keep credentials and API keys out of Git. The existing service-account path can be used instead when `GSC_*` and `GA4_PROPERTY_ID` are configured securely.
 

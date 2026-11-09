@@ -4,6 +4,7 @@ import { calculateIndianIncomeTax, TaxInput, TaxResult } from '@/lib/tax/calcula
 import { TaxVisualComparison } from './TaxVisualComparison';
 import { TaxSlabBreakdown } from './TaxSlabBreakdown';
 import { useDownloadTaxPdf } from '@/hooks/useDownloadTaxPdf';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 
 interface TaxResultPanelProps {
   result: TaxResult | null;
@@ -46,6 +47,7 @@ function estimateBreakEvenAdditionalOldDeduction(input: TaxInput, taxYear: strin
 
 export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) {
   const { handleDownloadTaxPdf, isGenerating, error } = useDownloadTaxPdf();
+  useCalculatorResult(result, result !== null && Number.isFinite(input.grossSalary) && input.grossSalary > 0);
 
   const breakEvenAdditionalOldDeduction = useMemo(
     () => estimateBreakEvenAdditionalOldDeduction(input, taxYear),
@@ -75,7 +77,7 @@ export function TaxResultPanel({ result, input, taxYear }: TaxResultPanelProps) 
   }
 
   return (
-    <div className="sticky top-28 z-10 rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8 lg:top-32">
+    <div data-calculator-result className="sticky top-28 z-10 rounded-3xl border border-brandBorder bg-white p-6 shadow-sm md:p-8 lg:top-32">
       <h2 className="text-xl font-black tracking-tight text-brandDeepNavy">Your Tax Estimate</h2>
       <p className="mt-1 text-xs text-brandMuted">For {result.taxYear}</p>
 

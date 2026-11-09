@@ -3,6 +3,7 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { Parser } from 'expr-eval';
 import type { Tool } from '@/lib/tools';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import { CalculatorResultSummary } from '@/components/CalculatorVisualizations';
 
 const parser = new Parser({
@@ -101,6 +102,14 @@ export default function IncomeTaxCalculatorV2({ tool }: { tool: Tool }) {
       }
     });
   }, [tool.outputs, numericValues, growthPercent]);
+
+  const validInputs = values.grossAnnualIncome !== '' && tool.inputs.every(({ key, min, max }) => {
+    const value = numericValues[key];
+    return Number.isFinite(value) && value >= (min ?? 0) && value <= (max ?? Infinity);
+  });
+  useCalculatorResult(currentResults, validInputs && currentResults.every(({ value }) => Number.isFinite(value)));
+  useCalculatorResult(projectedResults, validInputs && typeof growthPercent === 'number' && growthPercent <= 100
+    && Boolean(projectedResults?.every(({ value }) => Number.isFinite(value))));
 
   const currentNewTax = currentResults.find(r => r.key === 'taxPayableNewRegime')?.value || 0;
   const projectedNewTax = projectedResults?.find(r => r.key === 'taxPayableNewRegime')?.value || 0;
@@ -201,7 +210,7 @@ export default function IncomeTaxCalculatorV2({ tool }: { tool: Tool }) {
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8">
+          <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8">
             <h2 className="text-xl font-bold text-brandDeepNavy">Current Year Estimate</h2>
             <div className="mt-6">
               <CalculatorResultSummary results={currentResults} />

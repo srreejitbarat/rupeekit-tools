@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import {
   ARREARS_DEFAULT_THROUGH_ISO,
@@ -249,6 +250,12 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
   const headlineArrears = isPensioner ? pensioner.arrears : employee.arrears;
   const arrearsMonths = isPensioner ? pensioner.arrearsMonths : employee.arrearsMonths;
 
+  const validBasic = isPensioner
+    ? numeric(basicPension) > 0 && numeric(basicPension) <= 125_000
+    : basicValue > 0 && !outOfBand && transportOverride !== '';
+  const validResult = validBasic && factorValue > 0 && Number.isFinite(headlineGross);
+  useCalculatorResult(isPensioner ? pensioner : employee, validResult);
+
   const buildShareUrl = () => {
     if (typeof window === 'undefined') return '';
     const url = new URL(window.location.href);
@@ -465,6 +472,7 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
                   type="button"
                   title={preset.note}
                   aria-pressed={factorValue === preset.value}
+                  data-calculation-action
                   onClick={() => setFitmentFactor(preset.value)}
                   className={`rounded-full border px-3.5 py-1.5 text-sm font-bold transition ${
                     factorValue === preset.value
@@ -541,6 +549,7 @@ export default function EighthPayCommissionCalculator({ tool }: { tool?: Tool })
         <div className="space-y-4">
           <div
             aria-label="Estimated results"
+            data-calculator-result
             className="min-h-[420px] rounded-3xl border border-brandNavy/15 bg-brandNavy/5 p-5 shadow-sm md:p-6"
           >
             <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">
