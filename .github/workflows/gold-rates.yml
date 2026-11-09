@@ -24,7 +24,7 @@ on:
       - '.github/workflows/gold-rates.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: gold-rates-${{ github.event_name == 'pull_request' && github.head_ref || 'scheduled' }}
@@ -68,9 +68,13 @@ jobs:
         run: node scripts/validate-gold-rates.mjs
 
   refresh:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      published: ${{ steps.publish.outputs.published }}
     steps:
       # actions/checkout pins the SHA that triggered the run. On a re-run that
       # is the ORIGINAL trigger SHA, which by then sits behind main because an
@@ -105,6 +109,7 @@ jobs:
         run: node scripts/validate-gold-rates.mjs
 
       - name: Commit updated rates
+        id: publish
         run: |
           if git diff --quiet -- data/gold-rates; then
             echo "No change in gold rates; nothing to commit."
@@ -121,6 +126,7 @@ jobs:
           # skipping one rate update.
           for attempt in 1 2 3; do
             if git push; then
+              echo "published=true" >> "$GITHUB_OUTPUT"
               echo "Pushed on attempt ${attempt}."
               exit 0
             fi
@@ -129,3 +135,19 @@ jobs:
           done
           echo "Could not push after 3 attempts; leaving the previous snapshot in place."
           exit 1
+
+  deploy:
+    name: Start production deploy for the published snapshot
+    needs: refresh
+    if: github.repository == 'rupeekitofficial/rupeekit-tools' && needs.refresh.outputs.published == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      # Pushes made with GITHUB_TOKEN do not start workflows. An explicit
+      # dispatch uses the existing production validation and deployment checks.
+      - name: Dispatch Hostinger production deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-hostinger.yml --repo "$GITHUB_REPOSITORY" --ref main
