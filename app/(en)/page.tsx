@@ -91,7 +91,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
   {
     name: 'Planning',
     description: 'Prepare for protection, milestones and trade-offs.',
-    sourceCategories: ['Planning', 'Insurance'],
+    sourceCategories: ['Planning', 'Insurance', 'Business'],
     iconPath: 'M12 3 5 6v5c0 4.5 2.8 8.2 7 10 4.2-1.8 7-5.5 7-10V6l-7-3Zm-3 9 2 2 4-4',
   },
 ];
@@ -111,7 +111,7 @@ export default function HomePage() {
   const tools = getLiveTools();
   const recentPosts = [...blogPosts]
     .sort((a, b) =>
-      (b.publishedDateISO || b.date).localeCompare(a.publishedDateISO || a.date),
+      (b.modifiedDateISO ?? b.publishedDateISO ?? b.date).localeCompare(a.modifiedDateISO ?? a.publishedDateISO ?? a.date),
     )
     .slice(0, 3);
 

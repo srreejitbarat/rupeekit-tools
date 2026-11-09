@@ -44,6 +44,16 @@ async function worker() {
       if (!head) throw new Error('missing HTML head');
       const canonicals = (head.match(/<link\b[^>]*>/gi) || []).filter((tag) => attribute(tag, 'rel').toLowerCase().split(/\s+/).includes('canonical'));
       if (canonicals.length !== 1 || new URL(attribute(canonicals[0], 'href')).href !== url.href) throw new Error('missing, conflicting, or incorrect canonical');
+      // Commas and semicolons can also occur inside quoted Link parameters.
+      const linkHeader = response.headers.get('link') || '';
+      for (const [, target, parameters] of linkHeader.matchAll(/(?:^|,)\s*<([^>]*)>((?:"(?:\\.|[^"\\])*"|[^",])*)/g)) {
+        const relation = [...parameters.matchAll(/;\s*([^\s=;]+)(?:\s*=\s*(?:"((?:\\.|[^"\\])*)"|([^\s;]+)))?/g)]
+          .find(([, name]) => name.toLowerCase() === 'rel');
+        const types = (relation?.[2] ?? relation?.[3] ?? '').replace(/\\(.)/g, '$1').toLowerCase().split(/\s+/);
+        if (types.includes('canonical') && (!URL.canParse(target, url) || new URL(target, url).href !== url.href)) {
+          throw new Error(`conflicting HTTP Link canonical: ${target}`);
+        }
+      }
       const directives = (head.match(/<meta\b[^>]*>/gi) || [])
         .filter((tag) => ['robots', 'googlebot'].includes(attribute(tag, 'name').toLowerCase()))
         .map((tag) => attribute(tag, 'content'));

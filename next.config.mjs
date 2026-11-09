@@ -69,15 +69,10 @@ const nextConfig = {
         statusCode: 301,
       },
       ...[
-        'rbi-repo-rate-explainer',
         'gst-council-explainer',
-        'sebi-mutual-fund-explainer',
         'banking-fd-rate-tracker',
-        'personal-finance-epf-explainer',
-        'government-salary-da-link',
         'hra-exemption-explainer',
         'nps-tier1-explainer',
-        'tds-26as-explainer',
       ].map((slug) => ({
         source: `/financial-updates/${slug}`,
         destination: '/financial-updates',

@@ -1062,7 +1062,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
     description: isHraPage
       ? 'Calculate likely HRA exemption under Indian tax rules.'
       : tool.metaDescription,
-    dateModified: tool.lastReviewedIso ?? TOOL_SEO_OVERRIDES[tool.slug]?.lastReviewedIso,
+    dateModified: tool.lastModifiedIso ?? tool.lastReviewedIso ?? TOOL_SEO_OVERRIDES[tool.slug]?.lastReviewedIso,
     inLanguage: 'en-IN',
     isPartOf: { '@id': `${SITE_URL}/#website` },
     isAccessibleForFree: true,

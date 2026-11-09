@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import EditorialByline from '@/components/seo/EditorialByline';
 import QuickAnswerBox from '@/components/seo/QuickAnswerBox';
+import { nriTaxationPost } from '@/data/nri-taxation-basics-residency-taxable-income-india';
 import { DEFAULT_OG_IMAGE } from '@/lib/seo/og-image';
 import {
   CORRECTIONS_POLICY_URL,
@@ -121,6 +122,11 @@ const relatedTools = [
 ];
 
 const relatedReading = [
+  {
+    href: `/blog/${nriTaxationPost.slug}`,
+    label: nriTaxationPost.title,
+    note: nriTaxationPost.metaDescription,
+  },
   {
     href: '/blog/itr-2-ay-2026-27-filing-guide',
     label: 'ITR-2 AY 2026-27: Deadline, Documents and Late Filing Guide',

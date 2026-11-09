@@ -1,6 +1,6 @@
 import { PUBLISHED_TRANSLATIONS, LANGUAGE_RELEASE_DATE, type Locale, isIndexedLocale, languageAlternates } from '@/lib/i18n/routing';
 import type { MetadataRoute } from 'next';
-import { getLiveTools } from '@/lib/tools';
+import { getLiveTools, type Tool } from '@/lib/tools';
 import { blogPosts } from '@/data/all-blog-posts';
 import { financialUpdates } from '@/data/financial-updates';
 import { moneyGuides } from '@/data/money-authority';
@@ -14,7 +14,10 @@ function parseIsoDate(value?: string): Date | null {
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
-function resolveToolLastModified(lastReviewed?: string): Date {
+function resolveToolLastModified(tool: Tool): Date {
+  const modified = parseIsoDate(tool.lastModifiedIso);
+  if (modified) return modified;
+  const lastReviewed = tool.lastReviewedIso ?? tool.lastReviewed;
   if (!lastReviewed) return STATIC_LAST_MODIFIED;
   const trimmed = lastReviewed.trim();
   if (/^[A-Za-z]+\s+\d{4}$/.test(trimmed)) {
@@ -34,9 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allFinancialUpdates = [...financialUpdates];
   const indexableFinancialUpdates = allFinancialUpdates.filter((update) => update.status !== 'sample');
 
-  const toolDates = liveTools.map((tool) =>
-    resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed)
-  );
+  const toolDates = liveTools.map(resolveToolLastModified);
   const blogDates = blogPosts.map(
     (post) =>
       parseIsoDate(post.modifiedDateISO) ??
@@ -86,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/blog', latestBlogDate],
     ['/financial-updates', latestFinancialUpdateDate],
     ['/deadlines', new Date(TAX_DEADLINES_LAST_REVIEWED)],
+    ['/nri', new Date('2026-11-09')],
   ]);
 
   const hubRoutes = new Set(['/blog', '/tools', '/nri', '/8th-pay-commission']);
@@ -121,7 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     })),
     ...liveTools.map((tool) => {
-      const lastModified = resolveToolLastModified(tool.lastReviewedIso ?? tool.lastReviewed);
+      const lastModified = resolveToolLastModified(tool);
       return {
         url: `${baseUrl}/tools/${tool.slug}`,
         lastModified,

@@ -96,7 +96,7 @@ for (const file of blogFiles) {
 const protectedIssue58Titles = new Map([
   ['how-to-calculate-in-hand-salary-from-ctc-india', 'CTC to In-Hand Salary India | PF, Tax & Take-Home'],
   ['income-tax-on-12-lakh-salary-new-regime-india-2026', 'Tax on Rs 12 Lakh Salary | Rebate & Marginal Relief'],
-  ['mutual-funds-for-beginners-india', 'Mutual Funds for Beginners India | Start With Rs 500'],
+  ['mutual-funds-for-beginners-india', 'Mutual Funds for Beginners India | Risk, SIP and Fees'],
   ['monthly-expense-planning-for-family', 'Monthly Expense Planning | Family Budget & Savings'],
   ['epf-partial-withdrawal-rules-india', 'EPF Partial Withdrawal Rules | Limits, Reasons & Forms'],
 ]);
