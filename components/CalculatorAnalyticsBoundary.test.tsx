@@ -41,7 +41,7 @@ function calculatePlan(amount: string) {
 }
 
 function PlannerFields() {
-  const { draft, setDraft, submit } = usePlanForm('1000', calculatePlan);
+  const { draft, setDraft, submit } = usePlanForm<string, ReturnType<typeof calculatePlan>>('1000', calculatePlan);
   return (
     <form noValidate onSubmit={submit}>
       <label>
