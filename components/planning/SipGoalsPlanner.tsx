@@ -53,7 +53,7 @@ export default function SipGoalsPlanner() {
       </Step>
       <UpdatePlan dirty={p.dirty} />
     </form>
-    <div ref={p.resultsRef} tabIndex={-1} aria-label="Estimated results" className="space-y-5 outline-none">
+    <div data-calculator-result ref={p.resultsRef} tabIndex={-1} aria-label="Estimated results" className="space-y-5 outline-none">
       <Errors errors={r.errors} />
       {!r.errors.length && goal && <>
         {p.dirty && <Note warning>These results use the previous inputs. Update the plan to test your changes.</Note>}

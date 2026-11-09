@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/data/all-blog-posts';
 import Calculator from '@/components/Calculator';
+import CalculatorAnalyticsBoundary from '@/components/CalculatorAnalyticsBoundary';
 import PlanningFeatureSummary from '@/components/planning/PlanningFeatureSummary';
 import ToolAdPlacement from '@/components/micro-tools/ToolAdPlacement';
 import { isMicroTool } from '@/lib/micro-tools/common';
@@ -173,10 +174,10 @@ const TOOL_SEO_OVERRIDES: Record<string, ToolSeoOverride> = {
   'salary-in-hand-calculator-india': {
     title: 'Salary In-Hand Calculator 2026: CTC to Take-Home',
     description:
-      'Convert CTC to in-hand salary, compare two offers by monthly cash, bonus timing and switching costs, and find the fixed CTC for your target take-home.',
+      'Estimate monthly take-home pay from CTC. See gross pay, PF, tax and other deductions, or use the salary planner to compare two job offers.',
     h1: 'Salary In-Hand Calculator India 2026',
     heroDescription:
-      'Reconcile CTC, PF, tax and monthly take-home, then compare two salary options on a twelve-month cash calendar. Include bonus dates, delayed first pay and switching costs, or solve for the fixed CTC behind your target monthly in-hand.',
+      'See how much of your annual CTC reaches your bank account each month. Use the Quick calculator for take-home pay or the Salary cash planner to compare offers, bonus dates and switching costs.',
     lastReviewedIso: '2026-08-17',
   },
   'fd-calculator-india': {
@@ -343,19 +344,6 @@ const BURIED_TOOL_INTENT_CONTENT: Record<string, SearchIntentSection[]> = {
         'For an existing account, enter the latest passbook balance so historical credited rates are preserved.',
         'The 8.2% default is checked for October-December 2026 and remains editable because rates can change quarterly.',
         'Review future deposits and projected interest separately; no fixed 80C tax saving is assumed.',
-      ],
-    },
-  ],
-  'salary-in-hand-calculator-india': [
-    {
-      heading: 'CTC-to-take-home checks across salary offers',
-      body:
-        'Use the same fields to compare Rs 6 lakh, Rs 10 lakh, Rs 15 lakh or another annual CTC. The result is strongest when basic pay, PF, monthly TDS and deductions come from the actual offer letter or payslip.',
-      bullets: [
-        'CTC can include employer costs that are not paid as monthly cash salary.',
-        'Employee PF, TDS, professional tax and other deductions reduce take-home pay.',
-        'Bonus, variable pay, insurance and gratuity treatment varies by employer structure.',
-        'Compare offers using monthly in-hand pay as well as total annual CTC.',
       ],
     },
   ],
@@ -1142,7 +1130,9 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       </header>
       <section id="calculator" className="tool-calculator" aria-label={tool.name}>
         {isPersonalLoanPage ? (
-          <PersonalLoanDecisionSimulator tool={tool} quickAnswer={effectiveQuickAnswer} />
+          <CalculatorAnalyticsBoundary toolSlug={tool.slug} toolCategory={tool.category} analyticsOnly>
+            <PersonalLoanDecisionSimulator tool={tool} quickAnswer={effectiveQuickAnswer} />
+          </CalculatorAnalyticsBoundary>
         ) : (
           <Calculator tool={tool} />
         )}

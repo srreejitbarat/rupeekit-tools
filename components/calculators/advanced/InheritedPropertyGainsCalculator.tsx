@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { KNOWN_CII, calculateInheritedPropertyGains } from '@/lib/calculators/tax-extras';
 import {
@@ -49,6 +50,10 @@ export default function InheritedPropertyGainsCalculator({ tool }: { tool: Tool 
       eligibleForIndexationChoice,
     ]
   );
+
+  useCalculatorResult(result, numeric(salePrice) > 0 &&
+    [salePrice, previousOwnerCost, transferExpenses, costOfImprovement, saleYearCii,
+      acquiredBeforeApril2001 ? fairMarketValue2001 : acquisitionYearCii, result.taxPayable].every(Number.isFinite));
 
   const indexWins = result.betterOption === 'with-indexation';
 
@@ -190,7 +195,7 @@ export default function InheritedPropertyGainsCalculator({ tool }: { tool: Tool 
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Result</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {eligibleForIndexationChoice

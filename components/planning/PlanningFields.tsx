@@ -3,6 +3,7 @@
 import { useId, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { money, monthLabel } from '@/lib/planning/common';
 import { compactIndianNumber } from '@/lib/format/compact-number';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 
 export const panel = 'rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 dark:border-slate-700 dark:bg-slate-900';
 export const secondary = 'rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800';
@@ -62,11 +63,14 @@ export function Note({ children, warning = false }: { children: ReactNode; warni
 export function usePlanForm<T, R extends { errors: string[] }>(example: T, calculate: (input: T) => R) {
   const [draft, setDraft] = useState<T>(example);
   const [committed, setCommitted] = useState<T>(example);
+  const [calculationAttempt, setCalculationAttempt] = useState(0);
   const result = useMemo(() => calculate(committed), [calculate, committed]);
+  useCalculatorResult(calculationAttempt, result.errors.length === 0, true);
   const dirty = JSON.stringify(draft) !== JSON.stringify(committed);
   const resultsRef = useRef<HTMLDivElement>(null);
   function commit(next = draft) {
     setDraft(next); setCommitted(next);
+    setCalculationAttempt((attempt) => attempt + 1);
     requestAnimationFrame(() => resultsRef.current?.focus({ preventScroll: true }));
   }
   function submit(event: FormEvent) { event.preventDefault(); commit(); }

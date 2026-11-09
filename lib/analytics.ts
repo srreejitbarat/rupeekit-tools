@@ -17,8 +17,7 @@ export type AnalyticsEventMap = {
   };
   calculator_used: CalculatorAnalyticsBase;
   result_viewed: CalculatorAnalyticsBase;
-  calculation_completed: CalculatorAnalyticsBase & {
-    calculation_number: number;
+  valid_calculation: CalculatorAnalyticsBase & {
     time_to_first_calculation_ms?: number;
   };
   result_panel_viewed: CalculatorAnalyticsBase & {
@@ -73,6 +72,26 @@ export function trackAnalyticsEvent<EventName extends keyof AnalyticsEventMap>(
   parameters: AnalyticsEventMap[EventName]
 ): boolean {
   return sendGtagEvent(eventName, parameters);
+}
+
+// GA4 counts this key event once per session. Raw events can still measure
+// multiple successful calculations during the same visit.
+export function trackValidCalculation({
+  tool_slug,
+  tool_category,
+  time_to_first_calculation_ms,
+}: AnalyticsEventMap['valid_calculation']): boolean {
+  if (typeof window === 'undefined') return false;
+
+  const { origin, pathname } = window.location;
+  const referrer = document.referrer.split(/[?#]/, 1)[0];
+  return sendGtagEvent('valid_calculation', {
+    tool_slug,
+    tool_category,
+    page_location: `${origin}${pathname}`,
+    page_referrer: referrer,
+    ...(time_to_first_calculation_ms === undefined ? {} : { time_to_first_calculation_ms }),
+  });
 }
 
 export function trackPageView(pathname: string): boolean {

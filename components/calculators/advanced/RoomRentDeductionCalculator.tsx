@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { calculateRoomRentClaim, roomRentCapFromPercent } from '@/lib/calculators/insurance-claim';
 import {
@@ -47,6 +48,10 @@ export default function RoomRentDeductionCalculator({ tool }: { tool: Tool }) {
       sumInsured,
     ]
   );
+
+  useCalculatorResult(result, numeric(sumInsured) > 0 && numeric(daysAdmitted) > 0 &&
+    [sumInsured, actualRoomRent, daysAdmitted, proratedExpenses, nonProratedExpenses,
+      capMode === 'percent' ? capPercent : eligibleRoomRent, result.totalPayable].every(Number.isFinite));
 
   return (
     <div className="space-y-6">
@@ -171,7 +176,7 @@ export default function RoomRentDeductionCalculator({ tool }: { tool: Tool }) {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">What you pay</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {result.withinLimit

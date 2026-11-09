@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const toolFiles = [
-  'data/tools.json','data/growth-tools.json','data/decision-tools-2026.json','data/insurance-tools-2026.json','data/investing-tools-2026.json','data/lifestage-tools-2026.json',
+  'data/tools.json','data/growth-tools.json','data/decision-tools-2026.json','data/insurance-tools-2026.json','data/investing-tools-2026.json','data/lifestage-tools-2026.json','data/policy-tools-2026.json',
 ];
 const errors=[];
 const readText=(p)=>fs.readFile(path.join(ROOT,p),'utf8');
@@ -19,7 +19,9 @@ readText('components/Calculator.tsx'),readText('components/CalculatorAnalyticsBo
 assert(toolPage.includes('<Calculator tool={tool}'),'Dynamic tool route must render through Calculator');
 assert(calculator.includes('<CalculatorAnalyticsBoundary'),'Calculator must use CalculatorAnalyticsBoundary');
 assert(boundary.includes("trackAnalyticsEvent('calculator_used'")&&boundary.includes("trackAnalyticsEvent('result_viewed'"),'Boundary must emit calculator events');
-for (const eventName of ['calculation_completed','result_panel_viewed','calculator_session_summary','calculator_abandoned']) {
+assert(boundary.includes('trackValidCalculation(')&&analytics.includes("sendGtagEvent('valid_calculation'"),'Completed results must use the valid calculation event');
+assert(analytics.includes('valid_calculation:'),'Analytics event map must type valid_calculation');
+for (const eventName of ['result_panel_viewed','calculator_session_summary','calculator_abandoned']) {
   assert(boundary.includes(`trackAnalyticsEvent('${eventName}'`),`Boundary must emit ${eventName}`);
   assert(analytics.includes(`${eventName}:`),`Analytics event map must type ${eventName}`);
 }
@@ -29,9 +31,9 @@ assert(boundary.includes('IntersectionObserver'),'Journey analytics must observe
 assert(link.includes("trackAnalyticsEvent('guide_click'")&&link.includes("trackAnalyticsEvent('tool_cta_click'"),'AnalyticsLink must emit click events');
 assert(analytics.includes('tool_slug: string')&&analytics.includes('tool_category: string'),'Analytics base must require slug/category');
 const forbiddenJourneyParameters=['principal','salary','income','investment','emi','tax','email','pan','aadhaar','bank'];
-const journeyTypeSection=analytics.slice(analytics.indexOf('calculation_completed:'),analytics.indexOf('guide_click:'));
+const journeyTypeSection=analytics.slice(analytics.indexOf('valid_calculation:'),analytics.indexOf('guide_click:'));
 for (const forbidden of forbiddenJourneyParameters) {
   assert(!new RegExp(`\\b${forbidden}\\b`, 'i').test(journeyTypeSection),`Journey analytics must not expose user-entered financial/PII field: ${forbidden}`);
 }
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}
-console.log(`Analytics coverage validation passed for ${count} live tool slugs, including issue #82 journey events.`);
+console.log(`Analytics coverage validation passed for ${count} live tool slugs, including the valid calculation event.`);

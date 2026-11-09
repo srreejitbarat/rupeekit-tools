@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Tool } from '@/lib/tools';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import { calculatePersonalLoanEligibility } from '@/lib/calculators/search-growth';
 import {
   CalculatorGovernanceStrip,
@@ -30,6 +31,9 @@ export default function PersonalLoanEligibilityCalculatorV2({ tool }: { tool: To
     tenureMonths: numeric(tenureMonths),
   }), [monthlyIncome, existingMonthlyEmi, foirPercent, annualRate, tenureMonths]);
   const result = useMemo(() => calculatePersonalLoanEligibility(inputs), [inputs]);
+  useCalculatorResult(result, inputs.monthlyIncome > 0 && existingMonthlyEmi !== ''
+    && inputs.foirPercent > 0 && annualRate !== '' && inputs.tenureMonths > 0
+    && Number.isFinite(result.eligibleLoanAmount));
 
   return (
     <div className="space-y-6">
@@ -54,7 +58,7 @@ export default function PersonalLoanEligibilityCalculatorV2({ tool }: { tool: To
           </details>
         </div>
 
-        <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <h3 className="text-lg font-bold text-brandDeepNavy">Estimated capacity</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <ResultCard label="Maximum affordable new EMI" value={formatCurrency(result.maxAffordableEmi)} detail={`Total EMI cap: ${formatCurrency(result.totalEmiCap)}`} />

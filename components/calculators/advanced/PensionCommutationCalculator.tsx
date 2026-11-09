@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import {
   MAX_COMMUTATION_PERCENT,
@@ -32,6 +33,9 @@ export default function PensionCommutationCalculator({ tool }: { tool: Tool }) {
       }),
     [basicPension, commutedPercent, commutationFactor, drPercent]
   );
+
+  useCalculatorResult(result, numeric(basicPension) > 0 && numeric(commutationFactor) > 0 &&
+    [basicPension, commutedPercent, commutationFactor, drPercent, result.lumpSum].every(Number.isFinite));
 
   const breakEvenYears = result.breakEvenMonths / 12;
 
@@ -99,7 +103,7 @@ export default function PensionCommutationCalculator({ tool }: { tool: Tool }) {
           ) : null}
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Result</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             {formatCurrency(result.lumpSum)} now, {formatCurrency(result.monthlyReduction)} less

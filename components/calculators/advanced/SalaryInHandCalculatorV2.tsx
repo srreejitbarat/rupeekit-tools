@@ -2,15 +2,9 @@
 
 import React, { useState, useMemo } from 'react';
 import type { Tool } from '@/lib/tools';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import { estimateIncomeTax, type FinancialYear } from '@/lib/tax/india-income-tax';
-
-// Assessment year and the Budget whose slabs apply, per financial year. Keep in
-// step with FinancialYear in lib/tax/india-income-tax.ts.
-const FY_META: Record<FinancialYear, { ay: string; budget: string }> = {
-  '2026-27': { ay: '2027-28', budget: 'Budget 2025 slabs, unchanged by Budget 2026' },
-  '2025-26': { ay: '2026-27', budget: 'Budget 2025 slabs' },
-  '2024-25': { ay: '2025-26', budget: 'Budget 2024 slabs' },
-};
+import { indiaIncomeTaxRules } from '@/lib/tax/indiaIncomeTaxRules';
 
 const formatCurrency = (val: number) => {
   if (!Number.isFinite(val)) return '₹0';
@@ -83,6 +77,9 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
     otherOldRegimeDeductions
   ]);
 
+  useCalculatorResult(result, typeof annualCtc === 'number' && annualCtc > 0 && Number.isFinite(result.monthlyInHand));
+  const assessmentYear = indiaIncomeTaxRules[financialYear].ay;
+
   // Tab State for Breakup Table
   const [breakupTab, setBreakupTab] = useState<'monthly' | 'annual'>('monthly');
   const isMonthlyBreakup = breakupTab === 'monthly';
@@ -107,10 +104,10 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
       {/* Disclaimer Top Alert */}
       <div className="rounded-2xl border border-brandNavy/10 bg-brandNavy/5 p-4 text-sm leading-6 text-brandNavy">
         <p className="font-bold flex items-center gap-1.5 text-brandDeepNavy">
-          <span>💼</span> FY {financialYear} (AY {FY_META[financialYear].ay}) Estimate
+          <span>💼</span> {assessmentYear ? `FY ${financialYear} (AY ${assessmentYear})` : `Tax Year ${financialYear}`}
         </p>
         <p className="mt-1 text-slate-600">
-          This salary in-hand calculator uses revised tax brackets including the latest Union Budget changes for New Regime ({FY_META[financialYear].budget}). All calculations are estimates.
+          Estimate your take-home pay using the selected year and tax regime.
         </p>
       </div>
 
@@ -173,7 +170,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                   )}
                   {autoBasic && (
                     <p className="mt-2 text-xs font-medium text-slate-500">
-                      Standard auto-estimate sets Basic Salary at 50% of CTC.
+                      This estimate uses 50% of CTC. Use your actual basic pay if you know it.
                     </p>
                   )}
                 </div>
@@ -264,7 +261,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
                   onChange={(e) => setFinancialYear(e.target.value as FinancialYear)}
                   className="mt-2 w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-base font-semibold outline-none transition focus:border-brandNavy focus:bg-white"
                 >
-                  <option value="2026-27">FY 2026-27 (AY 2027-28 - Latest)</option>
+                  <option value="2026-27">Tax Year 2026-27</option>
                   <option value="2025-26">FY 2025-26 (AY 2026-27)</option>
                   <option value="2024-25">FY 2024-25 (AY 2025-26)</option>
                 </select>
@@ -402,7 +399,7 @@ export default function SalaryInHandCalculatorV2({ tool }: { tool: Tool }) {
         <div className="space-y-6">
           
           {/* Summary Outcomes */}
-          <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6 flex flex-col justify-between">
+          <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6 flex flex-col justify-between">
             <h3 className="text-lg font-bold text-brandDeepNavy">
               Estimated Monthly In-Hand
             </h3>

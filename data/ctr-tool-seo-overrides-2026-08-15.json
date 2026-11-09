@@ -32,8 +32,8 @@
     "description": "Estimate education-loan EMI, total interest and repayment cost, then model the entered Section 80E interest deduction assumption for an educational comparison."
   },
   "rental-yield-calculator-india": {
-    "title": "Rental Yield Calculator India | Gross & Net Yield",
-    "description": "Calculate gross and net rental yield from property value, monthly rent, vacancy and annual ownership costs, with estimated yearly rental income shown."
+    "title": "Rental Yield Calculator India | Rent After Costs",
+    "description": "Enter property value and monthly rent. Compare gross rental yield with net yield after empty months, maintenance and property tax. See yearly rent in rupees."
   },
   "debt-snowball-calculator-india": {
     "title": "Debt Snowball Calculator India | Payoff Time & Interest",

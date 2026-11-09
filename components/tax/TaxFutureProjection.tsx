@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { calculateIndianIncomeTax, TaxInput } from '@/lib/tax/calculator';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 
 interface TaxFutureProjectionProps {
   baseInput: TaxInput;
@@ -13,15 +14,16 @@ export function TaxFutureProjection({ baseInput, taxYear }: TaxFutureProjectionP
   const projectedGross = Math.round(baseInput.grossSalary * (1 + expectedHikePercent / 100));
   
   // Apply deduction growth to old regime deductions only as an example
-  const projectedInput: TaxInput = {
+  const projectedInput: TaxInput = useMemo(() => ({
     ...baseInput,
     grossSalary: projectedGross,
     section80C: Math.min(150000, Math.round(baseInput.section80C * (1 + deductionGrowthPercent / 100))),
     section80D: Math.round(baseInput.section80D * (1 + deductionGrowthPercent / 100)),
     employerNPS: Math.round(baseInput.employerNPS * (1 + deductionGrowthPercent / 100)),
-  };
+  }), [baseInput, deductionGrowthPercent, projectedGross]);
 
-  const projectedResult = calculateIndianIncomeTax(projectedInput, taxYear);
+  const projectedResult = useMemo(() => calculateIndianIncomeTax(projectedInput, taxYear), [projectedInput, taxYear]);
+  useCalculatorResult(projectedResult, Number.isFinite(projectedGross) && projectedGross > 0);
 
   return (
     <div className="rounded-2xl border border-brandBorder bg-white p-6 shadow-sm">
@@ -56,7 +58,7 @@ export function TaxFutureProjection({ baseInput, taxYear }: TaxFutureProjectionP
         </div>
       </div>
 
-      <div className="mt-8 rounded-xl bg-slate-50 p-5 border border-slate-200">
+      <div data-calculator-result className="mt-8 rounded-xl bg-slate-50 p-5 border border-slate-200">
         <p className="text-xs font-bold text-slate-500 uppercase tracking-wide">Projected Output</p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div>

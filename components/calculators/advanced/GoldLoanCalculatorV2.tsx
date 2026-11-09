@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Tool } from '@/lib/tools';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import { calculateGoldLoan } from '@/lib/calculators/search-growth';
 import {
   CalculatorGovernanceStrip,
@@ -31,6 +32,9 @@ export default function GoldLoanCalculatorV2({ tool }: { tool: Tool }) {
   }), [netGoldWeightGrams, purityKarat, lenderReferencePrice24k, requestedLoanAmount, annualRate, tenureMonths]);
 
   const hasReferencePrice = numeric(lenderReferencePrice24k) > 0;
+  useCalculatorResult(result, hasReferencePrice && numeric(netGoldWeightGrams) > 0
+    && numeric(requestedLoanAmount) > 0 && annualRate !== '' && numeric(tenureMonths) > 0
+    && Number.isFinite(result.assessedGoldValue) && Number.isFinite(result.monthlyEmi));
 
   return (
     <div className="space-y-6">
@@ -71,7 +75,7 @@ export default function GoldLoanCalculatorV2({ tool }: { tool: Tool }) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <h3 className="text-lg font-bold text-brandDeepNavy">RBI-aware estimate</h3>
           {!hasReferencePrice ? (
             <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">Enter the lender&apos;s 24K reference price to calculate a value. No stale or live market price is inserted automatically.</p>

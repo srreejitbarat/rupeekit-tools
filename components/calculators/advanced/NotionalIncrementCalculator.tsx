@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { calculateNotionalIncrement } from '@/lib/calculators/pension-extras';
 import {
@@ -29,6 +30,9 @@ export default function NotionalIncrementCalculator({ tool }: { tool: Tool }) {
       }),
     [lastBasicPay, drPercent, arrearsMonths, commutedPercent]
   );
+
+  useCalculatorResult(result, numeric(lastBasicPay) > 0 &&
+    [lastBasicPay, drPercent, arrearsMonths, commutedPercent, result.estimatedArrears].every(Number.isFinite));
 
   return (
     <div className="space-y-6">
@@ -89,7 +93,7 @@ export default function NotionalIncrementCalculator({ tool }: { tool: Tool }) {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <section data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <p className="text-xs font-bold uppercase tracking-wide text-brandNavy">Estimate</p>
           <h3 className="mt-1 text-lg font-bold text-brandDeepNavy">
             One notional increment of {formatCurrency(result.notionalIncrement)}

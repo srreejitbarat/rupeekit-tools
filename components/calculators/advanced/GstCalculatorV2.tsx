@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import type { Tool } from '@/lib/tools';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import { calculateGst, GST_CATEGORIES } from '@/lib/gst/india-gst-rates';
 
 const formatCurrency = (val: number) => {
@@ -43,6 +44,8 @@ export default function GstCalculatorV2({ tool }: { tool: Tool }) {
       supplyType,
     });
   }, [amount, activeRate, mode, supplyType]);
+
+  useCalculatorResult(result, typeof amount === 'number' && amount > 0 && Number.isFinite(result.finalAmount));
 
   return (
     <div className="space-y-8">
@@ -93,6 +96,7 @@ export default function GstCalculatorV2({ tool }: { tool: Tool }) {
                 <div className="mt-2 grid grid-cols-2 gap-3">
                   <button
                     type="button"
+                    data-calculation-action
                     onClick={() => setMode('add')}
                     className={`rounded-2xl border-2 px-4 py-3 text-sm font-bold transition flex flex-col items-center justify-center gap-1 ${
                       mode === 'add'
@@ -105,6 +109,7 @@ export default function GstCalculatorV2({ tool }: { tool: Tool }) {
                   </button>
                   <button
                     type="button"
+                    data-calculation-action
                     onClick={() => setMode('remove')}
                     className={`rounded-2xl border-2 px-4 py-3 text-sm font-bold transition flex flex-col items-center justify-center gap-1 ${
                       mode === 'remove'
@@ -185,6 +190,7 @@ export default function GstCalculatorV2({ tool }: { tool: Tool }) {
               <div className="mt-2 grid grid-cols-2 gap-3">
                 <button
                   type="button"
+                  data-calculation-action
                   onClick={() => setSupplyType('intra')}
                   className={`rounded-2xl border-2 px-4 py-3 text-sm font-bold transition flex flex-col items-center justify-center gap-1 ${
                     supplyType === 'intra'
@@ -197,6 +203,7 @@ export default function GstCalculatorV2({ tool }: { tool: Tool }) {
                 </button>
                 <button
                   type="button"
+                  data-calculation-action
                   onClick={() => setSupplyType('inter')}
                   className={`rounded-2xl border-2 px-4 py-3 text-sm font-bold transition flex flex-col items-center justify-center gap-1 ${
                     supplyType === 'inter'
@@ -220,7 +227,7 @@ export default function GstCalculatorV2({ tool }: { tool: Tool }) {
         {/* Right Column: Outcomes & Invoice Preview */}
         <div className="space-y-6">
           {/* Key Summary Cards */}
-          <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+          <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
             <h3 className="text-lg font-bold text-brandDeepNavy mb-4">Calculation Results</h3>
             
             <div className="space-y-4">

@@ -16,6 +16,7 @@ import type {
 import type { Tool, ToolInput, ToolQuickAnswer } from '@/lib/tools';
 import { trackToolEvent } from '@/lib/events';
 import CalculatorPresets, { type CalculatorPreset } from '@/components/calculators/CalculatorPresets';
+import { hasValidToolInputs, useCalculatorResult } from '@/components/useCalculatorResult';
 
 const parser = new Parser({
   operators: {
@@ -832,6 +833,13 @@ export default function PersonalLoanDecisionSimulator({
     };
   }, [principal, monthlyRate, tenureMonths, monthlyEmi, missedMonths, pauseRestartMode, totalInterest]);
 
+  const validLoan = principal > 0 && hasValidToolInputs(tool.inputs, values) &&
+    tool.inputs.every(({ key }) => draftValues[key]?.trim() !== '') &&
+    Number.isFinite(monthlyEmi);
+  useCalculatorResult(draftValues, validLoan);
+  useCalculatorResult(prepaymentScenario, validLoan && Number.isFinite(prepaymentScenario?.revisedTotalRepayment));
+  useCalculatorResult(pauseScenario, validLoan && Number.isFinite(pauseScenario.revisedEmi));
+
   const hasUserChangedCoreInput = useMemo(
     () => Object.keys(initialValues).some((key) => (values[key] ?? 0) !== (initialValues[key] ?? 0)),
     [values, initialValues]
@@ -1025,7 +1033,7 @@ export default function PersonalLoanDecisionSimulator({
 
         <div className="flex flex-col justify-between rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8">
           <div>
-            <h2 className="text-xl font-bold text-brandDeepNavy">Estimated results</h2>
+            <h2 data-calculator-result className="text-xl font-bold text-brandDeepNavy">Estimated results</h2>
             <div className="mt-6">
               <CalculatorResultSummary results={results} />
             </div>

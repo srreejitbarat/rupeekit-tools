@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Tool } from '@/lib/tools';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import { solveMonthlyIrr } from '@/lib/finance/apr';
 
 function currency(value: number) {
@@ -74,6 +75,12 @@ export default function PersonalLoanAprCalculator({ tool }: { tool: Tool }) {
     };
   }, [numericValues]);
 
+  const validInputs = values.annualInterestRate !== '' && tool.inputs.every(({ key, min, max }) => {
+    const value = numericValues[key];
+    return Number.isFinite(value) && value >= (min ?? 0) && value <= (max ?? Infinity);
+  });
+  useCalculatorResult(result, validInputs && result.valid);
+
   return (
     <div className="space-y-6">
       <section className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
@@ -112,7 +119,7 @@ export default function PersonalLoanAprCalculator({ tool }: { tool: Tool }) {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8">
+        <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-brandNavy">Cash-flow result</p>
           <h2 className="mt-2 text-xl font-bold text-brandDeepNavy">Estimated effective annual APR</h2>
 

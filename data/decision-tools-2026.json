@@ -1138,7 +1138,7 @@
     "category": "Housing",
     "status": "live",
     "targetKeyword": "rental yield calculator India",
-    "shortDescription": "Calculate gross and net rental yield after vacancy, maintenance, property tax and other annual costs.",
+    "shortDescription": "See what your property earns from rent each year, before and after empty months and running costs.",
     "metaDescription": "Calculate rental yield in India from property value, rent, vacancy, maintenance, tax and annual costs.",
     "inputs": [
       {
@@ -1147,7 +1147,8 @@
         "unit": "Rs",
         "default": 8000000,
         "min": 1,
-        "step": 100000
+        "step": 100000,
+        "help": "Use what the property could sell for today."
       },
       {
         "key": "monthlyRent",
@@ -1155,11 +1156,12 @@
         "unit": "Rs",
         "default": 30000,
         "min": 0,
-        "step": 1000
+        "step": 1000,
+        "help": "Use the rent you receive, or check what similar homes nearby actually rent for."
       },
       {
         "key": "vacancyMonths",
-        "label": "Expected vacancy",
+        "label": "Months without a tenant",
         "unit": "months/year",
         "default": 1,
         "min": 0,
@@ -1172,7 +1174,8 @@
         "unit": "Rs",
         "default": 60000,
         "min": 0,
-        "step": 5000
+        "step": 5000,
+        "help": "Include repairs and society charges you pay as the owner."
       },
       {
         "key": "propertyTax",
@@ -1188,16 +1191,18 @@
         "unit": "Rs",
         "default": 10000,
         "min": 0,
-        "step": 1000
+        "step": 1000,
+        "help": "Add yearly costs such as insurance. Count each bill once."
       },
       {
         "key": "annualAppreciation",
-        "label": "Appreciation assumption",
+        "label": "Expected yearly change in property price",
         "unit": "%",
         "default": 5,
         "min": -20,
         "max": 30,
-        "step": 0.1
+        "step": 0.1,
+        "help": "Enter 0 to compare rental income alone."
       }
     ],
     "outputs": [
@@ -1239,33 +1244,38 @@
       },
       {
         "key": "totalReturnIllustration",
-        "label": "Yield plus appreciation assumption",
+        "label": "Net yield plus expected price change",
         "formula": "netYield+annualAppreciation",
         "format": "percent"
       }
     ],
-    "formulaExplanation": "Gross rental yield = monthly rent x 12 / current property value x 100. Net annual rent = monthly rent x (12 - vacancy months) - annual maintenance - annual property tax - other annual costs. Net yield = net annual rent / current property value x 100. The final illustration adds the appreciation assumption to net yield; it does not compound returns or include a sale.",
-    "example": "For a property valued at Rs 50 lakh with Rs 20,000 monthly rent, one vacant month and Rs 40,000 total annual ownership costs: gross annual rent is Rs 2,40,000, rent after vacancy is Rs 2,20,000 and net annual rent is Rs 1,80,000. Gross yield is 4.8%; net yield is 3.6%. These are illustrative inputs, not a market benchmark.",
+    "quickAnswer": {
+      "title": "Gross and net rental yield",
+      "question": "What is the difference between gross and net rental yield?",
+      "answer": "Gross yield assumes you collect rent for all 12 months. Net yield allows for months without a tenant and takes off the property bills you pay. Both show the yearly amount as a percentage of your property's value."
+    },
+    "formulaExplanation": "Gross yield = (monthly rent × 12) ÷ property value × 100. Net yield = (rent collected for the year minus yearly property costs) ÷ property value × 100.",
+    "example": "Say your property is worth ₹50 lakh and rents for ₹20,000 a month. A full year brings in ₹2,40,000, so gross yield is 4.8%. With one empty month, you collect ₹2,20,000. Take off ₹25,000 for maintenance, ₹10,000 for property tax and ₹5,000 for insurance. That leaves ₹1,80,000 before income tax and loan payments, giving a net yield of 3.6%.",
     "faqs": [
       {
         "question": "Should I use purchase price or current value?",
-        "answer": "Use current value to compare keeping the property with selling it today. For a historical cost-based calculation, enter your chosen invested-cost figure and label the result accordingly; do not compare results using different denominators as if they were equivalent."
+        "answer": "Use today's property value to see what the property earns on what it is worth now. Use the purchase price to see what it earns on what you originally paid. Use the same basis when comparing properties."
       },
       {
         "question": "What is a good rental yield?",
-        "answer": "There is no universal threshold. Compare verified rents, vacancy, costs and property valuations for similar properties in the same area, then consider tax, financing, liquidity and concentration risk. This tool does not contain a local market-yield dataset."
+        "answer": "It depends on the property and the area. Compare similar homes using actual rents and expenses, and allow for gaps between tenants."
       },
       {
-        "question": "Does net rental yield include my home-loan EMI?",
-        "answer": "No. The net yield deducts only the vacancy and annual cost fields shown. Calculate the loan cash flow separately. An EMI includes principal as well as interest, so it is different from an operating expense."
+        "question": "Does net rental yield include home loan payments or income tax?",
+        "answer": "Enter property tax as a running cost. To see how much cash you keep, subtract your home loan payments and income tax from the net rent shown."
       },
       {
         "question": "Can net rental yield be negative?",
-        "answer": "Yes. If annual ownership costs exceed rent collected after vacancy, net rent and net yield are negative. Check that all expense inputs are annual figures and that costs have not been counted twice."
+        "answer": "Yes. If your yearly bills are higher than the rent you collect, both net rent and net yield fall below zero."
       },
       {
-        "question": "Is the appreciation result a guaranteed return?",
-        "answer": "No. It adds your price-growth assumption to net rental yield for illustration. It does not model sale timing, reinvestment, transaction costs or an actual investment return."
+        "question": "How does a change in property price affect the result?",
+        "answer": "A price rise or fall changes the separate price-change estimate. Your rental income stays the same. You only realise a gain or loss on the price when you sell."
       }
     ],
     "related": [
@@ -1276,32 +1286,29 @@
     "lastReviewed": "July 2026",
     "lastReviewedIso": "2026-07-31",
     "howToUse": [
-      "Enter a realistic current property value and the monthly rent you expect to collect.",
-      "Enter expected vacant months over a year, including any gap between tenants.",
-      "Add annual maintenance, property tax and other recurring costs once each.",
-      "Read net yield alongside gross yield, then repeat with more vacancy or higher costs.",
-      "Treat appreciation as a separate assumption. Compare loan costs and tax separately before deciding whether to keep or sell."
+      "Enter the property's value today and the rent for one month.",
+      "Allow for any gap between tenants during the year.",
+      "Enter the bills you pay over a full year, including maintenance and property tax.",
+      "Check net yield, then try another empty month or a higher repair bill to see what changes."
     ],
     "assumptions": [
-      "Rent and recurring expenses are constant during the modelled year; partial vacancy months reduce rent proportionately.",
-      "Property value must be positive. This tool uses the value you enter and does not obtain a valuation or local rental quote.",
-      "Net yield here is before personal income tax and financing costs. EMI, loan interest, purchase stamp duty, registration, sale costs and capital-gains tax are not deducted automatically.",
-      "Yield plus appreciation is a simple illustration, not a forecast, an IRR or cash you can spend. Property prices can fall."
+      "The monthly rent stays the same all year. Half an empty month costs half a month's rent.",
+      "Net yield covers running costs. Buying costs such as stamp duty and registration, selling costs, income tax and loan payments sit outside this calculation.",
+      "The last result adds the property price change you enter to net yield. It shows a possible change on paper."
     ],
     "commonMistakes": [
-      "Mixing monthly rent with annual expense figures.",
-      "Counting the same maintenance bill under both annual maintenance and other costs.",
-      "Calling gross yield take-home income, or ignoring vacant months.",
-      "Comparing a pre-tax, unlevered property yield with an after-tax or leveraged investment return."
+      "Entering a monthly maintenance bill where the calculator asks for a yearly total.",
+      "Counting the same bill under maintenance and other costs.",
+      "Using gross yield to judge how much money you keep."
     ],
     "contentSections": [
       {
         "heading": "How one extra vacant month changes net yield",
-        "body": "Using the worked example, a second vacant month lowers rent after vacancy from Rs 2,20,000 to Rs 2,00,000. With the same Rs 40,000 costs, net rent becomes Rs 1,60,000 and net yield falls from 3.6% to 3.2%. This isolates vacancy risk; it does not assume that rent or property value will stay unchanged."
+        "body": "In the same example, a second empty month cuts the rent you collect to ₹2,00,000. With the same ₹40,000 in bills, you have ₹1,60,000 left and net yield drops from 3.6% to 3.2%."
       },
       {
-        "heading": "Using yield for a hold-or-sell comparison",
-        "body": "Current value answers what the rental cash flow earns on the property value today. Your original purchase cost answers a different question about your invested cost. Use a consistent denominator for comparisons, and separately account for sale costs, taxes, loan balance and the income you would give up. A high yield alone does not establish that a property is a good investment."
+        "heading": "Compare keeping the property with selling it",
+        "body": "If you sell, work out what you would keep after paying off any loan and covering selling costs and tax. Compare what you could earn on that money with the yearly rent you would give up."
       }
     ]
   },

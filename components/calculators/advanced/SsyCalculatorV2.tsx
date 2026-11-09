@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useCalculatorResult } from '@/components/useCalculatorResult';
 import type { Tool } from '@/lib/tools';
 import { calculateSsyProjection } from '@/lib/calculators/search-growth';
 import {
@@ -28,6 +29,13 @@ export default function SsyCalculatorV2({ tool }: { tool: Tool }) {
     annualInterestRate: numeric(annualInterestRate),
   }), [girlAgeAtOpening, accountAgeYears, currentBalance, annualDeposit, annualInterestRate]);
 
+  const completeInputs = [girlAgeAtOpening, accountAgeYears, currentBalance, annualDeposit, annualInterestRate]
+    .every(Number.isFinite);
+  const hasRequiredBalance = numeric(accountAgeYears) === 0 || numeric(currentBalance) > 0;
+  const validResult = completeInputs && result.eligibleOpeningAge && hasRequiredBalance &&
+    Number.isFinite(result.projectedMaturityAmount);
+  useCalculatorResult(result, validResult);
+
   return (
     <div className="space-y-6">
 
@@ -46,7 +54,7 @@ export default function SsyCalculatorV2({ tool }: { tool: Tool }) {
           {numeric(accountAgeYears) > 0 && numeric(currentBalance) === 0 ? <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-xs leading-5 text-amber-950">For an existing account, add the current balance. Without it, the result includes only future deposits and understates maturity.</p> : null}
         </div>
 
-        <div className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
+        <div data-calculator-result className="rounded-3xl border border-brandNavy/10 bg-brandNavy/5 p-5 shadow-sm md:p-6">
           <h3 className="text-lg font-bold text-brandDeepNavy">Projected maturity from today</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <ResultCard label="Projected maturity amount" value={formatCurrency(result.projectedMaturityAmount)} detail={`Constant ${formatNumber(numeric(annualInterestRate), 1)}% planning assumption`} emphasis />

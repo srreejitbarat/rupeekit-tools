@@ -1,13 +1,14 @@
 # GA4 admin checklist — RupeeKit
 
-Last reviewed: 2026-08-30
+Last reviewed: 2026-11-09
 
-This is the manual follow-up for issue #63. Repository code can emit analytics events, but GA4 property configuration still requires a human with the necessary Analytics/Search Console permissions.
+These checks cover the RupeeKit web stream and the calculation key event. Editing the property requires the appropriate Analytics permissions.
 
 ## Verify events in DebugView
 
-Confirm these events appear on at least one tool from each of the six tool data files:
+Confirm these events on a standard tool, a tool with its own calculation form, and a planner:
 
+- `valid_calculation`
 - `calculator_used`
 - `result_viewed`
 - `guide_click`
@@ -17,9 +18,11 @@ Each calculator event must carry `tool_slug` and `tool_category`. Click events m
 
 Suggested smoke-test routes: personal-loan EMI, home-loan SWP stress test, rent-vs-buy, term-life cover, index-vs-active fund cost, and child-education planner.
 
-## Mark intended events as key events
+## Count visits with a valid calculation
 
-After GA4 receives the events, mark the four event names above as key events only if they represent the actions RupeeKit wants in top-level reporting. Do not assign fake monetary values.
+In the RupeeKit GA4 property, `valid_calculation` is a key event with the **Once per session** counting method and no default value. Use the **Key events** metric for this event to count visits with a calculation. The raw Event count can include several valid calculations in one session.
+
+`calculation_completed` belongs to the previous measurement period. Start a fresh comparison after the `valid_calculation` rollout. For a smoke test, open a calculator, leave its defaults alone, enter an invalid input, then enter a valid one. Only the valid result should send the new event. Make a second valid calculation on a different tool in the same session and confirm that GA4 credits one key event to that session.
 
 ## Register custom dimensions
 

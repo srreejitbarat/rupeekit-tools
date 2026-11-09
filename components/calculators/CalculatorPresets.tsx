@@ -41,6 +41,7 @@ export default function CalculatorPresets({
             <button
               key={preset.id}
               type="button"
+              data-calculation-action
               aria-pressed={isActive}
               title={preset.description}
               onClick={() => onApply(preset)}
