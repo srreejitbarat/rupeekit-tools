@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import nextConfig from '../next.config.mjs';
 
 const ROOT = process.cwd();
 const SITE_URL = 'https://www.rupeekit.co.in';
@@ -183,35 +184,32 @@ if (fs.existsSync(path.join(ROOT, taxRoutePath))) {
 }
 
 const redirectsSource = read('next.config.mjs');
+const redirects = new Map((await nextConfig.redirects()).map((redirect) => [redirect.source, redirect]));
 const expectedRedirects = [
   ['/blog/home-loan-eligibility-25000-salary-india', '/blog/home-loan-eligibility-by-salary-india'],
   ['/blog/home-loan-eligibility-40000-salary-india', '/blog/home-loan-eligibility-by-salary-india'],
   ['/blog/home-loan-eligibility-45000-salary-india', '/blog/home-loan-eligibility-by-salary-india'],
   ['/tools/net-worth-tracker-calculator-india', '/tools/net-worth-calculator-india'],
   ['/financial-updates/income-tax-regime-comparison', '/tools/income-tax-calculator-old-vs-new-regime-india'],
+  ['/financial-updates/government-salary-da-link', '/8th-pay-commission'],
+  ['/financial-updates/personal-finance-epf-explainer', '/tools/epf-corpus-calculator-india'],
+  ['/financial-updates/rbi-repo-rate-explainer', '/tools/home-loan-emi-calculator-india'],
+  ['/financial-updates/sebi-mutual-fund-explainer', '/blog/mutual-funds-for-beginners-india'],
+  ['/financial-updates/tds-26as-explainer', '/deadlines'],
 ];
-for (const [source, destination] of expectedRedirects) {
-  if (!redirectsSource.includes(`source: '${source}'`) || !redirectsSource.includes(`destination: '${destination}'`)) {
-    fail(`Missing direct consolidation redirect: ${source} -> ${destination}`);
+const removedFinancialUpdateSlugs = ['gst-council-explainer', 'banking-fd-rate-tracker', 'hra-exemption-explainer', 'nps-tier1-explainer'];
+for (const slug of removedFinancialUpdateSlugs) {
+  expectedRedirects.push([`/financial-updates/${slug}`, '/financial-updates']);
+}
+for (const [source, destination] of Object.entries(retiredPages)) {
+  for (const prefix of ['/hi', '/bn']) {
+    expectedRedirects.push([`${prefix}${source}`, `${prefix}${destination}`]);
   }
 }
-if (!redirectsSource.includes('statusCode: 301')) fail('Consolidation redirects are not explicitly 301');
-
-const removedFinancialUpdateSlugs = [
-  'rbi-repo-rate-explainer',
-  'gst-council-explainer',
-  'sebi-mutual-fund-explainer',
-  'banking-fd-rate-tracker',
-  'personal-finance-epf-explainer',
-  'government-salary-da-link',
-  'hra-exemption-explainer',
-  'nps-tier1-explainer',
-  'tds-26as-explainer',
-];
-for (const slug of removedFinancialUpdateSlugs) {
-  const source = `/financial-updates/${slug}`;
-  if (!redirectsSource.includes(`'${slug}'`) || !redirectsSource.includes("destination: '/financial-updates'")) {
-    fail(`Missing retired-update redirect: ${source} -> /financial-updates`);
+for (const [source, destination] of expectedRedirects) {
+  const redirect = redirects.get(source);
+  if (redirect?.statusCode !== 301 || redirect.destination !== destination) {
+    fail(`Missing direct 301 redirect: ${source} -> ${destination}`);
   }
 }
 

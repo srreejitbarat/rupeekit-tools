@@ -29,7 +29,7 @@ export type Tool = {
   slug:string; name:string; seoTitle?:string; category:string; status:string; targetKeyword:string; shortDescription:string; metaDescription:string;
   inputs:ToolInput[]; outputs:ToolOutput[]; formulaExplanation:string; example:string; faqs:ToolFaq[]; related:string[];
   howToUse?:string[]; assumptions?:string[]; commonMistakes?:string[]; contentSections?:ToolContentSection[]; quickAnswer?:ToolQuickAnswer;
-  lastReviewed?:string; lastReviewedIso?:string; officialSources?:ToolOfficialSource[]; presets?:ToolPreset[];
+  lastReviewed?:string; lastReviewedIso?:string; lastModifiedIso?:string; officialSources?:ToolOfficialSource[]; presets?:ToolPreset[];
   calculationVersion?:string; factsCheckedIso?:string; nextReviewTrigger?:string; formulaHold?:boolean; calculationTests?:string[];
   factRows?:ToolFactRow[];
 };

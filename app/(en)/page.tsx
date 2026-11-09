@@ -91,7 +91,7 @@ const CATEGORY_GROUPS: CategoryGroup[] = [
   {
     name: 'Planning',
     description: 'Prepare for protection, milestones and trade-offs.',
-    sourceCategories: ['Planning', 'Insurance'],
+    sourceCategories: ['Planning', 'Insurance', 'Business'],
     iconPath: 'M12 3 5 6v5c0 4.5 2.8 8.2 7 10 4.2-1.8 7-5.5 7-10V6l-7-3Zm-3 9 2 2 4-4',
   },
 ];
@@ -110,9 +110,12 @@ function toolsForGroup(tools: Tool[], group: CategoryGroup) {
 export default function HomePage() {
   const tools = getLiveTools();
   const recentPosts = [...blogPosts]
-    .sort((a, b) =>
-      (b.publishedDateISO || b.date).localeCompare(a.publishedDateISO || a.date),
-    )
+    .sort((a, b) => {
+      const firstPublished = a.publishedDateISO ?? a.date;
+      const secondPublished = b.publishedDateISO ?? b.date;
+      return (b.modifiedDateISO ?? secondPublished).localeCompare(a.modifiedDateISO ?? firstPublished)
+        || secondPublished.localeCompare(firstPublished);
+    })
     .slice(0, 3);
 
   return (

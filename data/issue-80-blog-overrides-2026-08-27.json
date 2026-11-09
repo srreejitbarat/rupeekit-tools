@@ -1,43 +1,5 @@
 {
   "mutual-funds-for-beginners-india": {
-    "targetKeyword": "mutual funds for beginners india",
-    "h1": "Mutual Funds for Beginners in India: Start With the Basics",
-    "quickAnswer": {
-      "title": "Beginner mutual-fund guide",
-      "question": "What should a beginner understand before starting a mutual fund?",
-      "answer": "Start with the fund's objective, asset class, risk level, expense ratio, time horizon and whether you plan to invest through a regular SIP or a one-time lumpsum. This guide explains the concepts; the calculators model the numbers separately.",
-      "note": "Educational information only. Mutual-fund returns are market-linked and are not guaranteed.",
-      "links": [
-        { "label": "Project a fixed monthly SIP", "href": "/tools/sip-calculator-india" },
-        { "label": "Project a one-time lumpsum", "href": "/tools/lumpsum-calculator-india" },
-        { "label": "Compare index and active-fund fee drag", "href": "/tools/index-fund-vs-active-fund-cost-calculator-india" }
-      ]
-    },
-    "sections": [
-      {
-        "title": "Which RupeeKit investing page should you use next?",
-        "paragraphs": [
-          "Use this article when you are still learning how mutual funds, SIPs, risk and fund costs work. Once the concept is clear, use the regular SIP Calculator for a fixed monthly contribution, the Step-Up SIP Calculator for a contribution that rises over time, and the Lumpsum Calculator for one starting investment.",
-          "If your question is about fund costs rather than corpus projection, use the Index Fund vs Active Fund Cost Calculator. If you are measuring a portfolio with investments made at different times, use the XIRR-style portfolio return tool instead."
-        ]
-      }
-    ],
-    "faqs": [
-      {
-        "question": "Is this beginner guide the same as a SIP calculator?",
-        "answer": "No. The guide explains mutual-fund concepts and decision factors. The SIP calculator is a separate tool for projecting a fixed monthly contribution using an assumed return."
-      },
-      {
-        "question": "Should beginners use SIP or lumpsum?",
-        "answer": "They are different cash-flow methods rather than universally better or worse choices. SIP spreads contributions over time, while lumpsum invests the available amount at once. Your cash flow, time horizon and risk tolerance matter."
-      }
-    ],
-    "relatedCalculators": [
-      "sip-calculator-india",
-      "step-up-sip-calculator-india",
-      "lumpsum-calculator-india",
-      "index-fund-vs-active-fund-cost-calculator-india",
-      "xirr-portfolio-return-calculator-india"
-    ]
+    "targetKeyword": "mutual funds for beginners india"
   }
 }

@@ -1,18 +1,44 @@
 import { describe, expect, it } from 'vitest';
 import { blogPosts } from '../../data/blog-posts';
 import { getToolBySlug } from '../tools';
+import { calculateIndianIncomeTax } from './calculator';
 
 describe('regulated tax content safeguards', () => {
-  it('describes marginal relief above the Section 87A threshold', () => {
+  it('describes marginal relief under Section 156 for Tax Year 2026–27', () => {
     const article = blogPosts.find(
       (post) => post.slug === 'income-tax-on-12-lakh-salary-new-regime-india-2026'
     );
     const copy = JSON.stringify(article);
 
     expect(copy).toContain('marginal relief');
-    expect(copy).toContain('Rs 10,400');
+    expect(copy).toContain('Section 156');
+    expect(copy).toContain('₹10,400');
     expect(copy).not.toContain('A single rupee above Rs 12 lakh makes the full computed tax payable');
     expect(copy).not.toContain('Rs 63,960 tax cliff');
+  });
+
+  it('matches the current tax calculator for the published old and new regime examples', () => {
+    const article = blogPosts.find((post) => post.slug === 'old-vs-new-tax-regime-which-saves-more');
+    const salaryExamples = article?.sections[0].bullets ?? [];
+    expect(salaryExamples).toHaveLength(3);
+
+    const format = (amount: number) => Math.round(amount).toLocaleString('en-IN');
+    for (const [index, salary] of [1_200_000, 1_500_000, 2_000_000].entries()) {
+      const { oldRegime, newRegime } = calculateIndianIncomeTax({
+        grossSalary: salary,
+        hraExemption: 0,
+        homeLoanInterest: 0,
+        section80C: 0,
+        section80D: 0,
+        employerNPS: 0,
+        otherDeductionsOldRegime: 0,
+        otherDeductionsBothRegimes: 0,
+        isSalaried: true,
+      }, '2026-27');
+      expect(salaryExamples[index]).toBe(
+        `₹${salary / 100_000} lakh gross salary. Old regime ₹${format(oldRegime.finalTax)}. New regime ₹${format(newRegime.finalTax)}.`
+      );
+    }
   });
 
   it('does not present Section 80CCD(1B) as a new-regime self-contribution deduction', () => {
