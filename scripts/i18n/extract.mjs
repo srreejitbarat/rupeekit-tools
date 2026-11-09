@@ -25,7 +25,9 @@ export function human(s) {
 export function sourceFiles() {
  const out=[];
  // RSS item prose comes from existing catalogs; feed labels are explicitly localized and checked after build.
- function walk(d) {for(const n of fs.readdirSync(d)){const p=path.posix.join(d,n);if(p==='lib/rss.ts'||p.includes('/localized/')||p.includes('/i18n/')||p.includes('.test.'))continue;if(fs.statSync(p).isDirectory())walk(p);else if(/\.(tsx?|json)$/.test(p))out.push(p)}}
+ // Analytics uses protocol commands rather than text shown to readers.
+ const machineSources=new Set(['lib/rss.ts','lib/analytics.ts']);
+ function walk(d) {for(const n of fs.readdirSync(d)){const p=path.posix.join(d,n);if(machineSources.has(p)||p.includes('/localized/')||p.includes('/i18n/')||p.includes('.test.'))continue;if(fs.statSync(p).isDirectory())walk(p);else if(/\.(tsx?|json)$/.test(p))out.push(p)}}
  ROOTS.forEach(walk);return out;
 }
 export function richParts(children) {
