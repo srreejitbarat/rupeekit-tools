@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "asOf": "2026-11-09",
-  "fetchedAt": "2026-11-09T21:52:04.440Z",
+  "asOf": "2026-11-10",
+  "fetchedAt": "2026-11-10T10:32:35.715Z",
   "derived": {
-    "perGramFine": 14384.78,
+    "perGramFine": 14157.31,
     "perGram": {
-      "24K": 14370.4,
-      "22K": 13176.46,
-      "18K": 10788.59,
-      "14K": 8415.1
+      "24K": 14143.15,
+      "22K": 12968.09,
+      "18K": 10617.98,
+      "14K": 8282.03
     },
     "per10Gram": {
-      "24K": 143703.98,
-      "22K": 131764.61,
-      "18K": 107885.87,
-      "14K": 84150.98
+      "24K": 141431.5,
+      "22K": 129680.94,
+      "18K": 106179.81,
+      "14K": 82820.25
     }
   },
   "reference": {
@@ -23,25 +23,25 @@
     "note": "No independent reference responded this cycle; the derived rate was published without an external cross-check."
   },
   "purchase": {
-    "perGramFine": 14816.33,
+    "perGramFine": 14582.03,
     "perGram": {
-      "24K": 14801.51,
-      "22K": 13571.76,
-      "18K": 11112.24,
-      "14K": 8667.55
+      "24K": 14567.44,
+      "22K": 13357.14,
+      "18K": 10936.52,
+      "14K": 8530.49
     },
     "per10Gram": {
-      "24K": 148015.1,
-      "22K": 135717.55,
-      "18K": 111122.45,
-      "14K": 86675.51
+      "24K": 145674.45,
+      "22K": 133571.37,
+      "18K": 109365.2,
+      "14K": 85304.86
     },
     "note": "Valuation rate plus 3% GST. Excludes making charges and wastage, which jewellers add on top."
   },
   "loanValuation": {
     "carat": "22K",
     "basis": "30-day trailing average of 22K per-gram bullion value",
-    "averagePerGram": 13059.59,
+    "averagePerGram": 13033.7,
     "sampleDays": 30,
     "sufficient": true,
     "note": null
@@ -50,24 +50,24 @@
     "spot": [
       {
         "provider": "gold-api.com",
-        "xauUsd": 4142,
-        "fetchedAt": "2026-11-09T21:52:03.974Z"
+        "xauUsd": 4076.5,
+        "fetchedAt": "2026-11-10T10:32:34.924Z"
       },
       {
         "provider": "coinbase-paxg",
-        "xauUsd": 4123.355,
-        "fetchedAt": "2026-11-09T21:52:04.083Z"
+        "xauUsd": 4059.325,
+        "fetchedAt": "2026-11-10T10:32:35.091Z"
       },
       {
         "provider": "yahoo-gc-f",
-        "xauUsd": 4146,
-        "fetchedAt": "2026-11-09T21:52:04.147Z"
+        "xauUsd": 4086.5,
+        "fetchedAt": "2026-11-10T10:32:35.259Z"
       }
     ],
     "fx": {
       "provider": "frankfurter",
       "usdInr": 93.93,
-      "fetchedAt": "2026-11-09T21:52:04.311Z"
+      "fetchedAt": "2026-11-10T10:32:35.565Z"
     },
     "levies": {
       "importDutyPct": 15,
